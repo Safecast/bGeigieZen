@@ -7,10 +7,12 @@ Here, we keep track of which blocks have been ported already
 
 [X] GPS
 
+[X] InterruptCounter
+
 [ ] BLE
 
 [ ] SD
 
-[ ] InterruptCounter
-
 [ ] HardwareCounter
+
+[ ] NanoSetup

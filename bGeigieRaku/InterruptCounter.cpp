@@ -31,67 +31,85 @@
 #include "InterruptCounter.h"
 #include <limits.h>
 
+hw_timer_t * timer = NULL;
+volatile SemaphoreHandle_t timerSemaphore;
+portMUX_TYPE timerMux = portMUX_INITIALIZER_UNLOCKED;
+
 unsigned long _running_count;
 unsigned long _finished_count;
 int _new_count_available = false;
 
 // Private Methods
-
-void time_is_up()
-{
+void timeIsUp(){
   // timer interrupt routine
+  portENTER_CRITICAL_ISR(&timerMux);
   _finished_count = _running_count;
   _running_count = 0;
-  _new_count_available = true;
+  portEXIT_CRITICAL_ISR(&timerMux);
+
+  // Give a semaphore that we can check in the loop
+  xSemaphoreGiveFromISR(timerSemaphore, NULL);
 }
 
-void interrupt_routine()
+void interruptRoutine()
 {
   // Geiger event interrupt routine
+  portENTER_CRITICAL_ISR(&timerMux);
   _running_count++;
+  portEXIT_CRITICAL_ISR(&timerMux);
 }
-
-// Declare variables here
-Timer timer = Timer(1000, time_is_up);
 
 // Public methods
 
 // Constructor
-void interruptCounterSetup(int interrupt_pin, unsigned int period)
+void interruptCounterSetup(int interrupt_pin, unsigned int period_us)
 {
-  Serial.println("Setting things up.");
+  // Setup the counter pin
   pinMode(interrupt_pin, INPUT);
-  attachInterrupt(interrupt_pin, interrupt_routine, RISING);
+  attachInterrupt(interrupt_pin, interruptRoutine, RISING);
+
+  // Create semaphore to inform us when the timer has fired
+  timerSemaphore = xSemaphoreCreateBinary();
 
   _running_count = 0;
   _finished_count = 0;
-  _new_count_available = false;
 
-  timer.changePeriod(period);
-  timer.start();
+  // Timer configuration stuff
 
+  // Use 1st timer of 4 (counted from zero).
+  // Set 80 divider for prescaler (see ESP32 Technical Reference Manual for more
+  // info).
+  timer = timerBegin(0, 80, true);
+
+  // Attach onTimer function to our timer.
+  timerAttachInterrupt(timer, &timeIsUp, true);
+
+  // Set alarm to call onTimer function every second (value in microseconds).
+  // Repeat the alarm (third parameter)
+  timerAlarmWrite(timer, period, true);
+
+  // Start an alarm
+  timerAlarmEnable(timer);
 }
 
 // call this to start the counter
-void interruptCounterReset()
+void interruptCounterStop()
 {
-  timer.reset();
+  timerEnd(timer);
   // set count to zero (optional)
   _running_count = 0;
   _finished_count = 0;
-  _new_count_available = false;
 }
 
 // This indicates when the count over the determined period is over
 int interruptCounterAvailable()
 {
-  return _new_count_available;
+  return xSemaphoreTake(timerSemaphore, 0) == pdTRUE;
 }
 
 // return current number of counts
 unsigned long interruptCounterCount()
 {
   // reset the count available flag
-  _new_count_available = false;
   return _finished_count;
 }
