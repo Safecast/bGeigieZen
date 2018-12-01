@@ -1,6 +1,6 @@
 /*
    Simple library for Arduino implementing a counter using the interrupt pin
-   for a Geigier counter for example
+}}}u   for a Geigier counter for example
 
    Copyright (c) 2011, Robin Scheibler aka FakuFaku
    All rights reserved.
@@ -28,7 +28,6 @@
    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include "Application.h"
 #include "InterruptCounter.h"
 #include <limits.h>
 
@@ -40,12 +39,9 @@ int _new_count_available = false;
 
 void time_is_up()
 {
-  ATOMIC_BLOCK()
-  {
-    // timer interrupt routine
-    _finished_count = _running_count;
-    _running_count = 0;
-  }
+  // timer interrupt routine
+  _finished_count = _running_count;
+  _running_count = 0;
   _new_count_available = true;
 }
 
