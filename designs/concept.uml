@@ -1,5 +1,8 @@
 @startuml
 
+interface GPS
+interface Counter
+
 package "Measurements" {
   GPS -d-> [ Location ]
   Counter -d-> [ Radiation ]
