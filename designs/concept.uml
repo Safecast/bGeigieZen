@@ -1,0 +1,25 @@
+@startuml
+
+interface GPS
+interface Counter
+
+package "Measurements" {
+  GPS -d-> [ Location ]
+  Counter -d-> [ Radiation ]
+}
+
+[ Radiation ] -d-> [ Aggregator ]
+[ Location ] -d-> [ Aggregator ]
+
+package "Loggers" {
+  [ Aggregator ] -d-> [ bGeigie Logger ]
+  [ Aggregator ] -d-> [ API Logger ]
+}
+
+[ bGeigie Logger ] -d-> SD
+[ bGeigie Logger ] -d-> Serial
+[ bGeigie Logger ] -d-> BLE
+[ API Logger ] -d-> WiFi
+[ API Logger ] -d-> Wired
+
+@enduml
