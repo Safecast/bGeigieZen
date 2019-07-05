@@ -120,12 +120,12 @@ void *GPSThread::update_loop(void* param)
   // Start never ending loop
   for(;;) {
 
-    while (Serial1.available())
+    while (gps_thread->serial_in().available())
     {
       if (gps_thread->available())
         gps_thread->unset_avalaible();
 
-      char c = Serial1.read();
+      char c = gps_thread->serial_in().read();
 
       if (c == '\n')  // update the info at then end of each line
       {

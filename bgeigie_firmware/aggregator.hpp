@@ -6,8 +6,6 @@
 #include "patterns.hpp"
 #include "measurements.hpp"
 
-using std::forward_list;
-
 struct DataStamp
 {
   GPSData gps;
@@ -21,9 +19,12 @@ class Aggregator : public Observer
   private:
     DataStamp _current_data;
 
+    // The data producers
+    GPSThread *_gps;
+
   public:
-    Aggregator();
-    virtual ~Aggregator();
+    Aggregator(GPSThread *gps) : _gps(gps) {}
+    virtual ~Aggregator() {}
 
     // method to be called by subjects
     void update();
