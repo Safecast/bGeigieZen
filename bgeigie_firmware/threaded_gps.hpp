@@ -67,6 +67,8 @@ class GPSThread : public Measurement<GPSData>
     // Implementation of Measurement API
     void init();
     bool prepare_data(GPSData &dest);
+
+    SerialSource &serial_in() { return *_serial_input; }
 };
 
 #endif
