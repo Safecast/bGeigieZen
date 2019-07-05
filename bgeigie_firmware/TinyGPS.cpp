@@ -23,6 +23,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 // Needed for millis
 #include <Arduino.h>
+#undef max
+#undef min
 
 #include <cmath>
 
@@ -31,6 +33,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 #define TWO_PI 6.283185307179586
 
+/*
 float radians(float deg)
 {
   //return deg * TWO_PI / 360;
@@ -41,6 +44,7 @@ float degrees(float rad)
   //return rad * 360. / TWO_PI;
   return rad * 57.29577;
 }
+*/
 
 #define _GPRMC_TERM   "GPRMC"
 #define _GPGGA_TERM   "GPGGA"
