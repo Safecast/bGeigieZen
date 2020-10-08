@@ -1,0 +1,76 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# BATTERY-akizuki-M5_board-rescue
+#
+DEF BATTERY-akizuki-M5_board-rescue BT 0 40 Y N 1 F N
+F0 "BT" 0 -300 60 H V C CNN
+F1 "BATTERY-akizuki-M5_board-rescue" 0 250 60 H V C CNN
+F2 "" 0 5 60 H V C CNN
+F3 "" 0 5 60 H V C CNN
+$FPLIST
+ RAD-0.2
+$ENDFPLIST
+DRAW
+S -45 25 45 15 0 1 0 F
+S -25 -15 25 -20 0 1 0 N
+P 2 0 1 0 0 -20 0 -50 N
+P 2 0 1 0 0 50 0 25 N
+X + 1 0 150 100 D 50 50 1 1 I
+X - 2 0 -150 100 U 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+# GND-bGeigieNano_V1.1.5
+#
+DEF GND-bGeigieNano_V1.1.5 #GND 0 40 Y Y 1 L P
+F0 "#GND" 0 0 50 H I C CNN
+F1 "GND-bGeigieNano_V1.1.5" 0 -10 59 H V C TNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 1 0 0 -75 0 75 0 N
+X GND 1 0 100 100 D 0 0 1 0 W
+ENDDRAW
+ENDDEF
+#
+# bGeigieNano_V1.1.5-eagle-import_C-EU025-024X044-bGeigieNano_V1.1.5-cache
+#
+DEF bGeigieNano_V1.1.5-eagle-import_C-EU025-024X044-bGeigieNano_V1.1.5-cache C 0 40 Y Y 1 L N
+F0 "C" 60 15 59 H V L BNN
+F1 "bGeigieNano_V1.1.5-eagle-import_C-EU025-024X044-bGeigieNano_V1.1.5-cache" 60 -185 59 H V L BNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+S -80 -80 80 -60 1 0 0 F
+S -80 -40 80 -20 1 0 0 F
+P 2 1 0 0 0 -100 0 -80 N
+P 2 1 0 0 0 0 0 -20 N
+X 1 1 0 100 100 D 0 0 1 0 P
+X 2 2 0 -200 100 U 0 0 1 0 P
+ENDDRAW
+ENDDEF
+#
+# bGeigieNano_V1.1.5-eagle-import_R-US_0207_10-bGeigieNano_V1.1.5-cache
+#
+DEF bGeigieNano_V1.1.5-eagle-import_R-US_0207_10-bGeigieNano_V1.1.5-cache R 0 40 Y Y 1 L N
+F0 "R" -150 59 59 H V L BNN
+F1 "bGeigieNano_V1.1.5-eagle-import_R-US_0207_10-bGeigieNano_V1.1.5-cache" -150 -130 59 H V L BNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+DRAW
+P 2 1 0 0 -100 0 -85 40 N
+P 2 1 0 0 -85 40 -60 -40 N
+P 2 1 0 0 -60 -40 -35 40 N
+P 2 1 0 0 -35 40 -10 -40 N
+P 2 1 0 0 -10 -40 15 40 N
+P 2 1 0 0 15 40 40 -40 N
+P 2 1 0 0 40 -40 65 40 N
+P 2 1 0 0 65 40 90 -40 N
+P 2 1 0 0 90 -40 100 0 N
+X 1 1 -200 0 100 R 0 0 1 0 P
+X 2 2 200 0 100 L 0 0 1 0 P
+ENDDRAW
+ENDDEF
+#
+#End Library
