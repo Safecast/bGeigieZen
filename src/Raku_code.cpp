@@ -405,6 +405,8 @@ void ip5306_set_bits(uint8_t reg, uint8_t index, uint8_t bits, uint8_t value){
     }
 }
 
+
+
 void printIP5306Stats(){
     bool usb = IP5306_GetPowerSource();
     bool full = IP5306_GetBatteryFull();
@@ -456,6 +458,7 @@ void setup()
 
   // send IP5003 info to serial
     printIP5306Settings();
+    delay(1000);
 
   // Clear display
     M5.Lcd.clear(); 
