@@ -35,6 +35,9 @@ void setup()
   M5.Lcd.drawString("SAFECAST", 230, 215, 1);
   M5.Lcd.setTextColor(TFT_ORANGE,TFT_BLACK);
   M5.Lcd.drawString("2020", 285, 215, 1);
+
+  // Reset the pulse counter before starting
+  pulse_counter.reset();
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------

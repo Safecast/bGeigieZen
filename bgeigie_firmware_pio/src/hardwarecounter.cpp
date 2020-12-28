@@ -69,6 +69,7 @@ void HardwareCounter::reset()
 
   // set start time
   _start_time = millis();
+  _available = false;
 
   /* reset PCNT's counter */
   pcnt_counter_clear(_unit);
