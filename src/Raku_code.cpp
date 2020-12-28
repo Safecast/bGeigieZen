@@ -1,4 +1,4 @@
-// Test code from Average CPM count with sliding window for bGeigeiRaku. Code taken from bGeigieNano and Pointcast.
+// Test code from Average CPM count with sliding window for bGeigieRaku. Code taken from bGeigieNano and Pointcast.
 
 #include <M5Stack.h>
 #include <TinyGPS++.h>
