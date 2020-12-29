@@ -20,7 +20,10 @@ void Display::update(const GeigerMeasurement &geiger_count) {
   if (!_ready)
     return;
 
-  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  if (geiger_count.valid())
+    M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  else
+    M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
 
   //Display CPM  
   M5.Lcd.setCursor(20,50);
