@@ -22,6 +22,7 @@ class GeigerMeasurement {
     int _pos = 0;  // current position in shift register
     std::array<uint32_t, GEIGER_AVERAGING_N_BINS> _shift_reg;
 
+    bool _valid = false;
     uint32_t _cpb = 0;
     uint32_t _cpm_raw = 0;
     uint32_t _cpm_comp = 0;
@@ -44,6 +45,8 @@ class GeigerMeasurement {
     float uSv() const { return _uSv; }
     size_t n_bins() const { return _shift_reg.size(); }
 
+    bool valid() const { return _valid; }  // indicates if all bins are filled
+
     void feed(uint32_t new_cpb) {
       _cpb = new_cpb;
 
@@ -52,8 +55,11 @@ class GeigerMeasurement {
 
       // update the shift register
       _pos++;
-      if (_pos == _shift_reg.size())
+      if (_pos == _shift_reg.size()) {
         _pos = 0;
+        if (!_valid)
+          _valid = true;
+      }
       _shift_reg[_pos] = new_cpb;
 
       // sum up the shift register
