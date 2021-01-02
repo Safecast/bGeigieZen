@@ -338,6 +338,8 @@ void TinyGPSLocation::commit()
 {
    rawLatData = rawNewLatData;
    rawLngData = rawNewLngData;
+   strcpy(rawLngStrData, rawNewLngStrData);
+   strcpy(rawLatStrData, rawNewLatStrData);
    lastCommitTime = millis();
    valid = updated = true;
 }
@@ -345,11 +347,15 @@ void TinyGPSLocation::commit()
 void TinyGPSLocation::setLatitude(const char *term)
 {
    TinyGPSPlus::parseDegrees(term, rawNewLatData);
+   strncpy(rawNewLatStrData, term, 9);
+   rawNewLatStrData[9] = '\0';
 }
 
 void TinyGPSLocation::setLongitude(const char *term)
 {
    TinyGPSPlus::parseDegrees(term, rawNewLngData);
+   strncpy(rawNewLngStrData, term, 10);
+   rawNewLngStrData[10] = '\0';
 }
 
 double TinyGPSLocation::lat()
