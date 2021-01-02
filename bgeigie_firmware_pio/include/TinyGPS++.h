@@ -62,6 +62,8 @@ public:
    uint32_t age() const    { return valid ? millis() - lastCommitTime : (uint32_t)ULONG_MAX; }
    const RawDegrees &rawLat()     { updated = false; return rawLatData; }
    const RawDegrees &rawLng()     { updated = false; return rawLngData; }
+   const char *rawLatStr() { updated = false; return rawLatStrData; }
+   const char *rawLngStr() { updated = false; return rawLngStrData; }
    double lat();
    double lng();
 
@@ -71,6 +73,7 @@ public:
 private:
    bool valid, updated;
    RawDegrees rawLatData, rawLngData, rawNewLatData, rawNewLngData;
+   char rawLatStrData[10], rawNewLatStrData[10], rawLngStrData[11], rawNewLngStrData[11];
    uint32_t lastCommitTime;
    void commit();
    void setLatitude(const char *term);

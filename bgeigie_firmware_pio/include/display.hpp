@@ -3,29 +3,69 @@
 
 #include <TinyGPS++.h>
 
-#include <hardwarecounter.hpp>
 #include <gps.hpp>
+#include <hardwarecounter.hpp>
 
 // printing routines
 void printFloat(float val, bool valid, int len, int prec);
-void printFloatFont(float val, bool valid, int len, int prec, int y, int x, int font);
+void printFloatFont(float val, bool valid, int len, int prec, int y, int x,
+                    int font);
 void printInt(unsigned long val, bool valid, int len);
-void printIntFont(unsigned long val, bool valid, int len, int y, int x, int font);
+void printIntFont(unsigned long val, bool valid, int len, int y, int x,
+                  int font);
 void printDate(TinyGPSDate &d);
 void printTime(TinyGPSTime &t);
 
-class Display {
-
-  private:
-    uint32_t _refresh_period_ms;
-    bool _ready = false;
-
-  public:
-    Display(uint32_t refresh_period_ms)
-      : _refresh_period_ms(refresh_period_ms) {}
-    void setup();
-    void update(const GeigerMeasurement &geiger_count);
-    void update(GPSSensor &geiger_count);
+enum DisplayState {
+  S_STARTUP,
+  S_MAIN_DRAW,
+  S_MAIN_SHOW,
+  S_QRCODE_DRAW,
+  S_QRCODE_SHOW
 };
 
-#endif // __DISPLAY_H__
+struct DisplayData {
+  // Geiger
+  bool geiger_fresh = true;
+  bool geiger_valid = false;
+  uint32_t geiger_cpm = 0;
+  float geiger_uSv = 0.0;
+
+  // GPS
+  bool gps_fresh = true;
+  TinyGPSInteger gps_satellites;
+  TinyGPSAltitude gps_altitude;
+  TinyGPSSpeed gps_speed;
+  TinyGPSCourse gps_course;
+  TinyGPSLocation gps_location;
+  TinyGPSTime gps_time;
+  TinyGPSDate gps_date;
+};
+
+class Display {
+ private:
+  // size of the screen
+  const int width = 320;
+  const int height = 240;
+  uint32_t _refresh_period_ms;
+
+  DisplayState state{S_STARTUP};
+  DisplayData data;
+
+ public:
+  Display(uint32_t refresh_period_ms)
+      : _refresh_period_ms(refresh_period_ms), state(S_STARTUP) {}
+  void clear();
+  void feed(const GeigerMeasurement &geiger_count);
+  void feed(GPSSensor &geiger_count);
+
+  // Routines that runs the state machine
+  void update();
+
+  // Routines to draw the different screens
+  void draw_base();
+  void draw_main();
+  void draw_qrcode();
+};
+
+#endif  // __DISPLAY_H__
