@@ -1,11 +1,18 @@
+#ifndef __SD_WRAPPER_HPP__
+#define __SD_WRAPPER_HPP__
 /*
  *  This class provides an interface to check that the SD card is already
  *  connected and operational
  */
 #include <M5Stack.h>
+
 #include <config.hpp>
 
-enum sd_error_t { SD_ERR_NOT_READY, SD_ERR_FILE_OPEN_W_FAIL, SD_ERR_FILE_OPEN_R_FAIL };
+enum sd_error_t {
+  SD_ERR_NOT_READY,
+  SD_ERR_FILE_OPEN_W_FAIL,
+  SD_ERR_FILE_OPEN_R_FAIL
+};
 
 class SDWrapper {
  private:
@@ -24,3 +31,5 @@ class SDWrapper {
     return _sd_ready;
   }
 };
+
+#endif  // __SD_WRAPPER_HPP__
