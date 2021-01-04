@@ -203,10 +203,10 @@ void printDate(TinyGPSDate &d) {
     M5.Lcd.print(F("********** "));
   } else {
     char sz[32];
-    sprintf(sz, "%02d/%02d/%02d ", d.month(), d.day(), d.year());
+    sprintf(sz, "%02d/%02d/%02d ", d.year(), d.month(), d.day());
     M5.Lcd.print(sz);
   }
-  printInt(d.age(), d.isValid(), 5);
+  printInt(d.age(), d.isValid(), 5);  // age in milliseconds
   delay(0);
 }
 
