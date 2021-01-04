@@ -5,9 +5,11 @@
 
 #include <config.hpp>
 #include <display.hpp>
+#include <fsm.hpp>
 #include <gps.hpp>
-#include <logger.hpp>
 #include <hardwarecounter.hpp>
+#include <logger.hpp>
+#include <sd_wrapper.hpp>
 
 // Copied from
 // https://github.com/espressif/arduino-esp32/blob/master/cores/esp32/main.cpp
@@ -22,6 +24,9 @@
 #define CONFIG_DISPLAY_LOOP_RUNNING_CORE 1
 #endif
 
+// This the state machine that will drive all the logic
+FiniteStateMachine fsm;
+
 // Peripherals setup
 // - pulse counter with 12 bin moving average
 HardwareCounter pulse_counter(GEIGER_AVERAGING_PERIOD_MS, GEIGER_PULSE_GPIO);
@@ -30,8 +35,24 @@ GeigerMeasurement geiger_count(GEIGER_SENSOR1_CPM_FACTOR);
 GPSSensor gps(GPS_SERIAL_NUM, GPS_BAUD_RATE);
 
 // Data sinks
-BGeigieLogFormatter bgeigie_formatter(1);
+BGeigieLogFormatter bgeigie_formatter(DEVICE_ID);
+SDWrapper sd_wrapper;
+SDLogger logger;
 Display display(LCD_REFRESH_RATE);
+
+void on_pulse_counter_available() {
+  // update the Geiger counter with the new measurement
+  geiger_count.feed(pulse_counter.get_last_count());
+
+  // immediately update the data consummers
+  bgeigie_formatter.feed(geiger_count);
+  display.feed(geiger_count);
+}
+
+void on_gps_available() {
+  display.feed(gps);
+  bgeigie_formatter.feed(gps);
+}
 
 void logging_loop(void *arg);
 void display_loop(void *arg);
@@ -41,8 +62,17 @@ void setup() {
   M5.begin();
   Serial.begin(115200);
 
+  // start the SD card
+  auto ret = sd_wrapper.begin();
+  while (!ret) {
+    Serial.println("SD error");
+    delay(1000);
+  }
+
   // Reset the pulse counter before starting
   pulse_counter.reset();
+
+  fsm.register_event(EVENT_SETUP_FINISHED);
 
   // Start logging and display tasks on separate cores
   /*
@@ -59,37 +89,67 @@ void setup() {
 
 void logging_loop(void *arg) {
   // Run all the non-blocking update routines here
-  M5.update();  // updates buttons and stuff
-  display.update();  // redraws the display and manages the states
-  gps.update();  // reads from the GPS
+  M5.update();             // updates buttons and stuff
+  display.update();        // redraws the display and manages the states
+  gps.update();            // reads from the GPS
   pulse_counter.update();  // checks the pulse counter
 
-  if (gps.available()) {
-    // do the stuff we want to do upon GPS update here
-    display.feed(gps);
-    bgeigie_formatter.feed(gps);
-  }
+  // This the bGeigie logger state machine
+  bool ret = false;
 
-  // Process the new geiger count when available
-  if (pulse_counter.available()) {
-    // update the Geiger counter with the new measurement
-    geiger_count.feed(pulse_counter.get_last_count());
+  switch (fsm.get_state()) {
+    case BG_STARTUP:
+      fsm.register_event(EVENT_SETUP_FINISHED);
+      break;
 
-    // immediately update the data consummers
-    bgeigie_formatter.feed(geiger_count);
-    display.feed(geiger_count);
-  }
+    case BG_GPS_TIME_NOT_ACQUIRED:
+      if (pulse_counter.available()) on_pulse_counter_available();
 
-  if (bgeigie_formatter.ready()) {
-    Serial.println(bgeigie_formatter.format());
+      if (gps.available()) {
+        on_gps_available();
+
+        if (gps.time_valid()) fsm.register_event(EVENT_GPS_DATE_BECAME_CORRECT);
+      }
+      break;
+
+    case BG_CREATE_LOG_FILE:
+      ret = logger.start(DEVICE_ID, gps.data().date.year(),
+                         gps.data().date.month(), gps.data().date.day());
+      if (!ret)
+        Serial.println("Log creation failed");
+      else
+        Serial.println("Log creation succeeded");
+      fsm.register_event(EVENT_LOG_FILE_CREATED);
+      break;
+
+    case BG_LOGGING:
+      if (pulse_counter.available()) on_pulse_counter_available();
+
+      if (gps.available()) on_gps_available();
+
+      if (bgeigie_formatter.ready()) {
+        Serial.println(bgeigie_formatter.format());
+        if (!sd_wrapper.ready())
+          Serial.println("SD card could not be started");
+        else if (!logger.folder_created()) {
+          Serial.println("Folder creation failed.");
+          ret = logger.start(DEVICE_ID, gps.data().date.year(),
+                             gps.data().date.month(), gps.data().date.day());
+        } else if (!logger.ready())
+          Serial.println("Log creation failed");
+        else {
+          ret = logger.log(bgeigie_formatter.format());
+
+          if (!ret) Serial.println("Log to sd card failed");
+        }
+      }
+      break;
   }
 }
 
 void display_loop(void *arg) {
   // Run all the non-blocking update routines here
-  //display.update();
+  // display.update();
 }
 
-void loop() {
-  logging_loop(NULL);
-}
+void loop() { logging_loop(NULL); }
