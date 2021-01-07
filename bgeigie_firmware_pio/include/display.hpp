@@ -40,6 +40,9 @@ struct DisplayData {
   TinyGPSLocation gps_location;
   TinyGPSTime gps_time;
   TinyGPSDate gps_date;
+
+  // Battery
+  int8_t battery_level = -1;
 };
 
 class Display {
@@ -58,6 +61,7 @@ class Display {
   void clear();
   void feed(const GeigerMeasurement &geiger_count);
   void feed(GPSSensor &geiger_count);
+  void feed_battery_level(int8_t level) { data.battery_level = level; }
 
   // Routines that runs the state machine
   void update();
