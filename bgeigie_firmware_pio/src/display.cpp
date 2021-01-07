@@ -3,17 +3,17 @@
 #include <display.hpp>
 
 void Display::clear() {
-    // Clear display
-    M5.Lcd.clear();
-    M5.lcd.setRotation(3);
+  // Clear display
+  M5.Lcd.clear();
+  M5.lcd.setRotation(3);
 }
 
 void Display::draw_base() {
-    // Display safecast copyright
-    M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
-    M5.Lcd.drawString("SAFECAST", 230, 215, 1);
-    M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
-    M5.Lcd.drawString("2020", 285, 215, 1);
+  // Display safecast copyright
+  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.drawString("SAFECAST", 230, 215, 1);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
+  M5.Lcd.drawString("2020", 285, 215, 1);
 }
 
 void Display::update() {
@@ -26,7 +26,7 @@ void Display::update() {
 
   switch (state) {
     case (S_STARTUP):
-      clear();         // initialize display
+      clear();  // initialize display
       draw_base();
       state = S_MAIN_DRAW;  // next state
       break;
@@ -37,8 +37,7 @@ void Display::update() {
       state = S_MAIN_SHOW;
     case (S_MAIN_SHOW):
       draw_main();
-      if (button_A_pressed)
-        state = S_QRCODE_DRAW;
+      if (button_A_pressed) state = S_QRCODE_DRAW;
       break;
 
     case (S_QRCODE_DRAW):
@@ -48,24 +47,32 @@ void Display::update() {
       break;
 
     case (S_QRCODE_SHOW):
-      if (button_A_pressed)
-        state = S_MAIN_DRAW;
+      if (button_A_pressed) state = S_MAIN_DRAW;
       break;
   }
 }
 
-void Display::draw_qrcode(){
-    // Create the QR code
+void Display::draw_qrcode() {
+  // Create the QR code
   int w = (int)(0.9 * height);
-  if (w %2 == 1)
-    w -= 1;
+  if (w % 2 == 1) w -= 1;
   int x = (width - w) / 2;
   int y = (height - w) / 2;
-  
+
   M5.Lcd.qrcode("http://www.safecast.org", x, y, w, 3);
 };
 
 void Display::draw_main() {
+  // Display battery level
+  M5.Lcd.setCursor(290, 5);
+  M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
+  if (data.battery_level == -1) {
+    M5.Lcd.print("ext");
+  } else {
+    M5.Lcd.print(data.battery_level);
+    M5.Lcd.print("%");
+  }
+
   if (data.geiger_fresh) {
     if (data.geiger_valid)
       M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
