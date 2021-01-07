@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['s_5fmain_5fdraw_171',['S_MAIN_DRAW',['../display_8hpp.html#afbb0b74e0b5bea861360407d10426e7ca071e7165ebe05da5bf4293864d463018',1,'display.hpp']]],
+  ['s_5fmain_5fshow_172',['S_MAIN_SHOW',['../display_8hpp.html#afbb0b74e0b5bea861360407d10426e7ca473549d572894e5bbc471288d6a66188',1,'display.hpp']]],
+  ['s_5fqrcode_5fdraw_173',['S_QRCODE_DRAW',['../display_8hpp.html#afbb0b74e0b5bea861360407d10426e7ca04d62332a2f44eba389cbc179ccd586a',1,'display.hpp']]],
+  ['s_5fqrcode_5fshow_174',['S_QRCODE_SHOW',['../display_8hpp.html#afbb0b74e0b5bea861360407d10426e7cab838f792ba8b50f366a37dc58c7042a0',1,'display.hpp']]],
+  ['s_5fstartup_175',['S_STARTUP',['../display_8hpp.html#afbb0b74e0b5bea861360407d10426e7ca78c0fbd59ebf3d078cfdd927ec461fb2',1,'display.hpp']]],
+  ['satellites_176',['satellites',['../class_tiny_g_p_s_plus.html#a5fb47066d1d03f4bb5853529053aab48',1,'TinyGPSPlus']]],
+  ['sd_5fcs_5fpin_177',['SD_CS_PIN',['../config_8hpp.html#a587c91dc29e14d8227957fbe22af6f45',1,'config.hpp']]],
+  ['sd_5ferr_5ffile_5fopen_5fr_5ffail_178',['SD_ERR_FILE_OPEN_R_FAIL',['../sd__wrapper_8hpp.html#a2c11b271fd9ae607114102201c05c87da67292ece61946e8a653714d00de35114',1,'sd_wrapper.hpp']]],
+  ['sd_5ferr_5ffile_5fopen_5fw_5ffail_179',['SD_ERR_FILE_OPEN_W_FAIL',['../sd__wrapper_8hpp.html#a2c11b271fd9ae607114102201c05c87daea604e386e916dbe4f244ec0c9806e6b',1,'sd_wrapper.hpp']]],
+  ['sd_5ferr_5fnot_5fready_180',['SD_ERR_NOT_READY',['../sd__wrapper_8hpp.html#a2c11b271fd9ae607114102201c05c87da7089d9d2ea60f74da7560623854a588b',1,'sd_wrapper.hpp']]],
+  ['sd_5ferror_5ft_181',['sd_error_t',['../sd__wrapper_8hpp.html#a2c11b271fd9ae607114102201c05c87d',1,'sd_wrapper.hpp']]],
+  ['sd_5fwrapper_182',['sd_wrapper',['../main_8cpp.html#a7577cb0b3a4ce123cddafe68476a662d',1,'main.cpp']]],
+  ['sd_5fwrapper_2ehpp_183',['sd_wrapper.hpp',['../sd__wrapper_8hpp.html',1,'']]],
+  ['sdlogger_184',['SDLogger',['../class_s_d_logger.html',1,'SDLogger'],['../class_s_d_logger.html#a38d05d38170d08f0a15b9537340e9d97',1,'SDLogger::SDLogger()']]],
+  ['sdwrapper_185',['SDWrapper',['../class_s_d_wrapper.html',1,'SDWrapper'],['../class_s_d_wrapper.html#ae26a6f446f6641162cdf3cdf4e5ad879',1,'SDWrapper::SDWrapper()']]],
+  ['second_186',['second',['../struct_tiny_g_p_s_time.html#a729cab36ced07eb5607503663fbe33e8',1,'TinyGPSTime']]],
+  ['sentenceswithfix_187',['sentencesWithFix',['../class_tiny_g_p_s_plus.html#a8093eef1ee9f97b5293f1048320756e3',1,'TinyGPSPlus']]],
+  ['set_5fdevice_5fid_188',['set_device_id',['../class_b_geigie_log_formatter.html#aa9b91572348c098bb151e3662690a602',1,'BGeigieLogFormatter']]],
+  ['setup_189',['setup',['../main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d',1,'main.cpp']]],
+  ['speed_190',['speed',['../class_tiny_g_p_s_plus.html#aa085c3e72a399a829dd92af52b373404',1,'TinyGPSPlus']]],
+  ['start_191',['start',['../class_s_d_logger.html#af2514db995481908f4821ff13c76635b',1,'SDLogger']]]
+];
