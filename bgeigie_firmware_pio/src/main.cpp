@@ -9,6 +9,7 @@
 #include <gps.hpp>
 #include <hardwarecounter.hpp>
 #include <logger.hpp>
+#include <battery.hpp>
 #include <sd_wrapper.hpp>
 
 // Copied from
@@ -33,6 +34,8 @@ HardwareCounter pulse_counter(GEIGER_AVERAGING_PERIOD_MS, GEIGER_PULSE_GPIO);
 GeigerMeasurement geiger_count(GEIGER_SENSOR1_CPM_FACTOR);
 // - GPS sensor
 GPSSensor gps(GPS_SERIAL_NUM, GPS_BAUD_RATE);
+// - Battery Gauge
+BatteryMonitorIP5306 battery_monitor;
 
 // Data sinks
 BGeigieLogFormatter bgeigie_formatter(DEVICE_ID);
@@ -47,6 +50,7 @@ void on_pulse_counter_available() {
   // immediately update the data consummers
   bgeigie_formatter.feed(geiger_count);
   display.feed(geiger_count);
+  display.feed_battery_level(battery_monitor.get_level());
 }
 
 void on_gps_available() {
@@ -62,7 +66,10 @@ void setup() {
   M5.begin();
   Serial.begin(115200);
 
-  // start the SD card
+  // Start I2C communications for battery level indicator
+  Wire.begin();
+
+  // start the SD card for the logger and the configuration file
   auto ret = sd_wrapper.begin();
   while (!ret) {
     Serial.println("SD error");
