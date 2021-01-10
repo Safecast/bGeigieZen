@@ -3,6 +3,7 @@
 
 #include <TinyGPS++.h>
 
+#include <setup.hpp>
 #include <gps.hpp>
 #include <hardwarecounter.hpp>
 
@@ -25,6 +26,9 @@ enum DisplayState {
 };
 
 struct DisplayData {
+  // device setup info
+  uint32_t device_id;
+
   // Geiger
   bool geiger_fresh = true;
   bool geiger_valid = false;
@@ -61,6 +65,9 @@ class Display {
   void clear();
   void feed(const GeigerMeasurement &geiger_count);
   void feed(GPSSensor &geiger_count);
+  void feed(const Setup &device_setup) {
+    data.device_id = device_setup.config().device_id;
+  }
   void feed_battery_level(int8_t level) { data.battery_level = level; }
 
   // Routines that runs the state machine

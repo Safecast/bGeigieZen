@@ -63,8 +63,13 @@ void Display::draw_qrcode() {
 };
 
 void Display::draw_main() {
+  // Show the device number
+  M5.Lcd.setCursor(10, 10);
+  M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
+  M5.Lcd.print(data.device_id);
+
   // Display battery level
-  M5.Lcd.setCursor(290, 5);
+  M5.Lcd.setCursor(290, 10);
   M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
   if (data.battery_level == -1) {
     M5.Lcd.print("ext");
