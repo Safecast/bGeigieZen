@@ -1,5 +1,15 @@
 #ifndef __CONFIG_HPP__
 #define __CONFIG_HPP__
+#include <cstdint>
+#include <cstdlib>
+
+using std::uint8_t;
+using std::uint16_t;
+using std::uint32_t;
+using std::int8_t;
+using std::int16_t;
+using std::int32_t;
+using std::size_t;
 
 /*** VERSION ***/
 const uint16_t MAJOR = 0;
@@ -9,8 +19,6 @@ const char device_nickname[] = "zen";
 /***************/
 
 /*** CONFIG ***/
-// TEMPORARY UNTIL WE GET CONFIG GOING
-const uint32_t DEVICE_ID = 1;
 // - log format header
 const char DEVICE_HEADER[] = "BZRDD";
 // - maximum length of buffer for the bGeigie log
@@ -34,6 +42,18 @@ const char QR_CODE_URL_BASE[] = "http://tt.safecast.org/id/geigiecast:";
 const char LOG_HEADER_LINE1[] = "# NEW LOG";
 const char LOG_HEADER_LINE2[] = "# format=";
 const char LOG_HEADER_LINE3[] = "# deadtime=off";
+// - Setup
+const char SETUP_FILENAME[] = "/SAFECAST.txt";
+const size_t SETUP_FILE_PARSE_BUFFER_SIZE = 102;
+const uint32_t SETUP_DEFAULT_DEVICE_ID = 0;
+const size_t SETUP_USERNAME_MAXLEN = 15;
+const float SETUP_DEFAULT_CPM_FACTOR = 334.0;
+const float SETUP_DEFAULT_BQM2_FACTOR = 37.0;
+const uint32_t SETUP_DEFAULT_SENSOR_HEIGHT = 100;
+const uint8_t SETUP_DEFAULT_CPM_WINDOW = 60;
+const uint32_t SETUP_DEFAULT_ALARM_LEVEL = 100;
+const char SETUP_DEFAULT_COUNTRY_CODE[4] = "JPN";
+const uint8_t SETUP_DEFAULT_TIMEZONE = 9;
 
 /**************/
 
