@@ -4,6 +4,7 @@
 #include <M5Stack.h>
 
 #include <config.hpp>
+#include <setup.hpp>
 #include <display.hpp>
 #include <fsm.hpp>
 #include <gps.hpp>
@@ -28,6 +29,9 @@
 // This the state machine that will drive all the logic
 FiniteStateMachine fsm;
 
+// object giving access to persistent setup of the device
+Setup device_setup;
+
 // Peripherals setup
 // - pulse counter with 12 bin moving average
 HardwareCounter pulse_counter(GEIGER_AVERAGING_PERIOD_MS, GEIGER_PULSE_GPIO);
@@ -38,7 +42,7 @@ GPSSensor gps(GPS_SERIAL_NUM, GPS_BAUD_RATE);
 BatteryMonitorIP5306 battery_monitor;
 
 // Data sinks
-BGeigieLogFormatter bgeigie_formatter(DEVICE_ID);
+BGeigieLogFormatter bgeigie_formatter;
 SDWrapper sd_wrapper;
 SDLogger logger;
 Display display(LCD_REFRESH_RATE);
@@ -62,6 +66,9 @@ void logging_loop(void *arg);
 void display_loop(void *arg);
 
 void setup() {
+  // we put a delay at the beginning so that we can open the serial for debug
+  delay(5000);
+
   // Serial setup for M5Stack
   M5.begin();
   Serial.begin(115200);
@@ -75,6 +82,18 @@ void setup() {
     Serial.println("SD error");
     delay(1000);
   }
+
+  // Once we have initialized the SD card, we can read the configuration of the device
+  device_setup.initialize();
+  if (sd_wrapper.ready()) {
+    bool success = device_setup.load_from_file(SETUP_FILENAME);
+    if (!success)
+      Serial.println("Failed to read config from file");
+  }
+
+  // Now we can setup the device ID in the logger
+  bgeigie_formatter.set_device_id(device_setup.config().device_id);
+  display.feed(device_setup);
 
   // Reset the pulse counter before starting
   pulse_counter.reset();
@@ -120,7 +139,7 @@ void logging_loop(void *arg) {
       break;
 
     case BG_CREATE_LOG_FILE:
-      ret = logger.start(DEVICE_ID, gps.data().date.year(),
+      ret = logger.start(device_setup.config().device_id, gps.data().date.year(),
                          gps.data().date.month(), gps.data().date.day());
       if (!ret)
         Serial.println("Log creation failed");
@@ -140,7 +159,7 @@ void logging_loop(void *arg) {
           Serial.println("SD card could not be started");
         else if (!logger.folder_created()) {
           Serial.println("Folder creation failed.");
-          ret = logger.start(DEVICE_ID, gps.data().date.year(),
+          ret = logger.start(device_setup.config().device_id, gps.data().date.year(),
                              gps.data().date.month(), gps.data().date.day());
         } else if (!logger.ready())
           Serial.println("Log creation failed");

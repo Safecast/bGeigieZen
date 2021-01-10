@@ -29,6 +29,7 @@ class BGeigieLogFormatter {
 
  public:
   BGeigieLogFormatter(uint32_t device_id) : _device_id(device_id) {}
+  BGeigieLogFormatter() : _device_id(SETUP_DEFAULT_DEVICE_ID) {}
 
   void set_device_id(uint32_t device_id) { _device_id = device_id; }
 
