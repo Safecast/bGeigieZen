@@ -74,8 +74,8 @@ struct ConfigData {
   char user_name[SETUP_USERNAME_MAXLEN + 1] = {0};
   uint32_t device_id = SETUP_DEFAULT_DEVICE_ID;
   uint8_t cpm_window = SETUP_DEFAULT_CPM_WINDOW;
-  float cpm_factor = SETUP_DEFAULT_CPM_FACTOR;
-  float bqm_factor = SETUP_DEFAULT_BQM2_FACTOR;
+  float cpm2ush_divider = SETUP_DEFAULT_USH_DIVIDER;
+  float cpm2bqm2_factor = SETUP_DEFAULT_BQM2_FACTOR;
   uint32_t alarm_level = SETUP_DEFAULT_ALARM_LEVEL;  // in CPM
   uint8_t timezone = SETUP_DEFAULT_TIMEZONE;         // in hours
   char country_code[sizeof(SETUP_DEFAULT_COUNTRY_CODE)];
@@ -90,8 +90,8 @@ struct ConfigData {
     Serial.print("Username: "); Serial.println(user_name);
     Serial.print("Device_id: "); Serial.println(device_id);
     Serial.print("CPM window: "); Serial.println(cpm_window);
-    Serial.print("CPM factor: "); Serial.println(cpm_factor);
-    Serial.print("BQM2 factor: "); Serial.println(bqm_factor);
+    Serial.print("CPM factor: "); Serial.println(cpm2ush_divider);
+    Serial.print("BQM2 factor: "); Serial.println(cpm2bqm2_factor);
     Serial.print("Alarm level: "); Serial.println(alarm_level);
     Serial.print("Timezone: "); Serial.println(timezone);
     Serial.print("Country code: "); Serial.println(country_code);
