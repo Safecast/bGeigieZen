@@ -34,7 +34,7 @@ class BGeigieLogFormatter {
   void set_device_id(uint32_t device_id) { _device_id = device_id; }
 
   void feed(GPSSensor &gps);
-  void feed(const GeigerMeasurement &geiger_count);
+  void feed(const GeigerCounter &geiger_count);
   bool ready() { return _geiger_fresh && _gps_fresh; }
 
   const char *format();

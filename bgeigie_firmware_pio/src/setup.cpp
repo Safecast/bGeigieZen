@@ -168,15 +168,15 @@ bool Setup::load_from_file(const char *setup_filename) {
       if (std::strcmp(key, "cpmf") == 0) {
         // Update cpm factor
         float factor = std::atof(value);
-        if (_config.cpm_factor != factor && factor > 0.0) {
-          _config.cpm_factor = factor;
+        if (_config.cpm2ush_divider != factor && factor > 0.0) {
+          _config.cpm2ush_divider = factor;
           config_changed = true;
         }
       } else if (std::strcmp(key, "bqmf") == 0) {
         // Update bq/m2 factor
         float factor = std::atof(value);
-        if (_config.bqm_factor != factor && factor > 0.0) {
-          _config.bqm_factor = factor;
+        if (_config.cpm2bqm2_factor != factor && factor > 0.0) {
+          _config.cpm2bqm2_factor = factor;
           config_changed = true;
         }
       } else if (std::strcmp(key, "nm") == 0) {

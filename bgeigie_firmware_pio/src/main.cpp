@@ -3,15 +3,15 @@
 
 #include <M5Stack.h>
 
+#include <battery.hpp>
 #include <config.hpp>
-#include <setup.hpp>
 #include <display.hpp>
 #include <fsm.hpp>
 #include <gps.hpp>
 #include <hardwarecounter.hpp>
 #include <logger.hpp>
-#include <battery.hpp>
 #include <sd_wrapper.hpp>
+#include <setup.hpp>
 
 // Copied from
 // https://github.com/espressif/arduino-esp32/blob/master/cores/esp32/main.cpp
@@ -34,8 +34,7 @@ Setup device_setup;
 
 // Peripherals setup
 // - pulse counter with 12 bin moving average
-HardwareCounter pulse_counter(GEIGER_AVERAGING_PERIOD_MS, GEIGER_PULSE_GPIO);
-GeigerMeasurement geiger_count(GEIGER_SENSOR1_CPM_FACTOR);
+GeigerCounter geiger_count(GEIGER_AVERAGING_PERIOD_S, GEIGER_PULSE_GPIO);
 // - GPS sensor
 GPSSensor gps(GPS_SERIAL_NUM, GPS_BAUD_RATE);
 // - Battery Gauge
@@ -47,9 +46,9 @@ SDWrapper sd_wrapper;
 SDLogger logger;
 Display display(LCD_REFRESH_RATE);
 
-void on_pulse_counter_available() {
-  // update the Geiger counter with the new measurement
-  geiger_count.feed(pulse_counter.get_last_count());
+void on_geiger_counter_available() {
+  // mark the Geiger data as not fresh
+  geiger_count.consume();
 
   // immediately update the data consummers
   bgeigie_formatter.feed(geiger_count);
@@ -83,20 +82,23 @@ void setup() {
     delay(1000);
   }
 
-  // Once we have initialized the SD card, we can read the configuration of the device
+  // Once we have initialized the SD card, we can read the configuration of the
+  // device
   device_setup.initialize();
   if (sd_wrapper.ready()) {
     bool success = device_setup.load_from_file(SETUP_FILENAME);
-    if (!success)
-      Serial.println("Failed to read config from file");
+    if (!success) Serial.println("Failed to read config from file");
   }
 
   // Now we can setup the device ID in the logger
+  geiger_count.configure(device_setup.config().cpm2ush_divider,
+                         device_setup.config().cpm2bqm2_factor,
+                         device_setup.config().alarm_level);
   bgeigie_formatter.set_device_id(device_setup.config().device_id);
   display.feed(device_setup);
 
   // Reset the pulse counter before starting
-  pulse_counter.reset();
+  geiger_count.begin();
 
   fsm.register_event(EVENT_SETUP_FINISHED);
 
@@ -115,10 +117,10 @@ void setup() {
 
 void logging_loop(void *arg) {
   // Run all the non-blocking update routines here
-  M5.update();             // updates buttons and stuff
-  display.update();        // redraws the display and manages the states
-  gps.update();            // reads from the GPS
-  pulse_counter.update();  // checks the pulse counter
+  M5.update();       // updates buttons and stuff
+  geiger_count.update();
+  gps.update();      // reads from the GPS
+  display.update();  // redraws the display and manages the states
 
   // This the bGeigie logger state machine
   bool ret = false;
@@ -129,7 +131,7 @@ void logging_loop(void *arg) {
       break;
 
     case BG_GPS_TIME_NOT_ACQUIRED:
-      if (pulse_counter.available()) on_pulse_counter_available();
+      if (geiger_count.available()) on_geiger_counter_available();
 
       if (gps.available()) {
         on_gps_available();
@@ -139,8 +141,9 @@ void logging_loop(void *arg) {
       break;
 
     case BG_CREATE_LOG_FILE:
-      ret = logger.start(device_setup.config().device_id, gps.data().date.year(),
-                         gps.data().date.month(), gps.data().date.day());
+      ret =
+          logger.start(device_setup.config().device_id, gps.data().date.year(),
+                       gps.data().date.month(), gps.data().date.day());
       if (!ret)
         Serial.println("Log creation failed");
       else
@@ -149,7 +152,7 @@ void logging_loop(void *arg) {
       break;
 
     case BG_LOGGING:
-      if (pulse_counter.available()) on_pulse_counter_available();
+      if (geiger_count.available()) on_geiger_counter_available();
 
       if (gps.available()) on_gps_available();
 
@@ -159,8 +162,9 @@ void logging_loop(void *arg) {
           Serial.println("SD card could not be started");
         else if (!logger.folder_created()) {
           Serial.println("Folder creation failed.");
-          ret = logger.start(device_setup.config().device_id, gps.data().date.year(),
-                             gps.data().date.month(), gps.data().date.day());
+          ret = logger.start(device_setup.config().device_id,
+                             gps.data().date.year(), gps.data().date.month(),
+                             gps.data().date.day());
         } else if (!logger.ready())
           Serial.println("Log creation failed");
         else {
