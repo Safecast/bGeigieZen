@@ -3,6 +3,7 @@
 
 #include <TinyGPS++.h>
 
+#include <config.hpp>
 #include <setup.hpp>
 #include <gps.hpp>
 #include <hardwarecounter.hpp>
@@ -63,7 +64,7 @@ class Display {
   Display(uint32_t refresh_period_ms)
       : _refresh_period_ms(refresh_period_ms), state(S_STARTUP) {}
   void clear();
-  void feed(const GeigerMeasurement &geiger_count);
+  void feed(const GeigerCounter &geiger_count);
   void feed(GPSSensor &geiger_count);
   void feed(const Setup &device_setup) {
     data.device_id = device_setup.config().device_id;
