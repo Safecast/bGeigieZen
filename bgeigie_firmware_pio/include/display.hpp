@@ -6,7 +6,7 @@
 #include <config.hpp>
 #include <setup.hpp>
 #include <gps.hpp>
-#include <hardwarecounter.hpp>
+#include <geiger_counter.hpp>
 
 // printing routines
 void printFloat(float val, bool valid, int len, int prec);

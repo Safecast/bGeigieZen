@@ -7,7 +7,7 @@
 #include <cstdio>
 #include <cstring>
 #include <gps.hpp>
-#include <hardwarecounter.hpp>
+#include <geiger_counter.hpp>
 
 class BGeigieLogFormatter {
  private:
