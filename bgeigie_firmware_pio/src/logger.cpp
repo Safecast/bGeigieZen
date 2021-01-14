@@ -12,7 +12,7 @@ char checksum(char *s, int N) {
   return chk;
 }
 
-void BGeigieLogFormatter::feed(const GeigerMeasurement &geiger_count) {
+void BGeigieLogFormatter::feed(const GeigerCounter &geiger_count) {
   _cpm = geiger_count.per_minute_raw();
   _cpb = geiger_count.per_bin();
   _total_count = geiger_count.total();

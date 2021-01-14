@@ -1,5 +1,6 @@
 #include <M5Stack.h>
 
+#include <cstdio>
 #include <display.hpp>
 
 void Display::clear() {
@@ -59,12 +60,21 @@ void Display::draw_qrcode() {
   int x = (width - w) / 2;
   int y = (height - w) / 2;
 
-  M5.Lcd.qrcode("http://www.safecast.org", x, y, w, 3);
+  // create the URL
+  char url[sizeof(QR_CODE_URL_BASE) + QR_CODE_DEV_ID_NDIGITS];
+  std::sprintf(url, "%s%04d", QR_CODE_URL_BASE, (int)data.device_id);
+
+  M5.Lcd.qrcode(url, x, y, w, 3);
 };
 
 void Display::draw_main() {
+  // Show the device number
+  M5.Lcd.setCursor(10, 10);
+  M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
+  M5.Lcd.print(data.device_id);
+
   // Display battery level
-  M5.Lcd.setCursor(290, 5);
+  M5.Lcd.setCursor(290, 10);
   M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
   if (data.battery_level == -1) {
     M5.Lcd.print("ext");
@@ -125,7 +135,7 @@ void Display::draw_main() {
   }
 }
 
-void Display::feed(const GeigerMeasurement &geiger_count) {
+void Display::feed(const GeigerCounter &geiger_count) {
   data.geiger_valid = geiger_count.valid();
   data.geiger_cpm = geiger_count.per_minute();
   data.geiger_uSv = geiger_count.uSv();

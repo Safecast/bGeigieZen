@@ -5,111 +5,39 @@
 #ifndef __HARDWARECOUNTER_H__
 #define __HARDWARECOUNTER_H__
 
-#include <M5Stack.h>
-#include <driver/pcnt.h>
-
-#include <algorithm>
-#include <array>
-#include <config.hpp>
 #include <limits>
 
-class GeigerMeasurement {
- private:
-  float _cpm_factor = 340.0;  // default for pancake
-  float _conversion_coefficient = 1.0 / 340.0;
+#include <M5Stack.h>
+#include <Ticker.h>
+#include <driver/pcnt.h>
 
-  int _pos = 0;  // current position in shift register
-  std::array<uint32_t, GEIGER_AVERAGING_N_BINS> _shift_reg;
-
-  bool _valid = false;
-  uint32_t _cpb = 0;
-  uint32_t _cpm_raw = 0;
-  uint32_t _cpm_comp = 0;
-  uint32_t _cpm_comp_peak = 0;
-  uint32_t _total = 0;
-  float _uSv = 0.0;
-
- public:
-  GeigerMeasurement(float cpm_factor)
-      : _cpm_factor(cpm_factor), _conversion_coefficient(1.0 / cpm_factor) {
-    // fill the shift register with zeros
-    std::fill(_shift_reg.begin(), _shift_reg.end(), 0);
-  }
-
-  uint32_t per_bin() const { return _cpb; }
-  uint32_t total() const { return _total; }
-  uint32_t peak_per_minute() const { return _cpm_comp_peak; }
-  uint32_t per_minute_raw() const { return _cpm_raw; }
-  uint32_t per_minute() const { return _cpm_comp; }
-  float uSv() const { return _uSv; }
-  size_t n_bins() const { return _shift_reg.size(); }
-
-  bool valid() const { return _valid; }  // indicates if all bins are filled
-
-  void feed(uint32_t new_cpb) {
-    _cpb = new_cpb;
-
-    // increase total count
-    _total += new_cpb;
-
-    // update the shift register
-    _pos++;
-    if (_pos == _shift_reg.size()) {
-      _pos = 0;
-      if (!_valid) _valid = true;
-    }
-    _shift_reg[_pos] = new_cpb;
-
-    // sum up the shift register
-    _cpm_raw = std::accumulate(_shift_reg.begin(), _shift_reg.end(), 0);
-
-    // CPM compensated for deadtime (medcom international)
-    _cpm_comp =
-        (uint32_t)((float)_cpm_raw / (1 - (((float)_cpm_raw * 1.8833e-6))));
-
-    // peak measurement
-    if (_cpm_comp > _cpm_comp_peak) _cpm_comp_peak = _cpm_comp;
-
-    // micro-Sieverts per hour conversion
-    _uSv = _cpm_comp * _conversion_coefficient;
-  }
-};
+#include <config.hpp>
 
 class HardwareCounter {
  private:
-  uint32_t _delay = 5000;  // default at 5 seconds
-  int _gpio = 2;
+  uint32_t _delay_s = GEIGER_AVERAGING_PERIOD_S;  // default at 5 seconds
+  int _gpio = GEIGER_PULSE_GPIO;
   pcnt_unit_t _unit = PCNT_UNIT_0;
 
   const int16_t _max_value = std::numeric_limits<int16_t>::max();
 
   uint32_t _n_wraparound = 0;
+
   uint32_t _start_time;
   uint32_t _last_count = 0;
 
   bool _available = false;
 
-  uint32_t _get_count_reset() {
-    // compute current value of counter and reset
-    int16_t count = 0;
+  Ticker _timer;
+  inline uint32_t _get_count_reset();
 
-    // get the value of the hardware counter
-    esp_err_t ret = pcnt_get_counter_value(_unit, &count);
-    if (ret != ESP_OK)
-      Serial.println("A problem occured in the hardware counter");
-
-    // compute the total value taking into account the wrap-arounds
-    uint32_t total_count = _n_wraparound * _max_value + count;
-
-    // reset the counter
-    reset();
-
-    return total_count;
-  }
+  /* let the timer interrupt routine be a friend */
+  friend void timer_intr_handler(void *arg);
 
  public:
-  HardwareCounter(uint32_t time_interval, int gpio,
-                  pcnt_unit_t pcnt_unit = PCNT_UNIT_0);
+  HardwareCounter() {}
+  HardwareCounter(uint32_t delay_s, int gpio, pcnt_unit_t unit = PCNT_UNIT_0)
+      : _delay_s(delay_s), _gpio(gpio), _unit(unit) {}
 
   uint32_t get_last_count() {
     _available = false;  // remove flag after consumption
@@ -117,9 +45,10 @@ class HardwareCounter {
   }
 
   // sliding windows setup
+  void begin();
   void reset();
-  void update();
   bool available() { return _available; }
 };
+
 
 #endif  // __HARDWARECOUNTER_H__
