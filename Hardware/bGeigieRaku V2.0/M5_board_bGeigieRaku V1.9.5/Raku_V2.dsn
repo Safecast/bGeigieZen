@@ -3,7 +3,7 @@
     (string_quote ")
     (space_in_quoted_tokens on)
     (host_cad "KiCad's Pcbnew")
-    (host_version "5.99.0-unknown-8ad89ae457~93~ubuntu20.04.1")
+    (host_version "5.99.0-unknown-d2d4ffe6d0~94~ubuntu20.04.1")
   )
   (resolution um 10)
   (unit um)
@@ -202,7 +202,7 @@
             91866.5 -66820.2  92305.2 -66746.5  92748.9 -66695.8  93196.9 -66668.5
             93648.6 -66665.6  105648 -66665.6  105798 -66675.4)
     )
-    (plane GND (polygon F.Cu 0  212954 -133298  85318.6 -133298  85318.6 -66496  215283 -67130
+    (plane GND (polygon F.Cu 0  212954 -133298  85318.6 -133298  85318.6 -66496  214224 -65988
             212954 -133298))
     (via "Via[0-1]_300:400_um" "Via[0-1]_500:800_um")
     (rule
@@ -213,6 +213,9 @@
     )
   )
   (placement
+    (component Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical
+      (place J4 197714 -76656 front 90 (PN Geiger))
+    )
     (component "bGeigieNano V1.1.5:0207_10"
       (place R2 185903 -82244 front 0 (PN 1K))
     )
@@ -242,7 +245,7 @@
       (place C2 199183 -82005 front 180 (PN 4.7uf))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::1
-      (place J9 210033 -90499 front -90 (PN "QI +"))
+      (place J9 210033 -90499 front -90 (PN "QI Plus"))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical
       (place J7 183408 -113405 front 90 (PN Conn_01x14_Female))
@@ -250,7 +253,7 @@
     (component "bGeigieNano V1.1.5:0207_10::1"
       (place R1 185903 -86054 front 180 (PN 9k))
     )
-    (component Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical
+    (component Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical::1
       (place J2 207108 -95330 front 0 (PN Geiger))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::2
@@ -264,6 +267,26 @@
     )
   )
   (library
+    (image Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical
+      (outline (path signal 100  -1270 635  -635 1270))
+      (outline (path signal 100  -1270 -6350  -1270 635))
+      (outline (path signal 100  1270 1270  1270 -6350))
+      (outline (path signal 100  -635 1270  1270 1270))
+      (outline (path signal 100  1270 -6350  -1270 -6350))
+      (outline (path signal 50  -1800 -6850  1800 -6850))
+      (outline (path signal 50  1800 1800  -1800 1800))
+      (outline (path signal 50  1800 -6850  1800 1800))
+      (outline (path signal 50  -1800 1800  -1800 -6850))
+      (outline (path signal 120  -1330 -1270  -1330 -6410))
+      (outline (path signal 120  -1330 -6410  1330 -6410))
+      (outline (path signal 120  -1330 0  -1330 1330))
+      (outline (path signal 120  1330 -1270  1330 -6410))
+      (outline (path signal 120  -1330 1330  0 1330))
+      (outline (path signal 120  -1330 -1270  1330 -1270))
+      (pin Oval[A]Pad_1700x1700_um 3 0 -5080)
+      (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
+      (pin Rect[A]Pad_1700x1700_um 1 0 0)
+    )
     (image "bGeigieNano V1.1.5:0207_10"
       (outline (path signal 152.4  -2413 -1016  -2540 -1143))
       (outline (path signal 152.4  -3175 -889  -3175 889))
@@ -613,7 +636,7 @@
       (pin Round[A]Pad_1676.4_um 1 -5080 0)
       (pin Round[A]Pad_1676.4_um 2 5080 0)
     )
-    (image Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical
+    (image Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical::1
       (outline (path signal 120  -1330 -1270  1330 -1270))
       (outline (path signal 120  -1330 1330  0 1330))
       (outline (path signal 120  1330 -1270  1330 -6410))
@@ -766,7 +789,7 @@
   )
   (network
     (net GND
-      (pins R2-2 J1-1 J1-3 J1-5 J3-1 C2-2 J7-1 J2-3 J8-1 J8-2 BT1-2)
+      (pins J4-3 R2-2 J1-1 J1-3 J1-5 J3-1 C2-2 J7-1 J2-3 J8-1 J8-2 BT1-2)
     )
     (net "Net-(J1-Pad30)"
       (pins J1-30 SW1-3 R1-1)
@@ -781,7 +804,7 @@
       (pins R2-1 J1-4 R1-2)
     )
     (net 3.3V
-      (pins J1-12 J3-4 J7-2 J2-1)
+      (pins J4-1 J1-12 J3-4 J7-2 J2-1)
     )
     (net 5V
       (pins J1-28 J7-3)
@@ -790,7 +813,7 @@
       (pins J1-24 J7-8)
     )
     (net /GIO2
-      (pins J1-19 J2-2)
+      (pins J4-2 J1-19 J2-2)
     )
     (net /SCL
       (pins J1-18 J7-7)
