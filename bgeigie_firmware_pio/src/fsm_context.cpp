@@ -31,7 +31,10 @@ void Context::setup() {
   auto ret = sd_wrapper.begin();
   while (!ret) {
     Serial.println("SD error");
-    delay(1000);
+    M5.Lcd.setCursor(10, 10);
+    M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+    M5.Lcd.print("SD error");
+    delay(2000);
   }
 
   // Once we have initialized the SD card, we can read the configuration of the
