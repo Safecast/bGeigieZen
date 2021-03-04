@@ -53,8 +53,8 @@ struct DisplayData {
 class Display {
  private:
   // size of the screen
-  const int width = 320;
-  const int height = 240;
+  static const int width = 320;
+  static const int height = 240;
   uint32_t _refresh_period_ms;
 
   DisplayState state{S_STARTUP};
@@ -76,6 +76,7 @@ class Display {
 
   // Routines to draw the different screens
   void draw_base();
+  void draw_navbar(const char *A, const char *B, const char *C);
   void draw_main();
   void draw_qrcode();
 };

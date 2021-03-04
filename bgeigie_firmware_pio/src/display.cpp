@@ -17,6 +17,13 @@ void Display::draw_base() {
   M5.Lcd.drawString("2020", 285, 215, 1);
 }
 
+void Display::draw_navbar(const char *A, const char *B, const char *C) {
+  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.drawString(A, 50, 10, 1); // Button A
+  M5.Lcd.drawString(B, 150, 10, 1); // Button B
+  M5.Lcd.drawString(C, 250, 10, 1); // Button C
+}
+
 void Display::update() {
   // This function is mainly used to read the buttons and update the state
   // of the display
@@ -68,13 +75,16 @@ void Display::draw_qrcode() {
 };
 
 void Display::draw_main() {
+
+  draw_navbar("menu", "mode", "QR");
+
   // Show the device number
-  M5.Lcd.setCursor(10, 10);
+  M5.Lcd.setCursor(10, 30);
   M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
   M5.Lcd.print(data.device_id);
 
   // Display battery level
-  M5.Lcd.setCursor(290, 10);
+  M5.Lcd.setCursor(290, 30);
   M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
   if (data.battery_level == -1) {
     M5.Lcd.print("ext");
