@@ -81,14 +81,16 @@ void Display::draw_main() {
   // Show the device number
   M5.Lcd.setCursor(10, 30);
   M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
+      M5.Lcd.print("DeviceID =");
   M5.Lcd.print(data.device_id);
 
   // Display battery level
-  M5.Lcd.setCursor(290, 30);
+  M5.Lcd.setCursor(270, 30);
   M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
   if (data.battery_level == -1) {
-    M5.Lcd.print("ext");
+    M5.Lcd.print("BAT= ext");
   } else {
+    M5.Lcd.print("BAT= ");
     M5.Lcd.print(data.battery_level);
     M5.Lcd.print("%");
   }
