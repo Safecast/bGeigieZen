@@ -4,23 +4,25 @@
  * and pass this information together with the event type
  * the main program using a queue.
  */
-static void IRAM_ATTR pcnt_example_intr_handler(void *arg)
-{
+void IRAM_ATTR pcnt_intr_handler(void *arg) {
   uint32_t *n_wraparound = (uint32_t *)arg;
   (*n_wraparound)++;
 }
 
-/* Initialize PCNT functions:
- *  - configure and initialize PCNT
- *  - set up the input filter
- *  - set up the counter events to watch
+/* The timer interrupt routine
+ * Records the number of pulses, reset the pulse counter, and set the
+ * available flag
  */
-HardwareCounter::HardwareCounter(uint32_t delay, int gpio, pcnt_unit_t unit):
-  _delay(delay), _gpio(gpio), _unit(unit)
-{
+void IRAM_ATTR timer_intr_handler(void *arg) {
+  HardwareCounter *counter = (HardwareCounter *)arg;
+  counter->_last_count = counter->_get_count_reset();
+  counter->_available = true;
+}
 
+void HardwareCounter::begin() {
   /* Prepare configuration for the PCNT unit */
-  // Careful, in C++ the order of the fields should be the exact one of the definition
+  // Careful, in C++ the order of the fields should be the exact one of the
+  // definition
   pcnt_config_t pcnt_config = {
     // Set PCNT input signal and control GPIOs
     pulse_gpio_num : _gpio,
@@ -43,8 +45,8 @@ HardwareCounter::HardwareCounter(uint32_t delay, int gpio, pcnt_unit_t unit):
 
   /* Configure and enable the input filter */
   /*
-     pcnt_set_filter_value(_unit, 100);  // we should set this to match the iRover
-     pcnt_filter_enable(_unit);
+     pcnt_set_filter_value(_unit, 100);  // we should set this to match the
+     iRover pcnt_filter_enable(_unit);
      */
 
   /* Enable events on maximum limit value */
@@ -56,15 +58,16 @@ HardwareCounter::HardwareCounter(uint32_t delay, int gpio, pcnt_unit_t unit):
 
   /* Install interrupt service and add isr callback handler */
   pcnt_isr_service_install(0);
-  pcnt_isr_handler_add(_unit, pcnt_example_intr_handler, (void *)&_n_wraparound);
+  pcnt_isr_handler_add(_unit, pcnt_intr_handler, (void *)&_n_wraparound);
 
-  /* reset will timestamp and start the counter */
+  // start the timer
+  _timer.attach(_delay_s, timer_intr_handler, (void *)this);
+
+  // reset and start counting
   reset();
 }
 
-
-void HardwareCounter::reset()
-{
+void HardwareCounter::reset() {
   pcnt_counter_pause(_unit);
 
   // set start time
@@ -78,16 +81,20 @@ void HardwareCounter::reset()
   pcnt_counter_resume(_unit);
 }
 
-void HardwareCounter::update()
-{
-  // get current time
-  unsigned long now = millis();
+uint32_t HardwareCounter::_get_count_reset() {
+  // compute current value of counter and reset
+  int16_t count = 0;
 
-  // do basic check for millis overflow
-  if ( (now >= _start_time && now - _start_time >= _delay)
-      || (ULONG_MAX + now - _start_time >= _delay) ) {
+  // get the value of the hardware counter
+  esp_err_t ret = pcnt_get_counter_value(_unit, &count);
+  if (ret != ESP_OK)
+    Serial.println("A problem occured in the hardware counter");
 
-    _last_count = _get_count_reset();
-    _available = true;
-  }
+  // compute the total value taking into account the wrap-arounds
+  uint32_t total_count = _n_wraparound * _max_value + count;
+
+  // reset the counter
+  reset();
+
+  return total_count;
 }
