@@ -1,19 +1,27 @@
 #include <M5Stack.h>
 
+#include <cstdio>
 #include <display.hpp>
 
 void Display::clear() {
-    // Clear display
-    M5.Lcd.clear();
-    M5.lcd.setRotation(3);
+  // Clear display
+  M5.Lcd.clear();
+  M5.lcd.setRotation(3);
 }
 
 void Display::draw_base() {
-    // Display safecast copyright
-    M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
-    M5.Lcd.drawString("SAFECAST", 230, 215, 1);
-    M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
-    M5.Lcd.drawString("2020", 285, 215, 1);
+  // Display safecast copyright
+  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.drawString("SAFECAST", 230, 215, 1);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
+  M5.Lcd.drawString("2021", 285, 215, 1);
+}
+
+void Display::draw_navbar(const char *A, const char *B, const char *C) {
+  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.drawString(A, 50, 10, 2); // Button A
+  M5.Lcd.drawString(B, 145, 10, 2); // Button B
+  M5.Lcd.drawString(C, 250, 10, 2); // Button C
 }
 
 void Display::update() {
@@ -26,7 +34,7 @@ void Display::update() {
 
   switch (state) {
     case (S_STARTUP):
-      clear();         // initialize display
+      clear();  // initialize display
       draw_base();
       state = S_MAIN_DRAW;  // next state
       break;
@@ -37,8 +45,7 @@ void Display::update() {
       state = S_MAIN_SHOW;
     case (S_MAIN_SHOW):
       draw_main();
-      if (button_A_pressed)
-        state = S_QRCODE_DRAW;
+      if (button_A_pressed) state = S_QRCODE_DRAW;
       break;
 
     case (S_QRCODE_DRAW):
@@ -48,24 +55,46 @@ void Display::update() {
       break;
 
     case (S_QRCODE_SHOW):
-      if (button_A_pressed)
-        state = S_MAIN_DRAW;
+      if (button_A_pressed) state = S_MAIN_DRAW;
       break;
   }
 }
 
-void Display::draw_qrcode(){
-    // Create the QR code
+void Display::draw_qrcode() {
+  // Create the QR code
   int w = (int)(0.9 * height);
-  if (w %2 == 1)
-    w -= 1;
+  if (w % 2 == 1) w -= 1;
   int x = (width - w) / 2;
   int y = (height - w) / 2;
-  
-  M5.Lcd.qrcode("http://www.safecast.org", x, y, w, 3);
+
+  // create the URL
+  char url[sizeof(QR_CODE_URL_BASE) + QR_CODE_DEV_ID_NDIGITS];
+  std::sprintf(url, "%s%04d", QR_CODE_URL_BASE, (int)data.device_id);
+
+  M5.Lcd.qrcode(url, x, y, w, 3);
 };
 
 void Display::draw_main() {
+
+  draw_navbar("menu", "mode", "QR");
+
+  // Show the device number
+  M5.Lcd.setCursor(10, 30);
+  M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
+      M5.Lcd.print("DeviceID =");
+  M5.Lcd.print(data.device_id);
+
+  // Display battery level
+  M5.Lcd.setCursor(270, 30);
+  M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
+  if (data.battery_level == -1) {
+    M5.Lcd.print("BAT=ext");
+  } else {
+    M5.Lcd.print("BAT=");
+    M5.Lcd.print(data.battery_level);
+    M5.Lcd.print("%");
+  }
+
   if (data.geiger_fresh) {
     if (data.geiger_valid)
       M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
@@ -118,7 +147,7 @@ void Display::draw_main() {
   }
 }
 
-void Display::feed(const GeigerMeasurement &geiger_count) {
+void Display::feed(const GeigerCounter &geiger_count) {
   data.geiger_valid = geiger_count.valid();
   data.geiger_cpm = geiger_count.per_minute();
   data.geiger_uSv = geiger_count.uSv();

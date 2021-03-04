@@ -49,7 +49,7 @@ class GPSSensor {
   }
 
  public:
-  GPSSensor(int serial_number, uint32_t baud_rate) : ss(serial_number) {
+  GPSSensor(int serial_number, uint32_t baud_rate) : ss(serial_number), _last_update_millis(millis()) {
     ss.begin(baud_rate);
   }
 
