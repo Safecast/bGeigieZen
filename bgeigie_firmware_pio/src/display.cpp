@@ -84,7 +84,7 @@ void Display::draw_main() {
   M5.Lcd.print(data.device_id);
 
   // Display battery level
-  M5.Lcd.setCursor(290, 30);
+  M5.Lcd.setCursor(20, 30);
   M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
   if (data.battery_level == -1) {
     M5.Lcd.print("ext");

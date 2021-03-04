@@ -30,10 +30,14 @@ void Context::setup() {
   // start the SD card for the logger and the configuration file
   auto ret = sd_wrapper.begin();
   while (!ret) {
-    Serial.println("SD error");
+
+    Serial.println("SDcard error");
     M5.Lcd.setCursor(10, 10);
     M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
-    M5.Lcd.print("SD error");
+    M5.lcd.setRotation(3);
+    M5.Lcd.drawString("No SDcard in SDcard slot", 5, 50, 4);
+
+    // M5.Lcd.print("No SDcard in SDcard slot");
     delay(2000);
   }
 
