@@ -3,8 +3,10 @@
 
 #include <TinyGPS++.h>
 
+#include <config.hpp>
+#include <setup.hpp>
 #include <gps.hpp>
-#include <hardwarecounter.hpp>
+#include <geiger_counter.hpp>
 
 // printing routines
 void printFloat(float val, bool valid, int len, int prec);
@@ -25,6 +27,9 @@ enum DisplayState {
 };
 
 struct DisplayData {
+  // device setup info
+  uint32_t device_id;
+
   // Geiger
   bool geiger_fresh = true;
   bool geiger_valid = false;
@@ -40,13 +45,16 @@ struct DisplayData {
   TinyGPSLocation gps_location;
   TinyGPSTime gps_time;
   TinyGPSDate gps_date;
+
+  // Battery
+  int8_t battery_level = -1;
 };
 
 class Display {
  private:
   // size of the screen
-  const int width = 320;
-  const int height = 240;
+  static const int width = 320;
+  static const int height = 240;
   uint32_t _refresh_period_ms;
 
   DisplayState state{S_STARTUP};
@@ -56,14 +64,19 @@ class Display {
   Display(uint32_t refresh_period_ms)
       : _refresh_period_ms(refresh_period_ms), state(S_STARTUP) {}
   void clear();
-  void feed(const GeigerMeasurement &geiger_count);
+  void feed(const GeigerCounter &geiger_count);
   void feed(GPSSensor &geiger_count);
+  void feed(const Setup &device_setup) {
+    data.device_id = device_setup.config().device_id;
+  }
+  void feed_battery_level(int8_t level) { data.battery_level = level; }
 
   // Routines that runs the state machine
   void update();
 
   // Routines to draw the different screens
   void draw_base();
+  void draw_navbar(const char *A, const char *B, const char *C);
   void draw_main();
   void draw_qrcode();
 };

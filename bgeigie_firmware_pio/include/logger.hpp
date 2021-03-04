@@ -7,7 +7,7 @@
 #include <cstdio>
 #include <cstring>
 #include <gps.hpp>
-#include <hardwarecounter.hpp>
+#include <geiger_counter.hpp>
 
 class BGeigieLogFormatter {
  private:
@@ -29,11 +29,12 @@ class BGeigieLogFormatter {
 
  public:
   BGeigieLogFormatter(uint32_t device_id) : _device_id(device_id) {}
+  BGeigieLogFormatter() : _device_id(SETUP_DEFAULT_DEVICE_ID) {}
 
   void set_device_id(uint32_t device_id) { _device_id = device_id; }
 
   void feed(GPSSensor &gps);
-  void feed(const GeigerMeasurement &geiger_count);
+  void feed(const GeigerCounter &geiger_count);
   bool ready() { return _geiger_fresh && _gps_fresh; }
 
   const char *format();
