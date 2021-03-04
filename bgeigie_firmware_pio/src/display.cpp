@@ -20,7 +20,7 @@ void Display::draw_base() {
 void Display::draw_navbar(const char *A, const char *B, const char *C) {
   M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
   M5.Lcd.drawString(A, 50, 10, 2); // Button A
-  M5.Lcd.drawString(B, 150, 10, 2); // Button B
+  M5.Lcd.drawString(B, 145, 10, 2); // Button B
   M5.Lcd.drawString(C, 250, 10, 2); // Button C
 }
 
@@ -88,9 +88,9 @@ void Display::draw_main() {
   M5.Lcd.setCursor(270, 30);
   M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
   if (data.battery_level == -1) {
-    M5.Lcd.print("BAT= ext");
+    M5.Lcd.print("BAT=ext");
   } else {
-    M5.Lcd.print("BAT= ");
+    M5.Lcd.print("BAT=");
     M5.Lcd.print(data.battery_level);
     M5.Lcd.print("%");
   }
