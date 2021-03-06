@@ -63,6 +63,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_hardware_counter-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">HardwareCounter Class Reference</div>  </div>
@@ -73,29 +74,69 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a917fa58257cd92ce95c5557d9afab447"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hardware_counter.html#a917fa58257cd92ce95c5557d9afab447">HardwareCounter</a> (uint32_t time_interval, int gpio, pcnt_unit_t pcnt_unit=PCNT_UNIT_0)</td></tr>
-<tr class="separator:a917fa58257cd92ce95c5557d9afab447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83b878ed339ece4944ac7a70b3324cbc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hardware_counter.html#a83b878ed339ece4944ac7a70b3324cbc">HardwareCounter</a> ()</td></tr>
+<tr class="separator:a83b878ed339ece4944ac7a70b3324cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8c29f68e125bb9529e72e796c9c5e78"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hardware_counter.html#ae8c29f68e125bb9529e72e796c9c5e78">HardwareCounter</a> (uint32_t delay_s, int gpio, pcnt_unit_t unit=PCNT_UNIT_0)</td></tr>
+<tr class="separator:ae8c29f68e125bb9529e72e796c9c5e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8529a6e8473d44f214dd1649fed8c38"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hardware_counter.html#ad8529a6e8473d44f214dd1649fed8c38">get_last_count</a> ()</td></tr>
 <tr class="separator:ad8529a6e8473d44f214dd1649fed8c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fea25ffc725082777e559bca13f5db7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hardware_counter.html#a8fea25ffc725082777e559bca13f5db7">begin</a> ()</td></tr>
+<tr class="separator:a8fea25ffc725082777e559bca13f5db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7f151e2edd3d718edab3568ffc75dc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hardware_counter.html#aa7f151e2edd3d718edab3568ffc75dc4">reset</a> ()</td></tr>
 <tr class="separator:aa7f151e2edd3d718edab3568ffc75dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e6b2844ae27bf45dd2732e251c251b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hardware_counter.html#a1e6b2844ae27bf45dd2732e251c251b0">update</a> ()</td></tr>
-<tr class="separator:a1e6b2844ae27bf45dd2732e251c251b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b1831862879280db14b8a7406169e7c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hardware_counter.html#a8b1831862879280db14b8a7406169e7c">available</a> ()</td></tr>
 <tr class="separator:a8b1831862879280db14b8a7406169e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a50db37e683b37fc7c123c4a285237e18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hardware_counter.html#a50db37e683b37fc7c123c4a285237e18">timer_intr_handler</a> (void *arg)</td></tr>
+<tr class="separator:a50db37e683b37fc7c123c4a285237e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a917fa58257cd92ce95c5557d9afab447"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a917fa58257cd92ce95c5557d9afab447">&#9670;&nbsp;</a></span>HardwareCounter()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="hardwarecounter_8hpp_source.html#l00016">16</a> of file <a class="el" href="hardwarecounter_8hpp_source.html">hardwarecounter.hpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a83b878ed339ece4944ac7a70b3324cbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83b878ed339ece4944ac7a70b3324cbc">&#9670;&nbsp;</a></span>HardwareCounter() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">HardwareCounter::HardwareCounter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="hardwarecounter_8hpp_source.html#l00038">38</a> of file <a class="el" href="hardwarecounter_8hpp_source.html">hardwarecounter.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae8c29f68e125bb9529e72e796c9c5e78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8c29f68e125bb9529e72e796c9c5e78">&#9670;&nbsp;</a></span>HardwareCounter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">HardwareCounter::HardwareCounter </td>
           <td>(</td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>time_interval</em>, </td>
+          <td class="paramname"><em>delay_s</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -107,7 +148,7 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">pcnt_unit_t&#160;</td>
-          <td class="paramname"><em>pcnt_unit</em> = <code>PCNT_UNIT_0</code>&#160;</td>
+          <td class="paramname"><em>unit</em> = <code>PCNT_UNIT_0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -115,7 +156,14 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="hardwarecounter_8hpp_source.html#l00039">39</a> of file <a class="el" href="hardwarecounter_8hpp_source.html">hardwarecounter.hpp</a>.</p>
 
 </div>
 </div>
@@ -142,14 +190,57 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="hardwarecounter_8hpp_source.html#l00050">50</a> of file <a class="el" href="hardwarecounter_8hpp_source.html">hardwarecounter.hpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_hardware_counter_a8b1831862879280db14b8a7406169e7c_icgraph.png" border="0" usemap="#class_hardware_counter_a8b1831862879280db14b8a7406169e7c_icgraph" alt=""/></div>
 <map name="class_hardware_counter_a8b1831862879280db14b8a7406169e7c_icgraph" id="class_hardware_counter_a8b1831862879280db14b8a7406169e7c_icgraph">
-<area shape="rect" title=" " alt="" coords="243,5,425,32"/>
-<area shape="rect" href="main_8cpp.html#ab7caafc20f90925808f6d876d2489d27" title=" " alt="" coords="100,5,195,32"/>
-<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,52,32"/>
+<area shape="rect" title=" " alt="" coords="479,5,683,32"/>
+<area shape="rect" href="class_geiger_counter.html#af47906652803b0a81b3485ee19d1f7e6" title=" " alt="" coords="261,5,431,32"/>
+<area shape="rect" href="class_context.html#a78c450b80877fe560a2abe7a541a118c" title=" " alt="" coords="104,5,213,32"/>
+<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,56,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8fea25ffc725082777e559bca13f5db7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fea25ffc725082777e559bca13f5db7">&#9670;&nbsp;</a></span>begin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HardwareCounter::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="hardwarecounter_8cpp_source.html#l00022">22</a> of file <a class="el" href="hardwarecounter_8cpp_source.html">hardwarecounter.cpp</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hardware_counter_a8fea25ffc725082777e559bca13f5db7_cgraph.png" border="0" usemap="#class_hardware_counter_a8fea25ffc725082777e559bca13f5db7_cgraph" alt=""/></div>
+<map name="class_hardware_counter_a8fea25ffc725082777e559bca13f5db7_cgraph" id="class_hardware_counter_a8fea25ffc725082777e559bca13f5db7_cgraph">
+<area shape="rect" title=" " alt="" coords="5,31,185,57"/>
+<area shape="rect" href="hardwarecounter_8cpp.html#a90ea1c07ae1f9c94a7c3ad2139f4ebb6" title=" " alt="" coords="255,5,389,32"/>
+<area shape="rect" href="class_hardware_counter.html#aa7f151e2edd3d718edab3568ffc75dc4" title=" " alt="" coords="233,56,411,83"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_hardware_counter_a8fea25ffc725082777e559bca13f5db7_icgraph.png" border="0" usemap="#class_hardware_counter_a8fea25ffc725082777e559bca13f5db7_icgraph" alt=""/></div>
+<map name="class_hardware_counter_a8fea25ffc725082777e559bca13f5db7_icgraph" id="class_hardware_counter_a8fea25ffc725082777e559bca13f5db7_icgraph">
+<area shape="rect" title=" " alt="" coords="595,5,775,32"/>
+<area shape="rect" href="class_geiger_counter.html#a828539acf44e719d73716ff545bce51b" title=" " alt="" coords="387,5,547,32"/>
+<area shape="rect" href="class_context.html#ad6ab2ba0b337de2f0ff6ae764a4ee18a" title=" " alt="" coords="221,5,339,32"/>
+<area shape="rect" href="class_state_startup.html#a7ac68981fbb09d54b448f1905502f668" title=" " alt="" coords="5,5,173,32"/>
 </map>
 </div>
 
@@ -177,15 +268,17 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="hardwarecounter_8hpp_source.html#l00042">42</a> of file <a class="el" href="hardwarecounter_8hpp_source.html">hardwarecounter.hpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_hardware_counter_ad8529a6e8473d44f214dd1649fed8c38_icgraph.png" border="0" usemap="#class_hardware_counter_ad8529a6e8473d44f214dd1649fed8c38_icgraph" alt=""/></div>
 <map name="class_hardware_counter_ad8529a6e8473d44f214dd1649fed8c38_icgraph" id="class_hardware_counter_ad8529a6e8473d44f214dd1649fed8c38_icgraph">
-<area shape="rect" title=" " alt="" coords="473,5,624,47"/>
-<area shape="rect" href="main_8cpp.html#a50d72f9754560e5a429ed24f5cce703e" title=" " alt="" coords="243,13,425,39"/>
-<area shape="rect" href="main_8cpp.html#ab7caafc20f90925808f6d876d2489d27" title=" " alt="" coords="100,13,195,39"/>
-<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,13,52,39"/>
+<area shape="rect" title=" " alt="" coords="479,5,644,47"/>
+<area shape="rect" href="class_geiger_counter.html#af47906652803b0a81b3485ee19d1f7e6" title=" " alt="" coords="261,13,431,39"/>
+<area shape="rect" href="class_context.html#a78c450b80877fe560a2abe7a541a118c" title=" " alt="" coords="104,13,213,39"/>
+<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,13,56,39"/>
 </map>
 </div>
 
@@ -205,48 +298,55 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="hardwarecounter_8cpp_source.html#l00070">70</a> of file <a class="el" href="hardwarecounter_8cpp_source.html">hardwarecounter.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_hardware_counter_aa7f151e2edd3d718edab3568ffc75dc4_icgraph.png" border="0" usemap="#class_hardware_counter_aa7f151e2edd3d718edab3568ffc75dc4_icgraph" alt=""/></div>
 <map name="class_hardware_counter_aa7f151e2edd3d718edab3568ffc75dc4_icgraph" id="class_hardware_counter_aa7f151e2edd3d718edab3568ffc75dc4_icgraph">
-<area shape="rect" title=" " alt="" coords="108,5,269,32"/>
-<area shape="rect" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d" title=" " alt="" coords="5,5,60,32"/>
+<area shape="rect" title=" " alt="" coords="823,5,1000,32"/>
+<area shape="rect" href="class_hardware_counter.html#a8fea25ffc725082777e559bca13f5db7" title=" " alt="" coords="595,5,775,32"/>
+<area shape="rect" href="class_geiger_counter.html#a828539acf44e719d73716ff545bce51b" title=" " alt="" coords="387,5,547,32"/>
+<area shape="rect" href="class_context.html#ad6ab2ba0b337de2f0ff6ae764a4ee18a" title=" " alt="" coords="221,5,339,32"/>
+<area shape="rect" href="class_state_startup.html#a7ac68981fbb09d54b448f1905502f668" title=" " alt="" coords="5,5,173,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a1e6b2844ae27bf45dd2732e251c251b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e6b2844ae27bf45dd2732e251c251b0">&#9670;&nbsp;</a></span>update()</h2>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a50db37e683b37fc7c123c4a285237e18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50db37e683b37fc7c123c4a285237e18">&#9670;&nbsp;</a></span>timer_intr_handler</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void HardwareCounter::update </td>
+          <td class="memname">void timer_intr_handler </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_hardware_counter_a1e6b2844ae27bf45dd2732e251c251b0_icgraph.png" border="0" usemap="#class_hardware_counter_a1e6b2844ae27bf45dd2732e251c251b0_icgraph" alt=""/></div>
-<map name="class_hardware_counter_a1e6b2844ae27bf45dd2732e251c251b0_icgraph" id="class_hardware_counter_a1e6b2844ae27bf45dd2732e251c251b0_icgraph">
-<area shape="rect" title=" " alt="" coords="243,5,413,32"/>
-<area shape="rect" href="main_8cpp.html#ab7caafc20f90925808f6d876d2489d27" title=" " alt="" coords="100,5,195,32"/>
-<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,52,32"/>
-</map>
-</div>
+
+<p class="definition">Definition at line <a class="el" href="hardwarecounter_8cpp_source.html#l00016">16</a> of file <a class="el" href="hardwarecounter_8cpp_source.html">hardwarecounter.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/rob/Documents/PlatformIO/Projects/M5stack bGeigieRaku/bgeigie_firmware_pio/include/<a class="el" href="hardwarecounter_8hpp_source.html">hardwarecounter.hpp</a></li>
-<li>/home/rob/Documents/PlatformIO/Projects/M5stack bGeigieRaku/bgeigie_firmware_pio/src/<a class="el" href="hardwarecounter_8cpp.html">hardwarecounter.cpp</a></li>
+<li>include/<a class="el" href="hardwarecounter_8hpp_source.html">hardwarecounter.hpp</a></li>
+<li>src/<a class="el" href="hardwarecounter_8cpp_source.html">hardwarecounter.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

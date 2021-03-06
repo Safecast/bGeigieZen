@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>bGeigieZen: /home/rob/Documents/PlatformIO/Projects/M5stack bGeigieRaku/bgeigie_firmware_pio/src/hardwarecounter.cpp File Reference</title>
+<title>bGeigieZen: src/hardwarecounter.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -65,6 +65,8 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">hardwarecounter.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -73,19 +75,83 @@ $(function() {
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for hardwarecounter.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="hardwarecounter_8cpp__incl.png" border="0" usemap="#_2home_2rob_2_documents_2_platform_i_o_2_projects_2_m5stack_01b_geigie_raku_2bgeigie__firmware__pio_2src_2hardwarecounter_8cpp" alt=""/></div>
-<map name="_2home_2rob_2_documents_2_platform_i_o_2_projects_2_m5stack_01b_geigie_raku_2bgeigie__firmware__pio_2src_2hardwarecounter_8cpp" id="_2home_2rob_2_documents_2_platform_i_o_2_projects_2_m5stack_01b_geigie_raku_2bgeigie__firmware__pio_2src_2hardwarecounter_8cpp">
-<area shape="rect" title=" " alt="" coords="231,5,399,91"/>
-<area shape="rect" href="hardwarecounter_8hpp.html" title=" " alt="" coords="243,139,386,165"/>
-<area shape="rect" title=" " alt="" coords="5,213,91,240"/>
-<area shape="rect" title=" " alt="" coords="115,213,210,240"/>
-<area shape="rect" title=" " alt="" coords="235,213,309,240"/>
-<area shape="rect" title=" " alt="" coords="333,213,384,240"/>
-<area shape="rect" href="config_8hpp.html" title=" " alt="" coords="408,213,491,240"/>
-<area shape="rect" title=" " alt="" coords="515,213,568,240"/>
+<div class="center"><img src="hardwarecounter_8cpp__incl.png" border="0" usemap="#src_2hardwarecounter_8cpp" alt=""/></div>
+<map name="src_2hardwarecounter_8cpp" id="src_2hardwarecounter_8cpp">
+<area shape="rect" title=" " alt="" coords="148,5,329,32"/>
+<area shape="rect" href="hardwarecounter_8hpp.html" title=" " alt="" coords="159,80,318,107"/>
+<area shape="rect" title=" " alt="" coords="5,155,64,181"/>
+<area shape="rect" title=" " alt="" coords="88,155,179,181"/>
+<area shape="rect" title=" " alt="" coords="203,155,275,181"/>
+<area shape="rect" title=" " alt="" coords="299,155,403,181"/>
+<area shape="rect" href="config_8hpp.html" title=" " alt="" coords="427,155,517,181"/>
+<area shape="rect" title=" " alt="" coords="393,229,460,256"/>
+<area shape="rect" title=" " alt="" coords="485,229,550,256"/>
 </map>
 </div>
-</div></div><!-- contents -->
+</div>
+<p><a href="hardwarecounter_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a90ea1c07ae1f9c94a7c3ad2139f4ebb6"><td class="memItemLeft" align="right" valign="top">void IRAM_ATTR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardwarecounter_8cpp.html#a90ea1c07ae1f9c94a7c3ad2139f4ebb6">pcnt_intr_handler</a> (void *arg)</td></tr>
+<tr class="separator:a90ea1c07ae1f9c94a7c3ad2139f4ebb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a332e473d9db05aedc2fa329a3e3392cf"><td class="memItemLeft" align="right" valign="top">void IRAM_ATTR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hardwarecounter_8cpp.html#a332e473d9db05aedc2fa329a3e3392cf">timer_intr_handler</a> (void *arg)</td></tr>
+<tr class="separator:a332e473d9db05aedc2fa329a3e3392cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a90ea1c07ae1f9c94a7c3ad2139f4ebb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90ea1c07ae1f9c94a7c3ad2139f4ebb6">&#9670;&nbsp;</a></span>pcnt_intr_handler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IRAM_ATTR pcnt_intr_handler </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="hardwarecounter_8cpp_source.html#l00007">7</a> of file <a class="el" href="hardwarecounter_8cpp_source.html">hardwarecounter.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="hardwarecounter_8cpp_a90ea1c07ae1f9c94a7c3ad2139f4ebb6_icgraph.png" border="0" usemap="#hardwarecounter_8cpp_a90ea1c07ae1f9c94a7c3ad2139f4ebb6_icgraph" alt=""/></div>
+<map name="hardwarecounter_8cpp_a90ea1c07ae1f9c94a7c3ad2139f4ebb6_icgraph" id="hardwarecounter_8cpp_a90ea1c07ae1f9c94a7c3ad2139f4ebb6_icgraph">
+<area shape="rect" title=" " alt="" coords="823,5,957,32"/>
+<area shape="rect" href="class_hardware_counter.html#a8fea25ffc725082777e559bca13f5db7" title=" " alt="" coords="595,5,775,32"/>
+<area shape="rect" href="class_geiger_counter.html#a828539acf44e719d73716ff545bce51b" title=" " alt="" coords="387,5,547,32"/>
+<area shape="rect" href="class_context.html#ad6ab2ba0b337de2f0ff6ae764a4ee18a" title=" " alt="" coords="221,5,339,32"/>
+<area shape="rect" href="class_state_startup.html#a7ac68981fbb09d54b448f1905502f668" title=" " alt="" coords="5,5,173,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a332e473d9db05aedc2fa329a3e3392cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a332e473d9db05aedc2fa329a3e3392cf">&#9670;&nbsp;</a></span>timer_intr_handler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IRAM_ATTR timer_intr_handler </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="hardwarecounter_8cpp_source.html#l00016">16</a> of file <a class="el" href="hardwarecounter_8cpp_source.html">hardwarecounter.cpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
