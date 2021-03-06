@@ -1,7 +1,14 @@
 var searchData=
 [
-  ['event_5fgps_5fdate_5fbecame_5fcorrect_410',['EVENT_GPS_DATE_BECAME_CORRECT',['../fsm_8hpp.html#a909a27dcaec9701826e97a7932d86bd3aa38fcdae731116a48b3494164c4116a5',1,'fsm.hpp']]],
-  ['event_5fgps_5fgeiger_5fcount_5fready_411',['EVENT_GPS_GEIGER_COUNT_READY',['../fsm_8hpp.html#a909a27dcaec9701826e97a7932d86bd3a50d9d5ac4a3f84b41516b81d5ec17d2d',1,'fsm.hpp']]],
-  ['event_5flog_5ffile_5fcreated_412',['EVENT_LOG_FILE_CREATED',['../fsm_8hpp.html#a909a27dcaec9701826e97a7932d86bd3a96c9ca4660e6463ecdeddb361c35e92c',1,'fsm.hpp']]],
-  ['event_5fsetup_5ffinished_413',['EVENT_SETUP_FINISHED',['../fsm_8hpp.html#a909a27dcaec9701826e97a7932d86bd3aa3102e51e3e51bdb270ef10dbd8b12df',1,'fsm.hpp']]]
+  ['geigie_5fmode_5fbqm2_675',['GEIGIE_MODE_BQM2',['../setup_8hpp.html#ae760bd8ad07eb8a31d8f8687560c6cf0a128eff6337d9fec760a28bf90064c84c',1,'setup.hpp']]],
+  ['geigie_5fmode_5fusvh_676',['GEIGIE_MODE_USVH',['../setup_8hpp.html#ae760bd8ad07eb8a31d8f8687560c6cf0ae6287e35662f4d3db7fb9d09fcdcced8',1,'setup.hpp']]],
+  ['geigie_5ftype_5fb_677',['GEIGIE_TYPE_B',['../setup_8hpp.html#a9062880a42e2fe7cee5fb048fb51e894a1b8c857fb3b0401edff31d7fa07dfba0',1,'setup.hpp']]],
+  ['geigie_5ftype_5fx_678',['GEIGIE_TYPE_X',['../setup_8hpp.html#a9062880a42e2fe7cee5fb048fb51e894af20e825a19b49d92075c0a8afdc3df91',1,'setup.hpp']]],
+  ['gps_5fdate_5fbecame_5fcorrect_679',['GPS_DATE_BECAME_CORRECT',['../fsm__state__base_8hpp.html#a5667b805d857c6d28f83f6038a0272d3ae55cc97e470ecc86576b6cb73b667b02',1,'fsm_state_base.hpp']]],
+  ['gps_5fgeiger_5fcount_5fready_680',['GPS_GEIGER_COUNT_READY',['../fsm__state__base_8hpp.html#a5667b805d857c6d28f83f6038a0272d3a722528bdd5b2cb2cf7b31d6c5e719aa3',1,'fsm_state_base.hpp']]],
+  ['gps_5fgot_5fgpgga_5fwait_5fgprmc_681',['GPS_Got_GPGGA_Wait_GPRMC',['../gps_8hpp.html#a0b8277c2fe19ebf1012c8af7ab33344facddb3dad3c491d3d11f4d8686c149b12',1,'gps.hpp']]],
+  ['gps_5fgot_5fgprmc_5fwait_5fgpgga_682',['GPS_Got_GPRMC_Wait_GPGGA',['../gps_8hpp.html#a0b8277c2fe19ebf1012c8af7ab33344fadc7d06af1660e029172824e99c6bb5d8',1,'gps.hpp']]],
+  ['gps_5fidle_683',['GPS_Idle',['../gps_8hpp.html#a0b8277c2fe19ebf1012c8af7ab33344fa7ae05b303dc667638e6df44e83c5144a',1,'gps.hpp']]],
+  ['gps_5fstartup_684',['GPS_Startup',['../gps_8hpp.html#a0b8277c2fe19ebf1012c8af7ab33344fad8e8425d09d2255581e6b3eaabfe6ac1',1,'gps.hpp']]],
+  ['gps_5fwait_5fgpgga_5fwait_5fgprmc_685',['GPS_Wait_GPGGA_Wait_GPRMC',['../gps_8hpp.html#a0b8277c2fe19ebf1012c8af7ab33344fa01bfd562f237c68255a61d9ada715cd4',1,'gps.hpp']]]
 ];

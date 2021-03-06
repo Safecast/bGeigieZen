@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>bGeigieZen: /home/rob/Documents/PlatformIO/Projects/M5stack bGeigieRaku/bgeigie_firmware_pio/src/display.cpp File Reference</title>
+<title>bGeigieZen: src/display.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,28 +72,38 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;M5Stack.h&gt;</code><br />
+<code>#include &lt;cstdio&gt;</code><br />
 <code>#include &lt;<a class="el" href="display_8hpp_source.html">display.hpp</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for display.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="display_8cpp__incl.png" border="0" usemap="#_2home_2rob_2_documents_2_platform_i_o_2_projects_2_m5stack_01b_geigie_raku_2bgeigie__firmware__pio_2src_2display_8cpp" alt=""/></div>
-<map name="_2home_2rob_2_documents_2_platform_i_o_2_projects_2_m5stack_01b_geigie_raku_2bgeigie__firmware__pio_2src_2display_8cpp" id="_2home_2rob_2_documents_2_platform_i_o_2_projects_2_m5stack_01b_geigie_raku_2bgeigie__firmware__pio_2src_2display_8cpp">
-<area shape="rect" title=" " alt="" coords="109,5,263,91"/>
-<area shape="rect" title=" " alt="" coords="181,288,266,315"/>
-<area shape="rect" href="display_8hpp.html" title=" " alt="" coords="204,139,291,165"/>
-<area shape="rect" href="_tiny_g_p_s_09_09_8h.html" title=" " alt="" coords="53,288,156,315"/>
-<area shape="rect" href="gps_8hpp.html" title=" " alt="" coords="235,213,303,240"/>
-<area shape="rect" href="hardwarecounter_8hpp.html" title=" " alt="" coords="373,213,516,240"/>
-<area shape="rect" title=" " alt="" coords="5,363,100,389"/>
-<area shape="rect" title=" " alt="" coords="125,363,189,389"/>
-<area shape="rect" href="config_8hpp.html" title=" " alt="" coords="290,288,373,315"/>
-<area shape="rect" title=" " alt="" coords="397,288,492,315"/>
-<area shape="rect" title=" " alt="" coords="517,288,591,315"/>
-<area shape="rect" title=" " alt="" coords="615,288,666,315"/>
-<area shape="rect" title=" " alt="" coords="690,288,743,315"/>
+<div class="center"><img src="display_8cpp__incl.png" border="0" usemap="#src_2display_8cpp" alt=""/></div>
+<map name="src_2display_8cpp" id="src_2display_8cpp">
+<area shape="rect" title=" " alt="" coords="421,5,539,32"/>
+<area shape="rect" title=" " alt="" coords="5,304,96,331"/>
+<area shape="rect" title=" " alt="" coords="552,80,613,107"/>
+<area shape="rect" href="display_8hpp.html" title=" " alt="" coords="433,80,527,107"/>
+<area shape="rect" href="_tiny_g_p_s_09_09_8h.html" title=" " alt="" coords="706,229,817,256"/>
+<area shape="rect" href="config_8hpp.html" title=" " alt="" coords="427,304,517,331"/>
+<area shape="rect" href="setup_8hpp.html" title=" " alt="" coords="555,229,642,256"/>
+<area shape="rect" href="gps_8hpp.html" title=" " alt="" coords="406,155,479,181"/>
+<area shape="rect" href="geiger__counter_8hpp.html" title=" " alt="" coords="225,155,372,181"/>
+<area shape="rect" title=" " alt="" coords="862,304,965,331"/>
+<area shape="rect" title=" " alt="" coords="767,304,838,331"/>
+<area shape="rect" title=" " alt="" coords="393,379,460,405"/>
+<area shape="rect" title=" " alt="" coords="485,379,550,405"/>
+<area shape="rect" title=" " alt="" coords="676,304,743,331"/>
+<area shape="rect" title=" " alt="" coords="541,304,651,331"/>
+<area shape="rect" title=" " alt="" coords="88,229,144,256"/>
+<area shape="rect" href="hardwarecounter_8hpp.html" title=" " alt="" coords="219,229,378,256"/>
+<area shape="rect" title=" " alt="" coords="120,304,179,331"/>
+<area shape="rect" title=" " alt="" coords="203,304,275,331"/>
+<area shape="rect" title=" " alt="" coords="299,304,403,331"/>
 </map>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="display_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a257d550e178a981f697d51a2a1695892"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8cpp.html#a257d550e178a981f697d51a2a1695892">printFloat</a> (float val, bool valid, int len, int prec)</td></tr>
@@ -125,6 +135,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="display_8cpp_source.html#l00230">230</a> of file <a class="el" href="display_8cpp_source.html">display.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -144,11 +156,11 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="display_8cpp_a926cd9ce500f615f3624c657c59d7153_icgraph.png" border="0" usemap="#display_8cpp_a926cd9ce500f615f3624c657c59d7153_icgraph" alt=""/></div>
 <map name="display_8cpp_a926cd9ce500f615f3624c657c59d7153_icgraph" id="display_8cpp_a926cd9ce500f615f3624c657c59d7153_icgraph">
-<area shape="rect" title=" " alt="" coords="589,5,664,32"/>
-<area shape="rect" href="class_display.html#a67f2a955b6ece55b0523c08cac84653e" title=" " alt="" coords="404,5,541,32"/>
-<area shape="rect" href="class_display.html#ad2740b779d61e461c4dcaaf34f1fcd8f" title=" " alt="" coords="243,5,356,32"/>
-<area shape="rect" href="main_8cpp.html#ab7caafc20f90925808f6d876d2489d27" title=" " alt="" coords="100,5,195,32"/>
-<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,52,32"/>
+<area shape="rect" title=" " alt="" coords="631,5,713,32"/>
+<area shape="rect" href="class_display.html#a67f2a955b6ece55b0523c08cac84653e" title=" " alt="" coords="432,5,583,32"/>
+<area shape="rect" href="class_display.html#ad2740b779d61e461c4dcaaf34f1fcd8f" title=" " alt="" coords="261,5,384,32"/>
+<area shape="rect" href="class_context.html#a78c450b80877fe560a2abe7a541a118c" title=" " alt="" coords="104,5,213,32"/>
+<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,56,32"/>
 </map>
 </div>
 
@@ -191,16 +203,18 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="display_8cpp_source.html#l00171">171</a> of file <a class="el" href="display_8cpp_source.html">display.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="display_8cpp_a257d550e178a981f697d51a2a1695892_icgraph.png" border="0" usemap="#display_8cpp_a257d550e178a981f697d51a2a1695892_icgraph" alt=""/></div>
 <map name="display_8cpp_a257d550e178a981f697d51a2a1695892_icgraph" id="display_8cpp_a257d550e178a981f697d51a2a1695892_icgraph">
-<area shape="rect" title=" " alt="" coords="589,5,665,32"/>
-<area shape="rect" href="class_display.html#a67f2a955b6ece55b0523c08cac84653e" title=" " alt="" coords="404,5,541,32"/>
-<area shape="rect" href="class_display.html#ad2740b779d61e461c4dcaaf34f1fcd8f" title=" " alt="" coords="243,5,356,32"/>
-<area shape="rect" href="main_8cpp.html#ab7caafc20f90925808f6d876d2489d27" title=" " alt="" coords="100,5,195,32"/>
-<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,52,32"/>
+<area shape="rect" title=" " alt="" coords="631,5,716,32"/>
+<area shape="rect" href="class_display.html#a67f2a955b6ece55b0523c08cac84653e" title=" " alt="" coords="432,5,583,32"/>
+<area shape="rect" href="class_display.html#ad2740b779d61e461c4dcaaf34f1fcd8f" title=" " alt="" coords="261,5,384,32"/>
+<area shape="rect" href="class_context.html#a78c450b80877fe560a2abe7a541a118c" title=" " alt="" coords="104,5,213,32"/>
+<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,56,32"/>
 </map>
 </div>
 
@@ -261,16 +275,18 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="display_8cpp_source.html#l00185">185</a> of file <a class="el" href="display_8cpp_source.html">display.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="display_8cpp_a1cd111cb4e208d401902c3ae1eed3b59_icgraph.png" border="0" usemap="#display_8cpp_a1cd111cb4e208d401902c3ae1eed3b59_icgraph" alt=""/></div>
 <map name="display_8cpp_a1cd111cb4e208d401902c3ae1eed3b59_icgraph" id="display_8cpp_a1cd111cb4e208d401902c3ae1eed3b59_icgraph">
-<area shape="rect" title=" " alt="" coords="589,5,692,32"/>
-<area shape="rect" href="class_display.html#a67f2a955b6ece55b0523c08cac84653e" title=" " alt="" coords="404,5,541,32"/>
-<area shape="rect" href="class_display.html#ad2740b779d61e461c4dcaaf34f1fcd8f" title=" " alt="" coords="243,5,356,32"/>
-<area shape="rect" href="main_8cpp.html#ab7caafc20f90925808f6d876d2489d27" title=" " alt="" coords="100,5,195,32"/>
-<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,52,32"/>
+<area shape="rect" title=" " alt="" coords="631,5,744,32"/>
+<area shape="rect" href="class_display.html#a67f2a955b6ece55b0523c08cac84653e" title=" " alt="" coords="432,5,583,32"/>
+<area shape="rect" href="class_display.html#ad2740b779d61e461c4dcaaf34f1fcd8f" title=" " alt="" coords="261,5,384,32"/>
+<area shape="rect" href="class_context.html#a78c450b80877fe560a2abe7a541a118c" title=" " alt="" coords="104,5,213,32"/>
+<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,56,32"/>
 </map>
 </div>
 
@@ -307,17 +323,19 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="display_8cpp_source.html#l00207">207</a> of file <a class="el" href="display_8cpp_source.html">display.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="display_8cpp_a98b4b70aadeb673bcc1d2d3739a5a814_icgraph.png" border="0" usemap="#display_8cpp_a98b4b70aadeb673bcc1d2d3739a5a814_icgraph" alt=""/></div>
 <map name="display_8cpp_a98b4b70aadeb673bcc1d2d3739a5a814_icgraph" id="display_8cpp_a98b4b70aadeb673bcc1d2d3739a5a814_icgraph">
-<area shape="rect" title=" " alt="" coords="712,5,775,32"/>
-<area shape="rect" href="class_display.html#a67f2a955b6ece55b0523c08cac84653e" title=" " alt="" coords="404,5,541,32"/>
-<area shape="rect" href="display_8cpp.html#a926cd9ce500f615f3624c657c59d7153" title=" " alt="" coords="589,31,664,57"/>
-<area shape="rect" href="class_display.html#ad2740b779d61e461c4dcaaf34f1fcd8f" title=" " alt="" coords="243,5,356,32"/>
-<area shape="rect" href="main_8cpp.html#ab7caafc20f90925808f6d876d2489d27" title=" " alt="" coords="100,5,195,32"/>
-<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,52,32"/>
+<area shape="rect" title=" " alt="" coords="761,5,831,32"/>
+<area shape="rect" href="class_display.html#a67f2a955b6ece55b0523c08cac84653e" title=" " alt="" coords="432,5,583,32"/>
+<area shape="rect" href="display_8cpp.html#a926cd9ce500f615f3624c657c59d7153" title=" " alt="" coords="631,31,713,57"/>
+<area shape="rect" href="class_display.html#ad2740b779d61e461c4dcaaf34f1fcd8f" title=" " alt="" coords="261,5,384,32"/>
+<area shape="rect" href="class_context.html#a78c450b80877fe560a2abe7a541a118c" title=" " alt="" coords="104,5,213,32"/>
+<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,56,32"/>
 </map>
 </div>
 
@@ -372,16 +390,18 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="display_8cpp_source.html#l00218">218</a> of file <a class="el" href="display_8cpp_source.html">display.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="display_8cpp_ac3f9cc9b5e5a3d4ede89be90682c1acb_icgraph.png" border="0" usemap="#display_8cpp_ac3f9cc9b5e5a3d4ede89be90682c1acb_icgraph" alt=""/></div>
 <map name="display_8cpp_ac3f9cc9b5e5a3d4ede89be90682c1acb_icgraph" id="display_8cpp_ac3f9cc9b5e5a3d4ede89be90682c1acb_icgraph">
-<area shape="rect" title=" " alt="" coords="589,5,677,32"/>
-<area shape="rect" href="class_display.html#a67f2a955b6ece55b0523c08cac84653e" title=" " alt="" coords="404,5,541,32"/>
-<area shape="rect" href="class_display.html#ad2740b779d61e461c4dcaaf34f1fcd8f" title=" " alt="" coords="243,5,356,32"/>
-<area shape="rect" href="main_8cpp.html#ab7caafc20f90925808f6d876d2489d27" title=" " alt="" coords="100,5,195,32"/>
-<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,52,32"/>
+<area shape="rect" title=" " alt="" coords="631,5,728,32"/>
+<area shape="rect" href="class_display.html#a67f2a955b6ece55b0523c08cac84653e" title=" " alt="" coords="432,5,583,32"/>
+<area shape="rect" href="class_display.html#ad2740b779d61e461c4dcaaf34f1fcd8f" title=" " alt="" coords="261,5,384,32"/>
+<area shape="rect" href="class_context.html#a78c450b80877fe560a2abe7a541a118c" title=" " alt="" coords="104,5,213,32"/>
+<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,56,32"/>
 </map>
 </div>
 
@@ -402,6 +422,8 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="display_8cpp_source.html#l00243">243</a> of file <a class="el" href="display_8cpp_source.html">display.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -419,11 +441,11 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="display_8cpp_ae52b907c706dbf05bd97198c296ec5cc_icgraph.png" border="0" usemap="#display_8cpp_ae52b907c706dbf05bd97198c296ec5cc_icgraph" alt=""/></div>
 <map name="display_8cpp_ae52b907c706dbf05bd97198c296ec5cc_icgraph" id="display_8cpp_ae52b907c706dbf05bd97198c296ec5cc_icgraph">
-<area shape="rect" title=" " alt="" coords="589,5,665,32"/>
-<area shape="rect" href="class_display.html#a67f2a955b6ece55b0523c08cac84653e" title=" " alt="" coords="404,5,541,32"/>
-<area shape="rect" href="class_display.html#ad2740b779d61e461c4dcaaf34f1fcd8f" title=" " alt="" coords="243,5,356,32"/>
-<area shape="rect" href="main_8cpp.html#ab7caafc20f90925808f6d876d2489d27" title=" " alt="" coords="100,5,195,32"/>
-<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,52,32"/>
+<area shape="rect" title=" " alt="" coords="631,5,716,32"/>
+<area shape="rect" href="class_display.html#a67f2a955b6ece55b0523c08cac84653e" title=" " alt="" coords="432,5,583,32"/>
+<area shape="rect" href="class_display.html#ad2740b779d61e461c4dcaaf34f1fcd8f" title=" " alt="" coords="261,5,384,32"/>
+<area shape="rect" href="class_context.html#a78c450b80877fe560a2abe7a541a118c" title=" " alt="" coords="104,5,213,32"/>
+<area shape="rect" href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title=" " alt="" coords="5,5,56,32"/>
 </map>
 </div>
 

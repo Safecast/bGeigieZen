@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['bgeigie_5fformatter_351',['bgeigie_formatter',['../main_8cpp.html#a442651defcc89365e84929cc21ad454e',1,'main.cpp']]],
-  ['billionths_352',['billionths',['../struct_raw_degrees.html#a13564009c60e20dbf03b158114d1c0e2',1,'RawDegrees']]]
+  ['alarm_5flevel_580',['alarm_level',['../struct_config_data.html#a0926ea1423d747769c2c483cfe9e67d8',1,'ConfigData']]],
+  ['altitude_581',['altitude',['../class_tiny_g_p_s_plus.html#a0b3451a4ee75e5880ffd88c3038eacf8',1,'TinyGPSPlus']]]
 ];
