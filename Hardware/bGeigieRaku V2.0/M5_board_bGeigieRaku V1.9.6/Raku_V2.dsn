@@ -202,7 +202,7 @@
             91866.5 -66820.2  92305.2 -66746.5  92748.9 -66695.8  93196.9 -66668.5
             93648.6 -66665.6  105648 -66665.6  105798 -66675.4)
     )
-    (plane GND (polygon F.Cu 0  212954 -133298  85318.6 -133298  83607.6 -66430  214208 -66630
+    (plane GND (polygon F.Cu 0  212954 -133298  85318.6 -133298  83607.6 -66430  215378 -66770
             212954 -133298))
     (via "Via[0-1]_300:400_um" "Via[0-1]_500:800_um")
     (rule
@@ -213,8 +213,8 @@
     )
   )
   (placement
-    (component Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical
-      (place J4 197037.600000 -94950.000000 front 90.000000 (PN "Geiger 2"))
+    (component "Library:BATTERY_18650-HOLDER"
+      (place BT1 177707.600000 -120030.000000 back 0.000000 (PN " 3.7 V Lipo"))
     )
     (component LOGO
       (place G*** 91107.600000 -100230.000000 front 90.000000 (PN LOGO))
@@ -226,8 +226,10 @@
       (place H1 90652.600000 -125932.000000 front 0.000000 (PN MountingHole_Pad))
       (place H8 200645.000000 -88980.000000 front 0.000000 (PN MountingHole_Pad))
       (place H3 176134.000000 -94441.000000 front 0.000000 (PN MountingHole_Pad))
+      (place H7 171717.600000 -126000.000000 front 0.000000 (PN MountingHole_Pad))
       (place H4 103808.000000 -76780.000000 front 0.000000 (PN MountingHole_Pad))
       (place H2 90652.600000 -71815.500000 front 0.000000 (PN MountingHole_Pad))
+      (place H6 103937.600000 -120510.000000 front 0.000000 (PN MountingHole_Pad))
       (place H5 208636.000000 -125932.000000 front 0.000000 (PN MountingHole_Pad))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_2x15_P2.54mm_Vertical_SMD
@@ -236,8 +238,8 @@
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical
       (place J10 210033.000000 -105485.000000 front -90.000000 (PN "QI GND"))
     )
-    (component Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical
-      (place J3 155007.600000 -100920.000000 front 180.000000 (PN GPS))
+    (component Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical
+      (place J3 155042.600000 -103415.000000 front 180.000000 (PN GPS))
     )
     (component "bGeigieNanoKit V1.1r5a:EG1206"
       (place SW1 183744.000000 -76148.000000 front 180.000000 (PN SW_SPDT))
@@ -249,16 +251,19 @@
       (place J9 210033.000000 -90499.000000 front -90.000000 (PN "QI Plus"))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical
-      (place J7 183408.000000 -113405.000000 front 90.000000 (PN Conn_01x14_Female))
+      (place J7 160527.600000 -111730.000000 front 90.000000 (PN Conn_01x14_Female))
     )
     (component "bGeigieNano V1.1.5:0207_10::1"
       (place R1 185903.000000 -86054.000000 front 180.000000 (PN 9k))
+    )
+    (component Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical
+      (place J4 197037.600000 -94950.000000 front 90.000000 (PN "Geiger 2"))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical::1
       (place J2 207108.000000 -95330.000000 front 0.000000 (PN Geiger))
     )
     (component "Diode_THT:D_DO-15_P15.24mm_Horizontal"
-      (place D2 165488.000000 -105180.000000 front 90.000000 (PN DIODE))
+      (place D2 166567.600000 -101920.000000 front 90.000000 (PN DIODE))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::2
       (place J8 185014.000000 -90499.000000 front -90.000000 (PN "QI charger GND"))
@@ -267,10 +272,7 @@
       (place J11 185014.000000 -105485.000000 front -90.000000 (PN "QI charger Plus"))
     )
     (component "Diode_THT:D_DO-15_P15.24mm_Horizontal::1"
-      (place D1 160338.000000 -105180.000000 front 90.000000 (PN DIODE))
-    )
-    (component "Battery_Holders:BATTERY_18650-HOLDER"
-      (place BT1 177707.600000 -123030.000000 back 0.000000 (PN " 3.7 V Lipo"))
+      (place D1 161417.600000 -101920.000000 front 90.000000 (PN DIODE))
     )
     (component "Package_TO_SOT_THT:TO-220-3_Vertical"
       (place Q1 157258.000000 -73310.000000 back 180.000000 (PN IRF4905))
@@ -280,25 +282,55 @@
     )
   )
   (library
-    (image Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical
-      (outline (path signal 50  1800 1800  -1800 1800))
-      (outline (path signal 50  1800 -6850  1800 1800))
-      (outline (path signal 50  -1800 -6850  1800 -6850))
-      (outline (path signal 50  -1800 1800  -1800 -6850))
-      (outline (path signal 120  -1330 1330  0 1330))
-      (outline (path signal 120  -1330 0  -1330 1330))
-      (outline (path signal 120  -1330 -1270  1330 -1270))
-      (outline (path signal 120  1330 -1270  1330 -6410))
-      (outline (path signal 120  -1330 -1270  -1330 -6410))
-      (outline (path signal 120  -1330 -6410  1330 -6410))
-      (outline (path signal 100  -1270 635  -635 1270))
-      (outline (path signal 100  -1270 -6350  -1270 635))
-      (outline (path signal 100  1270 -6350  -1270 -6350))
-      (outline (path signal 100  1270 1270  1270 -6350))
-      (outline (path signal 100  -635 1270  1270 1270))
-      (pin Oval[A]Pad_1700x1700_um 3 0 -5080)
-      (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
-      (pin Rect[A]Pad_1700x1700_um 1 0 0)
+    (image "Library:BATTERY_18650-HOLDER"
+      (outline (path signal 203.2  21230 -5552.6  21230 5572.6))
+      (outline (path signal 203.2  34324.8 4445  34324.8 -4445))
+      (outline (path signal 203.2  30845 5562.6  30845 4445))
+      (outline (path signal 203.2  -34324.8 -4445  -34324.8 4445))
+      (outline (path signal 203.2  30765 4455  34244.8 4455))
+      (outline (path signal 203.2  -34324.8 4445  -30845 4445))
+      (outline (path signal 203.2  -21320 -5562.6  -30845 -5562.6))
+      (outline (path signal 203.2  -21320 5562.6  -21320 -5562.6))
+      (outline (path signal 203.2  34324.8 -4445  30845 -4445))
+      (outline (path signal 203.2  30765 -5552.6  21230 -5552.6))
+      (outline (path signal 203.2  -30845 4445  -30845 5562.6))
+      (outline (path signal 203.2  30765 -4435  30765 -5552.6))
+      (outline (path signal 203.2  21320 5562.6  30845 5562.6))
+      (outline (path signal 203.2  34244.8 -4435  30765 -4435))
+      (outline (path signal 203.2  21320 -5562.6  21320 5562.6))
+      (outline (path signal 203.2  21230 5572.6  30765 5572.6))
+      (outline (path signal 203.2  30845 -4445  30845 -5562.6))
+      (outline (path signal 203.2  30765 5572.6  30765 4455))
+      (outline (path signal 203.2  30845 -5562.6  21320 -5562.6))
+      (outline (path signal 203.2  -30845 -4445  -34324.8 -4445))
+      (outline (path signal 203.2  -30845 -5562.6  -30845 -4445))
+      (outline (path signal 203.2  -30845 5562.6  -21320 5562.6))
+      (outline (path signal 203.2  34244.8 4455  34244.8 -4435))
+      (outline (path signal 203.2  30845 4445  34324.8 4445))
+      (outline (path signal 203.2  30765 -5552.6  21230 -5552.6))
+      (outline (path signal 203.2  -21230 -5572.6  -30765 -5572.6))
+      (outline (path signal 203.2  30765 4455  34244.8 4455))
+      (outline (path signal 203.2  -30765 5552.6  -21230 5552.6))
+      (outline (path signal 203.2  34244.8 4455  34244.8 -4435))
+      (outline (path signal 203.2  21230 5572.6  30765 5572.6))
+      (outline (path signal 203.2  30765 -4435  30765 -5552.6))
+      (outline (path signal 203.2  -30765 -4455  -34244.8 -4455))
+      (outline (path signal 203.2  -21230 5552.6  -21230 -5572.6))
+      (outline (path signal 203.2  -30765 -5572.6  -30765 -4455))
+      (outline (path signal 203.2  21230 -5552.6  21230 5572.6))
+      (outline (path signal 203.2  -34244.8 -4455  -34244.8 4435))
+      (outline (path signal 203.2  -34244.8 4435  -30765 4435))
+      (outline (path signal 203.2  34244.8 -4435  30765 -4435))
+      (outline (path signal 203.2  -30765 4435  -30765 5552.6))
+      (outline (path signal 203.2  30765 5572.6  30765 4455))
+      (pin Round[A]Pad_2743.2_um (rotate 90) PWR@3 -23880 -2550)
+      (pin Round[A]Pad_2743.2_um (rotate 90) PWR@2 -23880 2530)
+      (pin Round[A]Pad_2743.2_um (rotate 270) GND@3 23880 -2530)
+      (pin Round[A]Pad_2743.2_um (rotate 270) GND@2 23880 2550)
+      (pin Round[A]Pad_2743.2_um (rotate 180) 2 30628 10)
+      (pin Rect[T]Pad_12000x12000_um (rotate 180) 2@1 27600 200)
+      (pin Rect[T]Pad_12000x12000_um 1 -27200 -10)
+      (pin Round[A]Pad_2743.2_um 1@1 -30628 -10)
     )
     (image LOGO
     )
@@ -524,26 +556,28 @@
       (pin Rect[A]Pad_1700x1700_um 1 0 0)
       (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
     )
-    (image Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical
-      (outline (path signal 120  1330 1330  1330 0))
-      (outline (path signal 120  -1330 -8950  1330 -8950))
-      (outline (path signal 120  -1330 -1270  1330 -1270))
-      (outline (path signal 120  -1330 -1270  -1330 -8950))
-      (outline (path signal 120  1330 -1270  1330 -8950))
+    (image Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical
+      (outline (path signal 120  -1330 -1270  -1330 -14030))
       (outline (path signal 120  0 1330  1330 1330))
-      (outline (path signal 50  -1800 -9400  -1800 1800))
-      (outline (path signal 50  1750 -9400  -1800 -9400))
+      (outline (path signal 120  1330 -1270  1330 -14030))
+      (outline (path signal 120  -1330 -14030  1330 -14030))
+      (outline (path signal 120  -1330 -1270  1330 -1270))
+      (outline (path signal 120  1330 1330  1330 0))
+      (outline (path signal 50  1750 -14450  -1800 -14450))
+      (outline (path signal 50  -1800 -14450  -1800 1800))
       (outline (path signal 50  -1800 1800  1750 1800))
-      (outline (path signal 50  1750 1800  1750 -9400))
-      (outline (path signal 100  635 1270  1270 635))
+      (outline (path signal 50  1750 1800  1750 -14450))
+      (outline (path signal 100  1270 -13970  -1270 -13970))
+      (outline (path signal 100  1270 635  1270 -13970))
       (outline (path signal 100  -1270 1270  635 1270))
-      (outline (path signal 100  1270 -8890  -1270 -8890))
-      (outline (path signal 100  -1270 -8890  -1270 1270))
-      (outline (path signal 100  1270 635  1270 -8890))
+      (outline (path signal 100  635 1270  1270 635))
+      (outline (path signal 100  -1270 -13970  -1270 1270))
       (pin Rect[A]Pad_1700x1700_um 1 0 0)
       (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
       (pin Oval[A]Pad_1700x1700_um 3 0 -5080)
       (pin Oval[A]Pad_1700x1700_um 4 0 -7620)
+      (pin Oval[A]Pad_1700x1700_um 5 0 -10160)
+      (pin Oval[A]Pad_1700x1700_um 6 0 -12700)
     )
     (image "bGeigieNanoKit V1.1r5a:EG1206"
       (outline (path signal 127  -6500 2800  -6500 1700))
@@ -650,6 +684,26 @@
       (outline (path signal 609.6  -5080 0  -4064 0))
       (pin Round[A]Pad_1676.4_um 1 -5080 0)
       (pin Round[A]Pad_1676.4_um 2 5080 0)
+    )
+    (image Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical
+      (outline (path signal 120  -1330 -1270  1330 -1270))
+      (outline (path signal 120  1330 -1270  1330 -6410))
+      (outline (path signal 120  -1330 0  -1330 1330))
+      (outline (path signal 120  -1330 1330  0 1330))
+      (outline (path signal 120  -1330 -6410  1330 -6410))
+      (outline (path signal 120  -1330 -1270  -1330 -6410))
+      (outline (path signal 50  1800 -6850  1800 1800))
+      (outline (path signal 50  -1800 -6850  1800 -6850))
+      (outline (path signal 50  -1800 1800  -1800 -6850))
+      (outline (path signal 50  1800 1800  -1800 1800))
+      (outline (path signal 100  -1270 -6350  -1270 635))
+      (outline (path signal 100  1270 -6350  -1270 -6350))
+      (outline (path signal 100  -635 1270  1270 1270))
+      (outline (path signal 100  -1270 635  -635 1270))
+      (outline (path signal 100  1270 1270  1270 -6350))
+      (pin Rect[A]Pad_1700x1700_um 1 0 0)
+      (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
+      (pin Oval[A]Pad_1700x1700_um 3 0 -5080)
     )
     (image Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical::1
       (outline (path signal 120  -1330 -1270  1330 -1270))
@@ -761,50 +815,6 @@
       (pin Rect[A]Pad_2400x2400_um 1 0 0)
       (pin Oval[A]Pad_2400x2400_um 2 15240 0)
     )
-    (image "Battery_Holders:BATTERY_18650-HOLDER"
-      (outline (path signal 203.2  30765 5572.6  30765 4455))
-      (outline (path signal 203.2  -30765 4435  -30765 5552.6))
-      (outline (path signal 203.2  34244.8 -4435  30765 -4435))
-      (outline (path signal 203.2  -34244.8 4435  -30765 4435))
-      (outline (path signal 203.2  -34244.8 -4455  -34244.8 4435))
-      (outline (path signal 203.2  21230 -5552.6  21230 5572.6))
-      (outline (path signal 203.2  -30765 -5572.6  -30765 -4455))
-      (outline (path signal 203.2  -21230 5552.6  -21230 -5572.6))
-      (outline (path signal 203.2  -30765 -4455  -34244.8 -4455))
-      (outline (path signal 203.2  30765 -4435  30765 -5552.6))
-      (outline (path signal 203.2  21230 5572.6  30765 5572.6))
-      (outline (path signal 203.2  34244.8 4455  34244.8 -4435))
-      (outline (path signal 203.2  -30765 5552.6  -21230 5552.6))
-      (outline (path signal 203.2  30765 4455  34244.8 4455))
-      (outline (path signal 203.2  -21230 -5572.6  -30765 -5572.6))
-      (outline (path signal 203.2  30765 -5552.6  21230 -5552.6))
-      (outline (path signal 203.2  30845 4445  34324.8 4445))
-      (outline (path signal 203.2  34244.8 4455  34244.8 -4435))
-      (outline (path signal 203.2  -30845 5562.6  -21320 5562.6))
-      (outline (path signal 203.2  -30845 -5562.6  -30845 -4445))
-      (outline (path signal 203.2  -30845 -4445  -34324.8 -4445))
-      (outline (path signal 203.2  30845 -5562.6  21320 -5562.6))
-      (outline (path signal 203.2  30765 5572.6  30765 4455))
-      (outline (path signal 203.2  30845 -4445  30845 -5562.6))
-      (outline (path signal 203.2  21230 5572.6  30765 5572.6))
-      (outline (path signal 203.2  21320 -5562.6  21320 5562.6))
-      (outline (path signal 203.2  34244.8 -4435  30765 -4435))
-      (outline (path signal 203.2  21320 5562.6  30845 5562.6))
-      (outline (path signal 203.2  30765 -4435  30765 -5552.6))
-      (outline (path signal 203.2  -30845 4445  -30845 5562.6))
-      (outline (path signal 203.2  30765 -5552.6  21230 -5552.6))
-      (outline (path signal 203.2  34324.8 -4445  30845 -4445))
-      (outline (path signal 203.2  -21320 5562.6  -21320 -5562.6))
-      (outline (path signal 203.2  -21320 -5562.6  -30845 -5562.6))
-      (outline (path signal 203.2  -34324.8 4445  -30845 4445))
-      (outline (path signal 203.2  30765 4455  34244.8 4455))
-      (outline (path signal 203.2  -34324.8 -4445  -34324.8 4445))
-      (outline (path signal 203.2  30845 5562.6  30845 4445))
-      (outline (path signal 203.2  34324.8 4445  34324.8 -4445))
-      (outline (path signal 203.2  21230 -5552.6  21230 5572.6))
-      (pin Rect[T]Pad_12000x12000_um 1 -27200 -10)
-      (pin Rect[T]Pad_12000x12000_um (rotate 180) 2 27600 200)
-    )
     (image "Package_TO_SOT_THT:TO-220-3_Vertical"
       (outline (path signal 120  690 3270  690 1760))
       (outline (path signal 120  -2580 3270  7660 3270))
@@ -854,6 +864,11 @@
     (padstack Round[A]Pad_1676.4_um
       (shape (circle F.Cu 1676.4))
       (shape (circle B.Cu 1676.4))
+      (attach off)
+    )
+    (padstack Round[A]Pad_2743.2_um
+      (shape (circle F.Cu 2743.2))
+      (shape (circle B.Cu 2743.2))
       (attach off)
     )
     (padstack Round[A]Pad_3000_um
@@ -912,23 +927,23 @@
   )
   (network
     (net GND
-      (pins J4-3 R2-2 J1-1 J1-3 J1-5 J10-1 J10-2 J3-1 C2-2 J7-1 J2-3 J8-1 J8-2 BT1-2
-        Q1-1 Q2-1)
+      (pins BT1-2 BT1-2@1 R2-2 J1-1 J1-3 J1-5 J10-1 J10-2 J3-2 C2-2 J7-1 J4-3 J2-3
+        J8-1 J8-2 Q1-1 Q2-1)
     )
     (net "Net-(J1-Pad30)"
       (pins J1-30 SW1-3 R1-1)
     )
     (net /RX2
-      (pins J1-16 J3-3)
+      (pins J1-16 J3-4)
     )
     (net /TX2
-      (pins J1-15 J3-2)
+      (pins J1-15 J3-3)
     )
     (net "Net-(J1-Pad4)"
       (pins R2-1 J1-4 R1-2)
     )
     (net 3.3V
-      (pins J4-1 J1-12 J3-4 J7-2 J2-1)
+      (pins J1-12 J3-5 J7-2 J4-1 J2-1)
     )
     (net 5V
       (pins J1-28 J7-3)
@@ -937,7 +952,7 @@
       (pins J1-24 J7-8)
     )
     (net /GIO2
-      (pins J4-2 J1-19 J2-2)
+      (pins J1-19 J4-2 J2-2)
     )
     (net /SCL
       (pins J1-18 J7-7)
@@ -964,7 +979,7 @@
       (pins D2-1 J11-1 J11-2 Q1-2)
     )
     (net "Net-(BT1-Pad1)"
-      (pins D2-2 D1-1 BT1-1 Q1-3 Q2-2)
+      (pins BT1-1 BT1-1@1 D2-2 D1-1 Q1-3 Q2-2)
     )
     (net /GIO34
       (pins J1-26)
@@ -1011,6 +1026,12 @@
     (net "unconnected-(SW1-Pad1)"
       (pins SW1-1)
     )
+    (net "unconnected-(J3-Pad6)"
+      (pins J3-6)
+    )
+    (net "unconnected-(J3-Pad1)"
+      (pins J3-1)
+    )
     (class kicad_default
       (circuit
         (use_via Via[0-1]_300:400_um)
@@ -1020,7 +1041,7 @@
         (clearance 200.1)
       )
     )
-    (class Power /VBATT 3.3V 5V "Net-(BT1-Pad1)"
+    (class Power /VBATT 3.3V 5V "Net-(BT1-Pad1)" "Net-(J11-Pad1)"
       (circuit
         (use_via Via[0-1]_500:800_um)
       )
