@@ -202,7 +202,7 @@
             91866.5 -66820.2  92305.2 -66746.5  92748.9 -66695.8  93196.9 -66668.5
             93648.6 -66665.6  105648 -66665.6  105798 -66675.4)
     )
-    (plane GND (polygon F.Cu 0  212954 -133298  85318.6 -133298  83607.6 -66430  215378 -66770
+    (plane GND (polygon F.Cu 0  212954 -133298  83947.6 -132840  83607.6 -66430  215378 -66770
             212954 -133298))
     (via "Via[0-1]_300:400_um" "Via[0-1]_500:800_um")
     (rule
@@ -213,12 +213,9 @@
     )
   )
   (placement
-    (component "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
-      (place D1 160197.600000 -99090.000000 front 90.000000 (PN DIODE))
-      (place D2 163787.600000 -99090.000000 front 90.000000 (PN DIODE))
-    )
     (component LOGO
       (place G*** 91107.600000 -100230.000000 front 90.000000 (PN LOGO))
+      (place "18650 picture" 177797.600000 -117350.000000 back 90.000000 (PN LOGO))
     )
     (component "bGeigieNano V1.1.5:0207_10"
       (place R2 185903.000000 -82244.000000 front 0.000000 (PN 1K))
@@ -252,7 +249,7 @@
       (place J9 210033.000000 -90499.000000 front -90.000000 (PN "QI Plus"))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical
-      (place J7 160527.600000 -111730.000000 front 90.000000 (PN Conn_01x14_Female))
+      (place J7 155417.600000 -109471.900000 front 90.000000 (PN Conn_01x14_Female))
     )
     (component "bGeigieNano V1.1.5:0207_10::1"
       (place R1 185903.000000 -86054.000000 front 180.000000 (PN 9k))
@@ -263,14 +260,20 @@
     (component Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical::1
       (place J2 207108.000000 -95330.000000 front 0.000000 (PN Geiger))
     )
+    (component "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+      (place D2 163787.600000 -99090.000000 front 90.000000 (PN DIODE))
+    )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::2
       (place J8 185014.000000 -90499.000000 front -90.000000 (PN "QI charger GND"))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::3
       (place J11 185014.000000 -105485.000000 front -90.000000 (PN "QI charger Plus"))
     )
+    (component "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal::1"
+      (place D1 160197.600000 -99090.000000 front 90.000000 (PN DIODE))
+    )
     (component "Library:BATTERY_18650-HOLDER"
-      (place BT1 177707.600000 -120030.000000 back 0.000000 (PN " 3.7 V Lipo"))
+      (place BT1 177297.600000 -117140.000000 back 0.000000 (PN " 3.7 V Lipo"))
     )
     (component "Package_TO_SOT_THT:TO-220-3_Vertical"
       (place Q1 157258.000000 -73310.000000 back 180.000000 (PN IRF4905))
@@ -280,32 +283,6 @@
     )
   )
   (library
-    (image "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
-      (outline (path signal 50  8670 1250  -1050 1250))
-      (outline (path signal 50  8670 -1250  8670 1250))
-      (outline (path signal 50  -1050 -1250  8670 -1250))
-      (outline (path signal 50  -1050 1250  -1050 -1250))
-      (outline (path signal 120  2290 1120  2290 -1120))
-      (outline (path signal 120  2530 1120  2530 -1120))
-      (outline (path signal 120  2410 1120  2410 -1120))
-      (outline (path signal 120  6580 0  5930 0))
-      (outline (path signal 120  1040 0  1690 0))
-      (outline (path signal 120  5930 1120  1690 1120))
-      (outline (path signal 120  5930 -1120  5930 1120))
-      (outline (path signal 120  1690 -1120  5930 -1120))
-      (outline (path signal 120  1690 1120  1690 -1120))
-      (outline (path signal 100  2310 1000  2310 -1000))
-      (outline (path signal 100  2510 1000  2510 -1000))
-      (outline (path signal 100  2410 1000  2410 -1000))
-      (outline (path signal 100  7620 0  5810 0))
-      (outline (path signal 100  0 0  1810 0))
-      (outline (path signal 100  5810 1000  1810 1000))
-      (outline (path signal 100  5810 -1000  5810 1000))
-      (outline (path signal 100  1810 -1000  5810 -1000))
-      (outline (path signal 100  1810 1000  1810 -1000))
-      (pin Oval[A]Pad_1600x1600_um 2 7620 0)
-      (pin Rect[A]Pad_1600x1600_um 1 0 0)
-    )
     (image LOGO
     )
     (image "bGeigieNano V1.1.5:0207_10"
@@ -699,6 +676,32 @@
       (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
       (pin Oval[A]Pad_1700x1700_um 3 0 -5080)
     )
+    (image "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+      (outline (path signal 120  2290 1120  2290 -1120))
+      (outline (path signal 120  5930 -1120  5930 1120))
+      (outline (path signal 120  6580 0  5930 0))
+      (outline (path signal 120  2410 1120  2410 -1120))
+      (outline (path signal 120  1040 0  1690 0))
+      (outline (path signal 120  2530 1120  2530 -1120))
+      (outline (path signal 120  5930 1120  1690 1120))
+      (outline (path signal 120  1690 -1120  5930 -1120))
+      (outline (path signal 120  1690 1120  1690 -1120))
+      (outline (path signal 50  8670 1250  -1050 1250))
+      (outline (path signal 50  -1050 1250  -1050 -1250))
+      (outline (path signal 50  -1050 -1250  8670 -1250))
+      (outline (path signal 50  8670 -1250  8670 1250))
+      (outline (path signal 100  7620 0  5810 0))
+      (outline (path signal 100  1810 1000  1810 -1000))
+      (outline (path signal 100  5810 1000  1810 1000))
+      (outline (path signal 100  2510 1000  2510 -1000))
+      (outline (path signal 100  1810 -1000  5810 -1000))
+      (outline (path signal 100  2410 1000  2410 -1000))
+      (outline (path signal 100  0 0  1810 0))
+      (outline (path signal 100  5810 -1000  5810 1000))
+      (outline (path signal 100  2310 1000  2310 -1000))
+      (pin Rect[A]Pad_1600x1600_um 1 0 0)
+      (pin Oval[A]Pad_1600x1600_um 2 7620 0)
+    )
     (image Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::2
       (outline (path signal 120  1330 -1270  1330 -3870))
       (outline (path signal 120  -1330 -1270  -1330 -3870))
@@ -736,6 +739,32 @@
       (outline (path signal 100  1270 -3810  -1270 -3810))
       (pin Rect[A]Pad_1700x1700_um 1 0 0)
       (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
+    )
+    (image "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal::1"
+      (outline (path signal 120  2290 1120  2290 -1120))
+      (outline (path signal 120  6580 0  5930 0))
+      (outline (path signal 120  5930 -1120  5930 1120))
+      (outline (path signal 120  5930 1120  1690 1120))
+      (outline (path signal 120  1690 -1120  5930 -1120))
+      (outline (path signal 120  2530 1120  2530 -1120))
+      (outline (path signal 120  2410 1120  2410 -1120))
+      (outline (path signal 120  1040 0  1690 0))
+      (outline (path signal 120  1690 1120  1690 -1120))
+      (outline (path signal 50  -1050 -1250  8670 -1250))
+      (outline (path signal 50  8670 -1250  8670 1250))
+      (outline (path signal 50  -1050 1250  -1050 -1250))
+      (outline (path signal 50  8670 1250  -1050 1250))
+      (outline (path signal 100  5810 -1000  5810 1000))
+      (outline (path signal 100  1810 -1000  5810 -1000))
+      (outline (path signal 100  0 0  1810 0))
+      (outline (path signal 100  1810 1000  1810 -1000))
+      (outline (path signal 100  2310 1000  2310 -1000))
+      (outline (path signal 100  5810 1000  1810 1000))
+      (outline (path signal 100  2410 1000  2410 -1000))
+      (outline (path signal 100  2510 1000  2510 -1000))
+      (outline (path signal 100  7620 0  5810 0))
+      (pin Rect[A]Pad_1600x1600_um 1 0 0)
+      (pin Oval[A]Pad_1600x1600_um 2 7620 0)
     )
     (image "Library:BATTERY_18650-HOLDER"
       (outline (path signal 203.2  -30765 4435  -30765 5552.6))
@@ -939,7 +968,7 @@
       (pins J1-14 J7-4)
     )
     (net /VBATT
-      (pins D1-2 SW1-2 Q2-3)
+      (pins SW1-2 D1-2 Q2-3)
     )
     (net /Reset
       (pins J1-5 C2-1)
@@ -951,7 +980,7 @@
       (pins J1-12)
     )
     (net "Net-(BT1-Pad1)"
-      (pins D1-1 D2-2 BT1-1 BT1-1@1 Q1-3 Q2-2)
+      (pins D2-2 D1-1 BT1-1 BT1-1@1 Q1-3 Q2-2)
     )
     (net /GIO34
       (pins J1-25)
@@ -1013,7 +1042,7 @@
         (clearance 200.1)
       )
     )
-    (class Power /VBATT 3.3V 5V "Net-(BT1-Pad1)"
+    (class Power /VBATT 3.3V 5V GND "Net-(BT1-Pad1)"
       (circuit
         (use_via Via[0-1]_500:800_um)
       )
