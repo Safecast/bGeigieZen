@@ -3,7 +3,7 @@
     (string_quote ")
     (space_in_quoted_tokens on)
     (host_cad "KiCad's Pcbnew")
-    (host_version "5.99.0-unknown-c3c3649211~118~ubuntu20.04.1")
+    (host_version "5.99.0-unknown-472d0e03fc~119~ubuntu20.04.1")
   )
   (resolution um 10)
   (unit um)
@@ -202,7 +202,7 @@
             91866.5 -66820.2  92305.2 -66746.5  92748.9 -66695.8  93196.9 -66668.5
             93648.6 -66665.6  105648 -66665.6  105798 -66675.4)
     )
-    (plane GND (polygon F.Cu 0  214538 -134090  82197.6 -132060  81347.6 -66870  215378 -66770
+    (plane GND (polygon F.Cu 0  214538 -134090  80657.6 -132020  82157.6 -66640  215378 -66770
             214538 -134090))
     (via "Via[0-1]_300:400_um" "Via[0-1]_500:800_um")
     (rule
@@ -213,6 +213,9 @@
     )
   )
   (placement
+    (component Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical
+      (place J3 153707.600000 -103200.000000 front 180.000000 (PN GPS))
+    )
     (component LOGO
       (place G*** 91107.600000 -100230.000000 front 90.000000 (PN LOGO))
       (place "18650 picture" 177797.600000 -117350.000000 back 90.000000 (PN LOGO))
@@ -224,28 +227,19 @@
       (place H1 90652.600000 -125932.000000 front 0.000000 (PN MountingHole_Pad))
       (place H8 200645.000000 -88980.000000 front 0.000000 (PN MountingHole_Pad))
       (place H7 171717.600000 -125932.000000 front 0.000000 (PN MountingHole_Pad))
-      (place H4 101708.000000 -76780.000000 front 0.000000 (PN MountingHole_Pad))
+      (place H4 102108.000000 -77080.000000 front 0.000000 (PN MountingHole_Pad))
       (place H9 171517.600000 -71940.000000 front 0.000000 (PN MountingHole_Pad))
       (place H10 208767.600000 -71940.000000 front 0.000000 (PN MountingHole_Pad))
       (place H2 90652.600000 -71940.000000 front 0.000000 (PN MountingHole_Pad))
-      (place H6 101837.600000 -120510.000000 front 0.000000 (PN MountingHole_Pad))
+      (place H6 102237.600000 -120810.000000 front 0.000000 (PN MountingHole_Pad))
       (place H5 208636.000000 -125932.000000 front 0.000000 (PN MountingHole_Pad))
       (place H3 176134.000000 -94441.000000 back 180.000000 (PN MountingHole_Pad))
     )
-    (component "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
-      (place D1 162707.600000 -82750.000000 front 90.000000 (PN 1N4001))
-    )
     (component Connector_PinHeader_2.54mm:PinHeader_2x15_P2.54mm_Vertical_SMD
-      (place J1 124083.000000 -116705.000000 front -90.000000 (PN "M5 2x15 pin"))
+      (place J1 124083.000000 -117005.000000 front -90.000000 (PN "M5 2x15 pin"))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical
       (place J10 210033.000000 -105485.000000 front -90.000000 (PN "QI GND"))
-    )
-    (component "Package_TO_SOT_THT:TO-251-3_Vertical"
-      (place Q1 154377.600000 -77240.000000 front 90.000000 (PN IRFR9024))
-    )
-    (component Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical
-      (place J3 153707.600000 -103200.000000 front 180.000000 (PN GPS))
     )
     (component "bGeigieNanoKit V1.1r5a:EG1206"
       (place SW1 183744.000000 -76148.000000 front 180.000000 (PN SW_SPDT))
@@ -271,14 +265,14 @@
     (component Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical::1
       (place J2 207108.000000 -95330.000000 front 0.000000 (PN Geiger))
     )
-    (component "Package_TO_SOT_THT:TO-251-3_Vertical::1"
-      (place Q2 158227.600000 -77240.000000 front 90.000000 (PN IRFR9024))
+    (component "Package_TO_SOT_THT:TO-251-3_Vertical"
+      (place Q2 162017.600000 -82124.000000 front 180.000000 (PN IRFR9024))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::3
       (place J8 185014.000000 -90499.000000 front -90.000000 (PN "QI charger GND"))
     )
-    (component "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal::1"
-      (place D2 166637.600000 -82680.000000 front 90.000000 (PN 1N4001))
+    (component "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
+      (place D2 176507.600000 -82244.000000 front 180.000000 (PN 1N4001))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::4
       (place J11 185014.000000 -105485.000000 front -90.000000 (PN "QI charger Plus"))
@@ -288,6 +282,29 @@
     )
   )
   (library
+    (image Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical
+      (outline (path signal 50  -1800 -14450  -1800 1800))
+      (outline (path signal 50  1750 -14450  -1800 -14450))
+      (outline (path signal 50  1750 1800  1750 -14450))
+      (outline (path signal 50  -1800 1800  1750 1800))
+      (outline (path signal 120  0 1330  1330 1330))
+      (outline (path signal 120  1330 1330  1330 0))
+      (outline (path signal 120  1330 -1270  1330 -14030))
+      (outline (path signal 120  -1330 -14030  1330 -14030))
+      (outline (path signal 120  -1330 -1270  -1330 -14030))
+      (outline (path signal 120  -1330 -1270  1330 -1270))
+      (outline (path signal 100  -1270 -13970  -1270 1270))
+      (outline (path signal 100  1270 -13970  -1270 -13970))
+      (outline (path signal 100  1270 635  1270 -13970))
+      (outline (path signal 100  635 1270  1270 635))
+      (outline (path signal 100  -1270 1270  635 1270))
+      (pin Oval[A]Pad_1700x1700_um 6 0 -12700)
+      (pin Oval[A]Pad_1700x1700_um 5 0 -10160)
+      (pin Oval[A]Pad_1700x1700_um 4 0 -7620)
+      (pin Oval[A]Pad_1700x1700_um 3 0 -5080)
+      (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
+      (pin Rect[A]Pad_1700x1700_um 1 0 0)
+    )
     (image LOGO
     )
     (image "bGeigieNano V1.1.5:0207_10"
@@ -326,32 +343,6 @@
             3369.34 741.648  3450 0))
       (keepout "" (circle F.Cu 3200))
       (keepout "" (circle B.Cu 3200))
-    )
-    (image "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
-      (outline (path signal 120  7800 1470  2360 1470))
-      (outline (path signal 120  1340 0  2360 0))
-      (outline (path signal 120  2360 -1470  7800 -1470))
-      (outline (path signal 120  3260 1470  3260 -1470))
-      (outline (path signal 120  2360 1470  2360 -1470))
-      (outline (path signal 120  7800 -1470  7800 1470))
-      (outline (path signal 120  8820 0  7800 0))
-      (outline (path signal 120  3140 1470  3140 -1470))
-      (outline (path signal 120  3380 1470  3380 -1470))
-      (outline (path signal 50  11510 1600  -1350 1600))
-      (outline (path signal 50  -1350 1600  -1350 -1600))
-      (outline (path signal 50  -1350 -1600  11510 -1600))
-      (outline (path signal 50  11510 -1600  11510 1600))
-      (outline (path signal 100  0 0  2480 0))
-      (outline (path signal 100  2480 -1350  7680 -1350))
-      (outline (path signal 100  7680 1350  2480 1350))
-      (outline (path signal 100  3360 1350  3360 -1350))
-      (outline (path signal 100  3260 1350  3260 -1350))
-      (outline (path signal 100  3160 1350  3160 -1350))
-      (outline (path signal 100  7680 -1350  7680 1350))
-      (outline (path signal 100  2480 1350  2480 -1350))
-      (outline (path signal 100  10160 0  7680 0))
-      (pin Rect[A]Pad_2200x2200_um 1 0 0)
-      (pin Oval[A]Pad_2200x2200_um 2 10160 0)
     )
     (image Connector_PinHeader_2.54mm:PinHeader_2x15_P2.54mm_Vertical_SMD
       (outline (path signal 120  -2600 -760  -2600 -1780))
@@ -538,51 +529,6 @@
       (pin Rect[A]Pad_1700x1700_um 1 0 0)
       (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
     )
-    (image "Package_TO_SOT_THT:TO-251-3_Vertical"
-      (outline (path signal 120  -1120 1390  5700 1390))
-      (outline (path signal 120  1009 651  1282 651))
-      (outline (path signal 120  5700 1390  5700 -1150))
-      (outline (path signal 120  5589 651  5700 651))
-      (outline (path signal 120  -1120 1390  -1120 -1150))
-      (outline (path signal 120  3299 651  3572 651))
-      (outline (path signal 120  -1120 -1150  5700 -1150))
-      (outline (path signal 120  -1120 651  -1009 651))
-      (outline (path signal 50  5830 1520  -1250 1520))
-      (outline (path signal 50  -1250 1520  -1250 -1280))
-      (outline (path signal 50  5830 -1280  5830 1520))
-      (outline (path signal 50  -1250 -1280  5830 -1280))
-      (outline (path signal 100  -1000 -1030  5580 -1030))
-      (outline (path signal 100  -1000 1270  -1000 -1030))
-      (outline (path signal 100  5580 1270  -1000 1270))
-      (outline (path signal 100  5580 -1030  5580 1270))
-      (outline (path signal 100  -1000 770  5580 770))
-      (pin Rect[A]Pad_1717.5x1800_um 1 0 0)
-      (pin Oval[A]Pad_1717.5x1800_um 2 2290 0)
-      (pin Oval[A]Pad_1717.5x1800_um 3 4580 0)
-    )
-    (image Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical
-      (outline (path signal 120  -1330 -1270  -1330 -14030))
-      (outline (path signal 120  -1330 -1270  1330 -1270))
-      (outline (path signal 120  -1330 1330  0 1330))
-      (outline (path signal 120  -1330 0  -1330 1330))
-      (outline (path signal 120  -1330 -14030  1330 -14030))
-      (outline (path signal 120  1330 -1270  1330 -14030))
-      (outline (path signal 50  1800 -14500  1800 1800))
-      (outline (path signal 50  -1800 -14500  1800 -14500))
-      (outline (path signal 50  -1800 1800  -1800 -14500))
-      (outline (path signal 50  1800 1800  -1800 1800))
-      (outline (path signal 100  -1270 635  -635 1270))
-      (outline (path signal 100  1270 1270  1270 -13970))
-      (outline (path signal 100  1270 -13970  -1270 -13970))
-      (outline (path signal 100  -1270 -13970  -1270 635))
-      (outline (path signal 100  -635 1270  1270 1270))
-      (pin Rect[A]Pad_1700x1700_um 1 0 0)
-      (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
-      (pin Oval[A]Pad_1700x1700_um 3 0 -5080)
-      (pin Oval[A]Pad_1700x1700_um 4 0 -7620)
-      (pin Oval[A]Pad_1700x1700_um 5 0 -10160)
-      (pin Oval[A]Pad_1700x1700_um 6 0 -12700)
-    )
     (image "bGeigieNanoKit V1.1r5a:EG1206"
       (outline (path signal 127  -6500 2800  -6500 1700))
       (outline (path signal 127  6500 -2800  6500 -1700))
@@ -748,7 +694,7 @@
       (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
       (pin Oval[A]Pad_1700x1700_um 3 0 -5080)
     )
-    (image "Package_TO_SOT_THT:TO-251-3_Vertical::1"
+    (image "Package_TO_SOT_THT:TO-251-3_Vertical"
       (outline (path signal 120  3299 651  3572 651))
       (outline (path signal 120  -1120 1390  -1120 -1150))
       (outline (path signal 120  -1120 -1150  5700 -1150))
@@ -789,7 +735,7 @@
       (pin Rect[A]Pad_1700x1700_um 1 0 0)
       (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
     )
-    (image "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal::1"
+    (image "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
       (outline (path signal 120  7800 1470  2360 1470))
       (outline (path signal 120  8820 0  7800 0))
       (outline (path signal 120  2360 -1470  7800 -1470))
@@ -950,20 +896,20 @@
   )
   (network
     (net GND
-      (pins R2-2 J1-2 J1-4 J1-6 J10-1 J10-2 Q1-1 J3-2 C2-2 J7-1 J4-3 J2-3 Q2-1 J8-1
-        J8-2 BT1-2 BT1-2@1)
+      (pins J3-2 R2-2 J1-2 J1-4 J1-6 J10-1 J10-2 C2-2 J7-1 J4-3 J2-3 Q2-1 J8-1 J8-2
+        BT1-2 BT1-2@1)
     )
     (net /RX2
-      (pins J1-15 J3-4)
+      (pins J3-4 J1-15)
     )
     (net /TX2
-      (pins J1-16 J3-3)
+      (pins J3-3 J1-16)
     )
     (net "Net-(J1-Pad3)"
       (pins R2-1 J1-3 R1-2)
     )
     (net 3.3V
-      (pins J1-11 J3-5 J7-2 J4-1 J2-1)
+      (pins J3-5 J1-11 J7-2 J4-1 J2-1)
     )
     (net 5V
       (pins J1-27 J7-3)
@@ -999,7 +945,7 @@
       (pins J1-12)
     )
     (net "Net-(BT1-Pad1)"
-      (pins D1-1 Q1-3 Q2-2 D2-2 BT1-1 BT1-1@1)
+      (pins BT1-1 BT1-1@1)
     )
     (net /GIO34
       (pins J1-25)
@@ -1059,7 +1005,7 @@
       (pins J5-1)
     )
     (net "Net-(J11-Pad1)"
-      (pins D1-2 Q1-2 J11-1 J11-2)
+      (pins Q2-2 D2-2 J11-1 J11-2)
     )
     (class kicad_default
       (circuit
@@ -1070,7 +1016,7 @@
         (clearance 200.1)
       )
     )
-    (class Power /VBATT 3.3V 5V GND "Net-(BT1-Pad1)"
+    (class Power /VBATT 3.3V 5V GND
       (circuit
         (use_via Via[0-1]_500:800_um)
       )
