@@ -213,9 +213,6 @@
     )
   )
   (placement
-    (component Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical
-      (place J3 153707.600000 -103200.000000 front 180.000000 (PN GPS))
-    )
     (component LOGO
       (place G*** 91107.600000 -100230.000000 front 90.000000 (PN LOGO))
       (place "18650 picture" 177797.600000 -117350.000000 back 90.000000 (PN LOGO))
@@ -227,19 +224,22 @@
       (place H1 90652.600000 -125932.000000 front 0.000000 (PN MountingHole_Pad))
       (place H8 200645.000000 -88980.000000 front 0.000000 (PN MountingHole_Pad))
       (place H7 171717.600000 -125932.000000 front 0.000000 (PN MountingHole_Pad))
-      (place H4 102108.000000 -77080.000000 front 0.000000 (PN MountingHole_Pad))
+      (place H4 102108.000000 -77830.000000 front 0.000000 (PN MountingHole_Pad))
       (place H9 171517.600000 -71940.000000 front 0.000000 (PN MountingHole_Pad))
       (place H10 208767.600000 -71940.000000 front 0.000000 (PN MountingHole_Pad))
       (place H2 90652.600000 -71940.000000 front 0.000000 (PN MountingHole_Pad))
-      (place H6 102237.600000 -120810.000000 front 0.000000 (PN MountingHole_Pad))
+      (place H6 102237.600000 -121560.000000 front 0.000000 (PN MountingHole_Pad))
       (place H5 208636.000000 -125932.000000 front 0.000000 (PN MountingHole_Pad))
       (place H3 176134.000000 -94441.000000 back 180.000000 (PN MountingHole_Pad))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_2x15_P2.54mm_Vertical_SMD
-      (place J1 124083.000000 -117005.000000 front -90.000000 (PN "M5 2x15 pin"))
+      (place J1 124083.000000 -117755.000000 front -90.000000 (PN "M5 2x15 pin"))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical
       (place J10 210033.000000 -105485.000000 front -90.000000 (PN "QI GND"))
+    )
+    (component Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical
+      (place J3 153707.600000 -103200.000000 front 180.000000 (PN GPS))
     )
     (component "bGeigieNanoKit V1.1r5a:EG1206"
       (place SW1 183744.000000 -76148.000000 front 180.000000 (PN SW_SPDT))
@@ -282,29 +282,6 @@
     )
   )
   (library
-    (image Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical
-      (outline (path signal 50  -1800 -14450  -1800 1800))
-      (outline (path signal 50  1750 -14450  -1800 -14450))
-      (outline (path signal 50  1750 1800  1750 -14450))
-      (outline (path signal 50  -1800 1800  1750 1800))
-      (outline (path signal 120  0 1330  1330 1330))
-      (outline (path signal 120  1330 1330  1330 0))
-      (outline (path signal 120  1330 -1270  1330 -14030))
-      (outline (path signal 120  -1330 -14030  1330 -14030))
-      (outline (path signal 120  -1330 -1270  -1330 -14030))
-      (outline (path signal 120  -1330 -1270  1330 -1270))
-      (outline (path signal 100  -1270 -13970  -1270 1270))
-      (outline (path signal 100  1270 -13970  -1270 -13970))
-      (outline (path signal 100  1270 635  1270 -13970))
-      (outline (path signal 100  635 1270  1270 635))
-      (outline (path signal 100  -1270 1270  635 1270))
-      (pin Oval[A]Pad_1700x1700_um 6 0 -12700)
-      (pin Oval[A]Pad_1700x1700_um 5 0 -10160)
-      (pin Oval[A]Pad_1700x1700_um 4 0 -7620)
-      (pin Oval[A]Pad_1700x1700_um 3 0 -5080)
-      (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
-      (pin Rect[A]Pad_1700x1700_um 1 0 0)
-    )
     (image LOGO
     )
     (image "bGeigieNano V1.1.5:0207_10"
@@ -528,6 +505,29 @@
       (outline (path signal 100  1270 -3810  -1270 -3810))
       (pin Rect[A]Pad_1700x1700_um 1 0 0)
       (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
+    )
+    (image Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical
+      (outline (path signal 120  -1330 -14030  1330 -14030))
+      (outline (path signal 120  -1330 -1270  -1330 -14030))
+      (outline (path signal 120  1330 1330  1330 0))
+      (outline (path signal 120  -1330 -1270  1330 -1270))
+      (outline (path signal 120  1330 -1270  1330 -14030))
+      (outline (path signal 120  0 1330  1330 1330))
+      (outline (path signal 50  -1800 1800  1750 1800))
+      (outline (path signal 50  1750 -14450  -1800 -14450))
+      (outline (path signal 50  1750 1800  1750 -14450))
+      (outline (path signal 50  -1800 -14450  -1800 1800))
+      (outline (path signal 100  -1270 1270  635 1270))
+      (outline (path signal 100  1270 635  1270 -13970))
+      (outline (path signal 100  -1270 -13970  -1270 1270))
+      (outline (path signal 100  1270 -13970  -1270 -13970))
+      (outline (path signal 100  635 1270  1270 635))
+      (pin Rect[A]Pad_1700x1700_um 1 0 0)
+      (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
+      (pin Oval[A]Pad_1700x1700_um 3 0 -5080)
+      (pin Oval[A]Pad_1700x1700_um 4 0 -7620)
+      (pin Oval[A]Pad_1700x1700_um 5 0 -10160)
+      (pin Oval[A]Pad_1700x1700_um 6 0 -12700)
     )
     (image "bGeigieNanoKit V1.1r5a:EG1206"
       (outline (path signal 127  -6500 2800  -6500 1700))
@@ -896,20 +896,20 @@
   )
   (network
     (net GND
-      (pins J3-2 R2-2 J1-2 J1-4 J1-6 J10-1 J10-2 C2-2 J7-1 J4-3 J2-3 Q2-1 J8-1 J8-2
+      (pins R2-2 J1-2 J1-4 J1-6 J10-1 J10-2 J3-2 C2-2 J7-1 J4-3 J2-3 Q2-1 J8-1 J8-2
         BT1-2 BT1-2@1)
     )
     (net /RX2
-      (pins J3-4 J1-15)
+      (pins J1-15 J3-4)
     )
     (net /TX2
-      (pins J3-3 J1-16)
+      (pins J1-16 J3-3)
     )
     (net "Net-(J1-Pad3)"
       (pins R2-1 J1-3 R1-2)
     )
     (net 3.3V
-      (pins J3-5 J1-11 J7-2 J4-1 J2-1)
+      (pins J1-11 J3-5 J7-2 J4-1 J2-1)
     )
     (net 5V
       (pins J1-27 J7-3)
