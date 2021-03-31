@@ -3,7 +3,7 @@
     (string_quote ")
     (space_in_quoted_tokens on)
     (host_cad "KiCad's Pcbnew")
-    (host_version "5.99.0-unknown-472d0e03fc~119~ubuntu20.04.1")
+    (host_version "5.99.0-unknown-2fc34de1be~106~ubuntu20.04.1")
   )
   (resolution um 10)
   (unit um)
@@ -202,7 +202,7 @@
             91866.5 -66820.2  92305.2 -66746.5  92748.9 -66695.8  93196.9 -66668.5
             93648.6 -66665.6  105648 -66665.6  105798 -66675.4)
     )
-    (plane GND (polygon F.Cu 0  214538 -134090  80657.6 -132020  82157.6 -66640  215378 -66770
+    (plane GND (polygon F.Cu 0  214538 -134090  81237.6 -131810  82157.6 -66640  215378 -66770
             214538 -134090))
     (via "Via[0-1]_300:400_um" "Via[0-1]_500:800_um")
     (rule
@@ -224,11 +224,9 @@
       (place H1 90652.600000 -125932.000000 front 0.000000 (PN MountingHole_Pad))
       (place H8 200645.000000 -88980.000000 front 0.000000 (PN MountingHole_Pad))
       (place H7 171717.600000 -125932.000000 front 0.000000 (PN MountingHole_Pad))
-      (place H4 102108.000000 -77830.000000 front 0.000000 (PN MountingHole_Pad))
       (place H9 171517.600000 -71940.000000 front 0.000000 (PN MountingHole_Pad))
       (place H10 208767.600000 -71940.000000 front 0.000000 (PN MountingHole_Pad))
       (place H2 90652.600000 -71940.000000 front 0.000000 (PN MountingHole_Pad))
-      (place H6 102237.600000 -121560.000000 front 0.000000 (PN MountingHole_Pad))
       (place H5 208636.000000 -125932.000000 front 0.000000 (PN MountingHole_Pad))
       (place H3 176134.000000 -94441.000000 back 180.000000 (PN MountingHole_Pad))
     )
@@ -236,7 +234,7 @@
       (place J1 124083.000000 -117755.000000 front -90.000000 (PN "M5 2x15 pin"))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical
-      (place J10 210033.000000 -105485.000000 front -90.000000 (PN "QI GND"))
+      (place J10 210033.000000 -90499.000000 front -90.000000 (PN "QI GND"))
     )
     (component Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical
       (place J3 153707.600000 -103200.000000 front 180.000000 (PN GPS))
@@ -245,13 +243,17 @@
       (place SW1 183744.000000 -76148.000000 front 180.000000 (PN SW_SPDT))
     )
     (component "bGeigieNano V1.1.5:C025-024X044"
-      (place C2 199183.000000 -82005.000000 front 180.000000 (PN 4.7uf))
+      (place C2 199183.000000 -82005.000000 front 180.000000 (PN 47uF))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::1
-      (place J9 210033.000000 -90499.000000 front -90.000000 (PN "QI Plus"))
+      (place J9 210033.000000 -105358.000000 front -90.000000 (PN "QI Plus"))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical
       (place J7 165877.600000 -108431.900000 front 90.000000 (PN Conn_01x14_Female))
+    )
+    (component MountingHole:MountingHole_3.2mm_M3::1
+      (place H4 102108.000000 -77830.000000 front 0.000000 (PN MountingHole_Pad))
+      (place H6 102237.600000 -121560.000000 front 0.000000 (PN MountingHole_Pad))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::2
       (place J5 159477.600000 -106925.000000 front 180.000000 (PN "Extra support header"))
@@ -266,13 +268,13 @@
       (place J2 207108.000000 -95330.000000 front 0.000000 (PN Geiger))
     )
     (component "Package_TO_SOT_THT:TO-251-3_Vertical"
-      (place Q2 162017.600000 -82124.000000 front 180.000000 (PN IRFR9024))
+      (place Q2 160363.600000 -79584.000000 front 180.000000 (PN IRFR9024))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::3
       (place J8 185014.000000 -90499.000000 front -90.000000 (PN "QI charger GND"))
     )
     (component "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
-      (place D2 176507.600000 -82244.000000 front 180.000000 (PN 1N4001))
+      (place D2 174853.600000 -79704.000000 front 180.000000 (PN 1N4001))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::4
       (place J11 185014.000000 -105485.000000 front -90.000000 (PN "QI charger Plus"))
@@ -617,6 +619,24 @@
       (pin Oval[A]Pad_1700x1700_um 9 0 -20320)
       (pin Oval[A]Pad_1700x1700_um 10 0 -22860)
     )
+    (image MountingHole:MountingHole_3.2mm_M3::1
+      (outline (path signal 150  3200 0  3119.77 -712.067  2883.1 -1388.43  2501.86 -1995.17
+            1995.17 -2501.86  1388.43 -2883.1  712.067 -3119.77  0 -3200
+            -712.067 -3119.77  -1388.43 -2883.1  -1995.17 -2501.86  -2501.86 -1995.17
+            -2883.1 -1388.43  -3119.77 -712.067  -3200 0  -3119.77 712.067
+            -2883.1 1388.43  -2501.86 1995.17  -1995.17 2501.86  -1388.43 2883.1
+            -712.067 3119.77  0 3200  712.067 3119.77  1388.43 2883.1  1995.17 2501.86
+            2501.86 1995.17  2883.1 1388.43  3119.77 712.067  3200 0))
+      (outline (path signal 50  3450 0  3369.34 -741.648  3131.14 -1448.62  2746.52 -2087.85
+            2233.48 -2629.46  1616.01 -3048.12  922.973 -3324.25  186.779 -3444.94
+            -558.148 -3404.55  -1276.98 -3204.97  -1936.1 -2855.53  -2504.68 -2372.56
+            -2956.16 -1778.66  -3269.4 -1101.59  -3429.78 -373.011  -3429.78 373.011
+            -3269.4 1101.59  -2956.16 1778.66  -2504.68 2372.56  -1936.1 2855.53
+            -1276.98 3204.97  -558.148 3404.55  186.779 3444.94  922.973 3324.25
+            1616.01 3048.12  2233.48 2629.46  2746.52 2087.85  3131.14 1448.62
+            3369.34 741.648  3450 0))
+      (pin Round[TB]Pad_4000_um @1 0 0)
+    )
     (image Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::2
       (outline (path signal 120  -1330 1330  0 1330))
       (outline (path signal 120  -1330 0  -1330 1330))
@@ -845,6 +865,11 @@
       (shape (circle B.Cu 3000))
       (attach off)
     )
+    (padstack Round[TB]Pad_4000_um
+      (shape (circle F.Cu 4000))
+      (shape (circle B.Cu 4000))
+      (attach off)
+    )
     (padstack Oval[A]Pad_1700x1700_um
       (shape (path F.Cu 1700  0 0  0 0))
       (shape (path B.Cu 1700  0 0  0 0))
@@ -945,7 +970,7 @@
       (pins J1-12)
     )
     (net "Net-(BT1-Pad1)"
-      (pins BT1-1 BT1-1@1)
+      (pins Q2-2 D2-2 J11-1 J11-2 BT1-1 BT1-1@1)
     )
     (net /GIO34
       (pins J1-25)
@@ -1003,9 +1028,6 @@
     )
     (net "unconnected-(J5-Pad1)"
       (pins J5-1)
-    )
-    (net "Net-(J11-Pad1)"
-      (pins Q2-2 D2-2 J11-1 J11-2)
     )
     (class kicad_default
       (circuit
