@@ -3,7 +3,7 @@
     (string_quote ")
     (space_in_quoted_tokens on)
     (host_cad "KiCad's Pcbnew")
-    (host_version "5.99.0-unknown-148c3b3419~106~ubuntu20.04.1")
+    (host_version "5.99.0-unknown-d7a95e2af4~106~ubuntu20.04.1")
   )
   (resolution um 10)
   (unit um)
@@ -237,7 +237,7 @@
       (place J10 210033.000000 -90499.000000 front -90.000000 (PN "QI GND"))
     )
     (component Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical
-      (place J3 153707.600000 -103200.000000 front 180.000000 (PN GPS))
+      (place J3 152984.600000 -103047.000000 front 180.000000 (PN GPS))
     )
     (component "bGeigieNanoKit V1.1r5a:EG1206"
       (place SW1 184505.600000 -73838.000000 front 180.000000 (PN SW_SPDT))
@@ -247,9 +247,6 @@
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::1
       (place J9 210033.000000 -105358.000000 front -90.000000 (PN "QI Plus"))
-    )
-    (component Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical
-      (place J7 153177.600000 -77951.900000 front 90.000000 (PN Conn_01x14_Female))
     )
     (component MountingHole:MountingHole_3.2mm_M3::1
       (place H4 102108.000000 -77830.000000 front 0.000000 (PN MountingHole_Pad))
@@ -268,13 +265,10 @@
       (place J2 207108.000000 -95330.000000 front 0.000000 (PN Geiger))
     )
     (component "Package_TO_SOT_THT:TO-251-3_Vertical"
-      (place Q2 176619.600000 -81362.000000 front 180.000000 (PN IRFR9024))
+      (place Q2 149711.600000 -70694.000000 front 180.000000 (PN IRFR9024))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::3
       (place J8 185014.000000 -90499.000000 front -90.000000 (PN "QI charger GND"))
-    )
-    (component "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
-      (place D2 191109.600000 -81482.000000 front 180.000000 (PN 1N4001))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::4
       (place J11 185014.000000 -105485.000000 front -90.000000 (PN "QI charger Plus"))
@@ -592,33 +586,6 @@
       (pin Rect[A]Pad_1700x1700_um 1 0 0)
       (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
     )
-    (image Connector_PinHeader_2.54mm:PinHeader_1x10_P2.54mm_Vertical
-      (outline (path signal 120  -1330 0  -1330 1330))
-      (outline (path signal 120  -1330 1330  0 1330))
-      (outline (path signal 120  -1330 -1270  -1330 -24190))
-      (outline (path signal 120  -1330 -24190  1330 -24190))
-      (outline (path signal 120  -1330 -1270  1330 -1270))
-      (outline (path signal 120  1330 -1270  1330 -24190))
-      (outline (path signal 50  1800 1800  -1800 1800))
-      (outline (path signal 50  -1800 -24650  1800 -24650))
-      (outline (path signal 50  -1800 1800  -1800 -24650))
-      (outline (path signal 50  1800 -24650  1800 1800))
-      (outline (path signal 100  -635 1270  1270 1270))
-      (outline (path signal 100  -1270 -24130  -1270 635))
-      (outline (path signal 100  1270 1270  1270 -24130))
-      (outline (path signal 100  1270 -24130  -1270 -24130))
-      (outline (path signal 100  -1270 635  -635 1270))
-      (pin Rect[A]Pad_1700x1700_um 1 0 0)
-      (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
-      (pin Oval[A]Pad_1700x1700_um 3 0 -5080)
-      (pin Oval[A]Pad_1700x1700_um 4 0 -7620)
-      (pin Oval[A]Pad_1700x1700_um 5 0 -10160)
-      (pin Oval[A]Pad_1700x1700_um 6 0 -12700)
-      (pin Oval[A]Pad_1700x1700_um 7 0 -15240)
-      (pin Oval[A]Pad_1700x1700_um 8 0 -17780)
-      (pin Oval[A]Pad_1700x1700_um 9 0 -20320)
-      (pin Oval[A]Pad_1700x1700_um 10 0 -22860)
-    )
     (image MountingHole:MountingHole_3.2mm_M3::1
       (outline (path signal 150  3200 0  3119.77 -712.067  2883.1 -1388.43  2501.86 -1995.17
             1995.17 -2501.86  1388.43 -2883.1  712.067 -3119.77  0 -3200
@@ -715,26 +682,26 @@
       (pin Oval[A]Pad_1700x1700_um 3 0 -5080)
     )
     (image "Package_TO_SOT_THT:TO-251-3_Vertical"
-      (outline (path signal 120  3299 651  3572 651))
-      (outline (path signal 120  -1120 1390  -1120 -1150))
-      (outline (path signal 120  -1120 -1150  5700 -1150))
-      (outline (path signal 120  5700 1390  5700 -1150))
-      (outline (path signal 120  -1120 651  -1009 651))
-      (outline (path signal 120  1009 651  1282 651))
-      (outline (path signal 120  5589 651  5700 651))
-      (outline (path signal 120  -1120 1390  5700 1390))
-      (outline (path signal 50  5830 -1280  5830 1520))
-      (outline (path signal 50  -1250 -1280  5830 -1280))
-      (outline (path signal 50  5830 1520  -1250 1520))
-      (outline (path signal 50  -1250 1520  -1250 -1280))
-      (outline (path signal 100  -1000 -1030  5580 -1030))
-      (outline (path signal 100  -1000 1270  -1000 -1030))
-      (outline (path signal 100  5580 1270  -1000 1270))
-      (outline (path signal 100  -1000 770  5580 770))
       (outline (path signal 100  5580 -1030  5580 1270))
-      (pin Rect[A]Pad_1717.5x1800_um 1 0 0)
-      (pin Oval[A]Pad_1717.5x1800_um 2 2290 0)
+      (outline (path signal 100  -1000 770  5580 770))
+      (outline (path signal 100  5580 1270  -1000 1270))
+      (outline (path signal 100  -1000 1270  -1000 -1030))
+      (outline (path signal 100  -1000 -1030  5580 -1030))
+      (outline (path signal 50  -1250 1520  -1250 -1280))
+      (outline (path signal 50  5830 1520  -1250 1520))
+      (outline (path signal 50  -1250 -1280  5830 -1280))
+      (outline (path signal 50  5830 -1280  5830 1520))
+      (outline (path signal 120  -1120 1390  5700 1390))
+      (outline (path signal 120  5589 651  5700 651))
+      (outline (path signal 120  1009 651  1282 651))
+      (outline (path signal 120  -1120 651  -1009 651))
+      (outline (path signal 120  5700 1390  5700 -1150))
+      (outline (path signal 120  -1120 -1150  5700 -1150))
+      (outline (path signal 120  -1120 1390  -1120 -1150))
+      (outline (path signal 120  3299 651  3572 651))
       (pin Oval[A]Pad_1717.5x1800_um 3 4580 0)
+      (pin Oval[A]Pad_1717.5x1800_um 2 2290 0)
+      (pin Rect[A]Pad_1717.5x1800_um 1 0 0)
     )
     (image Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::3
       (outline (path signal 120  1330 -1270  1330 -3870))
@@ -754,32 +721,6 @@
       (outline (path signal 100  1270 -3810  -1270 -3810))
       (pin Rect[A]Pad_1700x1700_um 1 0 0)
       (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
-    )
-    (image "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
-      (outline (path signal 120  7800 1470  2360 1470))
-      (outline (path signal 120  8820 0  7800 0))
-      (outline (path signal 120  2360 -1470  7800 -1470))
-      (outline (path signal 120  2360 1470  2360 -1470))
-      (outline (path signal 120  3140 1470  3140 -1470))
-      (outline (path signal 120  3260 1470  3260 -1470))
-      (outline (path signal 120  1340 0  2360 0))
-      (outline (path signal 120  3380 1470  3380 -1470))
-      (outline (path signal 120  7800 -1470  7800 1470))
-      (outline (path signal 50  11510 1600  -1350 1600))
-      (outline (path signal 50  -1350 1600  -1350 -1600))
-      (outline (path signal 50  11510 -1600  11510 1600))
-      (outline (path signal 50  -1350 -1600  11510 -1600))
-      (outline (path signal 100  7680 -1350  7680 1350))
-      (outline (path signal 100  7680 1350  2480 1350))
-      (outline (path signal 100  2480 1350  2480 -1350))
-      (outline (path signal 100  2480 -1350  7680 -1350))
-      (outline (path signal 100  3260 1350  3260 -1350))
-      (outline (path signal 100  10160 0  7680 0))
-      (outline (path signal 100  0 0  2480 0))
-      (outline (path signal 100  3360 1350  3360 -1350))
-      (outline (path signal 100  3160 1350  3160 -1350))
-      (pin Rect[A]Pad_2200x2200_um 1 0 0)
-      (pin Oval[A]Pad_2200x2200_um 2 10160 0)
     )
     (image Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical::4
       (outline (path signal 120  -1330 1330  0 1330))
@@ -880,16 +821,6 @@
       (shape (path B.Cu 1717.5  0 -41.25  0 41.25))
       (attach off)
     )
-    (padstack Oval[A]Pad_2200x2200_um
-      (shape (path F.Cu 2200  0 0  0 0))
-      (shape (path B.Cu 2200  0 0  0 0))
-      (attach off)
-    )
-    (padstack Rect[A]Pad_2200x2200_um
-      (shape (rect F.Cu -1100 -1100 1100 1100))
-      (shape (rect B.Cu -1100 -1100 1100 1100))
-      (attach off)
-    )
     (padstack Rect[T]Pad_3150x1000_um
       (shape (rect F.Cu -1575 -500 1575 500))
       (attach off)
@@ -921,8 +852,8 @@
   )
   (network
     (net GND
-      (pins R2-2 J1-2 J1-4 J1-6 J10-1 J10-2 J3-2 C2-2 J7-1 J4-3 J2-3 Q2-1 J8-1 J8-2
-        BT1-2 BT1-2@1)
+      (pins R2-2 J1-2 J1-4 J1-6 J10-1 J10-2 J3-2 C2-2 J4-3 J2-3 Q2-1 J8-1 J8-2 BT1-2
+        BT1-2@1)
     )
     (net /RX2
       (pins J1-15 J3-4)
@@ -934,31 +865,16 @@
       (pins R2-1 J1-3 R1-2)
     )
     (net 3.3V
-      (pins J1-11 J3-5 J7-2 J4-1 J2-1)
+      (pins J1-11 J3-5 J4-1 J2-1)
     )
     (net 5V
-      (pins J1-27 J7-3)
-    )
-    (net /GIO0
-      (pins J1-23 J7-8)
+      (pins J1-27)
     )
     (net /GIO2
       (pins J1-20 J4-2 J2-2)
     )
-    (net /SCL
-      (pins J1-17 J7-7)
-    )
-    (net /SDA
-      (pins J1-18 J7-6)
-    )
-    (net /RX1
-      (pins J1-13 J7-5)
-    )
-    (net /TX1
-      (pins J1-14 J7-4)
-    )
     (net /VBATT
-      (pins SW1-2 Q2-3 D2-1)
+      (pins SW1-2 Q2-3)
     )
     (net /Reset
       (pins J1-5 C2-1)
@@ -970,7 +886,7 @@
       (pins J1-12)
     )
     (net "Net-(BT1-Pad1)"
-      (pins Q2-2 D2-2 J11-1 J11-2 BT1-1 BT1-1@1)
+      (pins Q2-2 J11-1 J11-2 BT1-1 BT1-1@1)
     )
     (net /GIO34
       (pins J1-25)
@@ -990,7 +906,7 @@
     (net "unconnected-(J1-Pad9)"
       (pins J1-9)
     )
-    (net /AD1
+    (net "unconnected-(J1-Pad1)"
       (pins J1-1)
     )
     (net "unconnected-(J1-Pad10)"
@@ -1028,6 +944,21 @@
     )
     (net "unconnected-(J5-Pad1)"
       (pins J5-1)
+    )
+    (net "unconnected-(J1-Pad13)"
+      (pins J1-13)
+    )
+    (net "unconnected-(J1-Pad14)"
+      (pins J1-14)
+    )
+    (net "unconnected-(J1-Pad17)"
+      (pins J1-17)
+    )
+    (net "unconnected-(J1-Pad18)"
+      (pins J1-18)
+    )
+    (net "unconnected-(J1-Pad23)"
+      (pins J1-23)
     )
     (class kicad_default
       (circuit
