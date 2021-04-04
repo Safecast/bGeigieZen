@@ -37,6 +37,8 @@ void Context::setup() {
     M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
     M5.lcd.setRotation(3);
     M5.Lcd.drawString("No SDCARD in slot", 5, 50, 4);
+    M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+    M5.Lcd.drawString("Insert a SDCARD and restart.", 5, 90, 2);
     //display Safecast copyright
     M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
     M5.Lcd.drawString("SAFECAST", 230, 215, 1);
