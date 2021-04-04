@@ -18,7 +18,7 @@ void Context::loop() {
 
 void Context::setup() {
   // we put a delay at the beginning so that we can open the serial for debug
-  delay(5000);
+  delay(100);
 
   // Serial setup for M5Stack
   M5.begin();
@@ -31,11 +31,17 @@ void Context::setup() {
   auto ret = sd_wrapper.begin();
   while (!ret) {
 
-    Serial.println("SDcard error");
+    Serial.println("Error:");
+    Serial.println("No SDCARD in slot");
     M5.Lcd.setCursor(10, 10);
     M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
     M5.lcd.setRotation(3);
-    M5.Lcd.drawString("NO SDcard", 5, 50, 4);
+    M5.Lcd.drawString("No SDCARD in slot", 5, 50, 4);
+    //display Safecast copyright
+    M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+    M5.Lcd.drawString("SAFECAST", 230, 215, 1);
+    M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
+    M5.Lcd.drawString("2021", 285, 215, 1);
     delay(2000);
   }
 
