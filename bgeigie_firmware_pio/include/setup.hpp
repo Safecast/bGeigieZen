@@ -39,7 +39,7 @@ const char SETUP_KEY_DOSE[] = "dose";
 
 // geiger dose
 // write every hours (eeprom ~ 100000 cycles -> ~ 11 years)
-const uint32_t BZRDD_EEPROM_DOSE_WRITETIME = 3600;
+const uint32_t BNRDD_EEPROM_DOSE_WRITETIME = 3600;
 
 enum GeigieType { GEIGIE_TYPE_B = 0, GEIGIE_TYPE_X };
 
