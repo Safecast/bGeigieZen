@@ -1,8 +1,0 @@
-var searchData=
-[
-  ['battery_5flevel_582',['battery_level',['../struct_display_data.html#a2fc5dd5733fb2dd041682927da623ce9',1,'DisplayData']]],
-  ['battery_5fmonitor_583',['battery_monitor',['../class_context.html#a203eb67d86d0886703b41cab5b6fb7e0',1,'Context']]],
-  ['bgeigie_5fformatter_584',['bgeigie_formatter',['../class_context.html#abd136fe9e19e278ef2851d63f7313bf2',1,'Context']]],
-  ['billionths_585',['billionths',['../struct_raw_degrees.html#a13564009c60e20dbf03b158114d1c0e2',1,'RawDegrees']]],
-  ['bzrdd_5feeprom_5fdose_5fwritetime_586',['BZRDD_EEPROM_DOSE_WRITETIME',['../setup_8hpp.html#a7ff944463efa78f6c55ad79be711adf7',1,'setup.hpp']]]
-];
