@@ -20,7 +20,7 @@ const char device_nickname[] = "zen";
 
 /*** CONFIG ***/
 // - log format header
-const char DEVICE_HEADER[] = "BZRDD";
+const char DEVICE_HEADER[] = "BNRDD";
 // - maximum length of buffer for the bGeigie log
 const size_t LOG_BUFFER_SIZE = 100;
 // - geiger counter
