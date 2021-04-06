@@ -1057,6 +1057,11 @@
       (scale (xyz 0.4 0.4 0.4))
       (rotate (xyz -90 0 -90))
     )
+    (model "${KIPRJMOD}/shapes3D/1015-965-CLR.wrl" hide
+      (offset (xyz -18.5 25.5 0))
+      (scale (xyz 1 1 1))
+      (rotate (xyz -90 0 -90))
+    )
   )
 
   (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" (layer "F.Cu")
@@ -1583,7 +1588,7 @@
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 -90))
     )
-    (model "/home/rob/Documents/Freecad/OpenHVPS-5.step"
+    (model "${KIPRJMOD}/shapes3D/OpenHVPS-5.wrl"
       (offset (xyz -75.5 -133.5 -6))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 -90))
@@ -1643,7 +1648,7 @@
     (model "${KISYS3DMOD}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x03_P2.54mm_Vertical.wrl" hide
       (offset (xyz 0 0 -1.5))
       (scale (xyz 1 1 1))
-      (rotate (xyz 0 -180 0))
+      (rotate (xyz -90 -180 0))
     )
     (model "/home/rob/Documents/Freecad/iRover_1.2f_extra.wrl" hide
       (offset (xyz -17 3.75 -12))
@@ -1679,6 +1684,11 @@
       (offset (xyz -30 0.5 -16))
       (scale (xyz 1 1 0.4))
       (rotate (xyz 0 0 0))
+    )
+    (model "/home/rob/Documents/Freecad/safepulse_ray.step" hide
+      (offset (xyz 75.5 129 -7))
+      (scale (xyz 1 1 1))
+      (rotate (xyz -180 -180 -90))
     )
   )
 
