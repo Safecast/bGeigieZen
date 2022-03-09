@@ -14,11 +14,11 @@ void Display::draw_base() {
   M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
   M5.Lcd.drawString("SAFECAST", 230, 215, 1);
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
-  M5.Lcd.drawString("2021", 285, 215, 1);
+  M5.Lcd.drawString("2022", 285, 215, 1);
 }
 
 void Display::draw_navbar(const char *A, const char *B, const char *C) {
-  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
   M5.Lcd.drawString(A, 50, 10, 2); // Button A
   M5.Lcd.drawString(B, 145, 10, 2); // Button B
   M5.Lcd.drawString(C, 250, 10, 2); // Button C
@@ -76,7 +76,7 @@ void Display::draw_qrcode() {
 
 void Display::draw_main() {
 
-  draw_navbar("menu", "mode", "QR");
+  draw_navbar("MENU", "MODE", "QR");
 
   // Show the device number
   M5.Lcd.setCursor(10, 30);
@@ -103,15 +103,15 @@ void Display::draw_main() {
 
     // Display CPM
     M5.Lcd.setCursor(20, 50);
-    M5.Lcd.drawString("CPM  =", 5, 50, 4);
+    M5.Lcd.drawString("CPM ", 120, 70, 4);
     M5.Lcd.setCursor(120, 55);
-    printIntFont(data.geiger_cpm, true, 5, 50, 90, 4);
+    printIntFont(data.geiger_cpm, true, 5, 50, 5, 6);
 
     // Display uSv/h
     M5.Lcd.setCursor(22, 70);
-    M5.Lcd.drawString("uSv/h =", 5, 70, 4);
+    M5.Lcd.drawString("uSv/h =", 5, 90, 4);
     M5.Lcd.setCursor(100, 80);
-    printFloatFont(data.geiger_uSv, true, 7, 3, 70, 90, 4);
+    printFloatFont(data.geiger_uSv, true, 7, 3, 90, 90, 4);
 
     data.geiger_fresh = false;
   }
