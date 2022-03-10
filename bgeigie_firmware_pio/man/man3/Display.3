@@ -1,0 +1,102 @@
+.TH "Display" 3 "Thu Mar 10 2022" "BGeigieZen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Display
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <display\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDisplay\fP (uint32_t refresh_period_ms)"
+.br
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.ti -1c
+.RI "void \fBfeed\fP (const \fBGeigerCounter\fP &geiger_count)"
+.br
+.ti -1c
+.RI "void \fBfeed\fP (\fBGPSSensor\fP &geiger_count)"
+.br
+.ti -1c
+.RI "void \fBfeed\fP (const \fBSetup\fP &device_setup)"
+.br
+.ti -1c
+.RI "void \fBfeed_battery_level\fP (int8_t level)"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "void \fBdraw_base\fP ()"
+.br
+.ti -1c
+.RI "void \fBdraw_navbar\fP (const char *A, const char *B, const char *C)"
+.br
+.ti -1c
+.RI "void \fBdraw_main\fP ()"
+.br
+.ti -1c
+.RI "void \fBdraw_qrcode\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 53 of file display\&.hpp\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Display::Display (uint32_t refresh_period_ms)\fC [inline]\fP"
+
+.PP
+Definition at line 64 of file display\&.hpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void Display::clear ()"
+
+.PP
+Definition at line 6 of file display\&.cpp\&.
+.SS "void Display::draw_base ()"
+
+.PP
+Definition at line 12 of file display\&.cpp\&.
+.SS "void Display::draw_main ()"
+
+.PP
+Definition at line 77 of file display\&.cpp\&.
+.SS "void Display::draw_navbar (const char * A, const char * B, const char * C)"
+
+.PP
+Definition at line 20 of file display\&.cpp\&.
+.SS "void Display::draw_qrcode ()"
+
+.PP
+Definition at line 63 of file display\&.cpp\&.
+.SS "void Display::feed (const \fBGeigerCounter\fP & geiger_count)"
+
+.PP
+Definition at line 150 of file display\&.cpp\&.
+.SS "void Display::feed (const \fBSetup\fP & device_setup)\fC [inline]\fP"
+
+.PP
+Definition at line 69 of file display\&.hpp\&.
+.SS "void Display::feed (\fBGPSSensor\fP & geiger_count)"
+
+.PP
+Definition at line 157 of file display\&.cpp\&.
+.SS "void Display::feed_battery_level (int8_t level)\fC [inline]\fP"
+
+.PP
+Definition at line 72 of file display\&.hpp\&.
+.SS "void Display::update ()"
+
+.PP
+Definition at line 27 of file display\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for BGeigieZen from the source code\&.

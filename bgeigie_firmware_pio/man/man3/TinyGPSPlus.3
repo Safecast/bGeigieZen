@@ -1,0 +1,202 @@
+.TH "TinyGPSPlus" 3 "Thu Mar 10 2022" "BGeigieZen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TinyGPSPlus
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <TinyGPS++\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTinyGPSPlus\fP ()"
+.br
+.ti -1c
+.RI "bool \fBencode\fP (char c)"
+.br
+.ti -1c
+.RI "\fBTinyGPSPlus\fP & \fBoperator<<\fP (char c)"
+.br
+.ti -1c
+.RI "uint32_t \fBcharsProcessed\fP () const"
+.br
+.ti -1c
+.RI "uint32_t \fBsentencesWithFix\fP () const"
+.br
+.ti -1c
+.RI "uint32_t \fBfailedChecksum\fP () const"
+.br
+.ti -1c
+.RI "uint32_t \fBpassedChecksum\fP () const"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static const char * \fBlibraryVersion\fP ()"
+.br
+.ti -1c
+.RI "static double \fBdistanceBetween\fP (double lat1, double long1, double lat2, double long2)"
+.br
+.ti -1c
+.RI "static double \fBcourseTo\fP (double lat1, double long1, double lat2, double long2)"
+.br
+.ti -1c
+.RI "static const char * \fBcardinal\fP (double \fBcourse\fP)"
+.br
+.ti -1c
+.RI "static int32_t \fBparseDecimal\fP (const char *term)"
+.br
+.ti -1c
+.RI "static void \fBparseDegrees\fP (const char *term, \fBRawDegrees\fP &deg)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBTinyGPSLocation\fP \fBlocation\fP"
+.br
+.ti -1c
+.RI "\fBTinyGPSDate\fP \fBdate\fP"
+.br
+.ti -1c
+.RI "\fBTinyGPSTime\fP \fBtime\fP"
+.br
+.ti -1c
+.RI "\fBTinyGPSSpeed\fP \fBspeed\fP"
+.br
+.ti -1c
+.RI "\fBTinyGPSCourse\fP \fBcourse\fP"
+.br
+.ti -1c
+.RI "\fBTinyGPSAltitude\fP \fBaltitude\fP"
+.br
+.ti -1c
+.RI "\fBTinyGPSInteger\fP \fBsatellites\fP"
+.br
+.ti -1c
+.RI "\fBTinyGPSHDOP\fP \fBhdop\fP"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBGPSSensor\fP"
+.br
+.ti -1c
+.RI "class \fBTinyGPSCustom\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 225 of file TinyGPS++\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "TinyGPSPlus::TinyGPSPlus ()"
+
+.PP
+Definition at line 35 of file TinyGPS++\&.cpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "const char * TinyGPSPlus::cardinal (double course)\fC [static]\fP"
+
+.PP
+Definition at line 330 of file TinyGPS++\&.cpp\&.
+.SS "uint32_t TinyGPSPlus::charsProcessed () const\fC [inline]\fP"
+
+.PP
+Definition at line 252 of file TinyGPS++\&.h\&.
+.SS "double TinyGPSPlus::courseTo (double lat1, double long1, double lat2, double long2)\fC [static]\fP"
+
+.PP
+Definition at line 310 of file TinyGPS++\&.cpp\&.
+.SS "double TinyGPSPlus::distanceBetween (double lat1, double long1, double lat2, double long2)\fC [static]\fP"
+
+.PP
+Definition at line 285 of file TinyGPS++\&.cpp\&.
+.SS "bool TinyGPSPlus::encode (char c)"
+
+.PP
+Definition at line 56 of file TinyGPS++\&.cpp\&.
+.SS "uint32_t TinyGPSPlus::failedChecksum () const\fC [inline]\fP"
+
+.PP
+Definition at line 254 of file TinyGPS++\&.h\&.
+.SS "static const char* TinyGPSPlus::libraryVersion ()\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+Definition at line 243 of file TinyGPS++\&.h\&.
+.SS "\fBTinyGPSPlus\fP& TinyGPSPlus::operator<< (char c)\fC [inline]\fP"
+
+.PP
+Definition at line 232 of file TinyGPS++\&.h\&.
+.SS "int32_t TinyGPSPlus::parseDecimal (const char * term)\fC [static]\fP"
+
+.PP
+Definition at line 115 of file TinyGPS++\&.cpp\&.
+.SS "void TinyGPSPlus::parseDegrees (const char * term, \fBRawDegrees\fP & deg)\fC [static]\fP"
+
+.PP
+Definition at line 132 of file TinyGPS++\&.cpp\&.
+.SS "uint32_t TinyGPSPlus::passedChecksum () const\fC [inline]\fP"
+
+.PP
+Definition at line 255 of file TinyGPS++\&.h\&.
+.SS "uint32_t TinyGPSPlus::sentencesWithFix () const\fC [inline]\fP"
+
+.PP
+Definition at line 253 of file TinyGPS++\&.h\&.
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "friend class \fBGPSSensor\fP\fC [friend]\fP"
+
+.PP
+Definition at line 227 of file TinyGPS++\&.h\&.
+.SS "friend class \fBTinyGPSCustom\fP\fC [friend]\fP"
+
+.PP
+Definition at line 270 of file TinyGPS++\&.h\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBTinyGPSAltitude\fP TinyGPSPlus::altitude"
+
+.PP
+Definition at line 239 of file TinyGPS++\&.h\&.
+.SS "\fBTinyGPSCourse\fP TinyGPSPlus::course"
+
+.PP
+Definition at line 238 of file TinyGPS++\&.h\&.
+.SS "\fBTinyGPSDate\fP TinyGPSPlus::date"
+
+.PP
+Definition at line 235 of file TinyGPS++\&.h\&.
+.SS "\fBTinyGPSHDOP\fP TinyGPSPlus::hdop"
+
+.PP
+Definition at line 241 of file TinyGPS++\&.h\&.
+.SS "\fBTinyGPSLocation\fP TinyGPSPlus::location"
+
+.PP
+Definition at line 234 of file TinyGPS++\&.h\&.
+.SS "\fBTinyGPSInteger\fP TinyGPSPlus::satellites"
+
+.PP
+Definition at line 240 of file TinyGPS++\&.h\&.
+.SS "\fBTinyGPSSpeed\fP TinyGPSPlus::speed"
+
+.PP
+Definition at line 237 of file TinyGPS++\&.h\&.
+.SS "\fBTinyGPSTime\fP TinyGPSPlus::time"
+
+.PP
+Definition at line 236 of file TinyGPS++\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for BGeigieZen from the source code\&.

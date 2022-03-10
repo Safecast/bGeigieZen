@@ -1,0 +1,82 @@
+.TH "State" 3 "Thu Mar 10 2022" "BGeigieZen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+State
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <fsm_state_base\&.hpp>\fP
+.PP
+Inherited by \fBStateLogging\fP, \fBStateStartup\fP, and \fBStateWaitGPSTime\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBState\fP ()"
+.br
+.ti -1c
+.RI "void \fBenter\fP (\fBContext\fP *ctx, \fBEvent\fP e)"
+.br
+.ti -1c
+.RI "void \fBexit\fP (\fBEvent\fP e)"
+.br
+.ti -1c
+.RI "virtual void \fBon_enter\fP (\fBEvent\fP e)=0"
+.br
+.ti -1c
+.RI "virtual void \fBprocess\fP ()=0"
+.br
+.ti -1c
+.RI "virtual void \fBon_exit\fP (\fBEvent\fP e)=0"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBContext\fP * \fB_ctx\fP = NULL"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 17 of file fsm_state_base\&.hpp\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "State::State ()\fC [inline]\fP"
+
+.PP
+Definition at line 21 of file fsm_state_base\&.hpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void State::enter (\fBContext\fP * ctx, \fBEvent\fP e)\fC [inline]\fP"
+
+.PP
+Definition at line 22 of file fsm_state_base\&.hpp\&.
+.SS "void State::exit (\fBEvent\fP e)\fC [inline]\fP"
+
+.PP
+Definition at line 26 of file fsm_state_base\&.hpp\&.
+.SS "virtual void State::on_enter (\fBEvent\fP e)\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBStateLogging\fP, \fBStateWaitGPSTime\fP, and \fBStateStartup\fP\&.
+.SS "virtual void State::on_exit (\fBEvent\fP e)\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBStateLogging\fP, \fBStateWaitGPSTime\fP, and \fBStateStartup\fP\&.
+.SS "virtual void State::process ()\fC [pure virtual]\fP"
+
+.PP
+Implemented in \fBStateLogging\fP, \fBStateWaitGPSTime\fP, and \fBStateStartup\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBContext\fP* State::_ctx = NULL\fC [protected]\fP"
+
+.PP
+Definition at line 19 of file fsm_state_base\&.hpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for BGeigieZen from the source code\&.
