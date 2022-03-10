@@ -1,0 +1,102 @@
+.TH "GPSSensor" 3 "Thu Mar 10 2022" "BGeigieZen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GPSSensor
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <gps\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGPSSensor\fP (int serial_number, uint32_t baud_rate)"
+.br
+.ti -1c
+.RI "uint32_t \fBage_ms\fP () const"
+.br
+.ti -1c
+.RI "bool \fBhas_started\fP () const"
+.br
+.ti -1c
+.RI "bool \fBis_updating\fP () const"
+.br
+.ti -1c
+.RI "bool \fBavailable\fP () const"
+.br
+.ti -1c
+.RI "void \fBupdate\fP ()"
+.br
+.ti -1c
+.RI "bool \fBhas_fix\fP () const"
+.br
+.ti -1c
+.RI "bool \fBnever_fixed\fP () const"
+.br
+.ti -1c
+.RI "bool \fBtime_valid\fP () const"
+.br
+.ti -1c
+.RI "\fBTinyGPSPlus\fP & \fBdata\fP ()"
+.br
+.ti -1c
+.RI "const \fBTinyGPSPlus\fP & \fBdata\fP () const"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 26 of file gps\&.hpp\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "GPSSensor::GPSSensor (int serial_number, uint32_t baud_rate)\fC [inline]\fP"
+
+.PP
+Definition at line 52 of file gps\&.hpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "uint32_t GPSSensor::age_ms () const\fC [inline]\fP"
+
+.PP
+Definition at line 56 of file gps\&.hpp\&.
+.SS "bool GPSSensor::available () const\fC [inline]\fP"
+
+.PP
+Definition at line 68 of file gps\&.hpp\&.
+.SS "\fBTinyGPSPlus\fP& GPSSensor::data ()\fC [inline]\fP"
+
+.PP
+Definition at line 77 of file gps\&.hpp\&.
+.SS "const \fBTinyGPSPlus\fP& GPSSensor::data () const\fC [inline]\fP"
+
+.PP
+Definition at line 81 of file gps\&.hpp\&.
+.SS "bool GPSSensor::has_fix () const\fC [inline]\fP"
+
+.PP
+Definition at line 74 of file gps\&.hpp\&.
+.SS "bool GPSSensor::has_started () const\fC [inline]\fP"
+
+.PP
+Definition at line 64 of file gps\&.hpp\&.
+.SS "bool GPSSensor::is_updating () const\fC [inline]\fP"
+
+.PP
+Definition at line 65 of file gps\&.hpp\&.
+.SS "bool GPSSensor::never_fixed () const\fC [inline]\fP"
+
+.PP
+Definition at line 75 of file gps\&.hpp\&.
+.SS "bool GPSSensor::time_valid () const\fC [inline]\fP"
+
+.PP
+Definition at line 76 of file gps\&.hpp\&.
+.SS "void GPSSensor::update ()"
+
+.PP
+Definition at line 3 of file gps\&.cpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for BGeigieZen from the source code\&.
