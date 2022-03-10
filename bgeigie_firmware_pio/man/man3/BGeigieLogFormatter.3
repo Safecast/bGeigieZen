@@ -1,0 +1,74 @@
+.TH "BGeigieLogFormatter" 3 "Thu Mar 10 2022" "BGeigieZen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BGeigieLogFormatter
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <logger\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBGeigieLogFormatter\fP (uint32_t device_id)"
+.br
+.ti -1c
+.RI "\fBBGeigieLogFormatter\fP ()"
+.br
+.ti -1c
+.RI "void \fBset_device_id\fP (uint32_t device_id)"
+.br
+.ti -1c
+.RI "void \fBfeed\fP (\fBGPSSensor\fP &gps)"
+.br
+.ti -1c
+.RI "void \fBfeed\fP (const \fBGeigerCounter\fP &geiger_count)"
+.br
+.ti -1c
+.RI "bool \fBready\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBformat\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 12 of file logger\&.hpp\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "BGeigieLogFormatter::BGeigieLogFormatter (uint32_t device_id)\fC [inline]\fP"
+
+.PP
+Definition at line 31 of file logger\&.hpp\&.
+.SS "BGeigieLogFormatter::BGeigieLogFormatter ()\fC [inline]\fP"
+
+.PP
+Definition at line 32 of file logger\&.hpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void BGeigieLogFormatter::feed (const \fBGeigerCounter\fP & geiger_count)"
+
+.PP
+Definition at line 15 of file logger\&.cpp\&.
+.SS "void BGeigieLogFormatter::feed (\fBGPSSensor\fP & gps)"
+
+.PP
+Definition at line 23 of file logger\&.cpp\&.
+.SS "const char * BGeigieLogFormatter::format ()"
+
+.PP
+Definition at line 46 of file logger\&.cpp\&.
+.SS "bool BGeigieLogFormatter::ready ()\fC [inline]\fP"
+
+.PP
+Definition at line 38 of file logger\&.hpp\&.
+.SS "void BGeigieLogFormatter::set_device_id (uint32_t device_id)\fC [inline]\fP"
+
+.PP
+Definition at line 34 of file logger\&.hpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for BGeigieZen from the source code\&.
