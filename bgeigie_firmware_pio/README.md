@@ -13,11 +13,11 @@ Pre-requisites: python3
   
 3. Clone the repository
   
-        git clone git@github.com:Safecast/bGeigie-Raku.git
+        git clone git@github.com:Safecast/bGeigiezen.git
   
 4. Change branch to Robin dev
   
-        cd bGeigie-Raku
+        cd bGeigiezen
         git checkout robin/M5Stack_bGeigieRaku_V2.0
   
 5. Change directory
