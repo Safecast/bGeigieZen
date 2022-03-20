@@ -1,0 +1,108 @@
+.TH "TinyGPSLocation" 3 "Thu Mar 10 2022" "BGeigieZen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TinyGPSLocation
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <TinyGPS++\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBisValid\fP () const"
+.br
+.ti -1c
+.RI "bool \fBisUpdated\fP () const"
+.br
+.ti -1c
+.RI "uint32_t \fBage\fP () const"
+.br
+.ti -1c
+.RI "const \fBRawDegrees\fP & \fBrawLat\fP ()"
+.br
+.ti -1c
+.RI "const \fBRawDegrees\fP & \fBrawLng\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBrawLatStr\fP ()"
+.br
+.ti -1c
+.RI "const char * \fBrawLngStr\fP ()"
+.br
+.ti -1c
+.RI "double \fBlat\fP ()"
+.br
+.ti -1c
+.RI "double \fBlng\fP ()"
+.br
+.ti -1c
+.RI "\fBTinyGPSLocation\fP ()"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "class \fBTinyGPSPlus\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 56 of file TinyGPS++\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "TinyGPSLocation::TinyGPSLocation ()\fC [inline]\fP"
+
+.PP
+Definition at line 70 of file TinyGPS++\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "uint32_t TinyGPSLocation::age () const\fC [inline]\fP"
+
+.PP
+Definition at line 62 of file TinyGPS++\&.h\&.
+.SS "bool TinyGPSLocation::isUpdated () const\fC [inline]\fP"
+
+.PP
+Definition at line 61 of file TinyGPS++\&.h\&.
+.SS "bool TinyGPSLocation::isValid () const\fC [inline]\fP"
+
+.PP
+Definition at line 60 of file TinyGPS++\&.h\&.
+.SS "double TinyGPSLocation::lat ()"
+
+.PP
+Definition at line 361 of file TinyGPS++\&.cpp\&.
+.SS "double TinyGPSLocation::lng ()"
+
+.PP
+Definition at line 368 of file TinyGPS++\&.cpp\&.
+.SS "const \fBRawDegrees\fP& TinyGPSLocation::rawLat ()\fC [inline]\fP"
+
+.PP
+Definition at line 63 of file TinyGPS++\&.h\&.
+.SS "const char* TinyGPSLocation::rawLatStr ()\fC [inline]\fP"
+
+.PP
+Definition at line 65 of file TinyGPS++\&.h\&.
+.SS "const \fBRawDegrees\fP& TinyGPSLocation::rawLng ()\fC [inline]\fP"
+
+.PP
+Definition at line 64 of file TinyGPS++\&.h\&.
+.SS "const char* TinyGPSLocation::rawLngStr ()\fC [inline]\fP"
+
+.PP
+Definition at line 66 of file TinyGPS++\&.h\&.
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "friend class \fBTinyGPSPlus\fP\fC [friend]\fP"
+
+.PP
+Definition at line 58 of file TinyGPS++\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for BGeigieZen from the source code\&.
