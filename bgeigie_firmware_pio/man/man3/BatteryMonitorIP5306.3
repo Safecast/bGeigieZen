@@ -1,0 +1,396 @@
+.TH "BatteryMonitorIP5306" 3 "Thu Mar 10 2022" "BGeigieZen" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BatteryMonitorIP5306
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <battery\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBatteryMonitorIP5306\fP ()"
+.br
+.ti -1c
+.RI "void \fBprint_stats\fP ()"
+.br
+.ti -1c
+.RI "void \fBprint_settings\fP ()"
+.br
+.ti -1c
+.RI "int8_t \fBget_level\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBGetKeyOffEnabled\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetKeyOffEnabled\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetBoostOutputEnabled\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetBoostOutputEnabled\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetPowerOnLoadEnabled\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetPowerOnLoadEnabled\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetChargerEnabled\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetChargerEnabled\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetBoostEnabled\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetBoostEnabled\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetLowBatShutdownEnable\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetLowBatShutdownEnable\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetBoostAfterVin\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetBoostAfterVin\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetShortPressBoostSwitchEnable\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetShortPressBoostSwitchEnable\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetFlashlightClicks\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetFlashlightClicks\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetBoostOffClicks\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetBoostOffClicks\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetLightLoadShutdownTime\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetLightLoadShutdownTime\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetLongPressTime\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetLongPressTime\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetChargingFullStopVoltage\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetChargingFullStopVoltage\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetChargeUnderVoltageLoop\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetChargeUnderVoltageLoop\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetEndChargeCurrentDetection\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetEndChargeCurrentDetection\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetVoltagePressure\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetVoltagePressure\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetChargeCutoffVoltage\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetChargeCutoffVoltage\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetChargeCCLoop\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetChargeCCLoop\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetVinCurrent\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetVinCurrent\fP (uint8_t v)"
+.br
+.ti -1c
+.RI "uint8_t \fBGetShortPressDetected\fP ()"
+.br
+.ti -1c
+.RI "void \fBClearShortPressDetected\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBGetLongPressDetected\fP ()"
+.br
+.ti -1c
+.RI "void \fBClearLongPressDetected\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBGetDoubleClickDetected\fP ()"
+.br
+.ti -1c
+.RI "void \fBClearDoubleClickDetected\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBGetPowerSource\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBGetBatteryFull\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBGetOutputLoad\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBGetLevelLeds\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBLEDS2PCT\fP (uint8_t byte)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 32 of file battery\&.hpp\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "BatteryMonitorIP5306::BatteryMonitorIP5306 ()\fC [inline]\fP"
+
+.PP
+Definition at line 55 of file battery\&.hpp\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "void BatteryMonitorIP5306::ClearDoubleClickDetected ()\fC [inline]\fP"
+
+.PP
+Definition at line 176 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::ClearLongPressDetected ()\fC [inline]\fP"
+
+.PP
+Definition at line 173 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::ClearShortPressDetected ()\fC [inline]\fP"
+
+.PP
+Definition at line 168 of file battery\&.hpp\&.
+.SS "int8_t BatteryMonitorIP5306::get_level ()"
+
+.PP
+Definition at line 3 of file battery\&.cpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetBatteryFull ()\fC [inline]\fP"
+
+.PP
+Definition at line 183 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetBoostAfterVin ()\fC [inline]\fP"
+
+.PP
+Definition at line 90 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetBoostEnabled ()\fC [inline]\fP"
+
+.PP
+Definition at line 80 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetBoostOffClicks ()\fC [inline]\fP"
+
+.PP
+Definition at line 107 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetBoostOutputEnabled ()\fC [inline]\fP"
+
+.PP
+Definition at line 65 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetChargeCCLoop ()\fC [inline]\fP"
+
+.PP
+Definition at line 157 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetChargeCutoffVoltage ()\fC [inline]\fP"
+
+.PP
+Definition at line 152 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetChargerEnabled ()\fC [inline]\fP"
+
+.PP
+Definition at line 75 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetChargeUnderVoltageLoop ()\fC [inline]\fP"
+
+.PP
+Definition at line 130 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetChargingFullStopVoltage ()\fC [inline]\fP"
+
+.PP
+Definition at line 122 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetDoubleClickDetected ()\fC [inline]\fP"
+
+.PP
+Definition at line 175 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetEndChargeCurrentDetection ()\fC [inline]\fP"
+
+.PP
+Definition at line 140 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetFlashlightClicks ()\fC [inline]\fP"
+
+.PP
+Definition at line 102 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetKeyOffEnabled ()\fC [inline]\fP"
+
+.PP
+Definition at line 60 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetLevelLeds ()\fC [inline]\fP"
+
+.PP
+Definition at line 189 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetLightLoadShutdownTime ()\fC [inline]\fP"
+
+.PP
+Definition at line 112 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetLongPressDetected ()\fC [inline]\fP"
+
+.PP
+Definition at line 172 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetLongPressTime ()\fC [inline]\fP"
+
+.PP
+Definition at line 119 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetLowBatShutdownEnable ()\fC [inline]\fP"
+
+.PP
+Definition at line 85 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetOutputLoad ()\fC [inline]\fP"
+
+.PP
+Definition at line 186 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetPowerOnLoadEnabled ()\fC [inline]\fP"
+
+.PP
+Definition at line 70 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetPowerSource ()\fC [inline]\fP"
+
+.PP
+Definition at line 180 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetShortPressBoostSwitchEnable ()\fC [inline]\fP"
+
+.PP
+Definition at line 95 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetShortPressDetected ()\fC [inline]\fP"
+
+.PP
+Definition at line 167 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetVinCurrent ()\fC [inline]\fP"
+
+.PP
+Definition at line 162 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::GetVoltagePressure ()\fC [inline]\fP"
+
+.PP
+Definition at line 147 of file battery\&.hpp\&.
+.SS "uint8_t BatteryMonitorIP5306::LEDS2PCT (uint8_t byte)\fC [inline]\fP"
+
+.PP
+Definition at line 194 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::print_settings ()"
+
+.PP
+Definition at line 77 of file battery\&.cpp\&.
+.SS "void BatteryMonitorIP5306::print_stats ()"
+
+.PP
+Definition at line 67 of file battery\&.cpp\&.
+.SS "void BatteryMonitorIP5306::SetBoostAfterVin (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 91 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetBoostEnabled (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 81 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetBoostOffClicks (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 108 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetBoostOutputEnabled (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 66 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetChargeCCLoop (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 158 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetChargeCutoffVoltage (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 153 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetChargerEnabled (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 76 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetChargeUnderVoltageLoop (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 134 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetChargingFullStopVoltage (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 125 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetEndChargeCurrentDetection (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 143 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetFlashlightClicks (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 103 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetKeyOffEnabled (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 61 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetLightLoadShutdownTime (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 115 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetLongPressTime (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 120 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetLowBatShutdownEnable (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 86 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetPowerOnLoadEnabled (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 71 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetShortPressBoostSwitchEnable (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 98 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetVinCurrent (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 163 of file battery\&.hpp\&.
+.SS "void BatteryMonitorIP5306::SetVoltagePressure (uint8_t v)\fC [inline]\fP"
+
+.PP
+Definition at line 148 of file battery\&.hpp\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for BGeigieZen from the source code\&.
