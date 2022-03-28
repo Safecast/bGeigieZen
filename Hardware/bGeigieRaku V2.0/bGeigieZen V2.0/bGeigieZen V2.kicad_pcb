@@ -1258,9 +1258,19 @@
     (pad "30" smd rect (at 2.525 17.78 270) (size 3.15 1) (layers "F.Cu" "F.Paste" "F.Mask")
       (net 27 "unconnected-(J1-Pin_30)") (pinfunction "Pin_30") (pintype "passive") (tstamp e8820264-1392-42c4-aa70-21beda40ab93))
     (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_2x15_P2.54mm_Vertical_SMD.wrl"
-      (offset (xyz 0 0 0))
-      (scale (xyz 1 1 1))
+      (offset (xyz 0 -1 0))
+      (scale (xyz 1 1 0.6))
       (rotate (xyz 0 0 0))
+    )
+    (model "${KIPRJMOD}/M5Stack case grey.wrl" hide
+      (offset (xyz -18 0 0))
+      (scale (xyz 0.38 0.38 0.38))
+      (rotate (xyz 0 0 0))
+    )
+    (model "${KIPRJMOD}/shapes3D/lnd7318-2.wrl"
+      (offset (xyz -22 -3.5 -8))
+      (scale (xyz 4 4 4))
+      (rotate (xyz 90 0 -123))
     )
   )
 
@@ -1325,6 +1335,11 @@
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
+    )
+    (model "${KIPRJMOD}/shapes3D/TP4056.wrl"
+      (offset (xyz 7.5 -14 3.5))
+      (scale (xyz 0.38 0.4 0.4))
+      (rotate (xyz 0 0 180))
     )
   )
 
@@ -1397,6 +1412,11 @@
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
+    )
+    (model "${KIPRJMOD}/shapes3D/BN-880Q.wrl"
+      (offset (xyz 1 8 6))
+      (scale (xyz 1 1 1))
+      (rotate (xyz 0 180 -90))
     )
   )
 
@@ -1942,7 +1962,7 @@
       (net 1 "GND") (pinfunction "Pin_30") (pintype "passive") (tstamp c4efb56d-8bd6-43db-b943-6c7890b08cdb))
     (model "${KICAD6_3DMODEL_DIR}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_2x15_P2.54mm_Vertical_SMD.wrl"
       (offset (xyz 0 0 0))
-      (scale (xyz 1 1 1))
+      (scale (xyz 1 1 0.4))
       (rotate (xyz 0 0 0))
     )
   )
@@ -2211,7 +2231,7 @@
       (net 30 "unconnected-(J5-Pin_1)") (pinfunction "Pin_1") (pintype "passive") (tstamp 48c6f099-7133-480a-a609-a27917b15a35))
     (pad "2" thru_hole oval (at 0 2.54 180) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 33 "unconnected-(J5-Pin_2)") (pinfunction "Pin_2") (pintype "passive") (tstamp 89c36529-a5d8-4865-b182-ec4a83d88969))
-    (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.wrl"
+    (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x02_P2.54mm_Vertical.wrl" hide
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -2358,10 +2378,15 @@
       (net 6 "/GIO2") (pinfunction "Pin_2") (pintype "passive") (tstamp 6f33a276-8caf-44dc-8073-be7cf610f484))
     (pad "3" thru_hole oval (at 0 5.08 90) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
       (net 4 "3.3V") (pinfunction "Pin_3") (pintype "passive") (tstamp 09d35e09-7249-4f7d-89ab-78bb4464e319))
-    (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x03_P2.54mm_Vertical.wrl"
+    (model "${KICAD6_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x03_P2.54mm_Vertical.wrl" hide
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
+    )
+    (model "${KIPRJMOD}/shapes3D/OpenHVPS-5.wrl"
+      (offset (xyz -75.5 -133.5 -4))
+      (scale (xyz 1 1 1))
+      (rotate (xyz -180 -180 90))
     )
   )
 
