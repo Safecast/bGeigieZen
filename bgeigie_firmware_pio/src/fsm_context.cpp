@@ -3,6 +3,8 @@
 
 #include <fsm_context.hpp>
 
+
+
 void Context::begin() {
   transition_to(StateStartup::instance(), Event::DEVICE_STARTED);
 }
