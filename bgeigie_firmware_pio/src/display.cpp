@@ -2,6 +2,7 @@
 
 #include <cstdio>
 #include <display.hpp>
+#define TFT_LIGHT_YELLOW 0xffff45
 
 void Display::clear() {
   // Clear display
@@ -11,14 +12,14 @@ void Display::clear() {
 
 void Display::draw_base() {
   // Display safecast copyright
-  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.setTextColor(TFT_LIGHT_YELLOW, TFT_BLACK);
   M5.Lcd.drawString("SAFECAST", 230, 215, 1);
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
   M5.Lcd.drawString("2022", 285, 215, 1);
 }
 
 void Display::draw_navbar(const char *A, const char *B, const char *C) {
-  M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
+  M5.Lcd.setTextColor(TFT_LIGHT_YELLOW, TFT_BLACK);
   M5.Lcd.drawString(A, 50, 10, 2); // Button A
   M5.Lcd.drawString(B, 145, 10, 2); // Button B
   M5.Lcd.drawString(C, 250, 10, 2); // Button C
@@ -80,13 +81,13 @@ void Display::draw_main() {
 
   // Show the device number
   M5.Lcd.setCursor(10, 30);
-  M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
       M5.Lcd.print("DeviceID =");
   M5.Lcd.print(data.device_id);
 
   // Display battery level
   M5.Lcd.setCursor(270, 30);
-  M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
   if (data.battery_level == -1) {
     M5.Lcd.print("BAT=ext");
   } else {
@@ -99,7 +100,7 @@ void Display::draw_main() {
     if (data.geiger_valid)
       M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
     else
-      M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
+      M5.Lcd.setTextColor(TFT_LIGHT_YELLOW, TFT_BLACK);
 
     // Display CPM
     M5.Lcd.setCursor(20, 50);
