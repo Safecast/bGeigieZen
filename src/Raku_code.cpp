@@ -2,6 +2,7 @@
 
 #include <M5Stack.h>
 #include <TinyGPS++.h>
+#include "WiFi.h"
 
 //sliding windows counting variables
 #define NX 60 // 60 times per minute buckets
@@ -245,6 +246,49 @@ static void printFloatFont(float val, bool valid, int len, int prec, int y, int 
   }
 
 
+// Wifi Test (some code sampled from M5Stack Factory Test)
+void wifi_test() {
+     WiFi.mode(WIFI_STA);
+     WiFi.disconnect();
+     delay(100);
+     M5.Lcd.setCursor(0 , 0);
+     Serial.println("Wifi Scan Start");
+     M5.Lcd.println("Wifi Scan Start");
+
+     // WiFi.scanNetworks returns number of wifi networks detected
+     int n = WiFi.scanNetworks();
+     Serial.println("Wifi Scan Complete");
+     M5.Lcd.println("Wifi Scan Complete");
+     if (n == 0) {
+         Serial.println("No Wifi Detected");
+         M5.Lcd.println("No Wifi Detected");
+     } else {
+         M5.Lcd.setCursor(0 , 90);
+         Serial.print(n); // n is number of wifi networks
+         M5.Lcd.print(n);
+         Serial.println(" Wifi Networks found");
+         M5.Lcd.println(" Wifi Networks found");
+         for (int i = 0; i < n; ++i) { // loop printing wifi networks available
+             Serial.print(i + 1);
+             M5.Lcd.print(i + 1);
+             Serial.print(": ");
+             M5.Lcd.print(": "); // Print SSID and RSSI for each network found
+             Serial.print(WiFi.SSID(i));
+             M5.Lcd.print(WiFi.SSID(i));
+             Serial.print(" (");
+             M5.Lcd.print(" (");
+             Serial.print(WiFi.RSSI(i));
+             M5.Lcd.print(WiFi.RSSI(i));
+             Serial.print(")");
+             M5.Lcd.print(")");
+             Serial.println((WiFi.encryptionType(i) == WIFI_AUTH_OPEN)?" ":"*");
+             M5.Lcd.println((WiFi.encryptionType(i) == WIFI_AUTH_OPEN)?" ":"*");
+             delay(5);
+         }
+     }
+     Serial.println("");
+     M5.Lcd.println("");
+ }
 //------------------------------------------------------------------------------------------------------------------------------------------
 /*
 ** IP5306 Power Module
@@ -578,5 +622,10 @@ void loop()
         Serial.print("Total counts =");
         Serial.println(total_count);
         Serial.println();
+      //wifi test
+        Serial.print("WIFI TEST - ");
+        wifi_test();
+        delay(2000);
+
     }
 }
