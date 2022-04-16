@@ -1,8 +1,28 @@
 var searchData=
 [
-  ['time_658',['time',['../class_tiny_g_p_s_plus.html#a377c975527fa24b45fb86356505eb134',1,'TinyGPSPlus']]],
-  ['timezone_659',['timezone',['../struct_config_data.html#ac5bcb661e8da0969e1387523c1ecff10',1,'ConfigData']]],
-  ['total_5fcount_660',['total_count',['../struct_dose_data.html#ad85e2eb5fac819a1529cfca336dec903',1,'DoseData']]],
-  ['total_5ftime_661',['total_time',['../struct_dose_data.html#a3177f770053383ab080807b751ea4a12',1,'DoseData']]],
-  ['type_662',['type',['../struct_config_data.html#aeed7f19eb7986d26a13a94c4f3b59987',1,'ConfigData']]]
+  ['s1peak_824',['S1peak',['../raku__code_8cpp.html#a9714b790b4f8e0098247af764118c0d5',1,'raku_code.cpp']]],
+  ['satellites_825',['satellites',['../class_tiny_g_p_s_plus.html#a5fb47066d1d03f4bb5853529053aab48',1,'TinyGPSPlus']]],
+  ['sd_5fcs_5fpin_826',['SD_CS_PIN',['../config_8hpp.html#a587c91dc29e14d8227957fbe22af6f45',1,'config.hpp']]],
+  ['sd_5fwrapper_827',['sd_wrapper',['../class_context.html#a78bc5d216452fcaee033806fea777198',1,'Context']]],
+  ['sensor1_5fcpm_5ffactor_828',['sensor1_cpm_factor',['../raku__code_8cpp.html#ab8bd58150a914152eeda4967921400e1',1,'raku_code.cpp']]],
+  ['sensor_5fheight_829',['sensor_height',['../struct_config_data.html#af65585d256d098d3fec853a4262a8495',1,'ConfigData']]],
+  ['sensor_5fmode_830',['sensor_mode',['../struct_config_data.html#afa1985002409161b5baba9ca3ee30a21',1,'ConfigData']]],
+  ['sensor_5fshield_831',['sensor_shield',['../struct_config_data.html#a29c26bc2030a73ae5f7484237e423539',1,'ConfigData']]],
+  ['sensor_5ftype_832',['sensor_type',['../struct_config_data.html#afaa007becc1fe66c42b28b9d9b506c74',1,'ConfigData']]],
+  ['setup_5fdefault_5falarm_5flevel_833',['SETUP_DEFAULT_ALARM_LEVEL',['../config_8hpp.html#a59a0c2ce5ef2a55d3c7f0bef8516c5bf',1,'config.hpp']]],
+  ['setup_5fdefault_5fbqm2_5ffactor_834',['SETUP_DEFAULT_BQM2_FACTOR',['../config_8hpp.html#a335bd0ef57c435bba8aa8e944345a9ba',1,'config.hpp']]],
+  ['setup_5fdefault_5fcountry_5fcode_835',['SETUP_DEFAULT_COUNTRY_CODE',['../config_8hpp.html#aa31b585084f13a60ac6961c26cfcf498',1,'config.hpp']]],
+  ['setup_5fdefault_5fcpm_5fwindow_836',['SETUP_DEFAULT_CPM_WINDOW',['../config_8hpp.html#a79f9da3755693d5acec3bb7fd2cc3b2c',1,'config.hpp']]],
+  ['setup_5fdefault_5fdevice_5fid_837',['SETUP_DEFAULT_DEVICE_ID',['../config_8hpp.html#a84c783b401aa6af2b28edfc527c2f226',1,'config.hpp']]],
+  ['setup_5fdefault_5fsensor_5fheight_838',['SETUP_DEFAULT_SENSOR_HEIGHT',['../config_8hpp.html#a2783fe3face44b94bc95810aa7e880f4',1,'config.hpp']]],
+  ['setup_5fdefault_5ftimezone_839',['SETUP_DEFAULT_TIMEZONE',['../config_8hpp.html#a1c6afeea01e41eeab258c096afa9bee8',1,'config.hpp']]],
+  ['setup_5fdefault_5fush_5fdivider_840',['SETUP_DEFAULT_USH_DIVIDER',['../config_8hpp.html#a107643ea05cf125d833475198786ad3d',1,'config.hpp']]],
+  ['setup_5ffile_5fparse_5fbuffer_5fsize_841',['SETUP_FILE_PARSE_BUFFER_SIZE',['../config_8hpp.html#abc2d032c4f9f0bce67c20d49d4b397f4',1,'config.hpp']]],
+  ['setup_5ffilename_842',['SETUP_FILENAME',['../config_8hpp.html#a8f8959f14b4d147636e897f57e4798f9',1,'config.hpp']]],
+  ['setup_5fkey_5fconfig_843',['SETUP_KEY_CONFIG',['../setup_8hpp.html#a74cf8b881c8b51c508ebfde92fdba6a8',1,'setup.hpp']]],
+  ['setup_5fkey_5fdose_844',['SETUP_KEY_DOSE',['../setup_8hpp.html#aa98c7916d9b8fd2a61563eedebc9ec9e',1,'setup.hpp']]],
+  ['setup_5fnamespace_845',['SETUP_NAMESPACE',['../setup_8hpp.html#a6a9772a479558b0790e8743e066c8f00',1,'setup.hpp']]],
+  ['setup_5fusername_5fmaxlen_846',['SETUP_USERNAME_MAXLEN',['../config_8hpp.html#a50ca9e33b6057d7fc20a964b6811eb93',1,'config.hpp']]],
+  ['shift_5freg_847',['shift_reg',['../raku__code_8cpp.html#ac6c40b96da0a41d9af89483ae498e4f1',1,'raku_code.cpp']]],
+  ['speed_848',['speed',['../class_tiny_g_p_s_plus.html#aa085c3e72a399a829dd92af52b373404',1,'TinyGPSPlus']]]
 ];

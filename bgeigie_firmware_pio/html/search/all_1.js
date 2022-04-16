@@ -1,9 +1,19 @@
 var searchData=
 [
-  ['age_13',['age',['../struct_tiny_g_p_s_location.html#ae5da08aba335d0515b7a84ce57b80179',1,'TinyGPSLocation::age()'],['../struct_tiny_g_p_s_date.html#af8b9c057a28dcb490081fcfde2a0ee11',1,'TinyGPSDate::age()'],['../struct_tiny_g_p_s_time.html#ae0aba0cbd875a3e1fe5d7872171e79fc',1,'TinyGPSTime::age()'],['../struct_tiny_g_p_s_decimal.html#a041cada3e406205d0878c9819eddbbbb',1,'TinyGPSDecimal::age()'],['../struct_tiny_g_p_s_integer.html#aabd55511befbd769155c69e0c1208691',1,'TinyGPSInteger::age()'],['../class_tiny_g_p_s_custom.html#af5347ee2785bca9acb5a0f16fcc68ea0',1,'TinyGPSCustom::age()']]],
-  ['age_5fms_14',['age_ms',['../class_g_p_s_sensor.html#a1f2097cc5d1642b86a0fb996d8223382',1,'GPSSensor']]],
-  ['alarm_15',['alarm',['../class_geiger_counter.html#a6a95adaf1a2cf5d2723a1de22464649e',1,'GeigerCounter']]],
-  ['alarm_5flevel_16',['alarm_level',['../struct_config_data.html#a0926ea1423d747769c2c483cfe9e67d8',1,'ConfigData']]],
-  ['altitude_17',['altitude',['../class_tiny_g_p_s_plus.html#a0b3451a4ee75e5880ffd88c3038eacf8',1,'TinyGPSPlus']]],
-  ['available_18',['available',['../class_geiger_counter.html#a5dc123770811652688f7c8fd1658f381',1,'GeigerCounter::available()'],['../class_g_p_s_sensor.html#a2da4cc0a0f3314a2721dfe75e668c46e',1,'GPSSensor::available()'],['../class_hardware_counter.html#a8b1831862879280db14b8a7406169e7c',1,'HardwareCounter::available()']]]
+  ['access_5fpoint_5fip_16',['ACCESS_POINT_IP',['../user__config_8h.html#a4e96e371af8e34654cb0d5d7057e70c0',1,'user_config.h']]],
+  ['access_5fpoint_5fnmask_17',['ACCESS_POINT_NMASK',['../user__config_8h.html#a9d15ae2b09da9972e7498dfbd4645d0a',1,'user_config.h']]],
+  ['access_5fpoint_5fssid_18',['ACCESS_POINT_SSID',['../user__config_8h.html#a61e55f831ccc0dca94bf0e0f121f2a7c',1,'user_config.h']]],
+  ['age_19',['age',['../struct_tiny_g_p_s_location.html#ae5da08aba335d0515b7a84ce57b80179',1,'TinyGPSLocation::age()'],['../struct_tiny_g_p_s_date.html#af8b9c057a28dcb490081fcfde2a0ee11',1,'TinyGPSDate::age()'],['../struct_tiny_g_p_s_time.html#ae0aba0cbd875a3e1fe5d7872171e79fc',1,'TinyGPSTime::age()'],['../struct_tiny_g_p_s_decimal.html#a041cada3e406205d0878c9819eddbbbb',1,'TinyGPSDecimal::age()'],['../struct_tiny_g_p_s_integer.html#aabd55511befbd769155c69e0c1208691',1,'TinyGPSInteger::age()'],['../class_tiny_g_p_s_custom.html#af5347ee2785bca9acb5a0f16fcc68ea0',1,'TinyGPSCustom::age()']]],
+  ['age_5fms_20',['age_ms',['../class_g_p_s_sensor.html#a1f2097cc5d1642b86a0fb996d8223382',1,'GPSSensor']]],
+  ['alarm_21',['alarm',['../class_geiger_counter.html#a6a95adaf1a2cf5d2723a1de22464649e',1,'GeigerCounter']]],
+  ['alarm_5flevel_22',['alarm_level',['../struct_config_data.html#a0926ea1423d747769c2c483cfe9e67d8',1,'ConfigData']]],
+  ['altitude_23',['altitude',['../class_tiny_g_p_s_plus.html#a0b3451a4ee75e5880ffd88c3038eacf8',1,'TinyGPSPlus']]],
+  ['ap_5fserver_5fup_24',['ap_server_up',['../class_wi_fi_connection.html#a81c1171ee44b4fcea512384f9fd1a986',1,'WiFiConnection']]],
+  ['api_5fhost_25',['API_HOST',['../user__config_8h.html#a583b0748ee647a56a2e607bfe09d13dd',1,'user_config.h']]],
+  ['api_5fmeasurements_5fendpoint_26',['API_MEASUREMENTS_ENDPOINT',['../user__config_8h.html#ae7d310923399cda9586b4916f7070fc5',1,'user_config.h']]],
+  ['api_5fsend_5ffrequency_5fseconds_27',['API_SEND_FREQUENCY_SECONDS',['../user__config_8h.html#ab6541ac91a1934d614cdb6144994d4ae',1,'user_config.h']]],
+  ['api_5fsend_5ffrequency_5fseconds_5falert_28',['API_SEND_FREQUENCY_SECONDS_ALERT',['../user__config_8h.html#aa91e644b2290ffd1cd101b3304420f8c',1,'user_config.h']]],
+  ['api_5fsend_5ffrequency_5fseconds_5falert_5fdev_29',['API_SEND_FREQUENCY_SECONDS_ALERT_DEV',['../user__config_8h.html#ae39f1fcc414f790f7db3dbe3b4f238f9',1,'user_config.h']]],
+  ['api_5fsend_5ffrequency_5fseconds_5fdev_30',['API_SEND_FREQUENCY_SECONDS_DEV',['../user__config_8h.html#ac0bd9dfbb8eec74c2c2dc852af98e1f4',1,'user_config.h']]],
+  ['available_31',['available',['../class_geiger_counter.html#a5dc123770811652688f7c8fd1658f381',1,'GeigerCounter::available()'],['../class_g_p_s_sensor.html#a2da4cc0a0f3314a2721dfe75e668c46e',1,'GPSSensor::available()'],['../class_hardware_counter.html#a8b1831862879280db14b8a7406169e7c',1,'HardwareCounter::available()']]]
 ];
