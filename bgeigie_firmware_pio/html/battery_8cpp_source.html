@@ -5,10 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BGeigieZen: src/battery.cpp Source File</title>
+<title>bGeigieZen: src/battery.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BGeigieZen
+   <div id="projectname">bGeigieZen
    </div>
   </td>
  </tr>
@@ -45,6 +49,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('battery_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +80,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">battery.cpp</div>  </div>
@@ -100,10 +116,10 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">int</span> BatteryMonitorIP5306::set_reg(uint8_t reg, uint8_t <a class="code" href="class_tiny_g_p_s_custom.html#ac5ad40a3d9b6fe386b2309f972566674">value</a>) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">int</span> BatteryMonitorIP5306::set_reg(uint8_t reg, uint8_t value) {</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  Wire.beginTransmission(IP5306_I2C_ADDR);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  Wire.write(reg);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  Wire.write(<a class="code" href="class_tiny_g_p_s_custom.html#ac5ad40a3d9b6fe386b2309f972566674">value</a>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  Wire.write(value);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordflow">if</span> (Wire.endTransmission(<span class="keyword">true</span>) == 0) {</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  }</div>
@@ -112,16 +128,16 @@ $(function() {
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;uint8_t BatteryMonitorIP5306::get_bits(uint8_t reg, uint8_t index,</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                                              uint8_t bits) {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_tiny_g_p_s_custom.html#ac5ad40a3d9b6fe386b2309f972566674">value</a> = get_reg(reg);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="class_tiny_g_p_s_custom.html#ac5ad40a3d9b6fe386b2309f972566674">value</a> &lt; 0) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">int</span> value = get_reg(reg);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordflow">if</span> (value &lt; 0) {</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    Serial.printf(<span class="stringliteral">&quot;get_bits fail: 0x%02x\n&quot;</span>, reg);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordflow">return</span> (<a class="code" href="class_tiny_g_p_s_custom.html#ac5ad40a3d9b6fe386b2309f972566674">value</a> &gt;&gt; index) &amp; ((1 &lt;&lt; bits) - 1);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordflow">return</span> (value &gt;&gt; index) &amp; ((1 &lt;&lt; bits) - 1);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">void</span> BatteryMonitorIP5306::set_bits(uint8_t reg, uint8_t index,</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                           uint8_t bits, uint8_t <a class="code" href="class_tiny_g_p_s_custom.html#ac5ad40a3d9b6fe386b2309f972566674">value</a>) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                           uint8_t bits, uint8_t value) {</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  uint8_t mask = (1 &lt;&lt; bits) - 1;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordtype">int</span> v = get_reg(reg);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordflow">if</span> (v &lt; 0) {</div>
@@ -129,7 +145,7 @@ $(function() {
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  v &amp;= ~(mask &lt;&lt; index);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  v |= ((<a class="code" href="class_tiny_g_p_s_custom.html#ac5ad40a3d9b6fe386b2309f972566674">value</a> &amp; mask) &lt;&lt; index);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  v |= ((value &amp; mask) &lt;&lt; index);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordflow">if</span> (set_reg(reg, v)) {</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    Serial.printf(<span class="stringliteral">&quot;set_bits fail: 0x%02x\n&quot;</span>, reg);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  }</div>
@@ -181,6 +197,7 @@ $(function() {
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  Serial.println();</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <div class="ttc" id="aclass_battery_monitor_i_p5306_html_ab52fd285234f666a5d82298df5ec925d"><div class="ttname"><a href="class_battery_monitor_i_p5306.html#ab52fd285234f666a5d82298df5ec925d">BatteryMonitorIP5306::GetBoostOutputEnabled</a></div><div class="ttdeci">uint8_t GetBoostOutputEnabled()</div><div class="ttdef"><b>Definition:</b> <a href="battery_8hpp_source.html#l00065">battery.hpp:65</a></div></div>
 <div class="ttc" id="aclass_battery_monitor_i_p5306_html_aab866ae063659ef9ac8fb3d233e2d4b0"><div class="ttname"><a href="class_battery_monitor_i_p5306.html#aab866ae063659ef9ac8fb3d233e2d4b0">BatteryMonitorIP5306::GetLowBatShutdownEnable</a></div><div class="ttdeci">uint8_t GetLowBatShutdownEnable()</div><div class="ttdef"><b>Definition:</b> <a href="battery_8hpp_source.html#l00085">battery.hpp:85</a></div></div>
 <div class="ttc" id="aclass_battery_monitor_i_p5306_html_af0b2a429f78b97318f681dfe292913aa"><div class="ttname"><a href="class_battery_monitor_i_p5306.html#af0b2a429f78b97318f681dfe292913aa">BatteryMonitorIP5306::GetChargingFullStopVoltage</a></div><div class="ttdeci">uint8_t GetChargingFullStopVoltage()</div><div class="ttdef"><b>Definition:</b> <a href="battery_8hpp_source.html#l00122">battery.hpp:122</a></div></div>
@@ -192,7 +209,6 @@ $(function() {
 <div class="ttc" id="aclass_battery_monitor_i_p5306_html_a6413320a32fcfb0719775aa337c623af"><div class="ttname"><a href="class_battery_monitor_i_p5306.html#a6413320a32fcfb0719775aa337c623af">BatteryMonitorIP5306::GetBatteryFull</a></div><div class="ttdeci">uint8_t GetBatteryFull()</div><div class="ttdef"><b>Definition:</b> <a href="battery_8hpp_source.html#l00183">battery.hpp:183</a></div></div>
 <div class="ttc" id="aclass_battery_monitor_i_p5306_html_a6356c27e4d203947e4150381898476ea"><div class="ttname"><a href="class_battery_monitor_i_p5306.html#a6356c27e4d203947e4150381898476ea">BatteryMonitorIP5306::GetBoostAfterVin</a></div><div class="ttdeci">uint8_t GetBoostAfterVin()</div><div class="ttdef"><b>Definition:</b> <a href="battery_8hpp_source.html#l00090">battery.hpp:90</a></div></div>
 <div class="ttc" id="aclass_battery_monitor_i_p5306_html_a2c0682f3cde08d31099e0349a2f1276d"><div class="ttname"><a href="class_battery_monitor_i_p5306.html#a2c0682f3cde08d31099e0349a2f1276d">BatteryMonitorIP5306::GetBoostEnabled</a></div><div class="ttdeci">uint8_t GetBoostEnabled()</div><div class="ttdef"><b>Definition:</b> <a href="battery_8hpp_source.html#l00080">battery.hpp:80</a></div></div>
-<div class="ttc" id="aclass_tiny_g_p_s_custom_html_ac5ad40a3d9b6fe386b2309f972566674"><div class="ttname"><a href="class_tiny_g_p_s_custom.html#ac5ad40a3d9b6fe386b2309f972566674">TinyGPSCustom::value</a></div><div class="ttdeci">const char * value()</div><div class="ttdef"><b>Definition:</b> <a href="_tiny_g_p_s_09_09_8h_source.html#l00209">TinyGPS++.h:209</a></div></div>
 <div class="ttc" id="aclass_battery_monitor_i_p5306_html_a2b01125fd4de2b1720ca2846f068a382"><div class="ttname"><a href="class_battery_monitor_i_p5306.html#a2b01125fd4de2b1720ca2846f068a382">BatteryMonitorIP5306::GetChargeCCLoop</a></div><div class="ttdeci">uint8_t GetChargeCCLoop()</div><div class="ttdef"><b>Definition:</b> <a href="battery_8hpp_source.html#l00157">battery.hpp:157</a></div></div>
 <div class="ttc" id="aclass_battery_monitor_i_p5306_html_ab5616a0155f8597f584077c2adb3e6fc"><div class="ttname"><a href="class_battery_monitor_i_p5306.html#ab5616a0155f8597f584077c2adb3e6fc">BatteryMonitorIP5306::get_level</a></div><div class="ttdeci">int8_t get_level()</div><div class="ttdef"><b>Definition:</b> <a href="battery_8cpp_source.html#l00003">battery.cpp:3</a></div></div>
 <div class="ttc" id="aclass_battery_monitor_i_p5306_html_a67f88c317296c06f2da5b21e125c860a"><div class="ttname"><a href="class_battery_monitor_i_p5306.html#a67f88c317296c06f2da5b21e125c860a">BatteryMonitorIP5306::GetLevelLeds</a></div><div class="ttdeci">uint8_t GetLevelLeds()</div><div class="ttdef"><b>Definition:</b> <a href="battery_8hpp_source.html#l00189">battery.hpp:189</a></div></div>
@@ -210,10 +226,13 @@ $(function() {
 <div class="ttc" id="aclass_battery_monitor_i_p5306_html_a99ad3de534d1057a062e20c9ec8f92cb"><div class="ttname"><a href="class_battery_monitor_i_p5306.html#a99ad3de534d1057a062e20c9ec8f92cb">BatteryMonitorIP5306::GetPowerSource</a></div><div class="ttdeci">uint8_t GetPowerSource()</div><div class="ttdef"><b>Definition:</b> <a href="battery_8hpp_source.html#l00180">battery.hpp:180</a></div></div>
 <div class="ttc" id="aclass_battery_monitor_i_p5306_html_ad20b056000b247c1c34954152c38329c"><div class="ttname"><a href="class_battery_monitor_i_p5306.html#ad20b056000b247c1c34954152c38329c">BatteryMonitorIP5306::GetChargeUnderVoltageLoop</a></div><div class="ttdeci">uint8_t GetChargeUnderVoltageLoop()</div><div class="ttdef"><b>Definition:</b> <a href="battery_8hpp_source.html#l00130">battery.hpp:130</a></div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="battery_8cpp.html">battery.cpp</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>

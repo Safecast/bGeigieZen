@@ -5,10 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BGeigieZen: src/logger.cpp Source File</title>
+<title>bGeigieZen: src/logger.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -21,7 +25,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">BGeigieZen
+   <div id="projectname">bGeigieZen
    </div>
   </td>
  </tr>
@@ -45,6 +49,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('logger_8cpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -59,11 +80,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">logger.cpp</div>  </div>
@@ -91,8 +107,8 @@ $(function() {
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  _geiger_fresh = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_b_geigie_log_formatter.html#a1c9a69c9790a8bc038b157ced1fcdbe3">   23</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_b_geigie_log_formatter.html#a1c9a69c9790a8bc038b157ced1fcdbe3">BGeigieLogFormatter::feed</a>(<a class="code" href="class_g_p_s_sensor.html">GPSSensor</a> &amp;gps) {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">auto</span> &amp;gps_data = gps.<a class="code" href="class_g_p_s_sensor.html#ab83d879aa5eb083da981d09c7e6d63b0">data</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_b_geigie_log_formatter.html#a1c9a69c9790a8bc038b157ced1fcdbe3">   23</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_b_geigie_log_formatter.html#a1c9a69c9790a8bc038b157ced1fcdbe3">BGeigieLogFormatter::feed</a>(<a class="code" href="class_g_p_s_sensor.html">GPSSensor</a> &amp;<a class="code" href="raku__code_8cpp.html#a169c53997a7da1d0fb99aec1b4675ce8">gps</a>) {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keyword">auto</span> &amp;gps_data = <a class="code" href="raku__code_8cpp.html#a169c53997a7da1d0fb99aec1b4675ce8">gps</a>.data();</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  _year = gps_data.date.year();</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  _month = gps_data.date.month();</div>
@@ -198,9 +214,9 @@ $(function() {
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <div class="ttc" id="aclass_geiger_counter_html_aa43acb94f31899c5ca5859f7d1f616cf"><div class="ttname"><a href="class_geiger_counter.html#aa43acb94f31899c5ca5859f7d1f616cf">GeigerCounter::per_minute_raw</a></div><div class="ttdeci">uint32_t per_minute_raw() const</div><div class="ttdef"><b>Definition:</b> <a href="geiger__counter_8hpp_source.html#l00058">geiger_counter.hpp:58</a></div></div>
 <div class="ttc" id="aclass_geiger_counter_html_ab594033dc6831e26aeee3fb6db67d5fb"><div class="ttname"><a href="class_geiger_counter.html#ab594033dc6831e26aeee3fb6db67d5fb">GeigerCounter::per_bin</a></div><div class="ttdeci">uint32_t per_bin() const</div><div class="ttdef"><b>Definition:</b> <a href="geiger__counter_8hpp_source.html#l00055">geiger_counter.hpp:55</a></div></div>
-<div class="ttc" id="aclass_g_p_s_sensor_html_ab83d879aa5eb083da981d09c7e6d63b0"><div class="ttname"><a href="class_g_p_s_sensor.html#ab83d879aa5eb083da981d09c7e6d63b0">GPSSensor::data</a></div><div class="ttdeci">TinyGPSPlus &amp; data()</div><div class="ttdef"><b>Definition:</b> <a href="gps_8hpp_source.html#l00077">gps.hpp:77</a></div></div>
 <div class="ttc" id="aclass_b_geigie_log_formatter_html_a1c9a69c9790a8bc038b157ced1fcdbe3"><div class="ttname"><a href="class_b_geigie_log_formatter.html#a1c9a69c9790a8bc038b157ced1fcdbe3">BGeigieLogFormatter::feed</a></div><div class="ttdeci">void feed(GPSSensor &amp;gps)</div><div class="ttdef"><b>Definition:</b> <a href="logger_8cpp_source.html#l00023">logger.cpp:23</a></div></div>
 <div class="ttc" id="aconfig_8hpp_html_a512c9567b6eb82a4cd574e527c911ef5"><div class="ttname"><a href="config_8hpp.html#a512c9567b6eb82a4cd574e527c911ef5">LOG_HEADER_LINE2</a></div><div class="ttdeci">const char LOG_HEADER_LINE2[]</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00044">config.hpp:44</a></div></div>
 <div class="ttc" id="aconfig_8hpp_html_a5f8b2d16c907ca3ebbc69f0f4491ab8a"><div class="ttname"><a href="config_8hpp.html#a5f8b2d16c907ca3ebbc69f0f4491ab8a">device_nickname</a></div><div class="ttdeci">const char device_nickname[]</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00018">config.hpp:18</a></div></div>
@@ -215,6 +231,7 @@ $(function() {
 <div class="ttc" id="aclass_s_d_logger_html_a5389d9735705f04a9ee50121975543c2"><div class="ttname"><a href="class_s_d_logger.html#a5389d9735705f04a9ee50121975543c2">SDLogger::ready</a></div><div class="ttdeci">bool ready() const</div><div class="ttdef"><b>Definition:</b> <a href="logger_8hpp_source.html#l00055">logger.hpp:55</a></div></div>
 <div class="ttc" id="aconfig_8hpp_html_a77e3330c0e698251fcc72973de75f5ae"><div class="ttname"><a href="config_8hpp.html#a77e3330c0e698251fcc72973de75f5ae">LOG_HEADER_LINE3</a></div><div class="ttdeci">const char LOG_HEADER_LINE3[]</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00045">config.hpp:45</a></div></div>
 <div class="ttc" id="aclass_s_d_logger_html_ae96cd0c7555285c7191193be27c52d42"><div class="ttname"><a href="class_s_d_logger.html#ae96cd0c7555285c7191193be27c52d42">SDLogger::log</a></div><div class="ttdeci">bool log(const char *log_line) const</div><div class="ttdef"><b>Definition:</b> <a href="logger_8cpp_source.html#l00120">logger.cpp:120</a></div></div>
+<div class="ttc" id="araku__code_8cpp_html_a169c53997a7da1d0fb99aec1b4675ce8"><div class="ttname"><a href="raku__code_8cpp.html#a169c53997a7da1d0fb99aec1b4675ce8">gps</a></div><div class="ttdeci">TinyGPSPlus gps</div><div class="ttdef"><b>Definition:</b> <a href="raku__code_8cpp_source.html#l00049">raku_code.cpp:49</a></div></div>
 <div class="ttc" id="aconfig_8hpp_html_a6ece29d27b64e8d45ba35ad8768004fd"><div class="ttname"><a href="config_8hpp.html#a6ece29d27b64e8d45ba35ad8768004fd">LOG_HEADER_LINE1</a></div><div class="ttdeci">const char LOG_HEADER_LINE1[]</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00043">config.hpp:43</a></div></div>
 <div class="ttc" id="alogger_8hpp_html"><div class="ttname"><a href="logger_8hpp.html">logger.hpp</a></div></div>
 <div class="ttc" id="aconfig_8hpp_html_a17871a57cec4c4717bd53399af95ca5e"><div class="ttname"><a href="config_8hpp.html#a17871a57cec4c4717bd53399af95ca5e">LOG_BUFFER_SIZE</a></div><div class="ttdeci">const size_t LOG_BUFFER_SIZE</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00025">config.hpp:25</a></div></div>
@@ -222,10 +239,13 @@ $(function() {
 <div class="ttc" id="aclass_geiger_counter_html_a62c418e910486f29ef2b9c09b979756a"><div class="ttname"><a href="class_geiger_counter.html#a62c418e910486f29ef2b9c09b979756a">GeigerCounter::valid</a></div><div class="ttdeci">bool valid() const</div><div class="ttdef"><b>Definition:</b> <a href="geiger__counter_8hpp_source.html#l00069">geiger_counter.hpp:69</a></div></div>
 <div class="ttc" id="aclass_s_d_logger_html_af2514db995481908f4821ff13c76635b"><div class="ttname"><a href="class_s_d_logger.html#af2514db995481908f4821ff13c76635b">SDLogger::start</a></div><div class="ttdeci">bool start(uint32_t device_id, uint16_t year, uint8_t month, uint8_t day)</div><div class="ttdef"><b>Definition:</b> <a href="logger_8cpp_source.html#l00077">logger.cpp:77</a></div></div>
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.17
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="logger_8cpp.html">logger.cpp</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
 </body>
 </html>
