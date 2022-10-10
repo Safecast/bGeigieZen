@@ -2,7 +2,7 @@
 #define __GEIGER_COUNTER_HPP__
 
 #include <array>
-
+#include <numeric>
 #include <M5Stack.h>
 
 #include <config.hpp>
