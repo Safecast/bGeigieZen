@@ -25,7 +25,7 @@ const char DEVICE_HEADER[] = "BNRDD";
 const size_t LOG_BUFFER_SIZE = 100;
 // - geiger counter
 const size_t GEIGER_AVERAGING_PERIOD_S = 5;  // 5 s
-const int GEIGER_PULSE_GPIO = 2;
+const int GEIGER_PULSE_GPIO = 32;
 const size_t GEIGER_AVERAGING_N_BINS = 12;  // 12 x 5 s == 1 min moving average
 const float GEIGER_SENSOR1_CPM_FACTOR = 340.0;
 // - gps
