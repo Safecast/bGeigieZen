@@ -7,12 +7,12 @@ StateStartup *StateStartup::instance() {
   }
   return _instance;
 }
-void StateStartup::on_enter(Event e) {
+void StateStartup::on_enter(bGeigieZen::Event e) {
   _ctx->setup();
-  _ctx->transition_to(StateWaitGPSTime::instance(), Event::SETUP_FINISHED);
+  _ctx->transition_to(StateWaitGPSTime::instance(), bGeigieZen::Event::SETUP_FINISHED);
 }
 void StateStartup::process() {}
-void StateStartup::on_exit(Event e) {}
+void StateStartup::on_exit(bGeigieZen::Event e) {}
 
 StateWaitGPSTime *StateWaitGPSTime::_instance = NULL;
 StateWaitGPSTime *StateWaitGPSTime::instance() {
@@ -21,7 +21,7 @@ StateWaitGPSTime *StateWaitGPSTime::instance() {
   }
   return _instance;
 }
-void StateWaitGPSTime::on_enter(Event e) {}
+void StateWaitGPSTime::on_enter(bGeigieZen::Event e) {}
 void StateWaitGPSTime::process() {
   if (_ctx->geiger_count.available()) _ctx->on_geiger_counter_available();
 
@@ -29,11 +29,11 @@ void StateWaitGPSTime::process() {
     _ctx->on_gps_available();
 
     if (_ctx->gps.time_valid())
-      _ctx->transition_to(StateLogging::instance(), Event::GPS_DATE_BECAME_CORRECT);
+      _ctx->transition_to(StateLogging::instance(), bGeigieZen::Event::GPS_DATE_BECAME_CORRECT);
   }
 }
-void StateWaitGPSTime::on_exit(Event e) {
-  if (e == Event::GPS_DATE_BECAME_CORRECT) {
+void StateWaitGPSTime::on_exit(bGeigieZen::Event e) {
+  if (e == bGeigieZen::Event::GPS_DATE_BECAME_CORRECT) {
     TinyGPSDate &date = _ctx->gps.data().date;
     uint32_t dev_id = _ctx->device_setup.config().device_id;
     bool ret = _ctx->logger.start(dev_id, date.year(), date.month(), date.day());
@@ -51,7 +51,7 @@ StateLogging *StateLogging::instance() {
   return _instance;
 }
 StateLogging *StateLogging::_instance = NULL;
-void StateLogging::on_enter(Event e) {}
+void StateLogging::on_enter(bGeigieZen::Event e) {}
 void StateLogging::process() {
   if (_ctx->geiger_count.available()) _ctx->on_geiger_counter_available();
 
@@ -75,4 +75,4 @@ void StateLogging::process() {
     }
   }
 }
-void StateLogging::on_exit(Event e) {}
+void StateLogging::on_exit(bGeigieZen::Event e) {}
