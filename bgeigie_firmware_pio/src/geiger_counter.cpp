@@ -1,5 +1,5 @@
 #include <algorithm>
-
+#include <numeric> 
 #include <geiger_counter.hpp>
 
 void GeigerCounter::update() {
