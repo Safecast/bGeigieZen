@@ -43,7 +43,7 @@ void Context::setup() {
     M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
     M5.Lcd.drawString("SAFECAST", 230, 215, 1);
     M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
-    M5.Lcd.drawString("2021", 285, 215, 1);
+    M5.Lcd.drawString("2023", 285, 215, 1);
     delay(2000);
   }
 
