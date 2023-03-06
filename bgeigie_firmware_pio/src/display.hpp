@@ -18,13 +18,16 @@ void printIntFont(unsigned long val, bool valid, int len, int y, int x,
 void printDate(TinyGPSDate &d);
 void printTime(TinyGPSTime &t);
 
-enum DisplayState {
-  S_STARTUP,
-  S_MAIN_DRAW,
-  S_MAIN_SHOW,
-  S_QRCODE_DRAW,
-  S_QRCODE_SHOW
-};
+/*** Avoid name collision with M5Stack Core 2 UI ***/
+namespace bGeigieZen {
+  enum DisplayState {
+    S_STARTUP,
+    S_MAIN_DRAW,
+    S_MAIN_SHOW,
+    S_QRCODE_DRAW,
+    S_QRCODE_SHOW
+  };
+}
 
 struct DisplayData {
   // device setup info
@@ -57,12 +60,12 @@ class Display {
   static const int height = 240;
   uint32_t _refresh_period_ms;
 
-  DisplayState state{S_STARTUP};
+  bGeigieZen::DisplayState state{bGeigieZen::S_STARTUP};
   DisplayData data;
 
  public:
   Display(uint32_t refresh_period_ms)
-      : _refresh_period_ms(refresh_period_ms), state(S_STARTUP) {}
+      : _refresh_period_ms(refresh_period_ms), state(bGeigieZen::S_STARTUP) {}
   void clear();
   void feed(const GeigerCounter &geiger_count);
   void feed(GPSSensor &geiger_count);

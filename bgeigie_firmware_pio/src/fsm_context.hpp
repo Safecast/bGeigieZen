@@ -19,7 +19,7 @@
 #include <fsm_state_concrete.hpp>
 
 class State;
-enum class Event;
+enum class bGeigieZen::Event;
 
 class Context {
   State *current_state = NULL;
