@@ -6,13 +6,15 @@
 // preemptive declaration
 class Context;
 
-enum class Event {
-  DEVICE_STARTED,
-  SETUP_FINISHED,
-  GPS_DATE_BECAME_CORRECT,
-  LOG_FILE_CREATED,
-  GPS_GEIGER_COUNT_READY,
-};
+namespace bGeigieZen {
+  enum class Event {
+    DEVICE_STARTED,
+    SETUP_FINISHED,
+    GPS_DATE_BECAME_CORRECT,
+    LOG_FILE_CREATED,
+    GPS_GEIGER_COUNT_READY,
+  };
+}
 
 class State {
   protected:
