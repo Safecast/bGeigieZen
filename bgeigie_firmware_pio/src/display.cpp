@@ -34,29 +34,29 @@ void Display::update() {
   bool button_C_pressed = M5.BtnC.wasPressed();
 
   switch (state) {
-    case (S_STARTUP):
+    case (bGeigieZen::S_STARTUP):
       clear();  // initialize display
       draw_base();
-      state = S_MAIN_DRAW;  // next state
+      state = bGeigieZen::S_MAIN_DRAW;  // next state
       break;
 
-    case (S_MAIN_DRAW):
+    case (bGeigieZen::S_MAIN_DRAW):
       clear();
       draw_base();
-      state = S_MAIN_SHOW;
-    case (S_MAIN_SHOW):
+      state = bGeigieZen::S_MAIN_SHOW;
+    case (bGeigieZen::S_MAIN_SHOW):
       draw_main();
-      if (button_A_pressed) state = S_QRCODE_DRAW;
+      if (button_A_pressed) state = bGeigieZen::S_QRCODE_DRAW;
       break;
 
-    case (S_QRCODE_DRAW):
+    case (bGeigieZen::S_QRCODE_DRAW):
       clear();
       draw_qrcode();
-      state = S_QRCODE_SHOW;
+      state = bGeigieZen::S_QRCODE_SHOW;
       break;
 
-    case (S_QRCODE_SHOW):
-      if (button_A_pressed) state = S_MAIN_DRAW;
+    case (bGeigieZen::S_QRCODE_SHOW):
+      if (button_A_pressed) state = bGeigieZen::S_MAIN_DRAW;
       break;
   }
 }
