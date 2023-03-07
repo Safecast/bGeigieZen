@@ -1,5 +1,9 @@
 #include <battery.hpp>
 
+/**
+ * \todo IP5306 is replaced by AXP192 in the M5 Core2, this file serves no purpose.
+*/
+
 int8_t BatteryMonitorIP5306::get_level() {
   Wire.beginTransmission(IP5306_I2C_ADDR);
   Wire.write(0x78);
