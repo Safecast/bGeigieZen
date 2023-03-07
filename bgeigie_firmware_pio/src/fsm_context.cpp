@@ -73,7 +73,7 @@ void Context::on_geiger_counter_available() {
   // immediately update the data consummers
   bgeigie_formatter.feed(geiger_count);
   display.feed(geiger_count);
-  display.feed_battery_level(battery_monitor.get_level());
+  display.feed_battery_level(battery_monitor.GetBatteryLevel());
 }
 
 void Context::on_gps_available() {

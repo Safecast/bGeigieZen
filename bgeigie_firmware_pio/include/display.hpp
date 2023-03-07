@@ -47,7 +47,7 @@ struct DisplayData {
   TinyGPSDate gps_date;
 
   // Battery
-  int8_t battery_level = -1;
+  float battery_level = -1.0;
 };
 
 class Display {

@@ -1,6 +1,10 @@
 #ifndef __BATTERY_HPP__
 #define __BATTERY_HPP__
 
+/**
+ * \todo IP5306 is replaced by AXP192 in the M5 Core2, this file serves no purpose.
+*/
+
 /*
 ** IP5306 Power Module
 */
@@ -28,6 +32,7 @@ ChargeCutoffVoltage: 4.2V
 */
 
 #include <M5Core2.h> // #include <M5Stack.h>
+//#include <AXP192.h>  // Battery IC in Core2
 
 class BatteryMonitorIP5306 {
  private:
