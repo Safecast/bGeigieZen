@@ -33,7 +33,7 @@ class Context {
   Setup device_setup;  // object giving access to persistent setup of the device
   GeigerCounter geiger_count{GEIGER_AVERAGING_PERIOD_S, GEIGER_PULSE_GPIO};
   GPSSensor gps{GPS_SERIAL_NUM, GPS_BAUD_RATE};
-  BatteryMonitorIP5306 battery_monitor;
+  AXP192& battery_monitor = M5.Axp;  // Defined in M5Core2
 
   // Data sinks
   BGeigieLogFormatter bgeigie_formatter;
