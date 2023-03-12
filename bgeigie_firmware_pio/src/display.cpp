@@ -8,6 +8,12 @@ void Display::clear() {
   // Clear display
   M5.Lcd.clear();
   M5.lcd.setRotation(3);
+  // Buttons defined in M5Core2.h
+  // Hot zones start 40px above top of visible display
+  // See discussion in M5Button.h and M5Touch.h
+  M5.BtnA.set( 10, -40, 80, 70);
+  M5.BtnB.set(120, -40, 80, 70);
+  M5.BtnC.set(230, -40, 80, 70);
 }
 
 void Display::draw_base() {
@@ -20,9 +26,16 @@ void Display::draw_base() {
 
 void Display::draw_navbar(const char *A, const char *B, const char *C) {
   M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
-  M5.Lcd.drawString(A, 50, 10, 2); // Button A
-  M5.Lcd.drawString(B, 145, 10, 2); // Button B
-  M5.Lcd.drawString(C, 250, 10, 2); // Button C
+  // Reference the button coordinates
+  draw_navbar_label(A, M5.BtnA); // Button A
+  draw_navbar_label(B, M5.BtnB); // Button B
+  draw_navbar_label(C, M5.BtnC); // Button C
+}
+
+void Display::draw_navbar_label(const char *s, const Button &b) {
+  // Bottom-Centre of Button hot zone, font size 2
+  M5.Lcd.setTextDatum(BC_DATUM);
+  M5.Lcd.drawString(s, b.x+(b.w/2), b.y+(b.h-10), 2);
 }
 
 void Display::update() {
@@ -32,6 +45,7 @@ void Display::update() {
   bool button_A_pressed = M5.BtnA.wasPressed();
   bool button_B_pressed = M5.BtnB.wasPressed();
   bool button_C_pressed = M5.BtnC.wasPressed();
+  bool background_pressed = M5.background.wasPressed();
 
   switch (state) {
     case (bGeigieZen::S_STARTUP):
@@ -46,7 +60,7 @@ void Display::update() {
       state = bGeigieZen::S_MAIN_SHOW;
     case (bGeigieZen::S_MAIN_SHOW):
       draw_main();
-      if (button_A_pressed) state = bGeigieZen::S_QRCODE_DRAW;
+      if (button_C_pressed) state = bGeigieZen::S_QRCODE_DRAW;
       break;
 
     case (bGeigieZen::S_QRCODE_DRAW):
@@ -56,7 +70,7 @@ void Display::update() {
       break;
 
     case (bGeigieZen::S_QRCODE_SHOW):
-      if (button_A_pressed) state = bGeigieZen::S_MAIN_DRAW;
+      if (button_C_pressed) state = bGeigieZen::S_MAIN_DRAW;
       break;
   }
 }
@@ -77,7 +91,7 @@ void Display::draw_qrcode() {
 
 void Display::draw_main() {
 
-  draw_navbar("MENU", "MODE", "QR");
+  draw_navbar("MENU", "MODE", "QR");  // Buttons A, B, C
 
   // Show the device number
   M5.Lcd.setCursor(10, 30);
