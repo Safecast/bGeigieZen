@@ -80,6 +80,7 @@ class Display {
   // Routines to draw the different screens
   void draw_base();
   void draw_navbar(const char *A, const char *B, const char *C);
+  void draw_navbar_label(const char *s, const Button &b);
   void draw_main();
   void draw_qrcode();
 };
