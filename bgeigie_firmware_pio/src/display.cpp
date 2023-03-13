@@ -70,7 +70,11 @@ void Display::update() {
       break;
 
     case (bGeigieZen::S_QRCODE_SHOW):
-      if (button_C_pressed) state = bGeigieZen::S_MAIN_DRAW;
+      if (button_C_pressed  // Restore main on any button press
+          | button_A_pressed
+          | button_B_pressed
+          | background_pressed)
+        state = bGeigieZen::S_MAIN_DRAW;
       break;
   }
 }
