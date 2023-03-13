@@ -122,15 +122,15 @@ void Display::draw_main() {
 
     // Display CPM
     M5.Lcd.setCursor(20, 50);
-    M5.Lcd.drawString("CPM ", 120, 70, 4);
+    M5.Lcd.drawString("CPM ", 120, 95, 4);
     M5.Lcd.setCursor(120, 55);
-    printIntFont(data.geiger_cpm, true, 5, 50, 5, 6);
+    printIntFont(data.geiger_cpm, true, 5, 100, 5, 6);
 
     // Display uSv/h
     M5.Lcd.setCursor(22, 70);
-    M5.Lcd.drawString("uSv/h =", 5, 90, 4);
+    M5.Lcd.drawString("uSv/h =", 5, 120, 4);
     M5.Lcd.setCursor(100, 80);
-    printFloatFont(data.geiger_uSv, true, 7, 3, 90, 90, 4);
+    printFloatFont(data.geiger_uSv, true, 7, 3, 120, 130, 4);
 
     data.geiger_fresh = false;
   }
