@@ -135,35 +135,38 @@ void Display::draw_main() {
     data.geiger_fresh = false;
   }
 
+  // Display GPS data always, change colour if not fresh
   if (data.gps_fresh) {
-    M5.Lcd.setCursor(0, 150);
-    M5.Lcd.setTextColor(WHITE, BLACK);
-    M5.Lcd.print("Satelites  :");
-    printInt(data.gps_satellites.value(), data.gps_satellites.isValid(), 5);
-    M5.Lcd.println();
-    M5.Lcd.print("Latitude   :");
-    printFloat(data.gps_location.lat(), data.gps_location.isValid(), 11, 6);
-    M5.Lcd.println();
-    M5.Lcd.print("Longitude  :");
-    printFloat(data.gps_location.lng(), data.gps_location.isValid(), 12, 6);
-    M5.Lcd.println();
-    M5.Lcd.print("Date       :");
-    printDate(data.gps_date);
-    M5.Lcd.println();
-    M5.Lcd.print("Time       :");
-    printTime(data.gps_time);
-    M5.Lcd.println();
-    M5.Lcd.print("Altitude   :");
-    printFloat(data.gps_altitude.meters(), data.gps_altitude.isValid(), 7, 2);
-    M5.Lcd.println();
-    M5.Lcd.print("Degree     :");
-    printFloat(data.gps_course.deg(), data.gps_course.isValid(), 7, 2);
-    M5.Lcd.println();
-    M5.Lcd.print("Speed      :");
-    printFloat(data.gps_speed.kmph(), data.gps_speed.isValid(), 6, 2);
-
+    M5.Lcd.setTextColor(TFT_WHITE, BLACK);
     data.gps_fresh = false;
   }
+  else {
+    M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
+  }
+  M5.Lcd.setCursor(0, 150);
+  M5.Lcd.print("Satelites  :");
+  printInt(data.gps_satellites.value(), data.gps_satellites.isValid(), 5);
+  M5.Lcd.println();
+  M5.Lcd.print("Latitude   :");
+  printFloat(data.gps_location.lat(), data.gps_location.isValid(), 11, 6);
+  M5.Lcd.println();
+  M5.Lcd.print("Longitude  :");
+  printFloat(data.gps_location.lng(), data.gps_location.isValid(), 12, 6);
+  M5.Lcd.println();
+  M5.Lcd.print("Date       :");
+  printDate(data.gps_date);
+  M5.Lcd.println();
+  M5.Lcd.print("Time       :");
+  printTime(data.gps_time);
+  M5.Lcd.println();
+  M5.Lcd.print("Altitude   :");
+  printFloat(data.gps_altitude.meters(), data.gps_altitude.isValid(), 7, 2);
+  M5.Lcd.println();
+  M5.Lcd.print("Degree     :");
+  printFloat(data.gps_course.deg(), data.gps_course.isValid(), 7, 2);
+  M5.Lcd.println();
+  M5.Lcd.print("Speed      :");
+  printFloat(data.gps_speed.kmph(), data.gps_speed.isValid(), 6, 2);
 }
 
 void Display::feed(const GeigerCounter &geiger_count) {
