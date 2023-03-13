@@ -4,10 +4,41 @@
 #include <cstdio>
 #include <display.hpp>
 
+//setup brightness by Rob Oudendijk 2023-03-13
+void core2Brightness(uint8_t lvl, bool overdrive = false) {
+  // The backlight brightness is in steps of 25 in AXP192.cpp
+  // calculation in SetDCVoltage: ( (voltage - 700) / 25 )
+  // 2325 is the minimum "I can just about see a glow in a dark room" level of brightness.
+  // 2800 is the value set by the AXP library as "standard" bright backlight.
+  int v = lvl * 25 + 2300;
+
+  // Clamp to safe values.
+  if (v < 2300) v = 2300;
+  if (overdrive) {
+    if (v > 3200) v = 3200; // maximum of 3.2 volts, 3200 (uint8_t lvl  = 36) absolute max!
+  } else {
+    if (v > 2800) v = 2800; // maximum of 2.8 volts, 2800 (uint8_t lvl  = 20)
+  }
+
+
+  // Minimum brightness means turn off the LCD backlight.
+  if (v == 2300) {
+    // LED set to minimum brightness? Turn off.
+    M5.Axp.SetDCDC3(false);
+    return;
+  } else {
+    // Ensure backlight is on. (magic name = DCDC3)
+    M5.Axp.SetDCDC3(true);
+  }
+
+  // Set the LCD backlight voltage. (magic number = 2)
+  M5.Axp.SetDCVoltage(2, v);
+}
 void Display::clear() {
   // Clear display
   M5.Lcd.clear();
   M5.lcd.setRotation(3);
+  core2Brightness(35);
   // Buttons defined in M5Core2.h
   // Hot zones start 40px above top of visible display
   // See discussion in M5Button.h and M5Touch.h
@@ -99,13 +130,13 @@ void Display::draw_main() {
 
   // Show the device number
   M5.Lcd.setCursor(10, 30);
-  M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
       M5.Lcd.print("DeviceID =");
   M5.Lcd.print(data.device_id);
 
   // Display battery level
   M5.Lcd.setCursor(270, 30);
-  M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
   if (data.battery_level < 0.0) {
     M5.Lcd.print("BAT=ext");
   } else {
@@ -272,3 +303,4 @@ void printTime(TinyGPSTime &t) {
   }
   delay(0);
 }
+
