@@ -25,7 +25,9 @@ namespace bGeigieZen {
     S_MAIN_DRAW,
     S_MAIN_SHOW,
     S_QRCODE_DRAW,
-    S_QRCODE_SHOW
+    S_QRCODE_SHOW,
+    S_SURVEY_DRAW,
+    S_SURVEY_SHOW
   };
 }
 
@@ -83,6 +85,7 @@ class Display {
   void draw_navbar_label(const char *s, const Button &b);
   void draw_main();
   void draw_qrcode();
+  void draw_survey();
 };
 
 #endif  // __DISPLAY_H__
