@@ -92,6 +92,7 @@ void Display::update() {
     case (bGeigieZen::S_MAIN_SHOW):
       draw_main();
       if (button_C_pressed) state = bGeigieZen::S_QRCODE_DRAW;
+      if (button_B_pressed) state = bGeigieZen::S_SURVEY_DRAW;
       break;
 
     case (bGeigieZen::S_QRCODE_DRAW):
@@ -107,6 +108,19 @@ void Display::update() {
           | background_pressed)
         state = bGeigieZen::S_MAIN_DRAW;
       break;
+
+    case (bGeigieZen::S_SURVEY_DRAW):
+      clear();
+      draw_base();
+      state = bGeigieZen::S_SURVEY_SHOW;
+      break;
+
+    case (bGeigieZen::S_SURVEY_SHOW):
+      draw_survey();
+      if (button_C_pressed) state = bGeigieZen::S_QRCODE_DRAW;
+      if (button_B_pressed) state = bGeigieZen::S_MAIN_DRAW;
+      break;
+
   }
 }
 
@@ -184,20 +198,121 @@ void Display::draw_main() {
   M5.Lcd.print("Longitude  :");
   printFloat(data.gps_location.lng(), data.gps_location.isValid(), 12, 6);
   M5.Lcd.println();
+  M5.Lcd.print("Altitude   :");
+  printFloat(data.gps_altitude.meters(), data.gps_altitude.isValid(), 7, 2);
+  M5.Lcd.println();
+  M5.Lcd.print("Heading    :");
+  printFloat(data.gps_course.deg(), data.gps_course.isValid(), 7, 2);
+  M5.Lcd.println();
+  M5.Lcd.print("Speed      :");
+  printFloat(data.gps_speed.kmph(), data.gps_speed.isValid(), 6, 2);
+  M5.Lcd.println();
   M5.Lcd.print("Date       :");
   printDate(data.gps_date);
   M5.Lcd.println();
   M5.Lcd.print("Time       :");
   printTime(data.gps_time);
+}
+
+void Display::draw_survey() {
+
+  draw_navbar("MENU", "MODE", "QR");  // Buttons A, B, C
+
+  // Show the device number
+  M5.Lcd.setCursor(10, 30);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
+      M5.Lcd.print("DeviceID =");
+  M5.Lcd.print(data.device_id);
+
+  // Display battery level
+  M5.Lcd.setCursor(270, 30);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
+  if (data.battery_level < 0.0) {
+    M5.Lcd.print("BAT=ext");
+  } else {
+    M5.Lcd.print("BAT=");
+    M5.Lcd.print(data.battery_level, 0);
+    M5.Lcd.print("%");
+  }
+
+// Text datum bottom left for all drawString() that follow
+  M5.Lcd.setTextDatum(BL_DATUM);
+
+  if (data.geiger_fresh) {
+    if (data.geiger_valid)
+      M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+    else
+      M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
+
+    // Display uSv/h
+    //M5.Lcd.setCursor(20, 50);
+    M5.Lcd.drawString("uSv/h", 200, 100, 4);
+    //M5.Lcd.setCursor(120, 55);
+    printFloatFont(data.geiger_uSv, true, 7, 3, 100, 5, 7);
+
+    // Display CPM
+    // M5.Lcd.setCursor(22, 70);
+    M5.Lcd.drawString("CPM", 75, 135, 4);
+    M5.Lcd.setCursor(100, 80);
+    printIntFont(/*data.geiger_cpm*/9999, true, 5, 135, 5, 4);
+
+    // Display Bq/m^2
+    // M5.Lcd.setCursor(22, 160);
+    // M5.Lcd.setCursor(100, 80);
+    M5.Lcd.drawString("Bq/m^2", 75, 160, 4);
+    printIntFont(/*data.geiger_cpm*/8888, true, 5, 160, 5, 4);
+
+    // Display Max. uSv/h
+    M5.Lcd.setCursor(22, 160);
+    M5.Lcd.drawString("Max", 180, 125, 2);
+    M5.Lcd.setCursor(100, 80);
+   // printIntFont(/*data.geiger_cpm*/8888, true, 5, 140, 175, 4);
+    printFloatFont(/*data.geiger_uSv*/0.1234, true, 7, 3, 125, 220, 2);
+    M5.Lcd.drawString("uSv/h", 270, 125, 2);
+
+    // Display dose in uSv
+    M5.Lcd.setCursor(22, 160);
+    M5.Lcd.drawString("Dose", 180, 140, 2);
+    M5.Lcd.setCursor(100, 80);
+   // printIntFont(/*data.geiger_cpm*/8888, true, 5, 140, 175, 4);
+    printFloatFont(/*data.geiger_uSv*/12.345, true, 7, 3, 140, 220, 2);
+    M5.Lcd.drawString("uSv", 270, 140, 2);
+
+    data.geiger_fresh = false;
+  }
+
+  // Display reduced set of GPS data, change colour if not fresh
+  if (data.gps_fresh) {
+    M5.Lcd.setTextColor(TFT_WHITE, BLACK);
+    data.gps_fresh = false;
+  }
+  else {
+    M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
+  }
+  M5.Lcd.setCursor(0, 170);
+  //M5.Lcd.print("Satelites  :");
+  //printInt(data.gps_satellites.value(), data.gps_satellites.isValid(), 5);
+  //M5.Lcd.println();
+  M5.Lcd.print("Latitude   :");
+  printFloat(data.gps_location.lat(), data.gps_location.isValid(), 11, 6);
+  M5.Lcd.println();
+  M5.Lcd.print("Longitude  :");
+  printFloat(data.gps_location.lng(), data.gps_location.isValid(), 12, 6);
   M5.Lcd.println();
   M5.Lcd.print("Altitude   :");
   printFloat(data.gps_altitude.meters(), data.gps_altitude.isValid(), 7, 2);
   M5.Lcd.println();
-  M5.Lcd.print("Degree     :");
-  printFloat(data.gps_course.deg(), data.gps_course.isValid(), 7, 2);
+  M5.Lcd.print("Date       :");
+  printDate(data.gps_date);
   M5.Lcd.println();
-  M5.Lcd.print("Speed      :");
-  printFloat(data.gps_speed.kmph(), data.gps_speed.isValid(), 6, 2);
+  M5.Lcd.print("Time       :");
+  printTime(data.gps_time);
+  //M5.Lcd.println();
+  //M5.Lcd.print("Degree     :");
+  //printFloat(data.gps_course.deg(), data.gps_course.isValid(), 7, 2);
+  //M5.Lcd.println();
+  //M5.Lcd.print("Speed      :");
+  //printFloat(data.gps_speed.kmph(), data.gps_speed.isValid(), 6, 2);
 }
 
 void Display::feed(const GeigerCounter &geiger_count) {
