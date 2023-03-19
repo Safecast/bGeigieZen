@@ -1,6 +1,5 @@
 #include <M5Core2.h> // #include <M5Stack.h>
 
-
 #include <cstdio>
 #include <display.hpp>
 
@@ -20,7 +19,6 @@ void core2Brightness(uint8_t lvl, bool overdrive = false) {
     if (v > 2800) v = 2800; // maximum of 2.8 volts, 2800 (uint8_t lvl  = 20)
   }
 
-
   // Minimum brightness means turn off the LCD backlight.
   if (v == 2300) {
     // LED set to minimum brightness? Turn off.
@@ -34,11 +32,13 @@ void core2Brightness(uint8_t lvl, bool overdrive = false) {
   // Set the LCD backlight voltage. (magic number = 2)
   M5.Axp.SetDCVoltage(2, v);
 }
+
 void Display::clear() {
   // Clear display
   M5.Lcd.clear();
   M5.lcd.setRotation(3);
-  core2Brightness(35);
+  M5.Lcd.setTextDatum(BL_DATUM);  // By default, text x,y is bottom left corner
+  core2Brightness(LEVEL_BRIGHT);
   // Buttons defined in M5Core2.h
   // Hot zones start 40px above top of visible display
   // See discussion in M5Button.h and M5Touch.h
@@ -65,8 +65,10 @@ void Display::draw_navbar(const char *A, const char *B, const char *C) {
 
 void Display::draw_navbar_label(const char *s, const Button &b) {
   // Bottom-Centre of Button hot zone, font size 2
+  auto previous_datum = M5.Lcd.getTextDatum();
   M5.Lcd.setTextDatum(BC_DATUM);
   M5.Lcd.drawString(s, b.x+(b.w/2), b.y+(b.h-10), 2);
+  M5.Lcd.setTextDatum(previous_datum);
 }
 
 void Display::update() {
@@ -77,6 +79,10 @@ void Display::update() {
   bool button_B_pressed = M5.BtnB.wasPressed();
   bool button_C_pressed = M5.BtnC.wasPressed();
   bool background_pressed = M5.background.wasPressed();
+  bool anybutton_pressed = button_A_pressed
+                           || button_B_pressed
+                           || button_C_pressed
+                           || background_pressed;
 
   switch (state) {
     case (bGeigieZen::S_STARTUP):
@@ -86,13 +92,32 @@ void Display::update() {
       break;
 
     case (bGeigieZen::S_MAIN_DRAW):
+      timer_blanking.restart();
+      timer_dimming.restart();
       clear();
       draw_base();
       state = bGeigieZen::S_MAIN_SHOW;
+      break;
+
     case (bGeigieZen::S_MAIN_SHOW):
       draw_main();
       if (button_C_pressed) state = bGeigieZen::S_QRCODE_DRAW;
       if (button_B_pressed) state = bGeigieZen::S_SURVEY_DRAW;
+      if(anybutton_pressed) {
+        core2Brightness(LEVEL_BRIGHT);
+        timer_blanking.restart();
+        timer_dimming.restart();
+      }
+      else if(timer_dimming.onExpired()) {
+        // dim the display
+        core2Brightness(LEVEL_DIMMED);
+      }
+      else if(timer_blanking.onExpired()) {
+        // Turn off the display
+        clear();
+        core2Brightness(LEVEL_BLANKED);
+        state = bGeigieZen::S_BLANKED;
+      }
       break;
 
     case (bGeigieZen::S_QRCODE_DRAW):
@@ -121,6 +146,12 @@ void Display::update() {
       if (button_B_pressed) state = bGeigieZen::S_MAIN_DRAW;
       break;
 
+    case (bGeigieZen::S_BLANKED):
+      if(anybutton_pressed) {
+        core2Brightness(LEVEL_BRIGHT);
+        state = bGeigieZen::S_MAIN_DRAW;
+      }
+      break;
   }
 }
 
@@ -145,7 +176,7 @@ void Display::draw_main() {
   // Show the device number
   M5.Lcd.setCursor(10, 30);
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
-      M5.Lcd.print("DeviceID =");
+  M5.Lcd.print("DeviceID ");
   M5.Lcd.print(data.device_id);
 
   // Display battery level
@@ -221,7 +252,7 @@ void Display::draw_survey() {
   // Show the device number
   M5.Lcd.setCursor(10, 30);
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
-      M5.Lcd.print("DeviceID =");
+  M5.Lcd.print("DeviceID ");
   M5.Lcd.print(data.device_id);
 
   // Display battery level
@@ -263,18 +294,12 @@ void Display::draw_survey() {
     printIntFont(/*data.geiger_cpm*/8888, true, 5, 160, 5, 4);
 
     // Display Max. uSv/h
-    M5.Lcd.setCursor(22, 160);
     M5.Lcd.drawString("Max", 180, 125, 2);
-    M5.Lcd.setCursor(100, 80);
-   // printIntFont(/*data.geiger_cpm*/8888, true, 5, 140, 175, 4);
     printFloatFont(/*data.geiger_uSv*/0.1234, true, 7, 3, 125, 220, 2);
     M5.Lcd.drawString("uSv/h", 270, 125, 2);
 
     // Display dose in uSv
-    M5.Lcd.setCursor(22, 160);
     M5.Lcd.drawString("Dose", 180, 140, 2);
-    M5.Lcd.setCursor(100, 80);
-   // printIntFont(/*data.geiger_cpm*/8888, true, 5, 140, 175, 4);
     printFloatFont(/*data.geiger_uSv*/12.345, true, 7, 3, 140, 220, 2);
     M5.Lcd.drawString("uSv", 270, 140, 2);
 
@@ -289,10 +314,10 @@ void Display::draw_survey() {
   else {
     M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
   }
-  M5.Lcd.setCursor(0, 170);
-  //M5.Lcd.print("Satelites  :");
-  //printInt(data.gps_satellites.value(), data.gps_satellites.isValid(), 5);
-  //M5.Lcd.println();
+  M5.Lcd.setCursor(0, 165);
+  M5.Lcd.print("Satelites  :");
+  printInt(data.gps_satellites.value(), data.gps_satellites.isValid(), 5);
+  M5.Lcd.println();
   M5.Lcd.print("Latitude   :");
   printFloat(data.gps_location.lat(), data.gps_location.isValid(), 11, 6);
   M5.Lcd.println();
@@ -307,12 +332,6 @@ void Display::draw_survey() {
   M5.Lcd.println();
   M5.Lcd.print("Time       :");
   printTime(data.gps_time);
-  //M5.Lcd.println();
-  //M5.Lcd.print("Degree     :");
-  //printFloat(data.gps_course.deg(), data.gps_course.isValid(), 7, 2);
-  //M5.Lcd.println();
-  //M5.Lcd.print("Speed      :");
-  //printFloat(data.gps_speed.kmph(), data.gps_speed.isValid(), 6, 2);
 }
 
 void Display::feed(const GeigerCounter &geiger_count) {

@@ -7,6 +7,14 @@
 #include <setup.hpp>
 #include <gps.hpp>
 #include <geiger_counter.hpp>
+#include <RBD_Timer.h>
+
+// Dim then blank; tweak to taste
+constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
+constexpr uint8_t LEVEL_DIMMED = 10;
+constexpr uint8_t LEVEL_BLANKED = 0;
+constexpr uint32_t DELAY_DIMMING = 10*1000;  // ms before dimming screen
+constexpr uint32_t DELAY_BLANKING = 30*1000;  // ms before blanking screen
 
 // printing routines
 void printFloat(float val, bool valid, int len, int prec);
@@ -27,7 +35,8 @@ namespace bGeigieZen {
     S_QRCODE_DRAW,
     S_QRCODE_SHOW,
     S_SURVEY_DRAW,
-    S_SURVEY_SHOW
+    S_SURVEY_SHOW,
+    S_BLANKED
   };
 }
 
@@ -62,12 +71,20 @@ class Display {
   static const int height = 240;
   uint32_t _refresh_period_ms;
 
+  // Dimming and blanking behaviour
+  bool display_dimmed = false;
+  RBD::Timer timer_dimming{DELAY_DIMMING};
+  RBD::Timer timer_blanking{DELAY_BLANKING};
+
   bGeigieZen::DisplayState state{bGeigieZen::S_STARTUP};
   DisplayData data;
 
  public:
   Display(uint32_t refresh_period_ms)
-      : _refresh_period_ms(refresh_period_ms), state(bGeigieZen::S_STARTUP) {}
+      : _refresh_period_ms(refresh_period_ms), state(bGeigieZen::S_STARTUP) {
+    timer_blanking.restart();
+    timer_dimming.restart();
+  }
   void clear();
   void feed(const GeigerCounter &geiger_count);
   void feed(GPSSensor &geiger_count);
