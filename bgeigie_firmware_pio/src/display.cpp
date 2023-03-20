@@ -173,22 +173,8 @@ void Display::draw_main() {
 
   draw_navbar("MENU", "MODE", "QR");  // Buttons A, B, C
 
-  // Show the device number
-  M5.Lcd.setCursor(10, 30);
-  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
-  M5.Lcd.print("DeviceID ");
-  M5.Lcd.print(data.device_id);
-
-  // Display battery level
-  M5.Lcd.setCursor(270, 30);
-  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
-  if (data.battery_level < 0.0) {
-    M5.Lcd.print("BAT=ext");
-  } else {
-    M5.Lcd.print("BAT=");
-    M5.Lcd.print(data.battery_level, 0);
-    M5.Lcd.print("%");
-  }
+  showDeviceId(data.device_id);
+  showBatteryLevel(data.battery_level);
 
   if (data.geiger_fresh) {
     if (data.geiger_valid)
@@ -197,13 +183,11 @@ void Display::draw_main() {
       M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
 
     // Display CPM
-    M5.Lcd.setCursor(20, 50);
     M5.Lcd.drawString("CPM ", 130, 90, 4);
     M5.Lcd.setCursor(120, 55);
     printIntFont(data.geiger_cpm, true, 5, 100, 5, 7);
 
     // Display uSv/h
-    M5.Lcd.setCursor(22, 70);
     M5.Lcd.drawString("uSv/h =", 5, 140, 4);
     M5.Lcd.setCursor(100, 80);
     printFloatFont(data.geiger_uSv, true, 7, 3, 140, 140, 4);
@@ -249,22 +233,8 @@ void Display::draw_survey() {
 
   draw_navbar("MENU", "MODE", "QR");  // Buttons A, B, C
 
-  // Show the device number
-  M5.Lcd.setCursor(10, 30);
-  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
-  M5.Lcd.print("DeviceID ");
-  M5.Lcd.print(data.device_id);
-
-  // Display battery level
-  M5.Lcd.setCursor(270, 30);
-  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
-  if (data.battery_level < 0.0) {
-    M5.Lcd.print("BAT=ext");
-  } else {
-    M5.Lcd.print("BAT=");
-    M5.Lcd.print(data.battery_level, 0);
-    M5.Lcd.print("%");
-  }
+  showDeviceId(data.device_id);
+  showBatteryLevel(data.battery_level);
 
 // Text datum bottom left for all drawString() that follow
   M5.Lcd.setTextDatum(BL_DATUM);
@@ -276,20 +246,14 @@ void Display::draw_survey() {
       M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
 
     // Display uSv/h
-    //M5.Lcd.setCursor(20, 50);
     M5.Lcd.drawString("uSv/h", 200, 100, 4);
-    //M5.Lcd.setCursor(120, 55);
     printFloatFont(data.geiger_uSv, true, 7, 3, 100, 5, 7);
 
     // Display CPM
-    // M5.Lcd.setCursor(22, 70);
     M5.Lcd.drawString("CPM", 75, 135, 4);
-    M5.Lcd.setCursor(100, 80);
     printIntFont(/*data.geiger_cpm*/9999, true, 5, 135, 5, 4);
 
     // Display Bq/m^2
-    // M5.Lcd.setCursor(22, 160);
-    // M5.Lcd.setCursor(100, 80);
     M5.Lcd.drawString("Bq/m^2", 75, 160, 4);
     printIntFont(/*data.geiger_cpm*/8888, true, 5, 160, 5, 4);
 
@@ -353,6 +317,28 @@ void Display::feed(GPSSensor &gps) {
   data.gps_time = gps.data().time;
   data.gps_date = gps.data().date;
   data.gps_fresh = true;
+}
+
+void Display::showDeviceId(uint32_t id, int16_t x, int16_t y) {
+  // Show the device number
+  M5.Lcd.setCursor(x, y);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
+  M5.Lcd.print("DeviceID ");
+  M5.Lcd.print(id);
+}
+
+void Display::showBatteryLevel(float level, int16_t x, int16_t y) {
+  // Display battery level
+  M5.Lcd.setCursor(x, y);  // (270, 30);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
+  if (level < 0.0) {
+    M5.Lcd.print("BAT=ext");
+  }
+  else {
+    M5.Lcd.print("BAT=");
+    M5.Lcd.print(level, 0);
+    M5.Lcd.print("%");
+  }
 }
 
 void printFloat(float val, bool valid, int len, int prec) {
@@ -437,4 +423,3 @@ void printTime(TinyGPSTime &t) {
   }
   delay(0);
 }
-

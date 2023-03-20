@@ -103,6 +103,10 @@ class Display {
   void draw_main();
   void draw_qrcode();
   void draw_survey();
+
+  // Misc drawing routines
+  void showDeviceId(uint32_t id, int16_t x = 10, int16_t y = 30);
+  void showBatteryLevel(float level, int16_t x = 270, int16_t y = 30);
 };
 
 #endif  // __DISPLAY_H__
