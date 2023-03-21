@@ -7,6 +7,7 @@
 #include <setup.hpp>
 #include <gps.hpp>
 #include <geiger_counter.hpp>
+#include <utility/M5Button.h>
 #include <RBD_Timer.h>
 
 // Dim then blank; tweak to taste
@@ -36,7 +37,8 @@ namespace bGeigieZen {
     S_QRCODE_SHOW,
     S_SURVEY_DRAW,
     S_SURVEY_SHOW,
-    S_BLANKED
+    S_BLANKED,
+    S_SURVEY_BLANKED
   };
 }
 
@@ -72,9 +74,11 @@ class Display {
   uint32_t _refresh_period_ms;
 
   // Dimming and blanking behaviour
+  bool dimming_enabled = true;
   bool display_dimmed = false;
   RBD::Timer timer_dimming{DELAY_DIMMING};
   RBD::Timer timer_blanking{DELAY_BLANKING};
+  Button dimmingButton{265, 45, 55, 25, false, "DIMMING", {BLACK, TFT_ORANGE, TFT_ORANGE}};
 
   bGeigieZen::DisplayState state{bGeigieZen::S_STARTUP};
   DisplayData data;

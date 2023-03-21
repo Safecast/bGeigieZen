@@ -39,6 +39,10 @@ void Display::clear() {
   M5.lcd.setRotation(3);
   M5.Lcd.setTextDatum(BL_DATUM);  // By default, text x,y is bottom left corner
   core2Brightness(LEVEL_BRIGHT);
+  dimmingButton.setFont(1);
+  //dimmingButton.setLabel("DIMMING");
+  dimmingButton.draw();
+
   // Buttons defined in M5Core2.h
   // Hot zones start 40px above top of visible display
   // See discussion in M5Button.h and M5Touch.h
@@ -49,6 +53,7 @@ void Display::clear() {
 
 void Display::draw_base() {
   // Display safecast copyright
+  M5.Lcd.setTextFont(1);
   M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
   M5.Lcd.drawString("SAFECAST", 230, 215, 1);
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
@@ -79,10 +84,21 @@ void Display::update() {
   bool button_B_pressed = M5.BtnB.wasPressed();
   bool button_C_pressed = M5.BtnC.wasPressed();
   bool background_pressed = M5.background.wasPressed();
+  bool dimming_pressed = dimmingButton.wasPressed();
   bool anybutton_pressed = button_A_pressed
                            || button_B_pressed
                            || button_C_pressed
-                           || background_pressed;
+                           || background_pressed
+                           || dimming_pressed;
+
+  if(dimming_pressed) {
+    dimming_enabled = ! dimming_enabled;
+    /* DEBUG */ Serial.print("Dimming button was pressed, dimming_enabled=");  Serial.println(dimming_enabled);
+    if(dimming_enabled)
+      dimmingButton.setLabel("DIMMING");
+    else
+      dimmingButton.setLabel("FIXED");
+    }
 
   switch (state) {
     case (bGeigieZen::S_STARTUP):
@@ -108,11 +124,11 @@ void Display::update() {
         timer_blanking.restart();
         timer_dimming.restart();
       }
-      else if(timer_dimming.onExpired()) {
+      else if(dimming_enabled && timer_dimming.onExpired()) {
         // dim the display
         core2Brightness(LEVEL_DIMMED);
       }
-      else if(timer_blanking.onExpired()) {
+      else if(dimming_enabled && timer_blanking.onExpired()) {
         // Turn off the display
         clear();
         core2Brightness(LEVEL_BLANKED);
@@ -144,12 +160,34 @@ void Display::update() {
       draw_survey();
       if (button_C_pressed) state = bGeigieZen::S_QRCODE_DRAW;
       if (button_B_pressed) state = bGeigieZen::S_MAIN_DRAW;
+      if(anybutton_pressed) {
+        core2Brightness(LEVEL_BRIGHT);
+        timer_blanking.restart();
+        timer_dimming.restart();
+      }
+      else if(dimming_enabled && timer_dimming.onExpired()) {
+        // dim the display
+        core2Brightness(LEVEL_DIMMED);
+      }
+      else if(dimming_enabled && timer_blanking.onExpired()) {
+        // Turn off the display
+        clear();
+        core2Brightness(LEVEL_BLANKED);
+        state = bGeigieZen::S_SURVEY_BLANKED;
+      }
       break;
 
     case (bGeigieZen::S_BLANKED):
       if(anybutton_pressed) {
         core2Brightness(LEVEL_BRIGHT);
         state = bGeigieZen::S_MAIN_DRAW;
+      }
+      break;
+
+    case (bGeigieZen::S_SURVEY_BLANKED):
+      if(anybutton_pressed) {
+        core2Brightness(LEVEL_BRIGHT);
+        state = bGeigieZen::S_SURVEY_DRAW;
       }
       break;
   }
@@ -166,15 +204,18 @@ void Display::draw_qrcode() {
   char url[sizeof(QR_CODE_URL_BASE) + QR_CODE_DEV_ID_NDIGITS];
   std::sprintf(url, "%s%04d", QR_CODE_URL_BASE, (int)data.device_id);
 
+  dimmingButton.erase();
   M5.Lcd.qrcode(url, x, y, w, 3);
 };
 
 void Display::draw_main() {
-
   draw_navbar("MENU", "MODE", "QR");  // Buttons A, B, C
 
   showDeviceId(data.device_id);
   showBatteryLevel(data.battery_level);
+
+// Text datum bottom left for all drawString() that follow
+  M5.Lcd.setTextDatum(BL_DATUM);
 
   if (data.geiger_fresh) {
     if (data.geiger_valid)
@@ -322,6 +363,7 @@ void Display::feed(GPSSensor &gps) {
 void Display::showDeviceId(uint32_t id, int16_t x, int16_t y) {
   // Show the device number
   M5.Lcd.setCursor(x, y);
+  M5.Lcd.setTextFont(1);
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
   M5.Lcd.print("DeviceID ");
   M5.Lcd.print(id);
@@ -330,6 +372,7 @@ void Display::showDeviceId(uint32_t id, int16_t x, int16_t y) {
 void Display::showBatteryLevel(float level, int16_t x, int16_t y) {
   // Display battery level
   M5.Lcd.setCursor(x, y);  // (270, 30);
+  M5.Lcd.setTextFont(1);
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
   if (level < 0.0) {
     M5.Lcd.print("BAT=ext");
