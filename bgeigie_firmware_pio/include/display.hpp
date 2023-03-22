@@ -9,6 +9,7 @@
 #include <geiger_counter.hpp>
 #include <utility/M5Button.h>
 #include <RBD_Timer.h>
+#include <motion.hpp>
 
 // Dim then blank; tweak to taste
 constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
@@ -82,6 +83,8 @@ class Display {
 
   bGeigieZen::DisplayState state{bGeigieZen::S_STARTUP};
   DisplayData data;
+
+  MotionDetect mpu{};
 
  public:
   Display(uint32_t refresh_period_ms)
