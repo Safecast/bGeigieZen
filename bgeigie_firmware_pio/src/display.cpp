@@ -91,6 +91,8 @@ void Display::update() {
                            || background_pressed
                            || dimming_pressed;
 
+  bool moved = mpu.motionDetected();
+
   if(dimming_pressed) {
     dimming_enabled = ! dimming_enabled;
     /* DEBUG */ Serial.print("Dimming button was pressed, dimming_enabled=");  Serial.println(dimming_enabled);
@@ -119,7 +121,7 @@ void Display::update() {
       draw_main();
       if (button_C_pressed) state = bGeigieZen::S_QRCODE_DRAW;
       if (button_B_pressed) state = bGeigieZen::S_SURVEY_DRAW;
-      if(anybutton_pressed) {
+      if(anybutton_pressed || moved) {
         core2Brightness(LEVEL_BRIGHT);
         timer_blanking.restart();
         timer_dimming.restart();
@@ -160,7 +162,7 @@ void Display::update() {
       draw_survey();
       if (button_C_pressed) state = bGeigieZen::S_QRCODE_DRAW;
       if (button_B_pressed) state = bGeigieZen::S_MAIN_DRAW;
-      if(anybutton_pressed) {
+      if(anybutton_pressed || moved) {
         core2Brightness(LEVEL_BRIGHT);
         timer_blanking.restart();
         timer_dimming.restart();
@@ -178,14 +180,14 @@ void Display::update() {
       break;
 
     case (bGeigieZen::S_BLANKED):
-      if(anybutton_pressed) {
+      if(anybutton_pressed || moved) {
         core2Brightness(LEVEL_BRIGHT);
         state = bGeigieZen::S_MAIN_DRAW;
       }
       break;
 
     case (bGeigieZen::S_SURVEY_BLANKED):
-      if(anybutton_pressed) {
+      if(anybutton_pressed || moved) {
         core2Brightness(LEVEL_BRIGHT);
         state = bGeigieZen::S_SURVEY_DRAW;
       }
