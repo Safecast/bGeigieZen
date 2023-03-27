@@ -121,6 +121,7 @@ void Display::update() {
       draw_main();
       if (button_C_pressed) state = bGeigieZen::S_QRCODE_DRAW;
       if (button_B_pressed) state = bGeigieZen::S_SURVEY_DRAW;
+      if (button_A_pressed) state = bGeigieZen::S_MENU_DRAW;
       if(anybutton_pressed || moved) {
         core2Brightness(LEVEL_BRIGHT);
         timer_blanking.restart();
@@ -145,10 +146,7 @@ void Display::update() {
       break;
 
     case (bGeigieZen::S_QRCODE_SHOW):
-      if (button_C_pressed  // Restore main on any button press
-          | button_A_pressed
-          | button_B_pressed
-          | background_pressed)
+      if (anybutton_pressed)  // restore MAIN on any button pressed
         state = bGeigieZen::S_MAIN_DRAW;
       break;
 
@@ -162,6 +160,7 @@ void Display::update() {
       draw_survey();
       if (button_C_pressed) state = bGeigieZen::S_QRCODE_DRAW;
       if (button_B_pressed) state = bGeigieZen::S_MAIN_DRAW;
+      if (button_A_pressed) state = bGeigieZen::S_MENU_DRAW;
       if(anybutton_pressed || moved) {
         core2Brightness(LEVEL_BRIGHT);
         timer_blanking.restart();
@@ -191,6 +190,18 @@ void Display::update() {
         core2Brightness(LEVEL_BRIGHT);
         state = bGeigieZen::S_SURVEY_DRAW;
       }
+      break;
+
+    case bGeigieZen::S_MENU_DRAW:
+      clear();
+      draw_base();
+      state = bGeigieZen::S_MENU_SHOW;
+      break;
+
+    case bGeigieZen::S_MENU_SHOW:
+      draw_menu();
+      if (button_C_pressed) state = bGeigieZen::S_QRCODE_DRAW;
+      if (button_B_pressed) state = bGeigieZen::S_MAIN_DRAW;
       break;
   }
 }
@@ -339,6 +350,19 @@ void Display::draw_survey() {
   M5.Lcd.println();
   M5.Lcd.print("Time       :");
   printTime(data.gps_time);
+}
+
+void Display::draw_menu() {
+  draw_navbar("MENU", "MODE", "QR");  // Buttons A, B, C
+
+  showDeviceId(data.device_id);
+  showBatteryLevel(data.battery_level);
+
+// Text datum bottom left for all drawString() that follow
+  M5.Lcd.setTextDatum(BL_DATUM);
+  // Display something
+  M5.Lcd.drawString("MENU TBD", 160, 100, 4);
+
 }
 
 void Display::feed(const GeigerCounter &geiger_count) {
