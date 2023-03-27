@@ -11,12 +11,12 @@
 #include <RBD_Timer.h>
 #include <motion.hpp>
 
-// Dim then blank; tweak to taste
+// Dim then blank; tweak to taste (will become a menu setting)
 constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
 constexpr uint8_t LEVEL_DIMMED = 10;
 constexpr uint8_t LEVEL_BLANKED = 0;
-constexpr uint32_t DELAY_DIMMING = 10*1000;  // ms before dimming screen
-constexpr uint32_t DELAY_BLANKING = 30*1000;  // ms before blanking screen
+constexpr uint32_t DELAY_DIMMING = 2*60*1000;  // ms before dimming screen
+constexpr uint32_t DELAY_BLANKING = 3*60*1000;  // ms before blanking screen
 
 // printing routines
 void printFloat(float val, bool valid, int len, int prec);
@@ -39,7 +39,9 @@ namespace bGeigieZen {
     S_SURVEY_DRAW,
     S_SURVEY_SHOW,
     S_BLANKED,
-    S_SURVEY_BLANKED
+    S_SURVEY_BLANKED,
+    S_MENU_DRAW,
+    S_MENU_SHOW
   };
 }
 
@@ -110,6 +112,7 @@ class Display {
   void draw_main();
   void draw_qrcode();
   void draw_survey();
+  void draw_menu();
 
   // Misc drawing routines
   void showDeviceId(uint32_t id, int16_t x = 10, int16_t y = 30);
