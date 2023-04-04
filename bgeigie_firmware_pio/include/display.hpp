@@ -10,6 +10,7 @@
 #include <utility/M5Button.h>
 #include <RBD_Timer.h>
 #include <motion.hpp>
+#include <menu.hpp>
 
 // Dim then blank; tweak to taste (will become a menu setting)
 constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
@@ -87,6 +88,9 @@ class Display {
   DisplayData data;
 
   MotionDetect mpu{};
+
+  InitState mstate{};
+  MenuContext mcontext{};
 
  public:
   Display(uint32_t refresh_period_ms)

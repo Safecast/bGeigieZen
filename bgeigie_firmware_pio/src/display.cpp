@@ -2,6 +2,7 @@
 
 #include <cstdio>
 #include <display.hpp>
+#include <menu.hpp>
 
 //setup brightness by Rob Oudendijk 2023-03-13
 void core2Brightness(uint8_t lvl, bool overdrive = false) {
@@ -193,15 +194,22 @@ void Display::update() {
       break;
 
     case bGeigieZen::S_MENU_DRAW:
-      clear();
-      draw_base();
+      /*DEBUG*/Serial.println("bGeigieZen::S_MENU_DRAW: calling mcontext.goto_state(&mstate)");
+      /*DEBUG*/Serial.printf("&mstate = %04X\n", &mstate);
+      mcontext.goto_state(&mstate);
       state = bGeigieZen::S_MENU_SHOW;
       break;
+    /* case bGeigieZen::S_MENU_DRAW:
+      clear();
+      draw_base();
+      draw_menu();
+      state = bGeigieZen::S_MENU_SHOW;
+      break; */
 
     case bGeigieZen::S_MENU_SHOW:
-      draw_menu();
       if (button_C_pressed) state = bGeigieZen::S_QRCODE_DRAW;
       if (button_B_pressed) state = bGeigieZen::S_MAIN_DRAW;
+      mcontext.update();
       break;
   }
 }
@@ -361,8 +369,9 @@ void Display::draw_menu() {
 // Text datum bottom left for all drawString() that follow
   M5.Lcd.setTextDatum(BL_DATUM);
   // Display something
-  M5.Lcd.drawString("MENU TBD", 160, 100, 4);
-
+  M5.Lcd.drawString("MENU ITEM", 100, 40, 4);
+  Button enable_ap_button{100, 40, 60, 50, false, "Enable AP", {TFT_YELLOW, TFT_DARKGREY, TFT_GREEN}};
+  enable_ap_button.draw();
 }
 
 void Display::feed(const GeigerCounter &geiger_count) {
