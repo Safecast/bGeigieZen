@@ -34,6 +34,13 @@ void core2Brightness(uint8_t lvl, bool overdrive = false) {
   M5.Axp.SetDCVoltage(2, v);
 }
 
+// Menu state machine
+InitState mstate{};
+MenuContext mcontext{};
+// InitState mstate;
+// MenuContext mcontext;
+
+
 void Display::clear() {
   // Clear display
   M5.Lcd.clear();
@@ -501,3 +508,4 @@ void printTime(TinyGPSTime &t) {
   }
   delay(0);
 }
+
