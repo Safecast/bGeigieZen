@@ -16,8 +16,8 @@
 constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
 constexpr uint8_t LEVEL_DIMMED = 10;
 constexpr uint8_t LEVEL_BLANKED = 0;
-constexpr uint32_t DELAY_DIMMING = 2*60*1000;  // ms before dimming screen
-constexpr uint32_t DELAY_BLANKING = 3*60*1000;  // ms before blanking screen
+constexpr uint32_t DELAY_DIMMING_DEFAULT = 2*60*1000;  // ms before dimming screen
+constexpr uint32_t DELAY_BLANKING_DEFAULT = 3*60*1000;  // ms before blanking screen
 
 // printing routines
 void printFloat(float val, bool valid, int len, int prec);
@@ -68,7 +68,11 @@ struct DisplayData {
 
   // Battery
   float battery_level = -1.0;
+
 };
+
+class InitState;
+class MenuContext;
 
 class Display {
  private:
@@ -80,17 +84,16 @@ class Display {
   // Dimming and blanking behaviour
   bool dimming_enabled = true;
   bool display_dimmed = false;
-  RBD::Timer timer_dimming{DELAY_DIMMING};
-  RBD::Timer timer_blanking{DELAY_BLANKING};
+  uint32_t delay_dimming = DELAY_DIMMING_DEFAULT;  // ms before dimming
+  uint32_t delay_blanking = DELAY_BLANKING_DEFAULT; // ms before blanking
+  RBD::Timer timer_dimming{DELAY_DIMMING_DEFAULT};
+  RBD::Timer timer_blanking{DELAY_BLANKING_DEFAULT};
   Button dimmingButton{265, 45, 55, 25, false, "DIMMING", {BLACK, TFT_ORANGE, TFT_ORANGE}};
 
   bGeigieZen::DisplayState state{bGeigieZen::S_STARTUP};
   DisplayData data;
 
   MotionDetect mpu{};
-
-  InitState mstate{};
-  MenuContext mcontext{};
 
  public:
   Display(uint32_t refresh_period_ms)
@@ -122,5 +125,6 @@ class Display {
   void showDeviceId(uint32_t id, int16_t x = 10, int16_t y = 30);
   void showBatteryLevel(float level, int16_t x = 270, int16_t y = 30);
 };
+
 
 #endif  // __DISPLAY_H__
