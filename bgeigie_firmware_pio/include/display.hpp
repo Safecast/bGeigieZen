@@ -124,6 +124,9 @@ class Display {
   // Misc drawing routines
   void showDeviceId(uint32_t id, int16_t x = 10, int16_t y = 30);
   void showBatteryLevel(float level, int16_t x = 270, int16_t y = 30);
+
+  // Misc set/get
+  void set_dimblank_delays(uint32_t dimdelay, uint32_t blankdelay);
 };
 
 

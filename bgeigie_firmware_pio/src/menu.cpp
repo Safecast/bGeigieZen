@@ -4,27 +4,34 @@
 #include <display.hpp>
 #include <menu.hpp>
 
-DimBlankTiming::DimBlankTiming(uint32_t delay_before, const char *item_label) :
-  delay{delay_before},
+DimBlankTiming::DimBlankTiming(uint32_t delay_dimming,
+                                uint32_t delay_blanking,
+                                const char *item_label) :
+  delay_dimming{delay_dimming},
+  delay_blanking{delay_blanking},
   label{item_label}
   {}
 
+void MenuContext::goto_state(MenuState *new_state, Display *display ) {
+  main_display = display;
+  goto_state(new_state);
+}
 
-    void MenuContext::goto_state(MenuState *new_state) {
-      if(this->current_state != nullptr) {
-        /*DEBUG*/ Serial.println("goto_state: current_state != nullptr, executing on_exit()");
-        this->current_state->on_exit(this);
-      }
-      this->current_state = new_state;
-      /*DEBUG*/ Serial.println("goto_state: executing on_entry()");
-      this->current_state->on_entry(this);
-    }
+void MenuContext::goto_state(MenuState *new_state) {
+  if(this->current_state != nullptr) {
+    /*DEBUG*/ Serial.println("goto_state: current_state != nullptr, executing on_exit()");
+    this->current_state->on_exit(this);
+  }
+  this->current_state = new_state;
+  /*DEBUG*/ Serial.println("goto_state: executing on_entry()");
+  this->current_state->on_entry(this);
+}
 
-    void MenuContext::update() {
-      if(this->current_state != nullptr) {
-        this->current_state->update(this);
-      }
-    }
+void MenuContext::update() {
+  if(this->current_state != nullptr) {
+    this->current_state->update(this);
+  }
+}
 
 void InitState::on_entry(MenuContext *context) {
   /*DEBUG*/ Serial.println("InitState::on_entry");
@@ -52,17 +59,40 @@ void InitState::on_entry(MenuContext *context) {
   M5.Lcd.drawString("Menu InitState",10, 20, 2);
 
   Button &dbbutton = context->button_dimblank;
-  char dbbutton_label [15] = {'\0'};
-  strncpy(dbbutton_label, "30s /  2m", sizeof(dbbutton_label)-1);
-  // context->button_dimblank.setLabel("BLAH");
+  // get the current values of dim/blank timing
+  auto dimblankchoice = context->dimblank_choices[context->dimblank_idx];
   context->button_dimblank.draw();
   M5.Lcd.setTextDatum(ML_DATUM);
   M5.Lcd.drawString("Blank / Dim", 10, dbbutton.y+(dbbutton.h/2), 4);
   M5.Lcd.setTextDatum(MC_DATUM);
-  M5.Lcd.drawString(dbbutton_label,
+  M5.Lcd.drawString(dimblankchoice.label,
                     dbbutton.x+(dbbutton.w/2),
                     dbbutton.y+(dbbutton.h/2), 4);
 }
 
 void InitState::on_exit(MenuContext *context) {/*DEBUG*/ Serial.println("InitState::on_exit");}
-void InitState::update(MenuContext *context) {/*DEBUG*/ Serial.println("InitState::update");}
+
+void InitState::update(MenuContext *context) {
+  /*DEBUG*/ //Serial.println("InitState::update");
+
+  // get the current values of dim/blank timing
+  Button &dbbutton = context->button_dimblank;
+  if(dbbutton.wasReleased()) {
+    // cycle through all choices
+    context->dimblank_idx = context->dimblank_idx >= 4 ?
+                            0 : context->dimblank_idx + 1;
+    auto dimblankchoice = context->dimblank_choices[context->dimblank_idx];
+    context->main_display->set_dimblank_delays(dimblankchoice.delay_dimming,
+                                               dimblankchoice.delay_blanking);
+
+    /*DEBUG*/ Serial.println(dimblankchoice.label);
+
+    context->button_dimblank.draw();
+    M5.Lcd.setTextDatum(ML_DATUM);
+    M5.Lcd.drawString("Blank / Dim", 10, dbbutton.y+(dbbutton.h/2), 4);
+    M5.Lcd.setTextDatum(MC_DATUM);
+    M5.Lcd.drawString(dimblankchoice.label,
+                      dbbutton.x+(dbbutton.w/2),
+                      dbbutton.y+(dbbutton.h/2), 4);
+  }
+}
