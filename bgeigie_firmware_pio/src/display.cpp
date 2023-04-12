@@ -34,11 +34,9 @@ void core2Brightness(uint8_t lvl, bool overdrive = false) {
   M5.Axp.SetDCVoltage(2, v);
 }
 
-// Menu state machine
+// Menu state machine initialization
 InitState mstate{};
 MenuContext mcontext{};
-// InitState mstate;
-// MenuContext mcontext;
 
 
 void Display::clear() {
@@ -118,6 +116,8 @@ void Display::update() {
       break;
 
     case (bGeigieZen::S_MAIN_DRAW):
+      /*DEBUG*/ Serial.println("Entering bGeigieZen::S_MAIN_DRAW");
+      /*DEBUG*/ Serial.printf("dimming_enabled = %s\n", dimming_enabled? "true":"false");
       timer_blanking.restart();
       timer_dimming.restart();
       clear();
@@ -131,15 +131,18 @@ void Display::update() {
       if (button_B_pressed) state = bGeigieZen::S_SURVEY_DRAW;
       if (button_A_pressed) state = bGeigieZen::S_MENU_DRAW;
       if(anybutton_pressed || moved) {
+        /*DEBUG*/ Serial.println("In bGeigieZen::S_MAIN_SHOW, restarting timers");
         core2Brightness(LEVEL_BRIGHT);
         timer_blanking.restart();
         timer_dimming.restart();
       }
       else if(dimming_enabled && timer_dimming.onExpired()) {
+        /*DEBUG*/ Serial.println("In bGeigieZen::S_MAIN_SHOW, dimming");
         // dim the display
         core2Brightness(LEVEL_DIMMED);
       }
       else if(dimming_enabled && timer_blanking.onExpired()) {
+        /*DEBUG*/ Serial.println("In bGeigieZen::S_MAIN_SHOW, blanking");
         // Turn off the display
         clear();
         core2Brightness(LEVEL_BLANKED);
@@ -203,7 +206,7 @@ void Display::update() {
     case bGeigieZen::S_MENU_DRAW:
       /*DEBUG*/Serial.println("bGeigieZen::S_MENU_DRAW: calling mcontext.goto_state(&mstate)");
       /*DEBUG*/Serial.printf("&mstate = %04X\n", &mstate);
-      mcontext.goto_state(&mstate);
+      mcontext.goto_state(&mstate, this);
       state = bGeigieZen::S_MENU_SHOW;
       break;
     /* case bGeigieZen::S_MENU_DRAW:
@@ -214,8 +217,10 @@ void Display::update() {
       break; */
 
     case bGeigieZen::S_MENU_SHOW:
-      if (button_C_pressed) state = bGeigieZen::S_QRCODE_DRAW;
-      if (button_B_pressed) state = bGeigieZen::S_MAIN_DRAW;
+      if (button_B_pressed) {
+        state = bGeigieZen::S_MAIN_DRAW;
+        break;
+      }
       mcontext.update();
       break;
   }
@@ -509,3 +514,19 @@ void printTime(TinyGPSTime &t) {
   delay(0);
 }
 
+  // Misc set/get
+  void Display::set_dimblank_delays(uint32_t dimdelay, uint32_t blankdelay) {
+    /*DEBUG*/ Serial.printf("Display::set_dimblank_delays(%d, %d)\n", dimdelay, blankdelay);
+    if((0 == dimdelay) || (0 == blankdelay)) { 
+      dimming_enabled = false;
+      dimmingButton.setLabel("FIXED");
+    }
+    else {
+      timer_dimming.setTimeout(dimdelay);
+      timer_blanking.setTimeout(blankdelay);
+      timer_dimming.restart();
+      timer_blanking.restart();
+      dimming_enabled = true;
+      dimmingButton.setLabel("DIMMING");
+    }
+  }
