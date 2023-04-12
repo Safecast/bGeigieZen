@@ -2,23 +2,29 @@
 #define __MENU_H__
 
 #include <M5Core2.h>
+#include <display.hpp>
 
 /* FSM framework for the menu screen
 Loosely based on the "classic" State pattern,
 see https://refactoring.guru/design-patterns/state
+In each state, actions may be taken on entry, on exit and
+on regular updates. The state classes inherit from the virtual base
+MenuState and implement the actions.  
  */
-
 
 // Dimming and blanking times and corresponding labels.
 class DimBlankTiming {
   public:
-    uint32_t delay;  // ms before dimming
+    uint32_t delay_dimming;  // ms before dimming
+    uint32_t delay_blanking;  // ms before blanking
     const char *label;
-    DimBlankTiming(uint32_t delay_before, const char *item_label);
+    DimBlankTiming(uint32_t delay_dimming,
+                  uint32_t delay_blanking,
+                  const char *item_label);
 };
 
 class MenuContext;
-
+class Display;
 
 /* Base class for states */
 class MenuState {
@@ -43,7 +49,7 @@ class InitState : public MenuState {
 
 };
 
-/* State Machine Context */
+/* Menu State Machine Context */
 class MenuContext {
   private:
     MenuState *current_state;
@@ -54,29 +60,26 @@ class MenuContext {
     char configWifiPreSharedKey [32] = {'\0'};
     char configIPaddr [20] = {'\0'};
 
-    DimBlankTiming dimming_choices [4] = {
-      {(uint32_t)30*1000, "30s"},
-      {(uint32_t)60*1000, " 1m"},
-      {(uint32_t)2*60*1000, " 2m"},
-      {(uint32_t)5*60*1000, " 5m"}
-    };
-    DimBlankTiming blanking_choices [4] = {
-      {(uint32_t)2*60*1000, " 2m"},
-      {(uint32_t)5*60*1000, " 5m"},
-      {(uint32_t)10*60*1000, "10m"},
-      {(uint32_t)30*60*1000, "30m"}
-    };
-    int dimblank_idx = 0;
-
-
   public:
+    int dimblank_idx = 0;
+    DimBlankTiming dimblank_choices [5] = {
+      {(uint32_t)10*1000, (uint32_t)20*1000, "30s /  2m"},
+      {(uint32_t)60*1000, (uint32_t)5*60*1000,  " 1m /  5m"},
+      {(uint32_t)2*60*1000, (uint32_t)10*60*1000, " 2m / 10m"},
+      {(uint32_t)5*60*1000, (uint32_t)30*60*1000, " 5m / 30m"},
+      {(uint32_t)0,         (uint32_t)0,         "--- / ---"}  // disable
+    };
+
     // Buttons that appear in the menu screens, statically defined
     ButtonColors onCol = {BLACK, YELLOW, YELLOW};
-    ButtonColors offCol = {RED, YELLOW, YELLOW};
+    ButtonColors offCol = {YELLOW, YELLOW, YELLOW};
     Button button_dimblank{170, 40, 140, 40, false, "", onCol, offCol};
+  
+    Display *main_display;
     
     MenuContext() : current_state{nullptr} {}
 
+    void goto_state(MenuState *new_state, Display *display);
     void goto_state(MenuState *new_state);
 
     void update();
