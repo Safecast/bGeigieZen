@@ -49,6 +49,14 @@ class InitState : public MenuState {
 
 };
 
+class ConfigState : public MenuState {
+  public:
+    void on_entry(MenuContext *context);
+    void on_exit(MenuContext *context);
+    void update(MenuContext *context);
+
+};
+
 /* Menu State Machine Context */
 class MenuContext {
   private:
@@ -63,7 +71,7 @@ class MenuContext {
   public:
     int dimblank_idx = 0;
     DimBlankTiming dimblank_choices [5] = {
-      {(uint32_t)10*1000, (uint32_t)20*1000, "30s /  2m"},
+      {(uint32_t)30*1000, (uint32_t)2*60*1000, "30s /  2m"},
       {(uint32_t)60*1000, (uint32_t)5*60*1000,  " 1m /  5m"},
       {(uint32_t)2*60*1000, (uint32_t)10*60*1000, " 2m / 10m"},
       {(uint32_t)5*60*1000, (uint32_t)30*60*1000, " 5m / 30m"},
@@ -74,6 +82,7 @@ class MenuContext {
     ButtonColors onCol = {BLACK, YELLOW, YELLOW};
     ButtonColors offCol = {YELLOW, YELLOW, YELLOW};
     Button button_dimblank{170, 40, 140, 40, false, "", onCol, offCol};
+    Button button_config_network{170, 90, 140, 40, false, "", onCol, offCol};
   
     Display *main_display;
     
