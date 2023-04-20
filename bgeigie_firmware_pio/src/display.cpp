@@ -14,7 +14,7 @@ void Display::draw_base() {
   M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
   M5.Lcd.drawString("SAFECAST", 230, 215, 1);
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
-  M5.Lcd.drawString("2022", 285, 215, 1);
+  M5.Lcd.drawString("2023", 285, 215, 1);
 }
 
 void Display::draw_navbar(const char *A, const char *B, const char *C) {
@@ -80,13 +80,13 @@ void Display::draw_main() {
 
   // Show the device number
   M5.Lcd.setCursor(10, 30);
-  M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
       M5.Lcd.print("DeviceID =");
   M5.Lcd.print(data.device_id);
 
   // Display battery level
   M5.Lcd.setCursor(270, 30);
-  M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
   if (data.battery_level == -1) {
     M5.Lcd.print("BAT=ext");
   } else {
