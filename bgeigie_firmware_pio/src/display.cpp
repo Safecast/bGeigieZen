@@ -275,7 +275,7 @@ void Display::draw_main() {
     data.gps_fresh = false;
   }
   else {
-    M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
+    M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
   }
   M5.Lcd.setCursor(0, 150);
   M5.Lcd.print("Satelites  :");

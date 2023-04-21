@@ -59,6 +59,7 @@ void InitState::on_entry(MenuContext *context) {
   M5.Lcd.setTextDatum(previous_datum);
 
   // Draw the initial menu and set up the buttons.
+  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
   M5.Lcd.drawString("Menu InitState",10, 20, 2);
 
   Button &dbbutton = context->button_dimblank;
@@ -68,6 +69,7 @@ void InitState::on_entry(MenuContext *context) {
   auto dimblankchoice = context->dimblank_choices[context->dimblank_idx];
   context->button_dimblank.draw();
   M5.Lcd.setTextDatum(ML_DATUM);
+  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
   M5.Lcd.drawString("Blank / Dim", 10, dbbutton.y+(dbbutton.h/2), 4);
   M5.Lcd.setTextDatum(MC_DATUM);
   M5.Lcd.drawString(dimblankchoice.label,
@@ -140,6 +142,7 @@ void ConfigState::on_entry(MenuContext *context) {
   M5.Lcd.setTextDatum(previous_datum);
 
   // Draw the initial menu and set up the buttons.
+  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
   M5.Lcd.drawString("Menu ConfigState",10, 20, 2);
 
 }
