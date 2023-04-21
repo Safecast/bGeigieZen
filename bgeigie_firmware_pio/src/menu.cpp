@@ -89,7 +89,7 @@ void InitState::on_exit(MenuContext *context) {/*DEBUG*/ Serial.println("InitSta
 void InitState::update(MenuContext *context) {
   /*DEBUG*/ //Serial.println("InitState::update");
 
-  // get the current values of dim/blank timing
+  // get references to the buttons in the InitState page.
   Button &dbbutton = context->button_dimblank;
   Button &cfgbutton = context->button_config_network;
 if(cfgbutton.wasReleased()) {
@@ -151,3 +151,25 @@ void ConfigState::on_exit(MenuContext *context) {/*DEBUG*/ Serial.println("Confi
 void ConfigState::update(MenuContext *context) {
   /*DEBUG*/ //Serial.println("ConfigState::update");
 }
+
+void InactiveState::on_entry(MenuContext *context) {
+  /*DEBUG*/ Serial.println("InactiveState::on_entry");
+  M5.Lcd.clear();
+  Button &dbbutton = context->button_dimblank;
+  Button &cfgbutton = context->button_config_network;
+  dbbutton.erase();
+  cfgbutton.erase();
+  dbbutton.hide();
+  cfgbutton.hide();
+
+}
+
+void InactiveState::on_exit(MenuContext *context) {/*DEBUG*/ Serial.println("InactiveState::on_exit");}
+
+void InactiveState::update(MenuContext *context) {
+  /*DEBUG*/ //Serial.println("InactiveState::update");
+  // Stay in this state forever. We will return to InitState
+  // when the Display FSM calls the menu FSM again.
+  return;
+}
+
