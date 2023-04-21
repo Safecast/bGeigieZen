@@ -36,6 +36,7 @@ void core2Brightness(uint8_t lvl, bool overdrive = false) {
 
 // Menu state machine initialization
 InitState mstate{};
+InactiveState inactivestate{};
 MenuContext mcontext{};
 
 
@@ -218,6 +219,7 @@ void Display::update() {
 
     case bGeigieZen::S_MENU_SHOW:
       if (button_B_pressed) {
+        mcontext.goto_state(&inactivestate, this);
         state = bGeigieZen::S_MAIN_DRAW;
         break;
       }
