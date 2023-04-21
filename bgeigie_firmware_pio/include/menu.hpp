@@ -57,6 +57,15 @@ class ConfigState : public MenuState {
 
 };
 
+class InactiveState : public MenuState {
+  public:
+    void on_entry(MenuContext *context);
+    void on_exit(MenuContext *context);
+    void update(MenuContext *context);
+
+};
+
+
 /* Menu State Machine Context */
 class MenuContext {
   private:
