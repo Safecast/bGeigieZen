@@ -54,7 +54,8 @@ StateLogging *StateLogging::_instance = NULL;
 void StateLogging::on_enter(bGeigieZen::Event e) {}
 void StateLogging::process() {
   if (_ctx->geiger_count.available()) _ctx->on_geiger_counter_available();
-
+// auto wifi = _ctx->device_setup.wifiparams();
+// wifi.configIPaddr
   if (_ctx->gps.available()) _ctx->on_gps_available();
 
   if (_ctx->bgeigie_formatter.ready()) {

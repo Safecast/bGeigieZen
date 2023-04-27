@@ -3,8 +3,8 @@
 
 #include <display.hpp>
 #include <menu.hpp>
+#include <wifi_connection.hpp>
 
-// InitState mstate{};
 ConfigState cfgstate{};
 
 DimBlankTiming::DimBlankTiming(uint32_t delay_dimming,
@@ -38,6 +38,8 @@ void MenuContext::update() {
 
 void InitState::on_entry(MenuContext *context) {
   /*DEBUG*/ Serial.println("InitState::on_entry");
+  char wifissid[16] = {'\0'};
+
   M5.Lcd.clear();
   M5.lcd.setRotation(3);
   M5.Lcd.setTextDatum(BL_DATUM);  // By default, text x,y is bottom left corner
@@ -75,11 +77,17 @@ void InitState::on_entry(MenuContext *context) {
   M5.Lcd.drawString(dimblankchoice.label,
                     dbbutton.x+(dbbutton.w/2),
                     dbbutton.y+(dbbutton.h/2), 4);
+  // Display temporary SSID and invitation to activate access point
+  //  std::sprintf(url, "%s%04d", QR_CODE_URL_BASE, (int)data.device_id);
+  // the actual variable context->main_display->wificonn
+  sprintf(wifissid, "%s%04d", ACCESS_POINT_SSID, context->main_display->data.device_id);
+  /*DEBUG*/ Serial.println(wifissid);
   context->button_config_network.draw();
   M5.Lcd.setTextDatum(ML_DATUM);
-  M5.Lcd.drawString("WiFi Config", 10, cfgbutton.y+(cfgbutton.h/2), 4);
+  M5.Lcd.drawString("WiFi SSID", 10, cfgbutton.y+(cfgbutton.h/2) - 20, 2);
+  M5.Lcd.drawString(wifissid, 10, cfgbutton.y+(cfgbutton.h/2) + 5, 4);
   M5.Lcd.setTextDatum(MC_DATUM);
-  M5.Lcd.drawString("START",
+  M5.Lcd.drawString("ACTIVATE",
                     cfgbutton.x+(cfgbutton.w/2),
                     cfgbutton.y+(cfgbutton.h/2), 4);
 }
@@ -145,8 +153,16 @@ void ConfigState::on_entry(MenuContext *context) {
   M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
   M5.Lcd.drawString("Menu ConfigState",10, 20, 2);
 
+  char wifissid[16] = {'\0'};
+  sprintf(wifissid, "%s%04d", ACCESS_POINT_SSID, context->main_display->data.device_id);
+  context->main_display->wificonn.start_ap_server(wifissid, "");
 }
-void ConfigState::on_exit(MenuContext *context) {/*DEBUG*/ Serial.println("ConfigState::on_exit");}
+
+void ConfigState::on_exit(MenuContext *context) {
+  /*DEBUG*/ Serial.println("ConfigState::on_exit");
+  context->main_display->wificonn.stop_ap_server();
+
+}
 
 void ConfigState::update(MenuContext *context) {
   /*DEBUG*/ //Serial.println("ConfigState::update");

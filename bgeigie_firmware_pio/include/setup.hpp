@@ -67,6 +67,15 @@ struct DoseData {
   uint32_t total_time = 0;
 };
 
+// WiFi parameters
+struct WiFiParameters {
+  char myWifiSSID [32] = {'\0'};
+  char myIPaddr[16] = {'\0'};
+  char configWifiSSID [32] = {'\0'};
+  char configWifiPreSharedKey [32] = {'\0'};
+  char configIPaddr [20] = {'\0'};
+};
+
 struct ConfigData {
   ConfigData() { strcpy(country_code, SETUP_DEFAULT_COUNTRY_CODE); }
   uint8_t type = GEIGIE_TYPE_B;     // 0 for bGeigie, 1 for xGeigie
@@ -110,12 +119,14 @@ class Setup {
   bool ready() const { return _ready; }
   const ConfigData &config() const { return _config; }
   const DoseData &dose() const { return _dose; }
+  const WiFiParameters &wifiparams() const { return _wifiparams; }
 
  private:
   bool _ready = false;
   Preferences _prefs;  // persistent storage connection
   ConfigData _config;   // configuration data
   DoseData _dose;       // dose data
+  WiFiParameters _wifiparams; // WiFi parameters when configured
 };
 
 #endif  // __SETUP_HPP__
