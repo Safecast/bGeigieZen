@@ -44,6 +44,9 @@ void Display::clear() {
   // Clear display
   M5.Lcd.clear();
   M5.lcd.setRotation(3);
+  // prevent ghost buttons on logging and survey screens
+  mcontext.button_dimblank.hide();
+  mcontext.button_config_network.hide();
   M5.Lcd.setTextDatum(BL_DATUM);  // By default, text x,y is bottom left corner
   core2Brightness(LEVEL_BRIGHT);
   dimmingButton.setFont(1);
@@ -219,6 +222,8 @@ void Display::update() {
 
     case bGeigieZen::S_MENU_SHOW:
       if (button_B_pressed) {
+        // When Return button pressed, set the menu state to "inactive",
+        // erase and hide the buttons and return control to this FSM.
         mcontext.goto_state(&inactivestate, this);
         state = bGeigieZen::S_MAIN_DRAW;
         break;

@@ -2,6 +2,7 @@
 #define __CONFIG_HPP__
 #include <cstdint>
 #include <cstdlib>
+#include <WiFi.h>
 
 using std::uint8_t;
 using std::uint16_t;
@@ -55,6 +56,11 @@ const uint8_t SETUP_DEFAULT_CPM_WINDOW = 60;
 const uint32_t SETUP_DEFAULT_ALARM_LEVEL = 100;
 const char SETUP_DEFAULT_COUNTRY_CODE[4] = "JPN";
 const uint8_t SETUP_DEFAULT_TIMEZONE = 9;
+// WiFiDefaults 
+const char ACCESS_POINT_SSID[8] = "bgeigie"; // With device id"
+const uint32_t SERVER_WIFI_PORT = 80;
+const IPAddress ACCESS_POINT_IP = {192, 168, 5, 1};
+const IPAddress ACCESS_POINT_NMASK = {255, 255, 255, 0};
 
 /**************/
 

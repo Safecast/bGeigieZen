@@ -70,12 +70,6 @@ class InactiveState : public MenuState {
 class MenuContext {
   private:
     MenuState *current_state;
-    // WiFi parameters
-    char myWifiSSID [32] = {'\0'};
-    char myIPaddr[16] = {'\0'};
-    char configWifiSSID [32] = {'\0'};
-    char configWifiPreSharedKey [32] = {'\0'};
-    char configIPaddr [20] = {'\0'};
 
   public:
     int dimblank_idx = 0;
@@ -95,7 +89,11 @@ class MenuContext {
   
     Display *main_display;
     
-    MenuContext() : current_state{nullptr} {}
+    MenuContext() : current_state{nullptr} {
+      // prevent ghost buttons on logging and survey screens
+      button_dimblank.hide();
+      button_config_network.hide();
+    }
 
     void goto_state(MenuState *new_state, Display *display);
     void goto_state(MenuState *new_state);
