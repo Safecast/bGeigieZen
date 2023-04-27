@@ -11,6 +11,7 @@
 #include <RBD_Timer.h>
 #include <motion.hpp>
 #include <menu.hpp>
+#include <wifi_connection.hpp>
 
 // Dim then blank; tweak to taste (will become a menu setting)
 constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
@@ -91,11 +92,13 @@ class Display {
   Button dimmingButton{265, 45, 55, 25, false, "DIMMING", {BLACK, TFT_ORANGE, TFT_ORANGE}};
 
   bGeigieZen::DisplayState state{bGeigieZen::S_STARTUP};
-  DisplayData data;
 
   MotionDetect mpu{};
 
  public:
+  DisplayData data;
+  WiFiConnection wificonn{};
+
   Display(uint32_t refresh_period_ms)
       : _refresh_period_ms(refresh_period_ms), state(bGeigieZen::S_STARTUP) {
     timer_blanking.restart();
