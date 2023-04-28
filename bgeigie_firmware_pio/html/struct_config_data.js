@@ -1,9 +1,11 @@
 var struct_config_data =
 [
     [ "ConfigData", "struct_config_data.html#adb78a42cc714fe0bfdf03d9a1e3d0cc5", null ],
+    [ "ConfigData", "struct_config_data.html#adb78a42cc714fe0bfdf03d9a1e3d0cc5", null ],
+    [ "print", "struct_config_data.html#afbf78e1817c53c2a8ce593a0462e9067", null ],
     [ "print", "struct_config_data.html#afbf78e1817c53c2a8ce593a0462e9067", null ],
     [ "alarm_level", "struct_config_data.html#a0926ea1423d747769c2c483cfe9e67d8", null ],
-    [ "country_code", "struct_config_data.html#abdb7432878c14196b7f58966fc4bfe8e", null ],
+    [ "country_code", "struct_config_data.html#acfc75aed54ef7c7cb2642cc5762f2bc0", null ],
     [ "cpm2bqm2_factor", "struct_config_data.html#aa5933f3b80cedf442c2e77e0b4f2bc21", null ],
     [ "cpm2ush_divider", "struct_config_data.html#aa24c38bbf7f45bf50326d157831c89f5", null ],
     [ "cpm_window", "struct_config_data.html#aba12291a53be13e4faa5f65b59e3b9ff", null ],
@@ -15,5 +17,5 @@ var struct_config_data =
     [ "sensor_type", "struct_config_data.html#afaa007becc1fe66c42b28b9d9b506c74", null ],
     [ "timezone", "struct_config_data.html#ac5bcb661e8da0969e1387523c1ecff10", null ],
     [ "type", "struct_config_data.html#aeed7f19eb7986d26a13a94c4f3b59987", null ],
-    [ "user_name", "struct_config_data.html#a4c9acea566e874ce9a24e555406a7ece", null ]
+    [ "user_name", "struct_config_data.html#a7263336a4701b3c57cdca2d5ab9e13db", null ]
 ];
