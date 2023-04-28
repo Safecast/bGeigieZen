@@ -28,6 +28,15 @@ var NAVTREE =
     [ "bGeigie-Zen firmware (ESP32)", "md__r_e_a_d_m_e.html", [
       [ "Quick Start", "md__r_e_a_d_m_e.html#autotoc_md0", null ]
     ] ],
+    [ "Todo List", "todo.html", null ],
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ],
+        [ "Enumerator", "namespacemembers_eval.html", null ]
+      ] ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -56,8 +65,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_tiny_g_p_s_09_09_8cpp.html",
-"config_8hpp.html#ab976d08f8762ed4298848ae330237a90",
-"struct_tiny_g_p_s_location.html#a71140428381c5c38e901cc602ef47f68"
+"class_geiger_counter.html#ae659bb900adc79be6557b668b292175e",
+"gps_8cpp.html",
+"setup_8cpp.html#a3b277e8d750b6dd4c88018b18b30e375ac4fdd1e6bdd209421440e427f570a11b",
+"struct_tiny_g_p_s_integer.html#a3a76131645f7604b3f3e759b90f9373f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['rawdegrees_0',['RawDegrees',['../struct_raw_degrees.html',1,'']]]
+  ['inactivestate_423',['InactiveState',['../class_inactive_state.html',1,'']]],
+  ['initstate_424',['InitState',['../class_init_state.html',1,'']]]
 ];

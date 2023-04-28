@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['time_0',['time',['../class_tiny_g_p_s_plus.html#a377c975527fa24b45fb86356505eb134',1,'TinyGPSPlus']]],
-  ['timezone_1',['timezone',['../struct_config_data.html#ac5bcb661e8da0969e1387523c1ecff10',1,'ConfigData']]],
-  ['total_5fcount_2',['total_count',['../struct_dose_data.html#ad85e2eb5fac819a1529cfca336dec903',1,'DoseData']]],
-  ['total_5ftime_3',['total_time',['../struct_dose_data.html#a3177f770053383ab080807b751ea4a12',1,'DoseData']]],
-  ['type_4',['type',['../struct_config_data.html#aeed7f19eb7986d26a13a94c4f3b59987',1,'ConfigData']]]
+  ['qr_5fcode_5fdev_5fid_5fndigits_754',['QR_CODE_DEV_ID_NDIGITS',['../include_2config_8hpp.html#a19f748654b4acf1e8460dd5537c05abd',1,'QR_CODE_DEV_ID_NDIGITS():&#160;config.hpp'],['../src_2config_8hpp.html#a19f748654b4acf1e8460dd5537c05abd',1,'QR_CODE_DEV_ID_NDIGITS():&#160;config.hpp']]],
+  ['qr_5fcode_5furl_5fbase_755',['QR_CODE_URL_BASE',['../include_2config_8hpp.html#abce19322f5c54bf596c47078d910f71e',1,'QR_CODE_URL_BASE():&#160;config.hpp'],['../src_2config_8hpp.html#abce19322f5c54bf596c47078d910f71e',1,'QR_CODE_URL_BASE():&#160;config.hpp']]]
 ];
