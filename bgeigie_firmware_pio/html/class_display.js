@@ -27,5 +27,7 @@ var class_display =
     [ "showBatteryLevel", "class_display.html#aa7b36908fb46ec9bf36366c8d9119f30", null ],
     [ "showDeviceId", "class_display.html#a0b6dd251c800397e9b9522483eb9c233", null ],
     [ "update", "class_display.html#ad2740b779d61e461c4dcaaf34f1fcd8f", null ],
-    [ "update", "class_display.html#ad2740b779d61e461c4dcaaf34f1fcd8f", null ]
+    [ "update", "class_display.html#ad2740b779d61e461c4dcaaf34f1fcd8f", null ],
+    [ "data", "class_display.html#a6c2a1387cfc7630af1a5a0abbd8c12ef", null ],
+    [ "wificonn", "class_display.html#a0f93068663afcd6cbb5804ab10dbe3cc", null ]
 ];

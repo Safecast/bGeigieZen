@@ -35,5 +35,7 @@ var annotated_dup =
     [ "TinyGPSLocation", "struct_tiny_g_p_s_location.html", "struct_tiny_g_p_s_location" ],
     [ "TinyGPSPlus", "class_tiny_g_p_s_plus.html", "class_tiny_g_p_s_plus" ],
     [ "TinyGPSSpeed", "struct_tiny_g_p_s_speed.html", "struct_tiny_g_p_s_speed" ],
-    [ "TinyGPSTime", "struct_tiny_g_p_s_time.html", "struct_tiny_g_p_s_time" ]
+    [ "TinyGPSTime", "struct_tiny_g_p_s_time.html", "struct_tiny_g_p_s_time" ],
+    [ "WiFiConnection", "class_wi_fi_connection.html", "class_wi_fi_connection" ],
+    [ "WiFiParameters", "struct_wi_fi_parameters.html", "struct_wi_fi_parameters" ]
 ];

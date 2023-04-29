@@ -12,7 +12,7 @@ var class_tiny_g_p_s_custom =
     [ "isUpdated", "class_tiny_g_p_s_custom.html#ac735cdd0adb996de1d86bdcc15090977", null ],
     [ "isValid", "class_tiny_g_p_s_custom.html#a6cc9903b3c45a321962642440204afeb", null ],
     [ "isValid", "class_tiny_g_p_s_custom.html#a6cc9903b3c45a321962642440204afeb", null ],
-    [ "value", "class_tiny_g_p_s_custom.html#ac5ad40a3d9b6fe386b2309f972566674", null ],
-    [ "value", "class_tiny_g_p_s_custom.html#ac5ad40a3d9b6fe386b2309f972566674", null ],
+    [ "value", "class_tiny_g_p_s_custom.html#a03bb66f8d3e078b21c8a5033a88d8a32", null ],
+    [ "value", "class_tiny_g_p_s_custom.html#a03bb66f8d3e078b21c8a5033a88d8a32", null ],
     [ "TinyGPSPlus", "class_tiny_g_p_s_custom.html#a2bcf8d5290fbef8c44b415e281b8c6f2", null ]
 ];

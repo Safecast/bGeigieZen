@@ -9,7 +9,7 @@ var class_b_geigie_log_formatter =
     [ "feed", "class_b_geigie_log_formatter.html#a1c9a69c9790a8bc038b157ced1fcdbe3", null ],
     [ "feed", "class_b_geigie_log_formatter.html#a1c9a69c9790a8bc038b157ced1fcdbe3", null ],
     [ "format", "class_b_geigie_log_formatter.html#a73f74383a11aa5e2d1c7ddafbeb3f708", null ],
-    [ "format", "class_b_geigie_log_formatter.html#a1facdc78e50e58e3c58ef11e69e26634", null ],
+    [ "format", "class_b_geigie_log_formatter.html#a73f74383a11aa5e2d1c7ddafbeb3f708", null ],
     [ "ready", "class_b_geigie_log_formatter.html#a1a53d87a30121624a61a5a32e359b535", null ],
     [ "ready", "class_b_geigie_log_formatter.html#a1a53d87a30121624a61a5a32e359b535", null ],
     [ "set_device_id", "class_b_geigie_log_formatter.html#aa9b91572348c098bb151e3662690a602", null ],
