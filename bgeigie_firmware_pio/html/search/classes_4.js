@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hardwarecounter_422',['HardwareCounter',['../class_hardware_counter.html',1,'']]]
+  ['hardwarecounter_0',['HardwareCounter',['../class_hardware_counter.html',1,'']]]
 ];

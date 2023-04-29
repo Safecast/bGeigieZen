@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7emenustate_410',['~MenuState',['../class_menu_state.html#abbd5869601cb7673c38e9deb44b4342a',1,'MenuState']]]
+  ['year_0',['year',['../struct_tiny_g_p_s_date.html#ae2cc914fec377b429d99f01204f50d60',1,'TinyGPSDate::year()'],['../struct_tiny_g_p_s_date.html#ae2cc914fec377b429d99f01204f50d60',1,'TinyGPSDate::year()']]]
 ];
