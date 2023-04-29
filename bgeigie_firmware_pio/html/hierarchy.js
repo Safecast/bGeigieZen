@@ -24,26 +24,21 @@ var hierarchy =
     [ "Setup", "class_setup.html", null ],
     [ "State", "class_state.html", [
       [ "StateLogging", "class_state_logging.html", null ],
-      [ "StateLogging", "class_state_logging.html", null ],
       [ "StateStartup", "class_state_startup.html", null ],
-      [ "StateStartup", "class_state_startup.html", null ],
-      [ "StateWaitGPSTime", "class_state_wait_g_p_s_time.html", null ],
       [ "StateWaitGPSTime", "class_state_wait_g_p_s_time.html", null ]
     ] ],
     [ "TinyGPSCustom", "class_tiny_g_p_s_custom.html", null ],
     [ "TinyGPSDate", "struct_tiny_g_p_s_date.html", null ],
     [ "TinyGPSDecimal", "struct_tiny_g_p_s_decimal.html", [
       [ "TinyGPSAltitude", "struct_tiny_g_p_s_altitude.html", null ],
-      [ "TinyGPSAltitude", "struct_tiny_g_p_s_altitude.html", null ],
-      [ "TinyGPSCourse", "struct_tiny_g_p_s_course.html", null ],
       [ "TinyGPSCourse", "struct_tiny_g_p_s_course.html", null ],
       [ "TinyGPSHDOP", "struct_tiny_g_p_s_h_d_o_p.html", null ],
-      [ "TinyGPSHDOP", "struct_tiny_g_p_s_h_d_o_p.html", null ],
-      [ "TinyGPSSpeed", "struct_tiny_g_p_s_speed.html", null ],
       [ "TinyGPSSpeed", "struct_tiny_g_p_s_speed.html", null ]
     ] ],
     [ "TinyGPSInteger", "struct_tiny_g_p_s_integer.html", null ],
     [ "TinyGPSLocation", "struct_tiny_g_p_s_location.html", null ],
     [ "TinyGPSPlus", "class_tiny_g_p_s_plus.html", null ],
-    [ "TinyGPSTime", "struct_tiny_g_p_s_time.html", null ]
+    [ "TinyGPSTime", "struct_tiny_g_p_s_time.html", null ],
+    [ "WiFiConnection", "class_wi_fi_connection.html", null ],
+    [ "WiFiParameters", "struct_wi_fi_parameters.html", null ]
 ];
