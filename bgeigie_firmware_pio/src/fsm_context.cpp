@@ -11,7 +11,7 @@ void Context::loop() {
   M5.update();  // updates buttons and stuff
   geiger_count.update();
   gps.update();      // reads from the GPS
-  display.update();  // redraws the display and manages the states
+  // display.update();  // redraws the display and manages the states
 
   current_state->process();
 }
@@ -86,3 +86,5 @@ void Context::transition_to(State *next_state, bGeigieZen::Event e) {
   current_state = next_state;
   current_state->enter(this, e);
 }
+
+

@@ -1,7 +1,7 @@
 var dir_d44c64559bbebec7f509842c48db8b23 =
 [
     [ "battery.hpp", "battery_8hpp.html", "battery_8hpp" ],
-    [ "config.hpp", "config_8hpp.html", "config_8hpp" ],
+    [ "config.hpp", "include_2config_8hpp.html", "include_2config_8hpp" ],
     [ "display.hpp", "display_8hpp.html", "display_8hpp" ],
     [ "fsm_context.hpp", "fsm__context_8hpp.html", "fsm__context_8hpp" ],
     [ "fsm_state_base.hpp", "fsm__state__base_8hpp.html", "fsm__state__base_8hpp" ],

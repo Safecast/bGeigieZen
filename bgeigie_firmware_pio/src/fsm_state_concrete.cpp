@@ -8,6 +8,7 @@ StateStartup *StateStartup::instance() {
   return _instance;
 }
 void StateStartup::on_enter(bGeigieZen::Event e) {
+  Serial.println("StateStartup::on_enter");
   _ctx->setup();
   _ctx->transition_to(StateWaitGPSTime::instance(), bGeigieZen::Event::SETUP_FINISHED);
 }
@@ -21,8 +22,17 @@ StateWaitGPSTime *StateWaitGPSTime::instance() {
   }
   return _instance;
 }
-void StateWaitGPSTime::on_enter(bGeigieZen::Event e) {}
+void StateWaitGPSTime::on_enter(bGeigieZen::Event e) {
+  Serial.println("StateWaitGPSTime::on_enter");
+  auto menuinst = StateMenu::instance();
+  auto inst = instance();
+  auto ctx = inst->_ctx;
+  Serial.println("StateWaitGPSTime::on_enter Adding handler");
+  M5.BtnA.addHandler([ctx, menuinst](Event &e) {ctx->transition_to(menuinst, bGeigieZen::Event::MENU_INVOKED);}, E_RELEASE);
+}
 void StateWaitGPSTime::process() {
+  Serial.printf("StateWaitGPSTime::process updating the display\n");
+  _ctx->display.update();  // redraws the display
   if (_ctx->geiger_count.available()) _ctx->on_geiger_counter_available();
 
   if (_ctx->gps.available()) {
@@ -51,7 +61,9 @@ StateLogging *StateLogging::instance() {
   return _instance;
 }
 StateLogging *StateLogging::_instance = NULL;
-void StateLogging::on_enter(bGeigieZen::Event e) {}
+void StateLogging::on_enter(bGeigieZen::Event e) {
+  Serial.println("StateLogging::on_enter");
+}
 void StateLogging::process() {
   if (_ctx->geiger_count.available()) _ctx->on_geiger_counter_available();
 // auto wifi = _ctx->device_setup.wifiparams();
@@ -77,3 +89,60 @@ void StateLogging::process() {
   }
 }
 void StateLogging::on_exit(bGeigieZen::Event e) {}
+
+StateConfig *StateConfig::instance() {
+  if (_instance == NULL) {
+    _instance = new StateConfig();
+  }
+  return _instance;
+}
+StateConfig *StateConfig::_instance = NULL;
+void StateConfig::on_enter(bGeigieZen::Event e) {
+  Serial.println("StateConfig::on_enter");
+  if(e == bGeigieZen::Event::CONFIGURATION_INVOKED) {
+    // Launch the configuration web server here
+  }
+}
+void StateConfig::process() {
+}
+void StateConfig::on_exit(bGeigieZen::Event e) {}
+
+
+StateMenu *StateMenu::instance() {
+  if (_instance == NULL) {
+    _instance = new StateMenu();
+  }
+  return _instance;
+}
+StateMenu *StateMenu::_instance = NULL;
+void StateMenu::on_enter(bGeigieZen::Event e) {
+  Serial.println("StateMenu::on_enter");
+  if(e == bGeigieZen::Event::MENU_INVOKED) {
+    // De-register the BtnA callback
+    M5.BtnA.delHandlers();
+    // Draw the menu display
+  }
+}
+void StateMenu::process() {
+}
+void StateMenu::on_exit(bGeigieZen::Event e) {}
+
+/* // Button callback to force a state change
+void State::register_callback(std::function<void(Event &)> callback, uint16_t event_type){
+  // Activate hook on button 
+  Serial.println("MENU BUTTON CALLBACK REGISTERED");
+  
+  M5.BtnA.addHandler(callback, event_type);
+}
+
+EventHandlerCallback StateWaitGPSTime::invoke_menu(Event& e) { 
+  Serial.printf("StateWaitGPSTime::invoke_menu CALLBACK EVENT: %04x\n", e.type);
+  _ctx->transition_to(StateMenu::instance(), bGeigieZen::Event::MENU_INVOKED);
+}
+
+EventHandlerCallback StateLogging::invoke_menu(Event& e) { 
+  Serial.printf("StateLogging::invoke_menu CALLBACK EVENT: %04x\n", e.type);
+  _ctx->transition_to(StateMenu::instance(), bGeigieZen::Event::MENU_INVOKED);
+}
+
+ */

@@ -96,7 +96,7 @@ $(document).ready(function(){initNavTree('wifi__connection_8cpp_source.html','')
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;Arduino.h&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;ESPmDNS.h&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;<a class="code" href="config_8hpp.html">config.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;<a class="code" href="src_2config_8hpp.html">config.hpp</a>&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;<a class="code" href="wifi__connection_8hpp.html">wifi_connection.hpp</a>&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
@@ -134,8 +134,8 @@ $(document).ready(function(){initNavTree('wifi__connection_8cpp_source.html','')
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  WiFi.softAPsetHostname(host_ssid);</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  delay(100);</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  IPAddress ip(<a class="code hl_variable" href="config_8hpp.html#a274ffc8442b3544f2b94e77a69fd9668">ACCESS_POINT_IP</a>);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  IPAddress n_mask(<a class="code hl_variable" href="config_8hpp.html#ab9f50b6081aaeec393971d8362575872">ACCESS_POINT_NMASK</a>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  IPAddress ip(<a class="code hl_variable" href="include_2config_8hpp.html#a274ffc8442b3544f2b94e77a69fd9668">ACCESS_POINT_IP</a>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  IPAddress n_mask(<a class="code hl_variable" href="include_2config_8hpp.html#ab9f50b6081aaeec393971d8362575872">ACCESS_POINT_NMASK</a>);</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  WiFi.softAPConfig(ip, ip, n_mask);</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  delay(100);</div>
@@ -163,9 +163,9 @@ $(document).ready(function(){initNavTree('wifi__connection_8cpp_source.html','')
 <div class="ttc" id="aclass_wi_fi_connection_html_a988528922c17cc42773ac5813cdb3b1a"><div class="ttname"><a href="class_wi_fi_connection.html#a988528922c17cc42773ac5813cdb3b1a">WiFiConnection::connect_wifi</a></div><div class="ttdeci">static bool connect_wifi(const char *ssid, const char *password=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="wifi__connection_8cpp_source.html#l00009">wifi_connection.cpp:9</a></div></div>
 <div class="ttc" id="aclass_wi_fi_connection_html_a9c74f99f9d6d47dcafba4d0e8e677304"><div class="ttname"><a href="class_wi_fi_connection.html#a9c74f99f9d6d47dcafba4d0e8e677304">WiFiConnection::start_ap_server</a></div><div class="ttdeci">static bool start_ap_server(const char *host_ssid, const char *password)</div><div class="ttdef"><b>Definition:</b> <a href="wifi__connection_8cpp_source.html#l00037">wifi_connection.cpp:37</a></div></div>
 <div class="ttc" id="aclass_wi_fi_connection_html_adf04b1dcd7e1b6ef05eb748b7e14755f"><div class="ttname"><a href="class_wi_fi_connection.html#adf04b1dcd7e1b6ef05eb748b7e14755f">WiFiConnection::disconnect_wifi</a></div><div class="ttdeci">static void disconnect_wifi()</div><div class="ttdef"><b>Definition:</b> <a href="wifi__connection_8cpp_source.html#l00028">wifi_connection.cpp:28</a></div></div>
-<div class="ttc" id="aconfig_8hpp_html"><div class="ttname"><a href="config_8hpp.html">config.hpp</a></div></div>
-<div class="ttc" id="aconfig_8hpp_html_a274ffc8442b3544f2b94e77a69fd9668"><div class="ttname"><a href="config_8hpp.html#a274ffc8442b3544f2b94e77a69fd9668">ACCESS_POINT_IP</a></div><div class="ttdeci">const IPAddress ACCESS_POINT_IP</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00062">config.hpp:62</a></div></div>
-<div class="ttc" id="aconfig_8hpp_html_ab9f50b6081aaeec393971d8362575872"><div class="ttname"><a href="config_8hpp.html#ab9f50b6081aaeec393971d8362575872">ACCESS_POINT_NMASK</a></div><div class="ttdeci">const IPAddress ACCESS_POINT_NMASK</div><div class="ttdef"><b>Definition:</b> <a href="config_8hpp_source.html#l00063">config.hpp:63</a></div></div>
+<div class="ttc" id="ainclude_2config_8hpp_html_a274ffc8442b3544f2b94e77a69fd9668"><div class="ttname"><a href="include_2config_8hpp.html#a274ffc8442b3544f2b94e77a69fd9668">ACCESS_POINT_IP</a></div><div class="ttdeci">const IPAddress ACCESS_POINT_IP</div><div class="ttdef"><b>Definition:</b> <a href="include_2config_8hpp_source.html#l00062">config.hpp:62</a></div></div>
+<div class="ttc" id="ainclude_2config_8hpp_html_ab9f50b6081aaeec393971d8362575872"><div class="ttname"><a href="include_2config_8hpp.html#ab9f50b6081aaeec393971d8362575872">ACCESS_POINT_NMASK</a></div><div class="ttdeci">const IPAddress ACCESS_POINT_NMASK</div><div class="ttdef"><b>Definition:</b> <a href="include_2config_8hpp_source.html#l00063">config.hpp:63</a></div></div>
+<div class="ttc" id="asrc_2config_8hpp_html"><div class="ttname"><a href="src_2config_8hpp.html">config.hpp</a></div></div>
 <div class="ttc" id="awifi__connection_8hpp_html"><div class="ttname"><a href="wifi__connection_8hpp.html">wifi_connection.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

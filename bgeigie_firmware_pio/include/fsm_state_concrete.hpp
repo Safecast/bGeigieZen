@@ -29,6 +29,8 @@ class StateWaitGPSTime : public State {
   void process();
   void on_exit(bGeigieZen::Event e);
   static StateWaitGPSTime *instance();
+
+  // EventHandlerCallback invoke_menu(Event& e);
 };
 
 class StateLogging : public State {
@@ -43,5 +45,36 @@ class StateLogging : public State {
   void process();
   void on_exit(bGeigieZen::Event e);
   static StateLogging *instance();
+
+  // void invoke_menu(Event& e);
 };
+
+class StateMenu : public State {
+ private:
+  static StateMenu *_instance;
+
+ protected:
+  StateMenu() {}
+
+ public:
+  void on_enter(bGeigieZen::Event e);
+  void process();
+  void on_exit(bGeigieZen::Event e);
+  static StateMenu *instance();
+};
+
+class StateConfig : public State {
+ private:
+  static StateConfig *_instance;
+
+ protected:
+  StateConfig() {}
+
+ public:
+  void on_enter(bGeigieZen::Event e);
+  void process();
+  void on_exit(bGeigieZen::Event e);
+  static StateConfig *instance();
+};
+
 #endif  // __FSM_STATE_CONCRETE_HPP__
