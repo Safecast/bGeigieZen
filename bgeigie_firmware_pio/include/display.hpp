@@ -10,8 +10,8 @@
 #include <utility/M5Button.h>
 #include <RBD_Timer.h>
 #include <motion.hpp>
-#include <menu.hpp>
-#include <wifi_connection.hpp>
+// #include <menu.hpp>
+// #include <wifi_connection.hpp>
 
 // Dim then blank; tweak to taste (will become a menu setting)
 constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
@@ -97,7 +97,7 @@ class Display {
 
  public:
   DisplayData data;
-  WiFiConnection wificonn{};
+  // WiFiConnection wificonn{};
 
   Display(uint32_t refresh_period_ms)
       : _refresh_period_ms(refresh_period_ms), state(bGeigieZen::S_STARTUP) {
@@ -122,7 +122,7 @@ class Display {
   void draw_main();
   void draw_qrcode();
   void draw_survey();
-  void draw_menu();
+  // void draw_menu();
 
   // Misc drawing routines
   void showDeviceId(uint32_t id, int16_t x = 10, int16_t y = 30);

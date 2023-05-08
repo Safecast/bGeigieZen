@@ -2,7 +2,7 @@
 
 #include <cstdio>
 #include <display.hpp>
-#include <menu.hpp>
+// #include <menu.hpp>
 
 //setup brightness by Rob Oudendijk 2023-03-13
 void core2Brightness(uint8_t lvl, bool overdrive = false) {
@@ -35,9 +35,9 @@ void core2Brightness(uint8_t lvl, bool overdrive = false) {
 }
 
 // Menu state machine initialization
-InitState mstate{};
-InactiveState inactivestate{};
-MenuContext mcontext{};
+// InitState mstate{};
+// InactiveState inactivestate{};
+// MenuContext mcontext{};
 
 
 void Display::clear() {
@@ -45,8 +45,8 @@ void Display::clear() {
   M5.Lcd.clear();
   M5.lcd.setRotation(3);
   // prevent ghost buttons on logging and survey screens
-  mcontext.button_dimblank.hide();
-  mcontext.button_config_network.hide();
+  // mcontext.button_dimblank.hide();
+  // mcontext.button_config_network.hide();
   M5.Lcd.setTextDatum(BL_DATUM);  // By default, text x,y is bottom left corner
   core2Brightness(LEVEL_BRIGHT);
   dimmingButton.setFont(1);
@@ -89,7 +89,7 @@ void Display::draw_navbar_label(const char *s, const Button &b) {
 void Display::update() {
   // This function is mainly used to read the buttons and update the state
   // of the display
-
+  Serial.println("Display::update");
   bool button_A_pressed = M5.BtnA.wasPressed();
   bool button_B_pressed = M5.BtnB.wasPressed();
   bool button_C_pressed = M5.BtnC.wasPressed();
@@ -133,7 +133,7 @@ void Display::update() {
       draw_main();
       if (button_C_pressed) state = bGeigieZen::S_QRCODE_DRAW;
       if (button_B_pressed) state = bGeigieZen::S_SURVEY_DRAW;
-      if (button_A_pressed) state = bGeigieZen::S_MENU_DRAW;
+      // if (button_A_pressed) state = bGeigieZen::S_MENU_DRAW;
       if(anybutton_pressed || moved) {
         /*DEBUG*/ Serial.println("In bGeigieZen::S_MAIN_SHOW, restarting timers");
         core2Brightness(LEVEL_BRIGHT);
@@ -207,29 +207,29 @@ void Display::update() {
       }
       break;
 
-    case bGeigieZen::S_MENU_DRAW:
-      /*DEBUG*/Serial.println("bGeigieZen::S_MENU_DRAW: calling mcontext.goto_state(&mstate)");
-      /*DEBUG*/Serial.printf("&mstate = %04X\n", &mstate);
-      mcontext.goto_state(&mstate, this);
-      state = bGeigieZen::S_MENU_SHOW;
-      break;
-    /* case bGeigieZen::S_MENU_DRAW:
-      clear();
-      draw_base();
-      draw_menu();
-      state = bGeigieZen::S_MENU_SHOW;
-      break; */
+    // case bGeigieZen::S_MENU_DRAW:
+    //   /*DEBUG*/Serial.println("bGeigieZen::S_MENU_DRAW: calling mcontext.goto_state(&mstate)");
+    //   /*DEBUG*/Serial.printf("&mstate = %04X\n", &mstate);
+    //   mcontext.goto_state(&mstate, this);
+    //   state = bGeigieZen::S_MENU_SHOW;
+    //   break;
+    // /* case bGeigieZen::S_MENU_DRAW:
+    //   clear();
+    //   draw_base();
+    //   draw_menu();
+    //   state = bGeigieZen::S_MENU_SHOW;
+    //   break; */
 
-    case bGeigieZen::S_MENU_SHOW:
-      if (button_B_pressed) {
-        // When Return button pressed, set the menu state to "inactive",
-        // erase and hide the buttons and return control to this FSM.
-        mcontext.goto_state(&inactivestate, this);
-        state = bGeigieZen::S_MAIN_DRAW;
-        break;
-      }
-      mcontext.update();
-      break;
+    // case bGeigieZen::S_MENU_SHOW:
+    //   if (button_B_pressed) {
+    //     // When Return button pressed, set the menu state to "inactive",
+    //     // erase and hide the buttons and return control to this FSM.
+    //     mcontext.goto_state(&inactivestate, this);
+    //     state = bGeigieZen::S_MAIN_DRAW;
+    //     break;
+    //   }
+    //   mcontext.update();
+    //   break;
   }
 }
 
@@ -244,6 +244,7 @@ void Display::draw_qrcode() {
   char url[sizeof(QR_CODE_URL_BASE) + QR_CODE_DEV_ID_NDIGITS];
   std::sprintf(url, "%s%04d", QR_CODE_URL_BASE, (int)data.device_id);
 
+  dimmingButton.hide();
   dimmingButton.erase();
   M5.Lcd.qrcode(url, x, y, w, 3);
 };
@@ -379,19 +380,19 @@ void Display::draw_survey() {
   printTime(data.gps_time);
 }
 
-void Display::draw_menu() {
-  draw_navbar("MENU", "MODE", "QR");  // Buttons A, B, C
+// void Display::draw_menu() {
+//   draw_navbar("MENU", "MODE", "QR");  // Buttons A, B, C
 
-  showDeviceId(data.device_id);
-  showBatteryLevel(data.battery_level);
+//   showDeviceId(data.device_id);
+//   showBatteryLevel(data.battery_level);
 
-// Text datum bottom left for all drawString() that follow
-  M5.Lcd.setTextDatum(BL_DATUM);
-  // Display something
-  M5.Lcd.drawString("MENU ITEM", 100, 40, 4);
-  Button enable_ap_button{100, 40, 60, 50, false, "Enable AP", {TFT_YELLOW, TFT_DARKGREY, TFT_GREEN}};
-  enable_ap_button.draw();
-}
+// // Text datum bottom left for all drawString() that follow
+//   M5.Lcd.setTextDatum(BL_DATUM);
+//   // Display something
+//   M5.Lcd.drawString("MENU ITEM", 100, 40, 4);
+//   Button enable_ap_button{100, 40, 60, 50, false, "Enable AP", {TFT_YELLOW, TFT_DARKGREY, TFT_GREEN}};
+//   enable_ap_button.draw();
+// }
 
 void Display::feed(const GeigerCounter &geiger_count) {
   data.geiger_valid = geiger_count.valid();

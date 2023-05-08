@@ -13,6 +13,8 @@ namespace bGeigieZen {
     GPS_DATE_BECAME_CORRECT,
     LOG_FILE_CREATED,
     GPS_GEIGER_COUNT_READY,
+    MENU_INVOKED,
+    CONFIGURATION_INVOKED
   };
 }
 
@@ -32,6 +34,8 @@ class State {
     virtual void on_enter(bGeigieZen::Event e) = 0;
     virtual void process() = 0;
     virtual void on_exit(bGeigieZen::Event e) = 0;
+
+  // void register_callback(std::function<void(Event &)> callback, uint16_t event_type);
 };
 
 #endif // __FSM_STATE_BASE_HPP

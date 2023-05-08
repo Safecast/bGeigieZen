@@ -3,7 +3,7 @@
 
 #include <display.hpp>
 #include <menu.hpp>
-#include <wifi_connection.hpp>
+// #include <wifi_connection.hpp>
 
 ConfigState cfgstate{};
 
@@ -155,12 +155,12 @@ void ConfigState::on_entry(MenuContext *context) {
 
   char wifissid[16] = {'\0'};
   sprintf(wifissid, "%s%04d", ACCESS_POINT_SSID, context->main_display->data.device_id);
-  context->main_display->wificonn.start_ap_server(wifissid, "");
+  // context->main_display->wificonn.start_ap_server(wifissid, "");
 }
 
 void ConfigState::on_exit(MenuContext *context) {
   /*DEBUG*/ Serial.println("ConfigState::on_exit");
-  context->main_display->wificonn.stop_ap_server();
+  // context->main_display->wificonn.stop_ap_server();
 
 }
 

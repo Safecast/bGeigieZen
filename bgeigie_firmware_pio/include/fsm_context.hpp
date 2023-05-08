@@ -46,6 +46,10 @@ class Context {
   void on_geiger_counter_available();
   void on_gps_available();
   void transition_to(State *next_state, bGeigieZen::Event e);
+  // Hook back from Display when Menu button pressed
+  void register_callback();
+  void invoke_menu(Event& e);
+
 
  public:
   Context() {}
@@ -56,6 +60,8 @@ class Context {
   friend class StateStartup;
   friend class StateWaitGPSTime;
   friend class StateLogging;
+  friend class StateConfig;
+  friend class StateMenu;
 };
 
 #endif  // __FSM_CONTEXT_HPP__
