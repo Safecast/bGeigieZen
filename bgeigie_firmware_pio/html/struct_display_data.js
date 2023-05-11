@@ -1,6 +1,6 @@
 var struct_display_data =
 [
-    [ "battery_level", "struct_display_data.html#a2fc5dd5733fb2dd041682927da623ce9", null ],
+    [ "battery_level", "struct_display_data.html#a4a74edd66f777279b57275ce42120a41", null ],
     [ "device_id", "struct_display_data.html#a18f85013bc2db1d5db55d87eded63633", null ],
     [ "geiger_cpm", "struct_display_data.html#a43705d7afd5dba6f06af94c49cd1d376", null ],
     [ "geiger_fresh", "struct_display_data.html#ad9962eb3cbb4b794a5c38c920c3c9a00", null ],

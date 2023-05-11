@@ -9,6 +9,9 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "hardwarecounter.cpp", "hardwarecounter_8cpp.html", "hardwarecounter_8cpp" ],
     [ "logger.cpp", "logger_8cpp.html", "logger_8cpp" ],
     [ "main.cpp", "main_8cpp.html", "main_8cpp" ],
+    [ "menu.cpp", "menu_8cpp.html", "menu_8cpp" ],
+    [ "motion.cpp", "motion_8cpp.html", null ],
     [ "setup.cpp", "setup_8cpp.html", "setup_8cpp" ],
-    [ "TinyGPS++.cpp", "_tiny_g_p_s_09_09_8cpp.html", "_tiny_g_p_s_09_09_8cpp" ]
+    [ "TinyGPS++.cpp", "_tiny_g_p_s_09_09_8cpp.html", "_tiny_g_p_s_09_09_8cpp" ],
+    [ "wifi_connection.cpp", "wifi__connection_8cpp.html", null ]
 ];

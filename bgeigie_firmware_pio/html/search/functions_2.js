@@ -11,7 +11,9 @@ var searchData=
   ['config_8',['config',['../class_setup.html#a973924be0fdd98b6e5a964a2416cf721',1,'Setup']]],
   ['configdata_9',['ConfigData',['../struct_config_data.html#adb78a42cc714fe0bfdf03d9a1e3d0cc5',1,'ConfigData']]],
   ['configure_10',['configure',['../class_geiger_counter.html#ac068defdfdf364a2009891f736d45b76',1,'GeigerCounter']]],
-  ['consume_11',['consume',['../class_geiger_counter.html#a31310cb1270920b6bf8e183a6eb0ecb6',1,'GeigerCounter']]],
-  ['context_12',['Context',['../class_context.html#a652cdcd2eedc8dbd9110bd284c5d5cf0',1,'Context']]],
-  ['courseto_13',['courseTo',['../class_tiny_g_p_s_plus.html#af338c18ccf58a47659be1ffc8259541d',1,'TinyGPSPlus']]]
+  ['connect_5fwifi_11',['connect_wifi',['../class_wi_fi_connection.html#a988528922c17cc42773ac5813cdb3b1a',1,'WiFiConnection']]],
+  ['consume_12',['consume',['../class_geiger_counter.html#a31310cb1270920b6bf8e183a6eb0ecb6',1,'GeigerCounter']]],
+  ['context_13',['Context',['../class_context.html#a652cdcd2eedc8dbd9110bd284c5d5cf0',1,'Context']]],
+  ['core2brightness_14',['core2Brightness',['../display_8cpp.html#aa80b8dc616dd7cd22263440802492d75',1,'display.cpp']]],
+  ['courseto_15',['courseTo',['../class_tiny_g_p_s_plus.html#af338c18ccf58a47659be1ffc8259541d',1,'TinyGPSPlus']]]
 ];

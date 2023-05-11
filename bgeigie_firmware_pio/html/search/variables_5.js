@@ -20,5 +20,6 @@ var searchData=
   ['gps_5fsatellites_17',['gps_satellites',['../struct_display_data.html#a46aff8bdb1baf8f0f8fcb52860f2a6ce',1,'DisplayData']]],
   ['gps_5fserial_5fnum_18',['GPS_SERIAL_NUM',['../config_8hpp.html#a2080a9b9250553498c56afc1e18b3caa',1,'config.hpp']]],
   ['gps_5fspeed_19',['gps_speed',['../struct_display_data.html#a4bda74f0875dd000136c419e3cb3a1a8',1,'DisplayData']]],
-  ['gps_5ftime_20',['gps_time',['../struct_display_data.html#ac18f89b50f66be4928873d3ee1a4b7d0',1,'DisplayData']]]
+  ['gps_5ftime_20',['gps_time',['../struct_display_data.html#ac18f89b50f66be4928873d3ee1a4b7d0',1,'DisplayData']]],
+  ['gyro_5fthreshold_5fdefault_21',['GYRO_THRESHOLD_DEFAULT',['../motion_8hpp.html#a129b7eca484d5da61720b7932edd46c3',1,'motion.hpp']]]
 ];
