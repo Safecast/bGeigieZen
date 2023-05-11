@@ -28,6 +28,15 @@ var NAVTREE =
     [ "bGeigie-Zen firmware (ESP32)", "md__r_e_a_d_m_e.html", [
       [ "Quick Start", "md__r_e_a_d_m_e.html#autotoc_md0", null ]
     ] ],
+    [ "Todo List", "todo.html", null ],
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ],
+        [ "Enumerator", "namespacemembers_eval.html", null ]
+      ] ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -36,7 +45,7 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Related Functions", "functions_rela.html", null ]
+        [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -56,8 +65,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_tiny_g_p_s_09_09_8cpp.html",
-"config_8hpp.html#ab976d08f8762ed4298848ae330237a90",
-"struct_tiny_g_p_s_location.html#a71140428381c5c38e901cc602ef47f68"
+"class_state_menu.html#abdf07094a1e53c6a874eb831d584df09",
+"namespaceb_geigie_zen.html#a482a0e89f9349c1957603fccb9a26b0ba10cadaa6133def9dd85d35b132e1a1eb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

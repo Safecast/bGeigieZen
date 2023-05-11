@@ -1,5 +1,8 @@
 var config_8hpp =
 [
+    [ "ACCESS_POINT_IP", "config_8hpp.html#a274ffc8442b3544f2b94e77a69fd9668", null ],
+    [ "ACCESS_POINT_NMASK", "config_8hpp.html#ab9f50b6081aaeec393971d8362575872", null ],
+    [ "ACCESS_POINT_SSID", "config_8hpp.html#a3a848f5a6d1cb9c9834a6badf181a02d", null ],
     [ "DEVICE_HEADER", "config_8hpp.html#a13b51bdb19001339023a073629d0d18e", null ],
     [ "device_nickname", "config_8hpp.html#a5f8b2d16c907ca3ebbc69f0f4491ab8a", null ],
     [ "GEIGER_AVERAGING_N_BINS", "config_8hpp.html#a0db50eb988f899005fd044aa495de6e2", null ],
@@ -20,6 +23,7 @@ var config_8hpp =
     [ "QR_CODE_DEV_ID_NDIGITS", "config_8hpp.html#a19f748654b4acf1e8460dd5537c05abd", null ],
     [ "QR_CODE_URL_BASE", "config_8hpp.html#abce19322f5c54bf596c47078d910f71e", null ],
     [ "SD_CS_PIN", "config_8hpp.html#a587c91dc29e14d8227957fbe22af6f45", null ],
+    [ "SERVER_WIFI_PORT", "config_8hpp.html#ad78723cb985150f5c1dec72188788f3d", null ],
     [ "SETUP_DEFAULT_ALARM_LEVEL", "config_8hpp.html#a59a0c2ce5ef2a55d3c7f0bef8516c5bf", null ],
     [ "SETUP_DEFAULT_BQM2_FACTOR", "config_8hpp.html#a335bd0ef57c435bba8aa8e944345a9ba", null ],
     [ "SETUP_DEFAULT_COUNTRY_CODE", "config_8hpp.html#aa31b585084f13a60ac6961c26cfcf498", null ],

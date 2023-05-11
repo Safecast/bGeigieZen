@@ -5,5 +5,6 @@ var class_setup =
     [ "dose", "class_setup.html#a2b764de6fcf9cee8e8c07c555d98f626", null ],
     [ "initialize", "class_setup.html#a4c4cdbea334ad453542eba54c846c98f", null ],
     [ "load_from_file", "class_setup.html#aa70fc3ff2c0e8122f9dd60376066352d", null ],
-    [ "ready", "class_setup.html#a17908db744a167f157d138597cfdf351", null ]
+    [ "ready", "class_setup.html#a17908db744a167f157d138597cfdf351", null ],
+    [ "wifiparams", "class_setup.html#a7cb83a624a4e7dad9176e6ee607780a0", null ]
 ];

@@ -6,5 +6,6 @@ var searchData=
   ['rawlng_3',['rawLng',['../struct_tiny_g_p_s_location.html#a4e20b4067a448ca0003fc65a3d3864d2',1,'TinyGPSLocation']]],
   ['rawlngstr_4',['rawLngStr',['../struct_tiny_g_p_s_location.html#a71140428381c5c38e901cc602ef47f68',1,'TinyGPSLocation']]],
   ['ready_5',['ready',['../class_b_geigie_log_formatter.html#a1a53d87a30121624a61a5a32e359b535',1,'BGeigieLogFormatter::ready()'],['../class_s_d_logger.html#a5389d9735705f04a9ee50121975543c2',1,'SDLogger::ready()'],['../class_s_d_wrapper.html#a98d58fcf2935bd08e8de1f8b46d2eab9',1,'SDWrapper::ready()'],['../class_setup.html#a17908db744a167f157d138597cfdf351',1,'Setup::ready()']]],
-  ['reset_6',['reset',['../class_hardware_counter.html#aa7f151e2edd3d718edab3568ffc75dc4',1,'HardwareCounter']]]
+  ['register_5fcallback_6',['register_callback',['../class_context.html#aba5e1ed8078f5dcbf2f96b6fa10e9cd6',1,'Context']]],
+  ['reset_7',['reset',['../class_hardware_counter.html#aa7f151e2edd3d718edab3568ffc75dc4',1,'HardwareCounter']]]
 ];

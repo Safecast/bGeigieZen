@@ -1,6 +1,7 @@
 var setup_8hpp =
 [
     [ "DoseData", "struct_dose_data.html", "struct_dose_data" ],
+    [ "WiFiParameters", "struct_wi_fi_parameters.html", "struct_wi_fi_parameters" ],
     [ "ConfigData", "struct_config_data.html", "struct_config_data" ],
     [ "Setup", "class_setup.html", "class_setup" ],
     [ "GeigieMode", "setup_8hpp.html#ae760bd8ad07eb8a31d8f8687560c6cf0", [

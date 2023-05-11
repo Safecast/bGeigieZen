@@ -1,5 +1,6 @@
 var display_8cpp =
 [
+    [ "core2Brightness", "display_8cpp.html#aa80b8dc616dd7cd22263440802492d75", null ],
     [ "printDate", "display_8cpp.html#a926cd9ce500f615f3624c657c59d7153", null ],
     [ "printFloat", "display_8cpp.html#a257d550e178a981f697d51a2a1695892", null ],
     [ "printFloatFont", "display_8cpp.html#a1cd111cb4e208d401902c3ae1eed3b59", null ],
