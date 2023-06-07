@@ -14,7 +14,7 @@ using std::size_t;
 /*** VERSION ***/
 const uint16_t MAJOR = 0;
 const uint16_t MINOR = 1;
-const uint16_t PATCH = 0;
+const uint16_t PATCH = 1;
 const char device_nickname[] = "zen";
 /***************/
 
