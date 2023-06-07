@@ -332,11 +332,11 @@ void Display::draw_survey() {
 
     // Display CPM
     M5.Lcd.drawString("CPM", 75, 135, 4);
-    printIntFont(/*data.geiger_cpm*/9999, true, 5, 135, 5, 4);
+    printIntFont(data.geiger_cpm, true, 5, 135, 5, 4);
 
     // Display Bq/m^2
     M5.Lcd.drawString("Bq/m^2", 75, 160, 4);
-    printIntFont(/*data.geiger_cpm*/8888, true, 5, 160, 5, 4);
+     printFloatFont(data.geiger_bqm2, true, 5, 3, 160, 5, 4);
 
     // Display Max. uSv/h
     M5.Lcd.drawString("Max", 180, 125, 2);
