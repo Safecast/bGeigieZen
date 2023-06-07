@@ -23,7 +23,9 @@ enum DisplayState {
   S_MAIN_DRAW,
   S_MAIN_SHOW,
   S_QRCODE_DRAW,
-  S_QRCODE_SHOW
+  S_QRCODE_SHOW,
+  S_SURVEY_DRAW,
+  S_SURVEY_SHOW,
 };
 
 struct DisplayData {
@@ -35,6 +37,7 @@ struct DisplayData {
   bool geiger_valid = false;
   uint32_t geiger_cpm = 0;
   float geiger_uSv = 0.0;
+  float geiger_bqm2 = 0.0;
 
   // GPS
   bool gps_fresh = true;
@@ -79,6 +82,7 @@ class Display {
   void draw_navbar(const char *A, const char *B, const char *C);
   void draw_main();
   void draw_qrcode();
+  void draw_survey();
 };
 
 #endif  // __DISPLAY_H__
