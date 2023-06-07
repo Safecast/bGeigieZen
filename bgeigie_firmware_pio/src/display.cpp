@@ -3,13 +3,15 @@
 #include <cstdio>
 #include <display.hpp>
 
-void Display::clear() {
+void Display::clear()
+{
   // Clear display
   M5.Lcd.clear();
   M5.lcd.setRotation(3);
 }
 
-void Display::draw_base() {
+void Display::draw_base()
+{
   // Display safecast copyright
   M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
   M5.Lcd.drawString("SAFECAST", 230, 215, 1);
@@ -17,14 +19,16 @@ void Display::draw_base() {
   M5.Lcd.drawString("2023", 285, 215, 1);
 }
 
-void Display::draw_navbar(const char *A, const char *B, const char *C) {
+void Display::draw_navbar(const char *A, const char *B, const char *C)
+{
   M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
-  M5.Lcd.drawString(A, 50, 10, 2); // Button A
+  M5.Lcd.drawString(A, 50, 10, 2);  // Button A
   M5.Lcd.drawString(B, 145, 10, 2); // Button B
   M5.Lcd.drawString(C, 250, 10, 2); // Button C
 }
 
-void Display::update() {
+void Display::update()
+{
   // This function is mainly used to read the buttons and update the state
   // of the display
 
@@ -32,38 +36,61 @@ void Display::update() {
   bool button_B_pressed = M5.BtnB.wasPressed();
   bool button_C_pressed = M5.BtnC.wasPressed();
 
-  switch (state) {
-    case (S_STARTUP):
-      clear();  // initialize display
-      draw_base();
-      state = S_MAIN_DRAW;  // next state
-      break;
+  switch (state)
+  {
+  //Startup switch
+  case (S_STARTUP):
+    clear(); // initialize display
+    draw_base();
+    state = S_MAIN_DRAW; // next state
+    break;
 
-    case (S_MAIN_DRAW):
-      clear();
-      draw_base();
-      state = S_MAIN_SHOW;
-    case (S_MAIN_SHOW):
-      draw_main();
-      if (button_A_pressed) state = S_QRCODE_DRAW;
-      break;
+  //Main switch  
+  case (S_MAIN_DRAW):
+    clear();
+    draw_base();
+    state = S_MAIN_SHOW;
+  case (S_MAIN_SHOW):
+    draw_main();
+    if (button_A_pressed)
+      state = S_QRCODE_DRAW;
+    if (button_B_pressed)
+      state = S_SURVEY_DRAW;
+    break;
 
-    case (S_QRCODE_DRAW):
-      clear();
-      draw_qrcode();
-      state = S_QRCODE_SHOW;
-      break;
+  //Mode switch  
+  case (S_SURVEY_DRAW):
+    clear();
+    draw_base();
+    state = S_SURVEY_SHOW;
+    break;
+  case (S_SURVEY_SHOW):
+    draw_survey();
+    if (button_A_pressed)
+      state = S_QRCODE_DRAW;
+    if (button_B_pressed)
+      state = S_MAIN_DRAW;
+    break;
 
-    case (S_QRCODE_SHOW):
-      if (button_A_pressed) state = S_MAIN_DRAW;
-      break;
+  //QR code switch  
+  case (S_QRCODE_DRAW):
+    clear();
+    draw_qrcode();
+    state = S_QRCODE_SHOW;
+    break;
+  case (S_QRCODE_SHOW):
+    if (button_A_pressed)
+      state = S_MAIN_DRAW;
+    break;
   }
 }
 
-void Display::draw_qrcode() {
+void Display::draw_qrcode()
+{
   // Create the QR code
   int w = (int)(0.9 * height);
-  if (w % 2 == 1) w -= 1;
+  if (w % 2 == 1)
+    w -= 1;
   int x = (width - w) / 2;
   int y = (height - w) / 2;
 
@@ -74,28 +101,34 @@ void Display::draw_qrcode() {
   M5.Lcd.qrcode(url, x, y, w, 3);
 };
 
-void Display::draw_main() {
+void Display::draw_main()
+{
 
   draw_navbar("MENU", "MODE", "QR");
 
   // Show the device number
   M5.Lcd.setCursor(10, 30);
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
-      M5.Lcd.print("DeviceID =");
+  M5.Lcd.print("DeviceID =");
   M5.Lcd.print(data.device_id);
 
   // Display battery level
   M5.Lcd.setCursor(270, 30);
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
-  if (data.battery_level == -1) {
+  if (data.battery_level == -1)
+  {
     M5.Lcd.print("BAT=ext");
-  } else {
+  }
+  else
+  {
     M5.Lcd.print("BAT=");
     M5.Lcd.print(data.battery_level);
     M5.Lcd.print("%");
   }
 
-  if (data.geiger_fresh) {
+
+  if (data.geiger_fresh)
+  {
     if (data.geiger_valid)
       M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
     else
@@ -116,7 +149,8 @@ void Display::draw_main() {
     data.geiger_fresh = false;
   }
 
-  if (data.gps_fresh) {
+  if (data.gps_fresh)
+  {
     M5.Lcd.setCursor(0, 150);
     M5.Lcd.setTextColor(WHITE, BLACK);
     M5.Lcd.print("Satelites  :");
@@ -147,14 +181,75 @@ void Display::draw_main() {
   }
 }
 
-void Display::feed(const GeigerCounter &geiger_count) {
+void Display::draw_survey()
+{
+
+  draw_navbar("MENU", "MODE", "QR"); // Buttons A, B, C
+
+  // Show the device number
+  M5.Lcd.setCursor(10, 30);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
+  M5.Lcd.print("DeviceID =");
+  M5.Lcd.print(data.device_id);
+
+  // Display battery level
+  M5.Lcd.setCursor(270, 30);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
+  if (data.battery_level == -1)
+  {
+    M5.Lcd.print("BAT=ext");
+  }
+  else
+  {
+    M5.Lcd.print("BAT=");
+    M5.Lcd.print(data.battery_level);
+    M5.Lcd.print("%");
+  }
+
+
+  if (data.geiger_fresh)
+  {
+    if (data.geiger_valid)
+      M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+    else
+      M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
+
+    // Display uSv/h
+    M5.Lcd.drawString("uSv/h", 190, 77, 4);
+    printFloatFont(data.geiger_uSv, true, 7, 3, 50, 5, 7);
+
+    // Display CPM
+    M5.Lcd.drawString("CPM", 75, 135, 4);
+    printIntFont(data.geiger_cpm, true, 5, 135, 5, 4);
+
+    // Display Bq/m^2
+    M5.Lcd.drawString("Bq/m^2", 75, 160, 4);
+    printFloatFont(data.geiger_bqm2, true, 5, 3, 160, 5, 4);
+
+    // Display Max. uSv/h
+    M5.Lcd.drawString("Max", 180, 125, 2);
+    printFloatFont(/*data.geiger_uSv*/ 0.1234, true, 7, 3, 125, 220, 2);
+    M5.Lcd.drawString("uSv/h", 270, 125, 2);
+
+    // Display dose in uSv
+    M5.Lcd.drawString("Dose", 180, 140, 2);
+    printFloatFont(/*data.geiger_uSv*/ 12.345, true, 7, 3, 140, 220, 2);
+    M5.Lcd.drawString("uSv", 270, 140, 2);
+
+    data.geiger_fresh = false;
+  }
+}
+
+void Display::feed(const GeigerCounter &geiger_count)
+{
   data.geiger_valid = geiger_count.valid();
   data.geiger_cpm = geiger_count.per_minute();
   data.geiger_uSv = geiger_count.uSv();
   data.geiger_fresh = true;
 }
 
-void Display::feed(GPSSensor &gps) {
+void Display::feed(GPSSensor &gps)
+{
   // Here we can't make the ref const because we need to access the fields
   // of the TinyGPS object directly...
 
@@ -168,82 +263,117 @@ void Display::feed(GPSSensor &gps) {
   data.gps_fresh = true;
 }
 
-void printFloat(float val, bool valid, int len, int prec) {
-  if (!valid) {
-    while (len-- > 1) M5.Lcd.print('*');
+void printFloat(float val, bool valid, int len, int prec)
+{
+  if (!valid)
+  {
+    while (len-- > 1)
+      M5.Lcd.print('*');
     M5.Lcd.print(' ');
-  } else {
+  }
+  else
+  {
     M5.Lcd.print(val, prec);
     int vi = abs((int)val);
-    int flen = prec + (val < 0.0 ? 2 : 1);  // . and -
-    flen += vi >= 1000 ? 4 : vi >= 100 ? 3 : vi >= 10 ? 2 : 1;
-    for (int i = flen; i < len; ++i) M5.Lcd.print(' ');
+    int flen = prec + (val < 0.0 ? 2 : 1); // . and -
+    flen += vi >= 1000 ? 4 : vi >= 100 ? 3
+                         : vi >= 10    ? 2
+                                       : 1;
+    for (int i = flen; i < len; ++i)
+      M5.Lcd.print(' ');
   }
   delay(0);
 }
 
 void printFloatFont(float val, bool valid, int len, int prec, int y, int x,
-                    int font) {
-  if (!valid) {
-    while (len-- > 1) M5.Lcd.print('*');
+                    int font)
+{
+  if (!valid)
+  {
+    while (len-- > 1)
+      M5.Lcd.print('*');
     M5.Lcd.print(' ');
-  } else {
+  }
+  else
+  {
     char sz[32] = "*****************";
-    if (valid) sprintf(sz, "%f", val);
+    if (valid)
+      sprintf(sz, "%f", val);
     sz[len] = 0;
-    for (int i = strlen(sz); i < len; ++i) sz[i] = ' ';
-    if (len > 0) sz[len - 1] = ' ';
+    for (int i = strlen(sz); i < len; ++i)
+      sz[i] = ' ';
+    if (len > 0)
+      sz[len - 1] = ' ';
     M5.Lcd.drawString((sz), x, y, font);
 
     int vi = abs((int)val);
-    int flen = prec + (val < 0.0 ? 2 : 1);  // . and -
-    flen += vi >= 1000 ? 4 : vi >= 100 ? 3 : vi >= 10 ? 2 : 1;
-    for (int i = flen; i < len; ++i) M5.Lcd.drawString("", x, y, font);
+    int flen = prec + (val < 0.0 ? 2 : 1); // . and -
+    flen += vi >= 1000 ? 4 : vi >= 100 ? 3
+                         : vi >= 10    ? 2
+                                       : 1;
+    for (int i = flen; i < len; ++i)
+      M5.Lcd.drawString("", x, y, font);
   }
   delay(0);
 }
 
 // Prints int
-void printInt(unsigned long val, bool valid, int len) {
+void printInt(unsigned long val, bool valid, int len)
+{
   char sz[32] = "*****************";
-  if (valid) sprintf(sz, "%ld", val);
+  if (valid)
+    sprintf(sz, "%ld", val);
   sz[len] = 0;
-  for (int i = strlen(sz); i < len; ++i) sz[i] = ' ';
-  if (len > 0) sz[len - 1] = ' ';
+  for (int i = strlen(sz); i < len; ++i)
+    sz[i] = ' ';
+  if (len > 0)
+    sz[len - 1] = ' ';
   M5.Lcd.print(sz);
   delay(0);
 }
 
 // Prints int with fonts
 void printIntFont(unsigned long val, bool valid, int len, int y, int x,
-                  int font) {
+                  int font)
+{
   char sz[32] = "*****************";
-  if (valid) sprintf(sz, "%ld", val);
+  if (valid)
+    sprintf(sz, "%ld", val);
   sz[len] = 0;
-  for (int i = strlen(sz); i < len; ++i) sz[i] = ' ';
-  if (len > 0) sz[len - 1] = ' ';
+  for (int i = strlen(sz); i < len; ++i)
+    sz[i] = ' ';
+  if (len > 0)
+    sz[len - 1] = ' ';
   M5.Lcd.drawString((sz), x, y, font);
   delay(0);
 }
 
 // Prints date
-void printDate(TinyGPSDate &d) {
-  if (!d.isValid()) {
+void printDate(TinyGPSDate &d)
+{
+  if (!d.isValid())
+  {
     M5.Lcd.print(F("********** "));
-  } else {
+  }
+  else
+  {
     char sz[32];
     sprintf(sz, "%02d/%02d/%02d ", d.year(), d.month(), d.day());
     M5.Lcd.print(sz);
   }
-  printInt(d.age(), d.isValid(), 5);  // age in milliseconds
+  printInt(d.age(), d.isValid(), 5); // age in milliseconds
   delay(0);
 }
 
 // Prints time
-void printTime(TinyGPSTime &t) {
-  if (!t.isValid()) {
+void printTime(TinyGPSTime &t)
+{
+  if (!t.isValid())
+  {
     M5.Lcd.print(F("******** "));
-  } else {
+  }
+  else
+  {
     char sz[32];
     sprintf(sz, "%02d:%02d:%02d ", t.hour(), t.minute(), t.second());
     M5.Lcd.print(sz);
