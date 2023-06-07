@@ -56,6 +56,7 @@ struct DisplayData {
   bool geiger_valid = false;
   uint32_t geiger_cpm = 0;
   float geiger_uSv = 0.0;
+  float geiger_bqm2 = 0.0;
 
   // GPS
   bool gps_fresh = true;
