@@ -3,6 +3,8 @@
 
 #include <M5Core2.h>
 #include <display.hpp>
+#include <WebServer.h>
+
 
 /* FSM framework for the menu screen
 Loosely based on the "classic" State pattern,

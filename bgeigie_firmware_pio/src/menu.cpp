@@ -156,16 +156,21 @@ void ConfigState::on_entry(MenuContext *context) {
   char wifissid[16] = {'\0'};
   sprintf(wifissid, "%s%04d", ACCESS_POINT_SSID, context->main_display->data.device_id);
   context->main_display->wificonn.start_ap_server(wifissid, "");
+  /* Web server setup */
+  context->main_display->webserver.on("/", this->handleroot);
+  context->main_display->webserver.begin();
 }
 
 void ConfigState::on_exit(MenuContext *context) {
   /*DEBUG*/ Serial.println("ConfigState::on_exit");
+  context->main_display->webserver.close();
   context->main_display->wificonn.stop_ap_server();
 
 }
 
 void ConfigState::update(MenuContext *context) {
   /*DEBUG*/ //Serial.println("ConfigState::update");
+  context->main_display->webserver.handleClient();
 }
 
 void InactiveState::on_entry(MenuContext *context) {
@@ -180,6 +185,14 @@ void InactiveState::on_entry(MenuContext *context) {
 
 }
 
+/**
+ * @brief Handle HTTP GET request to /
+ * 
+ * @param context 
+ */
+void ConfigState::handleroot() {
+  context->main_display->webserver.se
+}
 void InactiveState::on_exit(MenuContext *context) {/*DEBUG*/ Serial.println("InactiveState::on_exit");}
 
 void InactiveState::update(MenuContext *context) {
