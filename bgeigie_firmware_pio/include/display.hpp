@@ -2,6 +2,7 @@
 #define __DISPLAY_H__
 
 #include <TinyGPS++.h>
+#include <WiFi.h>
 
 #include <config.hpp>
 #include <setup.hpp>
@@ -12,6 +13,7 @@
 #include <motion.hpp>
 #include <menu.hpp>
 #include <wifi_connection.hpp>
+#include <configuration_server.hpp>
 
 // Dim then blank; tweak to taste (will become a menu setting)
 constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
@@ -99,6 +101,7 @@ class Display {
  public:
   DisplayData data;
   WiFiConnection wificonn{};
+  ConfigWebServer webserver{this&};
 
   Display(uint32_t refresh_period_ms)
       : _refresh_period_ms(refresh_period_ms), state(bGeigieZen::S_STARTUP) {
