@@ -48,6 +48,7 @@ void InitState::on_entry(MenuContext *context) {
   // Display safecast copyright
   M5.Lcd.setTextFont(1);
   M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.drawString("V0.1.1", 180, 215, 1);
   M5.Lcd.drawString("SAFECAST", 230, 215, 1);
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
   M5.Lcd.drawString("2023", 285, 215, 1);
@@ -137,6 +138,7 @@ void ConfigState::on_entry(MenuContext *context) {
   // Display safecast copyright
   M5.Lcd.setTextFont(1);
   M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.drawString("V0.1.1", 180, 215, 1);
   M5.Lcd.drawString("SAFECAST", 230, 215, 1);
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
   M5.Lcd.drawString("2023", 285, 215, 1);
