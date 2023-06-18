@@ -68,7 +68,7 @@ var NAVTREEINDEX =
 "class_geiger_counter.html#ad3dd76831d8afa748a17c4319ad42463",
 "functions_w.html",
 "src_2_tiny_g_p_s_09_09_8h.html#a15c78046c05b411cbcb3f93b7a452a97",
-"struct_tiny_g_p_s_location.html#ae5da08aba335d0515b7a84ce57b80179"
+"struct_tiny_g_p_s_location.html#abe5f28b0d636a1031af3cd98af863af6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
