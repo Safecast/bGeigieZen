@@ -143,9 +143,9 @@ void Display::draw_main()
 
     // Display uSv/h
     M5.Lcd.setCursor(22, 70);
-    M5.Lcd.drawString("uSv/h =", 5, 90, 4);
+    M5.Lcd.drawString("uSv/h =", 5, 100, 4);
     M5.Lcd.setCursor(100, 80);
-    printFloatFont(data.geiger_uSv, true, 7, 3, 90, 90, 4);
+    printFloatFont(data.geiger_uSv, true, 7, 3, 100, 90, 4);
 
     data.geiger_fresh = false;
   }
