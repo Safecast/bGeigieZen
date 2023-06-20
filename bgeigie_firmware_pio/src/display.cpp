@@ -139,7 +139,7 @@ void Display::draw_main()
     M5.Lcd.setCursor(20, 50);
     M5.Lcd.drawString("CPM ", 120, 70, 4);
     M5.Lcd.setCursor(120, 55);
-    printIntFont(data.geiger_cpm, true, 5, 50, 5, 6);
+    printIntFont(data.geiger_cpm, true, 5, 50, 5, 7);
 
     // Display uSv/h
     M5.Lcd.setCursor(22, 70);
