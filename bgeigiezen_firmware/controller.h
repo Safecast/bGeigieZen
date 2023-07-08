@@ -5,22 +5,21 @@
 #include <Aggregator.hpp>
 #include <sm_context.h>
 
-
 enum SystemStateId {
-  k_state_InitializeDeviceState,  // M5Stack startup
-  k_state_NoSDCardState,  // No SD card found, end of the line for now
-  k_state_PostInitializeState,  // Init software (workers, storage etc.)
+  k_state_InitializeDeviceState,   // M5Stack startup
+  k_state_NoSDCardState,           // No SD card found, end of the line for now
+  k_state_PostInitializeState,     // Splash screen time
   k_state_ConfigurationModeState,  // Take measurements, display and upload data
-  k_state_MeasurementModeState,  // Config server to direct connect and configure
-  k_state_ResetState,  // Reset the system settings and restart
+  k_state_MeasurementModeState,    // Config server to direct connect and configure
+  k_state_ResetState,              // Reset the system settings and restart
 };
 
 /**
  * Main controller for the system, implements state machine to run
  */
-class Controller : public Context, public Aggregator, public Handler, public Worker<SystemStateId> {
- public:
-
+class Controller : public Context, public Aggregator, public Handler, public Worker<SystemStateId>
+{
+public:
   Controller();
   virtual ~Controller() = default;
 
@@ -38,11 +37,11 @@ class Controller : public Context, public Aggregator, public Handler, public Wor
    * override set state from context, to flag worker that change has been made
    * @param state
    */
-  void set_state(AbstractState* state) override;
+  void set_state(AbstractState *state) override;
 
- private:
+private:
   void initialize() override;
-  int8_t handle_produced_work(const worker_map_t& workers) override;
+  int8_t handle_produced_work(const worker_map_t &workers) override;
 
   int8_t produce_data() override;
 
@@ -66,4 +65,4 @@ class Controller : public Context, public Aggregator, public Handler, public Wor
   friend class ResetState;
 };
 
-#endif //BGEIGIEZEN_CONTROLLER_HPP
+#endif // BGEIGIEZEN_CONTROLLER_HPP
