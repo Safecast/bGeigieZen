@@ -15,9 +15,6 @@ bool ZenButton::activate(bool retry) {
 }
 
 int8_t ZenButton::produce_data() {
-  _m5_button.read();
-  if (_m5_button.wasPressed()) {
-    return e_worker_data_read;
-  }
-  return e_worker_idle;
+  data = _m5_button.wasPressed();
+  return data ? e_worker_data_read : e_worker_idle;
 }
