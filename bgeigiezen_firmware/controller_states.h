@@ -17,12 +17,12 @@ class ControllerState : public AbstractState {
 };
 
 
-class InitializeHardwareState : public ControllerState {
+class InitializeDeviceState : public ControllerState {
  public:
-  explicit InitializeHardwareState(Controller& context);
-  virtual ~InitializeHardwareState() = default;
+  explicit InitializeDeviceState(Controller& context);
+  virtual ~InitializeDeviceState() = default;
 
-  int8_t get_state_id() const override { return k_state_InitializeHardwareState; }
+  int8_t get_state_id() const override { return k_state_InitializeDeviceState; }
 
   void entry_action() override;
   void do_activity() override;
@@ -30,12 +30,25 @@ class InitializeHardwareState : public ControllerState {
   void handle_event(Event_enum event_id) override;
 };
 
-class InitializeSoftwareState : public ControllerState {
+class NoSDCardState : public ControllerState {
  public:
-  explicit InitializeSoftwareState(Controller& context);
-  virtual ~InitializeSoftwareState() = default;
+  explicit NoSDCardState(Controller& context);
+  virtual ~NoSDCardState() = default;
 
-  int8_t get_state_id() const override { return k_state_InitializeSoftwareState; }
+  int8_t get_state_id() const override { return k_state_NoSDCardState; }
+
+  void entry_action() override;
+  void do_activity() override;
+  void exit_action() override;
+  void handle_event(Event_enum event_id) override;
+};
+
+class PostInitializeState : public ControllerState {
+ public:
+  explicit PostInitializeState(Controller& context);
+  virtual ~PostInitializeState() = default;
+
+  int8_t get_state_id() const override { return k_state_PostInitializeState; }
 
   void entry_action() override;
   void do_activity() override;

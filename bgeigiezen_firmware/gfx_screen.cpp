@@ -5,7 +5,9 @@
 #endif
 
 #include "gfx_screen.h"
-
+#include "identifiers.h"
+#include "controller.h"
+#include "debugger.h"
 
 static constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
 static constexpr uint8_t LEVEL_DIMMED = 10;
@@ -21,7 +23,6 @@ GFXScreen::GFXScreen() : Supervisor() {
 void GFXScreen::initialize() {
   // Initialize TFT (may already be done by M5)
   off();
-  drawSplash();
 }
 
 void GFXScreen::off() {
@@ -34,15 +35,60 @@ void GFXScreen::off() {
  * @brief Draw the boot-up welcome screen
  * 
  */
-void GFXScreen::drawSplash() {
+void GFXScreen::screenSplash() {
   /// @todo drawsplash should display the device name, ID, F/W version and copyright
   clear();
+  M5.Lcd.setRotation(3);
+  // Display something
+  M5.Lcd.setCursor(10, 10);
+  M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
+  M5.Lcd.drawString("bGeigie Zen", 90, 50, 4);
+  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.drawString("Some splash screen device details.", 5, 100, 2);
+  M5.Lcd.drawString("device name, ID, version", 5, 120, 2);
   // Display safecast copyright
   M5.Lcd.setTextFont(1);
   M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
   M5.Lcd.drawString("SAFECAST", 230, 215, 1);
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
   M5.Lcd.drawString("2023", 285, 215, 1);
+  M5.Lcd.setRotation(1);
+}
+
+/**
+ * @brief Draw the boot-up welcome screen
+ *
+ */
+void GFXScreen::screenDashboard() {
+  ///
+  clear();
+  M5.Lcd.setRotation(3);
+  // Display something
+  M5.Lcd.setCursor(10, 10);
+  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.drawString("Startup complete, display some cool dashboard", 5, 90, 2);
+  M5.Lcd.drawString("with all data available.", 5, 110, 2);
+}
+
+/**
+ * @brief Write SD error text
+ * 
+ */
+void GFXScreen::screenSDError() {
+  clear();
+  M5.Lcd.setRotation(3);
+  // Display SD error
+  M5.Lcd.setCursor(10, 10);
+  M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
+  M5.Lcd.drawString("No SDCARD in slot", 50, 50, 4);
+  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.drawString("Insert a SDCARD and press any button to restart.", 5, 90, 2);
+  //display Safecast copyright
+  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.drawString("SAFECAST", 230, 215, 1);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
+  M5.Lcd.drawString("2023", 285, 215, 1);
+  M5.Lcd.setRotation(1);
 }
 
 
@@ -88,17 +134,32 @@ void GFXScreen::setBrightness(uint8_t lvl, bool overdrive) {
 void GFXScreen::clear() {
   // Clear display
   M5.Lcd.clear();
-  M5.Lcd.setRotation(3);
   M5.Lcd.setTextDatum(BL_DATUM);  // By default, text x,y is bottom left corner
   setBrightness(LEVEL_BRIGHT);
 }
 
 void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& handlers) {
+  const auto& control = workers.worker<Controller>(k_worker_controller_state);
 
-#ifdef M5_CORE2
-
-#elif M5_BASIC
-
-#endif
+  switch (control->get_data()) {
+    case k_state_InitializeDeviceState:break;
+    case k_state_NoSDCardState:
+      if (control->is_fresh()) {
+        screenSDError();
+      }
+      break;
+    case k_state_PostInitializeState:
+      if (control->is_fresh()) {
+        screenSplash();
+      }
+      break;
+    case k_state_ConfigurationModeState:break;
+    case k_state_MeasurementModeState:
+      if (control->is_fresh()) {
+        screenDashboard();
+      }
+      break;
+    case k_state_ResetState:break;
+  }
   
 }

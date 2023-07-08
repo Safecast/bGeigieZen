@@ -1,6 +1,8 @@
 #ifndef BGEIGIEZEN_DEBUGGER_H
 #define BGEIGIEZEN_DEBUGGER_H
 
+#include "user_config.h"
+
 #ifdef UNIT_TEST
 #undef ENABLE_DEBUG
 #endif
@@ -24,11 +26,11 @@
 
 #else
 
-#define DEBUG_BEGIN()
-#define DEBUG_PRINT(val)
-#define DEBUG_PRINTLN(val)
-#define DEBUG_PRINTF(format, ...)
-#define DEBUG_FLUSH()
+#define DEBUG_BEGIN() NULL
+#define DEBUG_PRINT(val) NULL
+#define DEBUG_PRINTLN(val) NULL
+#define DEBUG_PRINTF(format, ...) NULL
+#define DEBUG_FLUSH() NULL
 
 #endif
 

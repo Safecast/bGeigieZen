@@ -7,8 +7,9 @@
 
 
 enum SystemStateId {
-  k_state_InitializeHardwareState,  // M5Stack startup
-  k_state_InitializeSoftwareState,  // Init software (workers, storage etc.)
+  k_state_InitializeDeviceState,  // M5Stack startup
+  k_state_NoSDCardState,  // No SD card found, end of the line for now
+  k_state_PostInitializeState,  // Init software (workers, storage etc.)
   k_state_ConfigurationModeState,  // Take measurements, display and upload data
   k_state_MeasurementModeState,  // Config server to direct connect and configure
   k_state_ResetState,  // Reset the system settings and restart
@@ -48,12 +49,18 @@ class Controller : public Context, public Aggregator, public Handler, public Wor
   /**
    * Reset and restart the system
    */
+  void shutdown(bool reboot = false);
+
+  /**
+   * Reset and restart the system
+   */
   void reset_system();
 
   bool _state_changed;
 
-  friend class InitializeHardwareState;
-  friend class InitializeSoftwareState;
+  friend class InitializeDeviceState;
+  friend class NoSDCardState;
+  friend class PostInitializeState;
   friend class ConfigurationModeState;
   friend class MeasurementModeState;
   friend class ResetState;
