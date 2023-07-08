@@ -20,7 +20,9 @@ class GFXScreen : public Supervisor {
 
  private:
   void off();
-  void drawSplash();
+  void screenSplash();
+  void screenDashboard();
+  void screenSDError();
   void setBrightness(uint8_t lvl, bool overdrive = false);
   void clear();
 };

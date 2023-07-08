@@ -5,8 +5,12 @@ typedef enum {
   e_undefined = -1,
 
   // Controller events
-  e_c_button_pressed,
-  e_c_button_long_pressed,
+  e_c_device_initialized,
+  e_c_no_sd_card,
+  e_c_post_initialize_complete,
+  e_c_button_A_pressed,
+  e_c_button_B_pressed,
+  e_c_button_C_pressed,
   e_c_controller_initialized,
   e_c_reading_initialized,
   e_c_post_init_time_passed,

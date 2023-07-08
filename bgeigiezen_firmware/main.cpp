@@ -56,43 +56,53 @@
 #include "zen_button.h"
 #include "shake_detector.h"
 #include "gfx_screen.h"
+#include "battery_indicator.h"
+#include "debugger.h"
 
 Controller controller;
 
-// Workers
-
-// Data handlers
-
-// Supervisors
-
-
-
 void setup() {
+  DEBUG_BEGIN();
+  DEBUG_PRINTLN("MAIN SETUP DEBUG ENABLED");
   /// Hardware configurations
 #ifdef M5_CORE2
+  Wire.begin();
   M5.begin();
 #elif M5_BASIC
+  Wire.begin();
   M5.begin();
 #endif
 
   /// Software configurations
+  // Workers
   auto* zen_A = new ZenButton(M5.BtnA);
   auto* zen_B = new ZenButton(M5.BtnB);
   auto* zen_C = new ZenButton(M5.BtnC);
   auto* gps = new GpsConnector();
   auto* gm_sensor = new GeigerMullerSensor();
+  auto* battery_indicator = new BatteryIndicator();
   auto* shake_detector = new ShakeDetector();
 
+  // Data handlers
+
+  // Supervisors
   auto* gfx_screen = new GFXScreen();
 
 
+  DEBUG_PRINTLN("Register workers...");
   controller.register_worker(k_worker_gps_connector, *gps);
   controller.register_worker(k_worker_gm_sensor, *gm_sensor);
   controller.register_worker(k_worker_shake_detector, *shake_detector);
+  controller.register_worker(k_worker_battery_indicator, *battery_indicator);
   controller.register_worker(k_worker_button_A, *zen_A);
   controller.register_worker(k_worker_button_B, *zen_B);
   controller.register_worker(k_worker_button_C, *zen_C);
+  controller.register_worker(k_worker_controller_state, controller);
 
+  DEBUG_PRINTLN("Register handlers...");
+  controller.register_handler(k_handler_controller_handler, controller);
+
+  DEBUG_PRINTLN("Register supervisors...");
   controller.register_supervisor(*gfx_screen);
 
   // Setup controller
@@ -100,5 +110,6 @@ void setup() {
 }
 
 void loop() {
+  M5.update();
   controller.run();
 }

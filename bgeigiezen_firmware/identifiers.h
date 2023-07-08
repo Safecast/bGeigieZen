@@ -6,11 +6,13 @@
  */
 enum DataWorkers {
   k_worker_gps_connector = 0,
+  k_worker_battery_indicator,
   k_worker_gm_sensor,
   k_worker_shake_detector,
   k_worker_button_A,
   k_worker_button_B,
   k_worker_button_C,
+  k_worker_controller_state,
 };
 
 /**
