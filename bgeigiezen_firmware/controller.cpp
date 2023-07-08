@@ -11,24 +11,25 @@
 #endif
 
 
-Controller::Controller() :
-    Context(),
-    Aggregator(),
-    Handler(),
-    Worker<SystemStateId>(k_state_InitializeDeviceState),
-    _state_changed(false) {
+Controller::Controller() : Context(),
+                           Aggregator(),
+                           Handler(),
+                           Worker<SystemStateId>(k_state_InitializeDeviceState),
+                           _state_changed(false) {
 }
 
 void Controller::setup_state_machine() {
   set_state(new InitializeDeviceState(*this));
 }
 
-void Controller::run() {
+void Controller::run()
+{
   Context::run();
   Aggregator::run();
 }
 
-void Controller::initialize() {
+void Controller::initialize()
+{
   //
   schedule_event(Event_enum::e_c_controller_initialized);
 }
@@ -71,13 +72,16 @@ int8_t Controller::handle_produced_work(const WorkerMap& workers) {
   return e_handler_data_handled;
 }
 
-void Controller::set_state(AbstractState* state) {
+void Controller::set_state(AbstractState *state)
+{
   Context::set_state(state);
   _state_changed = true;
 }
 
-int8_t Controller::produce_data() {
-  if(_state_changed) {
+int8_t Controller::produce_data()
+{
+  if (_state_changed)
+  {
     _state_changed = false;
     data = static_cast<SystemStateId>(get_current_state()->get_state_id());
     return e_worker_data_read;
