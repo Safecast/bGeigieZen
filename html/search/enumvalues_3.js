@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['k_5fhandler_5fapi_5freporter_0',['k_handler_api_reporter',['../identifiers_8h.html#a9ceb53a27f136be55a60d6c2fc728ed8ad174dad7202e8845d4dd50a439aa76aa',1,'identifiers.h']]],
+  ['k_5fhandler_5fbluetooth_5freporter_1',['k_handler_bluetooth_reporter',['../identifiers_8h.html#a9ceb53a27f136be55a60d6c2fc728ed8ae62e75c687017be7a3279ccd1aaeb593',1,'identifiers.h']]],
+  ['k_5fhandler_5fcontroller_5fhandler_2',['k_handler_controller_handler',['../identifiers_8h.html#a9ceb53a27f136be55a60d6c2fc728ed8aafb1de07e09fb157865309dd43a982ce',1,'identifiers.h']]],
+  ['k_5fserver_5fstatus_5foffline_3',['k_server_status_offline',['../configuration__server_8hpp.html#a23331e5df325fea12f9a553d3b1cab4aa4b8c7d857d90208a15c3af10b3eaf36a',1,'configuration_server.hpp']]],
+  ['k_5fserver_5fstatus_5frunning_5faccess_5fpoint_4',['k_server_status_running_access_point',['../configuration__server_8hpp.html#a23331e5df325fea12f9a553d3b1cab4aae66ec56782b751934b4ae350253e524c',1,'configuration_server.hpp']]],
+  ['k_5fserver_5fstatus_5frunning_5fwifi_5',['k_server_status_running_wifi',['../configuration__server_8hpp.html#a23331e5df325fea12f9a553d3b1cab4aacdcee34b8952d730fe2ec62d29195b4c',1,'configuration_server.hpp']]],
+  ['k_5fstate_5fconfigurationmodestate_6',['k_state_ConfigurationModeState',['../controller_8h.html#a404502a8dc3f43825dc0ee5b99fdd1aaa0decb2646320e90b029d1b78c2d2afa0',1,'controller.h']]],
+  ['k_5fstate_5finitializehardwarestate_7',['k_state_InitializeHardwareState',['../controller_8h.html#a404502a8dc3f43825dc0ee5b99fdd1aaac2c9a2be52c077613afd89cff63f88d7',1,'controller.h']]],
+  ['k_5fstate_5finitializesoftwarestate_8',['k_state_InitializeSoftwareState',['../controller_8h.html#a404502a8dc3f43825dc0ee5b99fdd1aaaaf81c4c5be05c423c34eb22f26b29a81',1,'controller.h']]],
+  ['k_5fstate_5fmeasurementmodestate_9',['k_state_MeasurementModeState',['../controller_8h.html#a404502a8dc3f43825dc0ee5b99fdd1aaa14ee0e2b94048af9cd90d5f0cf84f309',1,'controller.h']]],
+  ['k_5fstate_5fresetstate_10',['k_state_ResetState',['../controller_8h.html#a404502a8dc3f43825dc0ee5b99fdd1aaa49dd892785574ae98cdc36f3a609b013',1,'controller.h']]],
+  ['k_5fworker_5fbutton_5fa_11',['k_worker_button_A',['../identifiers_8h.html#a817945491edcfa653f61f26e522cd76fa5916d714ae9ff095fba329e843a77c44',1,'identifiers.h']]],
+  ['k_5fworker_5fbutton_5fb_12',['k_worker_button_B',['../identifiers_8h.html#a817945491edcfa653f61f26e522cd76fa47b2de3df5d8f09f0f316a883dadb458',1,'identifiers.h']]],
+  ['k_5fworker_5fbutton_5fc_13',['k_worker_button_C',['../identifiers_8h.html#a817945491edcfa653f61f26e522cd76fa751b328e2ae9bcdb4f609ac4f9148148',1,'identifiers.h']]],
+  ['k_5fworker_5fgm_5fsensor_14',['k_worker_gm_sensor',['../identifiers_8h.html#a817945491edcfa653f61f26e522cd76fadce40ed07be9b46afdd704f59b77a907',1,'identifiers.h']]],
+  ['k_5fworker_5fgps_5fconnector_15',['k_worker_gps_connector',['../identifiers_8h.html#a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211',1,'identifiers.h']]],
+  ['k_5fworker_5fshake_5fdetector_16',['k_worker_shake_detector',['../identifiers_8h.html#a817945491edcfa653f61f26e522cd76fa951ed1e78f9184858e490f6522b39c5d',1,'identifiers.h']]]
+];
