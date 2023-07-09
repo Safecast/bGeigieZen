@@ -42,6 +42,7 @@ void Controller::initialize_device() {
   // TODO: load sd_config into storage
 
   set_worker_active(k_worker_battery_indicator, true);
+  set_worker_active(k_worker_gps_connector, true);
 //  set_worker_active(k_worker_shake_detector, true);
   set_worker_active(k_worker_button_A, true);
   set_worker_active(k_worker_button_B, true);
