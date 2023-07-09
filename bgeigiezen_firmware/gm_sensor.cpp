@@ -1,6 +1,6 @@
 #include "gm_sensor.h"
 
-GeigerMullerSensor::GeigerMullerSensor() : Worker<uint32_t>() {
+GeigerMullerSensor::GeigerMullerSensor() : Worker<GMData>() {
 }
 
 bool GeigerMullerSensor::activate(bool retry) {
@@ -9,6 +9,7 @@ bool GeigerMullerSensor::activate(bool retry) {
 }
 
 int8_t GeigerMullerSensor::produce_data() {
-  data = 30;
+  data.CPM = 30;
+  data.ush = 0.09;
   return e_worker_idle;
 }

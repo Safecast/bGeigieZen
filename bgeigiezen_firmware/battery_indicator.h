@@ -4,19 +4,20 @@
 #include <Worker.hpp>
 #include <stdint.h>
 
+/**
+ * Relevant battery status
+ */
 struct BatteryStatus {
   uint8_t percentage;
   bool isCharging;
 };
 
 /**
- * Geiger counter worker, produces CPM.
+ * Battery indicator worker, uses the M5 library to check up on the battery and charging status
  */
 class BatteryIndicator : public Worker<BatteryStatus> {
  public:
-
   explicit BatteryIndicator();
-
   virtual ~BatteryIndicator() = default;
 
   bool activate(bool retry) override;

@@ -3,10 +3,15 @@
 
 #include <Worker.hpp>
 
+struct GMData {
+  uint32_t CPM;
+  double ush;
+};
+
 /**
  * Geiger counter worker, produces CPM.
  */
-class GeigerMullerSensor : public Worker<uint32_t> {
+class GeigerMullerSensor : public Worker<GMData> {
  public:
 
   explicit GeigerMullerSensor();

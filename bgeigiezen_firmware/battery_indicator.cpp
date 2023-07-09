@@ -24,6 +24,7 @@ int8_t BatteryIndicator::produce_data() {
   } else {
     data.percentage = static_cast<uint8_t>(batPercentage);
   }
+//  data.voltage = M5.Axp.GetBatVoltage();
 #elif M5_BASIC
   data.isCharging = M5.Power.isCharging();
   data.percentage = M5.Power.getBatteryLevel();

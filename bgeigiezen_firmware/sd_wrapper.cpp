@@ -10,15 +10,44 @@
 
 #include "user_config.h"
 
-bool SDWrapper::ready() { return _sd_ready; }
+bool SDInterface::ready() { return _sd_ready; }
 
 /**
  * We note that for the ESP32, the SD library is robust to multiple call to the begin() function
  * @return true if ready
  */
-bool SDWrapper::begin() {
+bool SDInterface::begin() {
   if (!_sd_ready) {
     _sd_ready = SD.begin(SD_CS_PIN);
   }
   return _sd_ready;
+}
+
+bool SDInterface::get_safecast_content() {
+  if (!_sd_ready) {
+    return false;
+  }
+
+  // open the setup file
+  auto setup_file = SD.open("SAFECAST.txt", FILE_READ);
+
+  if (!setup_file) {
+    return false;
+  }
+
+  // close the setup file
+  setup_file.close();
+
+  return true;
+}
+
+bool SDInterface::generate_safecast_txt(uint32_t deviceID) {
+  File safecast_txt = SD.open("SAFECAST.txt", FILE_WRITE);
+  if (!safecast_txt) {
+    return false;
+  }
+
+  safecast_txt.printf("did=%d", deviceID);
+  safecast_txt.close();
+  return true;
 }
