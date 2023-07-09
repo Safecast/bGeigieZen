@@ -29,7 +29,7 @@ bool SDInterface::get_safecast_content() {
   }
 
   // open the setup file
-  auto setup_file = SD.open("SAFECAST.txt", FILE_READ);
+  auto setup_file = SD.open(SETUP_FILENAME, FILE_READ);
 
   if (!setup_file) {
     return false;
