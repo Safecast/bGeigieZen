@@ -18,7 +18,7 @@ class Context {
    * Will exit the current one and enter the new one
    * @param state: New state to be set
    */
-  virtual void set_state(AbstractState* state);
+  virtual void set_state(AbstractState& state);
 
   virtual /**
    * Run the state machine once, will handle scheduled events and run the do activity from the state
