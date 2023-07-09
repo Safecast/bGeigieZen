@@ -8,6 +8,9 @@
 #include "identifiers.h"
 #include "controller.h"
 #include "debugger.h"
+#include "gm_sensor.h"
+#include "gps_connector.h"
+#include "battery_indicator.h"
 
 static constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
 static constexpr uint8_t LEVEL_DIMMED = 10;
@@ -16,7 +19,7 @@ static constexpr uint32_t DELAY_DIMMING_DEFAULT = 2 * 60 * 1000;  // ms before d
 static constexpr uint32_t DELAY_BLANKING_DEFAULT = 3 * 60 * 1000;  // ms before blanking screen
 
 
-GFXScreen::GFXScreen() : Supervisor() {
+GFXScreen::GFXScreen() : Supervisor(), _last_render(0) {
 }
 
 void GFXScreen::initialize() {
@@ -36,7 +39,7 @@ void GFXScreen::off() {
  */
 void GFXScreen::screenSplash() {
   /// @todo drawsplash should display the device name, ID, F/W version and copyright
-  clear();
+//  clear();
   M5.Lcd.setRotation(3);
   // Display something
   M5.Lcd.setCursor(10, 10);
@@ -55,26 +58,11 @@ void GFXScreen::screenSplash() {
 }
 
 /**
- * @brief Draw the boot-up welcome screen
- *
- */
-void GFXScreen::screenDashboard() {
-  ///
-  clear();
-  M5.Lcd.setRotation(3);
-  // Display something
-  M5.Lcd.setCursor(10, 10);
-  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
-  M5.Lcd.drawString("Startup complete, display some cool dashboard", 5, 90, 2);
-  M5.Lcd.drawString("with all data available.", 5, 110, 2);
-}
-
-/**
  * @brief Write SD error text
  * 
  */
 void GFXScreen::screenSDError() {
-  clear();
+//  clear();
   M5.Lcd.setRotation(3);
   // Display SD error
   M5.Lcd.setCursor(10, 10);
@@ -87,6 +75,41 @@ void GFXScreen::screenSDError() {
   M5.Lcd.drawString("SAFECAST", 230, 215, 1);
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
   M5.Lcd.drawString("2023", 285, 215, 1);
+  M5.Lcd.setRotation(1);
+}
+
+/**
+ * @brief Draw main dashboard
+ *
+ */
+void GFXScreen::screenDashboard(const worker_map_t& workers, const handler_map_t& handlers) {
+  ///
+//  clear();
+  M5.Lcd.setRotation(3);
+  // Display something
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
+  M5.Lcd.drawRoundRect(20, -5, 90, 20, 4, TFT_WHITE);
+  M5.Lcd.drawString("Button C", 40, 8);
+  M5.Lcd.drawRoundRect(115, -5, 90, 20, 4, TFT_WHITE);
+  M5.Lcd.drawString("Button B", 135, 8);
+  M5.Lcd.drawRoundRect(210, -5, 90, 20, 4, TFT_WHITE);
+  M5.Lcd.drawString("Button A", 230, 8);
+  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.setCursor(0, 30);
+  const auto& gm_sensor = workers.worker<GeigerMullerSensor>(k_worker_gm_sensor);
+  const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
+  const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator);
+  M5.Lcd.printf("CPM: %d\n",
+                gm_sensor->get_data().CPM);
+  M5.Lcd.printf("GPS status: %s %d\n",
+                gps->get_data().available ? "Available" : "Unavailable",
+                gps->get_data().satellites);
+  M5.Lcd.printf("GPS lat,long: %.5f,%.5f\n",
+                gps->get_data().latitude,
+                gps->get_data().longitude);
+  M5.Lcd.printf("Battery: %d%% %s\n",
+                battery->get_data().percentage,
+                battery->get_data().isCharging ? "(charging)" : "");
   M5.Lcd.setRotation(1);
 }
 
@@ -138,26 +161,32 @@ void GFXScreen::clear() {
 
 void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& handlers) {
   const auto& control = workers.worker<Controller>(k_worker_controller_state);
+  if (!control->is_fresh() && _last_render + 1000 > millis()) {
+    return;
+  }
+  if (control->is_fresh()) {
+    clear();
+  }
+  _last_render = millis();
 
   switch (control->get_data()) {
-    case k_state_InitializeDeviceState:break;
+    case k_state_InitializeDeviceState:
+      break;
+    case k_state_EmptySDCardState:
+      screenSDError();
+      break;
     case k_state_NoSDCardState:
-      if (control->is_fresh()) {
-        screenSDError();
-      }
+      screenSDError();
       break;
     case k_state_PostInitializeState:
-      if (control->is_fresh()) {
-        screenSplash();
-      }
+      screenSplash();
       break;
-    case k_state_ConfigurationModeState:break;
+    case k_state_ConfigurationModeState:
+      break;
     case k_state_MeasurementModeState:
-      if (control->is_fresh()) {
-        screenDashboard();
-      }
+      screenDashboard(workers, handlers);
       break;
-    case k_state_ResetState:break;
+    case k_state_ResetState:
+      break;
   }
-
 }

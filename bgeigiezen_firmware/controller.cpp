@@ -3,6 +3,7 @@
 #include "identifiers.h"
 #include "debugger.h"
 #include "zen_button.h"
+#include "sd_wrapper.h"
 
 #ifdef M5_CORE2
 #include <M5Core2.h>
@@ -18,7 +19,7 @@ Controller::Controller() : Context(),
 }
 
 void Controller::setup_state_machine() {
-  set_state(new InitializeDeviceState(*this));
+  set_state(InitializeDeviceState::i(*this));
 }
 
 void Controller::run() {
@@ -26,9 +27,45 @@ void Controller::run() {
   Aggregator::run();
 }
 
-void Controller::initialize() {
-  //
+void Controller::initialize_device() {
+#ifdef M5_CORE2
+#elif M5_BASIC
+#endif
+  if (!SDInterface::i().begin()) {
+    schedule_event(e_c_no_sd_card);
+  }
+  bool sd_config = SDInterface::i().get_safecast_content();
+  if (!sd_config) {
+    schedule_event(e_c_empty_sd_card);
+  }
+
+  // TODO: load sd_config into storage
+
+  set_worker_active(k_worker_battery_indicator, true);
+//  set_worker_active(k_worker_shake_detector, true);
+  set_worker_active(k_worker_button_A, true);
+  set_worker_active(k_worker_button_B, true);
+  set_worker_active(k_worker_button_C, true);
+  set_worker_active(k_worker_controller_state, true);
+
+  set_handler_active(k_handler_controller_handler, true);
+
+  schedule_event(e_c_device_initialized);
   schedule_event(Event_enum::e_c_controller_initialized);
+}
+
+void Controller::handle_empty_sd() {
+  // TODO: Check device ID in local storage
+  if (false) {
+    bool success = SDInterface::i().generate_safecast_txt(1234); // replace 1234 with id from storage
+    if (success) {
+      schedule_event(e_c_sd_generated);
+    } else {
+      schedule_event(e_c_no_sd_card);
+    }
+  } else {
+    schedule_event(e_c_no_sd_card);
+  }
 }
 
 void Controller::shutdown(bool reboot) {
@@ -69,7 +106,7 @@ int8_t Controller::handle_produced_work(const WorkerMap& workers) {
   return e_handler_data_handled;
 }
 
-void Controller::set_state(AbstractState* state) {
+void Controller::set_state(AbstractState& state) {
   Context::set_state(state);
   _state_changed = true;
 }

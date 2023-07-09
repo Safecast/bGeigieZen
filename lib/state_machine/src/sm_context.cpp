@@ -6,16 +6,14 @@ Context::Context() : _current_state(nullptr), _event_queue() {
 Context::~Context() {
   if(_current_state) {
     _current_state->exit_action();
-    delete _current_state;
   }
 }
 
-void Context::set_state(AbstractState* state) {
+void Context::set_state(AbstractState& state) {
   if(_current_state) {
     _current_state->exit_action();
-    delete _current_state;
   }
-  _current_state = state;
+  _current_state = &state;
   if(_current_state) {
     _current_state->entry_action();
   }

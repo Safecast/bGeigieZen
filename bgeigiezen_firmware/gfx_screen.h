@@ -23,13 +23,15 @@ class GFXScreen : public Supervisor {
 
   void screenSplash();
 
-  void screenDashboard();
+  void screenDashboard(const worker_map_t& workers, const handler_map_t& handlers);
 
   void screenSDError();
 
   void setBrightness(uint8_t lvl, bool overdrive = false);
 
   void clear();
+
+  unsigned long _last_render;
 };
 
 #endif //BGEIGIEZEN_GFX_SCREEN_HPP
