@@ -3,16 +3,15 @@
 
 #include <stdint.h>
 
-#define BGEIGIEZEN_VERSION "1.0"
-
 /** System config **/
 #define ENABLE_DEBUG 1
-
 
 /*** VERSION ***/
 const uint16_t MAJOR = 0;
 const uint16_t MINOR = 1;
 const uint16_t PATCH = 0;
+
+#define BGEIGIEZEN_VERSION "0.1.0"
 /***************/
 
 /*** CONFIG ***/

@@ -16,6 +16,7 @@ class BatteryIndicator : public Worker<BatteryStatus> {
  public:
 
   explicit BatteryIndicator();
+
   virtual ~BatteryIndicator() = default;
 
   bool activate(bool retry) override;

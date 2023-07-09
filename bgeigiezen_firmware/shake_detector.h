@@ -11,6 +11,7 @@ class ShakeDetector : public Worker<bool> {
  public:
 
   explicit ShakeDetector();
+
   virtual ~ShakeDetector() = default;
 
   bool activate(bool retry) override;
