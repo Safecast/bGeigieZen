@@ -22,36 +22,37 @@ class State;
 enum class bGeigieZen::Event;
 
 class Context {
-  State *current_state = NULL;
+    State *current_state = NULL;
 
- protected:
-  // Data sources
-  Setup device_setup;  // object giving access to persistent setup of the device
-  GeigerCounter geiger_count{GEIGER_AVERAGING_PERIOD_S, GEIGER_PULSE_GPIO};
-  GPSSensor gps{GPS_SERIAL_NUM, GPS_BAUD_RATE};
-  BatteryMonitorIP5306 battery_monitor;
+  protected:
+    // Data sources
+    Setup device_setup;   // object giving access to persistent setup of the
+                          // device
+    GeigerCounter geiger_count{GEIGER_AVERAGING_PERIOD_S, GEIGER_PULSE_GPIO};
+    GPSSensor gps{GPS_SERIAL_NUM, GPS_BAUD_RATE};
+    BatteryMonitorIP5306 battery_monitor;
 
-  // Data sinks
-  BGeigieLogFormatter bgeigie_formatter;
-  SDWrapper sd_wrapper;
-  SDLogger logger;
-  Display display{LCD_REFRESH_RATE};
+    // Data sinks
+    BGeigieLogFormatter bgeigie_formatter;
+    SDWrapper sd_wrapper;
+    SDLogger logger;
+    Display display{LCD_REFRESH_RATE};
 
-  // Methods
-  void setup();  // initialize all the components
-  void on_geiger_counter_available();
-  void on_gps_available();
-  void transition_to(State *next_state, Event e);
+    // Methods
+    void setup();   // initialize all the components
+    void on_geiger_counter_available();
+    void on_gps_available();
+    void transition_to(State *next_state, Event e);
 
- public:
-  Context() {}
-  void begin();
-  void loop();
+  public:
+    Context() {}
+    void begin();
+    void loop();
 
-  // States need to be friend
-  friend class StateStartup;
-  friend class StateWaitGPSTime;
-  friend class StateLogging;
+    // States need to be friend
+    friend class StateStartup;
+    friend class StateWaitGPSTime;
+    friend class StateLogging;
 };
 
-#endif  // __FSM_CONTEXT_HPP__
+#endif   // __FSM_CONTEXT_HPP__
