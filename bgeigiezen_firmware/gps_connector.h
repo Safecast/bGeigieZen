@@ -4,9 +4,9 @@
 #include <Arduino.h>
 #include <Worker.hpp>
 
-
 struct GpsData {
   bool available;
+  uint8_t satellites;
   double longitude;
   double latitude;
   double altitude;
@@ -20,6 +20,7 @@ class GpsConnector : public Worker<GpsData> {
  public:
 
   explicit GpsConnector();
+
   virtual ~GpsConnector() = default;
 
   bool activate(bool retry) override;

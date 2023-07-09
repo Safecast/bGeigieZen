@@ -1,7 +1,6 @@
 #ifndef __SD_WRAPPER_HPP__
 #define __SD_WRAPPER_HPP__
 
-
 /**
  *  This singleton class provides an interface to check that the SD card is already
  *  connected and operational
@@ -15,15 +14,18 @@ class SDWrapper {
   };
 
   SDWrapper(const SDWrapper&) = delete;
-  SDWrapper& operator=(const SDWrapper &) = delete;
-  SDWrapper(SDWrapper &&) = delete;
-  SDWrapper & operator=(SDWrapper &&) = delete;
+
+  SDWrapper& operator=(const SDWrapper&) = delete;
+
+  SDWrapper(SDWrapper&&) = delete;
+
+  SDWrapper& operator=(SDWrapper&&) = delete;
 
   /**
    * Singleton
    * @return
    */
-  static SDWrapper& i(){
+  static SDWrapper& i() {
     static SDWrapper wrapper;
     return wrapper;
   }

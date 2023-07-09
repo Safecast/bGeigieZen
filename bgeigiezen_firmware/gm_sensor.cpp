@@ -1,6 +1,5 @@
 #include "gm_sensor.h"
 
-
 GeigerMullerSensor::GeigerMullerSensor() : Worker<uint32_t>() {
 }
 

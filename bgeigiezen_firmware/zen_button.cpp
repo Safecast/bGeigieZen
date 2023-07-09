@@ -1,7 +1,6 @@
 #include "zen_button.h"
 #include "debugger.h"
 
-
 ZenButton::ZenButton(Button& m5_button) :
     Worker<bool>(),
     _m5_button(m5_button) {

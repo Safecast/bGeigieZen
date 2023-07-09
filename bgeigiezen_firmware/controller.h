@@ -17,10 +17,10 @@ enum SystemStateId {
 /**
  * Main controller for the system, implements state machine to run
  */
-class Controller : public Context, public Aggregator, public Handler, public Worker<SystemStateId>
-{
-public:
+class Controller : public Context, public Aggregator, public Handler, public Worker<SystemStateId> {
+ public:
   Controller();
+
   virtual ~Controller() = default;
 
   /**
@@ -37,11 +37,12 @@ public:
    * override set state from context, to flag worker that change has been made
    * @param state
    */
-  void set_state(AbstractState *state) override;
+  void set_state(AbstractState* state) override;
 
-private:
+ private:
   void initialize() override;
-  int8_t handle_produced_work(const worker_map_t &workers) override;
+
+  int8_t handle_produced_work(const worker_map_t& workers) override;
 
   int8_t produce_data() override;
 
@@ -58,10 +59,15 @@ private:
   bool _state_changed;
 
   friend class InitializeDeviceState;
+
   friend class NoSDCardState;
+
   friend class PostInitializeState;
+
   friend class ConfigurationModeState;
+
   friend class MeasurementModeState;
+
   friend class ResetState;
 };
 

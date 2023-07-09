@@ -1,6 +1,5 @@
 #include "gps_connector.h"
 
-
 GpsConnector::GpsConnector() : Worker<GpsData>() {
 }
 

@@ -27,7 +27,7 @@ void InitializeDeviceState::do_activity() {
   }
 
   controller.set_worker_active(k_worker_battery_indicator, true);
-  controller.set_worker_active(k_worker_shake_detector, true);
+//  controller.set_worker_active(k_worker_shake_detector, true);
   controller.set_worker_active(k_worker_button_A, true);
   controller.set_worker_active(k_worker_button_B, true);
   controller.set_worker_active(k_worker_button_C, true);
@@ -43,15 +43,12 @@ void InitializeDeviceState::exit_action() {
 }
 
 void InitializeDeviceState::handle_event(Event_enum event_id) {
-  switch(event_id) {
-    case Event_enum::e_c_device_initialized:
-      controller.set_state(new PostInitializeState(controller));
+  switch (event_id) {
+    case Event_enum::e_c_device_initialized:controller.set_state(new PostInitializeState(controller));
       break;
-    case Event_enum::e_c_no_sd_card:
-      controller.set_state(new NoSDCardState(controller));
+    case Event_enum::e_c_no_sd_card:controller.set_state(new NoSDCardState(controller));
       break;
-    default:
-      ControllerState::handle_event(event_id);
+    default:ControllerState::handle_event(event_id);
       break;
   }
 }
@@ -75,14 +72,12 @@ void NoSDCardState::exit_action() {
 }
 
 void NoSDCardState::handle_event(Event_enum event_id) {
-  switch(event_id) {
+  switch (event_id) {
     case Event_enum::e_c_button_A_pressed:
     case Event_enum::e_c_button_B_pressed:
-    case Event_enum::e_c_button_C_pressed:
-      controller.shutdown(true);
+    case Event_enum::e_c_button_C_pressed:controller.shutdown(true);
       break;
-    default:
-      ControllerState::handle_event(event_id);
+    default:ControllerState::handle_event(event_id);
       break;
   }
 }
@@ -108,12 +103,10 @@ void PostInitializeState::exit_action() {
 }
 
 void PostInitializeState::handle_event(Event_enum event_id) {
-  switch(event_id) {
-    case Event_enum::e_c_post_initialize_complete:
-      controller.set_state(new MeasurementModeState(controller));
+  switch (event_id) {
+    case Event_enum::e_c_post_initialize_complete:controller.set_state(new MeasurementModeState(controller));
       break;
-    default:
-      ControllerState::handle_event(event_id);
+    default:ControllerState::handle_event(event_id);
       break;
   }
 }
@@ -122,29 +115,22 @@ void PostInitializeState::handle_event(Event_enum event_id) {
 
 // region ConfigModeState
 
-ConfigurationModeState::ConfigurationModeState(Controller &context) : ControllerState(context)
-{
+ConfigurationModeState::ConfigurationModeState(Controller& context) : ControllerState(context) {
 }
 
-void ConfigurationModeState::entry_action()
-{
+void ConfigurationModeState::entry_action() {
 }
 
-void ConfigurationModeState::do_activity()
-{
+void ConfigurationModeState::do_activity() {
 }
 
-void ConfigurationModeState::exit_action()
-{
+void ConfigurationModeState::exit_action() {
 }
 
-void ConfigurationModeState::handle_event(Event_enum event_id)
-{
-  switch (event_id)
-  {
-  default:
-    ControllerState::handle_event(event_id);
-    break;
+void ConfigurationModeState::handle_event(Event_enum event_id) {
+  switch (event_id) {
+    default:ControllerState::handle_event(event_id);
+      break;
   }
 }
 
@@ -152,29 +138,22 @@ void ConfigurationModeState::handle_event(Event_enum event_id)
 
 // region MeasurementModeState
 
-MeasurementModeState::MeasurementModeState(Controller &context) : ControllerState(context)
-{
+MeasurementModeState::MeasurementModeState(Controller& context) : ControllerState(context) {
 }
 
-void MeasurementModeState::entry_action()
-{
+void MeasurementModeState::entry_action() {
 }
 
-void MeasurementModeState::do_activity()
-{
+void MeasurementModeState::do_activity() {
 }
 
-void MeasurementModeState::exit_action()
-{
+void MeasurementModeState::exit_action() {
 }
 
-void MeasurementModeState::handle_event(Event_enum event_id)
-{
-  switch (event_id)
-  {
-  default:
-    ControllerState::handle_event(event_id);
-    break;
+void MeasurementModeState::handle_event(Event_enum event_id) {
+  switch (event_id) {
+    default:ControllerState::handle_event(event_id);
+      break;
   }
 }
 
@@ -182,25 +161,20 @@ void MeasurementModeState::handle_event(Event_enum event_id)
 
 // region ResetState
 
-ResetState::ResetState(Controller &context) : ControllerState(context)
-{
+ResetState::ResetState(Controller& context) : ControllerState(context) {
 }
 
-void ResetState::entry_action()
-{
+void ResetState::entry_action() {
 }
 
-void ResetState::do_activity()
-{
+void ResetState::do_activity() {
   controller.reset_system();
 }
 
-void ResetState::exit_action()
-{
+void ResetState::exit_action() {
 }
 
-void ResetState::handle_event(Event_enum event_id)
-{
+void ResetState::handle_event(Event_enum event_id) {
   ControllerState::handle_event(event_id);
 }
 

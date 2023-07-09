@@ -10,13 +10,13 @@
 #include <Arduino.h>
 #include <Worker.hpp>
 
-
 /**
  * M5 button wrapper as worker
  */
 class ZenButton : public Worker<bool> {
  public:
   explicit ZenButton(Button& m5_button);
+
   virtual ~ZenButton();
 
   bool activate(bool retry) override;
