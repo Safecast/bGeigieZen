@@ -1,0 +1,56 @@
+@startuml
+
+interface GPS
+interface Pancake
+interface Battery
+interface IMU
+interface Buttons
+
+package Pure_workers {
+  GPS -d-> [ k_worker_gps_connector ]
+  Battery -d-> [ battery_indicator ]
+  Pancake -d-> [ gm_sensor ]
+  IMU -d-> [ shake_detector ]
+  Buttons -> [ button_A ]
+  Buttons -> [ button_B ]
+  Buttons -> [ button_C ]
+}
+
+package Worker_handlers {
+  [ button_A ] -d-> [ controller_state ]
+  [ button_B ] -d-> [ controller_state ]
+  [ button_C ] -d-> [ controller_state ]
+  [ k_worker_gps_connector ] -d-> [ data_aggregator ]
+  [ battery_indicator ] -d-> [ data_aggregator ]
+  [ gm_sensor ] -d-> [ data_aggregator ]
+  [ k_worker_gps_connector ] -[hidden]-> [ button_A ]
+  [ button_A ] -[hidden]-> [ button_B ]
+  [ button_B ] -[hidden]-> [ button_C ]
+}
+
+Pure_workers -[hidden]- Worker_handlers
+
+
+package Handlers {
+  [ data_aggregator ] -d-> [ SD_logger ]
+  [ data_aggregator ] -d-> [ BT_logger ]
+  [ data_aggregator ] -d-> [ API_logger ]
+}
+
+package Supervisors {
+  [ battery_indicator ] -d-> [ gfx_screen ]
+  [ button_A ] -d-> [ gfx_screen ]
+  [ button_B ] -d-> [ gfx_screen ]
+  [ button_C ] -d-> [ gfx_screen ]
+  [ controller_state ] -d-> [ gfx_screen ]
+  [ shake_detector ] -d-> [ gfx_screen ]
+  [ SD_logger ] -d-> [ gfx_screen ]
+  [ BT_logger ] -d-> [ gfx_screen ]
+  [ API_logger ] -d-> [ gfx_screen ]
+}
+
+[ SD_logger ] -d-> SD
+[ BT_logger ] -d-> BLE
+[ API_logger ] -d-> WiFi
+
+@enduml

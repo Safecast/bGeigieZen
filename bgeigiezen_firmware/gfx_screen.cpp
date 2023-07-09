@@ -12,13 +12,12 @@
 static constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
 static constexpr uint8_t LEVEL_DIMMED = 10;
 static constexpr uint8_t LEVEL_BLANKED = 0;
-static constexpr uint32_t DELAY_DIMMING_DEFAULT = 2*60*1000;  // ms before dimming screen
-static constexpr uint32_t DELAY_BLANKING_DEFAULT = 3*60*1000;  // ms before blanking screen
+static constexpr uint32_t DELAY_DIMMING_DEFAULT = 2 * 60 * 1000;  // ms before dimming screen
+static constexpr uint32_t DELAY_BLANKING_DEFAULT = 3 * 60 * 1000;  // ms before blanking screen
 
 
 GFXScreen::GFXScreen() : Supervisor() {
 }
-
 
 void GFXScreen::initialize() {
   // Initialize TFT (may already be done by M5)
@@ -91,7 +90,6 @@ void GFXScreen::screenSDError() {
   M5.Lcd.setRotation(1);
 }
 
-
 //setup brightness by Rob Oudendijk 2023-03-13
 void GFXScreen::setBrightness(uint8_t lvl, bool overdrive) {
 #ifdef M5_CORE2
@@ -161,5 +159,5 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
       break;
     case k_state_ResetState:break;
   }
-  
+
 }

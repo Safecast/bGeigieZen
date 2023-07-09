@@ -10,6 +10,7 @@ class GeigerMullerSensor : public Worker<uint32_t> {
  public:
 
   explicit GeigerMullerSensor();
+
   virtual ~GeigerMullerSensor() = default;
 
   bool activate(bool retry) override;

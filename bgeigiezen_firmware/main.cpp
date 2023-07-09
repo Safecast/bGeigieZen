@@ -88,7 +88,6 @@ void setup() {
   // Supervisors
   auto* gfx_screen = new GFXScreen();
 
-
   DEBUG_PRINTLN("Register workers...");
   controller.register_worker(k_worker_gps_connector, *gps);
   controller.register_worker(k_worker_gm_sensor, *gm_sensor);
