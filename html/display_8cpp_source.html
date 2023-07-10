@@ -199,7 +199,7 @@ $(document).ready(function(){initNavTree('display_8cpp_source.html',''); initRes
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  <span class="keywordflow">if</span>(dimming_pressed) {</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    dimming_enabled = ! dimming_enabled;</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">/* DEBUG */</span> Serial.print(<span class="stringliteral">&quot;Dimming button was pressed, dimming_enabled=&quot;</span>);  Serial.println(dimming_enabled);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">/* DEBUG */</span> Serial.print(<span class="stringliteral">&quot;Dimming button was currentlyPressed, dimming_enabled=&quot;</span>);  Serial.println(dimming_enabled);</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordflow">if</span>(dimming_enabled)</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>      dimmingButton.setLabel(<span class="stringliteral">&quot;DIMMING&quot;</span>);</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">else</span></div>
@@ -255,7 +255,7 @@ $(document).ready(function(){initNavTree('display_8cpp_source.html',''); initRes
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>      <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordflow">case</span> (<a class="code hl_enumvalue" href="namespaceb_geigie_zen.html#a482a0e89f9349c1957603fccb9a26b0bab10ecccdb4c66f3bdac7ef8734d453f5">bGeigieZen::S_QRCODE_SHOW</a>):</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>      <span class="keywordflow">if</span> (anybutton_pressed)  <span class="comment">// restore MAIN on any button pressed</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>      <span class="keywordflow">if</span> (anybutton_pressed)  <span class="comment">// restore MAIN on any button currentlyPressed</span></div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        state = <a class="code hl_enumvalue" href="namespaceb_geigie_zen.html#a482a0e89f9349c1957603fccb9a26b0ba7812e5e25173f4fc32054b96f924c04e">bGeigieZen::S_MAIN_DRAW</a>;</div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>      <span class="keywordflow">break</span>;</div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
@@ -316,7 +316,7 @@ $(document).ready(function(){initNavTree('display_8cpp_source.html',''); initRes
 <div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="namespaceb_geigie_zen.html#a482a0e89f9349c1957603fccb9a26b0bad29dc3641c6de054382b486cd48c685e">bGeigieZen::S_MENU_SHOW</a>:</div>
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>      <span class="keywordflow">if</span> (button_B_pressed) {</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="comment">// When Return button pressed, set the menu state to &quot;inactive&quot;,</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="comment">// When Return button currentlyPressed, set the menu state to &quot;inactive&quot;,</span></div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="comment">// erase and hide the buttons and return control to this FSM.</span></div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <a class="code hl_variable" href="display_8cpp.html#a99e64c5e9c926350cc08eba04207c88f">mcontext</a>.<a class="code hl_function" href="class_menu_context.html#af3449484c482bc70d7d15023e047a84a">goto_state</a>(&amp;<a class="code hl_variable" href="display_8cpp.html#a9bf3bbd4d7cf789924e6ccec4ec52c05">inactivestate</a>, <span class="keyword">this</span>);</div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        state = <a class="code hl_enumvalue" href="namespaceb_geigie_zen.html#a482a0e89f9349c1957603fccb9a26b0ba7812e5e25173f4fc32054b96f924c04e">bGeigieZen::S_MAIN_DRAW</a>;</div>

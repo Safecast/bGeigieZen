@@ -29,6 +29,10 @@ void Controller::run() {
 
 void Controller::initialize_device() {
 #ifdef M5_CORE2
+  // Change touch screen buttons slightly to overlap with button indicators
+  M5.BtnA.set(8, 230, 90, 50);
+  M5.BtnB.set(115, 230, 90, 50);
+  M5.BtnC.set(222, 230, 90, 50);
 #elif M5_BASIC
 #endif
   if (!SDInterface::i().begin()) {
@@ -43,6 +47,7 @@ void Controller::initialize_device() {
 
   set_worker_active(k_worker_battery_indicator, true);
   set_worker_active(k_worker_gps_connector, true);
+  set_worker_active(k_worker_gm_sensor, true);
 //  set_worker_active(k_worker_shake_detector, true);
   set_worker_active(k_worker_button_A, true);
   set_worker_active(k_worker_button_B, true);
@@ -90,19 +95,34 @@ void Controller::reset_system() {
 
 int8_t Controller::handle_produced_work(const WorkerMap& workers) {
   const auto& buttonA = workers.worker<ZenButton>(k_worker_button_A);
-  if (buttonA->is_fresh() && buttonA->get_data()) {
-    DEBUG_PRINTLN("button A was pressed");
-    schedule_event(Event_enum::e_c_button_A_pressed);
+  if (buttonA->is_fresh()) {
+    if (buttonA->get_data().shortPress) {
+      DEBUG_PRINTLN("button A was long currentlyPressed");
+      schedule_event(Event_enum::e_c_button_A_long_pressed);
+    } else if (buttonA->get_data().longPress) {
+      DEBUG_PRINTLN("button A was currentlyPressed");
+      schedule_event(Event_enum::e_c_button_A_pressed);
+    }
   }
   const auto& buttonB = workers.worker<ZenButton>(k_worker_button_B);
-  if (buttonB->is_fresh() && buttonB->get_data()) {
-    DEBUG_PRINTLN("button B was pressed");
-    schedule_event(Event_enum::e_c_button_B_pressed);
+  if (buttonB->is_fresh()) {
+    if (buttonB->get_data().shortPress) {
+      DEBUG_PRINTLN("button B was long currentlyPressed");
+      schedule_event(Event_enum::e_c_button_B_long_pressed);
+    } else if (buttonB->get_data().longPress) {
+      DEBUG_PRINTLN("button B was currentlyPressed");
+      schedule_event(Event_enum::e_c_button_B_pressed);
+    }
   }
   const auto& buttonC = workers.worker<ZenButton>(k_worker_button_C);
-  if (buttonC->is_fresh() && buttonC->get_data()) {
-    DEBUG_PRINTLN("button C was pressed");
-    schedule_event(Event_enum::e_c_button_C_pressed);
+  if (buttonC->is_fresh()) {
+    if (buttonC->get_data().shortPress) {
+      DEBUG_PRINTLN("button C was long currentlyPressed");
+      schedule_event(Event_enum::e_c_button_C_long_pressed);
+    } else if (buttonC->get_data().longPress) {
+      DEBUG_PRINTLN("button C was currentlyPressed");
+      schedule_event(Event_enum::e_c_button_C_pressed);
+    }
   }
   return e_handler_data_handled;
 }
