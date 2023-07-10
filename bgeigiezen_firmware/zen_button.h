@@ -10,10 +10,16 @@
 #include <Arduino.h>
 #include <Worker.hpp>
 
+struct ButtonState {
+  bool currentlyPressed;
+  bool shortPress;
+  bool longPress;
+};
+
 /**
  * M5 button wrapper as worker
  */
-class ZenButton : public Worker<bool> {
+class ZenButton : public Worker<ButtonState> {
  public:
   explicit ZenButton(Button& m5_button);
 

@@ -15,7 +15,7 @@ int8_t GpsConnector::produce_data() {
     gps.encode(ss.read());
   }
 
-  if (gps.location.isValid()) {
+  if (gps.location.isValid() && gps.satellites.isValid() && gps.date.isValid() && gps.time.isValid()) {
     data.available = true;
     data.updated = gps.location.isUpdated(); // but not necessarily changed.
     data.age = gps.location.age();
@@ -23,6 +23,13 @@ int8_t GpsConnector::produce_data() {
     data.latitude = gps.location.lat();
     data.altitude = gps.altitude.meters();
     data.satellites = gps.satellites.value();
+
+    data.year = gps.date.year();
+    data.month = gps.date.month();
+    data.day = gps.date.day();
+    data.hour = gps.time.hour();
+    data.minute = gps.time.minute();
+    data.second = gps.time.second();
     return e_worker_data_read;
   }
   else {

@@ -10,6 +10,6 @@ bool GeigerMullerSensor::activate(bool retry) {
 
 int8_t GeigerMullerSensor::produce_data() {
   data.CPM = 30;
-  data.ush = 0.09;
+  data.usvh = 0.09;
   return e_worker_idle;
 }

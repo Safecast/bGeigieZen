@@ -11,6 +11,7 @@
 #include "gm_sensor.h"
 #include "gps_connector.h"
 #include "battery_indicator.h"
+#include "zen_button.h"
 
 static constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
 static constexpr uint8_t LEVEL_DIMMED = 10;
@@ -87,6 +88,15 @@ void GFXScreen::screenDashboard(const worker_map_t& workers, const handler_map_t
 //  clear();
   M5.Lcd.setRotation(3);
   // Display something
+#ifdef M5_CORE2
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
+  M5.Lcd.drawRoundRect(8, -5, 90, 20, 4, TFT_WHITE);
+  M5.Lcd.drawString("Button C", 28, 8);
+  M5.Lcd.drawRoundRect(115, -5, 90, 20, 4, TFT_WHITE);
+  M5.Lcd.drawString("Button B", 135, 8);
+  M5.Lcd.drawRoundRect(222, -5, 90, 20, 4, TFT_WHITE);
+  M5.Lcd.drawString("Button A", 242, 8);
+#elif M5_BASIC
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
   M5.Lcd.drawRoundRect(20, -5, 90, 20, 4, TFT_WHITE);
   M5.Lcd.drawString("Button C", 40, 8);
@@ -94,22 +104,44 @@ void GFXScreen::screenDashboard(const worker_map_t& workers, const handler_map_t
   M5.Lcd.drawString("Button B", 135, 8);
   M5.Lcd.drawRoundRect(210, -5, 90, 20, 4, TFT_WHITE);
   M5.Lcd.drawString("Button A", 230, 8);
-  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
-  M5.Lcd.setCursor(0, 30);
+#endif
   const auto& gm_sensor = workers.worker<GeigerMullerSensor>(k_worker_gm_sensor);
   const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
   const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator);
-  M5.Lcd.printf("CPM: %d\n",
-                gm_sensor->get_data().CPM);
-  M5.Lcd.printf("GPS status: %s %d\n",
-                gps->get_data().available ? "Available" : "Unavailable",
-                gps->get_data().satellites);
-  M5.Lcd.printf("GPS lat,long: %.5f,%.5f\n",
-                gps->get_data().latitude,
-                gps->get_data().longitude);
+  const auto& btnA = workers.worker<ZenButton>(k_worker_button_A);
+  const auto& btnB = workers.worker<ZenButton>(k_worker_button_B);
+  const auto& btnC = workers.worker<ZenButton>(k_worker_button_C);
+  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.setCursor(0, 30);
   M5.Lcd.printf("Battery: %d%% %s\n",
                 battery->get_data().percentage,
-                battery->get_data().isCharging ? "(charging)" : "");
+                battery->get_data().isCharging ? "(charging)" : "          ");
+  M5.Lcd.printf("Geiger counter (dummy data)\n CPM: %d\n uSv/h: %.3f\n",
+                gm_sensor->get_data().CPM,
+                gm_sensor->get_data().usvh);
+  M5.Lcd.printf("GPS\n status: %s %d\n lat,long: %.5f,%.5f\n timestamp: %d-%d-%d %d:%d:%d\n",
+                gps->get_data().available ? "Available" : "Unavailable",
+                gps->get_data().satellites,
+                gps->get_data().latitude,
+                gps->get_data().longitude,
+                gps->get_data().year,
+                gps->get_data().month,
+                gps->get_data().day,
+                gps->get_data().hour,
+                gps->get_data().minute,
+                gps->get_data().second);
+  M5.Lcd.printf("Button C\n state: %d\n was pressed: %d\n was long pressed: %d\n",
+                btnC->get_data().currentlyPressed,
+                btnC->get_data().shortPress,
+                btnC->get_data().longPress);
+  M5.Lcd.printf("Button B\n state: %d\n was pressed: %d\n was long pressed: %d\n",
+                btnB->get_data().currentlyPressed,
+                btnB->get_data().shortPress,
+                btnB->get_data().longPress);
+  M5.Lcd.printf("Button A\n state: %d\n was pressed: %d\n was long pressed: %d\n",
+                btnA->get_data().currentlyPressed,
+                btnA->get_data().shortPress,
+                btnA->get_data().longPress);
   M5.Lcd.setRotation(1);
 }
 
@@ -161,7 +193,10 @@ void GFXScreen::clear() {
 
 void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& handlers) {
   const auto& control = workers.worker<Controller>(k_worker_controller_state);
-  if (!control->is_fresh() && _last_render + 1000 > millis()) {
+  const auto& btnA = workers.worker<ZenButton>(k_worker_button_A);
+  const auto& btnB = workers.worker<ZenButton>(k_worker_button_B);
+  const auto& btnC = workers.worker<ZenButton>(k_worker_button_C);
+  if (!control->is_fresh() && !btnA->is_fresh() && !btnB->is_fresh() && !btnC->is_fresh() && _last_render + 1000 > millis()) {
     return;
   }
   if (control->is_fresh()) {
