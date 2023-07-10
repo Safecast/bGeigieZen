@@ -5,7 +5,7 @@
 
 struct GMData {
   uint32_t CPM;
-  double ush;
+  double usvh; // uSv/h
 };
 
 /**
