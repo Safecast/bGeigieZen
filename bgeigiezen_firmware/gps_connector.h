@@ -20,17 +20,37 @@ struct GpsData {
   problem like a lost fix.
   Ref: http://arduiniana.org/libraries/tinygpsplus/
   */
-  bool available;// based on gps.isValid()
-  bool updated;  // based on gps.isUpdated(), fresh but not necessarily changed.
-  uint32_t age;  // milliseconds, based on gps.age()
-  uint32_t satellites;
+
+  bool isValid() const {
+    return location_valid && altitude_valid && satellites_valid && date_valid;
+  }
+
+  // location
+  bool location_valid;
+  bool location_age;
   double longitude;
   double latitude;
+
+  // Altitude
+  bool altitude_valid;
+  bool altitude_age;
   double altitude;
 
+  // Satellites
+  bool satellites_valid;
+  bool satellites_age;
+  uint32_t satellites_value;
+
+  // Date
+  bool date_valid;
+  bool date_age;
   uint16_t year;
   uint8_t month;
   uint8_t day;
+
+  // Time
+  bool time_valid;
+  bool time_age;
   uint8_t hour;
   uint8_t minute;
   uint8_t second;
