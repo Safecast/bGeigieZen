@@ -116,32 +116,39 @@ void GFXScreen::screenDashboard(const worker_map_t& workers, const handler_map_t
   M5.Lcd.printf("Battery: %d%% %s\n",
                 battery->get_data().percentage,
                 battery->get_data().isCharging ? "(charging)" : "          ");
-  M5.Lcd.printf("Geiger counter (dummy data)\n CPM: %d\n uSv/h: %.3f\n",
+  M5.Lcd.printf("Geiger counter (stub)\n CPM: %d\n uSv/h: %.3f\n",
                 gm_sensor->get_data().CPM,
                 gm_sensor->get_data().usvh);
-  M5.Lcd.printf("GPS\n status: %s %d\n lat,long: %.5f,%.5f\n timestamp: %d-%d-%d %d:%d:%d\n",
-                gps->get_data().available ? "Available" : "Unavailable",
-                gps->get_data().satellites,
+  M5.Lcd.printf("GPS\n"
+                " satellites: %d %s           \n"
+                " latitude, longitude: %.5f,%.5f %s\n"
+                " altitude: %.5f %s\n"
+                " date: %d-%d-%d %s           \n"
+                " time: %d:%d:%d %s           \n",
+                gps->get_data().satellites_value,
+                gps->get_data().satellites_valid ? "             " : "(unavailable)",
                 gps->get_data().latitude,
                 gps->get_data().longitude,
+                gps->get_data().location_valid ? "             " : "(unavailable)",
+                gps->get_data().altitude,
+                gps->get_data().altitude_valid ? "             " : "(unavailable)",
                 gps->get_data().year,
                 gps->get_data().month,
                 gps->get_data().day,
+                gps->get_data().date_valid ? "             " : "(unavailable)",
                 gps->get_data().hour,
                 gps->get_data().minute,
-                gps->get_data().second);
-  M5.Lcd.printf("Button C\n state: %d\n was pressed: %d\n was long pressed: %d\n",
+                gps->get_data().second,
+                gps->get_data().time_valid ? "             " : "(unavailable)");
+  M5.Lcd.printf("Button C\n state: %d\n was pressed: %s\n",
                 btnC->get_data().currentlyPressed,
-                btnC->get_data().shortPress,
-                btnC->get_data().longPress);
-  M5.Lcd.printf("Button B\n state: %d\n was pressed: %d\n was long pressed: %d\n",
+                btnC->get_data().shortPress ? "short" : btnC->get_data().longPress ? "long " : "-    ");
+  M5.Lcd.printf("Button B\n state: %d\n was pressed: %s\n",
                 btnB->get_data().currentlyPressed,
-                btnB->get_data().shortPress,
-                btnB->get_data().longPress);
-  M5.Lcd.printf("Button A\n state: %d\n was pressed: %d\n was long pressed: %d\n",
+                btnB->get_data().shortPress ? "short" : btnB->get_data().longPress ? "long " : "-    ");
+  M5.Lcd.printf("Button A\n state: %d\n was pressed: %s\n",
                 btnA->get_data().currentlyPressed,
-                btnA->get_data().shortPress,
-                btnA->get_data().longPress);
+                btnA->get_data().shortPress ? "short" : btnA->get_data().longPress ? "long " : "-    ");
   M5.Lcd.setRotation(1);
 }
 
