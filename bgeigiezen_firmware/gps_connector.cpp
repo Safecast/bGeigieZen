@@ -26,7 +26,7 @@ int8_t GpsConnector::produce_data() {
 
   if (gps.altitude.isUpdated()) {
     data.altitude_valid = gps.altitude.isValid();
-    data.altitude = gps.altitude.value();
+    data.altitude = gps.altitude.meters();
     status = e_worker_data_read;
   }
 
