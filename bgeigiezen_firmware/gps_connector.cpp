@@ -15,25 +15,49 @@ int8_t GpsConnector::produce_data() {
     gps.encode(ss.read());
   }
 
-  if (gps.location.isValid() && gps.satellites.isValid() && gps.date.isValid() && gps.time.isValid()) {
-    data.available = true;
-    data.updated = gps.location.isUpdated(); // but not necessarily changed.
-    data.age = gps.location.age();
+  auto status = e_worker_idle;
+
+  if (gps.location.isUpdated()) {
+    data.location_valid = gps.location.isValid();
     data.longitude = gps.location.lng();
     data.latitude = gps.location.lat();
-    data.altitude = gps.altitude.meters();
-    data.satellites = gps.satellites.value();
+    status = e_worker_data_read;
+  }
 
+  if (gps.altitude.isUpdated()) {
+    data.altitude_valid = gps.altitude.isValid();
+    data.altitude = gps.altitude.value();
+    status = e_worker_data_read;
+  }
+
+  if (gps.satellites.isUpdated()) {
+    data.satellites_valid = gps.satellites.isValid();
+    data.satellites_value = gps.satellites.value();
+    return e_worker_data_read;
+  }
+
+  if (gps.date.isUpdated()) {
+    data.date_valid = gps.date.isValid();
     data.year = gps.date.year();
     data.month = gps.date.month();
     data.day = gps.date.day();
+    return e_worker_data_read;
+  }
+
+  if (gps.time.isUpdated()) {
+    data.time_valid = gps.time.isValid();
     data.hour = gps.time.hour();
     data.minute = gps.time.minute();
     data.second = gps.time.second();
     return e_worker_data_read;
   }
-  else {
-    data.available = false;
-    return e_worker_idle;
-  }
+
+  // Always update age
+  data.location_age = gps.location.age();
+  data.location_age = gps.location.age();
+  data.altitude_age = gps.altitude.age();
+  data.satellites_age = gps.satellites.age();
+  data.date_age = gps.date.age();
+
+  return status;
 }
