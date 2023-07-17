@@ -88,14 +88,24 @@ void GFXScreen::screenDashboard(const worker_map_t& workers, const handler_map_t
 //  clear();
   M5.Lcd.setRotation(3);
   // Display something
+  const auto& gm_sensor = workers.worker<GeigerCounter>(k_worker_gm_sensor);
+  const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
+  const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator);
+  const auto& btnA = workers.worker<ZenButton>(k_worker_button_A);
+  const auto& btnB = workers.worker<ZenButton>(k_worker_button_B);
+  const auto& btnC = workers.worker<ZenButton>(k_worker_button_C);
+
+
 #ifdef M5_CORE2
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
-  M5.Lcd.drawRoundRect(8, -5, 90, 20, 4, TFT_WHITE);
-  M5.Lcd.drawString("Button C", 28, 8);
-  M5.Lcd.drawRoundRect(115, -5, 90, 20, 4, TFT_WHITE);
-  M5.Lcd.drawString("Button B", 135, 8);
-  M5.Lcd.drawRoundRect(222, -5, 90, 20, 4, TFT_WHITE);
-  M5.Lcd.drawString("Button A", 242, 8);
+  M5.Lcd.drawRoundRect(8, -5, 90, 20, 4, btnC->get_data().currentlyPressed ? TFT_RED : TFT_WHITE);
+  M5.Lcd.drawString(btnC->get_data().shortPress ? " pressed " : btnC->get_data().longPress ? "  long  " : "Button C", 28, 8);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
+  M5.Lcd.drawRoundRect(115, -5, 90, 20, 4, btnB->get_data().currentlyPressed ? TFT_RED : TFT_WHITE);
+  M5.Lcd.drawString(btnB->get_data().shortPress ? " pressed " : btnB->get_data().longPress ? "  long  " : "Button B", 135, 8);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
+  M5.Lcd.drawRoundRect(222, -5, 90, 20, 4, btnA->get_data().currentlyPressed ? TFT_RED : TFT_WHITE);
+  M5.Lcd.drawString(btnA->get_data().shortPress ? " pressed " : btnA->get_data().longPress ? "  long  " : "Button A", 242, 8);
 #elif M5_BASIC
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
   M5.Lcd.drawRoundRect(20, -5, 90, 20, 4, TFT_WHITE);
@@ -105,35 +115,40 @@ void GFXScreen::screenDashboard(const worker_map_t& workers, const handler_map_t
   M5.Lcd.drawRoundRect(210, -5, 90, 20, 4, TFT_WHITE);
   M5.Lcd.drawString("Button A", 230, 8);
 #endif
-  const auto& gm_sensor = workers.worker<GeigerCounter>(k_worker_gm_sensor);
-  const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
-  const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator);
-  const auto& btnA = workers.worker<ZenButton>(k_worker_button_A);
-  const auto& btnB = workers.worker<ZenButton>(k_worker_button_B);
-  const auto& btnC = workers.worker<ZenButton>(k_worker_button_C);
+
   M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
   M5.Lcd.setCursor(0, 30);
   M5.Lcd.printf("Battery: %d%% %s\n",
                 battery->get_data().percentage,
                 battery->get_data().isCharging ? "(charging)" : "          ");
-  M5.Lcd.printf("Geiger counter (stub)\n CPM raw: %d        \n CPM comp: %d        \n CPS: %d        \n uSv/h: %.3f        \n",
+  M5.Lcd.printf("Geiger counter %s\n"
+                " CPM raw: %d        \n"
+                " CPM comp: %d %s     \n   uSv/h: %.4f      \n   Bq/m2: %.0f       \n"
+                " CPB: %d      \n   uSv/h: %.4f      \n   Bq/m2: %.0f       \n",
+                gm_sensor->get_data().valid ? "(valid)             " : "(collecting data...)",
                 gm_sensor->get_data().cpm_raw,
                 gm_sensor->get_data().cpm_comp,
+                gm_sensor->get_data().alert ? "(ALERT!!!)" : "          ",
+                gm_sensor->get_data().uSv,
+                gm_sensor->get_data().Bqm2,
                 gm_sensor->get_data().cpb,
-                gm_sensor->get_data().uSv);
+                gm_sensor->get_data().uSv_bin,
+                gm_sensor->get_data().Bqm2_bin);
   M5.Lcd.printf("GPS\n"
+                " location: %s                \n"
+                "  latitude: %.5f             \n"
+                "  longitude: %.5f            \n"
+                " altitude: %.5f %s           \n"
                 " satellites: %d %s           \n"
-                " latitude, longitude: %.5f,%.5f %s\n"
-                " altitude: %.5f %s\n"
-                " date: %d-%d-%d %s           \n"
-                " time: %d:%d:%d %s           \n",
-                gps->get_data().satellites_value,
-                gps->get_data().satellites_valid ? "             " : "(unavailable)",
+                " date: %04d-%02d-%02d %s     \n"
+                " time: %02d:%02d:%02d %s     \n",
+                gps->get_data().location_valid ? "             " : "(unavailable)",
                 gps->get_data().latitude,
                 gps->get_data().longitude,
-                gps->get_data().location_valid ? "             " : "(unavailable)",
                 gps->get_data().altitude,
                 gps->get_data().altitude_valid ? "             " : "(unavailable)",
+                gps->get_data().satellites_value,
+                gps->get_data().satellites_valid ? "             " : "(unavailable)",
                 gps->get_data().year,
                 gps->get_data().month,
                 gps->get_data().day,
@@ -142,15 +157,6 @@ void GFXScreen::screenDashboard(const worker_map_t& workers, const handler_map_t
                 gps->get_data().minute,
                 gps->get_data().second,
                 gps->get_data().time_valid ? "             " : "(unavailable)");
-  M5.Lcd.printf("Button C\n state: %d\n was pressed: %s\n",
-                btnC->get_data().currentlyPressed,
-                btnC->get_data().shortPress ? "short" : btnC->get_data().longPress ? "long " : "-    ");
-  M5.Lcd.printf("Button B\n state: %d\n was pressed: %s\n",
-                btnB->get_data().currentlyPressed,
-                btnB->get_data().shortPress ? "short" : btnB->get_data().longPress ? "long " : "-    ");
-  M5.Lcd.printf("Button A\n state: %d\n was pressed: %s\n",
-                btnA->get_data().currentlyPressed,
-                btnA->get_data().shortPress ? "short" : btnA->get_data().longPress ? "long " : "-    ");
   M5.Lcd.setRotation(1);
 }
 

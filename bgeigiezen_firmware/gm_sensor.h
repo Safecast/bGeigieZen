@@ -2,22 +2,24 @@
 #define BGEIGIEZEN_GEIGERSENSOR_HPP
 
 #include <Worker.hpp>
-#include "hardwarecounter.hpp"
+#include "hardware_counter.h"
 
 struct GeigerData {
-  bool available = false;
-  bool valid = false;
-  uint32_t cpb = 0;
-  uint32_t cpm_raw = 0;
-  uint32_t cpm_comp = 0;
-  uint32_t cpm_comp_peak = 0;
-  uint32_t total = 0;
-  float uSv = 0.0;
-  float Bqm2 = 0.0;
+  bool valid = false;  // True if accumulated data over 1+ minute
+  uint32_t cpb = 0;  // Past second
+  uint32_t cpm_raw = 0;  // Total past minute
+  uint32_t cpm_comp = 0;  // cpm_raw processed
+  uint32_t cpm_comp_peak = 0;  // highest cpm_comp recorded
+  uint32_t total = 0;  // Total since initialization
+  float uSv = 0.0;  // cpm_comp converted to uSv/h
+  float Bqm2 = 0.0;  // cpm_comp converted to Bq/m²
+  float uSv_bin = 0.0;  // cpb converted to uSv/h
+  float Bqm2_bin = 0.0;  // cpb converted to Bq/m²
+  bool alert = false;  // cpm_comp > alert level
 };
 
 /**
- * Geiger counter worker, produces CPM among other data.
+ * Geiger counter worker, produces CPM among other data (See GeigerData).
  */
 class GeigerCounter : public Worker<GeigerData> {
  public:
@@ -32,7 +34,6 @@ class GeigerCounter : public Worker<GeigerData> {
   HardwareCounter pulse_counter;
   float _ush_factor = 1.0 / SETUP_DEFAULT_USH_DIVIDER;
   float _bqm2_factor = SETUP_DEFAULT_BQM2_FACTOR;  // default factor for surface measurements
-  float _cpm2ush_divider = SETUP_DEFAULT_USH_DIVIDER;  // default for pancake
   uint32_t _cpm_alert_level = SETUP_DEFAULT_ALERT_LEVEL;
 
   int _pos = 0;  // current position in shift register

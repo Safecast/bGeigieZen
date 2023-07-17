@@ -1,4 +1,4 @@
-#include "hardwarecounter.hpp"
+#include "hardware_counter.h"
 #include "debugger.h"
 
 /* Decode what PCNT's unit originated an interrupt
@@ -29,7 +29,6 @@ HardwareCounter::HardwareCounter() :
     _n_wraparound(0),
     _last_count(0),
     _available(false) {
-  begin();
 }
 
 bool HardwareCounter::available() const {
@@ -66,9 +65,9 @@ void HardwareCounter::begin() {
 
   /* Configure and enable the input filter */
   /*
-     pcnt_set_filter_value(_unit, 100);  // we should set this to match the
-     iRover pcnt_filter_enable(_unit);
-     */
+   pcnt_set_filter_value(_unit, 100);  // we should set this to match the
+   iRover pcnt_filter_enable(_unit);
+   */
 
   /* Enable events on maximum limit value */
   pcnt_event_enable(_unit, PCNT_EVT_H_LIM);
