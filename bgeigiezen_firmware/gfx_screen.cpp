@@ -116,8 +116,10 @@ void GFXScreen::screenDashboard(const worker_map_t& workers, const handler_map_t
   M5.Lcd.printf("Battery: %d%% %s\n",
                 battery->get_data().percentage,
                 battery->get_data().isCharging ? "(charging)" : "          ");
-  M5.Lcd.printf("Geiger counter (stub)\n CPM: %d\n uSv/h: %.3f\n",
+  M5.Lcd.printf("Geiger counter (stub)\n CPM raw: %d        \n CPM comp: %d        \n CPS: %d        \n uSv/h: %.3f        \n",
+                gm_sensor->get_data().cpm_raw,
                 gm_sensor->get_data().cpm_comp,
+                gm_sensor->get_data().cpb,
                 gm_sensor->get_data().uSv);
   M5.Lcd.printf("GPS\n"
                 " satellites: %d %s           \n"
