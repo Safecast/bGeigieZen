@@ -79,7 +79,7 @@ void setup() {
   auto* zen_B = new ZenButton(M5.BtnB);
   auto* zen_C = new ZenButton(M5.BtnC);
   auto* gps = new GpsConnector();
-  auto* gm_sensor = new GeigerMullerSensor();
+  auto* gm_sensor = new GeigerCounter();
   auto* battery_indicator = new BatteryIndicator();
   auto* shake_detector = new ShakeDetector();
 

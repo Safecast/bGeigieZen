@@ -48,7 +48,7 @@ void GFXScreen::screenSplash() {
   M5.Lcd.drawString("bGeigie Zen", 90, 50, 4);
   M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
   M5.Lcd.drawString("Some splash screen device details.", 5, 100, 2);
-  M5.Lcd.drawString("device name, ID, version", 5, 120, 2);
+  M5.Lcd.drawString(VERSION_STRING, 5, 120, 2);
   // Display safecast copyright
   M5.Lcd.setTextFont(1);
   M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
@@ -105,7 +105,7 @@ void GFXScreen::screenDashboard(const worker_map_t& workers, const handler_map_t
   M5.Lcd.drawRoundRect(210, -5, 90, 20, 4, TFT_WHITE);
   M5.Lcd.drawString("Button A", 230, 8);
 #endif
-  const auto& gm_sensor = workers.worker<GeigerMullerSensor>(k_worker_gm_sensor);
+  const auto& gm_sensor = workers.worker<GeigerCounter>(k_worker_gm_sensor);
   const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
   const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator);
   const auto& btnA = workers.worker<ZenButton>(k_worker_button_A);
@@ -117,8 +117,8 @@ void GFXScreen::screenDashboard(const worker_map_t& workers, const handler_map_t
                 battery->get_data().percentage,
                 battery->get_data().isCharging ? "(charging)" : "          ");
   M5.Lcd.printf("Geiger counter (stub)\n CPM: %d\n uSv/h: %.3f\n",
-                gm_sensor->get_data().CPM,
-                gm_sensor->get_data().usvh);
+                gm_sensor->get_data().cpm_comp,
+                gm_sensor->get_data().uSv);
   M5.Lcd.printf("GPS\n"
                 " satellites: %d %s           \n"
                 " latitude, longitude: %.5f,%.5f %s\n"
@@ -203,10 +203,12 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
   const auto& btnA = workers.worker<ZenButton>(k_worker_button_A);
   const auto& btnB = workers.worker<ZenButton>(k_worker_button_B);
   const auto& btnC = workers.worker<ZenButton>(k_worker_button_C);
-  if (!control->is_fresh() && !btnA->is_fresh() && !btnB->is_fresh() && !btnC->is_fresh() && _last_render + 1000 > millis()) {
+  const auto& GM = workers.worker<GeigerCounter>(k_worker_gm_sensor);
+  if (!GM->is_fresh() && !control->is_fresh() && !btnA->is_fresh() && !btnB->is_fresh() && !btnC->is_fresh() && _last_render + 1000 > millis()) {
     return;
   }
   if (control->is_fresh()) {
+    // New state renders completely new screen
     clear();
   }
   _last_render = millis();
@@ -215,7 +217,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
     case k_state_InitializeDeviceState:
       break;
     case k_state_EmptySDCardState:
-      screenSDError();
+      screenSDError(); // TODO: screen SD re-setup
       break;
     case k_state_NoSDCardState:
       screenSDError();
