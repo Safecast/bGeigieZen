@@ -8,7 +8,6 @@
 void IRAM_ATTR pcnt_intr_handler(void* arg) {
   auto* n_wraparound = static_cast<uint32_t*>(arg);
   (*n_wraparound)++;
-  DEBUG_PRINTLN("pcnt_intr_handler");
 }
 
 /* The timer interrupt routine
@@ -19,7 +18,6 @@ void IRAM_ATTR timer_intr_handler(void* arg) {
   auto* counter = static_cast<HardwareCounter*>(arg);
   counter->_last_count = counter->_get_count_reset();
   counter->_available = true;
-  DEBUG_PRINTLN("timer_intr_handler");
 }
 
 HardwareCounter::HardwareCounter() :
