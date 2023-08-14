@@ -136,17 +136,11 @@ void Display::draw_main()
       M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
 
     // Display CPM
-    M5.Lcd.setCursor(20, 50);
-    // M5.Lcd.drawString("CPM ", 120, 70, 4);
-    data.geiger_cpm>1000 ? (M5.Lcd.drawString("CPM ", 120, 70, 4)): M5.Lcd.drawString("KCPM ", 120, 70, 4);
-    M5.Lcd.setCursor(120, 55);
+    data.geiger_cpm>1000 ? (M5.Lcd.drawString("kCPM = ", 120, 70, 4)): M5.Lcd.drawString("CPM  = ", 120, 70, 4);
     printFloatFont(data.geiger_cpm, true, 7, 5, 100, 90, 4);
 
     // Display uSv/h
-    M5.Lcd.setCursor(22, 70);
-    // M5.Lcd.drawString("uSv/h =", 5, 100, 4);
-    data.geiger_uSv>1000 ? (M5.Lcd.drawString("uSv/h ", 120, 70, 4)): M5.Lcd.drawString("mSv/h ", 120, 70, 4);
-    M5.Lcd.setCursor(100, 80);
+    data.geiger_uSv>1000 ? (M5.Lcd.drawString("mSv/h ", 120, 70, 4)): M5.Lcd.drawString("uSv/h ", 120, 70, 4);
     printFloatFont(data.geiger_uSv, true, 7, 3, 100, 90, 4);
 
     data.geiger_fresh = false;
