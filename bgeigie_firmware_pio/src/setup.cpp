@@ -65,6 +65,7 @@ bool Setup::load_from_file(const char *setup_filename) {
   char config_buffer[SETUP_FILE_PARSE_BUFFER_SIZE];
   char *key = config_buffer;
   char *value = config_buffer;
+  
 
   // open the setup file
   auto setup_file = SD.open(setup_filename, FILE_READ);

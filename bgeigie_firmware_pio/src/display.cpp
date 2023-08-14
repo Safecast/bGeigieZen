@@ -137,9 +137,38 @@ void Display::draw_main()
 
     // Display CPM
     M5.Lcd.setCursor(20, 50);
-    M5.Lcd.drawString("CPM ", 120, 70, 4);
+    // M5.Lcd.drawString("CPM ", 120, 70, 4);
     M5.Lcd.setCursor(120, 55);
-    printIntFont(data.geiger_cpm, true, 5, 50, 5, 7);
+
+if (data.geiger_cpm >= 10000)
+    {
+      static char strbuffer[32];
+      static char strbuffer1[32];
+      dtostrf(((float)data.geiger_cpm) / 1000.0, 4, 3, strbuffer);
+      strncpy(strbuffer1, strbuffer, 4);
+      if (strbuffer1[strlen(strbuffer1) - 1] == '.')
+      {
+        strbuffer1[strlen(strbuffer1) - 1] = 0;
+      }
+      printIntFont(strbuffer1, true, 5, 50, 5, 7);
+      // display.print(strbuffer1);
+      // sprintf_P(strbuffer, PSTR("kCPM"));
+      M5.Lcd.drawString("KCPM ", 120, 70, 4);
+      display.print(strbuffer);
+    }
+    else
+    {
+      dtostrf((float)data.geiger_cpm, 0, 0, strbuffer);
+      display.print(strbuffer);
+      sprintf_P(strbuffer, PSTR(" CPM"));
+      display.print(strbuffer);
+    }
+
+
+
+
+    
+  
 
     // Display uSv/h
     M5.Lcd.setCursor(22, 70);
