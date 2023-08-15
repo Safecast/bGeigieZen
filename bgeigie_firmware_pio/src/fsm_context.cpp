@@ -8,10 +8,10 @@ void Context::begin() {
 }
 
 void Context::loop() {
-  M5.update();  // updates buttons and stuff
+  M5.update(); // updates buttons and stuff
   geiger_count.update();
-  gps.update();      // reads from the GPS
-  display.update();  // redraws the display and manages the states
+  gps.update();     // reads from the GPS
+  display.update(); // redraws the display and manages the states
 
   current_state->process();
 }
@@ -39,7 +39,7 @@ void Context::setup() {
     M5.Lcd.drawString("No SDCARD in slot", 5, 50, 4);
     M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
     M5.Lcd.drawString("Insert a SDCARD and restart.", 5, 90, 2);
-    //display Safecast copyright
+    // display Safecast copyright
     M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
     M5.Lcd.drawString("V0.1.2", 190, 215, 1);
     M5.Lcd.drawString("SAFECAST", 230, 215, 1);
@@ -53,7 +53,8 @@ void Context::setup() {
   device_setup.initialize();
   if (sd_wrapper.ready()) {
     bool success = device_setup.load_from_file(SETUP_FILENAME);
-    if (!success) Serial.println("Failed to read config from file");
+    if (!success)
+      Serial.println("Failed to read config from file");
   }
 
   // Now we can setup the device ID in the logger
@@ -71,7 +72,7 @@ void Context::on_geiger_counter_available() {
   // mark the Geiger data as not fresh
   geiger_count.consume();
 
-  // immediately update the data consummers
+  // immediately update the data consumers
   bgeigie_formatter.feed(geiger_count);
   display.feed(geiger_count);
   display.feed_battery_level(battery_monitor.get_level());
@@ -83,7 +84,8 @@ void Context::on_gps_available() {
 }
 
 void Context::transition_to(State *next_state, Event e) {
-  if (current_state != NULL) current_state->exit(e);
+  if (current_state != NULL)
+    current_state->exit(e);
   current_state = next_state;
   current_state->enter(this, e);
 }

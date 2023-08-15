@@ -7,7 +7,8 @@ char checksum(char *s, int N) {
   int i = 0;
   char chk = s[0];
 
-  for (i = 1; i < N; i++) chk ^= s[i];
+  for (i = 1; i < N; i++)
+    chk ^= s[i];
 
   return chk;
 }
@@ -78,13 +79,16 @@ bool SDLogger::start(uint32_t device_id, uint16_t year, uint8_t month,
                      uint8_t day) {
   // "YYYY/BBBBMMDD.LOG", 18 charachters, including terminating NULL
   // Y: year, M: month, D: day, B: device id
-  if (year > 9999) year = 9999;
-  if (day > 31) day = 31;
+  if (year > 9999)
+    year = 9999;
+  if (day > 31)
+    day = 31;
   if (month > 12)
     month = 12;
   else if (month == 0)
     month = 1;
-  if (device_id > 9999) device_id = 9999;
+  if (device_id > 9999)
+    device_id = 9999;
 
   sprintf(_filename, "/%04d/%04d%02d%02d.log", year, device_id, month, day);
   Serial.print("The filename ");
@@ -104,11 +108,12 @@ bool SDLogger::start(uint32_t device_id, uint16_t year, uint8_t month,
 
   // Open the file and print the firmware version
   if (_folder_created) {
-    char header_l2[9 + 4 + 1 + 4 + 1 + 4 + + 3 + 1];
+    char header_l2[9 + 4 + 1 + 4 + 1 + 4 + +3 + 1];
     uint16_t maj = MAJOR > 9999 ? 9999 : MAJOR;
     uint16_t min = MINOR > 9999 ? 9999 : MINOR;
     uint16_t pat = PATCH > 9999 ? 9999 : PATCH;
-    sprintf(header_l2, "%s%d.%d.%d%s", LOG_HEADER_LINE2, maj, min, pat, device_nickname);
+    sprintf(header_l2, "%s%d.%d.%d%s", LOG_HEADER_LINE2, maj, min, pat,
+            device_nickname);
     _logfile_created = log(LOG_HEADER_LINE1);
     _logfile_created = log(header_l2);
     _logfile_created = log(LOG_HEADER_LINE3);
@@ -118,9 +123,10 @@ bool SDLogger::start(uint32_t device_id, uint16_t year, uint8_t month,
 }
 
 bool SDLogger::log(const char *log_line) const {
-  auto my_file = SD.open(_filename, FILE_APPEND);  // opens in append mode
+  auto my_file = SD.open(_filename, FILE_APPEND); // opens in append mode
 
-  if (!my_file) return false;
+  if (!my_file)
+    return false;
 
   my_file.println(log_line);
   my_file.close();

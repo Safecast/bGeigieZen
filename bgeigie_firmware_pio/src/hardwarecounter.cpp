@@ -26,15 +26,15 @@ void HardwareCounter::begin() {
   pcnt_config_t pcnt_config = {
     // Set PCNT input signal and control GPIOs
     pulse_gpio_num : _gpio,
-    ctrl_gpio_num : -1,  // no control pin is used
+    ctrl_gpio_num : -1, // no control pin is used
     // What to do when control input is low or high?
-    lctrl_mode : PCNT_MODE_KEEP,  // Keep the primary counter mode if low
-    hctrl_mode : PCNT_MODE_KEEP,  // Keep the primary counter mode if high
+    lctrl_mode : PCNT_MODE_KEEP, // Keep the primary counter mode if low
+    hctrl_mode : PCNT_MODE_KEEP, // Keep the primary counter mode if high
     // What to do on the positive / negative edge of pulse input?
-    pos_mode : PCNT_COUNT_DIS,  // Keep the counter value on the positive edge
-    neg_mode : PCNT_COUNT_INC,  // Count up on the negative edge
+    pos_mode : PCNT_COUNT_DIS, // Keep the counter value on the positive edge
+    neg_mode : PCNT_COUNT_INC, // Count up on the negative edge
     // Set the maximum and minimum limit values to watch
-    counter_h_lim : _max_value,  // max of 16 bit counter
+    counter_h_lim : _max_value, // max of 16 bit counter
     counter_l_lim : 0,
 
     unit : _unit,

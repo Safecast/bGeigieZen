@@ -3,18 +3,19 @@
 int8_t BatteryMonitorIP5306::get_level() {
   Wire.beginTransmission(IP5306_I2C_ADDR);
   Wire.write(0x78);
-  if (Wire.endTransmission(false) == 0 && Wire.requestFrom(IP5306_I2C_ADDR, 1)) {
+  if (Wire.endTransmission(false) == 0 &&
+      Wire.requestFrom(IP5306_I2C_ADDR, 1)) {
     switch (Wire.read() & 0xF0) {
-      case 0xE0:
-        return 25;
-      case 0xC0:
-        return 50;
-      case 0x80:
-        return 75;
-      case 0x00:
-        return 100;
-      default:
-        return 3;
+    case 0xE0:
+      return 25;
+    case 0xC0:
+      return 50;
+    case 0x80:
+      return 75;
+    case 0x00:
+      return 100;
+    default:
+      return 3;
     }
   }
   return -1;
@@ -23,7 +24,8 @@ int8_t BatteryMonitorIP5306::get_level() {
 int BatteryMonitorIP5306::get_reg(uint8_t reg) {
   Wire.beginTransmission(IP5306_I2C_ADDR);
   Wire.write(reg);
-  if (Wire.endTransmission(false) == 0 && Wire.requestFrom(IP5306_I2C_ADDR, 1)) {
+  if (Wire.endTransmission(false) == 0 &&
+      Wire.requestFrom(IP5306_I2C_ADDR, 1)) {
     return Wire.read();
   }
   return -1;
@@ -40,7 +42,7 @@ int BatteryMonitorIP5306::set_reg(uint8_t reg, uint8_t value) {
 }
 
 uint8_t BatteryMonitorIP5306::get_bits(uint8_t reg, uint8_t index,
-                                              uint8_t bits) {
+                                       uint8_t bits) {
   int value = get_reg(reg);
   if (value < 0) {
     Serial.printf("get_bits fail: 0x%02x\n", reg);
@@ -49,8 +51,8 @@ uint8_t BatteryMonitorIP5306::get_bits(uint8_t reg, uint8_t index,
   return (value >> index) & ((1 << bits) - 1);
 }
 
-void BatteryMonitorIP5306::set_bits(uint8_t reg, uint8_t index,
-                                           uint8_t bits, uint8_t value) {
+void BatteryMonitorIP5306::set_bits(uint8_t reg, uint8_t index, uint8_t bits,
+                                    uint8_t value) {
   uint8_t mask = (1 << bits) - 1;
   int v = get_reg(reg);
   if (v < 0) {
