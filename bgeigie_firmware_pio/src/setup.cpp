@@ -68,7 +68,7 @@ bool Setup::load_from_file(const char *setup_filename) {
 
   // open the setup file
   auto setup_file = SD.open(setup_filename, FILE_READ);
-  
+
   if (!setup_file)
     return false;
 
@@ -84,79 +84,79 @@ bool Setup::load_from_file(const char *setup_filename) {
       break;
 
     switch (pstate) {
-      case LINE_START:
-        if (c != ' ' && c != '\n' && c != '\r') {
-          // found beginning of key
-          config_buffer[pos] = c;
-          pos++;  // pos == 1 after this line
-          pstate = LINE_PARSE_KEY;
-        }
-        break;
+    case LINE_START:
+      if (c != ' ' && c != '\n' && c != '\r') {
+        // found beginning of key
+        config_buffer[pos] = c;
+        pos++; // pos == 1 after this line
+        pstate = LINE_PARSE_KEY;
+      }
+      break;
 
-      case LINE_PARSE_KEY:
-        if (pos == SETUP_FILE_PARSE_BUFFER_SIZE) {
-          pstate = LINE_SKIP;
-        } else if (c == ' ') {
-          // found end of the key, mark and go to the value
-          config_buffer[pos] = '\0';  // mark the end of the string
-          pos++;
-          pstate = LINE_PARSE_DELIM;
-        } else if (c == '=') {
-          config_buffer[pos] = '\0';
-          pos++;
-          pstate = LINE_PARSE_DELIM;
-        } else if (c == '\n' || c == '\r') {
-          // premature end of line, skip
-          pos = 0;
-          pstate = LINE_START;
-        } else {
-          config_buffer[pos] = c;
-          pos++;
-        }
-        break;
+    case LINE_PARSE_KEY:
+      if (pos == SETUP_FILE_PARSE_BUFFER_SIZE) {
+        pstate = LINE_SKIP;
+      } else if (c == ' ') {
+        // found end of the key, mark and go to the value
+        config_buffer[pos] = '\0'; // mark the end of the string
+        pos++;
+        pstate = LINE_PARSE_DELIM;
+      } else if (c == '=') {
+        config_buffer[pos] = '\0';
+        pos++;
+        pstate = LINE_PARSE_DELIM;
+      } else if (c == '\n' || c == '\r') {
+        // premature end of line, skip
+        pos = 0;
+        pstate = LINE_START;
+      } else {
+        config_buffer[pos] = c;
+        pos++;
+      }
+      break;
 
-      case LINE_PARSE_DELIM:
-        if (pos == SETUP_FILE_PARSE_BUFFER_SIZE) {
-          pstate = LINE_SKIP;
-        } else if (c == '\n' || c == '\r') {
-          // we also accept an empty value
-          value = config_buffer + pos;
-          config_buffer[pos] = '\0';
-          pos++;
-          parsed_line = true;  // mark parsing as successful
-          // parse next line
-          pos = 0;
-          pstate = LINE_START;
-        } else if (c != ' ' && c != '=') {
-          value = config_buffer + pos;
-          config_buffer[pos] = c;
-          pos++;
-          pstate = LINE_PARSE_VALUE;
-        }
-        break;
+    case LINE_PARSE_DELIM:
+      if (pos == SETUP_FILE_PARSE_BUFFER_SIZE) {
+        pstate = LINE_SKIP;
+      } else if (c == '\n' || c == '\r') {
+        // we also accept an empty value
+        value = config_buffer + pos;
+        config_buffer[pos] = '\0';
+        pos++;
+        parsed_line = true; // mark parsing as successful
+        // parse next line
+        pos = 0;
+        pstate = LINE_START;
+      } else if (c != ' ' && c != '=') {
+        value = config_buffer + pos;
+        config_buffer[pos] = c;
+        pos++;
+        pstate = LINE_PARSE_VALUE;
+      }
+      break;
 
-      case LINE_PARSE_VALUE:
-        if (pos == SETUP_FILE_PARSE_BUFFER_SIZE) {
-          pstate = LINE_SKIP;
-        } else if (c == '\n' || c == '\r' || c == ' ') {
-          // end of value
-          config_buffer[pos] = '\0';
-          parsed_line = true;  // indicate successful parsing
-          pos = 0;
-          pstate = LINE_START;
-        } else {
-          config_buffer[pos] = c;
-          pos++;
-        }
-        break;
+    case LINE_PARSE_VALUE:
+      if (pos == SETUP_FILE_PARSE_BUFFER_SIZE) {
+        pstate = LINE_SKIP;
+      } else if (c == '\n' || c == '\r' || c == ' ') {
+        // end of value
+        config_buffer[pos] = '\0';
+        parsed_line = true; // indicate successful parsing
+        pos = 0;
+        pstate = LINE_START;
+      } else {
+        config_buffer[pos] = c;
+        pos++;
+      }
+      break;
 
-      case LINE_SKIP:
-        // wait until we find the end of line
-        if (c == '\n' || c == '\r') {
-          pos = 0;
-          pstate = LINE_START;
-        }
-        break;
+    case LINE_SKIP:
+      // wait until we find the end of line
+      if (c == '\n' || c == '\r') {
+        pos = 0;
+        pstate = LINE_START;
+      }
+      break;
     }
 
     if (parsed_line) {

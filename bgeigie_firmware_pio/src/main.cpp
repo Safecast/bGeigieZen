@@ -6,8 +6,6 @@
 
 Context context;
 
-void setup() {
-  context.begin();
-}
+void setup() { context.begin(); }
 
 void loop() { context.loop(); }

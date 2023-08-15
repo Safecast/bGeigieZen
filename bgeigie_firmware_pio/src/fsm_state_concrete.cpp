@@ -23,20 +23,23 @@ StateWaitGPSTime *StateWaitGPSTime::instance() {
 }
 void StateWaitGPSTime::on_enter(Event e) {}
 void StateWaitGPSTime::process() {
-  if (_ctx->geiger_count.available()) _ctx->on_geiger_counter_available();
+  if (_ctx->geiger_count.available())
+    _ctx->on_geiger_counter_available();
 
   if (_ctx->gps.available()) {
     _ctx->on_gps_available();
 
     if (_ctx->gps.time_valid())
-      _ctx->transition_to(StateLogging::instance(), Event::GPS_DATE_BECAME_CORRECT);
+      _ctx->transition_to(StateLogging::instance(),
+                          Event::GPS_DATE_BECAME_CORRECT);
   }
 }
 void StateWaitGPSTime::on_exit(Event e) {
   if (e == Event::GPS_DATE_BECAME_CORRECT) {
     TinyGPSDate &date = _ctx->gps.data().date;
     uint32_t dev_id = _ctx->device_setup.config().device_id;
-    bool ret = _ctx->logger.start(dev_id, date.year(), date.month(), date.day());
+    bool ret =
+        _ctx->logger.start(dev_id, date.year(), date.month(), date.day());
     if (!ret)
       Serial.println("Log creation failed");
     else
@@ -53,9 +56,11 @@ StateLogging *StateLogging::instance() {
 StateLogging *StateLogging::_instance = NULL;
 void StateLogging::on_enter(Event e) {}
 void StateLogging::process() {
-  if (_ctx->geiger_count.available()) _ctx->on_geiger_counter_available();
+  if (_ctx->geiger_count.available())
+    _ctx->on_geiger_counter_available();
 
-  if (_ctx->gps.available()) _ctx->on_gps_available();
+  if (_ctx->gps.available())
+    _ctx->on_gps_available();
 
   if (_ctx->bgeigie_formatter.ready()) {
     Serial.println(_ctx->bgeigie_formatter.format());
@@ -71,7 +76,8 @@ void StateLogging::process() {
     else {
       bool ret = _ctx->logger.log(_ctx->bgeigie_formatter.format());
 
-      if (!ret) Serial.println("Log to sd card failed");
+      if (!ret)
+        Serial.println("Log to sd card failed");
     }
   }
 }
