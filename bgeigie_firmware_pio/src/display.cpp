@@ -128,23 +128,28 @@ void Display::draw_main() {
     data.geiger_cpm > 1000 ? (M5.Lcd.drawString("kCPM  = ", 5, 70, 4))
                            : M5.Lcd.drawString("CPM  = ", 5, 70, 4);
     M5.Lcd.setCursor(120, 55);
-    printIntFont(data.geiger_cpm, true, 5, 50, 90, 7);
+    data.geiger_cpm > 1000 ? (printIntFont(data.geiger_cpm, true, 3, 50, 90, 7))
+                           : printIntFont(data.geiger_cpm, true, 5, 50, 90, 7);
 
     // Display uSv/h
     M5.Lcd.setCursor(22, 70);
     data.geiger_uSv > 1000 ? (M5.Lcd.drawString("uSv/h =", 5, 100, 4))
                            : M5.Lcd.drawString("uSv/h =", 5, 100, 4);
     M5.Lcd.setCursor(100, 80);
-    printFloatFont(data.geiger_uSv, true, 7, 3, 100, 90, 4);
+    data.geiger_uSv > 1000 ? (printFloatFont(data.geiger_uSv, true, 5, 3, 100, 90, 4))
+                        : printFloatFont(data.geiger_uSv, true, 7, 3, 100, 90, 4);
 
     data.geiger_fresh = false;
   }
-
+  // GPS info
   if (data.gps_fresh) {
     M5.Lcd.setCursor(0, 150);
     M5.Lcd.setTextColor(WHITE, BLACK);
-    M5.Lcd.print("Satelites  :");
+    data.gps_satellites.value() < 2 ? (M5.Lcd.setTextColor(TFT_RED, TFT_BLACK))
+                                    : M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
+    M5.Lcd.print("Satellites :");
     printInt(data.gps_satellites.value(), data.gps_satellites.isValid(), 5);
+    M5.Lcd.setTextColor(WHITE, BLACK);
     M5.Lcd.println();
     M5.Lcd.print("Latitude   :");
     printFloat(data.gps_location.lat(), data.gps_location.isValid(), 11, 6);
@@ -171,6 +176,7 @@ void Display::draw_main() {
   }
 }
 
+// survey mode
 void Display::draw_survey() {
 
   draw_navbar("MENU", "MODE", "QR"); // Buttons A, B, C
