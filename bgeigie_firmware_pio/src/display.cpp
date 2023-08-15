@@ -14,7 +14,7 @@ void Display::draw_base()
 {
   // Display safecast copyright
   M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
-  M5.Lcd.drawString("V0.1.1", 190, 215, 1);
+  M5.Lcd.drawString("V0.1.2", 190, 215, 1);
   M5.Lcd.drawString("SAFECAST", 230, 215, 1);
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
   M5.Lcd.drawString("2023", 285, 215, 1);
