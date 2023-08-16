@@ -340,22 +340,23 @@ void Display::draw_survey() {
     printFloatFont(data.geiger_uSv, true, 7, 3, 100, 5, 7);
 
     // Display CPM
-    M5.Lcd.drawString("CPM", 75, 135, 4);
+    M5.Lcd.drawString("CPM", 90, 135, 4);
     printIntFont(data.geiger_cpm, true, 5, 135, 5, 4);
 
     // Display Bq/m^2
-    M5.Lcd.drawString("Bq/m^2", 75, 160, 4);
-    printFloatFont(data.geiger_bqm2, true, 5, 3, 160, 5, 4);
+    M5.Lcd.drawString("Bq/m^2", 90, 160, 4);
+    data.geiger_bqm2 = data.geiger_cpm*37;
+    printIntFont(data.geiger_bqm2, true, 5, 160, 5, 4);
 
-    // Display Max. uSv/h
-    M5.Lcd.drawString("Max", 180, 125, 2);
-    printFloatFont(/*data.geiger_uSv*/ 0.1234, true, 7, 3, 125, 220, 2);
-    M5.Lcd.drawString("uSv/h", 270, 125, 2);
+    // // Display Max. uSv/h
+    // M5.Lcd.drawString("Max", 180, 125, 2);
+    // printFloatFont(/*data.geiger_uSv*/ 0.1234, true, 7, 3, 125, 220, 2);
+    // M5.Lcd.drawString("uSv/h", 270, 125, 2);
 
-    // Display dose in uSv
-    M5.Lcd.drawString("Dose", 180, 140, 2);
-    printFloatFont(/*data.geiger_uSv*/ 12.345, true, 7, 3, 140, 220, 2);
-    M5.Lcd.drawString("uSv", 270, 140, 2);
+    // // Display dose in uSv
+    // M5.Lcd.drawString("Dose", 180, 140, 2);
+    // printFloatFont(/*data.geiger_uSv*/ 12.345, true, 7, 3, 140, 220, 2);
+    // M5.Lcd.drawString("uSv", 270, 140, 2);
 
     data.geiger_fresh = false;
   }
