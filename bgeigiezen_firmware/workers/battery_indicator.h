@@ -1,5 +1,5 @@
-#ifndef BGEIGIEZEN_BATTERYINDICATOR_HPP
-#define BGEIGIEZEN_BATTERYINDICATOR_HPP
+#ifndef BGEIGIEZEN_BATTERYINDICATOR_H_
+#define BGEIGIEZEN_BATTERYINDICATOR_H_
 
 #include <Worker.hpp>
 #include <stdint.h>
@@ -28,4 +28,4 @@ class BatteryIndicator : public Worker<BatteryStatus> {
 
 };
 
-#endif //BGEIGIEZEN_BATTERYINDICATOR_HPP
+#endif //BGEIGIEZEN_BATTERYINDICATOR_H_

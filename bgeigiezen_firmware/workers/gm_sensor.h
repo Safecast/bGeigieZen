@@ -1,20 +1,23 @@
-#ifndef BGEIGIEZEN_GEIGERSENSOR_HPP
-#define BGEIGIEZEN_GEIGERSENSOR_HPP
+#ifndef BGEIGIEZEN_GEIGER_COUNTER_H_
+#define BGEIGIEZEN_GEIGER_COUNTER_H_
 
 #include <Worker.hpp>
-#include "hardware_counter.h"
+#include <utils/hardware_counter.h>
 
 struct GeigerData {
   bool valid = false;  // True if accumulated data over 1+ minute
-  uint32_t cpb = 0;  // Past second
-  uint32_t cpm_raw = 0;  // Total past minute
-  uint32_t cpm_comp = 0;  // cpm_raw processed
+  uint16_t cps = 0;  // Past second
+  uint16_t cp5s = 0;  // Past 5 seconds
+  uint32_t cpm_raw = 0;  // Past minute
+  uint32_t cpm_comp = 0;  // cpm_raw compensated for medcom deadtime
   uint32_t cpm_comp_peak = 0;  // highest cpm_comp recorded
   uint32_t total = 0;  // Total since initialization
   float uSv = 0.0;  // cpm_comp converted to uSv/h
   float Bqm2 = 0.0;  // cpm_comp converted to Bq/m²
-  float uSv_bin = 0.0;  // cpb converted to uSv/h
-  float Bqm2_bin = 0.0;  // cpb converted to Bq/m²
+  float uSv_sec = 0.0;  // cps converted to uSv/h
+  float Bqm2_sec = 0.0;  // cps converted to Bq/m²
+  float uSv_5sec = 0.0;  // cp5s converted to uSv/h
+  float Bqm2_5sec = 0.0;  // cp5s converted to Bq/m²
   bool alert = false;  // cpm_comp > alert level
 };
 
@@ -42,4 +45,4 @@ class GeigerCounter : public Worker<GeigerData> {
 
 };
 
-#endif //BGEIGIEZEN_GEIGERSENSOR_HPP
+#endif //BGEIGIEZEN_GEIGER_COUNTER_H_

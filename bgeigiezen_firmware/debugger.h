@@ -1,6 +1,7 @@
-#ifndef BGEIGIEZEN_DEBUGGER_H
-#define BGEIGIEZEN_DEBUGGER_H
+#ifndef BGEIGIEZEN_DEBUGGER_H_
+#define BGEIGIEZEN_DEBUGGER_H_
 
+#include <Arduino.h>
 #include "user_config.h"
 
 #ifdef UNIT_TEST
@@ -8,7 +9,6 @@
 #endif
 
 #if ENABLE_DEBUG
-#include <Arduino.h>
 
 #ifndef DEBUG_STREAM
 #define DEBUG_STREAM Serial
@@ -34,4 +34,4 @@
 
 #endif
 
-#endif // BGEIGIEZEN_DEBUGGER_H
+#endif // BGEIGIEZEN_DEBUGGER_H_
