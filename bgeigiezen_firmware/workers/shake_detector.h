@@ -1,5 +1,5 @@
-#ifndef BGEIGIEZEN_IMU_SENSOR_HPP
-#define BGEIGIEZEN_IMU_SENSOR_HPP
+#ifndef BGEIGIEZEN_IMU_SENSOR_H_
+#define BGEIGIEZEN_IMU_SENSOR_H_
 
 #include <Arduino.h>
 #include <Worker.hpp>
@@ -32,4 +32,4 @@ class ShakeDetector : public Worker<bool> {
   float _temp;
 };
 
-#endif //BGEIGIEZEN_IMU_SENSOR_HPP
+#endif //BGEIGIEZEN_IMU_SENSOR_H_

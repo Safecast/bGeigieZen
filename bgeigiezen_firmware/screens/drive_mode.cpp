@@ -1,0 +1,77 @@
+#include "drive_mode.h"
+#include "workers/zen_button.h"
+#include "workers/battery_indicator.h"
+#include "workers/gps_connector.h"
+#include "workers/gm_sensor.h"
+#include "identifiers.h"
+#include "menu_window.h"
+#include "debugger.h"
+
+DriveModeScreen::DriveModeScreen() {
+}
+
+BaseScreen* DriveModeScreen::handle_input(const worker_map_t& workers) {
+  auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
+  if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
+    return MenuWindow::i();
+  }
+  return nullptr;
+}
+
+void DriveModeScreen::render(TFT_eSprite& sprite, const worker_map_t& workers, const handler_map_t& handlers) {
+  ///
+  // Display something
+  const auto& gm_sensor = workers.worker<GeigerCounter>(k_worker_gm_sensor);
+  const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
+  const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator);
+
+  drawButton1(sprite, "Start log");
+  drawButton2(sprite, "Nothing");
+  drawButton3(sprite, "Menu");
+
+  sprite.setTextColor(TFT_WHITE, TFT_BLACK);
+  sprite.setCursor(0, 30);
+  sprite.printf("Battery: %d%% %s\n",
+                battery->get_data().percentage,
+                battery->get_data().isCharging ? "(charging)" : "          ");
+  sprite.printf("Geiger counter %s\n"
+                " CPM raw: %d        \n"
+                " CPM comp: %d %s     \n   uSv/h: %.4f      \n   Bq/m2: %.0f       \n"
+                " CPB: %d      \n   uSv/h: %.4f      \n   Bq/m2: %.0f       \n",
+                gm_sensor->get_data().valid ? "(valid)             " : "(collecting data...)",
+                gm_sensor->get_data().cpm_raw,
+                gm_sensor->get_data().cpm_comp,
+                gm_sensor->get_data().alert ? "(ALERT!!!)" : "          ",
+                gm_sensor->get_data().uSv,
+                gm_sensor->get_data().Bqm2,
+                gm_sensor->get_data().cps,
+                gm_sensor->get_data().uSv_sec,
+                gm_sensor->get_data().Bqm2_sec);
+  sprite.printf("GPS\n"
+                " location: %s                \n"
+                "  latitude: %.5f             \n"
+                "  longitude: %.5f            \n"
+                " altitude: %.5f %s           \n"
+                " satellites: %d %s           \n"
+                " date: %04d-%02d-%02d %s     \n"
+                " time: %02d:%02d:%02d %s     \n",
+                gps->get_data().location_valid ? "             " : "(unavailable)",
+                gps->get_data().latitude,
+                gps->get_data().longitude,
+                gps->get_data().altitude,
+                gps->get_data().altitude_valid ? "             " : "(unavailable)",
+                gps->get_data().satellites_value,
+                gps->get_data().satellites_valid ? "             " : "(unavailable)",
+                gps->get_data().year,
+                gps->get_data().month,
+                gps->get_data().day,
+                gps->get_data().date_valid ? "             " : "(unavailable)",
+                gps->get_data().hour,
+                gps->get_data().minute,
+                gps->get_data().second,
+                gps->get_data().time_valid ? "             " : "(unavailable)");
+}
+
+void DriveModeScreen::leave_screen() {
+
+}

@@ -1,5 +1,5 @@
-#ifndef BGEIGIEZEN_BUTTON_HPP
-#define BGEIGIEZEN_BUTTON_HPP
+#ifndef BGEIGIEZEN_BUTTON_H_
+#define BGEIGIEZEN_BUTTON_H_
 
 #ifdef M5_CORE2
 #include <M5Core2.h>
@@ -33,4 +33,4 @@ class ZenButton : public Worker<ButtonState> {
   Button& _m5_button;
 };
 
-#endif //BGEIGIEZEN_BUTTON_HPP
+#endif //BGEIGIEZEN_BUTTON_H_

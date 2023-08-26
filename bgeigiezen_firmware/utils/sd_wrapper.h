@@ -1,5 +1,5 @@
-#ifndef __SD_WRAPPER_HPP__
-#define __SD_WRAPPER_HPP__
+#ifndef __SD_WRAPPER_H_
+#define __SD_WRAPPER_H_
 
 #include <stdint.h>
 
@@ -58,4 +58,4 @@ class SDInterface {
   bool _sd_ready = false;
 };
 
-#endif  // __SD_WRAPPER_HPP__
+#endif  // __SD_WRAPPER_H_
