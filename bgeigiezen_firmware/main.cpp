@@ -51,12 +51,13 @@
 
 #include "identifiers.h"
 #include "controller.h"
-#include "gps_connector.h"
-#include "gm_sensor.h"
-#include "zen_button.h"
-#include "shake_detector.h"
+#include "workers/gps_connector.h"
+#include "workers/gm_sensor.h"
+#include "workers/zen_button.h"
+#include "workers/shake_detector.h"
+#include "workers/battery_indicator.h"
+#include "workers/log_aggregator.h"
 #include "gfx_screen.h"
-#include "battery_indicator.h"
 #include "debugger.h"
 
 Controller controller;
@@ -65,13 +66,8 @@ void setup() {
   DEBUG_BEGIN();
   DEBUG_PRINTLN("MAIN SETUP DEBUG ENABLED");
   /// Hardware configurations
-#ifdef M5_CORE2
   Wire.begin();
   M5.begin();
-#elif M5_BASIC
-  Wire.begin();
-  M5.begin();
-#endif
 
   /// Software configurations
   // Workers
@@ -82,6 +78,7 @@ void setup() {
   auto* gm_sensor = new GeigerCounter();
   auto* battery_indicator = new BatteryIndicator();
   auto* shake_detector = new ShakeDetector();
+  auto* log_aggregator = new LogAggregator();
 
   // Data handlers
 
@@ -93,19 +90,19 @@ void setup() {
   controller.register_worker(k_worker_gm_sensor, *gm_sensor);
   controller.register_worker(k_worker_shake_detector, *shake_detector);
   controller.register_worker(k_worker_battery_indicator, *battery_indicator);
-  controller.register_worker(k_worker_button_A, *zen_A);
-  controller.register_worker(k_worker_button_B, *zen_B);
-  controller.register_worker(k_worker_button_C, *zen_C);
+  controller.register_worker(k_worker_button_3, *zen_A);
+  controller.register_worker(k_worker_button_2, *zen_B);
+  controller.register_worker(k_worker_button_1, *zen_C);
+  controller.register_worker(k_worker_log_aggregator, *log_aggregator);
   controller.register_worker(k_worker_controller_state, controller);
 
   DEBUG_PRINTLN("Register handlers...");
-  controller.register_handler(k_handler_controller_handler, controller);
+  controller.register_handler(k_handler_log_aggregator, *log_aggregator);
 
   DEBUG_PRINTLN("Register supervisors...");
   controller.register_supervisor(*gfx_screen);
 
-  // Setup controller
-  controller.setup_state_machine();
+  controller.start_default_workers();
 }
 
 void loop() {

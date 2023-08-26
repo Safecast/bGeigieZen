@@ -17,20 +17,22 @@ int8_t GeigerCounter::produce_data() {
     return e_worker_idle;
   }
 
-  data.cpb = pulse_counter.get_last_count();
+  data.cps = pulse_counter.get_last_count();
 
   // increase total count
-  data.total += data.cpb;
+  data.total += data.cps;
 
   // update the shift register
   _pos = (_pos + 1) % GEIGER_AVERAGING_N_BINS;
   if (_pos == 0) {
     data.valid = true;
   }
-  _shift_reg[_pos] = data.cpb;
+  _shift_reg[_pos] = data.cps;
 
   // sum up the shift register
   data.cpm_raw = std::accumulate(_shift_reg.begin(), _shift_reg.end(), 0u);
+
+  data.cp5s = std::accumulate(_shift_reg.begin(), _shift_reg.begin() + (GEIGER_AVERAGING_N_BINS / 12), 0u);
 
   // CPM compensated for deadtime (medcom international)
   data.cpm_comp = static_cast<uint32_t>(static_cast<float>(data.cpm_raw) / (1 - (static_cast<float>(data.cpm_raw) * 1.8833e-6)));
@@ -60,8 +62,13 @@ int8_t GeigerCounter::produce_data() {
   data.uSv = static_cast<float>(data.cpm_comp) * _ush_factor;
   data.Bqm2 = static_cast<float>(data.cpm_comp) * _bqm2_factor;
 
-  data.uSv_bin = static_cast<float>(data.cpb) * _ush_factor * GEIGER_AVERAGING_N_BINS;
-  data.Bqm2_bin = static_cast<float>(data.cpb) * _bqm2_factor * GEIGER_AVERAGING_N_BINS;
+  data.uSv_sec = static_cast<float>(data.cps) * _ush_factor * GEIGER_AVERAGING_N_BINS;
+  data.Bqm2_sec = static_cast<float>(data.cps) * _bqm2_factor * GEIGER_AVERAGING_N_BINS;
+
+  data.uSv_5sec = static_cast<float>(data.cp5s) * _ush_factor * (static_cast<float>(GEIGER_AVERAGING_N_BINS) / 12);
+  data.Bqm2_5sec = static_cast<float>(data.cp5s) * _bqm2_factor * (static_cast<float>(GEIGER_AVERAGING_N_BINS) / 12);
+
   data.alert = data.cpm_comp > _cpm_alert_level;
+
   return e_worker_data_read;
 }

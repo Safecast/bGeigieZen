@@ -1,5 +1,5 @@
-#ifndef BGEIGIEZEN_GPS_SENSOR_HPP
-#define BGEIGIEZEN_GPS_SENSOR_HPP
+#ifndef BGEIGIEZEN_GPS_SENSOR_H_
+#define BGEIGIEZEN_GPS_SENSOR_H_
 
 #include <Arduino.h>
 #include <Worker.hpp>
@@ -76,4 +76,4 @@ class GpsConnector : public Worker<GpsData> {
   TinyGPSPlus gps;
 };
 
-#endif //BGEIGIEZEN_GPS_SENSOR_HPP
+#endif //BGEIGIEZEN_GPS_SENSOR_H_

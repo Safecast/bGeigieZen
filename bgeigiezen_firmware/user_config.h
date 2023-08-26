@@ -1,5 +1,5 @@
-#ifndef USER_CONFIG_H
-#define USER_CONFIG_H
+#ifndef USER_CONFIG_H_
+#define USER_CONFIG_H_
 
 #include <Arduino.h>
 
@@ -45,7 +45,7 @@ constexpr char LOG_HEADER_LINE2[] = "# format=";
 constexpr char LOG_HEADER_LINE3[] = "# deadtime=off";
 
 // - Setup
-constexpr char SETUP_FILENAME[] = "/SAFECAST.txt";
+constexpr char SETUP_FILENAME[] = "/SAFEZEN.txt";
 constexpr uint8_t SETUP_FILE_PARSE_BUFFER_SIZE = 102;
 constexpr uint32_t SETUP_DEFAULT_DEVICE_ID = 0;
 constexpr uint8_t SETUP_USERNAME_MAXLEN = 15;
@@ -73,9 +73,9 @@ constexpr uint32_t SERVER_WIFI_PORT = 80;
 
 /** API connector settings **/
 #define API_HOST "tt.safecast.org"
+#define API_MEASUREMENTS_ENDPOINT "http://" API_HOST "/measurements.json"
 #define HEADER_API_CONTENT_TYPE "application/json"
 #define HEADER_API_USER_AGENT "bGeigieCast/" VERSION_STRING
-#define API_MEASUREMENTS_ENDPOINT "http://" API_HOST "/measurements.json"
 
 /** Access point settings **/
 #define ACCESS_POINT_SSID       "bgeigiezen-%d" // With device id
