@@ -33,7 +33,7 @@ int8_t GpsConnector::produce_data() {
   if (gps.satellites.isUpdated()) {
     data.satellites_valid = gps.satellites.isValid();
     data.satellites_value = gps.satellites.value();
-    return e_worker_data_read;
+    status =  e_worker_data_read;
   }
 
   if (gps.date.isUpdated()) {
@@ -41,7 +41,7 @@ int8_t GpsConnector::produce_data() {
     data.year = gps.date.year();
     data.month = gps.date.month();
     data.day = gps.date.day();
-    return e_worker_data_read;
+    status =  e_worker_data_read;
   }
 
   if (gps.time.isUpdated()) {
@@ -49,7 +49,7 @@ int8_t GpsConnector::produce_data() {
     data.hour = gps.time.hour();
     data.minute = gps.time.minute();
     data.second = gps.time.second();
-    return e_worker_data_read;
+    status =  e_worker_data_read;
   }
 
   // Always update age
