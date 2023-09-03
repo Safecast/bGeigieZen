@@ -20,7 +20,7 @@ class MenuWindow : public BaseScreen {
     return &screen;
   }
 
-  void render(TFT_eSprite& sprite, const worker_map_t& workers, const handler_map_t& handlers) override;
+  void render(const worker_map_t& workers, const handler_map_t& handlers) override;
 
   BaseScreen* handle_input(const worker_map_t &workers) override;
 

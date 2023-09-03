@@ -2,6 +2,10 @@
 #include "controller.h"
 #include "identifiers.h"
 #include "workers/zen_button.h"
+#include "drive_mode.h"
+#include "survey_mode.h"
+#include "fixed_mode.h"
+#include "config_mode.h"
 
 MenuWindow::MenuItem DRIVE_MENU_ITEM = {
     "Drive",
@@ -46,7 +50,7 @@ MenuWindow::MenuItem ENTER_ADVANCED_MODE_MENU_ITEM = {
     true,
 };
 
-MenuWindow::MenuWindow() : menu_open(false), menu_index(0), advanced_menu{
+MenuWindow::MenuWindow(): BaseScreen("Survey"), menu_open(false), menu_index(0), advanced_menu{
     DRIVE_MENU_ITEM,
     SURVEY_MENU_ITEM,
     FIXED_MENU_ITEM,
@@ -76,6 +80,19 @@ BaseScreen* MenuWindow::handle_input(const worker_map_t& workers) {
   }
 
   if (button2->is_fresh() && button2->get_data().shortPress) {
+    // TODO: return selected screen
+    switch (menu_index) {
+      case 0:
+        return DriveModeScreen::i();
+      case 1:
+        return SurveyModeScreen::i();
+      case 2:
+        return FixedModeScreen::i();
+      case 3:
+        return nullptr; //TODO
+      case 4:
+        return ConfigModeScreen::i();
+    }
     leave_screen();
     return nullptr;
   }
@@ -83,35 +100,33 @@ BaseScreen* MenuWindow::handle_input(const worker_map_t& workers) {
   return nullptr;
 }
 
-void MenuWindow::render(TFT_eSprite& sprite, const worker_map_t& workers, const handler_map_t& handlers) {
+void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handlers) {
   if (!menu_open) {
     return;
   }
 
   // Draw buttons
-  drawButton1(sprite, "V");
-  drawButton2(sprite, "Select");
-  drawButton3(sprite, "Close", TFT_ORANGE);
+  drawButton1("Next");
+  drawButton2("Enter");
+  drawButton3("Back", TFT_ORANGE);
 
   // Draw menu rect
-  sprite.fillRoundRect(210, 20, 90, 100, 4, TFT_BLACK);
-  sprite.drawRoundRect(210, 20, 90, 100, 4, TFT_ORANGE);
+  M5.Lcd.drawRoundRect(210, 20, 90, 100, 4, TFT_ORANGE);
   for (int i = 0; i < 5; ++i) {
-    sprite.setTextColor(i == menu_index ? TFT_ORANGE : TFT_WHITE, TFT_BLACK);
-    sprite.drawString(advanced_menu[i].title, 230, 40 + (i * 10));
+    M5.Lcd.setTextColor(i == menu_index ? TFT_ORANGE : TFT_WHITE, TFT_BLACK);
+    M5.Lcd.drawString(advanced_menu[i].title, 230, 40 + (i * 10));
     if (i == menu_index) {
-      sprite.drawString(">", 220, 40 + (i * 10));
+      M5.Lcd.drawString(">", 220, 40 + (i * 10));
     } else {
-      sprite.drawString(" ", 220, 40 + (i * 10));
+      M5.Lcd.drawString(" ", 220, 40 + (i * 10));
     }
   }
 
   // Draw tooltip bar
-  sprite.fillRoundRect(20, 140, 280, 30, 4, TFT_BLACK);
-  sprite.drawRoundRect(20, 140, 280, 30, 4, TFT_ORANGE);
-  sprite.setTextColor(TFT_WHITE, TFT_BLACK);
-  sprite.drawString(advanced_menu[menu_index].tooltip_l1, 30, 154);
-  sprite.drawString(advanced_menu[menu_index].tooltip_l2, 30, 166);
+  M5.Lcd.drawRoundRect(20, 180, 280, 30, 4, TFT_ORANGE);
+  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.drawString(advanced_menu[menu_index].tooltip_l1, 30, 194);
+  M5.Lcd.drawString(advanced_menu[menu_index].tooltip_l2, 30, 206);
 }
 
 bool MenuWindow::is_open() const {

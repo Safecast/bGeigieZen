@@ -1,7 +1,7 @@
 #ifndef __SD_WRAPPER_H_
 #define __SD_WRAPPER_H_
 
-#include <stdint.h>
+#include "handlers/local_storage.h"
 
 /**
  *  This singleton class provides an interface to check that the SD card is already
@@ -41,16 +41,22 @@ class SDInterface {
   bool begin();
 
   /**
-   * Get contents from SAFECAST.txt file on the SD card
-   * @return true if success
+   * Get device id from SAFEZEN.txt file on the SD card
+   * @return device id if available, else 0
    */
-  bool get_safecast_content();
+  int32_t has_safezen_content();
 
   /**
-   * Get contents from SAFECAST.txt file on the SD card
-   * @return true if success
+   * Read SAFEZEN.txt file contents on SD card to local storage
+   * @return true if succeeded
    */
-  bool generate_safecast_txt(uint32_t deviceID);
+  bool read_safezen_file(const LocalStorage& settings);
+
+  /**
+   * Write SAFEZEN.txt file on the SD card from local storage
+   * @return true if succeeded
+   */
+  bool write_safezen_file(const LocalStorage& settings);
 
  private:
   SDInterface() = default;

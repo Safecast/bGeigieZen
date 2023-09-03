@@ -3,7 +3,7 @@
 #include "identifiers.h"
 #include "menu_window.h"
 
-SurveyModeScreen::SurveyModeScreen() {
+SurveyModeScreen::SurveyModeScreen(): BaseScreen("Survey") {
 
 }
 
@@ -15,12 +15,12 @@ BaseScreen* SurveyModeScreen::handle_input(const worker_map_t& workers) {
   return nullptr;
 }
 
-void SurveyModeScreen::render(TFT_eSprite& sprite, const worker_map_t& workers, const handler_map_t& handlers) {
-  drawButton3(sprite, "Menu");
+void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers) {
+  drawButton3("Menu");
 }
 
 void SurveyModeScreen::enter_screen() {
-  BaseScreen::leave_screen();
+  BaseScreen::enter_screen();
 }
 
 void SurveyModeScreen::leave_screen() {
