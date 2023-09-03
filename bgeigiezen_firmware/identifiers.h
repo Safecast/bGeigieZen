@@ -23,6 +23,7 @@ enum DataHandlers {
   k_handler_log_aggregator = 0,
   k_handler_bluetooth_reporter,
   k_handler_api_reporter,
+  k_handler_local_storage,
 };
 
 #endif //BGEIGIEZEN_IDENTIFIERS_H_

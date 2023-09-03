@@ -11,11 +11,11 @@ class DriveModeScreen : public BaseScreen {
   }
 
   BaseScreen* handle_input(const worker_map_t &workers) override;
-  void render(TFT_eSprite& sprite, const worker_map_t &workers, const handler_map_t &handlers) override;
+  void render(const worker_map_t &workers, const handler_map_t &handlers) override;
   void leave_screen() override;
 
  private:
   explicit DriveModeScreen();
 };
 
-#endif //SCREENS_BOOT_SCREEN_H
+#endif //SCREENS_DRIVE_SCREEN_H

@@ -41,7 +41,6 @@ private:
   unsigned long _last_render;
   BaseScreen* _screen;
   MenuWindow* _menu;
-  TFT_eSprite _sprite;
 };
 
 #endif //BGEIGIEZEN_GFX_SCREEN_H_
