@@ -17,7 +17,7 @@ static constexpr uint32_t DELAY_DIMMING_DEFAULT = 2 * 60 * 1000;  // ms before d
 static constexpr uint32_t DELAY_BLANKING_DEFAULT = 3 * 60 * 1000;  // ms before blanking screen
 
 
-GFXScreen::GFXScreen() : Supervisor(), _last_render(0), _screen(nullptr), _menu(MenuWindow::i()), _sprite(&M5.Lcd) {
+GFXScreen::GFXScreen() : Supervisor(), _last_render(0), _screen(nullptr), _menu(MenuWindow::i()) {
 }
 
 void GFXScreen::initialize() {
@@ -26,10 +26,9 @@ void GFXScreen::initialize() {
   M5.BtnA.set(8, 230, 90, 50);
   M5.BtnB.set(115, 230, 90, 50);
   M5.BtnC.set(222, 230, 90, 50);
-#elif M5_BASIC
+#else
 #endif
-  _sprite.createSprite(300, 180);
-//  _sprite.setSwapBytes(false);
+
   _screen = BootScreen::i();
   clear();
 }
@@ -84,47 +83,59 @@ void GFXScreen::setBrightness(uint8_t lvl, bool overdrive) {
 void GFXScreen::clear() {
   // Clear display
   M5.Lcd.clear();
-  _sprite.setTextDatum(BL_DATUM);  // By default, text x,y is bottom left corner
+  M5.Lcd.setTextDatum(BL_DATUM);  // By default, text x,y is bottom left corner
+  M5.Lcd.setTextFont(1);
   setBrightness(LEVEL_BRIGHT);
 }
 
 void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& handlers) {
-  if ((!workers.any_updates() && !handlers.any_updates())) {
-    return;
-  }
   if (_screen) {
 
-    BaseScreen* new_screen;
-    if (_menu->is_open()) {
-      new_screen = _menu->handle_input(workers);
-      if (!new_screen && !_menu->is_open()) {
-        // Closed menu
+    BaseScreen* new_screen = nullptr;
+    if (workers.any_updates()) {
+      if (_menu->is_open()) {
+        new_screen = _menu->handle_input(workers);
+        if (!new_screen && !_menu->is_open()) {
+          // Closed menu
+          DEBUG_PRINTLN("Menu closed");
+          clear();
+        }
+      } else {
+        new_screen = _screen->handle_input(workers);
+        if (new_screen == _menu) {
+          // opened menu, not a new screen
+          DEBUG_PRINTLN("Menu opened");
+          _menu->enter_screen();
+          new_screen = nullptr;
+        }
+      }
+      if (new_screen) {
+        _screen->leave_screen();
+        _menu->leave_screen();
+        new_screen->enter_screen();
+        _screen = new_screen;
+        DEBUG_PRINTLN("New screen entered");
         clear();
       }
-    } else {
-      new_screen = _screen->handle_input(workers);
-      if (new_screen == _menu) {
-        // opened menu, not a new screen
-        _menu->enter_screen();
-        new_screen = nullptr;
-      }
-    }
-    if (new_screen) {
-      _screen->leave_screen();
-      _menu->leave_screen();
-      new_screen->enter_screen();
-      _screen = new_screen;
-      clear();
     }
 
-    _sprite.fillRect(0, 0, 320, 240, BLACK);
-    _screen->render(_sprite, workers, handlers);
-    _menu->render(_sprite, workers, handlers);
-    M5.Lcd.setRotation(3);
-    _sprite.pushSprite(0, 0);
-    DEBUG_PRINTLN("Sprite pushed");
-    M5.Lcd.setRotation(1);
+    if (workers.any_updates() || handlers.any_updates() || _last_render + 1000 < millis()) {
+      M5.Lcd.setRotation(3);
+      if (_menu->is_open()) {
+        _menu->render(workers, handlers);
+      } else {
+        _screen->render(workers, handlers);
+      }
+
+      M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+      M5.Lcd.setCursor(150, 230);
+      M5.Lcd.println(_screen->get_title());
+
+      M5.Lcd.setRotation(1);
+      _last_render = millis();
+
+      DEBUG_PRINTLN("Screen rendered");
+    }
   }
 
-  _last_render = millis();
 }
