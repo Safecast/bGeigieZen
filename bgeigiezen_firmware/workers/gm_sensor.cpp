@@ -22,6 +22,11 @@ int8_t GeigerCounter::produce_data() {
   // increase total count
   data.total += data.cps;
 
+  if (data.cps == 0 && data.total == 0) {
+    // Don't start recording until anything has been read.
+    return e_worker_idle;
+  }
+
   // update the shift register
   _pos = (_pos + 1) % GEIGER_AVERAGING_N_BINS;
   if (_pos == 0) {

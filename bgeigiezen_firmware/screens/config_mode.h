@@ -1,12 +1,12 @@
-#ifndef SCREENS_SURVEY_SCREEN_H
-#define SCREENS_SURVEY_SCREEN_H
+#ifndef SCREENS_CONFIG_SCREEN_H
+#define SCREENS_CONFIG_SCREEN_H
 
 #include "base_screen.h"
 
-class SurveyModeScreen : public BaseScreen {
+class ConfigModeScreen : public BaseScreen {
  public:
-  static SurveyModeScreen* i() {
-    static SurveyModeScreen screen;
+  static ConfigModeScreen* i() {
+    static ConfigModeScreen screen;
     return &screen;
   }
 
@@ -16,7 +16,7 @@ class SurveyModeScreen : public BaseScreen {
   virtual void leave_screen() override;
 
  private:
-  explicit SurveyModeScreen();
+  explicit ConfigModeScreen();
 };
 
-#endif //SCREENS_SURVEY_SCREEN_H
+#endif //SCREENS_CONFIG_SCREEN_H

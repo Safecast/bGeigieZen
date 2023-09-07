@@ -53,11 +53,6 @@ class Controller : public Aggregator, public Worker<DeviceState> {
   /**
    * Reset and restart the system
    */
-  void shutdown(bool reboot = false);
-
-  /**
-   * Reset and restart the system
-   */
   void reset_system();
 
   bool _initialized;
