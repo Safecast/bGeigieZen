@@ -11,7 +11,7 @@ class SurveyModeScreen : public BaseScreen {
   }
 
   virtual BaseScreen* handle_input(const worker_map_t &workers) override;
-  virtual void render(TFT_eSprite& sprite, const worker_map_t &workers, const handler_map_t &handlers) override;
+  virtual void render(const worker_map_t &workers, const handler_map_t &handlers) override;
   virtual void enter_screen() override;
   virtual void leave_screen() override;
 
@@ -19,4 +19,4 @@ class SurveyModeScreen : public BaseScreen {
   explicit SurveyModeScreen();
 };
 
-#endif //SCREENS_BOOT_SCREEN_H
+#endif //SCREENS_SURVEY_SCREEN_H

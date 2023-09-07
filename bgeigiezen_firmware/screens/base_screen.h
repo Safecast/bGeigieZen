@@ -15,18 +15,20 @@ class BaseScreen {
   virtual void enter_screen();
   virtual void leave_screen();
 
-  virtual void render(TFT_eSprite& sprite, const worker_map_t &workers, const handler_map_t &handlers) = 0;
+  virtual void render(const worker_map_t &workers, const handler_map_t &handlers) = 0;
+  virtual const char* get_title() const;
 
  protected:
 
-  explicit BaseScreen() = default;
+  explicit BaseScreen(const char* title);
   virtual ~BaseScreen() = default;
 
-  void drawButton(TFT_eSprite& sprite, uint16_t x, const char *text, uint32_t border_color);
-  void drawButton1(TFT_eSprite& sprite, const char *text, uint32_t border_color = TFT_WHITE);
-  void drawButton2(TFT_eSprite& sprite, const char *text, uint32_t border_color = TFT_WHITE);
-  void drawButton3(TFT_eSprite& sprite, const char *text, uint32_t border_color = TFT_WHITE);
+  void drawButton(uint16_t x, const char *text, uint32_t border_color);
+  void drawButton1(const char *text, uint32_t border_color = TFT_WHITE);
+  void drawButton2(const char *text, uint32_t border_color = TFT_WHITE);
+  void drawButton3(const char *text, uint32_t border_color = TFT_WHITE);
 
+  char _title[20];
 };
 
 #endif //BGEIGIEZEN_BASE_SCREEN_H_

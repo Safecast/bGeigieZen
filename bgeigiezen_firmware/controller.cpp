@@ -3,11 +3,7 @@
 #include "debugger.h"
 #include "utils/sd_wrapper.h"
 
-#ifdef M5_CORE2
-#include <M5Core2.h>
-#elif M5_BASIC
-#include <M5Stack.h>
-#endif
+#include "utils/device_utils.h"
 
 Controller::Controller() : Aggregator(),
                            Worker<DeviceState>({
@@ -40,23 +36,9 @@ void Controller::start_default_workers() {
 
 }
 
-void Controller::shutdown(bool reboot) {
-  if (reboot) {
-    DEBUG_PRINTLN("\n Reboot system...\n");
-    ESP.restart();
-  } else {
-    DEBUG_PRINTLN("\n Shutdown system...\n");
-#ifdef M5_CORE2
-    M5.shutdown();
-#elif M5_BASIC
-    M5.Power.powerOFF();
-#endif
-  }
-}
-
 void Controller::reset_system() {
 //  _config.reset_defaults();
-  shutdown(true);
+  DeviceUtils::shutdown(true);
 }
 
 int8_t Controller::produce_data() {

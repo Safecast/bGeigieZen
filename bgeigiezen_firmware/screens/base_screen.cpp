@@ -1,42 +1,57 @@
 #include "base_screen.h"
 #include "user_config.h"
 
-#define BUTTON_TEXT_LENGTH 12
+#define BUTTON_TEXT_MAX_LENGTH 13
 
-void BaseScreen::drawButton(TFT_eSprite& sprite, uint16_t x, const char* text, uint32_t border_color) {
-  if (strlen(text) > BUTTON_TEXT_LENGTH) {
+
+BaseScreen::BaseScreen(const char* title) {
+  if (strlen(title) < 20) {
+    strcpy(_title, title);
+  }
+}
+
+void BaseScreen::drawButton(uint16_t x, const char* text, uint32_t border_color) {
+  if (strlen(text) > BUTTON_TEXT_MAX_LENGTH) {
     // Dont render long button text :(
     return;
   }
 
-  sprite.fillRoundRect(x, -5, 90, 20, 4, TFT_BLACK);
-  sprite.drawRoundRect(x, -5, 90, 20, 4, border_color);
-  sprite.setTextColor(TFT_ORANGE, TFT_BLACK);
-  sprite.drawString(text, (x + 45) - static_cast<uint16_t>(strlen(text) * 3), 10);
-  sprite.flush();
+  M5.Lcd.drawRoundRect(x, -5, 90, 20, 4, strlen(text) ? border_color : TFT_BLACK);
+  M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
+
+  // Center the button text, making sure around the text is whitespace to clear previous texts
+  char blob[BUTTON_TEXT_MAX_LENGTH + 1] = "             ";
+  for (size_t i = 0; i < strlen(text); ++i) {
+    blob[i + ((BUTTON_TEXT_MAX_LENGTH - strlen(text)) / 2)] = text[i];
+  }
+  if (strlen(text) % 2 != BUTTON_TEXT_MAX_LENGTH % 2) {
+    blob[BUTTON_TEXT_MAX_LENGTH - 1] = '\0';
+  }
+  M5.Lcd.drawString(blob, (x + 45) - static_cast<uint16_t>(strlen(blob) * 3), 10);
+  M5.Lcd.flush();
 }
 
-void BaseScreen::drawButton1(TFT_eSprite& sprite, const char* text, uint32_t border_color) {
+void BaseScreen::drawButton1(const char* text, uint32_t border_color) {
 #ifdef M5_CORE2
-  drawButton(sprite, 8, text, border_color);
+  drawButton(8, text, border_color);
 #elif M5_BASIC
-  drawButton(sprite, 20, text, border_color);
+  drawButton(20, text, border_color);
 #endif
 }
 
-void BaseScreen::drawButton2(TFT_eSprite& sprite, const char* text, uint32_t border_color) {
+void BaseScreen::drawButton2(const char* text, uint32_t border_color) {
 #ifdef M5_CORE2
-  drawButton(sprite, 115, text, border_color);
+  drawButton(115, text, border_color);
 #elif M5_BASIC
-  drawButton(sprite, 115, text, border_color);
+  drawButton(115, text, border_color);
 #endif
 }
 
-void BaseScreen::drawButton3(TFT_eSprite& sprite, const char* text, uint32_t border_color) {
+void BaseScreen::drawButton3(const char* text, uint32_t border_color) {
 #ifdef M5_CORE2
-  drawButton(sprite, 222, text, border_color);
+  drawButton(222, text, border_color);
 #elif M5_BASIC
-  drawButton(sprite, 210, text, border_color);
+  drawButton(210, text, border_color);
 #endif
 }
 
@@ -44,4 +59,8 @@ void BaseScreen::enter_screen() {
 }
 
 void BaseScreen::leave_screen() {
+}
+
+const char* BaseScreen::get_title() const {
+  return _title;
 }

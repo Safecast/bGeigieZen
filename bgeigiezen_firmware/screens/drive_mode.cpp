@@ -7,7 +7,7 @@
 #include "menu_window.h"
 #include "debugger.h"
 
-DriveModeScreen::DriveModeScreen() {
+DriveModeScreen::DriveModeScreen(): BaseScreen("Drive") {
 }
 
 BaseScreen* DriveModeScreen::handle_input(const worker_map_t& workers) {
@@ -18,23 +18,23 @@ BaseScreen* DriveModeScreen::handle_input(const worker_map_t& workers) {
   return nullptr;
 }
 
-void DriveModeScreen::render(TFT_eSprite& sprite, const worker_map_t& workers, const handler_map_t& handlers) {
+void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers) {
   ///
   // Display something
   const auto& gm_sensor = workers.worker<GeigerCounter>(k_worker_gm_sensor);
   const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
   const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator);
 
-  drawButton1(sprite, "Start log");
-  drawButton2(sprite, "Nothing");
-  drawButton3(sprite, "Menu");
+  drawButton1("Start log");
+  drawButton2("");
+  drawButton3("Menu");
 
-  sprite.setTextColor(TFT_WHITE, TFT_BLACK);
-  sprite.setCursor(0, 30);
-  sprite.printf("Battery: %d%% %s\n",
+  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.setCursor(0, 30);
+  M5.Lcd.printf("Battery: %d%% %s\n",
                 battery->get_data().percentage,
                 battery->get_data().isCharging ? "(charging)" : "          ");
-  sprite.printf("Geiger counter %s\n"
+  M5.Lcd.printf("Geiger counter %s\n"
                 " CPM raw: %d        \n"
                 " CPM comp: %d %s     \n   uSv/h: %.4f      \n   Bq/m2: %.0f       \n"
                 " CPB: %d      \n   uSv/h: %.4f      \n   Bq/m2: %.0f       \n",
@@ -47,7 +47,7 @@ void DriveModeScreen::render(TFT_eSprite& sprite, const worker_map_t& workers, c
                 gm_sensor->get_data().cps,
                 gm_sensor->get_data().uSv_sec,
                 gm_sensor->get_data().Bqm2_sec);
-  sprite.printf("GPS\n"
+  M5.Lcd.printf("GPS\n"
                 " location: %s                \n"
                 "  latitude: %.5f             \n"
                 "  longitude: %.5f            \n"
