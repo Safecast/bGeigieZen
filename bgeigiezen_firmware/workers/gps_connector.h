@@ -1,56 +1,46 @@
+/** @brief Manage position fix and date-time from GNSS receiver. 
+ * 
+ * Based on u-blox 8 receiver integrated Beitian BN-880 module, using the UBX communications
+ * protocol instead of the usual NMEA-183. The problem with NMEA is that it was really 
+ * designed for boats, where close enough to see with binoculars was good enough (well, not
+ * really but it makes for a good story). The real issue is that it's hard to get consistent
+ * fix and time data by parsing NMEA sentences.
+ * 
+*/
+
 #ifndef BGEIGIEZEN_GPS_SENSOR_H_
 #define BGEIGIEZEN_GPS_SENSOR_H_
 
 #include <Arduino.h>
 #include <Worker.hpp>
 #include <user_config.h>
-#include <TinyGPS++.h>
+#include <SparkFun_u-blox_GNSS_Arduino_Library.h>
 
-struct GpsData {
-  /* Validity, Update status, and Age
-  You can examine an object’s value at any time, but unless TinyGPS++ has
-  recently been fed from the GPS, it should not be considered valid and 
-  up-to-date. The isValid() method will tell you whether the object contains
-  any valid data and is safe to query.
-  Similarly, isUpdated() indicates whether the object’s value has been updated
-  (not necessarily changed) since the last time you queried it.
-  Lastly, if you want to know how stale an object’s data is, call its age()
-  method, which returns the number of milliseconds since its last update.
-  If this returns a value greater than 1500 or so, it may be a sign of a
-  problem like a lost fix.
-  Ref: http://arduiniana.org/libraries/tinygpsplus/
+struct GnssData {
+  /* u-blox UBX protocol query PVT gets position, velocity & time in one call.
+   * The call returns false if no new fix has been received. In other words, 
+   * each call only succeeds once until the next fix update.
+   * Use pdop and satsInView to determine acceptability. 
   */
 
   bool isValid() const {
-    return location_valid && altitude_valid && satellites_valid && date_valid;
+    return (pdop >= GPS_PDOP_THRESHOLD) && (satsInView >= GPS_SATS_THRESHOLD);
   }
 
-  // location
-  bool location_valid;
-  bool location_age;
-  double longitude;
-  double latitude;
+  // Confidence 
+  uint8_t satsInView;
+  int16_t pdop;  // Position dilution of precision (TBD is this a combination of HDOP and AltDOP?)
 
-  // Altitude
-  bool altitude_valid;
-  bool altitude_age;
-  double altitude;
+  // Position
+  int32_t latitude;
+  int32_t longitude;
+  int32_t altitude;  // above ellipsoid (which one is better???)
+  int32_t altitudeMSL;  // above mean sea level
 
-  // Satellites
-  bool satellites_valid;
-  bool satellites_age;
-  uint32_t satellites_value;
-
-  // Date
-  bool date_valid;
-  bool date_age;
+  // Date & Time
   uint16_t year;
   uint8_t month;
   uint8_t day;
-
-  // Time
-  bool time_valid;
-  bool time_age;
   uint8_t hour;
   uint8_t minute;
   uint8_t second;
@@ -58,9 +48,8 @@ struct GpsData {
 
 /**
  * GPS device worker, produces the current GPS location.
- * Uses TinyGPS?
  */
-class GpsConnector : public Worker<GpsData> {
+class GpsConnector : public Worker<GnssData> {
  public:
 
   explicit GpsConnector();
@@ -73,7 +62,7 @@ class GpsConnector : public Worker<GpsData> {
 
  private:
   HardwareSerial ss{GPS_SERIAL_NUM};
-  TinyGPSPlus gps;
+  SFE_UBLOX_GNSS gnss;
 };
 
 #endif //BGEIGIEZEN_GPS_SENSOR_H_
