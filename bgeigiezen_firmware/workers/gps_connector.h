@@ -23,19 +23,22 @@ struct GnssData {
    * Use pdop and satsInView to determine acceptability. 
   */
 
-  bool isValid() const {
-    return (pdop >= GPS_PDOP_THRESHOLD) && (satsInView >= GPS_SATS_THRESHOLD);
-  }
-
   // Confidence 
   uint8_t satsInView;
-  int16_t pdop;  // Position dilution of precision (TBD is this a combination of HDOP and AltDOP?)
+  // Position dilution of precision * 0.01 (TBD, is this a combination of HDOP and AltDOP?) 
+  int16_t pdop;
+  // Temporary until the various levels of confidence can be established
+  bool location_valid;
+  bool altitude_valid;
+  bool satellites_valid;
+  bool date_valid;
+  bool time_valid;
 
   // Position
-  int32_t latitude;
-  int32_t longitude;
-  int32_t altitude;  // above ellipsoid (which one is better???)
-  int32_t altitudeMSL;  // above mean sea level
+  int32_t latitude;  // Longitude: deg * 1e-7
+  int32_t longitude; // Longitude: deg * 1e-7
+  int32_t altitude;  // above ellipsoid mm (which one is better???)
+  int32_t altitudeMSL;  // above mean sea level mm
 
   // Date & Time
   uint16_t year;
@@ -44,6 +47,11 @@ struct GnssData {
   uint8_t hour;
   uint8_t minute;
   uint8_t second;
+
+  bool isValid() const {
+    return (pdop < GPS_PDOP_THRESHOLD) && (satsInView >= GPS_SATS_THRESHOLD);
+  }
+
 };
 
 /**

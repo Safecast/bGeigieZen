@@ -47,21 +47,27 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
                 gm_sensor->get_data().cps,
                 gm_sensor->get_data().uSv_sec,
                 gm_sensor->get_data().Bqm2_sec);
+/* @todo The "*_valid" Booleans will need to be revisited once the GPS connector 
+ * is reworked to get correct date and time early, then location with acceptable
+ * accuracy. It all depends on what becomes available when.
+ */
   M5.Lcd.printf("GPS\n"
                 " location: %s                \n"
-                "  latitude: %.5f             \n"
-                "  longitude: %.5f            \n"
-                " altitude: %.5f %s           \n"
+                "  latitude: %.5f            \n"
+                "  longitude: %.5f           \n"
+                " altitude: %.2f %s          \n"
                 " satellites: %d %s           \n"
+                " PDOP: %d                    \n"
                 " date: %04d-%02d-%02d %s     \n"
                 " time: %02d:%02d:%02d %s     \n",
                 gps->get_data().location_valid ? "             " : "(unavailable)",
-                gps->get_data().latitude,
-                gps->get_data().longitude,
-                gps->get_data().altitude,
+                gps->get_data().latitude * 1e-7,
+                gps->get_data().longitude * 1e-7,
+                gps->get_data().altitude * 1e-3,
                 gps->get_data().altitude_valid ? "             " : "(unavailable)",
-                gps->get_data().satellites_value,
+                gps->get_data().satsInView,
                 gps->get_data().satellites_valid ? "             " : "(unavailable)",
+                gps->get_data().pdop,
                 gps->get_data().year,
                 gps->get_data().month,
                 gps->get_data().day,
