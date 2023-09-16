@@ -51,6 +51,10 @@ bool GpsConnector::activate(bool retry) {
 int8_t GpsConnector::produce_data() {
 
   auto status = e_worker_idle;
+  data.location_valid = false;
+  data.altitude_valid = false;
+  data.date_valid = false;
+  data.time_valid = false;
 
   // getPVT will return true if there actually is a fresh navigation solution available.
   // Important note: the PVT message is 100 bytes long. We need to call getPVT often enough
@@ -61,13 +65,11 @@ int8_t GpsConnector::produce_data() {
   {
     data.satsInView = gnss.getSIV();  // Satellites In View
     data.pdop = gnss.getPDOP();  // Position Dilution of Precision
-    if((data.satsInView >= GPS_SATS_THRESHOLD) && (data.pdop >= GPS_PDOP_THRESHOLD)) {
+    if(data.isValid()) {
       data.latitude = gnss.getLatitude();
       data.longitude = gnss.getLongitude();
       data.altitude = gnss.getAltitude();
       data.altitudeMSL = gnss.getAltitudeMSL();
-      data.satsInView = gnss.getSIV();  // Satellites In View
-      data.pdop = gnss.getPDOP();  // Position Dilution of Precision
 
       data.year = gnss.getYear();
       data.month = gnss.getMonth();
@@ -76,7 +78,13 @@ int8_t GpsConnector::produce_data() {
       data.hour = gnss.getHour();
       data.minute = gnss.getMinute();
       data.second = gnss.getSecond();
+      data.location_valid = true;
+      data.altitude_valid = true;
+      data.satellites_valid = true;
+      data.date_valid = true;
+      data.time_valid = true;
       status =  e_worker_data_read;
+      Serial.println("GNSS data valid.");
     }
     else {
       status = e_worker_idle;
