@@ -14,6 +14,13 @@
 #include <Arduino.h>
 #include <Worker.hpp>
 #include <user_config.h>
+
+// Sparkfun Electronics library v2 (original is deprecated, V3 is for devices newer than M8)
+// Apply these two definitions here instead of altering the files in libdeps
+// Uncomment the next line (or add SFE_UBLOX_REDUCED_PROG_MEM as a compiler directive) to reduce the amount of program memory used by the library
+#define SFE_UBLOX_REDUCED_PROG_MEM // Uncommenting this line will delete the minor debug messages to save memory
+// Uncomment the next line (or add SFE_UBLOX_DISABLE_AUTO_NMEA as a compiler directive) to reduce the amount of program memory used by the library
+#define SFE_UBLOX_DISABLE_AUTO_NMEA // Uncommenting this line will disable auto-NMEA support to save memory
 #include <SparkFun_u-blox_GNSS_Arduino_Library.h>
 
 struct GnssData {
@@ -24,9 +31,10 @@ struct GnssData {
   */
 
   // Confidence 
-  uint8_t satsInView;
-  // Position dilution of precision * 0.01 (TBD, is this a combination of HDOP and AltDOP?) 
-  int16_t pdop;
+  uint8_t satsInView;  // satellites used to calculate fix
+  // Horizontal dilution of precision * 0.01 from NAV-DOP
+  int16_t hdop;
+
   // Temporary until the various levels of confidence can be established
   bool location_valid;
   bool altitude_valid;
@@ -37,7 +45,6 @@ struct GnssData {
   // Position
   int32_t latitude;  // Longitude: deg * 1e-7
   int32_t longitude; // Longitude: deg * 1e-7
-  int32_t altitude;  // above ellipsoid mm (which one is better???)
   int32_t altitudeMSL;  // above mean sea level mm
 
   // Date & Time
@@ -47,10 +54,6 @@ struct GnssData {
   uint8_t hour;
   uint8_t minute;
   uint8_t second;
-
-  bool isValid() const {
-    return (pdop < GPS_PDOP_THRESHOLD) && (satsInView >= GPS_SATS_THRESHOLD);
-  }
 
 };
 

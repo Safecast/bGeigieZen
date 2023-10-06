@@ -7,7 +7,7 @@
  * Eventually, gps_connector is separate and there are two workers, datetime
  * and position, each pulling information from gps_connector.
  * With Core2 (and Core with external RTC), date-time can be obtained from
- * the RTC before GNSS receives time. In that case, the date-time worked can
+ * the RTC before GNSS receives time. In that case, the date-time worker can
  * choose the more reliable of the two: GNSS preferred, RTC otherwise.
  * We also have the issue of initializing RTC on a brand new device, that 
  * can be done from GNSS.
@@ -45,6 +45,12 @@ bool GpsConnector::activate(bool retry) {
           delay(500);
     }
   } while(1);
+
+  // Set Auto on NAV-PVT and NAV-DOP queries for non-blocking access
+  // getPVT() and getDOP() will return true if a new navigation solution is available
+  gnss.setAutoPVT(true); // Tell the GNSS to "send" each solution
+  gnss.setAutoDOP(true); // Enable/disable automatic DOP reports at the navigation frequency
+
   return true;
 }
 
@@ -56,39 +62,39 @@ int8_t GpsConnector::produce_data() {
   data.date_valid = false;
   data.time_valid = false;
 
-  // getPVT will return true if there actually is a fresh navigation solution available.
-  // Important note: the PVT message is 100 bytes long. We need to call getPVT often enough
-  // to prevent serial buffer overflows on boards like the original RedBoard / UNO.
-  // At 38400 Baud, the 100 PVT bytes will arrive in 26ms.
-  // On the RedBoard, we need to call getPVT every 5ms to keep up.
-  if (gnss.getPVT() && gnss.getDateValid() )   // && (gnss.getInvalidLlh() == false)
+  // getPVT and getDOP will return true if there actually is a fresh navigation solution
+  // available. "LLH" is longitude, latitude, height.
+  // getPVT() returns UTC date and time (do not use GNSS time, see note in u-blox spec)
+  if (gnss.getPVT() && gnss.getDOP())
   {
-    data.satsInView = gnss.getSIV();  // Satellites In View
-    data.pdop = gnss.getPDOP();  // Position Dilution of Precision
-    if(data.isValid()) {
-      data.latitude = gnss.getLatitude();
-      data.longitude = gnss.getLongitude();
-      data.altitude = gnss.getAltitude();
-      data.altitudeMSL = gnss.getAltitudeMSL();
-
+    if(gnss.getDateValid())
+    {
       data.year = gnss.getYear();
       data.month = gnss.getMonth();
       data.day = gnss.getDay();
-
+      data.date_valid = true;
+    }
+    if(gnss.getTimeValid())
+    {
       data.hour = gnss.getHour();
       data.minute = gnss.getMinute();
       data.second = gnss.getSecond();
-      data.location_valid = true;
-      data.altitude_valid = true;
-      data.satellites_valid = true;
-      data.date_valid = true;
       data.time_valid = true;
-      status =  e_worker_data_read;
-      Serial.println("GNSS data valid.");
     }
-    else {
-      status = e_worker_idle;
+    if(gnss.getGnssFixOk())
+    {
+      data.satsInView = gnss.getSIV();  // Satellites In View
+      data.hdop = gnss.getHorizontalDOP();  // Position Dilution of Precision
+      data.latitude = gnss.getLatitude();
+      data.longitude = gnss.getLongitude();
+      data.altitudeMSL = gnss.getAltitudeMSL(); // Above MSL (not ellipsoid)
+      data.location_valid = true;
     }
+    status =  e_worker_data_read;
+    Serial.println("Have GNSS data.");
+  }
+  else {
+    status = e_worker_idle;
   }
 
   return status;
