@@ -1,8 +1,8 @@
 /** @brief GNSS handler using UBX protocol library 
  * 
  * @todo Split into a date & time producer and a position producer
- * The date and time are received sooner than position because only one
- * satellite is needed for time information. This means that we can set
+ * The date and time are received sooner than position because fewer
+ * satellites are needed for time information. This means that we can set
  * the clock and open log files before the full 3D position fix is ready.
  * Eventually, gps_connector is separate and there are two workers, datetime
  * and position, each pulling information from gps_connector.
@@ -51,50 +51,82 @@ bool GpsConnector::activate(bool retry) {
   gnss.setAutoPVT(true); // Tell the GNSS to "send" each solution
   gnss.setAutoDOP(true); // Enable/disable automatic DOP reports at the navigation frequency
 
+  // Mark the fix items invalid to start
+  data.location_valid = false;
+  data.altitude_valid = false;
+  data.date_valid = false;
+  data.time_valid = false;
+
   return true;
 }
 
 int8_t GpsConnector::produce_data() {
 
   auto status = e_worker_idle;
-  data.location_valid = false;
-  data.altitude_valid = false;
-  data.date_valid = false;
-  data.time_valid = false;
 
   // getPVT and getDOP will return true if there actually is a fresh navigation solution
   // available. "LLH" is longitude, latitude, height.
   // getPVT() returns UTC date and time (do not use GNSS time, see note in u-blox spec)
   if (gnss.getPVT() && gnss.getDOP())
   {
+    data.time_getpvt.restart();
+
+    // Satellitesis a special case, we want to see it even if no fix.
+    data.satsInView = gnss.getSIV();  // Satellites In View
+    data.satellites_valid = true;
+
     if(gnss.getDateValid())
     {
       data.year = gnss.getYear();
       data.month = gnss.getMonth();
       data.day = gnss.getDay();
       data.date_valid = true;
+      data.date_timer.restart();
+    } else {
+      if(data.date_timer.isExpired()) {
+        data.date_valid = false;
+      }
     }
+
     if(gnss.getTimeValid())
     {
       data.hour = gnss.getHour();
       data.minute = gnss.getMinute();
       data.second = gnss.getSecond();
       data.time_valid = true;
+      data.time_timer.restart();
+    } else {
+      if(data.time_timer.isExpired()) {
+        data.time_valid = false;
+      }
     }
     if(gnss.getGnssFixOk())
     {
-      data.satsInView = gnss.getSIV();  // Satellites In View
+      // data.satsInView = gnss.getSIV();  // Satellites In View
       data.hdop = gnss.getHorizontalDOP();  // Position Dilution of Precision
       data.latitude = gnss.getLatitude();
       data.longitude = gnss.getLongitude();
       data.altitudeMSL = gnss.getAltitudeMSL(); // Above MSL (not ellipsoid)
       data.location_valid = true;
+      data.location_timer.restart();
+    } else {
+      if(data.location_timer.isExpired()) {
+        data.location_valid = false;
+      }
     }
     status =  e_worker_data_read;
-    Serial.println("Have GNSS data.");
+    Serial.print("Have GNSS data @millis=");
+    Serial.println(millis());
   }
   else {
     status = e_worker_idle;
+    if(data.time_getpvt.isExpired()) {
+      data.satellites_valid = false;
+      data.location_valid = false;
+      data.altitude_valid = false;
+      data.date_valid = false;
+      data.time_valid = false;
+    }
   }
 
   return status;

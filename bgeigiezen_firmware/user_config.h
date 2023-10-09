@@ -31,6 +31,7 @@ constexpr uint32_t GPS_BAUD_RATE = 38400;
 constexpr uint16_t GPS_INVALID_YEAR = 2000;
 constexpr uint16_t GPS_PDOP_THRESHOLD = 500;  // Exact value TBD
 constexpr uint8_t GPS_SATS_THRESHOLD = 4;  // strictly necessary is 4, but more is better
+constexpr uint32_t GPS_FIX_AGE_LIMIT = 1500; // ms before we decide the fix is too old.
 
 // - LCD display
 constexpr uint32_t LCD_REFRESH_RATE = 1000;  // 1s
