@@ -12,6 +12,7 @@
 #define BGEIGIEZEN_GPS_SENSOR_H_
 
 #include <Arduino.h>
+#include <RBD_Timer.h>
 #include <Worker.hpp>
 #include <user_config.h>
 
@@ -35,12 +36,27 @@ struct GnssData {
   // Horizontal dilution of precision * 0.01 from NAV-DOP
   int16_t hdop;
 
-  // Temporary until the various levels of confidence can be established
+  // When true, the item related to each Boolean is valid and updated in the
+  // most recent poll of the gps_connector worker by the controller. If the 
+  // gps_connector doesn't have a new fix because it only becomes available
+  // every 1 second, then the corresponding Boolean becomes false.
+  // If stale, render in gray/white text. 
   bool location_valid;
   bool altitude_valid;
   bool satellites_valid;
   bool date_valid;
   bool time_valid;
+
+/** @todo REMOVE THIS DEBUG TEMPORARY*/
+RBD::Timer hardreset_timer{15000};  // force a GNSS module hard reset to see the effects.
+
+  // Age each item. If the corresponding timer times out, it's stale. 
+  RBD::Timer location_timer{GPS_FIX_AGE_LIMIT};
+  RBD::Timer altitude_timer{GPS_FIX_AGE_LIMIT};
+  RBD::Timer satellites_timer{GPS_FIX_AGE_LIMIT};
+  RBD::Timer date_timer{GPS_FIX_AGE_LIMIT};
+  RBD::Timer time_timer{GPS_FIX_AGE_LIMIT};
+  RBD::Timer time_getpvt{GPS_FIX_AGE_LIMIT};  // if no response from getPVT()
 
   // Position
   int32_t latitude;  // Longitude: deg * 1e-7

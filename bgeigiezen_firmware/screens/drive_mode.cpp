@@ -55,19 +55,19 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
                 " location: %s                \n"
                 "  latitude: %.5f            \n"
                 "  longitude: %.5f           \n"
-                " altitude: %.2f (MSL) %s    \n"
+                "  altitude: %.2f (MSL)      \n"
+                "  HDOP: %d  %s              \n"
                 " satellites: %d %s           \n"
-                " PDOP: %d                    \n"
                 " date: %04d-%02d-%02d %s     \n"
                 " time: %02d:%02d:%02d %s     \n",
                 gps->get_data().location_valid ? "             " : "(unavailable)",
                 gps->get_data().latitude * 1e-7,
                 gps->get_data().longitude * 1e-7,
                 gps->get_data().altitudeMSL * 1e-3,
+                gps->get_data().hdop,
                 gps->get_data().location_valid ? "             " : "(unavailable)",
                 gps->get_data().satsInView,
-                gps->get_data().location_valid ? "             " : "(unavailable)",
-                gps->get_data().hdop,
+                gps->get_data().satellites_valid ? "             " : "(unavailable)",
                 gps->get_data().year,
                 gps->get_data().month,
                 gps->get_data().day,
