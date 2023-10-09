@@ -134,7 +134,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
       M5.Lcd.setRotation(1);
       _last_render = millis();
 
-      DEBUG_PRINTLN("Screen rendered");
+      // DEBUG_PRINTLN("Screen rendered");
     }
   }
 
