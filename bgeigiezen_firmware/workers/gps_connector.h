@@ -1,66 +1,82 @@
+/** @brief Manage position fix and date-time from GNSS receiver. 
+ * 
+ * Based on u-blox 8 receiver integrated Beitian BN-880 module, using the UBX communications
+ * protocol instead of the usual NMEA-183. The problem with NMEA is that it was really 
+ * designed for boats, where close enough to see with binoculars was good enough (well, not
+ * really but it makes for a good story). The real issue is that it's hard to get consistent
+ * fix and time data by parsing NMEA sentences.
+ * 
+*/
+
 #ifndef BGEIGIEZEN_GPS_SENSOR_H_
 #define BGEIGIEZEN_GPS_SENSOR_H_
 
 #include <Arduino.h>
+#include <RBD_Timer.h>
 #include <Worker.hpp>
 #include <user_config.h>
-#include <TinyGPS++.h>
 
-struct GpsData {
-  /* Validity, Update status, and Age
-  You can examine an object’s value at any time, but unless TinyGPS++ has
-  recently been fed from the GPS, it should not be considered valid and 
-  up-to-date. The isValid() method will tell you whether the object contains
-  any valid data and is safe to query.
-  Similarly, isUpdated() indicates whether the object’s value has been updated
-  (not necessarily changed) since the last time you queried it.
-  Lastly, if you want to know how stale an object’s data is, call its age()
-  method, which returns the number of milliseconds since its last update.
-  If this returns a value greater than 1500 or so, it may be a sign of a
-  problem like a lost fix.
-  Ref: http://arduiniana.org/libraries/tinygpsplus/
+// Sparkfun Electronics library v2 (original is deprecated, V3 is for devices newer than M8)
+// Apply these two definitions here instead of altering the files in libdeps
+// Uncomment the next line (or add SFE_UBLOX_REDUCED_PROG_MEM as a compiler directive) to reduce the amount of program memory used by the library
+#define SFE_UBLOX_REDUCED_PROG_MEM // Uncommenting this line will delete the minor debug messages to save memory
+// Uncomment the next line (or add SFE_UBLOX_DISABLE_AUTO_NMEA as a compiler directive) to reduce the amount of program memory used by the library
+#define SFE_UBLOX_DISABLE_AUTO_NMEA // Uncommenting this line will disable auto-NMEA support to save memory
+#include <SparkFun_u-blox_GNSS_Arduino_Library.h>
+
+struct GnssData {
+  /* u-blox UBX protocol query PVT gets position, velocity & time in one call.
+   * The call returns false if no new fix has been received. In other words, 
+   * each call only succeeds once until the next fix update.
+   * Use pdop and satsInView to determine acceptability. 
   */
 
-  bool isValid() const {
-    return location_valid && altitude_valid && satellites_valid && date_valid;
-  }
+  // Confidence 
+  uint8_t satsInView;  // satellites used to calculate fix
+  // Horizontal dilution of precision * 0.01 from NAV-DOP
+  int16_t hdop;
 
-  // location
+  // When true, the item related to each Boolean is valid and updated in the
+  // most recent poll of the gps_connector worker by the controller. If the 
+  // gps_connector doesn't have a new fix because it only becomes available
+  // every 1 second, then the corresponding Boolean becomes false.
+  // If stale, render in gray/white text. 
   bool location_valid;
-  bool location_age;
-  double longitude;
-  double latitude;
-
-  // Altitude
   bool altitude_valid;
-  bool altitude_age;
-  double altitude;
-
-  // Satellites
   bool satellites_valid;
-  bool satellites_age;
-  uint32_t satellites_value;
-
-  // Date
   bool date_valid;
-  bool date_age;
+  bool time_valid;
+
+/** @todo REMOVE THIS DEBUG TEMPORARY*/
+RBD::Timer hardreset_timer{15000};  // force a GNSS module hard reset to see the effects.
+
+  // Age each item. If the corresponding timer times out, it's stale. 
+  RBD::Timer location_timer{GPS_FIX_AGE_LIMIT};
+  RBD::Timer altitude_timer{GPS_FIX_AGE_LIMIT};
+  RBD::Timer satellites_timer{GPS_FIX_AGE_LIMIT};
+  RBD::Timer date_timer{GPS_FIX_AGE_LIMIT};
+  RBD::Timer time_timer{GPS_FIX_AGE_LIMIT};
+  RBD::Timer time_getpvt{GPS_FIX_AGE_LIMIT};  // if no response from getPVT()
+
+  // Position
+  int32_t latitude;  // Longitude: deg * 1e-7
+  int32_t longitude; // Longitude: deg * 1e-7
+  int32_t altitudeMSL;  // above mean sea level mm
+
+  // Date & Time
   uint16_t year;
   uint8_t month;
   uint8_t day;
-
-  // Time
-  bool time_valid;
-  bool time_age;
   uint8_t hour;
   uint8_t minute;
   uint8_t second;
+
 };
 
 /**
  * GPS device worker, produces the current GPS location.
- * Uses TinyGPS?
  */
-class GpsConnector : public Worker<GpsData> {
+class GpsConnector : public Worker<GnssData> {
  public:
 
   explicit GpsConnector();
@@ -73,7 +89,7 @@ class GpsConnector : public Worker<GpsData> {
 
  private:
   HardwareSerial ss{GPS_SERIAL_NUM};
-  TinyGPSPlus gps;
+  SFE_UBLOX_GNSS gnss;
 };
 
 #endif //BGEIGIEZEN_GPS_SENSOR_H_
