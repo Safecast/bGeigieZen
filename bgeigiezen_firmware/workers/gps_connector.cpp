@@ -115,8 +115,6 @@ int8_t GpsConnector::produce_data() {
       }
     }
     status =  e_worker_data_read;
-    Serial.print("Have GNSS data @millis=");
-    Serial.println(millis());
   }
   else {
     status = e_worker_idle;
