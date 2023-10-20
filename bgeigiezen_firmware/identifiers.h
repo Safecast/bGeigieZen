@@ -7,13 +7,16 @@
 enum DataWorkers {
   k_worker_gps_connector = 0,
   k_worker_battery_indicator,
+#ifdef M5_CORE2
+  k_worker_rtc_connector,
+#endif
   k_worker_gm_sensor,
   k_worker_log_aggregator,
   k_worker_shake_detector,
   k_worker_button_1,
   k_worker_button_2,
   k_worker_button_3,
-  k_worker_controller_state,
+  k_worker_controller_state
 };
 
 /**
