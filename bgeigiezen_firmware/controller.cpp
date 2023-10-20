@@ -33,6 +33,9 @@ void Controller::start_default_workers() {
 
   set_handler_active(k_handler_log_aggregator, true);
 
+#ifdef M5_CORE2
+  set_worker_active(k_worker_rtc_connector, true);
+#endif
 
 }
 

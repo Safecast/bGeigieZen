@@ -59,6 +59,9 @@
 #include "workers/log_aggregator.h"
 #include "gfx_screen.h"
 #include "debugger.h"
+#ifdef M5_CORE2
+#include "workers/rtc_connector.h"
+#endif
 
 Controller controller;
 
@@ -77,6 +80,9 @@ void setup() {
   auto* gps = new GpsConnector();
   auto* gm_sensor = new GeigerCounter();
   auto* battery_indicator = new BatteryIndicator();
+#ifdef M5_CORE2
+  auto* rtc = new RtcConnector();
+#endif
   auto* shake_detector = new ShakeDetector();
   auto* log_aggregator = new LogAggregator();
 
@@ -95,6 +101,9 @@ void setup() {
   controller.register_worker(k_worker_button_1, *zen_C);
   controller.register_worker(k_worker_log_aggregator, *log_aggregator);
   controller.register_worker(k_worker_controller_state, controller);
+#ifdef M5_CORE2
+  controller.register_worker(k_worker_rtc_connector, *rtc);
+#endif
 
   DEBUG_PRINTLN("Register handlers...");
   controller.register_handler(k_handler_log_aggregator, *log_aggregator);
