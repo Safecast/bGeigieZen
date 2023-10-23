@@ -23,25 +23,29 @@ class LocalStorage : public Handler {
   // Getters and setters
   virtual uint16_t get_device_id() const final;
   virtual const char* get_ap_password() const final;
+  virtual uint16_t get_alarm_threshold() const final;
+  virtual uint8_t get_click_sound_level() const final;
   virtual const char* get_wifi_ssid() const final;
   virtual const char* get_wifi_password() const final;
   virtual const char* get_api_key() const final;
-  virtual uint8_t get_send_frequency() const final;
   virtual double get_fixed_longitude() const final;
   virtual double get_fixed_latitude() const final;
+  virtual uint16_t get_fixed_range() const final;
   virtual double get_last_longitude() const final;
   virtual double get_last_latitude() const final;
 
   virtual void set_device_id(uint16_t device_id, bool force);
   virtual void set_ap_password(const char* ap_password, bool force);
+  virtual void set_alarm_threshold(uint16_t alarm_threshold, bool force);
+  virtual void set_click_sound_level(uint8_t click_sound_level, bool force);
   virtual void set_wifi_ssid(const char* wifi_ssid, bool force);
   virtual void set_wifi_password(const char* wifi_password, bool force);
   virtual void set_api_key(const char* api_key, bool force);
-  virtual void set_send_frequency(uint8_t send_frequency, bool force);
   virtual void set_fixed_longitude(double fixed_longitude, bool force);
   virtual void set_fixed_latitude(double fixed_latitude, bool force);
   virtual void set_last_longitude(double last_longitude, bool force);
   virtual void set_last_latitude(double last_latitude, bool force);
+  virtual void set_fixed_range(uint16_t fixed_range, bool force);
 
  protected:
   virtual bool clear();
@@ -56,17 +60,19 @@ class LocalStorage : public Handler {
 
   // Device settings
   uint16_t _device_id;
+  uint16_t _alarm_threshold;
+  uint8_t _click_sound_level;
   char _ap_password[CONFIG_VAL_MAX];
 
   // Connection settings
   char _wifi_ssid[CONFIG_VAL_MAX];
   char _wifi_password[CONFIG_VAL_MAX];
   char _api_key[CONFIG_VAL_MAX];
-  uint8_t _send_frequency;
 
   // Location settings
   double _fixed_longitude;
   double _fixed_latitude;
+  uint16_t _fixed_range;
 
   double _last_longitude;
   double _last_latitude;

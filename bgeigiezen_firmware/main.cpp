@@ -60,7 +60,8 @@
 #include "gfx_screen.h"
 #include "debugger.h"
 
-Controller controller;
+LocalStorage settings;
+Controller controller(settings);
 
 void setup() {
   DEBUG_BEGIN();
@@ -83,7 +84,7 @@ void setup() {
   // Data handlers
 
   // Supervisors
-  auto* gfx_screen = new GFXScreen();
+  auto* gfx_screen = new GFXScreen(settings, controller);
 
   DEBUG_PRINTLN("Register workers...");
   controller.register_worker(k_worker_gps_connector, *gps);
@@ -94,10 +95,11 @@ void setup() {
   controller.register_worker(k_worker_button_2, *zen_B);
   controller.register_worker(k_worker_button_1, *zen_C);
   controller.register_worker(k_worker_log_aggregator, *log_aggregator);
-  controller.register_worker(k_worker_controller_state, controller);
+  controller.register_worker(k_worker_device_state, controller);
 
   DEBUG_PRINTLN("Register handlers...");
   controller.register_handler(k_handler_log_aggregator, *log_aggregator);
+  controller.register_handler(k_handler_local_storage, settings);
 
   DEBUG_PRINTLN("Register supervisors...");
   controller.register_supervisor(*gfx_screen);

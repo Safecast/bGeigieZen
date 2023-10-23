@@ -17,7 +17,7 @@ ApiConnector::ApiConnector(LocalStorage& config) :
 }
 
 bool ApiConnector::time_to_send(unsigned offset) const {
-  switch (static_cast<SendFrequency>(_config.get_send_frequency())) {
+  switch (e_api_send_frequency_1_min) {
     case e_api_send_frequency_5_sec:
       return SEND_FREQUENCY(_last_success_send, 5, offset);
     case e_api_send_frequency_1_min:
@@ -117,10 +117,10 @@ ApiConnector::ApiHandlerStatus ApiConnector::send_reading(const DataLine& data) 
   DEBUG_PRINTF("POST complete, status %d\r\nrepsonse: \r\n\r\n%s\r\n\r\n", httpResponseCode, response.c_str());
   http.end();  //Free resources
 
-  if (_config.get_send_frequency() != e_api_send_frequency_5_sec) {
+//  if (_config.get_send_frequency() != e_api_send_frequency_5_sec) {
     // Disconnect from wifi between readings (not needed when sending every 5 seconds)
-    WiFiConnectionWrapper::disconnect_wifi();
-  }
+//    WiFiConnectionWrapper::disconnect_wifi();
+//  }
 
   switch (httpResponseCode) {
     case 200 ... 204:

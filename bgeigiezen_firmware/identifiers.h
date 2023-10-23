@@ -13,7 +13,7 @@ enum DataWorkers {
   k_worker_button_1,
   k_worker_button_2,
   k_worker_button_3,
-  k_worker_controller_state,
+  k_worker_device_state,
 };
 
 /**

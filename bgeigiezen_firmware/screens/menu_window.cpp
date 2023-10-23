@@ -23,13 +23,13 @@ MenuWindow::MenuItem FIXED_MENU_ITEM = {
     "Fixed",
     "Place the zen at a fixed location and       ",
     "upload data over wifi!                      ",
-    true,
+    false,
 };
 MenuWindow::MenuItem LOG_VIEWER_MENU_ITEM = {
     "Logs",
     "View and upload logs!                       ",
     "                                            ",
-    true,
+    false,
 };
 MenuWindow::MenuItem SETTINGS_MENU_ITEM = {
     "Settings",
@@ -50,7 +50,7 @@ MenuWindow::MenuItem ENTER_ADVANCED_MODE_MENU_ITEM = {
     true,
 };
 
-MenuWindow::MenuWindow(): BaseScreen("Survey"), menu_open(false), menu_index(0), advanced_menu{
+MenuWindow::MenuWindow(): BaseScreen("Survey", true), menu_open(false), menu_index(0), advanced_menu{
     DRIVE_MENU_ITEM,
     SURVEY_MENU_ITEM,
     FIXED_MENU_ITEM,
@@ -60,7 +60,7 @@ MenuWindow::MenuWindow(): BaseScreen("Survey"), menu_open(false), menu_index(0),
 
 }
 
-BaseScreen* MenuWindow::handle_input(const worker_map_t& workers) {
+BaseScreen* MenuWindow::handle_input(Controller& controller, const worker_map_t& workers) {
   const auto button1 = workers.worker<ZenButton>(k_worker_button_1);
   const auto button2 = workers.worker<ZenButton>(k_worker_button_2);
   const auto button3 = workers.worker<ZenButton>(k_worker_button_3);
@@ -75,7 +75,7 @@ BaseScreen* MenuWindow::handle_input(const worker_map_t& workers) {
     }
   }
   if (button3->is_fresh() && button3->get_data().shortPress) {
-    leave_screen();
+    menu_open = false;
     return nullptr;
   }
 
@@ -93,7 +93,6 @@ BaseScreen* MenuWindow::handle_input(const worker_map_t& workers) {
       case 4:
         return ConfigModeScreen::i();
     }
-    leave_screen();
     return nullptr;
   }
 
@@ -113,7 +112,7 @@ void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handle
   // Draw menu rect
   M5.Lcd.drawRoundRect(210, 20, 90, 100, 4, TFT_ORANGE);
   for (int i = 0; i < 5; ++i) {
-    M5.Lcd.setTextColor(i == menu_index ? TFT_ORANGE : TFT_WHITE, TFT_BLACK);
+    M5.Lcd.setTextColor(advanced_menu[i].enabled ? (i == menu_index ? TFT_ORANGE : TFT_WHITE) : TFT_DARKGREY, TFT_BLACK);
     M5.Lcd.drawString(advanced_menu[i].title, 230, 40 + (i * 10));
     if (i == menu_index) {
       M5.Lcd.drawString(">", 220, 40 + (i * 10));
@@ -133,10 +132,10 @@ bool MenuWindow::is_open() const {
   return menu_open;
 }
 
-void MenuWindow::enter_screen() {
+void MenuWindow::enter_screen(Controller& controller) {
   menu_open = true;
 }
 
-void MenuWindow::leave_screen() {
+void MenuWindow::leave_screen(Controller& controller) {
   menu_open = false;
 }

@@ -10,7 +10,6 @@ struct DataLine {
   bool valid;
   uint16_t cpm;
   char timestamp[20];
-  char date[20];
   float longitude;
   float latitude;
   float altitude;

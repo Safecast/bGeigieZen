@@ -1,7 +1,11 @@
 #ifndef __SD_WRAPPER_H_
 #define __SD_WRAPPER_H_
 
+#include <SD.h>
+
 #include "handlers/local_storage.h"
+
+#define MAX_LOG_NAME 255
 
 /**
  *  This singleton class provides an interface to check that the SD card is already
@@ -9,10 +13,25 @@
  */
 class SDInterface {
  public:
-  enum sd_error_t {
-    SD_ERR_NOT_READY,
-    SD_ERR_FILE_OPEN_W_FAIL,
-    SD_ERR_FILE_OPEN_R_FAIL
+  enum SdStatus {
+    e_sd_config_status_not_ready,
+    e_sd_config_status_ok,
+    e_sd_config_status_config_different_id,
+    e_sd_config_status_config_no_content,
+    e_sd_config_status_no_config_file,
+  };
+
+  enum SdError {
+    e_sd_err_not_ready,
+    e_sd_err_file_open_w_fail,
+    e_sd_err_file_open_r_fail
+  };
+
+  enum SdLogType {
+    e_sd_log_type_journal,
+    e_sd_log_type_drive,
+    e_sd_log_type_survey,
+    e_sd_log_type_error
   };
 
   SDInterface(const SDInterface&) = delete;
@@ -41,27 +60,50 @@ class SDInterface {
   bool begin();
 
   /**
+   * close SD connection
+   */
+  void end();
+
+  /**
+   */
+//  bool setup_log(log_type_t type, char* log_name_output);
+
+  /**
+   */
+  bool log(const char* log_name, const uint8_t* data, size_t buff_size);
+
+  /**
    * Get device id from SAFEZEN.txt file on the SD card
    * @return device id if available, else 0
    */
-  int32_t has_safezen_content();
+  SdStatus has_safezen_content(uint16_t device_id);
 
   /**
    * Read SAFEZEN.txt file contents on SD card to local storage
    * @return true if succeeded
    */
-  bool read_safezen_file(const LocalStorage& settings);
+  bool read_safezen_file(LocalStorage& settings);
 
   /**
    * Write SAFEZEN.txt file on the SD card from local storage
    * @return true if succeeded
    */
-  bool write_safezen_file(const LocalStorage& settings);
+  bool write_safezen_file(const LocalStorage& settings, bool full = false);
 
  private:
-  SDInterface() = default;
+  SDInterface();
 
-  bool _sd_ready = false;
+  /**
+   * Read SAFEZEN.txt file contents on SD card to local storage
+   * @return true if succeeded
+   */
+  bool read_safezen_file_latest(LocalStorage& settings, File& file);
+
+
+
+  bool _sd_ready;
+  uint32_t _last_read;
+  uint32_t _last_write;
 };
 
 #endif  // __SD_WRAPPER_H_
