@@ -1,10 +1,11 @@
 #ifndef BGEIGIEZEN_GFX_SCREEN_H_
 #define BGEIGIEZEN_GFX_SCREEN_H_
 
-#include <Arduino.h>
-#include <screens/base_screen.h>
-#include <Supervisor.hpp>
+#include "handlers/local_storage.h"
 #include "screens/menu_window.h"
+#include <Arduino.h>
+#include <Supervisor.hpp>
+#include <screens/base_screen.h>
 
 /**
  * M5 Screen renderer
@@ -26,7 +27,7 @@ public:
     e_screen_config_mode,
   };
 
-  explicit GFXScreen();
+  explicit GFXScreen(LocalStorage& settings, Controller& controller);
   virtual ~GFXScreen() = default;
 
   void handle_report(const worker_map_t &workers, const handler_map_t &handlers) override;
@@ -38,6 +39,8 @@ private:
 
   void setBrightness(uint8_t lvl, bool overdrive = false);
 
+  Controller& _controller;
+  LocalStorage& _settings;
   unsigned long _last_render;
   BaseScreen* _screen;
   MenuWindow* _menu;
