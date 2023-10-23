@@ -22,15 +22,15 @@ class MenuWindow : public BaseScreen {
 
   void render(const worker_map_t& workers, const handler_map_t& handlers) override;
 
-  BaseScreen* handle_input(const worker_map_t &workers) override;
+  BaseScreen* handle_input(Controller& controller, const worker_map_t &workers) override;
 
   bool is_open() const;
 
  private:
   explicit MenuWindow();
  public:
-  void enter_screen() override;
-  void leave_screen() override;
+  void enter_screen(Controller& controller) override;
+  void leave_screen(Controller& controller) override;
 
  private:
   bool menu_open;

@@ -10,9 +10,9 @@ class DriveModeScreen : public BaseScreen {
     return &screen;
   }
 
-  BaseScreen* handle_input(const worker_map_t &workers) override;
+  BaseScreen* handle_input(Controller& controller, const worker_map_t &workers) override;
   void render(const worker_map_t &workers, const handler_map_t &handlers) override;
-  void leave_screen() override;
+  void leave_screen(Controller& controller) override;
 
  private:
   explicit DriveModeScreen();

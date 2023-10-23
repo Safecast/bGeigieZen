@@ -7,10 +7,10 @@
 #include "menu_window.h"
 #include "debugger.h"
 
-DriveModeScreen::DriveModeScreen(): BaseScreen("Drive") {
+DriveModeScreen::DriveModeScreen(): BaseScreen("Drive", true) {
 }
 
-BaseScreen* DriveModeScreen::handle_input(const worker_map_t& workers) {
+BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
   auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
   if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
     return MenuWindow::i();
@@ -48,13 +48,13 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
                 gm_sensor->get_data().uSv_sec,
                 gm_sensor->get_data().Bqm2_sec);
   M5.Lcd.printf("GPS\n"
-                " location: %s                \n"
-                "  latitude: %.5f             \n"
-                "  longitude: %.5f            \n"
-                " altitude: %.5f %s           \n"
-                " satellites: %d %s           \n"
-                " date: %04d-%02d-%02d %s     \n"
-                " time: %02d:%02d:%02d %s     \n",
+                " location: %s           \n"
+                "  latitude: %.5f        \n"
+                "  longitude: %.5f       \n"
+                " altitude: %.5f %s      \n"
+                " satellites: %d %s      \n"
+                " date: %04d-%02d-%02d %s\n"
+                " time: %02d:%02d:%02d %s\n",
                 gps->get_data().location_valid ? "             " : "(unavailable)",
                 gps->get_data().latitude,
                 gps->get_data().longitude,
@@ -62,16 +62,16 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
                 gps->get_data().altitude_valid ? "             " : "(unavailable)",
                 gps->get_data().satellites_value,
                 gps->get_data().satellites_valid ? "             " : "(unavailable)",
-                gps->get_data().year,
-                gps->get_data().month,
-                gps->get_data().day,
+                gps->get_data().date_valid ? gps->get_data().year : 0,
+                gps->get_data().date_valid ? gps->get_data().month : 0,
+                gps->get_data().date_valid ? gps->get_data().day : 0,
                 gps->get_data().date_valid ? "             " : "(unavailable)",
-                gps->get_data().hour,
-                gps->get_data().minute,
-                gps->get_data().second,
+                gps->get_data().time_valid ? gps->get_data().hour : 0,
+                gps->get_data().time_valid ? gps->get_data().minute : 0,
+                gps->get_data().time_valid ? gps->get_data().second : 0,
                 gps->get_data().time_valid ? "             " : "(unavailable)");
 }
 
-void DriveModeScreen::leave_screen() {
+void DriveModeScreen::leave_screen(Controller& controller) {
 
 }

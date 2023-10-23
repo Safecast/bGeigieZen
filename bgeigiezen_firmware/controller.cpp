@@ -5,13 +5,11 @@
 
 #include "utils/device_utils.h"
 
-Controller::Controller() : Aggregator(),
-                           Worker<DeviceState>({
-                             false,
-                             DeviceState::SDAvailability::e_sd_not_set,
-                             DeviceState::Mode::e_mode_not_set
-                           }),
-                           _initialized(false) {
+Controller::Controller(LocalStorage& settings)
+    : Aggregator(),
+      Worker<DeviceState>({false, false, false, SDInterface::SdStatus::e_sd_config_status_not_ready, DeviceState::Mode::e_mode_not_set}, 1000),
+      _initialized(false),
+      _settings(settings) {
 }
 
 void Controller::initialize() {
@@ -29,15 +27,14 @@ void Controller::start_default_workers() {
   set_worker_active(k_worker_button_3, true);
   set_worker_active(k_worker_button_2, true);
   set_worker_active(k_worker_button_1, true);
-  set_worker_active(k_worker_controller_state, true);
+  set_worker_active(k_worker_device_state, true);
 
   set_handler_active(k_handler_log_aggregator, true);
-
 
 }
 
 void Controller::reset_system() {
-//  _config.reset_defaults();
+  _settings.reset_defaults();
   DeviceUtils::shutdown(true);
 }
 
@@ -49,7 +46,25 @@ int8_t Controller::produce_data() {
     _status = e_worker_data_read;
   }
 
-  if (SDInterface::i().ready()) {
+  if (DeviceState::e_mode_not_set == data.mode) {
+    data.mode = DeviceState::e_mode_advanced;
+    _status = e_worker_data_read;
+  }
+
+  if (!!_settings.get_device_id() != data.local_available) {
+    data.local_available = !!_settings.get_device_id();
+    _status = e_worker_data_read;
+  }
+
+  if (data.sd_card_status == SDInterface::SdStatus::e_sd_config_status_not_ready) {
+    if (SDInterface::i().begin()) {
+      // SD is inserted
+      data.sd_card_status = SDInterface::i().has_safezen_content(_settings.get_device_id());
+      _status = e_worker_data_read;
+    } else {
+      data.sd_card_status = SDInterface::SdStatus::e_sd_config_status_not_ready;
+        _status = e_worker_data_read;
+    }
 
   }
   return _status;

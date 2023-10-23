@@ -4,7 +4,7 @@
 #define BUTTON_TEXT_MAX_LENGTH 13
 
 
-BaseScreen::BaseScreen(const char* title) {
+BaseScreen::BaseScreen(const char* title, bool status_bar): _status_bar(status_bar) {
   if (strlen(title) < 20) {
     strcpy(_title, title);
   }
@@ -55,12 +55,16 @@ void BaseScreen::drawButton3(const char* text, uint32_t border_color) {
 #endif
 }
 
-void BaseScreen::enter_screen() {
+void BaseScreen::enter_screen(Controller& controller) {
 }
 
-void BaseScreen::leave_screen() {
+void BaseScreen::leave_screen(Controller& controller) {
 }
 
 const char* BaseScreen::get_title() const {
   return _title;
+}
+
+bool BaseScreen::has_status_bar() const {
+  return _status_bar;
 }

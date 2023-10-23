@@ -1,23 +1,28 @@
 #include "boot_screen.h"
+#include "controller.h"
 #include "drive_mode.h"
+#include "sd_message.h"
 #include "user_config.h"
 
-BootScreen::BootScreen(): BaseScreen("") {
+BootScreen::BootScreen(): BaseScreen("", false) {
 
 }
 
-BaseScreen* BootScreen::handle_input(const worker_map_t& workers) {
+BaseScreen* BootScreen::handle_input(Controller& controller, const worker_map_t& workers) {
   if (entered_at + 3000 < millis()) {
+    if (controller.get_data().sd_card_status != SDInterface::SdStatus::e_sd_config_status_ok) {
+      return SdMessageScreen::i();
+    }
     return DriveModeScreen::i();
   }
   return nullptr;
 }
 
-void BootScreen::enter_screen() {
+void BootScreen::enter_screen(Controller& controller) {
   entered_at = millis();
 }
 
-void BootScreen::leave_screen() {
+void BootScreen::leave_screen(Controller& controller) {
 }
 
 void BootScreen::render(const worker_map_t& workers, const handler_map_t& handlers) {

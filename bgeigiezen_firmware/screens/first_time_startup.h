@@ -1,12 +1,12 @@
-#ifndef SCREENS_CONFIG_SCREEN_H
-#define SCREENS_CONFIG_SCREEN_H
+#ifndef FIRST_TIME_STARTUP_SCREEN_H
+#define FIRST_TIME_STARTUP_SCREEN_H
 
 #include "base_screen.h"
 
-class ConfigModeScreen : public BaseScreen {
+class FirstTimeStartupScreen : public BaseScreen {
  public:
-  static ConfigModeScreen* i() {
-    static ConfigModeScreen screen;
+  static FirstTimeStartupScreen* i() {
+    static FirstTimeStartupScreen screen;
     return &screen;
   }
 
@@ -16,7 +16,7 @@ class ConfigModeScreen : public BaseScreen {
   virtual void leave_screen(Controller& controller) override;
 
  private:
-  explicit ConfigModeScreen();
+  explicit FirstTimeStartupScreen();
 };
 
-#endif //SCREENS_CONFIG_SCREEN_H
+#endif //FIRST_TIME_STARTUP_SCREEN_H
