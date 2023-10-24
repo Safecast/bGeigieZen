@@ -16,8 +16,11 @@
  * https://github.com/m5stack/M5Core2/pull/138
  * Core2 RTC GPIO pins SDA=21  SCL=22 (bit bashing?)
 */
+
+#ifdef M5_CORE2
 #include <M5Core2.h>
-#include <I2C_BM8563.h> // Bypass instance Rtc from M5Core2
+#include <I2C_BM8563.h>
+#endif
 #include <Worker.hpp>
 #include <user_config.h>
 #include "debugger.h"
@@ -52,10 +55,13 @@ class RtcConnector : public Worker<RtcData> {
   int8_t produce_data() override;
 
  private:
+
+#ifdef M5_CORE2
   I2C_BM8563 rtc{I2C_BM8563_DEFAULT_ADDRESS, Wire1};
 
   I2C_BM8563_DateTypeDef dateStruct;
   I2C_BM8563_TimeTypeDef timeStruct;
+#endif
 
 };
 
