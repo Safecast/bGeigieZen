@@ -90,6 +90,8 @@ class GpsConnector : public Worker<GnssData> {
  private:
   HardwareSerial ss{GPS_SERIAL_NUM};
   SFE_UBLOX_GNSS gnss;
+  uint32_t tried_38400_at;
+  uint32_t tried_9600_at;
 };
 
 #endif //BGEIGIEZEN_GPS_SENSOR_H_
