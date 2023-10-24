@@ -14,8 +14,9 @@
 */
 
 #include "gps_connector.h"
+#include "debugger.h"
 
-GpsConnector::GpsConnector() : Worker<GnssData>() {
+GpsConnector::GpsConnector() : Worker<GnssData>(), tried_38400_at(0), tried_9600_at(0) {
 }
 /**
  * @return true if initialized GNSS library, false if no connection with module.
@@ -23,28 +24,33 @@ GpsConnector::GpsConnector() : Worker<GnssData>() {
 bool GpsConnector::activate(bool retry) {
   // From Sparkfun examples/Example12_UseUart
   // Assume that the U-Blox GNSS is running at 9600 baud (the default) or at 38400 baud.
-  // Loop until we're in sync and then ensure it's at 38400 baud.
-  int loopcount = 0; // prevent an infinite loop
-  do {
-    Serial.println("GNSS: trying 38400 baud");
+  if (!retry) {
     ss.begin(38400);
-    if (gnss.begin(ss) == true)
-      break;
-    delay(100);
-    Serial.println("GNSS: trying 9600 baud");
-    ss.begin(9600);
-    if (gnss.begin(ss) == true) {
-        Serial.println("GNSS: connected at 9600 baud, switching to 38400");
-        gnss.setSerialRate(38400);
-        ++loopcount;
-        delay(100);
+  }
+  if (tried_38400_at == 0 && millis() > 1500) { // Wait for device to completely startup
+    tried_38400_at = millis();
+    ss.updateBaudRate(38400);
+    DEBUG_PRINTF("GNSS: trying 38400 baud at millis %d\n", tried_38400_at);
+    if (gnss.begin(ss, 500)) {
+      DEBUG_PRINTLN("GNSS: connected at 38400 baud");
+      gnss.setSerialRate(38400);
     } else {
-        if(loopcount > 5)
-          return false;
-        else
-          delay(500);
+      return false;
     }
-  } while(1);
+  }
+  else if (tried_9600_at == 0 && tried_38400_at > 0 && millis() - tried_38400_at > 500) {
+    tried_9600_at = millis();
+    ss.updateBaudRate(9600);
+    DEBUG_PRINTF("GNSS: trying 9600 baud at millis %d\n", tried_9600_at);
+    if (gnss.begin(ss, 500)) {
+      DEBUG_PRINTLN("GNSS: connected at 9600 baud, switching to 38400");
+      gnss.setSerialRate(38400);
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
 
   // Set Auto on NAV-PVT and NAV-DOP queries for non-blocking access
   // getPVT() and getDOP() will return true if a new navigation solution is available
