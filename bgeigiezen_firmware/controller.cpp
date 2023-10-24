@@ -69,3 +69,7 @@ int8_t Controller::produce_data() {
   }
   return _status;
 }
+void Controller::create_dummy_settings() {
+  _settings.set_device_id(1, true);
+  SDInterface::i().write_safezen_file(_settings);
+}
