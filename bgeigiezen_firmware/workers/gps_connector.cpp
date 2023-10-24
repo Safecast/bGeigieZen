@@ -36,13 +36,15 @@ bool GpsConnector::activate(bool retry) {
     if (gnss.begin(ss) == true) {
         Serial.println("GNSS: connected at 9600 baud, switching to 38400");
         gnss.setSerialRate(38400);
-        ++loopcount;
         delay(100);
-    } else {
-        if(loopcount > 5)
-          return false;
-        else
-          delay(500);
+    }
+    else {
+      delay(500);
+    }
+    ++loopcount;
+    if(loopcount > 5) {
+      Serial.println("Cannot connect to GNSS module.");
+      return false;
     }
   } while(1);
 
