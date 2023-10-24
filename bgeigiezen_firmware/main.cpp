@@ -59,6 +59,9 @@
 #include "workers/log_aggregator.h"
 #include "gfx_screen.h"
 #include "debugger.h"
+#ifdef M5_CORE2
+#include "workers/rtc_connector.h"
+#endif
 
 LocalStorage settings;
 Controller controller(settings);
@@ -78,6 +81,9 @@ void setup() {
   auto* gps = new GpsConnector();
   auto* gm_sensor = new GeigerCounter();
   auto* battery_indicator = new BatteryIndicator();
+#ifdef M5_CORE2
+  auto* rtc = new RtcConnector();
+#endif
   auto* shake_detector = new ShakeDetector();
   auto* log_aggregator = new LogAggregator();
 
