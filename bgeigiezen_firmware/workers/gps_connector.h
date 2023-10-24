@@ -47,8 +47,8 @@ struct GnssData {
   bool date_valid;
   bool time_valid;
 
-/** @todo REMOVE THIS DEBUG TEMPORARY*/
-RBD::Timer hardreset_timer{15000};  // force a GNSS module hard reset to see the effects.
+  /** @todo REMOVE THIS DEBUG TEMPORARY*/
+  RBD::Timer hardreset_timer{15000};  // force a GNSS module hard reset to see the effects.
 
   // Age each item. If the corresponding timer times out, it's stale. 
   RBD::Timer location_timer{GPS_FIX_AGE_LIMIT};
