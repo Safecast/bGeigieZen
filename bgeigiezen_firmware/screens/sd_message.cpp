@@ -18,19 +18,19 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
 
   switch (error_type) {
     case k_unknown:
-      if (button1->is_fresh() && button3->get_data().shortPress) {
+      if (button1->is_fresh() && button1->get_data().shortPress) {
         DeviceUtils::shutdown(true);
         return nullptr;
       }
       break;
     case k_no_sd_with_storage:
-      if (button1->is_fresh() && button3->get_data().shortPress) {
+      if (button1->is_fresh() && button1->get_data().shortPress) {
         DeviceUtils::shutdown(true);
         return nullptr;
       }
       break;
     case k_no_sd_no_storage:
-      if (button1->is_fresh() && button3->get_data().shortPress) {
+      if (button1->is_fresh() && button1->get_data().shortPress) {
         DeviceUtils::shutdown(true);
         return nullptr;
       }
@@ -39,7 +39,7 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
       }
       break;
     case k_empty_sd_with_storage:
-      if (button1->is_fresh() && button3->get_data().shortPress) {
+      if (button1->is_fresh() && button1->get_data().shortPress) {
         DeviceUtils::shutdown(true);
         return nullptr;
       }
@@ -49,7 +49,12 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
       }
       break;
     case k_empty_sd_no_storage:
-      if (button1->is_fresh() && button3->get_data().shortPress) {
+      if (button1->is_fresh() && button1->get_data().shortPress) {
+        DeviceUtils::shutdown(true);
+        return nullptr;
+      }
+      if (button2->is_fresh() && button2->get_data().shortPress) {
+        controller.create_dummy_settings();
         DeviceUtils::shutdown(true);
         return nullptr;
       }
@@ -101,11 +106,14 @@ void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& h
       break;
     case k_empty_sd_no_storage:
       drawButton1("Reboot");
+      drawButton2("Dummy");
+      drawButton3("Continue");
       M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
-      M5.Lcd.drawString("Unable to initialize device", 10, 50, 4);
+      M5.Lcd.drawString("SD card notification", 50, 50, 4);
       M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
-      M5.Lcd.drawString("Please insert an SD card with valid", 5, 90, 2);
-      M5.Lcd.drawString("config to continue", 5, 110, 2);
+      M5.Lcd.drawString("No config found on SDCARD", 5, 90, 2);
+      M5.Lcd.drawString("You can continue in minimal mode.", 5, 110, 2);
+      M5.Lcd.drawString("Or add config to the SD card and reboot.", 5, 130, 2);
       break;
     case k_config_sd_different_id:
       drawButton1("Load");
