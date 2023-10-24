@@ -14,6 +14,8 @@ RtcConnector::RtcConnector() : Worker<RtcData>() {
  * @return true if initialized RTC library, false if no connection to the IC.
 */
 bool RtcConnector::activate(bool retry) {
+
+#ifdef M5_CORE2
 DEBUG_PRINTLN("Activating RTC Connector, SDA, SCL");
 DEBUG_PRINT(BM8563_I2C_SDA);
 DEBUG_PRINTLN(BM8563_I2C_SCL);
@@ -31,9 +33,13 @@ DEBUG_PRINTLN("Initialize RTC data to all zero");
   data.second = 0;
 
   return true;
+#else
+  return false;
+#endif
 }
 
 int8_t RtcConnector::produce_data() {
+#ifdef M5_CORE2
   rtc.getDate(&dateStruct);
   rtc.getTime(&timeStruct);
   data.rtc_low_voltage = rtc.getVoltLow();
@@ -46,4 +52,7 @@ int8_t RtcConnector::produce_data() {
   data.year = dateStruct.year;
 
   return e_worker_data_read;
+#else
+  return e_worker_idle;
+#endif
 }

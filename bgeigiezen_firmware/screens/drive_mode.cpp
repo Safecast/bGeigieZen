@@ -1,11 +1,12 @@
 #include "drive_mode.h"
-#include "workers/zen_button.h"
-#include "workers/battery_indicator.h"
-#include "workers/gps_connector.h"
-#include "workers/gm_sensor.h"
+#include "debugger.h"
 #include "identifiers.h"
 #include "menu_window.h"
-#include "debugger.h"
+#include "workers/battery_indicator.h"
+#include "workers/gm_sensor.h"
+#include "workers/gps_connector.h"
+#include "workers/rtc_connector.h"
+#include "workers/zen_button.h"
 
 DriveModeScreen::DriveModeScreen(): BaseScreen("Drive", true) {
 }
@@ -24,9 +25,7 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   const auto& gm_sensor = workers.worker<GeigerCounter>(k_worker_gm_sensor);
   const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
   const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator);
-#ifdef M5_CORE2
   const auto& rtc = workers.worker<RtcConnector>(k_worker_rtc_connector);
-#endif
 
   drawButton1("Start log");
   drawButton2("");
@@ -77,8 +76,6 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
                 gps->get_data().time_valid ? gps->get_data().second : 0,
                 gps->get_data().time_valid ? "             " : "(unavailable)");
 
-/** @todo Remove this when initialization handles time setup properly. */
-#ifdef M5_CORE2
   M5.Lcd.printf("RTC\n"
                 " VoltLow: %s\n"
                 " date: %04d-%02d-%02d\n"
@@ -91,7 +88,6 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
                 rtc->get_data().minute,
                 rtc->get_data().second
                 );
-#endif
 }
 
 void DriveModeScreen::leave_screen(Controller& controller) {
