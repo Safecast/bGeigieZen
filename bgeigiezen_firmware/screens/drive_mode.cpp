@@ -24,6 +24,9 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   const auto& gm_sensor = workers.worker<GeigerCounter>(k_worker_gm_sensor);
   const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
   const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator);
+#ifdef M5_CORE2
+  const auto& rtc = workers.worker<RtcConnector>(k_worker_rtc_connector);
+#endif
 
   drawButton1("Start log");
   drawButton2("");
@@ -47,10 +50,7 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
                 gm_sensor->get_data().cps,
                 gm_sensor->get_data().uSv_sec,
                 gm_sensor->get_data().Bqm2_sec);
-/* @todo The "*_valid" Booleans will need to be revisited once the GPS connector 
- * is reworked to get correct date and time early, then location with acceptable
- * accuracy. It all depends on what becomes available when.
- */
+
   M5.Lcd.printf("GPS\n"
                 " location: %s                \n"
                 "  latitude: %.5f            \n"
@@ -76,6 +76,22 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
                 gps->get_data().time_valid ? gps->get_data().minute : 0,
                 gps->get_data().time_valid ? gps->get_data().second : 0,
                 gps->get_data().time_valid ? "             " : "(unavailable)");
+
+/** @todo Remove this when initialization handles time setup properly. */
+#ifdef M5_CORE2
+  M5.Lcd.printf("RTC\n"
+                " VoltLow: %s\n"
+                " date: %04d-%02d-%02d\n"
+                " time: %02d:%02d:%02d\n",
+                rtc->get_data().rtc_low_voltage ? "Low voltage " : "Voltage good",
+                rtc->get_data().year,
+                rtc->get_data().month,
+                rtc->get_data().day,
+                rtc->get_data().hour,
+                rtc->get_data().minute,
+                rtc->get_data().second
+                );
+#endif
 }
 
 void DriveModeScreen::leave_screen(Controller& controller) {
