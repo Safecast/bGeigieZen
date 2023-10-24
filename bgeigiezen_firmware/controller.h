@@ -40,6 +40,11 @@ class Controller : public Aggregator, public Worker<DeviceState> {
    */
   void start_default_workers();
 
+  /**
+   * Create dummy settings local and sd card
+   */
+  void create_dummy_settings();
+
  private:
   /**
    * As a worker, the controller will notify of any state changes
