@@ -79,7 +79,7 @@ struct GnssData {
 class GpsConnector : public Worker<GnssData> {
  public:
 
-  explicit GpsConnector();
+  explicit GpsConnector(uint8_t gps_serial_num, SFE_UBLOX_GNSS& gnss);
 
   virtual ~GpsConnector() = default;
 
@@ -88,8 +88,8 @@ class GpsConnector : public Worker<GnssData> {
   int8_t produce_data() override;
 
  private:
-  HardwareSerial ss{GPS_SERIAL_NUM};
-  SFE_UBLOX_GNSS gnss;
+  HardwareSerial ss;
+  SFE_UBLOX_GNSS& gnss;
   uint32_t tried_38400_at;
   uint32_t tried_9600_at;
 };
