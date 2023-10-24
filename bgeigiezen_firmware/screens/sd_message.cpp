@@ -76,7 +76,7 @@ void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& h
       M5.Lcd.drawString("Welcome to your bGeigieZen!", 50, 50, 4);
       M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
       M5.Lcd.drawString("Please insert your bGeigieZen SD-card", 25, 90, 2);
-      M5.Lcd.drawString("into the SD-card slot and restart the device.", 25, 100, 2);
+      M5.Lcd.drawString("into the SD-card slot and restart the device.", 25, 110, 2);
       break;
     case k_no_sd_no_storage:
       drawButton1("Reboot");
@@ -85,8 +85,8 @@ void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& h
       M5.Lcd.drawString("SD card notification", 50, 50, 4);
       M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
       M5.Lcd.drawString("No SDCARD in slot", 5, 90, 2);
-      M5.Lcd.drawString("You can continue in minimal mode.", 5, 100, 2);
-      M5.Lcd.drawString("Or insert an SD card and reboot.", 5, 110, 2);
+      M5.Lcd.drawString("You can continue in minimal mode.", 5, 110, 2);
+      M5.Lcd.drawString("Or insert an SD card and reboot.", 5, 130, 2);
       break;
     case k_empty_sd_with_storage:
       drawButton1("Reboot");
@@ -96,8 +96,8 @@ void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& h
       M5.Lcd.drawString("SD card notification", 50, 50, 4);
       M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
       M5.Lcd.drawString("No valid config found on SD card", 5, 90, 2);
-      M5.Lcd.drawString("You can initialize the SD card from saved settings.", 5, 100, 2);
-      M5.Lcd.drawString("Or continue in minimal mode.", 5, 110, 2);
+      M5.Lcd.drawString("You can initialize the SD card from saved settings.", 5, 110, 2);
+      M5.Lcd.drawString("Or continue in minimal mode.", 5, 130, 2);
       break;
     case k_empty_sd_no_storage:
       drawButton1("Reboot");
@@ -105,7 +105,7 @@ void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& h
       M5.Lcd.drawString("Unable to initialize device", 10, 50, 4);
       M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
       M5.Lcd.drawString("Please insert an SD card with valid", 5, 90, 2);
-      M5.Lcd.drawString("config to continue", 5, 100, 2);
+      M5.Lcd.drawString("config to continue", 5, 110, 2);
       break;
     case k_config_sd_different_id:
       drawButton1("Load");
@@ -115,9 +115,9 @@ void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& h
       M5.Lcd.drawString("SD card notification", 50, 50, 4);
       M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
       M5.Lcd.drawString("SD config with different device id found", 5, 90, 2);
-      M5.Lcd.drawString("Press Load to use the SD card settings", 5, 100, 2);
-      M5.Lcd.drawString("Press Overwrite to write device settings to the SD card", 5, 110, 2);
-      M5.Lcd.drawString("Or press continue and ignore this message", 5, 120, 2);
+      M5.Lcd.drawString("Press Load to use the SD card settings", 5, 110, 2);
+      M5.Lcd.drawString("Press Overwrite to write device settings to the SD card", 5, 130, 2);
+      M5.Lcd.drawString("Or press continue and ignore this message", 5, 150, 2);
       break;
   }
 
