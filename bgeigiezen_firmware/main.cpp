@@ -57,11 +57,9 @@
 #include "workers/shake_detector.h"
 #include "workers/battery_indicator.h"
 #include "workers/log_aggregator.h"
+#include "workers/rtc_connector.h"
 #include "gfx_screen.h"
 #include "debugger.h"
-#ifdef M5_CORE2
-#include "workers/rtc_connector.h"
-#endif
 
 LocalStorage settings;
 Controller controller(settings);
@@ -81,9 +79,7 @@ void setup() {
   auto* gps = new GpsConnector();
   auto* gm_sensor = new GeigerCounter();
   auto* battery_indicator = new BatteryIndicator();
-#ifdef M5_CORE2
   auto* rtc = new RtcConnector();
-#endif
   auto* shake_detector = new ShakeDetector();
   auto* log_aggregator = new LogAggregator();
 
@@ -97,6 +93,7 @@ void setup() {
   controller.register_worker(k_worker_gm_sensor, *gm_sensor);
   controller.register_worker(k_worker_shake_detector, *shake_detector);
   controller.register_worker(k_worker_battery_indicator, *battery_indicator);
+  controller.register_worker(k_worker_rtc_connector, *rtc);
   controller.register_worker(k_worker_button_3, *zen_A);
   controller.register_worker(k_worker_button_2, *zen_B);
   controller.register_worker(k_worker_button_1, *zen_C);
