@@ -7,7 +7,7 @@
 
 #include "rtc_connector.h"
 
-RtcConnector::RtcConnector() : Worker<RtcData>() {
+RtcConnector::RtcConnector() : Worker<RtcData>(1000) {
 }
 
 /**

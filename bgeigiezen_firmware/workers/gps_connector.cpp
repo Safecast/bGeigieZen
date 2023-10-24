@@ -16,7 +16,7 @@
 #include "gps_connector.h"
 #include "debugger.h"
 
-GpsConnector::GpsConnector() : Worker<GnssData>(), tried_38400_at(0), tried_9600_at(0) {
+GpsConnector::GpsConnector(uint8_t gps_serial_num, SFE_UBLOX_GNSS& gnss) : Worker<GnssData>(), ss(gps_serial_num), gnss(gnss), tried_38400_at(0), tried_9600_at(0) {
 }
 /**
  * @return true if initialized GNSS library, false if no connection with module.
