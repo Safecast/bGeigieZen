@@ -3,7 +3,7 @@
 #include "identifiers.h"
 #include "menu_window.h"
 
-ConfigModeScreen::ConfigModeScreen(): BaseScreen("Config", true) {
+ConfigModeScreen::ConfigModeScreen(): BaseScreen("Settings", true) {
 
 }
 

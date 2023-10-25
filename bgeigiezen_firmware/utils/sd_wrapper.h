@@ -104,6 +104,7 @@ class SDInterface {
   bool _sd_ready;
   uint32_t _last_read;
   uint32_t _last_write;
+  uint32_t _last_try;
 };
 
 #endif  // __SD_WRAPPER_H_
