@@ -20,7 +20,7 @@ class BootScreen : public BaseScreen {
  private:
   explicit BootScreen();
 
-  uint32_t entered_at;
+  uint32_t _entered_at;
 };
 
 #endif //SCREENS_BOOT_SCREEN_H

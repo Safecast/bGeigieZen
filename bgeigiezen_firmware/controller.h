@@ -45,6 +45,11 @@ class Controller : public Aggregator, public Worker<DeviceState> {
    */
   void create_dummy_settings();
 
+  /**
+   * Load SD config into device memory
+   */
+  void load_sd_config();
+
  private:
   /**
    * As a worker, the controller will notify of any state changes

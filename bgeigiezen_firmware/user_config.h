@@ -1,7 +1,11 @@
 #ifndef USER_CONFIG_H_
 #define USER_CONFIG_H_
 
-#include <Arduino.h>
+#ifdef M5_CORE2
+#include <M5Core2.h>
+#elif M5_BASIC
+#include <M5Stack.h>
+#endif
 
 /** System config **/
 #define ENABLE_DEBUG 1
@@ -39,6 +43,10 @@ constexpr uint32_t GPS_FIX_AGE_LIMIT = 1500; // ms before we decide the fix is t
 
 // - LCD display
 constexpr uint32_t LCD_REFRESH_RATE = 1000;  // 1s
+#define LCD_COLOR_DEFAULT TFT_WHITE
+#define LCD_COLOR_ACTIVE TFT_ORANGE
+#define LCD_COLOR_INACTIVE TFT_DARKGREY
+#define LCD_COLOR_BACKGROUND TFT_BLACK
 
 // - SD card
 constexpr uint8_t SD_CS_PIN = 4;  // GPIO 4
@@ -54,6 +62,7 @@ constexpr char LOG_HEADER_LINE3[] = "# deadtime=off";
 
 // - Setup
 constexpr char SETUP_FILENAME[] = "/SAFEZEN.txt";
+constexpr char TEST_FILENAME[] = "/.zen";
 constexpr uint8_t SETUP_FILE_PARSE_BUFFER_SIZE = 102;
 constexpr uint32_t SETUP_DEFAULT_DEVICE_ID = 0;
 constexpr uint8_t SETUP_USERNAME_MAXLEN = 15;

@@ -16,7 +16,7 @@
 #include "gps_connector.h"
 #include "debugger.h"
 
-GpsConnector::GpsConnector(uint8_t gps_serial_num, SFE_UBLOX_GNSS& gnss) : Worker<GnssData>(), ss(gps_serial_num), gnss(gnss), tried_38400_at(0), tried_9600_at(0) {
+GpsConnector::GpsConnector(uint8_t gps_serial_num, SFE_UBLOX_GNSS& gnss) : Worker<GnssData>(), ss(gps_serial_num), gnss(gnss), tried_38400_at(0), tried_9600_at(0), _init_at(0) {
 }
 /**
  * @return true if initialized GNSS library, false if no connection with module.
@@ -26,8 +26,9 @@ bool GpsConnector::activate(bool retry) {
   // Assume that the U-Blox GNSS is running at 9600 baud (the default) or at 38400 baud.
   if (!retry) {
     ss.begin(38400);
+    _init_at = millis();
   }
-  if (tried_38400_at == 0 && millis() > 1500) { // Wait for device to completely startup
+  if (tried_38400_at == 0 && millis() > _init_at + 500) { // Wait for device to completely startup
     tried_38400_at = millis();
     ss.updateBaudRate(38400);
     DEBUG_PRINTF("GNSS: trying 38400 baud at millis %d\n", tried_38400_at);

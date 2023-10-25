@@ -92,6 +92,7 @@ class GpsConnector : public Worker<GnssData> {
   SFE_UBLOX_GNSS& gnss;
   uint32_t tried_38400_at;
   uint32_t tried_9600_at;
+  uint32_t _init_at;
 };
 
 #endif //BGEIGIEZEN_GPS_SENSOR_H_

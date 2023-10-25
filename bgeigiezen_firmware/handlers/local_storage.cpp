@@ -42,6 +42,8 @@ LocalStorage::LocalStorage() :
 }
 
 void LocalStorage::reset_defaults() {
+  DEBUG_PRINTLN("test");
+
   if(clear()) {
     set_device_id(D_DEVICE_ID, true);
     set_ap_password(D_ACCESS_POINT_PASSWORD, true);
