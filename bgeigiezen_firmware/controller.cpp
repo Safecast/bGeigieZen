@@ -67,13 +67,20 @@ int8_t Controller::produce_data() {
       _status = e_worker_data_read;
     } else {
       data.sd_card_status = SDInterface::SdStatus::e_sd_config_status_not_ready;
-        _status = e_worker_data_read;
+      _status = e_worker_data_read;
     }
-
+  } else if (!SDInterface::i().ready()) {
+    data.sd_card_status = SDInterface::SdStatus::e_sd_config_status_not_ready;
+    _status = e_worker_data_read;
   }
   return _status;
 }
+
 void Controller::create_dummy_settings() {
   _settings.set_device_id(1, true);
   SDInterface::i().write_safezen_file(_settings);
+}
+
+void Controller::load_sd_config() {
+  SDInterface::i().read_safezen_file(_settings);
 }

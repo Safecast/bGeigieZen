@@ -1,11 +1,12 @@
 #include "menu_window.h"
-#include "controller.h"
-#include "identifiers.h"
-#include "workers/zen_button.h"
-#include "drive_mode.h"
-#include "survey_mode.h"
-#include "fixed_mode.h"
 #include "config_mode.h"
+#include "controller.h"
+#include "drive_mode.h"
+#include "fixed_mode.h"
+#include "identifiers.h"
+#include "survey_mode.h"
+#include "user_config.h"
+#include "workers/zen_button.h"
 
 MenuWindow::MenuItem DRIVE_MENU_ITEM = {
     "Drive",
@@ -50,7 +51,7 @@ MenuWindow::MenuItem ENTER_ADVANCED_MODE_MENU_ITEM = {
     true,
 };
 
-MenuWindow::MenuWindow(): BaseScreen("Survey", true), menu_open(false), menu_index(0), advanced_menu{
+MenuWindow::MenuWindow(): BaseScreen("Menu", true), menu_open(false), menu_index(0), advanced_menu{
     DRIVE_MENU_ITEM,
     SURVEY_MENU_ITEM,
     FIXED_MENU_ITEM,
@@ -107,12 +108,12 @@ void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handle
   // Draw buttons
   drawButton1("Next");
   drawButton2("Enter");
-  drawButton3("Back", TFT_ORANGE);
+  drawButton3("Back", e_button_active);
 
   // Draw menu rect
-  M5.Lcd.drawRoundRect(210, 20, 90, 100, 4, TFT_ORANGE);
+  M5.Lcd.drawRoundRect(210, 20, 90, 100, 4, LCD_COLOR_ACTIVE);
   for (int i = 0; i < 5; ++i) {
-    M5.Lcd.setTextColor(advanced_menu[i].enabled ? (i == menu_index ? TFT_ORANGE : TFT_WHITE) : TFT_DARKGREY, TFT_BLACK);
+    M5.Lcd.setTextColor(advanced_menu[i].enabled ? (i == menu_index ? LCD_COLOR_ACTIVE : LCD_COLOR_DEFAULT) : TFT_DARKGREY, LCD_COLOR_BACKGROUND);
     M5.Lcd.drawString(advanced_menu[i].title, 230, 40 + (i * 10));
     if (i == menu_index) {
       M5.Lcd.drawString(">", 220, 40 + (i * 10));
@@ -122,8 +123,8 @@ void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handle
   }
 
   // Draw tooltip bar
-  M5.Lcd.drawRoundRect(20, 180, 280, 30, 4, TFT_ORANGE);
-  M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
+  M5.Lcd.drawRoundRect(20, 180, 280, 30, 4, LCD_COLOR_ACTIVE);
+  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.drawString(advanced_menu[menu_index].tooltip_l1, 30, 194);
   M5.Lcd.drawString(advanced_menu[menu_index].tooltip_l2, 30, 206);
 }

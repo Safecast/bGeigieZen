@@ -48,18 +48,33 @@ constexpr char sd_config_fixed_longitude_f[] = SD_CONFIG_FIELD_FIXED_LONGITUDE"=
 constexpr char sd_config_fixed_range_f[] = SD_CONFIG_FIELD_FIXED_RANGE"=%hu";
 
 
-SDInterface::SDInterface() : _sd_ready(false), _last_read(0), _last_write(0) {
+SDInterface::SDInterface() : _sd_ready(false), _last_read(0), _last_write(0), _last_try(0) {
 }
 
-bool SDInterface::ready() { return _sd_ready; }
+bool SDInterface::ready() {
+  if (!SD.exists(TEST_FILENAME)) {
+    end();
+  }
+  return _sd_ready;
+}
 
 /**
  * We note that for the ESP32, the SD library is robust to multiple call to the begin() function
  * @return true if ready
  */
 bool SDInterface::begin() {
-  if (!_sd_ready) {
-    _sd_ready = SD.begin(SD_CS_PIN);
+  if (!_sd_ready && (_last_try == 0 || _last_try + 5000 < millis())) {
+    _last_try = millis();
+    if (SD.begin(SD_CS_PIN)) {
+      bool zen_test = SD.exists(TEST_FILENAME);
+      if (!zen_test) {
+        auto new_file = SD.open(TEST_FILENAME, FILE_WRITE);
+        if (new_file) {
+          new_file.close();
+        }
+      }
+      _sd_ready = SD.exists(TEST_FILENAME);
+    }
   }
   return _sd_ready;
 }
@@ -80,6 +95,7 @@ bool SDInterface::log(const char* log_name, const uint8_t* data, size_t buff_siz
   // open the setup file
   auto log_file = SD.open(log_name, FILE_WRITE);
   if (!log_file) {
+    end();
     DEBUG_PRINTF("Unable to open log file \"%s\".\n", log_name);
     return false;
   }
@@ -136,7 +152,6 @@ bool SDInterface::read_safezen_file(LocalStorage& settings) {
   File safecast_txt = SD.open(SETUP_FILENAME, FILE_READ);
   _last_read = millis();
   if (!safecast_txt) {
-    end();
     return false;
   }
 
@@ -251,6 +266,7 @@ bool SDInterface::write_safezen_file(const LocalStorage& settings, bool full) {
   if (SD.exists(SETUP_FILENAME)) {
     SD.remove(SETUP_FILENAME);
   }
+
   File safecast_txt = SD.open(SETUP_FILENAME, FILE_WRITE);
   _last_write = millis();
   if (!safecast_txt) {

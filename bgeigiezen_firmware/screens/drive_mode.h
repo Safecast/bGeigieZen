@@ -16,6 +16,9 @@ class DriveModeScreen : public BaseScreen {
 
  private:
   explicit DriveModeScreen();
+
+  bool _log_available;
+  char _log_to_file[100];
 };
 
 #endif //SCREENS_DRIVE_SCREEN_H

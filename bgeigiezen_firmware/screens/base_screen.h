@@ -12,6 +12,12 @@
 
 class BaseScreen {
  public:
+  enum ButtonState {
+    e_button_default,
+    e_button_active,
+    e_button_disabled
+  };
+
   virtual BaseScreen* handle_input(Controller& controller, const worker_map_t &workers) = 0;
   /**
    * Enter the screen, use controller to enable screen specific workers/handlers
@@ -49,13 +55,13 @@ class BaseScreen {
   explicit BaseScreen(const char* title, bool status_bar);
   virtual ~BaseScreen() = default;
 
-  void drawButton1(const char *text, uint32_t border_color = TFT_WHITE);
-  void drawButton2(const char *text, uint32_t border_color = TFT_WHITE);
-  void drawButton3(const char *text, uint32_t border_color = TFT_WHITE);
+  void drawButton1(const char *text, ButtonState state = e_button_default);
+  void drawButton2(const char *text, ButtonState state = e_button_default);
+  void drawButton3(const char *text, ButtonState state = e_button_default);
 
  private:
 
-  void drawButton(uint16_t x, const char *text, uint32_t border_color);
+  void drawButton(uint16_t x, const char *text, ButtonState state);
 
   char _title[20];
   bool _status_bar;

@@ -8,8 +8,14 @@ GeigerCounter::GeigerCounter() : Worker<GeigerData>(), pulse_counter() {
 
 bool GeigerCounter::activate(bool retry) {
   // Connect to geigier muller sensor module connection
-  pulse_counter.begin();
-  return true;
+  if (!retry) {
+    pulse_counter.begin();
+  }
+
+  if (pulse_counter.available() && pulse_counter.get_last_count() > 0) {
+    return true;
+  }
+  return false;
 }
 
 int8_t GeigerCounter::produce_data() {

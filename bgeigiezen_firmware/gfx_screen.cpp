@@ -30,6 +30,7 @@ void GFXScreen::initialize() {
 #endif
 
   _screen = BootScreen::i();
+  _screen->enter_screen(_controller);
   clear();
 }
 
@@ -111,11 +112,11 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         }
       }
       if (new_screen) {
+        DEBUG_PRINTF("New screen entered: %s\n", new_screen->get_title());
         _screen->leave_screen(_controller);
         _menu->leave_screen(_controller);
         new_screen->enter_screen(_controller);
         _screen = new_screen;
-        DEBUG_PRINTLN("New screen entered");
         clear();
       }
     }
