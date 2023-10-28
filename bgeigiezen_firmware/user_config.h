@@ -1,7 +1,11 @@
 #ifndef USER_CONFIG_H_
 #define USER_CONFIG_H_
 
-#include <Arduino.h>
+#ifdef M5_CORE2
+#include <M5Core2.h>
+#elif M5_BASIC
+#include <M5Stack.h>
+#endif
 
 /** System config **/
 #define ENABLE_DEBUG 1
@@ -21,6 +25,10 @@ constexpr float GEIGER_SENSOR1_CPM_FACTOR = 340.0;
 constexpr uint8_t GEIGER_AVERAGING_PERIOD_S = 1;  // 1 s
 #ifdef M5_CORE2
 constexpr int GEIGER_PULSE_GPIO = 32;
+// - RTC BM8563 on M5Stack Core2 I2C bus
+constexpr uint8_t BM8563_I2C_SDA = 21;
+constexpr uint8_t BM8563_I2C_SCL = 22;
+constexpr uint8_t RTC_I2C_ADDRESS = 0x51;
 #elif M5_BASIC
 constexpr int GEIGER_PULSE_GPIO = 2;
 #endif
@@ -35,6 +43,10 @@ constexpr uint32_t GPS_FIX_AGE_LIMIT = 1500; // ms before we decide the fix is t
 
 // - LCD display
 constexpr uint32_t LCD_REFRESH_RATE = 1000;  // 1s
+#define LCD_COLOR_DEFAULT TFT_WHITE
+#define LCD_COLOR_ACTIVE TFT_ORANGE
+#define LCD_COLOR_INACTIVE TFT_DARKGREY
+#define LCD_COLOR_BACKGROUND TFT_BLACK
 
 // - SD card
 constexpr uint8_t SD_CS_PIN = 4;  // GPIO 4
@@ -50,6 +62,7 @@ constexpr char LOG_HEADER_LINE3[] = "# deadtime=off";
 
 // - Setup
 constexpr char SETUP_FILENAME[] = "/SAFEZEN.txt";
+constexpr char TEST_FILENAME[] = "/.zen";
 constexpr uint8_t SETUP_FILE_PARSE_BUFFER_SIZE = 102;
 constexpr uint32_t SETUP_DEFAULT_DEVICE_ID = 0;
 constexpr uint8_t SETUP_USERNAME_MAXLEN = 15;

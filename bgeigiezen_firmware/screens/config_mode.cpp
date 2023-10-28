@@ -3,11 +3,11 @@
 #include "identifiers.h"
 #include "menu_window.h"
 
-ConfigModeScreen::ConfigModeScreen(): BaseScreen("Config") {
+ConfigModeScreen::ConfigModeScreen(): BaseScreen("Settings", true) {
 
 }
 
-BaseScreen* ConfigModeScreen::handle_input(const worker_map_t& workers) {
+BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
   auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
   if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
     return MenuWindow::i();
@@ -19,10 +19,8 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
   drawButton3("Menu");
 }
 
-void ConfigModeScreen::enter_screen() {
-  BaseScreen::enter_screen();
+void ConfigModeScreen::enter_screen(Controller& controller) {
 }
 
-void ConfigModeScreen::leave_screen() {
-  BaseScreen::leave_screen();
+void ConfigModeScreen::leave_screen(Controller& controller) {
 }

@@ -57,10 +57,29 @@
 #include "workers/shake_detector.h"
 #include "workers/battery_indicator.h"
 #include "workers/log_aggregator.h"
+#include "workers/rtc_connector.h"
 #include "gfx_screen.h"
 #include "debugger.h"
 
-Controller controller;
+SFE_UBLOX_GNSS gnss;
+
+LocalStorage settings;
+Controller controller(settings);
+
+ZenButton zen_A(M5.BtnA);
+ZenButton zen_B(M5.BtnB);
+ZenButton zen_C(M5.BtnC);
+GpsConnector gps(GPS_SERIAL_NUM, gnss);
+GeigerCounter gm_sensor;
+BatteryIndicator battery_indicator;
+RtcConnector rtc;
+ShakeDetector shake_detector;
+LogAggregator log_aggregator;
+
+// Data handlers
+
+// Supervisors
+GFXScreen gfx_screen(settings, controller);
 
 void setup() {
   DEBUG_BEGIN();
@@ -70,37 +89,25 @@ void setup() {
   M5.begin();
 
   /// Software configurations
-  // Workers
-  auto* zen_A = new ZenButton(M5.BtnA);
-  auto* zen_B = new ZenButton(M5.BtnB);
-  auto* zen_C = new ZenButton(M5.BtnC);
-  auto* gps = new GpsConnector();
-  auto* gm_sensor = new GeigerCounter();
-  auto* battery_indicator = new BatteryIndicator();
-  auto* shake_detector = new ShakeDetector();
-  auto* log_aggregator = new LogAggregator();
-
-  // Data handlers
-
-  // Supervisors
-  auto* gfx_screen = new GFXScreen();
 
   DEBUG_PRINTLN("Register workers...");
-  controller.register_worker(k_worker_gps_connector, *gps);
-  controller.register_worker(k_worker_gm_sensor, *gm_sensor);
-  controller.register_worker(k_worker_shake_detector, *shake_detector);
-  controller.register_worker(k_worker_battery_indicator, *battery_indicator);
-  controller.register_worker(k_worker_button_3, *zen_A);
-  controller.register_worker(k_worker_button_2, *zen_B);
-  controller.register_worker(k_worker_button_1, *zen_C);
-  controller.register_worker(k_worker_log_aggregator, *log_aggregator);
-  controller.register_worker(k_worker_controller_state, controller);
+  controller.register_worker(k_worker_gps_connector, gps);
+  controller.register_worker(k_worker_gm_sensor, gm_sensor);
+  controller.register_worker(k_worker_shake_detector, shake_detector);
+  controller.register_worker(k_worker_battery_indicator, battery_indicator);
+  controller.register_worker(k_worker_rtc_connector, rtc);
+  controller.register_worker(k_worker_button_3, zen_A);
+  controller.register_worker(k_worker_button_2, zen_B);
+  controller.register_worker(k_worker_button_1, zen_C);
+  controller.register_worker(k_worker_log_aggregator, log_aggregator);
+  controller.register_worker(k_worker_device_state, controller);
 
   DEBUG_PRINTLN("Register handlers...");
-  controller.register_handler(k_handler_log_aggregator, *log_aggregator);
+  controller.register_handler(k_handler_log_aggregator, log_aggregator);
+  controller.register_handler(k_handler_local_storage, settings);
 
   DEBUG_PRINTLN("Register supervisors...");
-  controller.register_supervisor(*gfx_screen);
+  controller.register_supervisor(gfx_screen);
 
   controller.start_default_workers();
 }
