@@ -16,7 +16,9 @@ const char* key_ap_password = "device_password";
 const char* key_wifi_ssid = "wifi_ssid";
 const char* key_wifi_password = "wifi_password";
 const char* key_api_key = "api_key";
-const char* key_send_frequency = "send_frequency";
+const char* key_alarm_threshold = "alarm_threshold";
+const char* key_click_sound_level = "click_sound_level";
+const char* key_fixed_range = "fixed_range";
 const char* key_fixed_longitude = "fixed_longitude";
 const char* key_fixed_latitude = "fixed_latitude";
 const char* key_last_longitude = "last_longitude";
@@ -27,26 +29,32 @@ LocalStorage::LocalStorage() :
     _memory(),
     _device_id(0),
     _ap_password(""),
+    _alarm_threshold(0),
+    _click_sound_level(0),
     _wifi_ssid(""),
     _wifi_password(""),
     _api_key(""),
-    _send_frequency(D_SEND_FREQUENCY),
     _fixed_longitude(0),
     _fixed_latitude(0),
+    _fixed_range(0),
     _last_longitude(0),
     _last_latitude(0) {
 }
 
 void LocalStorage::reset_defaults() {
+  DEBUG_PRINTLN("test");
+
   if(clear()) {
     set_device_id(D_DEVICE_ID, true);
     set_ap_password(D_ACCESS_POINT_PASSWORD, true);
+    set_alarm_threshold(0, true);
+    set_click_sound_level(0, true);
     set_wifi_ssid(D_WIFI_SSID, true);
     set_wifi_password(D_WIFI_PASSWORD, true);
     set_api_key(D_APIKEY, true);
-    set_send_frequency(D_SEND_FREQUENCY, true);
     set_fixed_longitude(0, true);
     set_fixed_latitude(0, true);
+    set_fixed_range(0, true);
     set_last_longitude(0, true);
     set_last_latitude(0, true);
   }
@@ -58,6 +66,14 @@ uint16_t LocalStorage::get_device_id() const {
 
 const char* LocalStorage::get_ap_password() const {
   return _ap_password;
+}
+
+uint16_t LocalStorage::get_alarm_threshold() const {
+  return _alarm_threshold;
+}
+
+uint8_t LocalStorage::get_click_sound_level() const {
+  return _click_sound_level;
 }
 
 const char* LocalStorage::get_wifi_ssid() const {
@@ -72,16 +88,16 @@ const char* LocalStorage::get_api_key() const {
   return _api_key;
 }
 
-uint8_t LocalStorage::get_send_frequency() const {
-  return _send_frequency;
-}
-
 double LocalStorage::get_fixed_longitude() const {
   return _fixed_longitude;
 }
 
 double LocalStorage::get_fixed_latitude() const {
   return _fixed_latitude;
+}
+
+uint16_t LocalStorage::get_fixed_range() const {
+  return _fixed_range;
 }
 
 double LocalStorage::get_last_longitude() const {
@@ -113,6 +129,26 @@ void LocalStorage::set_ap_password(const char* ap_password, bool force) {
     } else {
       DEBUG_PRINTLN("unable to save new value for ap_password");
     }
+  }
+}
+
+void LocalStorage::set_alarm_threshold(uint16_t alarm_threshold, bool force) {
+  if(_memory.begin(memory_name)) {
+    _alarm_threshold = alarm_threshold;
+    _memory.putUInt(key_alarm_threshold, alarm_threshold);
+    _memory.end();
+  } else {
+    DEBUG_PRINTLN("unable to save new value for ap_password");
+  }
+}
+
+void LocalStorage::set_click_sound_level(uint8_t click_sound_level, bool force) {
+  if(_memory.begin(memory_name)) {
+    _click_sound_level = click_sound_level;
+    _memory.putUInt(key_click_sound_level, click_sound_level);
+    _memory.end();
+  } else {
+    DEBUG_PRINTLN("unable to save new value for ap_password");
   }
 }
 
@@ -152,18 +188,6 @@ void LocalStorage::set_api_key(const char* api_key, bool force) {
   }
 }
 
-void LocalStorage::set_send_frequency(uint8_t send_frequency, bool force) {
-  if(force || (send_frequency != _send_frequency)) {
-    if(_memory.begin(memory_name)) {
-      _send_frequency = send_frequency;
-      _memory.putUChar(key_send_frequency, send_frequency);
-      _memory.end();
-    } else {
-      DEBUG_PRINTLN("unable to save new value for key_send_frequency");
-    }
-  }
-}
-
 void LocalStorage::set_fixed_longitude(double fixed_longtitude, bool force) {
   if(_memory.begin(memory_name)) {
     _fixed_longitude = fixed_longtitude;
@@ -181,6 +205,16 @@ void LocalStorage::set_fixed_latitude(double fixed_latitude, bool force) {
     _memory.end();
   } else {
     DEBUG_PRINTLN("unable to save new value for key_fixed_latitude");
+  }
+}
+
+void LocalStorage::set_fixed_range(uint16_t fixed_range, bool force) {
+  if(_memory.begin(memory_name)) {
+    _fixed_range = fixed_range;
+    _memory.putUInt(key_fixed_range, fixed_range);
+    _memory.end();
+  } else {
+    DEBUG_PRINTLN("unable to save new value for key_fixed_range");
   }
 }
 
@@ -228,9 +262,9 @@ bool LocalStorage::activate(bool) {
   if(_memory.getString(key_api_key, _api_key, CONFIG_VAL_MAX) == 0) {
     strcpy(_api_key, D_APIKEY);
   }
-  _send_frequency = _memory.getUChar(key_send_frequency, D_SEND_FREQUENCY);
   _fixed_longitude = _memory.getDouble(key_fixed_longitude, 0);
   _fixed_latitude = _memory.getDouble(key_fixed_latitude, 0);
+  _fixed_range = _memory.getUInt(key_fixed_range, 0);
   _last_longitude = _memory.getDouble(key_last_longitude, 0);
   _last_latitude = _memory.getDouble(key_last_latitude, 0);
   _memory.end();

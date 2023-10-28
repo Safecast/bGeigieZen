@@ -47,8 +47,8 @@ struct GnssData {
   bool date_valid;
   bool time_valid;
 
-/** @todo REMOVE THIS DEBUG TEMPORARY*/
-RBD::Timer hardreset_timer{15000};  // force a GNSS module hard reset to see the effects.
+  /** @todo REMOVE THIS DEBUG TEMPORARY*/
+  RBD::Timer hardreset_timer{15000};  // force a GNSS module hard reset to see the effects.
 
   // Age each item. If the corresponding timer times out, it's stale. 
   RBD::Timer location_timer{GPS_FIX_AGE_LIMIT};
@@ -79,7 +79,7 @@ RBD::Timer hardreset_timer{15000};  // force a GNSS module hard reset to see the
 class GpsConnector : public Worker<GnssData> {
  public:
 
-  explicit GpsConnector();
+  explicit GpsConnector(uint8_t gps_serial_num, SFE_UBLOX_GNSS& gnss);
 
   virtual ~GpsConnector() = default;
 
@@ -88,8 +88,11 @@ class GpsConnector : public Worker<GnssData> {
   int8_t produce_data() override;
 
  private:
-  HardwareSerial ss{GPS_SERIAL_NUM};
-  SFE_UBLOX_GNSS gnss;
+  HardwareSerial ss;
+  SFE_UBLOX_GNSS& gnss;
+  uint32_t tried_38400_at;
+  uint32_t tried_9600_at;
+  uint32_t _init_at;
 };
 
 #endif //BGEIGIEZEN_GPS_SENSOR_H_
