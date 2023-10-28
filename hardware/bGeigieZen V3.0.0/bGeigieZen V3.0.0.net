@@ -1,498 +1,1583 @@
-(export (version "E")
-  (design
-    (source "/home/rob/Documents/bGeigieZen org/bGeigieZen-master/hardware/bGeigieZen V3.0.0/bGeigieZen V3.0.0.kicad_sch")
-    (date "2023-10-03T23:45:44+0900")
-    (tool "Eeschema 7.99.0-unknown-7c8e74c156~172~ubuntu22.04.1")
-    (sheet (number "1") (name "/") (tstamps "/")
-      (title_block
-        (title "bGeigieZen V2.1.2")
-        (company "GitHub link at https://github.com/Safecast/bGeigieZen")
-        (rev "V3.0.0")
-        (date "2023-05-29")
-        (source "bGeigieZen V3.0.0.kicad_sch")
-        (comment (number "1") (value ""))
-        (comment (number "2") (value ""))
-        (comment (number "3") (value ""))
-        (comment (number "4") (value ""))
-        (comment (number "5") (value ""))
-        (comment (number "6") (value ""))
-        (comment (number "7") (value ""))
-        (comment (number "8") (value ""))
-        (comment (number "9") (value "")))))
-  (components
-    (comp (ref "BT1")
-      (value " 3.7 V Lipo")
-      (footprint "Library:BATTERY_18650-HOLDER")
-      (fields
-        (field (name "Footprint") "Library:BATTERY_18650-HOLDER")
-        (field (name "Datasheet"))
-        (field (name "Description")))
-      (libsource (lib "bGeigieRaku-V2-rescue") (part "BATTERY-akizuki-M5_board-rescue") (description ""))
-      (property (name "Sheetname") (value ""))
-      (property (name "Sheetfile") (value "bGeigieZen V3.0.0.kicad_sch"))
-      (property (name "ki_fp_filters") (value "RAD-0.2"))
-      (sheetpath (names "/") (tstamps "/"))
-      (tstamps "00000000-0000-0000-0000-00005d536219"))
-    (comp (ref "H4")
-      (value "MountingHole_Pad")
-      (footprint "MountingHole:MountingHole_3.2mm_M3")
-      (fields
-        (field (name "Footprint") "MountingHole:MountingHole_3.2mm_M3")
-        (field (name "Datasheet"))
-        (field (name "Description")))
-      (libsource (lib "Mechanical") (part "MountingHole_Pad") (description "Mounting Hole with connection"))
-      (property (name "Sheetname") (value ""))
-      (property (name "Sheetfile") (value "bGeigieZen V3.0.0.kicad_sch"))
-      (property (name "ki_keywords") (value "mounting hole"))
-      (property (name "ki_fp_filters") (value "MountingHole*Pad*"))
-      (sheetpath (names "/") (tstamps "/"))
-      (tstamps "1f03dd61-65dd-483d-be57-9b0316785b18"))
-    (comp (ref "H6")
-      (value "MountingHole_Pad")
-      (footprint "MountingHole:MountingHole_3.2mm_M3")
-      (fields
-        (field (name "Footprint") "MountingHole:MountingHole_3.2mm_M3")
-        (field (name "Datasheet"))
-        (field (name "Description")))
-      (libsource (lib "Mechanical") (part "MountingHole_Pad") (description "Mounting Hole with connection"))
-      (property (name "Sheetname") (value ""))
-      (property (name "Sheetfile") (value "bGeigieZen V3.0.0.kicad_sch"))
-      (property (name "ki_keywords") (value "mounting hole"))
-      (property (name "ki_fp_filters") (value "MountingHole*Pad*"))
-      (sheetpath (names "/") (tstamps "/"))
-      (tstamps "5ba47a5f-56f4-40cc-bb26-6d96a53aaba5"))
-    (comp (ref "J1")
-      (value "M5 2x15 pin")
-      (footprint "Connector_PinHeader_2.54mm:PinHeader_2x15_P2.54mm_Vertical")
-      (datasheet "Hirosugi Instruments: PSM-4200233-15")
-      (description)
-      (fields
-        (field (name "Footprint") "Connector_PinHeader_2.54mm:PinHeader_2x15_P2.54mm_Vertical")
-        (field (name "Datasheet") "Hirosugi Instruments: PSM-4200233-15")
-        (field (name "Description")))
-      (libsource (lib "Connector_Generic") (part "Conn_02x15_Odd_Even") (description "Generic connector, double row, 02x15, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"))
-      (property (name "Sheetname") (value ""))
-      (property (name "Sheetfile") (value "bGeigieZen V3.0.0.kicad_sch"))
-      (property (name "ki_keywords") (value "connector"))
-      (property (name "ki_fp_filters") (value "Connector*:*_2x??_*"))
-      (sheetpath (names "/") (tstamps "/"))
-      (tstamps "00000000-0000-0000-0000-00005d532c3e"))
-    (comp (ref "J2")
-      (value "Geiger IRover")
-      (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical")
-      (fields
-        (field (name "Footprint") "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical")
-        (field (name "Datasheet"))
-        (field (name "Description")))
-      (libsource (lib "Connector") (part "Conn_01x03_Male") (description "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"))
-      (property (name "Sheetname") (value ""))
-      (property (name "Sheetfile") (value "bGeigieZen V3.0.0.kicad_sch"))
-      (property (name "ki_keywords") (value "connector"))
-      (property (name "ki_fp_filters") (value "Connector*:*_1x??_*"))
-      (sheetpath (names "/") (tstamps "/"))
-      (tstamps "00000000-0000-0000-0000-00005d53b5ae"))
-    (comp (ref "J3")
-      (value "GPS")
-      (footprint "Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical")
-      (fields
-        (field (name "Footprint") "Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical")
-        (field (name "Datasheet"))
-        (field (name "Description")))
-      (libsource (lib "Connector") (part "Conn_01x06_Male") (description "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"))
-      (property (name "Sheetname") (value ""))
-      (property (name "Sheetfile") (value "bGeigieZen V3.0.0.kicad_sch"))
-      (property (name "ki_keywords") (value "connector"))
-      (property (name "ki_fp_filters") (value "Connector*:*_1x??_*"))
-      (sheetpath (names "/") (tstamps "/"))
-      (tstamps "00000000-0000-0000-0000-00005d536d8e"))
-    (comp (ref "J4")
-      (value "Geiger Safepulse")
-      (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical")
-      (fields
-        (field (name "Footprint") "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical")
-        (field (name "Datasheet"))
-        (field (name "Description")))
-      (libsource (lib "Connector") (part "Conn_01x03_Male") (description "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"))
-      (property (name "Sheetname") (value ""))
-      (property (name "Sheetfile") (value "bGeigieZen V3.0.0.kicad_sch"))
-      (property (name "ki_keywords") (value "connector"))
-      (property (name "ki_fp_filters") (value "Connector*:*_1x??_*"))
-      (sheetpath (names "/") (tstamps "/"))
-      (tstamps "69db1485-b83d-4e9c-8654-b54c873bff98"))
-    (comp (ref "J5")
-      (value "Extra support header")
-      (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
-      (fields
-        (field (name "Footprint") "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
-        (field (name "Datasheet"))
-        (field (name "Description")))
-      (libsource (lib "") (part "Connector:Conn_01x02_Male_1") (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"))
-      (property (name "Sheetname") (value ""))
-      (property (name "Sheetfile") (value "bGeigieZen V3.0.0.kicad_sch"))
-      (property (name "ki_keywords") (value "connector"))
-      (property (name "ki_fp_filters") (value "Connector*:*_1x??_*"))
-      (sheetpath (names "/") (tstamps "/"))
-      (tstamps "d1c8df53-98f3-48f8-944b-eb499fbd42ca"))
-    (comp (ref "J6")
-      (value "Grove")
-      (footprint "Connector_PinSocket_2.00mm:PinSocket_1x04_P2.00mm_Horizontal")
-      (fields
-        (field (name "Footprint") "Connector_PinSocket_2.00mm:PinSocket_1x04_P2.00mm_Horizontal")
-        (field (name "Datasheet"))
-        (field (name "Description"))
-        (field (name "PARTREV") "A")
-        (field (name "STANDARD") "Manufacturer Recommendations")
-        (field (name "MAXIMUM_PACKAGE_HEIGHT") "8.1mm")
-        (field (name "MANUFACTURER") "Seeed Technology"))
-      (libsource (lib "110990030") (part "110990030") (description ""))
-      (property (name "PARTREV") (value "A"))
-      (property (name "STANDARD") (value "Manufacturer Recommendations"))
-      (property (name "MAXIMUM_PACKAGE_HEIGHT") (value "8.1mm"))
-      (property (name "MANUFACTURER") (value "Seeed Technology"))
-      (property (name "Sheetname") (value ""))
-      (property (name "Sheetfile") (value "bGeigieZen V3.0.0.kicad_sch"))
-      (sheetpath (names "/") (tstamps "/"))
-      (tstamps "c9fcdc4b-6952-42c1-a10a-70a800b769ab"))
-    (comp (ref "J8")
-      (value "QI charger ground")
-      (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
-      (fields
-        (field (name "Footprint") "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
-        (field (name "Datasheet"))
-        (field (name "Description")))
-      (libsource (lib "Connector") (part "Conn_01x02_Male") (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"))
-      (property (name "Sheetname") (value ""))
-      (property (name "Sheetfile") (value "bGeigieZen V3.0.0.kicad_sch"))
-      (property (name "ki_keywords") (value "connector"))
-      (property (name "ki_fp_filters") (value "Connector*:*_1x??_*"))
-      (sheetpath (names "/") (tstamps "/"))
-      (tstamps "cc222870-4140-4c16-8d6d-dd1a180b2b80"))
-    (comp (ref "J9")
-      (value "QI Plus")
-      (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
-      (fields
-        (field (name "Footprint") "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
-        (field (name "Datasheet"))
-        (field (name "Description")))
-      (libsource (lib "Connector") (part "Conn_01x02_Male") (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"))
-      (property (name "Sheetname") (value ""))
-      (property (name "Sheetfile") (value "bGeigieZen V3.0.0.kicad_sch"))
-      (property (name "ki_keywords") (value "connector"))
-      (property (name "ki_fp_filters") (value "Connector*:*_1x??_*"))
-      (sheetpath (names "/") (tstamps "/"))
-      (tstamps "00000000-0000-0000-0000-00005dc7bbe1"))
-    (comp (ref "J10")
-      (value "QI GND")
-      (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
-      (fields
-        (field (name "Footprint") "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical")
-        (field (name "Datasheet"))
-        (field (name "Description")))
-      (libsource (lib "Connector") (part "Conn_01x02_Male") (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"))
-      (property (name "Sheetname") (value ""))
-      (property (name "Sheetfile") (value "bGeigieZen V3.0.0.kicad_sch"))
-      (property (name "ki_keywords") (value "connector"))
-      (property (name "ki_fp_filters") (value "Connector*:*_1x??_*"))
-      (sheetpath (names "/") (tstamps "/"))
-      (tstamps "00000000-0000-0000-0000-00005dc7b8a2"))
-    (comp (ref "J11")
-      (value "QI charger Plus")
-      (footprint "bGeigieZen:PinHeader_1x02_P2.54mm_Vertical_4056")
-      (fields
-        (field (name "Footprint") "bGeigieZen:PinHeader_1x02_P2.54mm_Vertical_4056")
-        (field (name "Datasheet"))
-        (field (name "Description")))
-      (libsource (lib "Connector") (part "Conn_01x02_Male") (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"))
-      (property (name "Sheetname") (value ""))
-      (property (name "Sheetfile") (value "bGeigieZen V3.0.0.kicad_sch"))
-      (property (name "ki_keywords") (value "connector"))
-      (property (name "ki_fp_filters") (value "Connector*:*_1x??_*"))
-      (sheetpath (names "/") (tstamps "/"))
-      (tstamps "00000000-0000-0000-0000-00005dc7b09e"))
-    (comp (ref "SW1")
-      (value "SW_SPDT")
-      (footprint "bGeigieNanoKit V1.1r5a:EG1206")
-      (datasheet "https://www.digikey.jp/product-detail/ja/e-switch/EG1206/EG1916-ND/251333")
-      (description)
-      (fields
-        (field (name "Footprint") "bGeigieNanoKit V1.1r5a:EG1206")
-        (field (name "Datasheet") "https://www.digikey.jp/product-detail/ja/e-switch/EG1206/EG1916-ND/251333")
-        (field (name "Description")))
-      (libsource (lib "Switch") (part "SW_SPDT") (description "Switch, single pole double throw"))
-      (property (name "Sheetname") (value ""))
-      (property (name "Sheetfile") (value "bGeigieZen V3.0.0.kicad_sch"))
-      (property (name "ki_keywords") (value "switch single-pole double-throw spdt ON-ON"))
-      (sheetpath (names "/") (tstamps "/"))
-      (tstamps "00000000-0000-0000-0000-00005d53823e")))
-  (libparts
-    (libpart (lib "110990030") (part "110990030")
-      (fields
-        (field (name "Reference") "J")
-        (field (name "Value") "110990030")
-        (field (name "Footprint") "SEEED_110990030")
-        (field (name "Datasheet"))
-        (field (name "Description"))
-        (field (name "PARTREV") "A")
-        (field (name "STANDARD") "Manufacturer Recommendations")
-        (field (name "MAXIMUM_PACKAGE_HEIGHT") "8.1mm")
-        (field (name "MANUFACTURER") "Seeed Technology"))
-      (pins
-        (pin (num "1") (name "1") (type "passive"))
-        (pin (num "2") (name "2") (type "passive"))
-        (pin (num "3") (name "3") (type "passive"))
-        (pin (num "4") (name "4") (type "passive"))))
-    (libpart (lib "Connector") (part "Conn_01x02_Male")
-      (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)")
-      (docs "~")
-      (footprints
-        (fp "Connector*:*_1x??_*"))
-      (fields
-        (field (name "Reference") "J")
-        (field (name "Value") "Conn_01x02_Male")
-        (field (name "Footprint"))
-        (field (name "Datasheet") "~")
-        (field (name "Description") "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"))
-      (pins
-        (pin (num "1") (name "Pin_1") (type "passive"))
-        (pin (num "2") (name "Pin_2") (type "passive"))))
-    (libpart (lib "Connector") (part "Conn_01x02_Male_1")
-      (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)")
-      (docs "~")
-      (footprints
-        (fp "Connector*:*_1x??_*"))
-      (fields
-        (field (name "Reference") "J")
-        (field (name "Value") "Conn_01x02_Male")
-        (field (name "Footprint"))
-        (field (name "Datasheet") "~")
-        (field (name "Description") "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"))
-      (pins
-        (pin (num "1") (name "Pin_1") (type "passive"))
-        (pin (num "2") (name "Pin_2") (type "passive"))))
-    (libpart (lib "Connector") (part "Conn_01x03_Male")
-      (description "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)")
-      (docs "~")
-      (footprints
-        (fp "Connector*:*_1x??_*"))
-      (fields
-        (field (name "Reference") "J")
-        (field (name "Value") "Conn_01x03_Male")
-        (field (name "Footprint"))
-        (field (name "Datasheet") "~")
-        (field (name "Description") "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"))
-      (pins
-        (pin (num "1") (name "Pin_1") (type "passive"))
-        (pin (num "2") (name "Pin_2") (type "passive"))
-        (pin (num "3") (name "Pin_3") (type "passive"))))
-    (libpart (lib "Connector") (part "Conn_01x06_Male")
-      (description "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)")
-      (docs "~")
-      (footprints
-        (fp "Connector*:*_1x??_*"))
-      (fields
-        (field (name "Reference") "J")
-        (field (name "Value") "Conn_01x06_Male")
-        (field (name "Footprint"))
-        (field (name "Datasheet") "~")
-        (field (name "Description") "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"))
-      (pins
-        (pin (num "1") (name "Pin_1") (type "passive"))
-        (pin (num "2") (name "Pin_2") (type "passive"))
-        (pin (num "3") (name "Pin_3") (type "passive"))
-        (pin (num "4") (name "Pin_4") (type "passive"))
-        (pin (num "5") (name "Pin_5") (type "passive"))
-        (pin (num "6") (name "Pin_6") (type "passive"))))
-    (libpart (lib "Connector_Generic") (part "Conn_02x15_Odd_Even")
-      (description "Generic connector, double row, 02x15, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)")
-      (docs "~")
-      (footprints
-        (fp "Connector*:*_2x??_*"))
-      (fields
-        (field (name "Reference") "J")
-        (field (name "Value") "Conn_02x15_Odd_Even")
-        (field (name "Footprint"))
-        (field (name "Datasheet") "~")
-        (field (name "Description") "Generic connector, double row, 02x15, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"))
-      (pins
-        (pin (num "1") (name "Pin_1") (type "passive"))
-        (pin (num "2") (name "Pin_2") (type "passive"))
-        (pin (num "3") (name "Pin_3") (type "passive"))
-        (pin (num "4") (name "Pin_4") (type "passive"))
-        (pin (num "5") (name "Pin_5") (type "passive"))
-        (pin (num "6") (name "Pin_6") (type "passive"))
-        (pin (num "7") (name "Pin_7") (type "passive"))
-        (pin (num "8") (name "Pin_8") (type "passive"))
-        (pin (num "9") (name "Pin_9") (type "passive"))
-        (pin (num "10") (name "Pin_10") (type "passive"))
-        (pin (num "11") (name "Pin_11") (type "passive"))
-        (pin (num "12") (name "Pin_12") (type "passive"))
-        (pin (num "13") (name "Pin_13") (type "passive"))
-        (pin (num "14") (name "Pin_14") (type "passive"))
-        (pin (num "15") (name "Pin_15") (type "passive"))
-        (pin (num "16") (name "Pin_16") (type "passive"))
-        (pin (num "17") (name "Pin_17") (type "passive"))
-        (pin (num "18") (name "Pin_18") (type "passive"))
-        (pin (num "19") (name "Pin_19") (type "passive"))
-        (pin (num "20") (name "Pin_20") (type "passive"))
-        (pin (num "21") (name "Pin_21") (type "passive"))
-        (pin (num "22") (name "Pin_22") (type "passive"))
-        (pin (num "23") (name "Pin_23") (type "passive"))
-        (pin (num "24") (name "Pin_24") (type "passive"))
-        (pin (num "25") (name "Pin_25") (type "passive"))
-        (pin (num "26") (name "Pin_26") (type "passive"))
-        (pin (num "27") (name "Pin_27") (type "passive"))
-        (pin (num "28") (name "Pin_28") (type "passive"))
-        (pin (num "29") (name "Pin_29") (type "passive"))
-        (pin (num "30") (name "Pin_30") (type "passive"))))
-    (libpart (lib "Mechanical") (part "MountingHole_Pad")
-      (description "Mounting Hole with connection")
-      (docs "~")
-      (footprints
-        (fp "MountingHole*Pad*"))
-      (fields
-        (field (name "Reference") "H")
-        (field (name "Value") "MountingHole_Pad")
-        (field (name "Footprint"))
-        (field (name "Datasheet") "~")
-        (field (name "Description") "Mounting Hole with connection"))
-      (pins
-        (pin (num "1") (name "1") (type "input"))))
-    (libpart (lib "Switch") (part "SW_SPDT")
-      (description "Switch, single pole double throw")
-      (docs "https://www.digikey.jp/product-detail/ja/e-switch/EG1206/EG1916-ND/251333")
-      (fields
-        (field (name "Reference") "SW1")
-        (field (name "Value") "SW_SPDT")
-        (field (name "Footprint") "bGeigieNanoKit V1.1r5a:EG1206")
-        (field (name "Datasheet") "https://www.digikey.jp/product-detail/ja/e-switch/EG1206/EG1916-ND/251333")
-        (field (name "Description") "Switch, single pole double throw"))
-      (pins
-        (pin (num "1") (name "A") (type "passive"))
-        (pin (num "2") (name "B") (type "passive"))
-        (pin (num "3") (name "C") (type "passive"))))
-    (libpart (lib "bGeigieRaku-V2-rescue") (part "BATTERY-akizuki-M5_board-rescue")
-      (footprints
-        (fp "RAD-0.2"))
-      (fields
-        (field (name "Reference") "BT")
-        (field (name "Value") "BATTERY-akizuki-M5_board-rescue")
-        (field (name "Footprint"))
-        (field (name "Datasheet"))
-        (field (name "Description")))
-      (pins
-        (pin (num "1") (name "+") (type "input"))
-        (pin (num "2") (name "-") (type "input")))))
-  (libraries
-    (library (logical "Connector")
-      (uri "/usr/share/kicad-nightly/symbols//Connector.kicad_sym"))
-    (library (logical "Connector_Generic")
-      (uri "/usr/share/kicad-nightly/symbols//Connector_Generic.kicad_sym"))
-    (library (logical "Mechanical")
-      (uri "/usr/share/kicad-nightly/symbols//Mechanical.kicad_sym"))
-    (library (logical "Switch")
-      (uri "/usr/share/kicad-nightly/symbols//Switch.kicad_sym"))
-    (library (logical "bGeigieRaku-V2-rescue")
-      (uri)))
-  (nets
-    (net (code "1") (name "/BAT")
-      (node (ref "J1") (pin "29") (pinfunction "Pin_29") (pintype "passive"))
-      (node (ref "SW1") (pin "3") (pinfunction "C") (pintype "passive")))
-    (net (code "2") (name "/GIO2 on Core and GIO32 on Core-2")
-      (node (ref "J1") (pin "20") (pinfunction "Pin_20") (pintype "passive"))
-      (node (ref "J2") (pin "2") (pinfunction "Pin_2") (pintype "passive"))
-      (node (ref "J4") (pin "2") (pinfunction "Pin_2") (pintype "passive")))
-    (net (code "3") (name "/GIO5")
-      (node (ref "J1") (pin "19") (pinfunction "Pin_19") (pintype "passive")))
-    (net (code "4") (name "/GIO13")
-      (node (ref "J1") (pin "21") (pinfunction "Pin_21") (pintype "passive")))
-    (net (code "5") (name "/GIO34")
-      (node (ref "J1") (pin "25") (pinfunction "Pin_25") (pintype "passive")))
-    (net (code "6") (name "/RX2")
-      (node (ref "J1") (pin "15") (pinfunction "Pin_15") (pintype "passive"))
-      (node (ref "J3") (pin "4") (pinfunction "Pin_4") (pintype "passive")))
-    (net (code "7") (name "/SCL")
-      (node (ref "J1") (pin "18") (pinfunction "Pin_18") (pintype "passive"))
-      (node (ref "J6") (pin "1") (pinfunction "1") (pintype "passive")))
-    (net (code "8") (name "/SDA")
-      (node (ref "J6") (pin "2") (pinfunction "2") (pintype "passive")))
-    (net (code "9") (name "/TX2")
-      (node (ref "J1") (pin "16") (pinfunction "Pin_16") (pintype "passive"))
-      (node (ref "J3") (pin "3") (pinfunction "Pin_3") (pintype "passive")))
-    (net (code "10") (name "/VBATT")
-      (node (ref "BT1") (pin "1") (pinfunction "+") (pintype "input"))
-      (node (ref "J11") (pin "1") (pinfunction "Pin_1") (pintype "passive"))
-      (node (ref "J11") (pin "2") (pinfunction "Pin_2") (pintype "passive"))
-      (node (ref "SW1") (pin "2") (pinfunction "B") (pintype "passive")))
-    (net (code "11") (name "3.3V")
-      (node (ref "J1") (pin "11") (pinfunction "Pin_11") (pintype "passive"))
-      (node (ref "J2") (pin "1") (pinfunction "Pin_1") (pintype "passive"))
-      (node (ref "J3") (pin "5") (pinfunction "Pin_5") (pintype "passive"))
-      (node (ref "J4") (pin "3") (pinfunction "Pin_3") (pintype "passive"))
-      (node (ref "J6") (pin "3") (pinfunction "3") (pintype "passive")))
-    (net (code "12") (name "5V")
-      (node (ref "J1") (pin "27") (pinfunction "Pin_27") (pintype "passive")))
-    (net (code "13") (name "GND")
-      (node (ref "J1") (pin "2") (pinfunction "Pin_2") (pintype "passive"))
-      (node (ref "J1") (pin "4") (pinfunction "Pin_4") (pintype "passive"))
-      (node (ref "J1") (pin "6") (pinfunction "Pin_6") (pintype "passive"))
-      (node (ref "J10") (pin "1") (pinfunction "Pin_1") (pintype "passive"))
-      (node (ref "J10") (pin "2") (pinfunction "Pin_2") (pintype "passive"))
-      (node (ref "J2") (pin "3") (pinfunction "Pin_3") (pintype "passive"))
-      (node (ref "J3") (pin "2") (pinfunction "Pin_2") (pintype "passive"))
-      (node (ref "J4") (pin "1") (pinfunction "Pin_1") (pintype "passive"))
-      (node (ref "J6") (pin "4") (pinfunction "4") (pintype "passive"))
-      (node (ref "J8") (pin "1") (pinfunction "Pin_1") (pintype "passive")))
-    (net (code "14") (name "Net-(BT1--)")
-      (node (ref "BT1") (pin "2") (pinfunction "-") (pintype "input"))
-      (node (ref "J8") (pin "2") (pinfunction "Pin_2") (pintype "passive")))
-    (net (code "15") (name "Net-(J9-Pin_1)")
-      (node (ref "J9") (pin "1") (pinfunction "Pin_1") (pintype "passive"))
-      (node (ref "J9") (pin "2") (pinfunction "Pin_2") (pintype "passive")))
-    (net (code "16") (name "unconnected-(H4-Pad1)")
-      (node (ref "H4") (pin "1") (pinfunction "1") (pintype "input")))
-    (net (code "17") (name "unconnected-(H6-Pad1)")
-      (node (ref "H6") (pin "1") (pinfunction "1") (pintype "input")))
-    (net (code "18") (name "unconnected-(J1-Pin_1-Pad1)")
-      (node (ref "J1") (pin "1") (pinfunction "Pin_1") (pintype "passive")))
-    (net (code "19") (name "unconnected-(J1-Pin_3-Pad3)")
-      (node (ref "J1") (pin "3") (pinfunction "Pin_3") (pintype "passive")))
-    (net (code "20") (name "unconnected-(J1-Pin_5-Pad5)")
-      (node (ref "J1") (pin "5") (pinfunction "Pin_5") (pintype "passive")))
-    (net (code "21") (name "unconnected-(J1-Pin_7-Pad7)")
-      (node (ref "J1") (pin "7") (pinfunction "Pin_7") (pintype "passive")))
-    (net (code "22") (name "unconnected-(J1-Pin_8-Pad8)")
-      (node (ref "J1") (pin "8") (pinfunction "Pin_8") (pintype "passive")))
-    (net (code "23") (name "unconnected-(J1-Pin_9-Pad9)")
-      (node (ref "J1") (pin "9") (pinfunction "Pin_9") (pintype "passive")))
-    (net (code "24") (name "unconnected-(J1-Pin_10-Pad10)")
-      (node (ref "J1") (pin "10") (pinfunction "Pin_10") (pintype "passive")))
-    (net (code "25") (name "unconnected-(J1-Pin_12-Pad12)")
-      (node (ref "J1") (pin "12") (pinfunction "Pin_12") (pintype "passive")))
-    (net (code "26") (name "unconnected-(J1-Pin_13-Pad13)")
-      (node (ref "J1") (pin "13") (pinfunction "Pin_13") (pintype "passive")))
-    (net (code "27") (name "unconnected-(J1-Pin_14-Pad14)")
-      (node (ref "J1") (pin "14") (pinfunction "Pin_14") (pintype "passive")))
-    (net (code "28") (name "unconnected-(J1-Pin_17-Pad17)")
-      (node (ref "J1") (pin "17") (pinfunction "Pin_17") (pintype "passive")))
-    (net (code "29") (name "unconnected-(J1-Pin_22-Pad22)")
-      (node (ref "J1") (pin "22") (pinfunction "Pin_22") (pintype "passive")))
-    (net (code "30") (name "unconnected-(J1-Pin_23-Pad23)")
-      (node (ref "J1") (pin "23") (pinfunction "Pin_23") (pintype "passive")))
-    (net (code "31") (name "unconnected-(J1-Pin_24-Pad24)")
-      (node (ref "J1") (pin "24") (pinfunction "Pin_24") (pintype "passive")))
-    (net (code "32") (name "unconnected-(J1-Pin_26-Pad26)")
-      (node (ref "J1") (pin "26") (pinfunction "Pin_26") (pintype "passive")))
-    (net (code "33") (name "unconnected-(J1-Pin_28-Pad28)")
-      (node (ref "J1") (pin "28") (pinfunction "Pin_28") (pintype "passive")))
-    (net (code "34") (name "unconnected-(J1-Pin_30-Pad30)")
-      (node (ref "J1") (pin "30") (pinfunction "Pin_30") (pintype "passive")))
-    (net (code "35") (name "unconnected-(J3-Pin_1-Pad1)")
-      (node (ref "J3") (pin "1") (pinfunction "Pin_1") (pintype "passive")))
-    (net (code "36") (name "unconnected-(J3-Pin_6-Pad6)")
-      (node (ref "J3") (pin "6") (pinfunction "Pin_6") (pintype "passive")))
-    (net (code "37") (name "unconnected-(J5-Pin_1-Pad1)")
-      (node (ref "J5") (pin "1") (pinfunction "Pin_1") (pintype "passive")))
-    (net (code "38") (name "unconnected-(J5-Pin_2-Pad2)")
-      (node (ref "J5") (pin "2") (pinfunction "Pin_2") (pintype "passive")))
-    (net (code "39") (name "unconnected-(SW1-A-Pad1)")
-      (node (ref "SW1") (pin "1") (pinfunction "A") (pintype "passive")))))
+(export 
+  (version "E") 
+  (design 
+    (source "/home/rob/Documents/PlatformIO/Projects/bGeigieZen/bGeigieZen-master/Hardware/bGeigieRaku V2.0/bGeigieZen V2.0/bGeigieZen V2.kicad_sch") 
+    (date "Mon 24 Jan 2022 09:42:02 PM JST") 
+    (tool "Eeschema 6.99.0-unknown-22ff66f142~146~ubuntu20.04.1") 
+    (sheet 
+      (number "1") 
+      (name "/") 
+      (tstamps "/") 
+      (title_block 
+        (title "bGeigieZen V2.0.0") 
+        (company "GitHub link at https://github.com/Safecast/bGeigieZen") 
+        (rev) 
+        (date "2021-12-08") 
+        (source "bGeigieZen V2.kicad_sch") 
+        (comment 
+          (number "1") 
+          (value "")) 
+        (comment 
+          (number "2") 
+          (value "")) 
+        (comment 
+          (number "3") 
+          (value "")) 
+        (comment 
+          (number "4") 
+          (value "")) 
+        (comment 
+          (number "5") 
+          (value "")) 
+        (comment 
+          (number "6") 
+          (value "")) 
+        (comment 
+          (number "7") 
+          (value "")) 
+        (comment 
+          (number "8") 
+          (value "")) 
+        (comment 
+          (number "9") 
+          (value ""))))) 
+  (components 
+    (comp 
+      (ref "BT1") 
+      (value " 3.7 V Lipo") 
+      (footprint "Library:BATTERY_18650-HOLDER") 
+      (libsource 
+        (lib "bGeigieRaku-V2-rescue") 
+        (part "BATTERY-akizuki-M5_board-rescue") 
+        (description "")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "00000000-0000-0000-0000-00005d536219")) 
+    (comp 
+      (ref "C1") 
+      (value "47uF") 
+      (footprint "bGeigieNano V1.1.5:C025-024X044") 
+      (libsource 
+        (lib "bGeigieRaku-V2-rescue") 
+        (part "bGeigieNano_V1.1.5-eagle-import_C-EU025-024X044-bGeigieNano_V1.1.5-cache") 
+        (description "")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "00000000-0000-0000-0000-00005d6669f4")) 
+    (comp 
+      (ref "H1") 
+      (value "MountingHole_Pad") 
+      (footprint "MountingHole:MountingHole_3.2mm_M3") 
+      (libsource 
+        (lib "Mechanical") 
+        (part "MountingHole_Pad") 
+        (description "Mounting Hole with connection")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "fa951020-7499-42bc-bf77-1fbbed7d667f")) 
+    (comp 
+      (ref "H2") 
+      (value "MountingHole_Pad") 
+      (footprint "MountingHole:MountingHole_3.2mm_M3") 
+      (libsource 
+        (lib "Mechanical") 
+        (part "MountingHole_Pad") 
+        (description "Mounting Hole with connection")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "113ae1ce-b543-478a-83da-a78efdd34900")) 
+    (comp 
+      (ref "H3") 
+      (value "MountingHole_Pad") 
+      (footprint "MountingHole:MountingHole_3.2mm_M3") 
+      (libsource 
+        (lib "Mechanical") 
+        (part "MountingHole_Pad") 
+        (description "Mounting Hole with connection")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "e7ebc000-2dbc-4105-801e-40689ad9235a")) 
+    (comp 
+      (ref "H4") 
+      (value "MountingHole_Pad") 
+      (footprint "MountingHole:MountingHole_3.2mm_M3") 
+      (libsource 
+        (lib "Mechanical") 
+        (part "MountingHole_Pad") 
+        (description "Mounting Hole with connection")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "1f03dd61-65dd-483d-be57-9b0316785b18")) 
+    (comp 
+      (ref "H5") 
+      (value "MountingHole_Pad") 
+      (footprint "MountingHole:MountingHole_3.2mm_M3") 
+      (libsource 
+        (lib "Mechanical") 
+        (part "MountingHole_Pad") 
+        (description "Mounting Hole with connection")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "ecfee886-00be-41fe-b245-a083d3684aa3")) 
+    (comp 
+      (ref "H6") 
+      (value "MountingHole_Pad") 
+      (footprint "MountingHole:MountingHole_3.2mm_M3") 
+      (libsource 
+        (lib "Mechanical") 
+        (part "MountingHole_Pad") 
+        (description "Mounting Hole with connection")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "5ba47a5f-56f4-40cc-bb26-6d96a53aaba5")) 
+    (comp 
+      (ref "H7") 
+      (value "MountingHole_Pad") 
+      (footprint "MountingHole:MountingHole_3.2mm_M3") 
+      (libsource 
+        (lib "Mechanical") 
+        (part "MountingHole_Pad") 
+        (description "Mounting Hole with connection")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "acb0f16d-0ecc-4402-a79a-43b43069e1cf")) 
+    (comp 
+      (ref "H8") 
+      (value "MountingHole_Pad") 
+      (footprint "MountingHole:MountingHole_3.2mm_M3") 
+      (libsource 
+        (lib "Mechanical") 
+        (part "MountingHole_Pad") 
+        (description "Mounting Hole with connection")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "33c8ca57-2824-4987-8ab7-57846f40138d")) 
+    (comp 
+      (ref "H9") 
+      (value "MountingHole_Pad") 
+      (footprint "MountingHole:MountingHole_3.2mm_M3") 
+      (libsource 
+        (lib "Mechanical") 
+        (part "MountingHole_Pad") 
+        (description "Mounting Hole with connection")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "cd5e07e4-0c52-4526-99de-27f6a1504ee0")) 
+    (comp 
+      (ref "H10") 
+      (value "MountingHole_Pad") 
+      (footprint "MountingHole:MountingHole_3.2mm_M3") 
+      (libsource 
+        (lib "Mechanical") 
+        (part "MountingHole_Pad") 
+        (description "Mounting Hole with connection")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "33accb9f-62b7-4730-ac41-d79864f006ad")) 
+    (comp 
+      (ref "J1") 
+      (value "M5 2x15 pin") 
+      (footprint "Connector_PinHeader_2.54mm:PinHeader_2x15_P2.54mm_Vertical_SMD") 
+      (datasheet "Hirosugi Instruments: PSM-4200233-15") 
+      (libsource 
+        (lib "Connector_Generic") 
+        (part "Conn_02x15_Odd_Even") 
+        (description "Generic connector, double row, 02x15, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "00000000-0000-0000-0000-00005d532c3e")) 
+    (comp 
+      (ref "J2") 
+      (value "Geiger") 
+      (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical") 
+      (libsource 
+        (lib "Connector") 
+        (part "Conn_01x03_Male") 
+        (description "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "00000000-0000-0000-0000-00005d53b5ae")) 
+    (comp 
+      (ref "J3") 
+      (value "GPS") 
+      (footprint "Connector_PinSocket_2.54mm:PinSocket_1x06_P2.54mm_Vertical") 
+      (libsource 
+        (lib "Connector") 
+        (part "Conn_01x06_Male") 
+        (description "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "00000000-0000-0000-0000-00005d536d8e")) 
+    (comp 
+      (ref "J4") 
+      (value "Geiger 2") 
+      (footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical") 
+      (libsource 
+        (lib "Connector") 
+        (part "Conn_01x03_Male") 
+        (description "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "69db1485-b83d-4e9c-8654-b54c873bff98")) 
+    (comp 
+      (ref "J5") 
+      (value "Extra support header") 
+      (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical") 
+      (libsource 
+        (lib "") 
+        (part "Connector:Conn_01x02_Male_1") 
+        (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "d1c8df53-98f3-48f8-944b-eb499fbd42ca")) 
+    (comp 
+      (ref "J6") 
+      (value "Grove") 
+      (footprint "Connector_JST:JST_ACH_BM04B-ACHSS-A-GAN-ETF_1x04-1MP_P1.20mm_Vertical") 
+      (fields 
+        (field 
+          (name "MANUFACTURER") "Seeed Technology") 
+        (field 
+          (name "MAXIMUM_PACKAGE_HEIGHT") "8.1mm") 
+        (field 
+          (name "PARTREV") "A") 
+        (field 
+          (name "STANDARD") "Manufacturer Recommendations")) 
+      (libsource 
+        (lib "110990030") 
+        (part "110990030") 
+        (description "")) 
+      (property 
+        (name "PARTREV") 
+        (value "A")) 
+      (property 
+        (name "STANDARD") 
+        (value "Manufacturer Recommendations")) 
+      (property 
+        (name "MAXIMUM_PACKAGE_HEIGHT") 
+        (value "8.1mm")) 
+      (property 
+        (name "MANUFACTURER") 
+        (value "Seeed Technology")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "c9fcdc4b-6952-42c1-a10a-70a800b769ab")) 
+    (comp 
+      (ref "J7") 
+      (value "Grove") 
+      (footprint "Connector_JST:JST_ACH_BM04B-ACHSS-A-GAN-ETF_1x04-1MP_P1.20mm_Vertical") 
+      (fields 
+        (field 
+          (name "MANUFACTURER") "Seeed Technology") 
+        (field 
+          (name "MAXIMUM_PACKAGE_HEIGHT") "8.1mm") 
+        (field 
+          (name "PARTREV") "A") 
+        (field 
+          (name "STANDARD") "Manufacturer Recommendations")) 
+      (libsource 
+        (lib "110990030") 
+        (part "110990030") 
+        (description "")) 
+      (property 
+        (name "PARTREV") 
+        (value "A")) 
+      (property 
+        (name "STANDARD") 
+        (value "Manufacturer Recommendations")) 
+      (property 
+        (name "MAXIMUM_PACKAGE_HEIGHT") 
+        (value "8.1mm")) 
+      (property 
+        (name "MANUFACTURER") 
+        (value "Seeed Technology")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "a771c02c-8b53-42d8-99ed-0a81252d0009")) 
+    (comp 
+      (ref "J8") 
+      (value "QI charger GND") 
+      (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical") 
+      (libsource 
+        (lib "Connector") 
+        (part "Conn_01x02_Male") 
+        (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "00000000-0000-0000-0000-00005da40adb")) 
+    (comp 
+      (ref "J9") 
+      (value "QI Plus") 
+      (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical") 
+      (libsource 
+        (lib "Connector") 
+        (part "Conn_01x02_Male") 
+        (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "00000000-0000-0000-0000-00005dc7bbe1")) 
+    (comp 
+      (ref "J10") 
+      (value "QI GND") 
+      (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical") 
+      (libsource 
+        (lib "Connector") 
+        (part "Conn_01x02_Male") 
+        (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "00000000-0000-0000-0000-00005dc7b8a2")) 
+    (comp 
+      (ref "J11") 
+      (value "QI charger Plus") 
+      (footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical") 
+      (libsource 
+        (lib "Connector") 
+        (part "Conn_01x02_Male") 
+        (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "00000000-0000-0000-0000-00005dc7b09e")) 
+    (comp 
+      (ref "Q2") 
+      (value "IRFU9020PBF") 
+      (footprint "Package_TO_SOT_THT:TO-251-3_Vertical") 
+      (datasheet "https://www.mouser.com/ProductDetail/Vishay-Semiconductors/IRFU9020PBF?qs=I1ZA2VTqfvQJclILIq0u%2FA%3D%3D") 
+      (libsource 
+        (lib "IRFR9024") 
+        (part "IRFR9024") 
+        (description "")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "d5751f28-038f-4ebc-a839-09d52b0374ee")) 
+    (comp 
+      (ref "R1") 
+      (value "9.1k") 
+      (footprint "bGeigieNano V1.1.5:0207_10") 
+      (libsource 
+        (lib "Device") 
+        (part "R") 
+        (description "Resistor")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "e4ff1a33-9ecd-48a6-bf60-22e0093e7cad")) 
+    (comp 
+      (ref "R2") 
+      (value "1k") 
+      (footprint "bGeigieNano V1.1.5:0207_10") 
+      (libsource 
+        (lib "Device") 
+        (part "R") 
+        (description "Resistor")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "22c0d23f-792b-464e-bd2e-722b4799875f")) 
+    (comp 
+      (ref "R3") 
+      (value "10k") 
+      (footprint "bGeigieRaku_M5_1015:0207_10") 
+      (libsource 
+        (lib "Device") 
+        (part "R") 
+        (description "Resistor")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "91e34627-a183-42e4-bafa-955f631c2bab")) 
+    (comp 
+      (ref "SW1") 
+      (value "SW_SPDT") 
+      (footprint "bGeigieNanoKit V1.1r5a:EG1206") 
+      (datasheet "https://www.digikey.jp/product-detail/ja/e-switch/EG1206/EG1916-ND/251333") 
+      (libsource 
+        (lib "Switch") 
+        (part "SW_SPDT") 
+        (description "Switch, single pole double throw")) 
+      (property 
+        (name "Sheetname") 
+        (value "")) 
+      (property 
+        (name "Sheetfile") 
+        (value "bGeigieZen V2.kicad_sch")) 
+      (sheetpath 
+        (names "/") 
+        (tstamps "/")) 
+      (tstamps "00000000-0000-0000-0000-00005d53823e"))) 
+  (libparts 
+    (libpart 
+      (lib "110990030") 
+      (part "110990030") 
+      (fields 
+        (field 
+          (name "Reference") "J") 
+        (field 
+          (name "Value") "110990030") 
+        (field 
+          (name "Footprint") "SEEED_110990030") 
+        (field 
+          (name "PARTREV") "A") 
+        (field 
+          (name "STANDARD") "Manufacturer Recommendations") 
+        (field 
+          (name "MAXIMUM_PACKAGE_HEIGHT") "8.1mm") 
+        (field 
+          (name "MANUFACTURER") "Seeed Technology")) 
+      (pins 
+        (pin 
+          (num "1") 
+          (name "1") 
+          (type "passive")) 
+        (pin 
+          (num "2") 
+          (name "2") 
+          (type "passive")) 
+        (pin 
+          (num "3") 
+          (name "3") 
+          (type "passive")) 
+        (pin 
+          (num "4") 
+          (name "4") 
+          (type "passive")))) 
+    (libpart 
+      (lib "Connector") 
+      (part "Conn_01x02_Male") 
+      (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)") 
+      (docs "~") 
+      (footprints 
+        (fp "Connector*:*_1x??_*")) 
+      (fields 
+        (field 
+          (name "Reference") "J") 
+        (field 
+          (name "Value") "Conn_01x02_Male") 
+        (field 
+          (name "Datasheet") "~")) 
+      (pins 
+        (pin 
+          (num "1") 
+          (name "Pin_1") 
+          (type "passive")) 
+        (pin 
+          (num "2") 
+          (name "Pin_2") 
+          (type "passive")))) 
+    (libpart 
+      (lib "Connector") 
+      (part "Conn_01x02_Male_1") 
+      (description "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)") 
+      (docs "~") 
+      (footprints 
+        (fp "Connector*:*_1x??_*")) 
+      (fields 
+        (field 
+          (name "Reference") "J") 
+        (field 
+          (name "Value") "Conn_01x02_Male") 
+        (field 
+          (name "Datasheet") "~")) 
+      (pins 
+        (pin 
+          (num "1") 
+          (name "Pin_1") 
+          (type "passive")) 
+        (pin 
+          (num "2") 
+          (name "Pin_2") 
+          (type "passive")))) 
+    (libpart 
+      (lib "Connector") 
+      (part "Conn_01x03_Male") 
+      (description "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)") 
+      (docs "~") 
+      (footprints 
+        (fp "Connector*:*_1x??_*")) 
+      (fields 
+        (field 
+          (name "Reference") "J") 
+        (field 
+          (name "Value") "Conn_01x03_Male") 
+        (field 
+          (name "Datasheet") "~")) 
+      (pins 
+        (pin 
+          (num "1") 
+          (name "Pin_1") 
+          (type "passive")) 
+        (pin 
+          (num "2") 
+          (name "Pin_2") 
+          (type "passive")) 
+        (pin 
+          (num "3") 
+          (name "Pin_3") 
+          (type "passive")))) 
+    (libpart 
+      (lib "Connector") 
+      (part "Conn_01x06_Male") 
+      (description "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)") 
+      (docs "~") 
+      (footprints 
+        (fp "Connector*:*_1x??_*")) 
+      (fields 
+        (field 
+          (name "Reference") "J") 
+        (field 
+          (name "Value") "Conn_01x06_Male") 
+        (field 
+          (name "Datasheet") "~")) 
+      (pins 
+        (pin 
+          (num "1") 
+          (name "Pin_1") 
+          (type "passive")) 
+        (pin 
+          (num "2") 
+          (name "Pin_2") 
+          (type "passive")) 
+        (pin 
+          (num "3") 
+          (name "Pin_3") 
+          (type "passive")) 
+        (pin 
+          (num "4") 
+          (name "Pin_4") 
+          (type "passive")) 
+        (pin 
+          (num "5") 
+          (name "Pin_5") 
+          (type "passive")) 
+        (pin 
+          (num "6") 
+          (name "Pin_6") 
+          (type "passive")))) 
+    (libpart 
+      (lib "Connector_Generic") 
+      (part "Conn_02x15_Odd_Even") 
+      (description "Generic connector, double row, 02x15, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)") 
+      (docs "~") 
+      (footprints 
+        (fp "Connector*:*_2x??_*")) 
+      (fields 
+        (field 
+          (name "Reference") "J") 
+        (field 
+          (name "Value") "Conn_02x15_Odd_Even") 
+        (field 
+          (name "Datasheet") "~")) 
+      (pins 
+        (pin 
+          (num "1") 
+          (name "Pin_1") 
+          (type "passive")) 
+        (pin 
+          (num "2") 
+          (name "Pin_2") 
+          (type "passive")) 
+        (pin 
+          (num "3") 
+          (name "Pin_3") 
+          (type "passive")) 
+        (pin 
+          (num "4") 
+          (name "Pin_4") 
+          (type "passive")) 
+        (pin 
+          (num "5") 
+          (name "Pin_5") 
+          (type "passive")) 
+        (pin 
+          (num "6") 
+          (name "Pin_6") 
+          (type "passive")) 
+        (pin 
+          (num "7") 
+          (name "Pin_7") 
+          (type "passive")) 
+        (pin 
+          (num "8") 
+          (name "Pin_8") 
+          (type "passive")) 
+        (pin 
+          (num "9") 
+          (name "Pin_9") 
+          (type "passive")) 
+        (pin 
+          (num "10") 
+          (name "Pin_10") 
+          (type "passive")) 
+        (pin 
+          (num "11") 
+          (name "Pin_11") 
+          (type "passive")) 
+        (pin 
+          (num "12") 
+          (name "Pin_12") 
+          (type "passive")) 
+        (pin 
+          (num "13") 
+          (name "Pin_13") 
+          (type "passive")) 
+        (pin 
+          (num "14") 
+          (name "Pin_14") 
+          (type "passive")) 
+        (pin 
+          (num "15") 
+          (name "Pin_15") 
+          (type "passive")) 
+        (pin 
+          (num "16") 
+          (name "Pin_16") 
+          (type "passive")) 
+        (pin 
+          (num "17") 
+          (name "Pin_17") 
+          (type "passive")) 
+        (pin 
+          (num "18") 
+          (name "Pin_18") 
+          (type "passive")) 
+        (pin 
+          (num "19") 
+          (name "Pin_19") 
+          (type "passive")) 
+        (pin 
+          (num "20") 
+          (name "Pin_20") 
+          (type "passive")) 
+        (pin 
+          (num "21") 
+          (name "Pin_21") 
+          (type "passive")) 
+        (pin 
+          (num "22") 
+          (name "Pin_22") 
+          (type "passive")) 
+        (pin 
+          (num "23") 
+          (name "Pin_23") 
+          (type "passive")) 
+        (pin 
+          (num "24") 
+          (name "Pin_24") 
+          (type "passive")) 
+        (pin 
+          (num "25") 
+          (name "Pin_25") 
+          (type "passive")) 
+        (pin 
+          (num "26") 
+          (name "Pin_26") 
+          (type "passive")) 
+        (pin 
+          (num "27") 
+          (name "Pin_27") 
+          (type "passive")) 
+        (pin 
+          (num "28") 
+          (name "Pin_28") 
+          (type "passive")) 
+        (pin 
+          (num "29") 
+          (name "Pin_29") 
+          (type "passive")) 
+        (pin 
+          (num "30") 
+          (name "Pin_30") 
+          (type "passive")))) 
+    (libpart 
+      (lib "Device") 
+      (part "R") 
+      (description "Resistor") 
+      (docs "~") 
+      (footprints 
+        (fp "R_*")) 
+      (fields 
+        (field 
+          (name "Reference") "R") 
+        (field 
+          (name "Value") "R") 
+        (field 
+          (name "Datasheet") "~")) 
+      (pins 
+        (pin 
+          (num "1") 
+          (name "") 
+          (type "passive")) 
+        (pin 
+          (num "2") 
+          (name "") 
+          (type "passive")))) 
+    (libpart 
+      (lib "IRFR9024") 
+      (part "IRFR9024") 
+      (fields 
+        (field 
+          (name "Reference") "Q2") 
+        (field 
+          (name "Value") "IRFR9024") 
+        (field 
+          (name "Footprint") "Package_TO_SOT_THT:TO-251-3_Vertical")) 
+      (pins 
+        (pin 
+          (num "1") 
+          (name "") 
+          (type "passive")) 
+        (pin 
+          (num "2") 
+          (name "") 
+          (type "passive")) 
+        (pin 
+          (num "3") 
+          (name "") 
+          (type "passive")))) 
+    (libpart 
+      (lib "Mechanical") 
+      (part "MountingHole_Pad") 
+      (description "Mounting Hole with connection") 
+      (docs "~") 
+      (footprints 
+        (fp "MountingHole*Pad*")) 
+      (fields 
+        (field 
+          (name "Reference") "H") 
+        (field 
+          (name "Value") "MountingHole_Pad") 
+        (field 
+          (name "Datasheet") "~")) 
+      (pins 
+        (pin 
+          (num "1") 
+          (name "1") 
+          (type "input")))) 
+    (libpart 
+      (lib "Switch") 
+      (part "SW_SPDT") 
+      (description "Switch, single pole double throw") 
+      (docs "https://www.digikey.jp/product-detail/ja/e-switch/EG1206/EG1916-ND/251333") 
+      (fields 
+        (field 
+          (name "Reference") "SW1") 
+        (field 
+          (name "Value") "SW_SPDT") 
+        (field 
+          (name "Footprint") "bGeigieNanoKit V1.1r5a:EG1206") 
+        (field 
+          (name "Datasheet") "https://www.digikey.jp/product-detail/ja/e-switch/EG1206/EG1916-ND/251333")) 
+      (pins 
+        (pin 
+          (num "1") 
+          (name "A") 
+          (type "passive")) 
+        (pin 
+          (num "2") 
+          (name "B") 
+          (type "passive")) 
+        (pin 
+          (num "3") 
+          (name "C") 
+          (type "passive")))) 
+    (libpart 
+      (lib "bGeigieRaku-V2-rescue") 
+      (part "BATTERY-akizuki-M5_board-rescue") 
+      (footprints 
+        (fp "RAD-0.2")) 
+      (fields 
+        (field 
+          (name "Reference") "BT") 
+        (field 
+          (name "Value") "BATTERY-akizuki-M5_board-rescue")) 
+      (pins 
+        (pin 
+          (num "1") 
+          (name "+") 
+          (type "input")) 
+        (pin 
+          (num "2") 
+          (name "-") 
+          (type "input")))) 
+    (libpart 
+      (lib "bGeigieRaku-V2-rescue") 
+      (part "bGeigieNano_V1.1.5-eagle-import_C-EU025-024X044-bGeigieNano_V1.1.5-cache") 
+      (fields 
+        (field 
+          (name "Reference") "C") 
+        (field 
+          (name "Value") "bGeigieNano_V1.1.5-eagle-import_C-EU025-024X044-bGeigieNano_V1.1.5-cache")) 
+      (pins 
+        (pin 
+          (num "1") 
+          (name "1") 
+          (type "passive")) 
+        (pin 
+          (num "2") 
+          (name "2") 
+          (type "passive"))))) 
+  (libraries 
+    (library 
+      (logical "Connector") 
+      (uri "/usr/share/kicad-nightly/symbols//Connector.kicad_sym")) 
+    (library 
+      (logical "Connector_Generic") 
+      (uri "/usr/share/kicad-nightly/symbols//Connector_Generic.kicad_sym")) 
+    (library 
+      (logical "Device") 
+      (uri "/usr/share/kicad-nightly/symbols//Device.kicad_sym")) 
+    (library 
+      (logical "Mechanical") 
+      (uri "/usr/share/kicad-nightly/symbols//Mechanical.kicad_sym")) 
+    (library 
+      (logical "Switch") 
+      (uri "/usr/share/kicad-nightly/symbols//Switch.kicad_sym")) 
+    (library 
+      (logical "bGeigieRaku-V2-rescue") 
+      (uri))) 
+  (nets 
+    (net 
+      (code "1") 
+      (name "/BAT") 
+      (node 
+        (ref "J1") 
+        (pin "29") 
+        (pinfunction "Pin_29") 
+        (pintype "passive")) 
+      (node 
+        (ref "R1") 
+        (pin "1") 
+        (pintype "passive")) 
+      (node 
+        (ref "SW1") 
+        (pin "3") 
+        (pinfunction "C") 
+        (pintype "passive"))) 
+    (net 
+      (code "2") 
+      (name "/GIO2") 
+      (node 
+        (ref "J1") 
+        (pin "20") 
+        (pinfunction "Pin_20") 
+        (pintype "passive")) 
+      (node 
+        (ref "J2") 
+        (pin "2") 
+        (pinfunction "Pin_2") 
+        (pintype "passive")) 
+      (node 
+        (ref "J4") 
+        (pin "2") 
+        (pinfunction "Pin_2") 
+        (pintype "passive"))) 
+    (net 
+      (code "3") 
+      (name "/GIO5") 
+      (node 
+        (ref "J1") 
+        (pin "19") 
+        (pinfunction "Pin_19") 
+        (pintype "passive"))) 
+    (net 
+      (code "4") 
+      (name "/GIO13") 
+      (node 
+        (ref "J1") 
+        (pin "21") 
+        (pinfunction "Pin_21") 
+        (pintype "passive"))) 
+    (net 
+      (code "5") 
+      (name "/GIO34") 
+      (node 
+        (ref "J1") 
+        (pin "25") 
+        (pinfunction "Pin_25") 
+        (pintype "passive"))) 
+    (net 
+      (code "6") 
+      (name "/RX2") 
+      (node 
+        (ref "J1") 
+        (pin "15") 
+        (pinfunction "Pin_15") 
+        (pintype "passive")) 
+      (node 
+        (ref "J3") 
+        (pin "4") 
+        (pinfunction "Pin_4") 
+        (pintype "passive"))) 
+    (net 
+      (code "7") 
+      (name "/Reset") 
+      (node 
+        (ref "C1") 
+        (pin "1") 
+        (pinfunction "1") 
+        (pintype "passive")) 
+      (node 
+        (ref "J1") 
+        (pin "5") 
+        (pinfunction "Pin_5") 
+        (pintype "passive"))) 
+    (net 
+      (code "8") 
+      (name "/SCL") 
+      (node 
+        (ref "J1") 
+        (pin "18") 
+        (pinfunction "Pin_18") 
+        (pintype "passive")) 
+      (node 
+        (ref "J6") 
+        (pin "3") 
+        (pinfunction "3") 
+        (pintype "passive")) 
+      (node 
+        (ref "J7") 
+        (pin "3") 
+        (pinfunction "3") 
+        (pintype "passive"))) 
+    (net 
+      (code "9") 
+      (name "/SDA") 
+      (node 
+        (ref "J1") 
+        (pin "17") 
+        (pinfunction "Pin_17") 
+        (pintype "passive")) 
+      (node 
+        (ref "J6") 
+        (pin "4") 
+        (pinfunction "4") 
+        (pintype "passive")) 
+      (node 
+        (ref "J7") 
+        (pin "4") 
+        (pinfunction "4") 
+        (pintype "passive")) 
+      (node 
+        (ref "R3") 
+        (pin "2") 
+        (pintype "passive"))) 
+    (net 
+      (code "10") 
+      (name "/TX2") 
+      (node 
+        (ref "J1") 
+        (pin "16") 
+        (pinfunction "Pin_16") 
+        (pintype "passive")) 
+      (node 
+        (ref "J3") 
+        (pin "3") 
+        (pinfunction "Pin_3") 
+        (pintype "passive"))) 
+    (net 
+      (code "11") 
+      (name "/VBATT") 
+      (node 
+        (ref "Q2") 
+        (pin "3") 
+        (pintype "passive")) 
+      (node 
+        (ref "SW1") 
+        (pin "2") 
+        (pinfunction "B") 
+        (pintype "passive"))) 
+    (net 
+      (code "12") 
+      (name "3.3V") 
+      (node 
+        (ref "J1") 
+        (pin "11") 
+        (pinfunction "Pin_11") 
+        (pintype "passive")) 
+      (node 
+        (ref "J2") 
+        (pin "1") 
+        (pinfunction "Pin_1") 
+        (pintype "passive")) 
+      (node 
+        (ref "J3") 
+        (pin "5") 
+        (pinfunction "Pin_5") 
+        (pintype "passive")) 
+      (node 
+        (ref "J4") 
+        (pin "3") 
+        (pinfunction "Pin_3") 
+        (pintype "passive")) 
+      (node 
+        (ref "J6") 
+        (pin "2") 
+        (pinfunction "2") 
+        (pintype "passive")) 
+      (node 
+        (ref "J7") 
+        (pin "2") 
+        (pinfunction "2") 
+        (pintype "passive")) 
+      (node 
+        (ref "R3") 
+        (pin "1") 
+        (pintype "passive"))) 
+    (net 
+      (code "13") 
+      (name "5V") 
+      (node 
+        (ref "J1") 
+        (pin "27") 
+        (pinfunction "Pin_27") 
+        (pintype "passive"))) 
+    (net 
+      (code "14") 
+      (name "GND") 
+      (node 
+        (ref "BT1") 
+        (pin "2") 
+        (pinfunction "-") 
+        (pintype "input")) 
+      (node 
+        (ref "C1") 
+        (pin "2") 
+        (pinfunction "2") 
+        (pintype "passive")) 
+      (node 
+        (ref "J1") 
+        (pin "2") 
+        (pinfunction "Pin_2") 
+        (pintype "passive")) 
+      (node 
+        (ref "J1") 
+        (pin "4") 
+        (pinfunction "Pin_4") 
+        (pintype "passive")) 
+      (node 
+        (ref "J1") 
+        (pin "6") 
+        (pinfunction "Pin_6") 
+        (pintype "passive")) 
+      (node 
+        (ref "J10") 
+        (pin "1") 
+        (pinfunction "Pin_1") 
+        (pintype "passive")) 
+      (node 
+        (ref "J10") 
+        (pin "2") 
+        (pinfunction "Pin_2") 
+        (pintype "passive")) 
+      (node 
+        (ref "J2") 
+        (pin "3") 
+        (pinfunction "Pin_3") 
+        (pintype "passive")) 
+      (node 
+        (ref "J3") 
+        (pin "2") 
+        (pinfunction "Pin_2") 
+        (pintype "passive")) 
+      (node 
+        (ref "J4") 
+        (pin "1") 
+        (pinfunction "Pin_1") 
+        (pintype "passive")) 
+      (node 
+        (ref "J6") 
+        (pin "1") 
+        (pinfunction "1") 
+        (pintype "passive")) 
+      (node 
+        (ref "J7") 
+        (pin "1") 
+        (pinfunction "1") 
+        (pintype "passive")) 
+      (node 
+        (ref "J8") 
+        (pin "1") 
+        (pinfunction "Pin_1") 
+        (pintype "passive")) 
+      (node 
+        (ref "J8") 
+        (pin "2") 
+        (pinfunction "Pin_2") 
+        (pintype "passive")) 
+      (node 
+        (ref "Q2") 
+        (pin "1") 
+        (pintype "passive")) 
+      (node 
+        (ref "R2") 
+        (pin "2") 
+        (pintype "passive"))) 
+    (net 
+      (code "15") 
+      (name "Net-(BT1-+)") 
+      (node 
+        (ref "BT1") 
+        (pin "1") 
+        (pinfunction "+") 
+        (pintype "input")) 
+      (node 
+        (ref "J11") 
+        (pin "1") 
+        (pinfunction "Pin_1") 
+        (pintype "passive")) 
+      (node 
+        (ref "J11") 
+        (pin "2") 
+        (pinfunction "Pin_2") 
+        (pintype "passive")) 
+      (node 
+        (ref "Q2") 
+        (pin "2") 
+        (pintype "passive"))) 
+    (net 
+      (code "16") 
+      (name "Net-(J1-Pin_3)") 
+      (node 
+        (ref "J1") 
+        (pin "3") 
+        (pinfunction "Pin_3") 
+        (pintype "passive")) 
+      (node 
+        (ref "R1") 
+        (pin "2") 
+        (pintype "passive")) 
+      (node 
+        (ref "R2") 
+        (pin "1") 
+        (pintype "passive"))) 
+    (net 
+      (code "17") 
+      (name "Net-(J9-Pin_1)") 
+      (node 
+        (ref "J9") 
+        (pin "1") 
+        (pinfunction "Pin_1") 
+        (pintype "passive")) 
+      (node 
+        (ref "J9") 
+        (pin "2") 
+        (pinfunction "Pin_2") 
+        (pintype "passive"))) 
+    (net 
+      (code "18") 
+      (name "unconnected-(H1-Pad1)") 
+      (node 
+        (ref "H1") 
+        (pin "1") 
+        (pinfunction "1") 
+        (pintype "input"))) 
+    (net 
+      (code "19") 
+      (name "unconnected-(H2-Pad1)") 
+      (node 
+        (ref "H2") 
+        (pin "1") 
+        (pinfunction "1") 
+        (pintype "input"))) 
+    (net 
+      (code "20") 
+      (name "unconnected-(H3-Pad1)") 
+      (node 
+        (ref "H3") 
+        (pin "1") 
+        (pinfunction "1") 
+        (pintype "input"))) 
+    (net 
+      (code "21") 
+      (name "unconnected-(H4-Pad1)") 
+      (node 
+        (ref "H4") 
+        (pin "1") 
+        (pinfunction "1") 
+        (pintype "input"))) 
+    (net 
+      (code "22") 
+      (name "unconnected-(H5-Pad1)") 
+      (node 
+        (ref "H5") 
+        (pin "1") 
+        (pinfunction "1") 
+        (pintype "input"))) 
+    (net 
+      (code "23") 
+      (name "unconnected-(H6-Pad1)") 
+      (node 
+        (ref "H6") 
+        (pin "1") 
+        (pinfunction "1") 
+        (pintype "input"))) 
+    (net 
+      (code "24") 
+      (name "unconnected-(H7-Pad1)") 
+      (node 
+        (ref "H7") 
+        (pin "1") 
+        (pinfunction "1") 
+        (pintype "input"))) 
+    (net 
+      (code "25") 
+      (name "unconnected-(H8-Pad1)") 
+      (node 
+        (ref "H8") 
+        (pin "1") 
+        (pinfunction "1") 
+        (pintype "input"))) 
+    (net 
+      (code "26") 
+      (name "unconnected-(H9-Pad1)") 
+      (node 
+        (ref "H9") 
+        (pin "1") 
+        (pinfunction "1") 
+        (pintype "input"))) 
+    (net 
+      (code "27") 
+      (name "unconnected-(H10-Pad1)") 
+      (node 
+        (ref "H10") 
+        (pin "1") 
+        (pinfunction "1") 
+        (pintype "input"))) 
+    (net 
+      (code "28") 
+      (name "unconnected-(J1-Pin_1)") 
+      (node 
+        (ref "J1") 
+        (pin "1") 
+        (pinfunction "Pin_1") 
+        (pintype "passive"))) 
+    (net 
+      (code "29") 
+      (name "unconnected-(J1-Pin_7)") 
+      (node 
+        (ref "J1") 
+        (pin "7") 
+        (pinfunction "Pin_7") 
+        (pintype "passive"))) 
+    (net 
+      (code "30") 
+      (name "unconnected-(J1-Pin_8)") 
+      (node 
+        (ref "J1") 
+        (pin "8") 
+        (pinfunction "Pin_8") 
+        (pintype "passive"))) 
+    (net 
+      (code "31") 
+      (name "unconnected-(J1-Pin_9)") 
+      (node 
+        (ref "J1") 
+        (pin "9") 
+        (pinfunction "Pin_9") 
+        (pintype "passive"))) 
+    (net 
+      (code "32") 
+      (name "unconnected-(J1-Pin_10)") 
+      (node 
+        (ref "J1") 
+        (pin "10") 
+        (pinfunction "Pin_10") 
+        (pintype "passive"))) 
+    (net 
+      (code "33") 
+      (name "unconnected-(J1-Pin_12)") 
+      (node 
+        (ref "J1") 
+        (pin "12") 
+        (pinfunction "Pin_12") 
+        (pintype "passive"))) 
+    (net 
+      (code "34") 
+      (name "unconnected-(J1-Pin_13)") 
+      (node 
+        (ref "J1") 
+        (pin "13") 
+        (pinfunction "Pin_13") 
+        (pintype "passive"))) 
+    (net 
+      (code "35") 
+      (name "unconnected-(J1-Pin_14)") 
+      (node 
+        (ref "J1") 
+        (pin "14") 
+        (pinfunction "Pin_14") 
+        (pintype "passive"))) 
+    (net 
+      (code "36") 
+      (name "unconnected-(J1-Pin_22)") 
+      (node 
+        (ref "J1") 
+        (pin "22") 
+        (pinfunction "Pin_22") 
+        (pintype "passive"))) 
+    (net 
+      (code "37") 
+      (name "unconnected-(J1-Pin_23)") 
+      (node 
+        (ref "J1") 
+        (pin "23") 
+        (pinfunction "Pin_23") 
+        (pintype "passive"))) 
+    (net 
+      (code "38") 
+      (name "unconnected-(J1-Pin_24)") 
+      (node 
+        (ref "J1") 
+        (pin "24") 
+        (pinfunction "Pin_24") 
+        (pintype "passive"))) 
+    (net 
+      (code "39") 
+      (name "unconnected-(J1-Pin_26)") 
+      (node 
+        (ref "J1") 
+        (pin "26") 
+        (pinfunction "Pin_26") 
+        (pintype "passive"))) 
+    (net 
+      (code "40") 
+      (name "unconnected-(J1-Pin_28)") 
+      (node 
+        (ref "J1") 
+        (pin "28") 
+        (pinfunction "Pin_28") 
+        (pintype "passive"))) 
+    (net 
+      (code "41") 
+      (name "unconnected-(J1-Pin_30)") 
+      (node 
+        (ref "J1") 
+        (pin "30") 
+        (pinfunction "Pin_30") 
+        (pintype "passive"))) 
+    (net 
+      (code "42") 
+      (name "unconnected-(J3-Pin_1)") 
+      (node 
+        (ref "J3") 
+        (pin "1") 
+        (pinfunction "Pin_1") 
+        (pintype "passive"))) 
+    (net 
+      (code "43") 
+      (name "unconnected-(J3-Pin_6)") 
+      (node 
+        (ref "J3") 
+        (pin "6") 
+        (pinfunction "Pin_6") 
+        (pintype "passive"))) 
+    (net 
+      (code "44") 
+      (name "unconnected-(J5-Pin_1)") 
+      (node 
+        (ref "J5") 
+        (pin "1") 
+        (pinfunction "Pin_1") 
+        (pintype "passive"))) 
+    (net 
+      (code "45") 
+      (name "unconnected-(J5-Pin_2)") 
+      (node 
+        (ref "J5") 
+        (pin "2") 
+        (pinfunction "Pin_2") 
+        (pintype "passive"))) 
+    (net 
+      (code "46") 
+      (name "unconnected-(SW1-A)") 
+      (node 
+        (ref "SW1") 
+        (pin "1") 
+        (pinfunction "A") 
+        (pintype "passive")))))
