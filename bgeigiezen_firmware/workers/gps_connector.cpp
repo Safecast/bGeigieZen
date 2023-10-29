@@ -53,6 +53,10 @@ bool GpsConnector::activate(bool retry) {
     return false;
   }
 
+  // Confirm that we actually have a connection
+  delay(100);
+  DEBUG_PRINTF("u-blox protocol version %02d.%02d\n", gnss.getProtocolVersionHigh(), gnss.getProtocolVersionLow());
+
   // Set Auto on NAV-PVT and NAV-DOP queries for non-blocking access
   // getPVT() and getDOP() will return true if a new navigation solution is available
   gnss.setAutoPVT(true); // Tell the GNSS to "send" each solution
