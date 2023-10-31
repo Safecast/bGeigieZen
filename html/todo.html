@@ -96,7 +96,11 @@ $(document).ready(function(){initNavTree('todo.html',''); initResizable(); });
 <dt>Class <a class="el" href="class_battery_monitor_i_p5306.html">BatteryMonitorIP5306</a>  </dt>
 <dd><a class="anchor" id="_todo000001"></a>IP5306 is replaced by AXP192 in the M5 Core2, this file serves no purpose.  </dd>
 <dt>Member <a class="el" href="class_battery_monitor_i_p5306.html#ab5616a0155f8597f584077c2adb3e6fc">BatteryMonitorIP5306::get_level</a>  ()</dt>
-<dd><a class="anchor" id="_todo000002"></a>IP5306 is replaced by AXP192 in the M5 Core2, this file serves no purpose. </dd>
+<dd><a class="anchor" id="_todo000002"></a>IP5306 is replaced by AXP192 in the M5 Core2, this file serves no purpose.  </dd>
+<dt>Member <a class="el" href="struct_gnss_data.html#a527451b2d30d960a8dc174315c5f1687">GnssData::hardreset_timer</a>  </dt>
+<dd><a class="anchor" id="_todo000004"></a>REMOVE THIS DEBUG TEMPORARY  </dd>
+<dt>Member <a class="el" href="class_gps_connector.html#aa7063a9ff75593b35995241c579b070f">GpsConnector::GpsConnector</a>  (uint8_t gps_serial_num, SFE_UBLOX_GNSS &amp;gnss)</dt>
+<dd><a class="anchor" id="_todo000003"></a>Split into a date &amp; time producer and a position producer The date and time are received sooner than position because fewer satellites are needed for time information. This means that we can set the clock and open log files before the full 3D position fix is ready. Eventually, gps_connector is separate and there are two workers, datetime and position, each pulling information from gps_connector. With Core2 (and Core with external RTC), date-time can be obtained from the RTC before GNSS receives time. In that case, the date-time worker can choose the more reliable of the two: GNSS preferred, RTC otherwise. We also have the issue of initializing RTC on a brand new device, that can be done from GNSS. </dd>
 </dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

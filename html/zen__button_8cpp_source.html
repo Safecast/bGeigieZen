@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>bGeigieZen: bgeigiezen_firmware/zen_button.cpp Source File</title>
+<title>bGeigieZen: bgeigiezen_firmware/workers/zen_button.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,38 +95,37 @@ $(document).ready(function(){initNavTree('zen__button_8cpp_source.html',''); ini
 <a href="zen__button_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="zen__button_8h.html">zen_button.h</a>&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="debugger_8h.html">debugger.h</a>&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_zen_button.html#a02d40d183af1b4a332d6609757cb7718">    5</a></span><a class="code hl_function" href="class_zen_button.html#a02d40d183af1b4a332d6609757cb7718">ZenButton::ZenButton</a>(Button&amp; m5_button) :</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    Worker&lt;bool&gt;(),</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    _m5_button(m5_button) {</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>}</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_zen_button.html#a6b64fd909123b406f36c6c30c1913f9f">   10</a></span><a class="code hl_function" href="class_zen_button.html#a6b64fd909123b406f36c6c30c1913f9f">ZenButton::~ZenButton</a>() {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>}</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_zen_button.html#aa0d54b594b20b4aeee8f45f8b88372d6">   13</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_zen_button.html#aa0d54b594b20b4aeee8f45f8b88372d6">ZenButton::activate</a>(<span class="keywordtype">bool</span> retry) {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>}</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_zen_button.html#ac2bffe99f5706bfe1d6def23bdfdb87c">   17</a></span>int8_t <a class="code hl_function" href="class_zen_button.html#ac2bffe99f5706bfe1d6def23bdfdb87c">ZenButton::produce_data</a>() {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  _m5_button.read();</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keywordflow">if</span> (_m5_button.wasPressed()) {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">return</span> e_worker_data_read;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  }</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keywordflow">return</span> e_worker_idle;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>}</div>
-<div class="ttc" id="aclass_zen_button_html_a02d40d183af1b4a332d6609757cb7718"><div class="ttname"><a href="class_zen_button.html#a02d40d183af1b4a332d6609757cb7718">ZenButton::ZenButton</a></div><div class="ttdeci">ZenButton(Button &amp;m5_button)</div><div class="ttdef"><b>Definition:</b> <a href="class_zen_button.html#l00005">zen_button.cpp:5</a></div></div>
-<div class="ttc" id="aclass_zen_button_html_a6b64fd909123b406f36c6c30c1913f9f"><div class="ttname"><a href="class_zen_button.html#a6b64fd909123b406f36c6c30c1913f9f">ZenButton::~ZenButton</a></div><div class="ttdeci">virtual ~ZenButton()</div><div class="ttdef"><b>Definition:</b> <a href="class_zen_button.html#l00010">zen_button.cpp:10</a></div></div>
-<div class="ttc" id="aclass_zen_button_html_aa0d54b594b20b4aeee8f45f8b88372d6"><div class="ttname"><a href="class_zen_button.html#aa0d54b594b20b4aeee8f45f8b88372d6">ZenButton::activate</a></div><div class="ttdeci">bool activate(bool retry) override</div><div class="ttdef"><b>Definition:</b> <a href="class_zen_button.html#l00013">zen_button.cpp:13</a></div></div>
-<div class="ttc" id="aclass_zen_button_html_ac2bffe99f5706bfe1d6def23bdfdb87c"><div class="ttname"><a href="class_zen_button.html#ac2bffe99f5706bfe1d6def23bdfdb87c">ZenButton::produce_data</a></div><div class="ttdeci">int8_t produce_data() override</div><div class="ttdef"><b>Definition:</b> <a href="class_zen_button.html#l00017">zen_button.cpp:17</a></div></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="class_zen_button.html#a02d40d183af1b4a332d6609757cb7718">    4</a></span><a class="code hl_function" href="class_zen_button.html#a02d40d183af1b4a332d6609757cb7718">ZenButton::ZenButton</a>(Button&amp; m5_button) :</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    Worker&lt;<a class="code hl_struct" href="struct_button_state.html">ButtonState</a>&gt;({<span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">false</span>}),</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    _m5_button(m5_button) {</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>}</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_zen_button.html#a6b64fd909123b406f36c6c30c1913f9f">    9</a></span><a class="code hl_function" href="class_zen_button.html#a6b64fd909123b406f36c6c30c1913f9f">ZenButton::~ZenButton</a>() {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>}</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_zen_button.html#aa0d54b594b20b4aeee8f45f8b88372d6">   12</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_zen_button.html#aa0d54b594b20b4aeee8f45f8b88372d6">ZenButton::activate</a>(<span class="keywordtype">bool</span> retry) {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>}</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_zen_button.html#ac2bffe99f5706bfe1d6def23bdfdb87c">   16</a></span>int8_t <a class="code hl_function" href="class_zen_button.html#ac2bffe99f5706bfe1d6def23bdfdb87c">ZenButton::produce_data</a>() {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  data.currentlyPressed = _m5_button.isPressed();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  data.longPress = _m5_button.wasReleasefor(0) &amp;&amp; _m5_button.wasReleasefor(2400);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  data.shortPress = _m5_button.wasReleasefor(0) &amp;&amp; !data.longPress;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keywordflow">return</span> data.longPress || data.shortPress ? e_worker_data_read : e_worker_idle;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
+<div class="ttc" id="aclass_zen_button_html_a02d40d183af1b4a332d6609757cb7718"><div class="ttname"><a href="class_zen_button.html#a02d40d183af1b4a332d6609757cb7718">ZenButton::ZenButton</a></div><div class="ttdeci">ZenButton(Button &amp;m5_button)</div><div class="ttdef"><b>Definition:</b> <a href="class_zen_button.html#l00004">zen_button.cpp:4</a></div></div>
+<div class="ttc" id="aclass_zen_button_html_a6b64fd909123b406f36c6c30c1913f9f"><div class="ttname"><a href="class_zen_button.html#a6b64fd909123b406f36c6c30c1913f9f">ZenButton::~ZenButton</a></div><div class="ttdeci">virtual ~ZenButton()</div><div class="ttdef"><b>Definition:</b> <a href="class_zen_button.html#l00009">zen_button.cpp:9</a></div></div>
+<div class="ttc" id="aclass_zen_button_html_aa0d54b594b20b4aeee8f45f8b88372d6"><div class="ttname"><a href="class_zen_button.html#aa0d54b594b20b4aeee8f45f8b88372d6">ZenButton::activate</a></div><div class="ttdeci">bool activate(bool retry) override</div><div class="ttdef"><b>Definition:</b> <a href="class_zen_button.html#l00012">zen_button.cpp:12</a></div></div>
+<div class="ttc" id="aclass_zen_button_html_ac2bffe99f5706bfe1d6def23bdfdb87c"><div class="ttname"><a href="class_zen_button.html#ac2bffe99f5706bfe1d6def23bdfdb87c">ZenButton::produce_data</a></div><div class="ttdeci">int8_t produce_data() override</div><div class="ttdef"><b>Definition:</b> <a href="class_zen_button.html#l00016">zen_button.cpp:16</a></div></div>
 <div class="ttc" id="adebugger_8h_html"><div class="ttname"><a href="debugger_8h.html">debugger.h</a></div></div>
+<div class="ttc" id="astruct_button_state_html"><div class="ttname"><a href="struct_button_state.html">ButtonState</a></div><div class="ttdef"><b>Definition:</b> <a href="struct_button_state.html#l00013">zen_button.h:13</a></div></div>
 <div class="ttc" id="azen__button_8h_html"><div class="ttname"><a href="zen__button_8h.html">zen_button.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_e1eaf1e768829cf4a63747721d8faaf4.html">bgeigiezen_firmware</a></li><li class="navelem"><a class="el" href="zen__button_8cpp.html">zen_button.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_e1eaf1e768829cf4a63747721d8faaf4.html">bgeigiezen_firmware</a></li><li class="navelem"><a class="el" href="dir_d5d1412b4c1b9faa3d16b8867b1e9070.html">workers</a></li><li class="navelem"><a class="el" href="zen__button_8cpp.html">zen_button.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

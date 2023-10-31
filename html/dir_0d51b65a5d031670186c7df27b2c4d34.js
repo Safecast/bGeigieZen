@@ -3,7 +3,7 @@ var dir_0d51b65a5d031670186c7df27b2c4d34 =
     [ "battery.cpp", "battery_8cpp.html", null ],
     [ "battery.hpp", "src_2battery_8hpp.html", "src_2battery_8hpp" ],
     [ "config.hpp", "src_2config_8hpp.html", "src_2config_8hpp" ],
-    [ "configuration_server.cpp", "configuration__server_8cpp.html", "configuration__server_8cpp" ],
+    [ "configuration_server.cpp", "archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp.html", "archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" ],
     [ "display.cpp", "display_8cpp.html", "display_8cpp" ],
     [ "display.hpp", "src_2display_8hpp.html", "src_2display_8hpp" ],
     [ "fsm_context.cpp", "fsm__context_8cpp.html", null ],
@@ -27,5 +27,5 @@ var dir_0d51b65a5d031670186c7df27b2c4d34 =
     [ "setup.hpp", "src_2setup_8hpp.html", "src_2setup_8hpp" ],
     [ "TinyGPS++.cpp", "_tiny_g_p_s_09_09_8cpp.html", "_tiny_g_p_s_09_09_8cpp" ],
     [ "TinyGPS++.h", "src_2_tiny_g_p_s_09_09_8h.html", "src_2_tiny_g_p_s_09_09_8h" ],
-    [ "wifi_connection.cpp", "wifi__connection_8cpp.html", null ]
+    [ "wifi_connection.cpp", "archive_2bgeigie__firmware__pio_2src_2wifi__connection_8cpp.html", null ]
 ];
