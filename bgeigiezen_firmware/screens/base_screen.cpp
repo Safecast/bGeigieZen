@@ -3,8 +3,7 @@
 
 #define BUTTON_TEXT_MAX_LENGTH 13
 
-
-BaseScreen::BaseScreen(const char* title, bool status_bar): _status_bar(status_bar) {
+BaseScreen::BaseScreen(const char* title, bool status_bar) : _status_bar(status_bar) {
   if (strlen(title) < 20) {
     strcpy(_title, title);
   }
@@ -73,6 +72,21 @@ void BaseScreen::drawButton3(const char* text, ButtonState state) {
 #endif
 }
 
+int16_t BaseScreen::printFloatFont(float val, int prec, int x, int y, int font) {
+  char sz[32] = "";
+  char format[32] = "";
+  sprintf(format, "%%.%df", prec);
+  sprintf(sz, format, val);
+  return M5.Lcd.drawString((sz), x, y, font);
+}
+
+// Prints int with fonts
+int16_t BaseScreen::printIntFont(unsigned long val, int x, int y, int font) {
+  char sz[32] = "";
+  sprintf(sz, "%ld", val);
+  return M5.Lcd.drawString((sz), x, y, font);
+}
+
 void BaseScreen::enter_screen(Controller& controller) {
 }
 
@@ -85,4 +99,13 @@ const char* BaseScreen::get_title() const {
 
 bool BaseScreen::has_status_bar() const {
   return _status_bar;
+}
+
+void BaseScreen::do_render(const worker_map_t& workers, const handler_map_t& handlers) {
+  render(workers, handlers, _force_render);
+  _force_render = false;
+}
+
+void BaseScreen::force_next_render() {
+  _force_render = true;
 }

@@ -38,6 +38,12 @@ MenuWindow::MenuItem SETTINGS_MENU_ITEM = {
     "                                            ",
     true,
 };
+MenuWindow::MenuItem DEBUG_MENU_ITEM = {
+    "Debug screen",
+    "Connected modules, their data and status all",
+    "together in a simple view                   ",
+    true,
+};
 MenuWindow::MenuItem ENTER_SIMPLE_MODE_MENU_ITEM = {
     "Simple mode",
     "Switch to simple mode!                      ",
@@ -51,14 +57,13 @@ MenuWindow::MenuItem ENTER_ADVANCED_MODE_MENU_ITEM = {
     true,
 };
 
-MenuWindow::MenuWindow(): BaseScreen("Menu", true), menu_open(false), menu_index(0), advanced_menu{
-    DRIVE_MENU_ITEM,
-    SURVEY_MENU_ITEM,
-    FIXED_MENU_ITEM,
-    LOG_VIEWER_MENU_ITEM,
-    SETTINGS_MENU_ITEM
-} {
-
+MenuWindow::MenuWindow() : BaseScreen("Menu", true), menu_open(false), menu_index(0), advanced_menu{
+                                                                                          DRIVE_MENU_ITEM,
+                                                                                          SURVEY_MENU_ITEM,
+                                                                                          FIXED_MENU_ITEM,
+                                                                                          LOG_VIEWER_MENU_ITEM,
+                                                                                          SETTINGS_MENU_ITEM,
+                                                                                          DEBUG_MENU_ITEM} {
 }
 
 BaseScreen* MenuWindow::handle_input(Controller& controller, const worker_map_t& workers) {
@@ -100,7 +105,7 @@ BaseScreen* MenuWindow::handle_input(Controller& controller, const worker_map_t&
   return nullptr;
 }
 
-void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handlers) {
+void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   if (!menu_open) {
     return;
   }
@@ -117,7 +122,8 @@ void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handle
     M5.Lcd.drawString(advanced_menu[i].title, 230, 40 + (i * 10));
     if (i == menu_index) {
       M5.Lcd.drawString(">", 220, 40 + (i * 10));
-    } else {
+    }
+    else {
       M5.Lcd.drawString(" ", 220, 40 + (i * 10));
     }
   }

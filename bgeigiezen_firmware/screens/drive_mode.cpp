@@ -8,7 +8,7 @@
 #include "workers/rtc_connector.h"
 #include "workers/zen_button.h"
 
-DriveModeScreen::DriveModeScreen(): BaseScreen("Drive", true), _log_available(false), _log_to_file("") {
+DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _log_available(false), _log_to_file("") {
 }
 
 BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
@@ -22,91 +22,76 @@ BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_m
   return nullptr;
 }
 
-void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers) {
-  ///
-  // Display something
-  const auto& gm_sensor = workers.worker<GeigerCounter>(k_worker_gm_sensor);
-  const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
-  const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator);
-  const auto& rtc = workers.worker<RtcConnector>(k_worker_rtc_connector);
-
+void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
+  /// Menu
   if (strlen(_log_to_file)) {
     // Is logging
     drawButton1("Stop log");
-  } else {
+  }
+  else {
     drawButton1("Start log", _log_available ? e_button_default : e_button_disabled);
   }
   drawButton2("");
   drawButton3("Menu");
 
-  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  M5.Lcd.setCursor(0, 30);
-  M5.Lcd.printf("Battery: %d%% %s\n",
-                battery->get_data().percentage,
-                battery->get_data().isCharging ? "(charging)" : "          ");
-  if (gm_sensor->get_active_state() == GeigerCounter::e_state_active) {
-    M5.Lcd.printf("Geiger counter %s\n"
-                  " CPM raw: %d        \n"
-                  " CPM comp: %d %s     \n   uSv/h: %.4f      \n   Bq/m2: %.0f       \n"
-                  " CPB: %d      \n   uSv/h: %.4f      \n   Bq/m2: %.0f       \n",
-                  gm_sensor->get_data().valid ? "(valid)             " : "(collecting data...)",
-                  gm_sensor->get_data().cpm_raw,
-                  gm_sensor->get_data().cpm_comp,
-                  gm_sensor->get_data().alert ? "(ALERT!!!)" : "          ",
-                  gm_sensor->get_data().uSv,
-                  gm_sensor->get_data().Bqm2,
-                  gm_sensor->get_data().cps,
-                  gm_sensor->get_data().uSv_sec,
-                  gm_sensor->get_data().Bqm2_sec);
-  } else {
-    M5.Lcd.printf("Geiger counter\n Module not available\n\n");
+  /// Display drive data
+  const auto& gm_sensor = workers.worker<GeigerCounter>(k_worker_gm_sensor);
+  const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
+
+  if (gm_sensor->get_data().valid) {
+    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  }
+  else {
+    M5.Lcd.setTextColor(LCD_COLOR_OLD, LCD_COLOR_BACKGROUND);
   }
 
-  if (gps->get_active_state() == GpsConnector::e_state_active) {
-    M5.Lcd.printf("GPS\n"
-                  " location: %s                \n"
-                  "  latitude: %.5f            \n"
-                  "  longitude: %.5f           \n"
-                  "  altitude: %.2f (MSL)      \n"
-                  "  HDOP: %d  %s              \n"
-                  " satellites: %d %s           \n"
-                  " date: %04d-%02d-%02d %s     \n"
-                  " time: %02d:%02d:%02d %s     \n",
-                  gps->get_data().location_valid ? "             " : "(unavailable)",
-                  gps->get_data().latitude * 1e-7,
-                  gps->get_data().longitude * 1e-7,
-                  gps->get_data().altitudeMSL * 1e-3,
-                  gps->get_data().hdop,
-                  gps->get_data().location_valid ? "             " : "(unavailable)",
-                  gps->get_data().satsInView,
-                  gps->get_data().satellites_valid ? "             " : "(unavailable)",
-                  gps->get_data().date_valid ? gps->get_data().year : 0,
-                  gps->get_data().date_valid ? gps->get_data().month : 0,
-                  gps->get_data().date_valid ? gps->get_data().day : 0,
-                  gps->get_data().date_valid ? "             " : "(unavailable)",
-                  gps->get_data().time_valid ? gps->get_data().hour : 0,
-                  gps->get_data().time_valid ? gps->get_data().minute : 0,
-                  gps->get_data().time_valid ? gps->get_data().second : 0,
-                  gps->get_data().time_valid ? "             " : "(unavailable)");
-  } else {
-    M5.Lcd.printf("GPS\n Module not available\n\n");
+  if (gm_sensor->is_fresh() || force) {
+
+    // Display CPM
+    auto cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 20, 100, 7);
+    auto cpm_text_width = M5.Lcd.drawString(" CPM", 20 + cpm_width, 105, 4); // Prints after cpm value
+    int i = 0;
+    while (320 - (20 + cpm_width + cpm_text_width + i) > 0) {
+      // Fill rest of the line with empty spaces
+      i += M5.Lcd.drawString(" ", 20 + cpm_width + cpm_text_width + i, 105, 4);
+    }
+
+    // Display uSv/h
+    auto ush_width = printFloatFont(gm_sensor->get_data().uSv, 3, 20, 140, 4);
+    auto ush_text_width = M5.Lcd.drawString(" uSv/h", 20 + ush_width, 140, 4); // Prints after ush value
+    i = 0;
+    while (320 - (20 + ush_width + ush_text_width + i) > 0) {
+      // Fill rest of the line with empty spaces
+      i += M5.Lcd.drawString(" ", 20 + ush_width + ush_text_width + i, 140, 4);
+    }
   }
 
-  if (rtc->get_active_state() == RtcConnector::e_state_active) {
-    M5.Lcd.printf("RTC\n"
-                  " VoltLow: %s\n"
-                  " date: %04d-%02d-%02d\n"
-                  " time: %02d:%02d:%02d\n",
-                  rtc->get_data().rtc_low_voltage ? "Low voltage " : "Voltage good",
-                  rtc->get_data().year,
-                  rtc->get_data().month,
-                  rtc->get_data().day,
-                  rtc->get_data().hour,
-                  rtc->get_data().minute,
-                  rtc->get_data().second
-                  );
-    } else {
-    M5.Lcd.printf("RTC\n Module not available\n\n");
+  // Display GPS data always, change colour if not fresh
+
+  if (gps->get_data().location_valid) {
+    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  }
+  else {
+    M5.Lcd.setTextColor(LCD_COLOR_OLD, LCD_COLOR_BACKGROUND);
+  }
+
+  if (gps->is_fresh() || force) {
+    M5.Lcd.setCursor(0, 150);
+    gps->get_data().satsInView < 2 ? (M5.Lcd.setTextColor(TFT_RED, TFT_BLACK))
+                                   : M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
+    M5.Lcd.print("Satellites :");
+    M5.Lcd.print(gps->get_data().satsInView, 5);
+    M5.Lcd.setTextColor(WHITE, BLACK);
+    M5.Lcd.println();
+    M5.Lcd.print("Latitude   :");
+    M5.Lcd.print(gps->get_data().latitude, 6);
+    M5.Lcd.println();
+    M5.Lcd.print("Longitude  :");
+    M5.Lcd.print(gps->get_data().longitude, 6);
+    M5.Lcd.println();
+    M5.Lcd.print("Altitude   :");
+    M5.Lcd.print(gps->get_data().altitudeMSL, 2);
+    M5.Lcd.println();
   }
 }
 

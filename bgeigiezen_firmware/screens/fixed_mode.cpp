@@ -1,10 +1,9 @@
 #include "fixed_mode.h"
-#include "workers/zen_button.h"
 #include "identifiers.h"
 #include "menu_window.h"
+#include "workers/zen_button.h"
 
-FixedModeScreen::FixedModeScreen(): BaseScreen("Fixed", true) {
-
+FixedModeScreen::FixedModeScreen() : BaseScreen("Fixed", true) {
 }
 
 BaseScreen* FixedModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
@@ -15,7 +14,7 @@ BaseScreen* FixedModeScreen::handle_input(Controller& controller, const worker_m
   return nullptr;
 }
 
-void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers) {
+void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   drawButton3("Menu");
 }
 

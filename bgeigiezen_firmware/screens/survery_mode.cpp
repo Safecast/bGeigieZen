@@ -1,10 +1,9 @@
-#include "survey_mode.h"
-#include "workers/zen_button.h"
 #include "identifiers.h"
 #include "menu_window.h"
+#include "survey_mode.h"
+#include "workers/zen_button.h"
 
-SurveyModeScreen::SurveyModeScreen(): BaseScreen("Survey", true) {
-
+SurveyModeScreen::SurveyModeScreen() : BaseScreen("Survey", true) {
 }
 
 BaseScreen* SurveyModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
@@ -15,7 +14,7 @@ BaseScreen* SurveyModeScreen::handle_input(Controller& controller, const worker_
   return nullptr;
 }
 
-void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers) {
+void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   drawButton3("Menu");
 }
 
