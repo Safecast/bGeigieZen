@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['faltitude_0',['faltitude',['../struct_g_p_s_data.html#a761ee6092fbb668db174ea1ce595b85c',1,'GPSData']]],
-  ['fresh_1',['fresh',['../struct_measurement_data.html#a25308fdf55e553fc2a59a035c241cd1d',1,'MeasurementData']]],
-  ['fspeed_2',['fspeed',['../struct_g_p_s_data.html#a50dc1d84e32c46f5066db723bec0d835',1,'GPSData']]]
+  ['enabled_0',['enabled',['../struct_menu_window_1_1_menu_item.html#a2687170e51cc2df57a42f500c21fe88d',1,'MenuWindow::MenuItem']]],
+  ['enter_5fadvanced_5fmode_5fmenu_5fitem_1',['ENTER_ADVANCED_MODE_MENU_ITEM',['../menu__window_8cpp.html#a4d04b25f80fb23ed0bc6e86578cbe134',1,'menu_window.cpp']]],
+  ['enter_5fsimple_5fmode_5fmenu_5fitem_2',['ENTER_SIMPLE_MODE_MENU_ITEM',['../menu__window_8cpp.html#a740f5bfa72a65fb451a190504b48d8e0',1,'menu_window.cpp']]]
 ];

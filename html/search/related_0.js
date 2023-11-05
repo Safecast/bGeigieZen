@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['configurationmodestate_0',['ConfigurationModeState',['../class_controller.html#a2db35166a6c1ed6b1fe8c21bc2977d54',1,'Controller']]]
+  ['gpssensor_0',['GPSSensor',['../class_tiny_g_p_s_plus.html#ac4f70bf7d41599bd19ca66e1d04d74d3',1,'TinyGPSPlus']]]
 ];
