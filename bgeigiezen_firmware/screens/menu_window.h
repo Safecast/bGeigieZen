@@ -3,6 +3,8 @@
 
 #include "base_screen.h"
 
+#define ADVANCED_MENU_ITEMS 6
+
 /**
  * Menu items is a separate screen render on top of the "current screen" in the gfx screen
  */
@@ -36,7 +38,7 @@ class MenuWindow : public BaseScreen {
   bool menu_open;
   uint8_t menu_index;
   uint8_t max_index; // Set on enter menu
-  MenuItem advanced_menu[6];
+  MenuItem advanced_menu[ADVANCED_MENU_ITEMS];
 };
 
 #endif //BGEIGIEZEN_BGEIGIEZEN_FIRMWARE_SCREENS_MENU_ITEMS_H
