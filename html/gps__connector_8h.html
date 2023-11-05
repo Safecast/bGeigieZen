@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>bGeigieZen: bgeigiezen_firmware/gps_connector.h File Reference</title>
+<title>bGeigieZen: bgeigiezen_firmware/workers/gps_connector.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,34 +90,50 @@ $(document).ready(function(){initNavTree('gps__connector_8h.html',''); initResiz
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle"><div class="title">gps_connector.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
+<code>#include &lt;RBD_Timer.h&gt;</code><br />
 <code>#include &lt;Worker.hpp&gt;</code><br />
+<code>#include &lt;<a class="el" href="user__config_8h_source.html">user_config.h</a>&gt;</code><br />
+<code>#include &lt;SparkFun_u-blox_GNSS_Arduino_Library.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for gps_connector.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="gps__connector_8h__incl.png" border="0" usemap="#abgeigiezen__firmware_2gps__connector_8h" alt=""/></div>
-<map name="abgeigiezen__firmware_2gps__connector_8h" id="abgeigiezen__firmware_2gps__connector_8h">
-<area shape="rect" title=" " alt="" coords="27,5,168,45"/>
-<area shape="rect" title=" " alt="" coords="5,93,83,119"/>
-<area shape="poly" title=" " alt="" coords="87,47,62,83,58,80,82,44"/>
-<area shape="rect" title=" " alt="" coords="107,93,194,119"/>
-<area shape="poly" title=" " alt="" coords="112,44,137,80,133,83,108,47"/>
+<div class="center"><img src="gps__connector_8h__incl.png" border="0" usemap="#abgeigiezen__firmware_2workers_2gps__connector_8h" alt=""/></div>
+<map name="abgeigiezen__firmware_2workers_2gps__connector_8h" id="abgeigiezen__firmware_2workers_2gps__connector_8h">
+<area shape="rect" title=" " alt="" coords="191,5,361,45"/>
+<area shape="rect" title=" " alt="" coords="5,101,83,126"/>
+<area shape="poly" title=" " alt="" coords="226,48,96,96,89,98,87,93,94,91,224,43"/>
+<area shape="rect" title=" " alt="" coords="107,101,208,126"/>
+<area shape="poly" title=" " alt="" coords="251,48,186,95,183,90,248,43"/>
+<area shape="rect" title=" " alt="" coords="233,101,319,126"/>
+<area shape="poly" title=" " alt="" coords="279,46,279,87,273,87,273,46"/>
+<area shape="rect" href="user__config_8h.html" title=" " alt="" coords="343,101,443,126"/>
+<area shape="poly" title=" " alt="" coords="304,43,368,90,365,95,300,48"/>
+<area shape="rect" title=" " alt="" coords="467,93,632,133"/>
+<area shape="poly" title=" " alt="" coords="337,43,477,87,475,92,335,48"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="gps__connector_8h__dep__incl.png" border="0" usemap="#abgeigiezen__firmware_2gps__connector_8hdep" alt=""/></div>
-<map name="abgeigiezen__firmware_2gps__connector_8hdep" id="abgeigiezen__firmware_2gps__connector_8hdep">
-<area shape="rect" title=" " alt="" coords="88,5,229,45"/>
-<area shape="rect" href="gps__connector_8cpp.html" title=" " alt="" coords="5,93,147,133"/>
-<area shape="poly" title=" " alt="" coords="133,57,96,95,92,91,129,54"/>
-<area shape="rect" href="bgeigiezen__firmware_2main_8cpp.html" title=" " alt="" coords="171,93,312,133"/>
-<area shape="poly" title=" " alt="" coords="189,54,225,91,221,95,185,57"/>
+<div class="center"><img src="gps__connector_8h__dep__incl.png" border="0" usemap="#abgeigiezen__firmware_2workers_2gps__connector_8hdep" alt=""/></div>
+<map name="abgeigiezen__firmware_2workers_2gps__connector_8hdep" id="abgeigiezen__firmware_2workers_2gps__connector_8hdep">
+<area shape="rect" title=" " alt="" coords="375,5,545,45"/>
+<area shape="rect" href="local__storage_8cpp.html" title=" " alt="" coords="5,93,187,133"/>
+<area shape="poly" title=" " alt="" coords="368,51,176,96,175,91,366,46"/>
+<area shape="rect" href="bgeigiezen__firmware_2main_8cpp.html" title=" " alt="" coords="211,93,352,133"/>
+<area shape="poly" title=" " alt="" coords="410,54,322,96,319,91,407,49"/>
+<area shape="rect" href="drive__mode_8cpp.html" title=" " alt="" coords="376,93,544,133"/>
+<area shape="poly" title=" " alt="" coords="463,59,463,93,457,93,457,59"/>
+<area shape="rect" href="gps__connector_8cpp.html" title=" " alt="" coords="569,93,754,133"/>
+<area shape="poly" title=" " alt="" coords="518,48,618,91,616,96,516,53"/>
+<area shape="rect" href="log__aggregator_8cpp.html" title=" " alt="" coords="778,93,963,133"/>
+<area shape="poly" title=" " alt="" coords="559,45,781,91,780,96,558,50"/>
 </map>
 </div>
 </div>
@@ -125,17 +141,61 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_gps_data.html">GpsData</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_gnss_data.html">GnssData</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gps_connector.html">GpsConnector</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a9a2b3fc7d7a953453f2b5167ab13f540"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps__connector_8h.html#a9a2b3fc7d7a953453f2b5167ab13f540">SFE_UBLOX_REDUCED_PROG_MEM</a></td></tr>
+<tr class="memdesc:a9a2b3fc7d7a953453f2b5167ab13f540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manage position fix and date-time from GNSS receiver.  <br /></td></tr>
+<tr class="separator:a9a2b3fc7d7a953453f2b5167ab13f540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3062f1162ea6e769a0391b729ba8fd43"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps__connector_8h.html#a3062f1162ea6e769a0391b729ba8fd43">SFE_UBLOX_DISABLE_AUTO_NMEA</a></td></tr>
+<tr class="separator:a3062f1162ea6e769a0391b729ba8fd43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a3062f1162ea6e769a0391b729ba8fd43" name="a3062f1162ea6e769a0391b729ba8fd43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3062f1162ea6e769a0391b729ba8fd43">&#9670;&#160;</a></span>SFE_UBLOX_DISABLE_AUTO_NMEA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SFE_UBLOX_DISABLE_AUTO_NMEA</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="gps__connector_8h_source.html#l00024">24</a> of file <a class="el" href="gps__connector_8h_source.html">gps_connector.h</a>.</p>
+
+</div>
+</div>
+<a id="a9a2b3fc7d7a953453f2b5167ab13f540" name="a9a2b3fc7d7a953453f2b5167ab13f540"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a2b3fc7d7a953453f2b5167ab13f540">&#9670;&#160;</a></span>SFE_UBLOX_REDUCED_PROG_MEM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SFE_UBLOX_REDUCED_PROG_MEM</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Manage position fix and date-time from GNSS receiver. </p>
+<p>Based on u-blox 8 receiver integrated Beitian BN-880 module, using the UBX communications protocol instead of the usual NMEA-183. The problem with NMEA is that it was really designed for boats, where close enough to see with binoculars was good enough (well, not really but it makes for a good story). The real issue is that it's hard to get consistent fix and time data by parsing NMEA sentences. </p>
+
+<p class="definition">Definition at line <a class="el" href="gps__connector_8h_source.html#l00022">22</a> of file <a class="el" href="gps__connector_8h_source.html">gps_connector.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_e1eaf1e768829cf4a63747721d8faaf4.html">bgeigiezen_firmware</a></li><li class="navelem"><a class="el" href="gps__connector_8h.html">gps_connector.h</a></li>
+    <li class="navelem"><a class="el" href="dir_e1eaf1e768829cf4a63747721d8faaf4.html">bgeigiezen_firmware</a></li><li class="navelem"><a class="el" href="dir_d5d1412b4c1b9faa3d16b8867b1e9070.html">workers</a></li><li class="navelem"><a class="el" href="gps__connector_8h.html">gps_connector.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>

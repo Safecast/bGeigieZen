@@ -17,7 +17,7 @@ var class_context =
     [ "on_gps_available", "class_context.html#a402bea63f404fae0790d6bb4f1a011f2", null ],
     [ "run", "class_context.html#ab8600ccc0cdeec87eca468c6534c00b4", null ],
     [ "schedule_event", "class_context.html#aa2214854efc5cd5e983f599e942b028a", null ],
-    [ "set_state", "class_context.html#ab0f437abd3c48e77d2f4ec63b9236298", null ],
+    [ "set_state", "class_context.html#aba1819a46d185e8a25c42baf1e6787be", null ],
     [ "setup", "class_context.html#ad6ab2ba0b337de2f0ff6ae764a4ee18a", null ],
     [ "setup", "class_context.html#ad6ab2ba0b337de2f0ff6ae764a4ee18a", null ],
     [ "transition_to", "class_context.html#a33b213d58cb2d6bd4e2affdd5416e9be", null ],

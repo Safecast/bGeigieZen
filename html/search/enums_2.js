@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['geigiemode_0',['GeigieMode',['../include_2setup_8hpp.html#ae760bd8ad07eb8a31d8f8687560c6cf0',1,'GeigieMode:&#160;setup.hpp'],['../src_2setup_8hpp.html#ae760bd8ad07eb8a31d8f8687560c6cf0',1,'GeigieMode:&#160;setup.hpp']]],
-  ['geigietype_1',['GeigieType',['../include_2setup_8hpp.html#a9062880a42e2fe7cee5fb048fb51e894',1,'GeigieType:&#160;setup.hpp'],['../src_2setup_8hpp.html#a9062880a42e2fe7cee5fb048fb51e894',1,'GeigieType:&#160;setup.hpp']]],
-  ['gpsstate_2',['GPSState',['../include_2gps_8hpp.html#a0b8277c2fe19ebf1012c8af7ab33344f',1,'GPSState:&#160;gps.hpp'],['../src_2gps_8hpp.html#a0b8277c2fe19ebf1012c8af7ab33344f',1,'GPSState:&#160;gps.hpp']]]
+  ['datahandlers_0',['DataHandlers',['../identifiers_8h.html#a9ceb53a27f136be55a60d6c2fc728ed8',1,'identifiers.h']]],
+  ['dataworkers_1',['DataWorkers',['../identifiers_8h.html#a817945491edcfa653f61f26e522cd76f',1,'identifiers.h']]],
+  ['displaystate_2',['DisplayState',['../namespaceb_geigie_zen.html#a482a0e89f9349c1957603fccb9a26b0b',1,'bGeigieZen::DisplayState'],['../namespaceb_geigie_zen.html#a482a0e89f9349c1957603fccb9a26b0b',1,'bGeigieZen::DisplayState']]]
 ];

@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['time_0',['time',['../class_tiny_g_p_s_plus.html#a377c975527fa24b45fb86356505eb134',1,'TinyGPSPlus']]],
-  ['timezone_1',['timezone',['../struct_config_data.html#ac5bcb661e8da0969e1387523c1ecff10',1,'ConfigData']]],
-  ['total_5fcount_2',['total_count',['../struct_dose_data.html#ad85e2eb5fac819a1529cfca336dec903',1,'DoseData::total_count'],['../_raku__code_8cpp.html#aa12fa51ba11ad02427ba46abb27c9d20',1,'total_count:&#160;Raku_code.cpp']]],
-  ['total_5ftime_3',['total_time',['../struct_dose_data.html#a3177f770053383ab080807b751ea4a12',1,'DoseData::total_time'],['../_raku__code_8cpp.html#a475f95599dcbd62bf4263bd7ee92927b',1,'total_time:&#160;Raku_code.cpp']]],
-  ['type_4',['type',['../struct_config_data.html#aeed7f19eb7986d26a13a94c4f3b59987',1,'ConfigData']]]
+  ['reg_5findex_0',['reg_index',['../_raku__code_8cpp.html#ab8e8f112408021003ad308b737bdd6ff',1,'Raku_code.cpp']]],
+  ['rtc_1',['rtc',['../bgeigiezen__firmware_2main_8cpp.html#a07c2d18832864fb5bb1417ce6cb8dbce',1,'main.cpp']]],
+  ['rtc_5favailable_2',['rtc_available',['../struct_device_state.html#a0ba517f0942911384d20d545a59e77eb',1,'DeviceState']]],
+  ['rtc_5flow_5fvoltage_3',['rtc_low_voltage',['../struct_rtc_data.html#a826817688893d2e674fe91836c154591',1,'RtcData']]]
 ];

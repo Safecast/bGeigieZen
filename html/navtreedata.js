@@ -46,6 +46,8 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ],
+        [ "Enumerations", "functions_enum.html", null ],
         [ "Enumerator", "functions_eval.html", null ],
         [ "Related Symbols", "functions_rela.html", null ]
       ] ]
@@ -58,7 +60,7 @@ var NAVTREE =
         [ "Variables", "globals_vars.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
         [ "Enumerator", "globals_eval.html", null ],
-        [ "Macros", "globals_defs.html", null ]
+        [ "Macros", "globals_defs.html", "globals_defs" ]
       ] ]
     ] ]
   ] ]
@@ -67,12 +69,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_raku__code_8cpp.html",
-"class_battery_monitor_i_p5306.html#a796f0fee0bb896ec4f5e7ad745e53413",
-"class_hardware_counter.html#a50db37e683b37fc7c123c4a285237e18",
-"class_tiny_g_p_s_plus.html#a0bb6a7eb2d0261095911d71c8c067546",
-"include_2config_8hpp.html#ab28fb130c702bd359f772132957f38f3",
-"src_2config_8hpp.html#ad4f6757e97b449f1d666cb645f7c3b0b",
-"struct_tiny_g_p_s_time.html#a0d6434dc19675d214f58347d513e7c69"
+"class_api_connector.html#a46089ea3e64a0c222657429e68c5beca",
+"class_device_utils.html",
+"class_menu_window.html#a2c5ae75df9da64b970dcbd408efc17ae",
+"config__mode_8cpp.html",
+"include_2_tiny_g_p_s_09_09_8h.html#a757cab8e33085416dbafbc05cf71f6a9",
+"rtc__connector_8h_source.html",
+"struct_data_line.html#a4c3181b5e8ec468e96f66ee0d89fc607",
+"test_2test__gpsthreaded_2patterns_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

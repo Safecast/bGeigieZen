@@ -102,9 +102,9 @@ Inheritance diagram for GpsConnector:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_gps_connector__inherit__graph.png" border="0" usemap="#a_gps_connector_inherit__map" alt="Inheritance graph"/></div>
 <map name="a_gps_connector_inherit__map" id="a_gps_connector_inherit__map">
-<area shape="rect" title=" " alt="" coords="21,79,128,104"/>
-<area shape="rect" title=" " alt="" coords="5,5,144,31"/>
-<area shape="poly" title=" " alt="" coords="77,44,77,79,72,79,72,44"/>
+<area shape="rect" title=" " alt="" coords="25,79,132,104"/>
+<area shape="rect" title=" " alt="" coords="5,5,152,31"/>
+<area shape="poly" title=" " alt="" coords="81,44,81,79,76,79,76,44"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -112,16 +112,17 @@ Collaboration diagram for GpsConnector:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_gps_connector__coll__graph.png" border="0" usemap="#a_gps_connector_coll__map" alt="Collaboration graph"/></div>
 <map name="a_gps_connector_coll__map" id="a_gps_connector_coll__map">
-<area shape="rect" title=" " alt="" coords="21,79,128,104"/>
-<area shape="rect" title=" " alt="" coords="5,5,144,31"/>
-<area shape="poly" title=" " alt="" coords="77,44,77,79,72,79,72,44"/>
+<area shape="rect" title=" " alt="" coords="25,79,132,104"/>
+<area shape="rect" title=" " alt="" coords="5,5,152,31"/>
+<area shape="poly" title=" " alt="" coords="81,44,81,79,76,79,76,44"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2e5509f8333a551259659095a555ee7a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gps_connector.html#a2e5509f8333a551259659095a555ee7a">GpsConnector</a> ()</td></tr>
-<tr class="separator:a2e5509f8333a551259659095a555ee7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7063a9ff75593b35995241c579b070f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gps_connector.html#aa7063a9ff75593b35995241c579b070f">GpsConnector</a> (uint8_t gps_serial_num, SFE_UBLOX_GNSS &amp;gnss)</td></tr>
+<tr class="memdesc:aa7063a9ff75593b35995241c579b070f"><td class="mdescLeft">&#160;</td><td class="mdescRight">GNSS handler using UBX protocol library.  <br /></td></tr>
+<tr class="separator:aa7063a9ff75593b35995241c579b070f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a407cbc36ea5bca53e9471c4d27af4225"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gps_connector.html#a407cbc36ea5bca53e9471c4d27af4225">~GpsConnector</a> ()=default</td></tr>
 <tr class="separator:a407cbc36ea5bca53e9471c4d27af4225"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae9c39a62d97e5491bb420cba02df2a98"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gps_connector.html#ae9c39a62d97e5491bb420cba02df2a98">activate</a> (bool retry) override</td></tr>
@@ -130,12 +131,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a772998cb4be0a4a1f4964e7dfc6962db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>GPS device worker, produces the current GPS location. Uses <a class="el" href="class_tiny_g_p_s.html">TinyGPS</a>? </p>
+<div class="textblock"><p>GPS device worker, produces the current GPS location. </p>
 
-<p class="definition">Definition at line <a class="el" href="gps__connector_8h_source.html#l00019">19</a> of file <a class="el" href="gps__connector_8h_source.html">gps_connector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gps__connector_8h_source.html#l00079">79</a> of file <a class="el" href="gps__connector_8h_source.html">gps_connector.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a2e5509f8333a551259659095a555ee7a" name="a2e5509f8333a551259659095a555ee7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e5509f8333a551259659095a555ee7a">&#9670;&#160;</a></span>GpsConnector()</h2>
+<a id="aa7063a9ff75593b35995241c579b070f" name="aa7063a9ff75593b35995241c579b070f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7063a9ff75593b35995241c579b070f">&#9670;&#160;</a></span>GpsConnector()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -146,8 +147,19 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">GpsConnector::GpsConnector </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>gps_serial_num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">SFE_UBLOX_GNSS &amp;&#160;</td>
+          <td class="paramname"><em>gnss</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -157,7 +169,10 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gps__connector_8cpp_source.html#l00004">4</a> of file <a class="el" href="gps__connector_8cpp_source.html">gps_connector.cpp</a>.</p>
+<p>GNSS handler using UBX protocol library. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Split into a date &amp; time producer and a position producer The date and time are received sooner than position because fewer satellites are needed for time information. This means that we can set the clock and open log files before the full 3D position fix is ready. Eventually, gps_connector is separate and there are two workers, datetime and position, each pulling information from gps_connector. With Core2 (and Core with external RTC), date-time can be obtained from the RTC before GNSS receives time. In that case, the date-time worker can choose the more reliable of the two: GNSS preferred, RTC otherwise. We also have the issue of initializing RTC on a brand new device, that can be done from GNSS. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="gps__connector_8cpp_source.html#l00019">19</a> of file <a class="el" href="gps__connector_8cpp_source.html">gps_connector.cpp</a>.</p>
 
 </div>
 </div>
@@ -210,8 +225,9 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true if initialized GNSS library, false if no connection with module. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="gps__connector_8cpp_source.html#l00007">7</a> of file <a class="el" href="gps__connector_8cpp_source.html">gps_connector.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gps__connector_8cpp_source.html#l00024">24</a> of file <a class="el" href="gps__connector_8cpp_source.html">gps_connector.cpp</a>.</p>
 
 </div>
 </div>
@@ -238,13 +254,13 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="gps__connector_8cpp_source.html#l00012">12</a> of file <a class="el" href="gps__connector_8cpp_source.html">gps_connector.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="gps__connector_8cpp_source.html#l00074">74</a> of file <a class="el" href="gps__connector_8cpp_source.html">gps_connector.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>bgeigiezen_firmware/<a class="el" href="gps__connector_8h_source.html">gps_connector.h</a></li>
-<li>bgeigiezen_firmware/<a class="el" href="gps__connector_8cpp_source.html">gps_connector.cpp</a></li>
+<li>bgeigiezen_firmware/workers/<a class="el" href="gps__connector_8h_source.html">gps_connector.h</a></li>
+<li>bgeigiezen_firmware/workers/<a class="el" href="gps__connector_8cpp_source.html">gps_connector.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
