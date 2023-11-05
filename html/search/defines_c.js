@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['retry_5ftimeout_0',['RETRY_TIMEOUT',['../configuration__server_8cpp.html#ab28fa84742de00ea3342319de160ff37',1,'configuration_server.cpp']]]
+  ['pure_5fcss_5fsize_0',['PURE_CSS_SIZE',['../http__pages_8h.html#ada5878d891f82a42326746c9dbe6b9a6',1,'http_pages.h']]]
 ];
