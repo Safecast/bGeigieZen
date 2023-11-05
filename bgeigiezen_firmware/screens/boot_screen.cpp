@@ -5,8 +5,7 @@
 #include "sd_message.h"
 #include "user_config.h"
 
-BootScreen::BootScreen(): BaseScreen("Boot", false), _entered_at(0) {
-
+BootScreen::BootScreen() : BaseScreen("Boot", false), _entered_at(0) {
 }
 
 BaseScreen* BootScreen::handle_input(Controller& controller, const worker_map_t& workers) {
@@ -26,7 +25,7 @@ void BootScreen::enter_screen(Controller& controller) {
 void BootScreen::leave_screen(Controller& controller) {
 }
 
-void BootScreen::render(const worker_map_t& workers, const handler_map_t& handlers) {
+void BootScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   // Display something
   M5.Lcd.setCursor(10, 10);
   M5.Lcd.setTextColor(LCD_COLOR_ACTIVE, LCD_COLOR_BACKGROUND);

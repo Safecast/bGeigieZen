@@ -45,6 +45,7 @@ constexpr uint32_t GPS_FIX_AGE_LIMIT = 1500; // ms before we decide the fix is t
 constexpr uint32_t LCD_REFRESH_RATE = 1000;  // 1s
 #define LCD_COLOR_DEFAULT TFT_WHITE
 #define LCD_COLOR_ACTIVE TFT_ORANGE
+#define LCD_COLOR_OLD TFT_ORANGE
 #define LCD_COLOR_INACTIVE TFT_DARKGREY
 #define LCD_COLOR_BACKGROUND TFT_BLACK
 
