@@ -1,14 +1,13 @@
+#include "sd_message.h"
 #include "controller.h"
 #include "drive_mode.h"
 #include "handlers/local_storage.h"
 #include "identifiers.h"
 #include "menu_window.h"
-#include "sd_message.h"
 #include "utils/device_utils.h"
 #include "workers/zen_button.h"
 
-SdMessageScreen::SdMessageScreen(): BaseScreen("SD message", false), error_type(SdMessageType::k_unknown) {
-
+SdMessageScreen::SdMessageScreen() : BaseScreen("SD message", false), error_type(SdMessageType::k_unknown) {
 }
 
 BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_map_t& workers) {
@@ -43,7 +42,9 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
         DeviceUtils::shutdown(true);
         return nullptr;
       }
-      // TODO: handle Button 2 Write
+      if (button2->is_fresh() && button2->get_data().shortPress) {
+        // TODO: handle Button 2 Write
+      }
       if (button3->is_fresh() && button3->get_data().shortPress) {
         return DriveModeScreen::i();
       }
@@ -60,8 +61,12 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
       }
       break;
     case k_config_sd_different_id:
-      // TODO: handle Button 1 Load
-      // TODO: handle Button 2 Overwrite
+      if (button2->is_fresh() && button2->get_data().shortPress) {
+        // TODO: handle Button 1 Load
+      }
+      if (button2->is_fresh() && button2->get_data().shortPress) {
+        // TODO: handle Button 2 Overwrite
+      }
       if (button3->is_fresh() && button3->get_data().shortPress) {
         return DriveModeScreen::i();
       }
@@ -70,7 +75,7 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
   return nullptr;
 }
 
-void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& handlers) {
+void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   switch (error_type) {
     case k_unknown:
       drawButton1("Reboot");
@@ -134,7 +139,6 @@ void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& h
   M5.Lcd.drawString("SAFECAST", 230, 215, 1);
   M5.Lcd.setTextColor(LCD_COLOR_ACTIVE, LCD_COLOR_BACKGROUND);
   M5.Lcd.drawString("2023", 285, 215, 1);
-
 }
 
 void SdMessageScreen::enter_screen(Controller& controller) {

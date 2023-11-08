@@ -35,9 +35,11 @@ struct RtcData {
   uint8_t second;
 
   // RTC VL_SECONDS register (0x02_ bit 7 is VL bit:
-  //   0 = clock integrity guaranteed
-  //   1 = low power event detected
-  bool rtc_low_voltage; // 1=clock integrity not guaranteed
+  //   false = clock integrity guaranteed
+  //   true = low power event detected (clock integrity not guaranteed)
+  bool low_voltage;
+  // true if year >= 2023 and low_voltage false (in case init with 2k value)
+  bool valid;
 };
 
 /**
@@ -57,7 +59,7 @@ class RtcConnector : public Worker<RtcData> {
  private:
 
 #ifdef M5_CORE2
-  I2C_BM8563 rtc{I2C_BM8563_DEFAULT_ADDRESS, Wire1};
+  I2C_BM8563 rtc;
 
   I2C_BM8563_DateTypeDef dateStruct;
   I2C_BM8563_TimeTypeDef timeStruct;
