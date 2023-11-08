@@ -86,6 +86,9 @@ void GFXScreen::clear() {
   M5.Lcd.clear();
   M5.Lcd.setTextDatum(BL_DATUM);  // By default, text x,y is bottom left corner
   M5.Lcd.setTextFont(1);
+  if (_screen) {
+    _screen->force_next_render();
+  }
   setBrightness(LEVEL_BRIGHT);
 }
 
@@ -96,7 +99,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
     if (workers.any_updates()) {
       if (_menu->is_open()) {
         new_screen = _menu->handle_input(_controller, workers);
-        if (!new_screen && !_menu->is_open()) {
+        if (new_screen || !_menu->is_open()) {
           // Closed menu
           DEBUG_PRINTLN("Menu closed");
           _menu->leave_screen(_controller);
@@ -111,32 +114,29 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
           new_screen = nullptr;
         }
       }
-      if (new_screen) {
+      if (new_screen && new_screen != _screen) {
         DEBUG_PRINTF("New screen entered: %s\n", new_screen->get_title());
         _screen->leave_screen(_controller);
-        _menu->leave_screen(_controller);
-        new_screen->enter_screen(_controller);
         _screen = new_screen;
         clear();
+        _screen->enter_screen(_controller);
       }
     }
 
     if (workers.any_updates() || handlers.any_updates() || _last_render + 1000 < millis()) {
       M5.Lcd.setRotation(3);
       if (_menu->is_open()) {
-        _menu->render(workers, handlers);
+        _menu->do_render(workers, handlers);
       } else {
-        _screen->render(workers, handlers);
+        _screen->do_render(workers, handlers);
       }
 
       if (_screen->has_status_bar()) {
         // Render bottom status bar
         M5.Lcd.drawLine(0, 220, 320, 220, TFT_WHITE);
         M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
-        M5.Lcd.setCursor(5, 228);
-        M5.Lcd.println("(TODO: status icons)");
-        M5.Lcd.setCursor(315 - static_cast<uint8_t>(strlen(_screen->get_title()) * 6), 228);
-        M5.Lcd.println(_screen->get_title());
+        M5.Lcd.drawString("(TODO: status icons)", 5, 233);
+        M5.Lcd.drawString(_screen->get_title(), 315 - static_cast<uint8_t>((strlen(_screen->get_title()) * 6)), 233);
       }
 
       M5.Lcd.setRotation(1);

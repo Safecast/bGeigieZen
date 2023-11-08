@@ -7,8 +7,17 @@
 
 #include "rtc_connector.h"
 
-RtcConnector::RtcConnector() : Worker<RtcData>(1000) {
+
+#ifdef M5_CORE2
+RtcConnector::RtcConnector() : Worker<RtcData>({.year=0, .month=0, .day=0, .hour=0, .minute=0, .second=0, .low_voltage=false, .valid=false}, 1000),
+                               rtc(I2C_BM8563_DEFAULT_ADDRESS, Wire1),
+                               dateStruct({.weekDay=0, .month=0, .date=0, .year=0}),
+                               timeStruct({.hours=0, .minutes=0, .seconds=0}) {
 }
+#else
+RtcConnector::RtcConnector() : Worker<RtcData>({.year=0, .month=0, .day=0, .hour=0, .minute=0, .second=0, .low_voltage=false, .valid=false}, 1000) {
+}
+#endif
 
 /**
  * @return true if initialized RTC library, false if no connection to the IC.
@@ -16,22 +25,14 @@ RtcConnector::RtcConnector() : Worker<RtcData>(1000) {
 bool RtcConnector::activate(bool retry) {
 
 #ifdef M5_CORE2
-DEBUG_PRINTLN("Activating RTC Connector, SDA, SCL");
-DEBUG_PRINT(BM8563_I2C_SDA);
-DEBUG_PRINTLN(BM8563_I2C_SCL);
+  DEBUG_PRINTLN("Activating RTC Connector, SDA, SCL");
+  DEBUG_PRINT(BM8563_I2C_SDA);
+  DEBUG_PRINTLN(BM8563_I2C_SCL);
   Wire1.begin(BM8563_I2C_SDA, BM8563_I2C_SCL);
   rtc.begin();
-
-DEBUG_PRINTLN("Initialize RTC data to all zero");
-
-  data.rtc_low_voltage = rtc.getVoltLow();
-  data.year = 0;
-  data.month = 0;
-  data.day = 0;
-  data.hour = 0;
-  data.minute = 0;
-  data.second = 0;
-
+  data.low_voltage = rtc.getVoltLow();
+  rtc.getDate(&dateStruct);
+  rtc.getTime(&timeStruct);
   return true;
 #else
   return false;
@@ -42,17 +43,30 @@ int8_t RtcConnector::produce_data() {
 #ifdef M5_CORE2
   rtc.getDate(&dateStruct);
   rtc.getTime(&timeStruct);
-  data.rtc_low_voltage = rtc.getVoltLow();
+  data.low_voltage = rtc.getVoltLow();
 
-  data.second = timeStruct.seconds;
-  data.minute = timeStruct.minutes;
-  data.hour = timeStruct.hours;
-  data.day = dateStruct.date;
-  data.month = dateStruct.month;
-  data.year = dateStruct.year;
+  if (!data.low_voltage && dateStruct.year >= 2023) {
+    // Data is valid
+    data.valid = true;
+    data.second = timeStruct.seconds;
+    data.minute = timeStruct.minutes;
+    data.hour = timeStruct.hours;
+    data.day = dateStruct.date;
+    data.month = dateStruct.month;
+    data.year = dateStruct.year;
+    return e_worker_data_read;
+  } else {
+    // Unable to validate data,
+    data.valid = false;
+    data.second = 0;
+    data.minute = 0;
+    data.hour = 0;
+    data.day = 0;
+    data.month = 0;
+    data.year = 0;
+  }
 
-  return e_worker_data_read;
-#else
-  return e_worker_idle;
 #endif
+
+  return e_worker_idle;
 }
