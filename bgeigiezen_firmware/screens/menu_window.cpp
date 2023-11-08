@@ -1,6 +1,7 @@
 #include "menu_window.h"
 #include "config_mode.h"
 #include "controller.h"
+#include "debug_mode.h"
 #include "drive_mode.h"
 #include "fixed_mode.h"
 #include "identifiers.h"
@@ -38,6 +39,12 @@ MenuWindow::MenuItem SETTINGS_MENU_ITEM = {
     "                                            ",
     true,
 };
+MenuWindow::MenuItem DEBUG_MENU_ITEM = {
+    "Debug info",
+    "Connected modules, their data and status all",
+    "together in a simple view                   ",
+    true,
+};
 MenuWindow::MenuItem ENTER_SIMPLE_MODE_MENU_ITEM = {
     "Simple mode",
     "Switch to simple mode!                      ",
@@ -51,14 +58,13 @@ MenuWindow::MenuItem ENTER_ADVANCED_MODE_MENU_ITEM = {
     true,
 };
 
-MenuWindow::MenuWindow(): BaseScreen("Menu", true), menu_open(false), menu_index(0), advanced_menu{
-    DRIVE_MENU_ITEM,
-    SURVEY_MENU_ITEM,
-    FIXED_MENU_ITEM,
-    LOG_VIEWER_MENU_ITEM,
-    SETTINGS_MENU_ITEM
-} {
-
+MenuWindow::MenuWindow() : BaseScreen("Menu", true), menu_open(false), menu_index(0), advanced_menu{
+                                                                                          DRIVE_MENU_ITEM,
+                                                                                          SURVEY_MENU_ITEM,
+                                                                                          FIXED_MENU_ITEM,
+                                                                                          LOG_VIEWER_MENU_ITEM,
+                                                                                          SETTINGS_MENU_ITEM,
+                                                                                          DEBUG_MENU_ITEM} {
 }
 
 BaseScreen* MenuWindow::handle_input(Controller& controller, const worker_map_t& workers) {
@@ -69,10 +75,10 @@ BaseScreen* MenuWindow::handle_input(Controller& controller, const worker_map_t&
   // Button 1 is move index down
   if (button1->is_fresh() && button1->get_data().shortPress) {
     menu_index++;
-    menu_index %= 5;
+    menu_index %= ADVANCED_MENU_ITEMS;
     while (!advanced_menu[menu_index].enabled) {
       menu_index++;
-      menu_index %= 5;
+      menu_index %= ADVANCED_MENU_ITEMS;
     }
   }
   if (button3->is_fresh() && button3->get_data().shortPress) {
@@ -93,6 +99,8 @@ BaseScreen* MenuWindow::handle_input(Controller& controller, const worker_map_t&
         return nullptr; //TODO
       case 4:
         return ConfigModeScreen::i();
+      case 5:
+        return DebugModeScreen::i();
     }
     return nullptr;
   }
@@ -100,7 +108,7 @@ BaseScreen* MenuWindow::handle_input(Controller& controller, const worker_map_t&
   return nullptr;
 }
 
-void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handlers) {
+void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   if (!menu_open) {
     return;
   }
@@ -112,12 +120,13 @@ void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handle
 
   // Draw menu rect
   M5.Lcd.drawRoundRect(210, 20, 90, 100, 4, LCD_COLOR_ACTIVE);
-  for (int i = 0; i < 5; ++i) {
+  for (int i = 0; i < ADVANCED_MENU_ITEMS; ++i) {
     M5.Lcd.setTextColor(advanced_menu[i].enabled ? (i == menu_index ? LCD_COLOR_ACTIVE : LCD_COLOR_DEFAULT) : TFT_DARKGREY, LCD_COLOR_BACKGROUND);
     M5.Lcd.drawString(advanced_menu[i].title, 230, 40 + (i * 10));
     if (i == menu_index) {
       M5.Lcd.drawString(">", 220, 40 + (i * 10));
-    } else {
+    }
+    else {
       M5.Lcd.drawString(" ", 220, 40 + (i * 10));
     }
   }
