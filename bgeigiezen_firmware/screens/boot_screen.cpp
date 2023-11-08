@@ -9,7 +9,7 @@ BootScreen::BootScreen() : BaseScreen("Boot", false), _entered_at(0) {
 }
 
 BaseScreen* BootScreen::handle_input(Controller& controller, const worker_map_t& workers) {
-  if (_entered_at + 3000 < millis()) {
+  if (millis() - _entered_at > 3000) {
     if (controller.get_data().sd_card_status != SDInterface::SdStatus::e_sd_config_status_ok) {
       return SdMessageScreen::i();
     }
