@@ -123,7 +123,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
       }
     }
 
-    if (workers.any_updates() || handlers.any_updates() || _last_render + 1000 < millis()) {
+    if (workers.any_updates() || handlers.any_updates() || (millis() - _last_render > 1000)) {
       M5.Lcd.setRotation(3);
       if (_menu->is_open()) {
         _menu->do_render(workers, handlers);
