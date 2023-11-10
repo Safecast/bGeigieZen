@@ -28,7 +28,7 @@ bool GpsConnector::activate(bool retry) {
     ss.begin(38400);
     _init_at = millis();
   }
-  if (tried_38400_at == 0 && millis() > _init_at + 500) { // Wait for device to completely startup
+  if (tried_38400_at == 0 && (millis() - _init_at > 500)) { // Wait for device to completely startup
     tried_38400_at = millis();
     ss.updateBaudRate(38400);
     DEBUG_PRINTF("GNSS: trying 38400 baud at millis %d\n", tried_38400_at);
@@ -39,7 +39,7 @@ bool GpsConnector::activate(bool retry) {
       return false;
     }
   }
-  else if (tried_9600_at == 0 && tried_38400_at > 0 && millis() - tried_38400_at > 500) {
+  else if (tried_9600_at == 0 && tried_38400_at > 0 && (millis() - tried_38400_at > 500)) {
     tried_9600_at = millis();
     ss.updateBaudRate(9600);
     DEBUG_PRINTF("GNSS: trying 9600 baud at millis %d\n", tried_9600_at);
