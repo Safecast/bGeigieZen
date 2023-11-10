@@ -63,7 +63,9 @@ bool SDInterface::ready() {
  * @return true if ready
  */
 bool SDInterface::begin() {
-  if (!_sd_ready && (_last_try == 0 || _last_try + 5000 < millis())) {
+  static bool _first_try = true;
+  if (!_sd_ready && (_first_try || (millis() - _last_try > 5000))) {
+    _first_try = false;
     _last_try = millis();
     if (SD.begin(SD_CS_PIN)) {
       bool zen_test = SD.exists(TEST_FILENAME);
