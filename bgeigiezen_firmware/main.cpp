@@ -74,7 +74,7 @@ GeigerCounter gm_sensor;
 BatteryIndicator battery_indicator;
 RtcConnector rtc;
 ShakeDetector shake_detector;
-LogAggregator log_aggregator;
+LogAggregator log_aggregator(settings);
 
 // Data handlers
 

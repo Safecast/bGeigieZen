@@ -1,6 +1,7 @@
 #ifndef WORKERS_LOG_AGGREGATOR_H
 #define WORKERS_LOG_AGGREGATOR_H
 
+#include "handlers/local_storage.h"
 #include <Handler.hpp>
 
 /**
@@ -8,13 +9,13 @@
  */
 struct DataLine {
   bool valid;
+  char log_string[100];
+
   uint16_t cpm;
   char timestamp[20];
-  float longitude;
-  float latitude;
-  float altitude;
-
-  char log_string[100];
+  double longitude;
+  double latitude;
+  double altitude;
   bool in_fixed_range;
 };
 
@@ -25,12 +26,15 @@ struct DataLine {
  */
 class LogAggregator : public Worker<DataLine>, public Handler {
  public:
-  LogAggregator();
+  LogAggregator(LocalStorage& settings);
 
  protected:
 
   int8_t produce_data() override;
   int8_t handle_produced_work(const WorkerMap& workers) override;
+
+ private:
+  LocalStorage& _settings;
 };
 
 #endif //WORKERS_LOG_AGGREGATOR_H
