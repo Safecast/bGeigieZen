@@ -3,13 +3,13 @@
 #include <cstdint>
 #include <cstdlib>
 
-using std::uint8_t;
-using std::uint16_t;
-using std::uint32_t;
-using std::int8_t;
 using std::int16_t;
 using std::int32_t;
+using std::int8_t;
 using std::size_t;
+using std::uint16_t;
+using std::uint32_t;
+using std::uint8_t;
 
 /*** VERSION ***/
 const uint16_t MAJOR = 0;
@@ -24,18 +24,18 @@ const char DEVICE_HEADER[] = "BNRDD";
 // - maximum length of buffer for the bGeigie log
 const size_t LOG_BUFFER_SIZE = 100;
 // - geiger counter
-const size_t GEIGER_AVERAGING_PERIOD_S = 5;  // 5 s
+const size_t GEIGER_AVERAGING_PERIOD_S = 5; // 5 s
 const int GEIGER_PULSE_GPIO = 32;
-const size_t GEIGER_AVERAGING_N_BINS = 12;  // 12 x 5 s == 1 min moving average
+const size_t GEIGER_AVERAGING_N_BINS = 12; // 12 x 5 s == 1 min moving average
 const float GEIGER_SENSOR1_CPM_FACTOR = 340.0;
 // - gps
 const int GPS_SERIAL_NUM = 2;
 const uint32_t GPS_BAUD_RATE = 9600;
 const uint16_t GPS_INVALID_YEAR = 2000;
 // - LCD display
-const uint32_t LCD_REFRESH_RATE = 1000;  // 1s
+const uint32_t LCD_REFRESH_RATE = 1000; // 1s
 // - SD card
-const uint8_t SD_CS_PIN = 4;  // GPIO 4
+const uint8_t SD_CS_PIN = 4; // GPIO 4
 // - URL for the QR code, the device number should be added at the end
 const char QR_CODE_URL_BASE[] = "http://tt.safecast.org/id/geigiecast:";
 const size_t QR_CODE_DEV_ID_NDIGITS = 4;
@@ -58,4 +58,4 @@ const uint8_t SETUP_DEFAULT_TIMEZONE = 9;
 
 /**************/
 
-#endif  // __CONFIG_HPP__
+#endif // __CONFIG_HPP__
