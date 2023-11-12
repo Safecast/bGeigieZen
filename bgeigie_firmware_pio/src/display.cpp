@@ -345,7 +345,7 @@ void Display::draw_survey() {
 
     // Display Bq/m^2
     M5.Lcd.drawString("Bq/m^2", 90, 160, 4);
-    data.geiger_bqm2 = data.geiger_cpm * 37;
+    data.geiger_bqm2 = data.geiger_cpm*37;
     printIntFont(data.geiger_bqm2, true, 5, 160, 5, 4);
 
     // // Display Max. uSv/h
