@@ -8,7 +8,6 @@
 
 #include "local_storage.h"
 #include "user_config.h"
-#include "circular_buffer.h"
 #include "utils/wifi_connection.h"
 #include "workers/log_aggregator.h"
 
