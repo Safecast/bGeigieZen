@@ -65,7 +65,7 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
 
   sprintf(
       data.log_string,
-      "$%s,%04d,%s,%ul,%ul,%ul,%c,%0.7f,%c,%0.7f,%c,%.1f,%c,%d,%.1f",
+      "$%s,%04d,%s,%u,%u,%u,%c,%0.7f,%c,%0.7f,%c,%.1f,%c,%d,%.1f",
       DEVICE_HEADER, _settings.get_device_id(),
       data.timestamp,
       gm_sensor_data.cpm_comp, gm_sensor_data.cp5s, gm_sensor_data.total, gm_sensor_data.valid ? 'A' : 'V',
