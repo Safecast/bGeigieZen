@@ -1,0 +1,469 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_base_screen" xml:lang="en-US">
+<title>BaseScreen Class Reference</title>
+<indexterm><primary>BaseScreen</primary></indexterm>
+<para>
+<computeroutput>#include &lt;base_screen.h&gt;</computeroutput>
+</para>
+Inheritance diagram for BaseScreen:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen__inherit__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> { <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>
+, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669aeec92bb30ab578e6b0eceb97b61880fb">e_button_active</link>
+, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669aa1df192f7cb5a602ccdf145fb8e7bca2">e_button_disabled</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>virtual <link linkend="_class_base_screen">BaseScreen</link> * <link linkend="_class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57">handle_input</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>, const worker_map_t &amp;workers)=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea">enter_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1">leave_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98">do_render</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers) final</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1a475d077e56c80429539f9c8a973752dd">force_next_render</link> () final</para>
+</listitem>
+            <listitem><para>virtual const char * <link linkend="_class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42">get_title</link> () const</para>
+</listitem>
+            <listitem><para>virtual bool <link linkend="_class_base_screen_1a2b0ff8ed2e49c96fa6e8d3e158d6db13">has_status_bar</link> () const</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_base_screen_1a2e28e5b4ef3027c3c4392dfb4a6c3ff8">BaseScreen</link> (const char *title, bool status_bar)</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_base_screen_1a86234c33321bb25d534c0347a946b084">~BaseScreen</link> ()=default</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1aca89a9c227f03adadb7022eb63ee3685">render</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers, bool force)=0</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_base_screen_1ac4042332f3362042ed3390297c8f1ea1">drawButton1</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_base_screen_1ad7040cea50962276539e67ac129d5c7c">drawButton2</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_base_screen_1a00da29022f614d7e72fd218ba1dcf747">drawButton3</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>)</para>
+</listitem>
+            <listitem><para>int16_t <link linkend="_class_base_screen_1a1129827abdd844b136988965ae4a72ba">printFloatFont</link> (float val, int prec, int x, int y, int font)</para>
+</listitem>
+            <listitem><para>int16_t <link linkend="_class_base_screen_1a7e56deb842ae278490c70910023eb8c8">printIntFont</link> (unsigned long val, int x, int y, int font)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_base__screen_8h_source_1l00013">13</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+</section>
+<section>
+<title>Member Enumeration Documentation</title>
+<anchor xml:id="_class_base_screen_1ad4a1248dca462731c78b423fcda99669"/><section>
+    <title>ButtonState</title>
+<indexterm><primary>ButtonState</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>ButtonState</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">BaseScreen::ButtonState</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>e_button_default</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>e_button_default</secondary></indexterm>
+<anchor xml:id="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67"/>e_button_default</entry><entry></entry></row><row><entry><indexterm><primary>e_button_active</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>e_button_active</secondary></indexterm>
+<anchor xml:id="_class_base_screen_1ad4a1248dca462731c78b423fcda99669aeec92bb30ab578e6b0eceb97b61880fb"/>e_button_active</entry><entry></entry></row><row><entry><indexterm><primary>e_button_disabled</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>e_button_disabled</secondary></indexterm>
+<anchor xml:id="_class_base_screen_1ad4a1248dca462731c78b423fcda99669aa1df192f7cb5a602ccdf145fb8e7bca2"/>e_button_disabled</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_base__screen_8h_source_1l00015">15</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_base_screen_1a2e28e5b4ef3027c3c4392dfb4a6c3ff8"/><section>
+    <title>BaseScreen()</title>
+<indexterm><primary>BaseScreen</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>BaseScreen</secondary></indexterm>
+<para><computeroutput>BaseScreen::BaseScreen (const char * title, bool status_bar)<computeroutput>[explicit]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00006">6</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_base_screen_1a86234c33321bb25d534c0347a946b084"/><section>
+    <title>~BaseScreen()</title>
+<indexterm><primary>~BaseScreen</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>~BaseScreen</secondary></indexterm>
+<para><computeroutput>virtual BaseScreen::~BaseScreen ( )<computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput>, <computeroutput>[default]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98"/><section>
+    <title>do_render()</title>
+<indexterm><primary>do_render</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>do_render</secondary></indexterm>
+<para><computeroutput>void BaseScreen::do_render (const worker_map_t &amp; workers, const handler_map_t &amp; handlers)<computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Render the screen with latest data 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>workers</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>handlers</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00104">104</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_abaa4b23c1f7314cdce0ddea7e7a8ed98_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_abaa4b23c1f7314cdce0ddea7e7a8ed98_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_screen_1ac4042332f3362042ed3390297c8f1ea1"/><section>
+    <title>drawButton1()</title>
+<indexterm><primary>drawButton1</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>drawButton1</secondary></indexterm>
+<para><computeroutput>void BaseScreen::drawButton1 (const char * text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state = <computeroutput><link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link></computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00051">51</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_ac4042332f3362042ed3390297c8f1ea1_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_screen_1ad7040cea50962276539e67ac129d5c7c"/><section>
+    <title>drawButton2()</title>
+<indexterm><primary>drawButton2</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>drawButton2</secondary></indexterm>
+<para><computeroutput>void BaseScreen::drawButton2 (const char * text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state = <computeroutput><link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link></computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00059">59</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_ad7040cea50962276539e67ac129d5c7c_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_screen_1a00da29022f614d7e72fd218ba1dcf747"/><section>
+    <title>drawButton3()</title>
+<indexterm><primary>drawButton3</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>drawButton3</secondary></indexterm>
+<para><computeroutput>void BaseScreen::drawButton3 (const char * text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state = <computeroutput><link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link></computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00067">67</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a00da29022f614d7e72fd218ba1dcf747_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea"/><section>
+    <title>enter_screen()</title>
+<indexterm><primary>enter_screen</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>enter_screen</secondary></indexterm>
+<para><computeroutput>void BaseScreen::enter_screen (<link linkend="_class_controller">Controller</link> &amp; controller)<computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Enter the screen, use controller to enable screen specific workers/handlers 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>controller</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Reimplemented in <link linkend="_class_boot_screen_1af19273a9e16613f547b44773b1761fae">BootScreen</link>, <link linkend="_class_config_mode_screen_1a63e57a291d31fc8974e1801314b0c75b">ConfigModeScreen</link>, <link linkend="_class_first_time_startup_screen_1a6fe45b4d763b2e2a36bef931d0a6fb98">FirstTimeStartupScreen</link>, <link linkend="_class_fixed_mode_screen_1ac6674655b2713b9cf9194eada7424ddd">FixedModeScreen</link>, <link linkend="_class_menu_window_1a2971f694878323174c931b8a466c5e82">MenuWindow</link>, <link linkend="_class_sd_message_screen_1a37d7575e04491ff6fedae89389694248">SdMessageScreen</link>, and <link linkend="_class_survey_mode_screen_1a8f92dc2c5a954f6284517b39cb08db8e">SurveyModeScreen</link>.</para>
+<para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00090">90</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a19944bf3ea67c81ccd2269fb16c9e2ea_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_screen_1a475d077e56c80429539f9c8a973752dd"/><section>
+    <title>force_next_render()</title>
+<indexterm><primary>force_next_render</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>force_next_render</secondary></indexterm>
+<para><computeroutput>void BaseScreen::force_next_render ( )<computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Render the screen with latest data 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>workers</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>handlers</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00109">109</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42"/><section>
+    <title>get_title()</title>
+<indexterm><primary>get_title</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>get_title</secondary></indexterm>
+<para><computeroutput>const char * BaseScreen::get_title ( ) const<computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Get screen name <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00096">96</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a8369a625bf2c71807b5cf2b98527fb42_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57"/><section>
+    <title>handle_input()</title>
+<indexterm><primary>handle_input</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>handle_input</secondary></indexterm>
+<para><computeroutput>virtual <link linkend="_class_base_screen">BaseScreen</link> * BaseScreen::handle_input (<link linkend="_class_controller">Controller</link> &amp; controller, const worker_map_t &amp; workers)<computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+Implemented in <link linkend="_class_boot_screen_1a1d605b7d6ed086214a7f1a0bcd3d1fe2">BootScreen</link>, <link linkend="_class_config_mode_screen_1a7fcba3bb1764bd72b76c1f80f1f6a762">ConfigModeScreen</link>, <link linkend="_class_debug_mode_screen_1a74b4a2f357094dcda42fffe968067b28">DebugModeScreen</link>, <link linkend="_class_drive_mode_screen_1a69c70a1c35f362131345ecd652cd4416">DriveModeScreen</link>, <link linkend="_class_first_time_startup_screen_1a5247fbb47d0d251542376a1199c48684">FirstTimeStartupScreen</link>, <link linkend="_class_fixed_mode_screen_1afb1295bc1c4272752239f7ea2ee111a4">FixedModeScreen</link>, <link linkend="_class_menu_window_1afe3cdb7f44d6d7a534044abc6b4e1b92">MenuWindow</link>, <link linkend="_class_sd_message_screen_1aa6f1495614e3c8a88dfe30920fcd5b8d">SdMessageScreen</link>, and <link linkend="_class_survey_mode_screen_1a2b1210c4b71c7b2da15777f7c8c677d0">SurveyModeScreen</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_adfb9afa5102a23f608d0db4d95bd6d57_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_screen_1a2b0ff8ed2e49c96fa6e8d3e158d6db13"/><section>
+    <title>has_status_bar()</title>
+<indexterm><primary>has_status_bar</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>has_status_bar</secondary></indexterm>
+<para><computeroutput>bool BaseScreen::has_status_bar ( ) const<computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Get screen name <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00100">100</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a2b0ff8ed2e49c96fa6e8d3e158d6db13_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1"/><section>
+    <title>leave_screen()</title>
+<indexterm><primary>leave_screen</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>leave_screen</secondary></indexterm>
+<para><computeroutput>void BaseScreen::leave_screen (<link linkend="_class_controller">Controller</link> &amp; controller)<computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Leave the screen, use controller to disable screen specific workers/handlers 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>controller</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Reimplemented in <link linkend="_class_boot_screen_1a7703ae6ca965fa5481870a087976e7e8">BootScreen</link>, <link linkend="_class_config_mode_screen_1a6d5e41de275a9ff08fa50351a20c3190">ConfigModeScreen</link>, <link linkend="_class_drive_mode_screen_1ac0c53ec7f983bfd75c289db8291d5aa3">DriveModeScreen</link>, <link linkend="_class_first_time_startup_screen_1ab95f489f1cf846027d46333ba16b21d1">FirstTimeStartupScreen</link>, <link linkend="_class_fixed_mode_screen_1afcdf6db54b6e44220c39b0b0dfbcf162">FixedModeScreen</link>, <link linkend="_class_menu_window_1a2c5ae75df9da64b970dcbd408efc17ae">MenuWindow</link>, <link linkend="_class_sd_message_screen_1a80f1af31e6f9a40d9587ca86bee2220f">SdMessageScreen</link>, and <link linkend="_class_survey_mode_screen_1ab5e2b29f4e65d44fcd51be6f09d23fa9">SurveyModeScreen</link>.</para>
+<para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00093">93</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a39550ebc8de9c9324c5abde283eb52c1_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_screen_1a1129827abdd844b136988965ae4a72ba"/><section>
+    <title>printFloatFont()</title>
+<indexterm><primary>printFloatFont</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>printFloatFont</secondary></indexterm>
+<para><computeroutput>int16_t BaseScreen::printFloatFont (float val, int prec, int x, int y, int font)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00075">75</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a1129827abdd844b136988965ae4a72ba_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_screen_1a7e56deb842ae278490c70910023eb8c8"/><section>
+    <title>printIntFont()</title>
+<indexterm><primary>printIntFont</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>printIntFont</secondary></indexterm>
+<para><computeroutput>int16_t BaseScreen::printIntFont (unsigned long val, int x, int y, int font)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00084">84</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a7e56deb842ae278490c70910023eb8c8_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_screen_1aca89a9c227f03adadb7022eb63ee3685"/><section>
+    <title>render()</title>
+<indexterm><primary>render</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>render</secondary></indexterm>
+<para><computeroutput>virtual void BaseScreen::render (const worker_map_t &amp; workers, const handler_map_t &amp; handlers, bool force)<computeroutput>[protected]</computeroutput>, <computeroutput>[pure virtual]</computeroutput></computeroutput></para>
+<para>Render the screen with latest data 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>workers</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>handlers</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implemented in <link linkend="_class_boot_screen_1ae251e91a0e4a84ef9b6739ed928ef3c5">BootScreen</link>, <link linkend="_class_config_mode_screen_1a5878db5e53f53183144488937f6657e9">ConfigModeScreen</link>, <link linkend="_class_debug_mode_screen_1af5a52170b297c87f33e5eea935f8ca04">DebugModeScreen</link>, <link linkend="_class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85">DriveModeScreen</link>, <link linkend="_class_first_time_startup_screen_1a1f5c80b0f1a40f208787e6b27a1b34c7">FirstTimeStartupScreen</link>, <link linkend="_class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af">FixedModeScreen</link>, <link linkend="_class_menu_window_1a668a8a350e49de44844d8d06d0032938">MenuWindow</link>, <link linkend="_class_sd_message_screen_1a2c75124920b18c3d29c65887cbe404c7">SdMessageScreen</link>, and <link linkend="_class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50">SurveyModeScreen</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_aca89a9c227f03adadb7022eb63ee3685_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/screens/<link linkend="_base__screen_8h">base_screen.h</link>bgeigiezen_firmware/screens/<link linkend="_base__screen_8cpp">base_screen.cpp</link></section>
+</section>

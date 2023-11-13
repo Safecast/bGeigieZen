@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_rtc_data" xml:lang="en-US">
+<title>RtcData Struct Reference</title>
+<indexterm><primary>RtcData</primary></indexterm>
+<para>
+
+<para>Realtime clock IC handler for Core2 only. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;rtc_connector.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>uint16_t <link linkend="_struct_rtc_data_1a1157fdeb5f292af4257fbb1fa0932ce6">year</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_struct_rtc_data_1a230c62e521a3ab94d729ae331f85c04b">month</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_struct_rtc_data_1abf6e0ad5c3c6a406493cb2414e746be7">day</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_struct_rtc_data_1a0f7e13b451b5bd15c98216ee3bc05d7c">hour</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_struct_rtc_data_1aeae2e5f4a2d8e20ca8cb421ac9dc867c">minute</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_struct_rtc_data_1aa3895ed98a0af367c9e8cb2d54c98285">second</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_struct_rtc_data_1af16c5c31a2428bb4fbcd95ae04aaf760">low_voltage</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_struct_rtc_data_1ac0e78219a91cfc4f3277078aba82ad1c">valid</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Realtime clock IC handler for Core2 only. </para>
+
+
+
+<para>Acts as a backup provider of realtime when no GNSS date-time available. The PCF8563 IC is only present on the M5Stack Core2. <note><title>Note</title>
+
+<para>Temporarily using tanakamasayuki/I2C BM8563 RTC library M5Core2 includes a driver for the 8563 RTC chip, but it does not give you access to the Voltage Low bit (bit 7 of the seconds register) to detect a low voltage event that might invalidate the date-time values. See pull request #138 in m5stack/M5Core2 <link xlink:href="https://github.com/m5stack/M5Core2/pull/138">https://github.com/m5stack/M5Core2/pull/138</link> Core2 RTC GPIO pins SDA=21 SCL=22 (bit bashing?) </para>
+</note>
+</para>
+<para>
+Definition at line <link linkend="_rtc__connector_8h_source_1l00028">28</link> of file <link linkend="_rtc__connector_8h_source">rtc_connector.h</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_rtc_data_1abf6e0ad5c3c6a406493cb2414e746be7"/><section>
+    <title>day</title>
+<indexterm><primary>day</primary><secondary>RtcData</secondary></indexterm>
+<indexterm><primary>RtcData</primary><secondary>day</secondary></indexterm>
+<para><computeroutput>uint8_t RtcData::day</computeroutput></para><para>
+Definition at line <link linkend="_rtc__connector_8h_source_1l00032">32</link> of file <link linkend="_rtc__connector_8h_source">rtc_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_rtc_data_1a0f7e13b451b5bd15c98216ee3bc05d7c"/><section>
+    <title>hour</title>
+<indexterm><primary>hour</primary><secondary>RtcData</secondary></indexterm>
+<indexterm><primary>RtcData</primary><secondary>hour</secondary></indexterm>
+<para><computeroutput>uint8_t RtcData::hour</computeroutput></para><para>
+Definition at line <link linkend="_rtc__connector_8h_source_1l00033">33</link> of file <link linkend="_rtc__connector_8h_source">rtc_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_rtc_data_1af16c5c31a2428bb4fbcd95ae04aaf760"/><section>
+    <title>low_voltage</title>
+<indexterm><primary>low_voltage</primary><secondary>RtcData</secondary></indexterm>
+<indexterm><primary>RtcData</primary><secondary>low_voltage</secondary></indexterm>
+<para><computeroutput>bool RtcData::low_voltage</computeroutput></para><para>
+Definition at line <link linkend="_rtc__connector_8h_source_1l00040">40</link> of file <link linkend="_rtc__connector_8h_source">rtc_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_rtc_data_1aeae2e5f4a2d8e20ca8cb421ac9dc867c"/><section>
+    <title>minute</title>
+<indexterm><primary>minute</primary><secondary>RtcData</secondary></indexterm>
+<indexterm><primary>RtcData</primary><secondary>minute</secondary></indexterm>
+<para><computeroutput>uint8_t RtcData::minute</computeroutput></para><para>
+Definition at line <link linkend="_rtc__connector_8h_source_1l00034">34</link> of file <link linkend="_rtc__connector_8h_source">rtc_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_rtc_data_1a230c62e521a3ab94d729ae331f85c04b"/><section>
+    <title>month</title>
+<indexterm><primary>month</primary><secondary>RtcData</secondary></indexterm>
+<indexterm><primary>RtcData</primary><secondary>month</secondary></indexterm>
+<para><computeroutput>uint8_t RtcData::month</computeroutput></para><para>
+Definition at line <link linkend="_rtc__connector_8h_source_1l00031">31</link> of file <link linkend="_rtc__connector_8h_source">rtc_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_rtc_data_1aa3895ed98a0af367c9e8cb2d54c98285"/><section>
+    <title>second</title>
+<indexterm><primary>second</primary><secondary>RtcData</secondary></indexterm>
+<indexterm><primary>RtcData</primary><secondary>second</secondary></indexterm>
+<para><computeroutput>uint8_t RtcData::second</computeroutput></para><para>
+Definition at line <link linkend="_rtc__connector_8h_source_1l00035">35</link> of file <link linkend="_rtc__connector_8h_source">rtc_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_rtc_data_1ac0e78219a91cfc4f3277078aba82ad1c"/><section>
+    <title>valid</title>
+<indexterm><primary>valid</primary><secondary>RtcData</secondary></indexterm>
+<indexterm><primary>RtcData</primary><secondary>valid</secondary></indexterm>
+<para><computeroutput>bool RtcData::valid</computeroutput></para><para>
+Definition at line <link linkend="_rtc__connector_8h_source_1l00042">42</link> of file <link linkend="_rtc__connector_8h_source">rtc_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_rtc_data_1a1157fdeb5f292af4257fbb1fa0932ce6"/><section>
+    <title>year</title>
+<indexterm><primary>year</primary><secondary>RtcData</secondary></indexterm>
+<indexterm><primary>RtcData</primary><secondary>year</secondary></indexterm>
+<para><computeroutput>uint16_t RtcData::year</computeroutput></para><para>
+Definition at line <link linkend="_rtc__connector_8h_source_1l00030">30</link> of file <link linkend="_rtc__connector_8h_source">rtc_connector.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+bgeigiezen_firmware/workers/<link linkend="_rtc__connector_8h">rtc_connector.h</link></section>
+</section>

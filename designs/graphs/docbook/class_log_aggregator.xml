@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_log_aggregator" xml:lang="en-US">
+<title>LogAggregator Class Reference</title>
+<indexterm><primary>LogAggregator</primary></indexterm>
+<para>
+<computeroutput>#include &lt;log_aggregator.h&gt;</computeroutput>
+</para>
+Inheritance diagram for LogAggregator:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_log_aggregator__inherit__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for LogAggregator:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_log_aggregator__coll__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_log_aggregator_1a8579c4b144649166f3689c9177c8f3e9">LogAggregator</link> (<link linkend="_class_local_storage">LocalStorage</link> &amp;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>int8_t <link linkend="_class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494">produce_data</link> (const WorkerMap &amp;workers) override</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Log aggregator listens to sensor data from GPS and Geigie counter, and creates single, complete readings to log every 5 seconds Used by SD logger, API connector, BT connector </para>
+<para>
+Definition at line <link linkend="_log__aggregator_8h_source_1l00027">27</link> of file <link linkend="_log__aggregator_8h_source">log_aggregator.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_log_aggregator_1a8579c4b144649166f3689c9177c8f3e9"/><section>
+    <title>LogAggregator()</title>
+<indexterm><primary>LogAggregator</primary><secondary>LogAggregator</secondary></indexterm>
+<indexterm><primary>LogAggregator</primary><secondary>LogAggregator</secondary></indexterm>
+<para><computeroutput>LogAggregator::LogAggregator (<link linkend="_class_local_storage">LocalStorage</link> &amp; settings)</computeroutput></para><para>
+Definition at line <link linkend="_log__aggregator_8cpp_source_1l00038">38</link> of file <link linkend="_log__aggregator_8cpp_source">log_aggregator.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494"/><section>
+    <title>produce_data()</title>
+<indexterm><primary>produce_data</primary><secondary>LogAggregator</secondary></indexterm>
+<indexterm><primary>LogAggregator</primary><secondary>produce_data</secondary></indexterm>
+<para><computeroutput>int8_t LogAggregator::produce_data (const WorkerMap &amp; workers)<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_log__aggregator_8cpp_source_1l00041">41</link> of file <link linkend="_log__aggregator_8cpp_source">log_aggregator.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_log_aggregator_a343c8421e0dfe93651f3be2ef44e4494_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/workers/<link linkend="_log__aggregator_8h">log_aggregator.h</link>bgeigiezen_firmware/workers/<link linkend="_log__aggregator_8cpp">log_aggregator.cpp</link></section>
+</section>

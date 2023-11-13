@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_gnss_data" xml:lang="en-US">
+<title>GnssData Struct Reference</title>
+<indexterm><primary>GnssData</primary></indexterm>
+<para>
+<computeroutput>#include &lt;gps_connector.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_struct_gnss_data_1aedd0b5e4e6a8b73715ec2a5f97b97401">valid</link> () const</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_struct_gnss_data_1a6912d592ab6fe6edce0f30c25601b947">location_valid</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_struct_gnss_data_1ae388719eb60b5e365c1ff37d0322eabf">satellites_valid</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_struct_gnss_data_1a2dfadddc5f94b12baa0cf2ac3ccc1fd8">date_valid</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_struct_gnss_data_1a44dce35e9d2ff7e54fe1a5daaafeb7e0">time_valid</link></para>
+</listitem>
+            <listitem><para>double <link linkend="_struct_gnss_data_1a81efa192d3bc42bba228fb66e0322f57">latitude</link></para>
+</listitem>
+            <listitem><para>double <link linkend="_struct_gnss_data_1a3869e76ad6bc7e1da392f31a620467aa">longitude</link></para>
+</listitem>
+            <listitem><para>double <link linkend="_struct_gnss_data_1a76141979345be47d549b4b573e2f02ee">altitudeMSL</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_struct_gnss_data_1a5c0549e186eda2349ba05c53ea33fb71">satsInView</link></para>
+</listitem>
+            <listitem><para>double <link linkend="_struct_gnss_data_1aabd167b8694b8e15bb695241b5c6242d">hdop</link></para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_struct_gnss_data_1a3ea97efe2658783303e9567d6ff79ff1">year</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_struct_gnss_data_1a43b69cd3cf4afbbd71a2b6574b33e487">month</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_struct_gnss_data_1a6851119d66adbff10f39148a71a51a51">day</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_struct_gnss_data_1a7b758dda23019c4603a07046b252e9b8">hour</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_struct_gnss_data_1a21f857584d5627b3a01fc775dbe66691">minute</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_struct_gnss_data_1a2d68cd9dd5fb0405a7c507a318ccfaf1">second</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00027">27</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_struct_gnss_data_1aedd0b5e4e6a8b73715ec2a5f97b97401"/><section>
+    <title>valid()</title>
+<indexterm><primary>valid</primary><secondary>GnssData</secondary></indexterm>
+<indexterm><primary>GnssData</primary><secondary>valid</secondary></indexterm>
+<para><computeroutput>bool GnssData::valid ( ) const<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00038">38</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_gnss_data_1a76141979345be47d549b4b573e2f02ee"/><section>
+    <title>altitudeMSL</title>
+<indexterm><primary>altitudeMSL</primary><secondary>GnssData</secondary></indexterm>
+<indexterm><primary>GnssData</primary><secondary>altitudeMSL</secondary></indexterm>
+<para><computeroutput>double GnssData::altitudeMSL</computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00045">45</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_gnss_data_1a2dfadddc5f94b12baa0cf2ac3ccc1fd8"/><section>
+    <title>date_valid</title>
+<indexterm><primary>date_valid</primary><secondary>GnssData</secondary></indexterm>
+<indexterm><primary>GnssData</primary><secondary>date_valid</secondary></indexterm>
+<para><computeroutput>bool GnssData::date_valid</computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00035">35</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_gnss_data_1a6851119d66adbff10f39148a71a51a51"/><section>
+    <title>day</title>
+<indexterm><primary>day</primary><secondary>GnssData</secondary></indexterm>
+<indexterm><primary>GnssData</primary><secondary>day</secondary></indexterm>
+<para><computeroutput>uint8_t GnssData::day</computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00055">55</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_gnss_data_1aabd167b8694b8e15bb695241b5c6242d"/><section>
+    <title>hdop</title>
+<indexterm><primary>hdop</primary><secondary>GnssData</secondary></indexterm>
+<indexterm><primary>GnssData</primary><secondary>hdop</secondary></indexterm>
+<para><computeroutput>double GnssData::hdop</computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00049">49</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_gnss_data_1a7b758dda23019c4603a07046b252e9b8"/><section>
+    <title>hour</title>
+<indexterm><primary>hour</primary><secondary>GnssData</secondary></indexterm>
+<indexterm><primary>GnssData</primary><secondary>hour</secondary></indexterm>
+<para><computeroutput>uint8_t GnssData::hour</computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00056">56</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_gnss_data_1a81efa192d3bc42bba228fb66e0322f57"/><section>
+    <title>latitude</title>
+<indexterm><primary>latitude</primary><secondary>GnssData</secondary></indexterm>
+<indexterm><primary>GnssData</primary><secondary>latitude</secondary></indexterm>
+<para><computeroutput>double GnssData::latitude</computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00043">43</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_gnss_data_1a6912d592ab6fe6edce0f30c25601b947"/><section>
+    <title>location_valid</title>
+<indexterm><primary>location_valid</primary><secondary>GnssData</secondary></indexterm>
+<indexterm><primary>GnssData</primary><secondary>location_valid</secondary></indexterm>
+<para><computeroutput>bool GnssData::location_valid</computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00033">33</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_gnss_data_1a3869e76ad6bc7e1da392f31a620467aa"/><section>
+    <title>longitude</title>
+<indexterm><primary>longitude</primary><secondary>GnssData</secondary></indexterm>
+<indexterm><primary>GnssData</primary><secondary>longitude</secondary></indexterm>
+<para><computeroutput>double GnssData::longitude</computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00044">44</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_gnss_data_1a21f857584d5627b3a01fc775dbe66691"/><section>
+    <title>minute</title>
+<indexterm><primary>minute</primary><secondary>GnssData</secondary></indexterm>
+<indexterm><primary>GnssData</primary><secondary>minute</secondary></indexterm>
+<para><computeroutput>uint8_t GnssData::minute</computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00057">57</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_gnss_data_1a43b69cd3cf4afbbd71a2b6574b33e487"/><section>
+    <title>month</title>
+<indexterm><primary>month</primary><secondary>GnssData</secondary></indexterm>
+<indexterm><primary>GnssData</primary><secondary>month</secondary></indexterm>
+<para><computeroutput>uint8_t GnssData::month</computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00054">54</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_gnss_data_1ae388719eb60b5e365c1ff37d0322eabf"/><section>
+    <title>satellites_valid</title>
+<indexterm><primary>satellites_valid</primary><secondary>GnssData</secondary></indexterm>
+<indexterm><primary>GnssData</primary><secondary>satellites_valid</secondary></indexterm>
+<para><computeroutput>bool GnssData::satellites_valid</computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00034">34</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_gnss_data_1a5c0549e186eda2349ba05c53ea33fb71"/><section>
+    <title>satsInView</title>
+<indexterm><primary>satsInView</primary><secondary>GnssData</secondary></indexterm>
+<indexterm><primary>GnssData</primary><secondary>satsInView</secondary></indexterm>
+<para><computeroutput>uint8_t GnssData::satsInView</computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00048">48</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_gnss_data_1a2d68cd9dd5fb0405a7c507a318ccfaf1"/><section>
+    <title>second</title>
+<indexterm><primary>second</primary><secondary>GnssData</secondary></indexterm>
+<indexterm><primary>GnssData</primary><secondary>second</secondary></indexterm>
+<para><computeroutput>uint8_t GnssData::second</computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00058">58</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_gnss_data_1a44dce35e9d2ff7e54fe1a5daaafeb7e0"/><section>
+    <title>time_valid</title>
+<indexterm><primary>time_valid</primary><secondary>GnssData</secondary></indexterm>
+<indexterm><primary>GnssData</primary><secondary>time_valid</secondary></indexterm>
+<para><computeroutput>bool GnssData::time_valid</computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00036">36</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<anchor xml:id="_struct_gnss_data_1a3ea97efe2658783303e9567d6ff79ff1"/><section>
+    <title>year</title>
+<indexterm><primary>year</primary><secondary>GnssData</secondary></indexterm>
+<indexterm><primary>GnssData</primary><secondary>year</secondary></indexterm>
+<para><computeroutput>uint16_t GnssData::year</computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00053">53</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+bgeigiezen_firmware/workers/<link linkend="_gps__connector_8h">gps_connector.h</link></section>
+</section>

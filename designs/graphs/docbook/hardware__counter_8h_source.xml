@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_hardware__counter_8h_source" xml:lang="en-US">
+<title>hardware_counter.h</title>
+<indexterm><primary>bgeigiezen_firmware/utils/hardware_counter.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_hardware__counter_8h_source_1l00001"/>00001 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="_hardware__counter_8h_source_1l00002"/>00002 <emphasis role="comment">&#32;*&#32;&#32;Provides&#32;GeigerCounter,&#32;a&#32;class&#32;that&#32;wraps&#32;around&#32;the&#32;ESP32&#32;hardware&#32;counter</emphasis>
+<anchor xml:id="_hardware__counter_8h_source_1l00003"/>00003 <emphasis role="comment">&#32;*&#32;&#32;and&#32;also&#32;does&#32;moving&#32;average,&#32;peak&#32;detection,&#32;CPM&#32;conversion,&#32;etc</emphasis>
+<anchor xml:id="_hardware__counter_8h_source_1l00004"/>00004 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="_hardware__counter_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#ifndef&#32;__HARDWARECOUNTER_H__</emphasis>
+<anchor xml:id="_hardware__counter_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#define&#32;__HARDWARECOUNTER_H__</emphasis>
+<anchor xml:id="_hardware__counter_8h_source_1l00007"/>00007 
+<anchor xml:id="_hardware__counter_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&lt;limits&gt;</emphasis>
+<anchor xml:id="_hardware__counter_8h_source_1l00009"/>00009 
+<anchor xml:id="_hardware__counter_8h_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&lt;Ticker.h&gt;</emphasis>
+<anchor xml:id="_hardware__counter_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&lt;driver/pcnt.h&gt;</emphasis>
+<anchor xml:id="_hardware__counter_8h_source_1l00012"/>00012 
+<anchor xml:id="_hardware__counter_8h_source_1l00013"/>00013 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_user__config_8h">user_config.h</link>&quot;</emphasis>
+<anchor xml:id="_hardware__counter_8h_source_1l00014"/>00014 
+<anchor xml:id="_hardware__counter_8h_source_1l00018"/><link linkend="_class_hardware_counter">00018</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_hardware_counter">HardwareCounter</link>&#32;{
+<anchor xml:id="_hardware__counter_8h_source_1l00019"/>00019 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_hardware__counter_8h_source_1l00020"/>00020 &#32;&#32;<link linkend="_class_hardware_counter_1a83b878ed339ece4944ac7a70b3324cbc">HardwareCounter</link>();
+<anchor xml:id="_hardware__counter_8h_source_1l00021"/>00021 
+<anchor xml:id="_hardware__counter_8h_source_1l00022"/>00022 &#32;&#32;uint32_t&#32;<link linkend="_class_hardware_counter_1ad8529a6e8473d44f214dd1649fed8c38">get_last_count</link>();
+<anchor xml:id="_hardware__counter_8h_source_1l00023"/>00023 
+<anchor xml:id="_hardware__counter_8h_source_1l00024"/>00024 &#32;&#32;<emphasis role="comment">//&#32;sliding&#32;windows&#32;setup</emphasis>
+<anchor xml:id="_hardware__counter_8h_source_1l00025"/>00025 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7">begin</link>();
+<anchor xml:id="_hardware__counter_8h_source_1l00026"/>00026 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_hardware_counter_1aa7f151e2edd3d718edab3568ffc75dc4">reset</link>();
+<anchor xml:id="_hardware__counter_8h_source_1l00027"/>00027 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_hardware_counter_1a0993c664a4e77d31ff2556e9f6143021">available</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_hardware__counter_8h_source_1l00028"/>00028 
+<anchor xml:id="_hardware__counter_8h_source_1l00029"/>00029 &#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_hardware__counter_8h_source_1l00030"/>00030 &#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;uint32_t&#32;_get_count_reset();
+<anchor xml:id="_hardware__counter_8h_source_1l00031"/>00031 
+<anchor xml:id="_hardware__counter_8h_source_1l00032"/>00032 &#32;&#32;<emphasis role="comment">/*&#32;let&#32;the&#32;timer&#32;interrupt&#32;routine&#32;be&#32;a&#32;friend&#32;*/</emphasis>
+<anchor xml:id="_hardware__counter_8h_source_1l00033"/>00033 &#32;&#32;<emphasis role="keyword">friend</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_hardware_counter_1a50db37e683b37fc7c123c4a285237e18">timer_intr_handler</link>(<emphasis role="keywordtype">void</emphasis>&#32;*arg);
+<anchor xml:id="_hardware__counter_8h_source_1l00034"/>00034 
+<anchor xml:id="_hardware__counter_8h_source_1l00035"/>00035 
+<anchor xml:id="_hardware__counter_8h_source_1l00036"/>00036 &#32;&#32;Ticker&#32;_timer;
+<anchor xml:id="_hardware__counter_8h_source_1l00037"/>00037 
+<anchor xml:id="_hardware__counter_8h_source_1l00038"/>00038 &#32;&#32;uint32_t&#32;_delay_s;
+<anchor xml:id="_hardware__counter_8h_source_1l00039"/>00039 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;_gpio;
+<anchor xml:id="_hardware__counter_8h_source_1l00040"/>00040 &#32;&#32;pcnt_unit_t&#32;_unit;
+<anchor xml:id="_hardware__counter_8h_source_1l00041"/>00041 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;int16_t&#32;_max_value;
+<anchor xml:id="_hardware__counter_8h_source_1l00042"/>00042 &#32;&#32;uint32_t&#32;_n_wraparound;
+<anchor xml:id="_hardware__counter_8h_source_1l00043"/>00043 &#32;&#32;uint32_t&#32;_last_count;
+<anchor xml:id="_hardware__counter_8h_source_1l00044"/>00044 &#32;&#32;uint32_t&#32;_start_time;
+<anchor xml:id="_hardware__counter_8h_source_1l00045"/>00045 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;_available;
+<anchor xml:id="_hardware__counter_8h_source_1l00046"/>00046 
+<anchor xml:id="_hardware__counter_8h_source_1l00047"/>00047 };
+<anchor xml:id="_hardware__counter_8h_source_1l00048"/>00048 
+<anchor xml:id="_hardware__counter_8h_source_1l00049"/>00049 
+<anchor xml:id="_hardware__counter_8h_source_1l00050"/>00050 <emphasis role="preprocessor">#endif&#32;&#32;</emphasis><emphasis role="comment">//&#32;__HARDWARECOUNTER_H__</emphasis>
+</programlisting></section>

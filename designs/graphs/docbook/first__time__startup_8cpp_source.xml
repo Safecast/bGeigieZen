@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_first__time__startup_8cpp_source" xml:lang="en-US">
+<title>first_time_startup.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/screens/first_time_startup.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_first__time__startup_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_first__time__startup_8h">first_time_startup.h</link>&quot;</emphasis>
+<anchor xml:id="_first__time__startup_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_drive__mode_8h">drive_mode.h</link>&quot;</emphasis>
+<anchor xml:id="_first__time__startup_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_identifiers_8h">identifiers.h</link>&quot;</emphasis>
+<anchor xml:id="_first__time__startup_8cpp_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_zen__button_8h">workers/zen_button.h</link>&quot;</emphasis>
+<anchor xml:id="_first__time__startup_8cpp_source_1l00005"/>00005 
+<anchor xml:id="_first__time__startup_8cpp_source_1l00006"/>00006 FirstTimeStartupScreen::FirstTimeStartupScreen()&#32;:&#32;<link linkend="_class_base_screen">BaseScreen</link>(<emphasis role="stringliteral">&quot;Welcome&quot;</emphasis>,&#32;false)&#32;{
+<anchor xml:id="_first__time__startup_8cpp_source_1l00007"/>00007 }
+<anchor xml:id="_first__time__startup_8cpp_source_1l00008"/>00008 
+<anchor xml:id="_first__time__startup_8cpp_source_1l00009"/><link linkend="_class_first_time_startup_screen_1a5247fbb47d0d251542376a1199c48684">00009</link> <link linkend="_class_base_screen">BaseScreen</link>*&#32;<link linkend="_class_first_time_startup_screen_1a5247fbb47d0d251542376a1199c48684">FirstTimeStartupScreen::handle_input</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>,&#32;<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers)&#32;{
+<anchor xml:id="_first__time__startup_8cpp_source_1l00010"/>00010 &#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;info_button&#32;=&#32;workers.worker&lt;<link linkend="_class_zen_button">ZenButton</link>&gt;(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa34908d3524a003a1a416f710d3bf096b">k_worker_button_1</link>);
+<anchor xml:id="_first__time__startup_8cpp_source_1l00011"/>00011 &#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;continue_button&#32;=&#32;workers.worker&lt;<link linkend="_class_zen_button">ZenButton</link>&gt;(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa824a84bb0222b57ea4966a17b90b110c">k_worker_button_3</link>);
+<anchor xml:id="_first__time__startup_8cpp_source_1l00012"/>00012 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(info_button-&gt;is_fresh()&#32;&amp;&amp;&#32;info_button-&gt;get_data().shortPress)&#32;{
+<anchor xml:id="_first__time__startup_8cpp_source_1l00013"/>00013 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;&#32;&#32;&#32;return&#32;Drive::i();</emphasis>
+<anchor xml:id="_first__time__startup_8cpp_source_1l00014"/>00014 &#32;&#32;}
+<anchor xml:id="_first__time__startup_8cpp_source_1l00015"/>00015 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(continue_button-&gt;is_fresh()&#32;&amp;&amp;&#32;continue_button-&gt;get_data().shortPress)&#32;{
+<anchor xml:id="_first__time__startup_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_drive_mode_screen_1ab1d30e84b76d85f1cfb6e5b6910d12b1">DriveModeScreen::i</link>();
+<anchor xml:id="_first__time__startup_8cpp_source_1l00017"/>00017 &#32;&#32;}
+<anchor xml:id="_first__time__startup_8cpp_source_1l00018"/>00018 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_first__time__startup_8cpp_source_1l00019"/>00019 }
+<anchor xml:id="_first__time__startup_8cpp_source_1l00020"/>00020 
+<anchor xml:id="_first__time__startup_8cpp_source_1l00021"/><link linkend="_class_first_time_startup_screen_1a1f5c80b0f1a40f208787e6b27a1b34c7">00021</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_first_time_startup_screen_1a1f5c80b0f1a40f208787e6b27a1b34c7">FirstTimeStartupScreen::render</link>(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers,&#32;<emphasis role="keyword">const</emphasis>&#32;handler_map_t&amp;&#32;handlers,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;{
+<anchor xml:id="_first__time__startup_8cpp_source_1l00022"/>00022 &#32;&#32;<link linkend="_class_base_screen_1a00da29022f614d7e72fd218ba1dcf747">drawButton3</link>(<emphasis role="stringliteral">&quot;More&#32;info&quot;</emphasis>);
+<anchor xml:id="_first__time__startup_8cpp_source_1l00023"/>00023 &#32;&#32;<link linkend="_class_base_screen_1a00da29022f614d7e72fd218ba1dcf747">drawButton3</link>(<emphasis role="stringliteral">&quot;Continue&quot;</emphasis>);
+<anchor xml:id="_first__time__startup_8cpp_source_1l00024"/>00024 }
+<anchor xml:id="_first__time__startup_8cpp_source_1l00025"/>00025 
+<anchor xml:id="_first__time__startup_8cpp_source_1l00026"/><link linkend="_class_first_time_startup_screen_1a6fe45b4d763b2e2a36bef931d0a6fb98">00026</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_first_time_startup_screen_1a6fe45b4d763b2e2a36bef931d0a6fb98">FirstTimeStartupScreen::enter_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)&#32;{
+<anchor xml:id="_first__time__startup_8cpp_source_1l00027"/>00027 }
+<anchor xml:id="_first__time__startup_8cpp_source_1l00028"/>00028 
+<anchor xml:id="_first__time__startup_8cpp_source_1l00029"/><link linkend="_class_first_time_startup_screen_1ab95f489f1cf846027d46333ba16b21d1">00029</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_first_time_startup_screen_1ab95f489f1cf846027d46333ba16b21d1">FirstTimeStartupScreen::leave_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)&#32;{
+<anchor xml:id="_first__time__startup_8cpp_source_1l00030"/>00030 }
+</programlisting></section>

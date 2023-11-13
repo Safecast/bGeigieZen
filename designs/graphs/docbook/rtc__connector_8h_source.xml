@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_rtc__connector_8h_source" xml:lang="en-US">
+<title>rtc_connector.h</title>
+<indexterm><primary>bgeigiezen_firmware/workers/rtc_connector.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_rtc__connector_8h_source_1l00001"/>00001 
+<anchor xml:id="_rtc__connector_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#ifndef&#32;BGEIGIEZEN_RTC_CONNECTOR_H_</emphasis>
+<anchor xml:id="_rtc__connector_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#define&#32;BGEIGIEZEN_RTC_CONNECTOR_H_</emphasis>
+<anchor xml:id="_rtc__connector_8h_source_1l00010"/>00010 
+<anchor xml:id="_rtc__connector_8h_source_1l00020"/>00020 <emphasis role="preprocessor">#ifdef&#32;M5_CORE2</emphasis>
+<anchor xml:id="_rtc__connector_8h_source_1l00021"/>00021 <emphasis role="preprocessor">#include&#32;&lt;M5Core2.h&gt;</emphasis>
+<anchor xml:id="_rtc__connector_8h_source_1l00022"/>00022 <emphasis role="preprocessor">#include&#32;&lt;I2C_BM8563.h&gt;</emphasis>
+<anchor xml:id="_rtc__connector_8h_source_1l00023"/>00023 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_rtc__connector_8h_source_1l00024"/>00024 <emphasis role="preprocessor">#include&#32;&lt;Worker.hpp&gt;</emphasis>
+<anchor xml:id="_rtc__connector_8h_source_1l00025"/>00025 <emphasis role="preprocessor">#include&#32;&lt;<link linkend="_user__config_8h">user_config.h</link>&gt;</emphasis>
+<anchor xml:id="_rtc__connector_8h_source_1l00026"/>00026 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_debugger_8h">debugger.h</link>&quot;</emphasis>
+<anchor xml:id="_rtc__connector_8h_source_1l00027"/>00027 
+<anchor xml:id="_rtc__connector_8h_source_1l00028"/><link linkend="_struct_rtc_data">00028</link> <emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_rtc_data">RtcData</link>&#32;{
+<anchor xml:id="_rtc__connector_8h_source_1l00029"/>00029 &#32;&#32;<emphasis role="comment">//&#32;Date&#32;&amp;&#32;Time</emphasis>
+<anchor xml:id="_rtc__connector_8h_source_1l00030"/><link linkend="_struct_rtc_data_1a1157fdeb5f292af4257fbb1fa0932ce6">00030</link> &#32;&#32;uint16_t&#32;<link linkend="_struct_rtc_data_1a1157fdeb5f292af4257fbb1fa0932ce6">year</link>;
+<anchor xml:id="_rtc__connector_8h_source_1l00031"/><link linkend="_struct_rtc_data_1a230c62e521a3ab94d729ae331f85c04b">00031</link> &#32;&#32;uint8_t&#32;<link linkend="_struct_rtc_data_1a230c62e521a3ab94d729ae331f85c04b">month</link>;
+<anchor xml:id="_rtc__connector_8h_source_1l00032"/><link linkend="_struct_rtc_data_1abf6e0ad5c3c6a406493cb2414e746be7">00032</link> &#32;&#32;uint8_t&#32;<link linkend="_struct_rtc_data_1abf6e0ad5c3c6a406493cb2414e746be7">day</link>;
+<anchor xml:id="_rtc__connector_8h_source_1l00033"/><link linkend="_struct_rtc_data_1a0f7e13b451b5bd15c98216ee3bc05d7c">00033</link> &#32;&#32;uint8_t&#32;<link linkend="_struct_rtc_data_1a0f7e13b451b5bd15c98216ee3bc05d7c">hour</link>;
+<anchor xml:id="_rtc__connector_8h_source_1l00034"/><link linkend="_struct_rtc_data_1aeae2e5f4a2d8e20ca8cb421ac9dc867c">00034</link> &#32;&#32;uint8_t&#32;<link linkend="_struct_rtc_data_1aeae2e5f4a2d8e20ca8cb421ac9dc867c">minute</link>;
+<anchor xml:id="_rtc__connector_8h_source_1l00035"/><link linkend="_struct_rtc_data_1aa3895ed98a0af367c9e8cb2d54c98285">00035</link> &#32;&#32;uint8_t&#32;<link linkend="_struct_rtc_data_1aa3895ed98a0af367c9e8cb2d54c98285">second</link>;
+<anchor xml:id="_rtc__connector_8h_source_1l00036"/>00036 
+<anchor xml:id="_rtc__connector_8h_source_1l00037"/>00037 &#32;&#32;<emphasis role="comment">//&#32;RTC&#32;VL_SECONDS&#32;register&#32;(0x02_&#32;bit&#32;7&#32;is&#32;VL&#32;bit:</emphasis>
+<anchor xml:id="_rtc__connector_8h_source_1l00038"/>00038 &#32;&#32;<emphasis role="comment">//&#32;&#32;&#32;false&#32;=&#32;clock&#32;integrity&#32;guaranteed</emphasis>
+<anchor xml:id="_rtc__connector_8h_source_1l00039"/>00039 &#32;&#32;<emphasis role="comment">//&#32;&#32;&#32;true&#32;=&#32;low&#32;power&#32;event&#32;detected&#32;(clock&#32;integrity&#32;not&#32;guaranteed)</emphasis>
+<anchor xml:id="_rtc__connector_8h_source_1l00040"/><link linkend="_struct_rtc_data_1af16c5c31a2428bb4fbcd95ae04aaf760">00040</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_struct_rtc_data_1af16c5c31a2428bb4fbcd95ae04aaf760">low_voltage</link>;
+<anchor xml:id="_rtc__connector_8h_source_1l00041"/>00041 &#32;&#32;<emphasis role="comment">//&#32;true&#32;if&#32;year&#32;&gt;=&#32;2023&#32;and&#32;low_voltage&#32;false&#32;(in&#32;case&#32;init&#32;with&#32;2k&#32;value)</emphasis>
+<anchor xml:id="_rtc__connector_8h_source_1l00042"/><link linkend="_struct_rtc_data_1ac0e78219a91cfc4f3277078aba82ad1c">00042</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_struct_rtc_data_1ac0e78219a91cfc4f3277078aba82ad1c">valid</link>;
+<anchor xml:id="_rtc__connector_8h_source_1l00043"/>00043 };
+<anchor xml:id="_rtc__connector_8h_source_1l00044"/>00044 
+<anchor xml:id="_rtc__connector_8h_source_1l00048"/><link linkend="_class_rtc_connector">00048</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_rtc_connector">RtcConnector</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;Worker&lt;RtcData&gt;&#32;{
+<anchor xml:id="_rtc__connector_8h_source_1l00049"/>00049 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_rtc__connector_8h_source_1l00050"/>00050 
+<anchor xml:id="_rtc__connector_8h_source_1l00051"/>00051 &#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_class_rtc_connector_1aeba28eddb2d261fd83bb84b25b9665f6">RtcConnector</link>();
+<anchor xml:id="_rtc__connector_8h_source_1l00052"/>00052 
+<anchor xml:id="_rtc__connector_8h_source_1l00053"/><link linkend="_class_rtc_connector_1ada9eb2bd3b279327903880e8683f75c6">00053</link> &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_rtc_connector_1ada9eb2bd3b279327903880e8683f75c6">~RtcConnector</link>()&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="_rtc__connector_8h_source_1l00054"/>00054 
+<anchor xml:id="_rtc__connector_8h_source_1l00055"/>00055 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_rtc_connector_1a293c97a15799ac492090d3343a0ee143">activate</link>(<emphasis role="keywordtype">bool</emphasis>&#32;retry)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_rtc__connector_8h_source_1l00056"/>00056 
+<anchor xml:id="_rtc__connector_8h_source_1l00057"/>00057 &#32;&#32;int8_t&#32;<link linkend="_class_rtc_connector_1a74bf98c4035bd859852460c4f6999b20">produce_data</link>()&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_rtc__connector_8h_source_1l00058"/>00058 
+<anchor xml:id="_rtc__connector_8h_source_1l00059"/>00059 &#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_rtc__connector_8h_source_1l00060"/>00060 
+<anchor xml:id="_rtc__connector_8h_source_1l00061"/>00061 <emphasis role="preprocessor">#ifdef&#32;M5_CORE2</emphasis>
+<anchor xml:id="_rtc__connector_8h_source_1l00062"/>00062 &#32;&#32;I2C_BM8563&#32;<link linkend="_main_8cpp_1a07c2d18832864fb5bb1417ce6cb8dbce">rtc</link>;
+<anchor xml:id="_rtc__connector_8h_source_1l00063"/>00063 
+<anchor xml:id="_rtc__connector_8h_source_1l00064"/>00064 &#32;&#32;I2C_BM8563_DateTypeDef&#32;dateStruct;
+<anchor xml:id="_rtc__connector_8h_source_1l00065"/>00065 &#32;&#32;I2C_BM8563_TimeTypeDef&#32;timeStruct;
+<anchor xml:id="_rtc__connector_8h_source_1l00066"/>00066 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_rtc__connector_8h_source_1l00067"/>00067 
+<anchor xml:id="_rtc__connector_8h_source_1l00068"/>00068 };
+<anchor xml:id="_rtc__connector_8h_source_1l00069"/>00069 
+<anchor xml:id="_rtc__connector_8h_source_1l00070"/>00070 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//BGEIGIEZEN_RTC_CONNECTOR_H_</emphasis>
+</programlisting></section>

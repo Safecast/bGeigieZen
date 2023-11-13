@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_http__pages_8h_source" xml:lang="en-US">
+<title>http_pages.h</title>
+<indexterm><primary>bgeigiezen_firmware/utils/http_pages.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_http__pages_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;BGEIGIECAST_HTTP_PAGES_H</emphasis>
+<anchor xml:id="_http__pages_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;BGEIGIECAST_HTTP_PAGES_H</emphasis>
+<anchor xml:id="_http__pages_8h_source_1l00003"/>00003 
+<anchor xml:id="_http__pages_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;WebServer.h&gt;</emphasis>
+<anchor xml:id="_http__pages_8h_source_1l00005"/>00005 
+<anchor xml:id="_http__pages_8h_source_1l00006"/><link linkend="_http__pages_8h_1aebb78aa92bb82104805350394cf60e62">00006</link> <emphasis role="preprocessor">#define&#32;TRANSMISSION_SIZE&#32;4098</emphasis>
+<anchor xml:id="_http__pages_8h_source_1l00007"/>00007 
+<anchor xml:id="_http__pages_8h_source_1l00008"/><link linkend="_http__pages_8h_1ada5878d891f82a42326746c9dbe6b9a6">00008</link> <emphasis role="preprocessor">#define&#32;PURE_CSS_SIZE&#32;3929</emphasis>
+<anchor xml:id="_http__pages_8h_source_1l00009"/><link linkend="_http__pages_8h_1abc7068a1efb6caca697cbfa09cb56f32">00009</link> <emphasis role="preprocessor">#define&#32;FAVICON_SIZE&#32;696</emphasis>
+<anchor xml:id="_http__pages_8h_source_1l00010"/>00010 
+<anchor xml:id="_http__pages_8h_source_1l00011"/>00011 
+<anchor xml:id="_http__pages_8h_source_1l00012"/><link linkend="_class_http_pages">00012</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_http_pages">HttpPages</link>&#32;{
+<anchor xml:id="_http__pages_8h_source_1l00013"/>00013 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_http__pages_8h_source_1l00014"/><link linkend="_class_http_pages_1a737989b229f10049a7e687eb3fba60cf">00014</link> &#32;&#32;<link linkend="_class_http_pages_1a737989b229f10049a7e687eb3fba60cf">HttpPages</link>()&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_http__pages_8h_source_1l00015"/>00015 
+<anchor xml:id="_http__pages_8h_source_1l00021"/>00021 &#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_class_http_pages_1a1d1d7cd02d52ee3802c8a968777d4c51">get_home_page</link>(
+<anchor xml:id="_http__pages_8h_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;uint32_t&#32;device_id
+<anchor xml:id="_http__pages_8h_source_1l00023"/>00023 &#32;&#32;);
+<anchor xml:id="_http__pages_8h_source_1l00024"/>00024 
+<anchor xml:id="_http__pages_8h_source_1l00033"/>00033 &#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_class_http_pages_1a699f3b010b822aeef2cf40f0d865038c">get_config_device_page</link>(
+<anchor xml:id="_http__pages_8h_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;display_success,
+<anchor xml:id="_http__pages_8h_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;uint32_t&#32;device_id
+<anchor xml:id="_http__pages_8h_source_1l00036"/>00036 &#32;&#32;);
+<anchor xml:id="_http__pages_8h_source_1l00037"/>00037 
+<anchor xml:id="_http__pages_8h_source_1l00049"/>00049 &#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_class_http_pages_1a71db1b40789f4ad547741bc3b5a4b9a2">get_config_connection_page</link>(
+<anchor xml:id="_http__pages_8h_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;display_success,
+<anchor xml:id="_http__pages_8h_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;uint32_t&#32;device_id
+<anchor xml:id="_http__pages_8h_source_1l00052"/>00052 &#32;&#32;);
+<anchor xml:id="_http__pages_8h_source_1l00053"/>00053 
+<anchor xml:id="_http__pages_8h_source_1l00065"/>00065 &#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_class_http_pages_1a75dc19ae45871ef3dfc2c412fe520862">get_config_location_page</link>(
+<anchor xml:id="_http__pages_8h_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;display_success,
+<anchor xml:id="_http__pages_8h_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;uint32_t&#32;device_id
+<anchor xml:id="_http__pages_8h_source_1l00068"/>00068 &#32;&#32;);
+<anchor xml:id="_http__pages_8h_source_1l00069"/>00069 
+<anchor xml:id="_http__pages_8h_source_1l00070"/><link linkend="_class_http_pages_1a4a7f7da507251011076206062a49e0af">00070</link> &#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t&#32;<link linkend="_class_http_pages_1a4a7f7da507251011076206062a49e0af">pure_css</link>[<link linkend="_http__pages_8h_1ada5878d891f82a42326746c9dbe6b9a6">PURE_CSS_SIZE</link>];
+<anchor xml:id="_http__pages_8h_source_1l00071"/><link linkend="_class_http_pages_1a9be2569908780465b83751bc08251a61">00071</link> &#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t&#32;<link linkend="_class_http_pages_1a9be2569908780465b83751bc08251a61">favicon</link>[<link linkend="_http__pages_8h_1abc7068a1efb6caca697cbfa09cb56f32">FAVICON_SIZE</link>];
+<anchor xml:id="_http__pages_8h_source_1l00072"/><link linkend="_class_http_pages_1a27971511660fee4a1b5f5f8b7f7e47f4">00072</link> &#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_class_http_pages_1a27971511660fee4a1b5f5f8b7f7e47f4">pure_js</link>;
+<anchor xml:id="_http__pages_8h_source_1l00073"/>00073 
+<anchor xml:id="_http__pages_8h_source_1l00074"/><link linkend="_class_http_pages_1a9d1744128b715be721740fe9783a3b98">00074</link> &#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_http_pages_1a9d1744128b715be721740fe9783a3b98">internet_access</link>;
+<anchor xml:id="_http__pages_8h_source_1l00075"/>00075 
+<anchor xml:id="_http__pages_8h_source_1l00076"/>00076 &#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_http__pages_8h_source_1l00077"/>00077 
+<anchor xml:id="_http__pages_8h_source_1l00078"/>00078 &#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;render_full_page(uint32_t&#32;device_id,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;page_name,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;content_format,&#32;...);
+<anchor xml:id="_http__pages_8h_source_1l00079"/>00079 &#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;transmission_buffer[<link linkend="_http__pages_8h_1aebb78aa92bb82104805350394cf60e62">TRANSMISSION_SIZE</link>];
+<anchor xml:id="_http__pages_8h_source_1l00080"/>00080 
+<anchor xml:id="_http__pages_8h_source_1l00081"/>00081 };
+<anchor xml:id="_http__pages_8h_source_1l00082"/>00082 
+<anchor xml:id="_http__pages_8h_source_1l00083"/>00083 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//BGEIGIECAST_HTTP_PAGES_H</emphasis>
+</programlisting></section>

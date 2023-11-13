@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_rtc__connector_8cpp_source" xml:lang="en-US">
+<title>rtc_connector.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/workers/rtc_connector.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_rtc__connector_8cpp_source_1l00001"/>00001 
+<anchor xml:id="_rtc__connector_8cpp_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_rtc__connector_8h">rtc_connector.h</link>&quot;</emphasis>
+<anchor xml:id="_rtc__connector_8cpp_source_1l00009"/>00009 
+<anchor xml:id="_rtc__connector_8cpp_source_1l00010"/>00010 
+<anchor xml:id="_rtc__connector_8cpp_source_1l00011"/>00011 <emphasis role="preprocessor">#ifdef&#32;M5_CORE2</emphasis>
+<anchor xml:id="_rtc__connector_8cpp_source_1l00012"/>00012 <link linkend="_class_rtc_connector_1aeba28eddb2d261fd83bb84b25b9665f6">RtcConnector::RtcConnector</link>()&#32;:&#32;Worker&lt;<link linkend="_struct_rtc_data">RtcData</link>&gt;({.year=0,&#32;.month=0,&#32;.day=0,&#32;.hour=0,&#32;.minute=0,&#32;.second=0,&#32;.low_voltage=<emphasis role="keyword">false</emphasis>,&#32;.valid=<emphasis role="keyword">false</emphasis>},&#32;1000),
+<anchor xml:id="_rtc__connector_8cpp_source_1l00013"/>00013 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8cpp_1a07c2d18832864fb5bb1417ce6cb8dbce">rtc</link>(I2C_BM8563_DEFAULT_ADDRESS,&#32;Wire1),
+<anchor xml:id="_rtc__connector_8cpp_source_1l00014"/>00014 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;dateStruct({.weekDay=0,&#32;.month=0,&#32;.date=0,&#32;.year=0}),
+<anchor xml:id="_rtc__connector_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;timeStruct({.hours=0,&#32;.minutes=0,&#32;.seconds=0})&#32;{
+<anchor xml:id="_rtc__connector_8cpp_source_1l00016"/>00016 }
+<anchor xml:id="_rtc__connector_8cpp_source_1l00017"/>00017 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="_rtc__connector_8cpp_source_1l00018"/><link linkend="_class_rtc_connector_1aeba28eddb2d261fd83bb84b25b9665f6">00018</link> <link linkend="_class_rtc_connector_1aeba28eddb2d261fd83bb84b25b9665f6">RtcConnector::RtcConnector</link>()&#32;:&#32;Worker&lt;<link linkend="_struct_rtc_data">RtcData</link>&gt;({.year=0,&#32;.month=0,&#32;.day=0,&#32;.hour=0,&#32;.minute=0,&#32;.second=0,&#32;.low_voltage=<emphasis role="keyword">false</emphasis>,&#32;.valid=<emphasis role="keyword">false</emphasis>},&#32;1000)&#32;{
+<anchor xml:id="_rtc__connector_8cpp_source_1l00019"/>00019 }
+<anchor xml:id="_rtc__connector_8cpp_source_1l00020"/>00020 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_rtc__connector_8cpp_source_1l00021"/>00021 
+<anchor xml:id="_rtc__connector_8cpp_source_1l00025"/><link linkend="_class_rtc_connector_1a293c97a15799ac492090d3343a0ee143">00025</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_rtc_connector_1a293c97a15799ac492090d3343a0ee143">RtcConnector::activate</link>(<emphasis role="keywordtype">bool</emphasis>&#32;retry)&#32;{
+<anchor xml:id="_rtc__connector_8cpp_source_1l00026"/>00026 
+<anchor xml:id="_rtc__connector_8cpp_source_1l00027"/>00027 <emphasis role="preprocessor">#ifdef&#32;M5_CORE2</emphasis>
+<anchor xml:id="_rtc__connector_8cpp_source_1l00028"/>00028 &#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;Activating&#32;RTC&#32;Connector,&#32;SDA,&#32;SCL&quot;</emphasis>);
+<anchor xml:id="_rtc__connector_8cpp_source_1l00029"/>00029 &#32;&#32;<link linkend="_debugger_8h_1a4af5a6b3ea1e4fe9df4c0891c175fcfa">DEBUG_PRINT</link>(BM8563_I2C_SDA);
+<anchor xml:id="_rtc__connector_8cpp_source_1l00030"/>00030 &#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(BM8563_I2C_SCL);
+<anchor xml:id="_rtc__connector_8cpp_source_1l00031"/>00031 &#32;&#32;Wire1.begin(BM8563_I2C_SDA,&#32;BM8563_I2C_SCL);
+<anchor xml:id="_rtc__connector_8cpp_source_1l00032"/>00032 &#32;&#32;<link linkend="_main_8cpp_1a07c2d18832864fb5bb1417ce6cb8dbce">rtc</link>.begin();
+<anchor xml:id="_rtc__connector_8cpp_source_1l00033"/>00033 &#32;&#32;data.low_voltage&#32;=&#32;<link linkend="_main_8cpp_1a07c2d18832864fb5bb1417ce6cb8dbce">rtc</link>.getVoltLow();
+<anchor xml:id="_rtc__connector_8cpp_source_1l00034"/>00034 &#32;&#32;<link linkend="_main_8cpp_1a07c2d18832864fb5bb1417ce6cb8dbce">rtc</link>.getDate(&amp;dateStruct);
+<anchor xml:id="_rtc__connector_8cpp_source_1l00035"/>00035 &#32;&#32;<link linkend="_main_8cpp_1a07c2d18832864fb5bb1417ce6cb8dbce">rtc</link>.getTime(&amp;timeStruct);
+<anchor xml:id="_rtc__connector_8cpp_source_1l00036"/>00036 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00037"/>00037 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="_rtc__connector_8cpp_source_1l00038"/>00038 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00039"/>00039 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_rtc__connector_8cpp_source_1l00040"/>00040 }
+<anchor xml:id="_rtc__connector_8cpp_source_1l00041"/>00041 
+<anchor xml:id="_rtc__connector_8cpp_source_1l00042"/><link linkend="_class_rtc_connector_1a74bf98c4035bd859852460c4f6999b20">00042</link> int8_t&#32;<link linkend="_class_rtc_connector_1a74bf98c4035bd859852460c4f6999b20">RtcConnector::produce_data</link>()&#32;{
+<anchor xml:id="_rtc__connector_8cpp_source_1l00043"/>00043 <emphasis role="preprocessor">#ifdef&#32;M5_CORE2</emphasis>
+<anchor xml:id="_rtc__connector_8cpp_source_1l00044"/>00044 &#32;&#32;<link linkend="_main_8cpp_1a07c2d18832864fb5bb1417ce6cb8dbce">rtc</link>.getDate(&amp;dateStruct);
+<anchor xml:id="_rtc__connector_8cpp_source_1l00045"/>00045 &#32;&#32;<link linkend="_main_8cpp_1a07c2d18832864fb5bb1417ce6cb8dbce">rtc</link>.getTime(&amp;timeStruct);
+<anchor xml:id="_rtc__connector_8cpp_source_1l00046"/>00046 &#32;&#32;data.low_voltage&#32;=&#32;<link linkend="_main_8cpp_1a07c2d18832864fb5bb1417ce6cb8dbce">rtc</link>.getVoltLow();
+<anchor xml:id="_rtc__connector_8cpp_source_1l00047"/>00047 
+<anchor xml:id="_rtc__connector_8cpp_source_1l00048"/>00048 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!data.low_voltage&#32;&amp;&amp;&#32;dateStruct.year&#32;&gt;=&#32;2023)&#32;{
+<anchor xml:id="_rtc__connector_8cpp_source_1l00049"/>00049 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Data&#32;is&#32;valid</emphasis>
+<anchor xml:id="_rtc__connector_8cpp_source_1l00050"/>00050 &#32;&#32;&#32;&#32;data.valid&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00051"/>00051 &#32;&#32;&#32;&#32;data.second&#32;=&#32;timeStruct.seconds;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;data.minute&#32;=&#32;timeStruct.minutes;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00053"/>00053 &#32;&#32;&#32;&#32;data.hour&#32;=&#32;timeStruct.hours;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00054"/>00054 &#32;&#32;&#32;&#32;data.day&#32;=&#32;dateStruct.date;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00055"/>00055 &#32;&#32;&#32;&#32;data.month&#32;=&#32;dateStruct.month;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00056"/>00056 &#32;&#32;&#32;&#32;data.year&#32;=&#32;dateStruct.year;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00057"/>00057 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;e_worker_data_read;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00058"/>00058 &#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_rtc__connector_8cpp_source_1l00059"/>00059 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Unable&#32;to&#32;validate&#32;data,</emphasis>
+<anchor xml:id="_rtc__connector_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;data.valid&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;data.second&#32;=&#32;0;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00062"/>00062 &#32;&#32;&#32;&#32;data.minute&#32;=&#32;0;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;data.hour&#32;=&#32;0;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00064"/>00064 &#32;&#32;&#32;&#32;data.day&#32;=&#32;0;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00065"/>00065 &#32;&#32;&#32;&#32;data.month&#32;=&#32;0;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00066"/>00066 &#32;&#32;&#32;&#32;data.year&#32;=&#32;0;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00067"/>00067 &#32;&#32;}
+<anchor xml:id="_rtc__connector_8cpp_source_1l00068"/>00068 
+<anchor xml:id="_rtc__connector_8cpp_source_1l00069"/>00069 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_rtc__connector_8cpp_source_1l00070"/>00070 
+<anchor xml:id="_rtc__connector_8cpp_source_1l00071"/>00071 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;e_worker_idle;
+<anchor xml:id="_rtc__connector_8cpp_source_1l00072"/>00072 }
+</programlisting></section>

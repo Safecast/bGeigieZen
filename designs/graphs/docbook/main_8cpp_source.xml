@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_main_8cpp_source" xml:lang="en-US">
+<title>main.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/main.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_main_8cpp_source_1l00001"/>00001 
+<anchor xml:id="_main_8cpp_source_1l00044"/>00044 <emphasis role="preprocessor">#ifdef&#32;M5_CORE2</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00045"/>00045 <emphasis role="preprocessor">#include&#32;&lt;M5Core2.h&gt;</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00046"/>00046 <emphasis role="preprocessor">#elif&#32;M5_BASIC</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00047"/>00047 <emphasis role="preprocessor">#include&#32;&lt;M5Stack.h&gt;</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00048"/>00048 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00049"/>00049 
+<anchor xml:id="_main_8cpp_source_1l00050"/>00050 <emphasis role="preprocessor">#include&#32;&lt;Arduino.h&gt;</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00051"/>00051 
+<anchor xml:id="_main_8cpp_source_1l00052"/>00052 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_identifiers_8h">identifiers.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00053"/>00053 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_controller_8h">controller.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00054"/>00054 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_gps__connector_8h">workers/gps_connector.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00055"/>00055 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_gm__sensor_8h">workers/gm_sensor.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00056"/>00056 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_zen__button_8h">workers/zen_button.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00057"/>00057 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_shake__detector_8h">workers/shake_detector.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00058"/>00058 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_battery__indicator_8h">workers/battery_indicator.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00059"/>00059 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_log__aggregator_8h">workers/log_aggregator.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00060"/>00060 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_rtc__connector_8h">workers/rtc_connector.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00061"/>00061 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_gfx__screen_8h">gfx_screen.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00062"/>00062 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_debugger_8h">debugger.h</link>&quot;</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00063"/>00063 
+<anchor xml:id="_main_8cpp_source_1l00064"/><link linkend="_main_8cpp_1aa58ff36b40f59925c16651a5344ebfa8">00064</link> SFE_UBLOX_GNSS&#32;<link linkend="_main_8cpp_1aa58ff36b40f59925c16651a5344ebfa8">gnss</link>;
+<anchor xml:id="_main_8cpp_source_1l00065"/>00065 
+<anchor xml:id="_main_8cpp_source_1l00066"/><link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">00066</link> <link linkend="_class_local_storage">LocalStorage</link>&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>;
+<anchor xml:id="_main_8cpp_source_1l00067"/><link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">00067</link> <link linkend="_class_controller">Controller</link>&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>(<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>);
+<anchor xml:id="_main_8cpp_source_1l00068"/>00068 
+<anchor xml:id="_main_8cpp_source_1l00069"/><link linkend="_main_8cpp_1a0545b0e81b175ec1ffc51bdea06d4826">00069</link> <link linkend="_class_zen_button">ZenButton</link>&#32;<link linkend="_main_8cpp_1a0545b0e81b175ec1ffc51bdea06d4826">zen_A</link>(M5.BtnA);
+<anchor xml:id="_main_8cpp_source_1l00070"/><link linkend="_main_8cpp_1a57f4b91a8bc40525b0cbebd234968c5d">00070</link> <link linkend="_class_zen_button">ZenButton</link>&#32;<link linkend="_main_8cpp_1a57f4b91a8bc40525b0cbebd234968c5d">zen_B</link>(M5.BtnB);
+<anchor xml:id="_main_8cpp_source_1l00071"/><link linkend="_main_8cpp_1a68ec89250dc79e85ab90a9e1c4e7f2a2">00071</link> <link linkend="_class_zen_button">ZenButton</link>&#32;<link linkend="_main_8cpp_1a68ec89250dc79e85ab90a9e1c4e7f2a2">zen_C</link>(M5.BtnC);
+<anchor xml:id="_main_8cpp_source_1l00072"/><link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">00072</link> <link linkend="_class_gps_connector">GpsConnector</link>&#32;<link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">gps</link>(<link linkend="_user__config_8h_1a0b6d3c410877eab2e3300a19df913ec9">GPS_SERIAL_NUM</link>,&#32;<link linkend="_main_8cpp_1aa58ff36b40f59925c16651a5344ebfa8">gnss</link>);
+<anchor xml:id="_main_8cpp_source_1l00073"/><link linkend="_main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b">00073</link> <link linkend="_class_geiger_counter">GeigerCounter</link>&#32;<link linkend="_main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b">gm_sensor</link>;
+<anchor xml:id="_main_8cpp_source_1l00074"/><link linkend="_main_8cpp_1a40c3633d7598f468c5672dbcedaaf46c">00074</link> <link linkend="_class_battery_indicator">BatteryIndicator</link>&#32;<link linkend="_main_8cpp_1a40c3633d7598f468c5672dbcedaaf46c">battery_indicator</link>;
+<anchor xml:id="_main_8cpp_source_1l00075"/><link linkend="_main_8cpp_1a07c2d18832864fb5bb1417ce6cb8dbce">00075</link> <link linkend="_class_rtc_connector">RtcConnector</link>&#32;<link linkend="_main_8cpp_1a07c2d18832864fb5bb1417ce6cb8dbce">rtc</link>;
+<anchor xml:id="_main_8cpp_source_1l00076"/><link linkend="_main_8cpp_1aec547d64ab192c39476f5cbad0e32eb0">00076</link> <link linkend="_class_shake_detector">ShakeDetector</link>&#32;<link linkend="_main_8cpp_1aec547d64ab192c39476f5cbad0e32eb0">shake_detector</link>;
+<anchor xml:id="_main_8cpp_source_1l00077"/><link linkend="_main_8cpp_1a14fad6b96fd26bd4219043784815c08b">00077</link> <link linkend="_class_log_aggregator">LogAggregator</link>&#32;<link linkend="_main_8cpp_1a14fad6b96fd26bd4219043784815c08b">log_aggregator</link>(<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>);
+<anchor xml:id="_main_8cpp_source_1l00078"/>00078 
+<anchor xml:id="_main_8cpp_source_1l00079"/>00079 <emphasis role="comment">//&#32;Data&#32;handlers</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00080"/>00080 
+<anchor xml:id="_main_8cpp_source_1l00081"/>00081 <emphasis role="comment">//&#32;Supervisors</emphasis>
+<anchor xml:id="_main_8cpp_source_1l00082"/><link linkend="_main_8cpp_1a8cb3808a6d150a5aad73326d6d0a7ce1">00082</link> <link linkend="_class_g_f_x_screen">GFXScreen</link>&#32;<link linkend="_main_8cpp_1a8cb3808a6d150a5aad73326d6d0a7ce1">gfx_screen</link>(<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>,&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>);
+<anchor xml:id="_main_8cpp_source_1l00083"/>00083 
+<anchor xml:id="_main_8cpp_source_1l00084"/><link linkend="_main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d">00084</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d">setup</link>()&#32;{
+<anchor xml:id="_main_8cpp_source_1l00085"/>00085 &#32;&#32;<link linkend="_debugger_8h_1a99e2e45e03525a9c0a43ccb2b9831057">DEBUG_BEGIN</link>();
+<anchor xml:id="_main_8cpp_source_1l00086"/>00086 &#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;MAIN&#32;SETUP&#32;DEBUG&#32;ENABLED&quot;</emphasis>);
+<anchor xml:id="_main_8cpp_source_1l00088"/>00088 &#32;&#32;Wire.begin();
+<anchor xml:id="_main_8cpp_source_1l00089"/>00089 &#32;&#32;M5.begin();
+<anchor xml:id="_main_8cpp_source_1l00090"/>00090 
+<anchor xml:id="_main_8cpp_source_1l00092"/>00092 
+<anchor xml:id="_main_8cpp_source_1l00093"/>00093 &#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;Register&#32;workers...&quot;</emphasis>);
+<anchor xml:id="_main_8cpp_source_1l00094"/>00094 &#32;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>.register_worker(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211">k_worker_gps_connector</link>,&#32;<link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">gps</link>);
+<anchor xml:id="_main_8cpp_source_1l00095"/>00095 &#32;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>.register_worker(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fadce40ed07be9b46afdd704f59b77a907">k_worker_gm_sensor</link>,&#32;<link linkend="_main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b">gm_sensor</link>);
+<anchor xml:id="_main_8cpp_source_1l00096"/>00096 &#32;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>.register_worker(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa951ed1e78f9184858e490f6522b39c5d">k_worker_shake_detector</link>,&#32;<link linkend="_main_8cpp_1aec547d64ab192c39476f5cbad0e32eb0">shake_detector</link>);
+<anchor xml:id="_main_8cpp_source_1l00097"/>00097 &#32;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>.register_worker(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa6daa8cab2f33582eddf479bf8dc018d9">k_worker_battery_indicator</link>,&#32;<link linkend="_main_8cpp_1a40c3633d7598f468c5672dbcedaaf46c">battery_indicator</link>);
+<anchor xml:id="_main_8cpp_source_1l00098"/>00098 &#32;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>.register_worker(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa84141b7b60c4055e432a1f28ae9aa98b">k_worker_rtc_connector</link>,&#32;<link linkend="_main_8cpp_1a07c2d18832864fb5bb1417ce6cb8dbce">rtc</link>);
+<anchor xml:id="_main_8cpp_source_1l00099"/>00099 &#32;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>.register_worker(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa824a84bb0222b57ea4966a17b90b110c">k_worker_button_3</link>,&#32;<link linkend="_main_8cpp_1a0545b0e81b175ec1ffc51bdea06d4826">zen_A</link>);
+<anchor xml:id="_main_8cpp_source_1l00100"/>00100 &#32;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>.register_worker(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fae09f915b7a21b04751f8379fe4ea0b88">k_worker_button_2</link>,&#32;<link linkend="_main_8cpp_1a57f4b91a8bc40525b0cbebd234968c5d">zen_B</link>);
+<anchor xml:id="_main_8cpp_source_1l00101"/>00101 &#32;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>.register_worker(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa34908d3524a003a1a416f710d3bf096b">k_worker_button_1</link>,&#32;<link linkend="_main_8cpp_1a68ec89250dc79e85ab90a9e1c4e7f2a2">zen_C</link>);
+<anchor xml:id="_main_8cpp_source_1l00102"/>00102 &#32;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>.register_worker(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa40dd481c8643b09aff483e9f4f7c2006">k_worker_log_aggregator</link>,&#32;<link linkend="_main_8cpp_1a14fad6b96fd26bd4219043784815c08b">log_aggregator</link>);
+<anchor xml:id="_main_8cpp_source_1l00103"/>00103 &#32;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>.register_worker(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fad35320cf9c17965d52ea2427552a20f7">k_worker_device_state</link>,&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>);
+<anchor xml:id="_main_8cpp_source_1l00104"/>00104 
+<anchor xml:id="_main_8cpp_source_1l00105"/>00105 &#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;Register&#32;handlers...&quot;</emphasis>);
+<anchor xml:id="_main_8cpp_source_1l00106"/>00106 &#32;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>.register_handler(<link linkend="_identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8ae56ed9df6bb863ff9b227da84d1d3437">k_handler_local_storage</link>,&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>);
+<anchor xml:id="_main_8cpp_source_1l00107"/>00107 
+<anchor xml:id="_main_8cpp_source_1l00108"/>00108 &#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;Register&#32;supervisors...&quot;</emphasis>);
+<anchor xml:id="_main_8cpp_source_1l00109"/>00109 &#32;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>.register_supervisor(<link linkend="_main_8cpp_1a8cb3808a6d150a5aad73326d6d0a7ce1">gfx_screen</link>);
+<anchor xml:id="_main_8cpp_source_1l00110"/>00110 
+<anchor xml:id="_main_8cpp_source_1l00111"/>00111 &#32;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>.<link linkend="_class_controller_1a772a3f581d1741f01044e1c581139924">start_default_workers</link>();
+<anchor xml:id="_main_8cpp_source_1l00112"/>00112 }
+<anchor xml:id="_main_8cpp_source_1l00113"/>00113 
+<anchor xml:id="_main_8cpp_source_1l00114"/><link linkend="_main_8cpp_1afe461d27b9c48d5921c00d521181f12f">00114</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_main_8cpp_1afe461d27b9c48d5921c00d521181f12f">loop</link>()&#32;{
+<anchor xml:id="_main_8cpp_source_1l00115"/>00115 &#32;&#32;M5.update();
+<anchor xml:id="_main_8cpp_source_1l00116"/>00116 &#32;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>.run();
+<anchor xml:id="_main_8cpp_source_1l00117"/>00117 }
+</programlisting></section>

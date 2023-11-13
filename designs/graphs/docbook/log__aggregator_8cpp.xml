@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_log__aggregator_8cpp" xml:lang="en-US">
+<title>bgeigiezen_firmware/workers/log_aggregator.cpp File Reference</title>
+<indexterm><primary>bgeigiezen_firmware/workers/log_aggregator.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;log_aggregator.h&quot;<?linebreak?>#include &quot;gm_sensor.h&quot;<?linebreak?>#include &quot;gps_connector.h&quot;<?linebreak?>#include &quot;battery_indicator.h&quot;<?linebreak?>#include &quot;identifiers.h&quot;<?linebreak?></programlisting>Include dependency graph for log_aggregator.cpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="log__aggregator_8cpp__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_log__aggregator_8cpp_1a0a3cc1d5cde549e408f825ddd7f5853d">D2R</link>&#160;&#160;&#160;(PI / 180.0)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_log__aggregator_8cpp_1a337caaa93a8a28930d24c2238da8ac1d">FIXED_LOCATION_RANGE_KM</link>&#160;&#160;&#160;0.4</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>char <link linkend="_log__aggregator_8cpp_1a59f30f324b3fc88c68fd16abc2d95d41">checksum</link> (const char *s, size_t N)</para>
+</listitem>
+            <listitem><para>double <link linkend="_log__aggregator_8cpp_1a9b1d6cb0ae5f9e0e2eb8547c8d1fa038">haversine_km</link> (double lat1, double long1, double lat2, double long2)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_log__aggregator_8cpp_1a0a3cc1d5cde549e408f825ddd7f5853d"/><section>
+    <title>D2R</title>
+<indexterm><primary>D2R</primary><secondary>log_aggregator.cpp</secondary></indexterm>
+<indexterm><primary>log_aggregator.cpp</primary><secondary>D2R</secondary></indexterm>
+<para><computeroutput>#define D2R&#160;&#160;&#160;(PI / 180.0)</computeroutput></para><para>
+Definition at line <link linkend="_log__aggregator_8cpp_source_1l00007">7</link> of file <link linkend="_log__aggregator_8cpp_source">log_aggregator.cpp</link>.</para>
+</section>
+<anchor xml:id="_log__aggregator_8cpp_1a337caaa93a8a28930d24c2238da8ac1d"/><section>
+    <title>FIXED_LOCATION_RANGE_KM</title>
+<indexterm><primary>FIXED_LOCATION_RANGE_KM</primary><secondary>log_aggregator.cpp</secondary></indexterm>
+<indexterm><primary>log_aggregator.cpp</primary><secondary>FIXED_LOCATION_RANGE_KM</secondary></indexterm>
+<para><computeroutput>#define FIXED_LOCATION_RANGE_KM&#160;&#160;&#160;0.4</computeroutput></para><para>
+Definition at line <link linkend="_log__aggregator_8cpp_source_1l00008">8</link> of file <link linkend="_log__aggregator_8cpp_source">log_aggregator.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_log__aggregator_8cpp_1a59f30f324b3fc88c68fd16abc2d95d41"/><section>
+    <title>checksum()</title>
+<indexterm><primary>checksum</primary><secondary>log_aggregator.cpp</secondary></indexterm>
+<indexterm><primary>log_aggregator.cpp</primary><secondary>checksum</secondary></indexterm>
+<para><computeroutput>char checksum (const char * s, size_t N)</computeroutput></para><para>
+Definition at line <link linkend="_log__aggregator_8cpp_source_1l00012">12</link> of file <link linkend="_log__aggregator_8cpp_source">log_aggregator.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="log__aggregator_8cpp_a59f30f324b3fc88c68fd16abc2d95d41_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_log__aggregator_8cpp_1a9b1d6cb0ae5f9e0e2eb8547c8d1fa038"/><section>
+    <title>haversine_km()</title>
+<indexterm><primary>haversine_km</primary><secondary>log_aggregator.cpp</secondary></indexterm>
+<indexterm><primary>log_aggregator.cpp</primary><secondary>haversine_km</secondary></indexterm>
+<para><computeroutput>double haversine_km (double lat1, double long1, double lat2, double long2)</computeroutput></para>
+<para>Calculate distance using haversine formula 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>lat1</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>long1</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>lat2</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>long2</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>distance in km </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_log__aggregator_8cpp_source_1l00030">30</link> of file <link linkend="_log__aggregator_8cpp_source">log_aggregator.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="log__aggregator_8cpp_a9b1d6cb0ae5f9e0e2eb8547c8d1fa038_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_http__pages_8cpp" xml:lang="en-US">
+<title>bgeigiezen_firmware/utils/http_pages.cpp File Reference</title>
+<indexterm><primary>bgeigiezen_firmware/utils/http_pages.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;http_pages.h&quot;<?linebreak?>#include &quot;user_config.h&quot;<?linebreak?></programlisting>Include dependency graph for http_pages.cpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="http__pages_8cpp__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_http__pages_8cpp_1af3c76173d9113df855c79e06ff1a450d">TITLE_HOME</link>&#160;&#160;&#160;&quot;Home&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8cpp_1a08b001d2c63e64cf2d1ef907f0274442">TITLE_CONF_DEVICE</link>&#160;&#160;&#160;&quot;Configure device&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8cpp_1aef2bd8f48cdef451a4b19a97bcd43871">TITLE_CONF_LOCATION</link>&#160;&#160;&#160;&quot;Configure location&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8cpp_1a848a5bb21c8a65f476bfc167fcd58099">TITLE_CONF_CONNECTION</link>&#160;&#160;&#160;&quot;Configure connection&quot;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>const char * <link linkend="_http__pages_8cpp_1a4ef40f7c55ec7811edfc747518b28da1">success_message</link> = &quot;&lt;p&gt;&lt;em&gt;Configurations saved!&lt;/em&gt;&lt;/p&gt;&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_http__pages_8cpp_1a29b8be6ee36459b8e104038c8a9bdee5">local_resources</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_http__pages_8cpp_1ae6df65aa2af330f07484ad2ecc8fdb2a">online_resources</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_http__pages_8cpp_1a5b5b2f8484ce0e0e2812cd7e054c6305">fallback_resources</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_http__pages_8cpp_1a0109f6b85652073f32cd85eed8a17e93">base_page_format_begin</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_http__pages_8cpp_1ac70854952f3b30df3d10b39bcc8f90e0">base_page_format_end</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_http__pages_8cpp_1a848a5bb21c8a65f476bfc167fcd58099"/><section>
+    <title>TITLE_CONF_CONNECTION</title>
+<indexterm><primary>TITLE_CONF_CONNECTION</primary><secondary>http_pages.cpp</secondary></indexterm>
+<indexterm><primary>http_pages.cpp</primary><secondary>TITLE_CONF_CONNECTION</secondary></indexterm>
+<para><computeroutput>#define TITLE_CONF_CONNECTION&#160;&#160;&#160;&quot;Configure connection&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00007">7</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8cpp_1a08b001d2c63e64cf2d1ef907f0274442"/><section>
+    <title>TITLE_CONF_DEVICE</title>
+<indexterm><primary>TITLE_CONF_DEVICE</primary><secondary>http_pages.cpp</secondary></indexterm>
+<indexterm><primary>http_pages.cpp</primary><secondary>TITLE_CONF_DEVICE</secondary></indexterm>
+<para><computeroutput>#define TITLE_CONF_DEVICE&#160;&#160;&#160;&quot;Configure device&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00005">5</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8cpp_1aef2bd8f48cdef451a4b19a97bcd43871"/><section>
+    <title>TITLE_CONF_LOCATION</title>
+<indexterm><primary>TITLE_CONF_LOCATION</primary><secondary>http_pages.cpp</secondary></indexterm>
+<indexterm><primary>http_pages.cpp</primary><secondary>TITLE_CONF_LOCATION</secondary></indexterm>
+<para><computeroutput>#define TITLE_CONF_LOCATION&#160;&#160;&#160;&quot;Configure location&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00006">6</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8cpp_1af3c76173d9113df855c79e06ff1a450d"/><section>
+    <title>TITLE_HOME</title>
+<indexterm><primary>TITLE_HOME</primary><secondary>http_pages.cpp</secondary></indexterm>
+<indexterm><primary>http_pages.cpp</primary><secondary>TITLE_HOME</secondary></indexterm>
+<para><computeroutput>#define TITLE_HOME&#160;&#160;&#160;&quot;Home&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00004">4</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_http__pages_8cpp_1a0109f6b85652073f32cd85eed8a17e93"/><section>
+    <title>base_page_format_begin</title>
+<indexterm><primary>base_page_format_begin</primary><secondary>http_pages.cpp</secondary></indexterm>
+<indexterm><primary>http_pages.cpp</primary><secondary>base_page_format_begin</secondary></indexterm>
+<para><computeroutput>const char* base_page_format_begin</computeroutput></para>
+<para>page format s - page name (page title) d - device id (page title) s - remote resources s - local resources d - device id (menu title) s - page content (main content) </para>
+<para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00031">31</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8cpp_1ac70854952f3b30df3d10b39bcc8f90e0"/><section>
+    <title>base_page_format_end</title>
+<indexterm><primary>base_page_format_end</primary><secondary>http_pages.cpp</secondary></indexterm>
+<indexterm><primary>http_pages.cpp</primary><secondary>base_page_format_end</secondary></indexterm>
+<para><computeroutput>const char* base_page_format_end</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&lt;/div&gt;&quot;</emphasis>
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&lt;/div&gt;&quot;</emphasis>
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&lt;/body&gt;&lt;/html&gt;&quot;</emphasis>
+</programlisting><para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00069">69</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8cpp_1a5b5b2f8484ce0e0e2812cd7e054c6305"/><section>
+    <title>fallback_resources</title>
+<indexterm><primary>fallback_resources</primary><secondary>http_pages.cpp</secondary></indexterm>
+<indexterm><primary>http_pages.cpp</primary><secondary>fallback_resources</secondary></indexterm>
+<para><computeroutput>const char* fallback_resources</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>
+</programlisting><para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00019">19</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8cpp_1a29b8be6ee36459b8e104038c8a9bdee5"/><section>
+    <title>local_resources</title>
+<indexterm><primary>local_resources</primary><secondary>http_pages.cpp</secondary></indexterm>
+<indexterm><primary>http_pages.cpp</primary><secondary>local_resources</secondary></indexterm>
+<para><computeroutput>const char* local_resources</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&lt;link&#32;rel=&apos;stylesheet&apos;&#32;href=&apos;/pure.css&apos;&gt;&quot;</emphasis>
+</programlisting><para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00011">11</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8cpp_1ae6df65aa2af330f07484ad2ecc8fdb2a"/><section>
+    <title>online_resources</title>
+<indexterm><primary>online_resources</primary><secondary>http_pages.cpp</secondary></indexterm>
+<indexterm><primary>http_pages.cpp</primary><secondary>online_resources</secondary></indexterm>
+<para><computeroutput>const char* online_resources</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&lt;script&#32;src=&apos;https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js&apos;&gt;&lt;/script&gt;&quot;</emphasis>
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&lt;link&#32;rel=&apos;stylesheet&apos;&#32;href=&apos;https://use.fontawesome.com/releases/v5.8.2/css/all.css&apos;&#32;&quot;</emphasis>
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;integrity=&apos;sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay&apos;&#32;crossorigin=&apos;anonymous&apos;&gt;&quot;</emphasis>
+</programlisting><para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00014">14</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8cpp_1a4ef40f7c55ec7811edfc747518b28da1"/><section>
+    <title>success_message</title>
+<indexterm><primary>success_message</primary><secondary>http_pages.cpp</secondary></indexterm>
+<indexterm><primary>http_pages.cpp</primary><secondary>success_message</secondary></indexterm>
+<para><computeroutput>const char* success_message = &quot;&lt;p&gt;&lt;em&gt;Configurations saved!&lt;/em&gt;&lt;/p&gt;&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00009">9</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+</section>
+</section>
+</section>

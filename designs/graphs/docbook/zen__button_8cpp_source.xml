@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_zen__button_8cpp_source" xml:lang="en-US">
+<title>zen_button.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/workers/zen_button.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_zen__button_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_zen__button_8h">zen_button.h</link>&quot;</emphasis>
+<anchor xml:id="_zen__button_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_debugger_8h">debugger.h</link>&quot;</emphasis>
+<anchor xml:id="_zen__button_8cpp_source_1l00003"/>00003 
+<anchor xml:id="_zen__button_8cpp_source_1l00004"/><link linkend="_class_zen_button_1a02d40d183af1b4a332d6609757cb7718">00004</link> <link linkend="_class_zen_button_1a02d40d183af1b4a332d6609757cb7718">ZenButton::ZenButton</link>(Button&amp;&#32;m5_button)&#32;:
+<anchor xml:id="_zen__button_8cpp_source_1l00005"/>00005 &#32;&#32;&#32;&#32;Worker&lt;<link linkend="_struct_button_state">ButtonState</link>&gt;({<emphasis role="keyword">false</emphasis>,&#32;<emphasis role="keyword">false</emphasis>,&#32;<emphasis role="keyword">false</emphasis>}),
+<anchor xml:id="_zen__button_8cpp_source_1l00006"/>00006 &#32;&#32;&#32;&#32;_m5_button(m5_button)&#32;{
+<anchor xml:id="_zen__button_8cpp_source_1l00007"/>00007 }
+<anchor xml:id="_zen__button_8cpp_source_1l00008"/>00008 
+<anchor xml:id="_zen__button_8cpp_source_1l00009"/><link linkend="_class_zen_button_1a6b64fd909123b406f36c6c30c1913f9f">00009</link> <link linkend="_class_zen_button_1a6b64fd909123b406f36c6c30c1913f9f">ZenButton::~ZenButton</link>()&#32;{
+<anchor xml:id="_zen__button_8cpp_source_1l00010"/>00010 }
+<anchor xml:id="_zen__button_8cpp_source_1l00011"/>00011 
+<anchor xml:id="_zen__button_8cpp_source_1l00012"/><link linkend="_class_zen_button_1aa0d54b594b20b4aeee8f45f8b88372d6">00012</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_zen_button_1aa0d54b594b20b4aeee8f45f8b88372d6">ZenButton::activate</link>(<emphasis role="keywordtype">bool</emphasis>&#32;retry)&#32;{
+<anchor xml:id="_zen__button_8cpp_source_1l00013"/>00013 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_zen__button_8cpp_source_1l00014"/>00014 }
+<anchor xml:id="_zen__button_8cpp_source_1l00015"/>00015 
+<anchor xml:id="_zen__button_8cpp_source_1l00016"/><link linkend="_class_zen_button_1ac2bffe99f5706bfe1d6def23bdfdb87c">00016</link> int8_t&#32;<link linkend="_class_zen_button_1ac2bffe99f5706bfe1d6def23bdfdb87c">ZenButton::produce_data</link>()&#32;{
+<anchor xml:id="_zen__button_8cpp_source_1l00017"/>00017 &#32;&#32;data.currentlyPressed&#32;=&#32;_m5_button.isPressed();
+<anchor xml:id="_zen__button_8cpp_source_1l00018"/>00018 &#32;&#32;data.longPress&#32;=&#32;_m5_button.wasReleasefor(0)&#32;&amp;&amp;&#32;_m5_button.wasReleasefor(2400);
+<anchor xml:id="_zen__button_8cpp_source_1l00019"/>00019 &#32;&#32;data.shortPress&#32;=&#32;_m5_button.wasReleasefor(0)&#32;&amp;&amp;&#32;!data.longPress;
+<anchor xml:id="_zen__button_8cpp_source_1l00020"/>00020 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;data.longPress&#32;||&#32;data.shortPress&#32;?&#32;e_worker_data_read&#32;:&#32;e_worker_idle;
+<anchor xml:id="_zen__button_8cpp_source_1l00021"/>00021 }
+</programlisting></section>

@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_gfx__screen_8cpp_source" xml:lang="en-US">
+<title>gfx_screen.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/gfx_screen.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_gfx__screen_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#ifdef&#32;M5_CORE2</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;M5Core2.h&gt;</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#elif&#32;M5_BASIC</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;M5Stack.h&gt;</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00005"/>00005 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00006"/>00006 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_gfx__screen_8h">gfx_screen.h</link>&quot;</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_identifiers_8h">identifiers.h</link>&quot;</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_controller_8h">controller.h</link>&quot;</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_debugger_8h">debugger.h</link>&quot;</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_boot__screen_8h">screens/boot_screen.h</link>&quot;</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00012"/>00012 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00013"/>00013 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;uint8_t&#32;LEVEL_BRIGHT&#32;=&#32;35;&#32;&#32;<emphasis role="comment">//&#32;max&#32;brightness&#32;=&#32;36</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00014"/>00014 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;uint8_t&#32;LEVEL_DIMMED&#32;=&#32;10;
+<anchor xml:id="_gfx__screen_8cpp_source_1l00015"/>00015 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;uint8_t&#32;LEVEL_BLANKED&#32;=&#32;0;
+<anchor xml:id="_gfx__screen_8cpp_source_1l00016"/>00016 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;uint32_t&#32;DELAY_DIMMING_DEFAULT&#32;=&#32;2&#32;*&#32;60&#32;*&#32;1000;&#32;&#32;<emphasis role="comment">//&#32;ms&#32;before&#32;dimming&#32;screen</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00017"/>00017 <emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;uint32_t&#32;DELAY_BLANKING_DEFAULT&#32;=&#32;3&#32;*&#32;60&#32;*&#32;1000;&#32;&#32;<emphasis role="comment">//&#32;ms&#32;before&#32;blanking&#32;screen</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00018"/>00018 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00019"/>00019 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00020"/><link linkend="_class_g_f_x_screen_1a71ab01ccbc43de9a848ca9576feebe1c">00020</link> <link linkend="_class_g_f_x_screen_1a71ab01ccbc43de9a848ca9576feebe1c">GFXScreen::GFXScreen</link>(<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>,&#32;<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)&#32;:&#32;Supervisor(),&#32;_controller(<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>),&#32;_settings(<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>),&#32;_last_render(0),&#32;_screen(nullptr),&#32;_menu(<link linkend="_class_menu_window">MenuWindow</link>::i())&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00021"/>00021 }
+<anchor xml:id="_gfx__screen_8cpp_source_1l00022"/>00022 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00023"/><link linkend="_class_g_f_x_screen_1a1f5f80dd70f0b3975746457fc3759b74">00023</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_g_f_x_screen_1a1f5f80dd70f0b3975746457fc3759b74">GFXScreen::initialize</link>()&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00024"/>00024 <emphasis role="preprocessor">#ifdef&#32;M5_CORE2</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00025"/>00025 &#32;&#32;<emphasis role="comment">//&#32;Change&#32;touch&#32;screen&#32;buttons&#32;slightly&#32;to&#32;overlap&#32;with&#32;button&#32;indicators</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00026"/>00026 &#32;&#32;M5.BtnA.set(8,&#32;230,&#32;90,&#32;50);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00027"/>00027 &#32;&#32;M5.BtnB.set(115,&#32;230,&#32;90,&#32;50);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00028"/>00028 &#32;&#32;M5.BtnC.set(222,&#32;230,&#32;90,&#32;50);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00029"/>00029 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00030"/>00030 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00031"/>00031 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00032"/>00032 &#32;&#32;_screen&#32;=&#32;<link linkend="_class_boot_screen_1abd4d7a6d7b77fce1dfb88da2abef114e">BootScreen::i</link>();
+<anchor xml:id="_gfx__screen_8cpp_source_1l00033"/>00033 &#32;&#32;_screen-&gt;<link linkend="_class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea">enter_screen</link>(_controller);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00034"/>00034 &#32;&#32;clear();
+<anchor xml:id="_gfx__screen_8cpp_source_1l00035"/>00035 }
+<anchor xml:id="_gfx__screen_8cpp_source_1l00036"/>00036 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00037"/>00037 <emphasis role="keywordtype">void</emphasis>&#32;GFXScreen::off()&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00038"/>00038 &#32;&#32;<emphasis role="comment">//&#32;Clear&#32;the&#32;graphics&#32;screen</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00039"/>00039 &#32;&#32;M5.Lcd.clear();
+<anchor xml:id="_gfx__screen_8cpp_source_1l00040"/>00040 &#32;&#32;setBrightness(LEVEL_BLANKED);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00041"/>00041 }
+<anchor xml:id="_gfx__screen_8cpp_source_1l00042"/>00042 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00043"/>00043 <emphasis role="comment">//setup&#32;brightness&#32;by&#32;Rob&#32;Oudendijk&#32;2023-03-13</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00044"/>00044 <emphasis role="keywordtype">void</emphasis>&#32;GFXScreen::setBrightness(uint8_t&#32;lvl,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;overdrive)&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00045"/>00045 <emphasis role="preprocessor">#ifdef&#32;M5_CORE2</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00046"/>00046 &#32;&#32;<emphasis role="comment">//&#32;The&#32;backlight&#32;brightness&#32;is&#32;in&#32;steps&#32;of&#32;25&#32;in&#32;AXP192.cpp</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00047"/>00047 &#32;&#32;<emphasis role="comment">//&#32;calculation&#32;in&#32;SetDCVoltage:&#32;(&#32;(voltage&#32;-&#32;700)&#32;/&#32;25&#32;)</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00048"/>00048 &#32;&#32;<emphasis role="comment">//&#32;2325&#32;is&#32;the&#32;minimum&#32;&quot;I&#32;can&#32;just&#32;about&#32;see&#32;a&#32;glow&#32;in&#32;a&#32;dark&#32;room&quot;&#32;level&#32;of&#32;brightness.</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00049"/>00049 &#32;&#32;<emphasis role="comment">//&#32;2800&#32;is&#32;the&#32;value&#32;set&#32;by&#32;the&#32;AXP&#32;library&#32;as&#32;&quot;standard&quot;&#32;bright&#32;backlight.</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00050"/>00050 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;v&#32;=&#32;lvl&#32;*&#32;25&#32;+&#32;2300;
+<anchor xml:id="_gfx__screen_8cpp_source_1l00051"/>00051 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00052"/>00052 &#32;&#32;<emphasis role="comment">//&#32;Clamp&#32;to&#32;safe&#32;values.</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00053"/>00053 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(v&#32;&lt;&#32;2300)&#32;v&#32;=&#32;2300;
+<anchor xml:id="_gfx__screen_8cpp_source_1l00054"/>00054 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(overdrive)&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00055"/>00055 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(v&#32;&gt;&#32;3200)&#32;v&#32;=&#32;3200;&#32;<emphasis role="comment">//&#32;maximum&#32;of&#32;3.2&#32;volts,&#32;3200&#32;(uint8_t&#32;lvl&#32;&#32;=&#32;36)&#32;absolute&#32;max!</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00056"/>00056 &#32;&#32;}
+<anchor xml:id="_gfx__screen_8cpp_source_1l00057"/>00057 &#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00058"/>00058 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(v&#32;&gt;&#32;2800)&#32;v&#32;=&#32;2800;&#32;<emphasis role="comment">//&#32;maximum&#32;of&#32;2.8&#32;volts,&#32;2800&#32;(uint8_t&#32;lvl&#32;&#32;=&#32;20)</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00059"/>00059 &#32;&#32;}
+<anchor xml:id="_gfx__screen_8cpp_source_1l00060"/>00060 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00061"/>00061 &#32;&#32;<emphasis role="comment">//&#32;Minimum&#32;brightness&#32;means&#32;turn&#32;off&#32;the&#32;LCD&#32;backlight.</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00062"/>00062 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(v&#32;==&#32;2300)&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;LED&#32;set&#32;to&#32;minimum&#32;brightness?&#32;Turn&#32;off.</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00064"/>00064 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00065"/>00065 &#32;&#32;&#32;&#32;M5.Axp.SetDCDC3(<emphasis role="keyword">false</emphasis>);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00066"/>00066 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_gfx__screen_8cpp_source_1l00067"/>00067 &#32;&#32;}
+<anchor xml:id="_gfx__screen_8cpp_source_1l00068"/>00068 &#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00069"/>00069 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Ensure&#32;backlight&#32;is&#32;on.&#32;(magic&#32;name&#32;=&#32;DCDC3)</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00070"/>00070 &#32;&#32;&#32;&#32;M5.Axp.SetDCDC3(<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00071"/>00071 &#32;&#32;}
+<anchor xml:id="_gfx__screen_8cpp_source_1l00072"/>00072 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00073"/>00073 &#32;&#32;<emphasis role="comment">//&#32;Set&#32;the&#32;LCD&#32;backlight&#32;voltage.&#32;(magic&#32;number&#32;=&#32;2)</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00074"/>00074 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00075"/>00075 &#32;&#32;M5.Axp.SetDCVoltage(2,&#32;v);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00076"/>00076 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00077"/>00077 <emphasis role="preprocessor">#elif&#32;M5_BASIC</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00078"/>00078 &#32;&#32;<emphasis role="comment">//&#32;M5Stack&#32;Basic&#32;uses&#32;LCD&#32;Brightness&#32;(0:&#32;Off&#32;-&#32;255:Full)</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00079"/>00079 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;v&#32;=&#32;lvl&#32;*&#32;25;
+<anchor xml:id="_gfx__screen_8cpp_source_1l00080"/>00080 &#32;&#32;M5.Lcd.setBrightness(v);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00081"/>00081 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00082"/>00082 }
+<anchor xml:id="_gfx__screen_8cpp_source_1l00083"/>00083 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00084"/>00084 <emphasis role="keywordtype">void</emphasis>&#32;GFXScreen::clear()&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00085"/>00085 &#32;&#32;<emphasis role="comment">//&#32;Clear&#32;display</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00086"/>00086 &#32;&#32;M5.Lcd.clear();
+<anchor xml:id="_gfx__screen_8cpp_source_1l00087"/>00087 &#32;&#32;M5.Lcd.setTextDatum(BL_DATUM);&#32;&#32;<emphasis role="comment">//&#32;By&#32;default,&#32;text&#32;x,y&#32;is&#32;bottom&#32;left&#32;corner</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00088"/>00088 &#32;&#32;M5.Lcd.setTextFont(1);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00089"/>00089 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_screen)&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00090"/>00090 &#32;&#32;&#32;&#32;_screen-&gt;<link linkend="_class_base_screen_1a475d077e56c80429539f9c8a973752dd">force_next_render</link>();
+<anchor xml:id="_gfx__screen_8cpp_source_1l00091"/>00091 &#32;&#32;}
+<anchor xml:id="_gfx__screen_8cpp_source_1l00092"/>00092 &#32;&#32;setBrightness(LEVEL_BRIGHT);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00093"/>00093 }
+<anchor xml:id="_gfx__screen_8cpp_source_1l00094"/>00094 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00095"/><link linkend="_class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a">00095</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a">GFXScreen::handle_report</link>(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers,&#32;<emphasis role="keyword">const</emphasis>&#32;handler_map_t&amp;&#32;handlers)&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00096"/>00096 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_screen)&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00097"/>00097 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00098"/>00098 &#32;&#32;&#32;&#32;<link linkend="_class_base_screen">BaseScreen</link>*&#32;new_screen&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_gfx__screen_8cpp_source_1l00099"/>00099 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(workers.any_updates())&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_menu-&gt;<link linkend="_class_menu_window_1a94aa1a34a3af160f64c4575f0f7a66be">is_open</link>())&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;new_screen&#32;=&#32;_menu-&gt;<link linkend="_class_menu_window_1afe3cdb7f44d6d7a534044abc6b4e1b92">handle_input</link>(_controller,&#32;workers);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(new_screen&#32;||&#32;!_menu-&gt;<link linkend="_class_menu_window_1a94aa1a34a3af160f64c4575f0f7a66be">is_open</link>())&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Closed&#32;menu</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00104"/>00104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;Menu&#32;closed&quot;</emphasis>);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_menu-&gt;<link linkend="_class_menu_window_1a2c5ae75df9da64b970dcbd408efc17ae">leave_screen</link>(_controller);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;clear();
+<anchor xml:id="_gfx__screen_8cpp_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_gfx__screen_8cpp_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;new_screen&#32;=&#32;_screen-&gt;<link linkend="_class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57">handle_input</link>(_controller,&#32;workers);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(new_screen&#32;==&#32;_menu)&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;opened&#32;menu,&#32;not&#32;a&#32;new&#32;screen</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;Menu&#32;opened&quot;</emphasis>);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_menu-&gt;<link linkend="_class_menu_window_1a2971f694878323174c931b8a466c5e82">enter_screen</link>(_controller);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;new_screen&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_gfx__screen_8cpp_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_gfx__screen_8cpp_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_gfx__screen_8cpp_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(new_screen&#32;&amp;&amp;&#32;new_screen&#32;!=&#32;_screen)&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a01e7feab704802b5523d4bf0054f0b61">DEBUG_PRINTF</link>(<emphasis role="stringliteral">&quot;New&#32;screen&#32;entered:&#32;%s\n&quot;</emphasis>,&#32;new_screen-&gt;<link linkend="_class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42">get_title</link>());
+<anchor xml:id="_gfx__screen_8cpp_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_screen-&gt;<link linkend="_class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1">leave_screen</link>(_controller);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_screen&#32;=&#32;new_screen;
+<anchor xml:id="_gfx__screen_8cpp_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;clear();
+<anchor xml:id="_gfx__screen_8cpp_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_screen-&gt;<link linkend="_class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea">enter_screen</link>(_controller);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_gfx__screen_8cpp_source_1l00124"/>00124 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_gfx__screen_8cpp_source_1l00125"/>00125 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00126"/>00126 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(workers.any_updates()&#32;||&#32;handlers.any_updates()&#32;||&#32;(millis()&#32;-&#32;_last_render&#32;&gt;&#32;1000))&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;M5.Lcd.setRotation(3);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_menu-&gt;<link linkend="_class_menu_window_1a94aa1a34a3af160f64c4575f0f7a66be">is_open</link>())&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_menu-&gt;<link linkend="_class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98">do_render</link>(workers,&#32;handlers);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_screen-&gt;<link linkend="_class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98">do_render</link>(workers,&#32;handlers);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_gfx__screen_8cpp_source_1l00133"/>00133 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_screen-&gt;<link linkend="_class_base_screen_1a2b0ff8ed2e49c96fa6e8d3e158d6db13">has_status_bar</link>())&#32;{
+<anchor xml:id="_gfx__screen_8cpp_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Render&#32;bottom&#32;status&#32;bar</emphasis>
+<anchor xml:id="_gfx__screen_8cpp_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;M5.Lcd.drawLine(0,&#32;220,&#32;320,&#32;220,&#32;TFT_WHITE);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;M5.Lcd.setTextColor(TFT_WHITE,&#32;TFT_BLACK);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;M5.Lcd.drawString(<emphasis role="stringliteral">&quot;(TODO:&#32;status&#32;icons)&quot;</emphasis>,&#32;5,&#32;233);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;M5.Lcd.drawString(_screen-&gt;<link linkend="_class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42">get_title</link>(),&#32;315&#32;-&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>((strlen(_screen-&gt;<link linkend="_class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42">get_title</link>())&#32;*&#32;6)),&#32;233);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_gfx__screen_8cpp_source_1l00141"/>00141 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;M5.Lcd.setRotation(1);
+<anchor xml:id="_gfx__screen_8cpp_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;_last_render&#32;=&#32;millis();
+<anchor xml:id="_gfx__screen_8cpp_source_1l00144"/>00144 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00145"/>00145 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_gfx__screen_8cpp_source_1l00146"/>00146 &#32;&#32;}
+<anchor xml:id="_gfx__screen_8cpp_source_1l00147"/>00147 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00148"/>00148 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00149"/>00149 
+<anchor xml:id="_gfx__screen_8cpp_source_1l00150"/>00150 }
+</programlisting></section>

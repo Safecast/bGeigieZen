@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_debugger_8h_source" xml:lang="en-US">
+<title>debugger.h</title>
+<indexterm><primary>bgeigiezen_firmware/debugger.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_debugger_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;BGEIGIEZEN_DEBUGGER_H_</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;BGEIGIEZEN_DEBUGGER_H_</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00003"/>00003 
+<anchor xml:id="_debugger_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;Arduino.h&gt;</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_user__config_8h">user_config.h</link>&quot;</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00006"/>00006 
+<anchor xml:id="_debugger_8h_source_1l00007"/>00007 <emphasis role="preprocessor">#ifdef&#32;UNIT_TEST</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#undef&#32;ENABLE_DEBUG</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00010"/>00010 
+<anchor xml:id="_debugger_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#if&#32;ENABLE_DEBUG</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00012"/>00012 
+<anchor xml:id="_debugger_8h_source_1l00013"/>00013 <emphasis role="preprocessor">#ifndef&#32;DEBUG_STREAM</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00014"/><link linkend="_debugger_8h_1a01cc042ece075ab5f79f608fed6aa192">00014</link> <emphasis role="preprocessor">#define&#32;DEBUG_STREAM&#32;Serial</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00015"/>00015 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00016"/>00016 
+<anchor xml:id="_debugger_8h_source_1l00017"/>00017 <emphasis role="preprocessor">#ifndef&#32;DEBUG_BAUD</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00018"/><link linkend="_debugger_8h_1a566dec2de5e81d85ae24115e33a65b39">00018</link> <emphasis role="preprocessor">#define&#32;DEBUG_BAUD&#32;115200</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00019"/>00019 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00020"/>00020 
+<anchor xml:id="_debugger_8h_source_1l00021"/><link linkend="_debugger_8h_1a99e2e45e03525a9c0a43ccb2b9831057">00021</link> <emphasis role="preprocessor">#define&#32;DEBUG_BEGIN()&#32;DEBUG_STREAM.begin(DEBUG_BAUD)</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00022"/><link linkend="_debugger_8h_1a4af5a6b3ea1e4fe9df4c0891c175fcfa">00022</link> <emphasis role="preprocessor">#define&#32;DEBUG_PRINT(val)&#32;DEBUG_STREAM.print(val)</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00023"/><link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">00023</link> <emphasis role="preprocessor">#define&#32;DEBUG_PRINTLN(val)&#32;DEBUG_STREAM.println(val)</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00024"/><link linkend="_debugger_8h_1a01e7feab704802b5523d4bf0054f0b61">00024</link> <emphasis role="preprocessor">#define&#32;DEBUG_PRINTF(format,&#32;...)&#32;DEBUG_STREAM.printf(format,&#32;##__VA_ARGS__)</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00025"/><link linkend="_debugger_8h_1ab879a9a4883c211958a78f4d4f0a98ed">00025</link> <emphasis role="preprocessor">#define&#32;DEBUG_FLUSH()&#32;DEBUG_STREAM.flush()</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00026"/>00026 
+<anchor xml:id="_debugger_8h_source_1l00027"/>00027 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00028"/>00028 
+<anchor xml:id="_debugger_8h_source_1l00029"/>00029 <emphasis role="preprocessor">#define&#32;DEBUG_BEGIN()&#32;NULL</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00030"/>00030 <emphasis role="preprocessor">#define&#32;DEBUG_PRINT(val)&#32;NULL</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00031"/>00031 <emphasis role="preprocessor">#define&#32;DEBUG_PRINTLN(val)&#32;NULL</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00032"/>00032 <emphasis role="preprocessor">#define&#32;DEBUG_PRINTF(format,&#32;...)&#32;NULL</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00033"/>00033 <emphasis role="preprocessor">#define&#32;DEBUG_FLUSH()&#32;NULL</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00034"/>00034 
+<anchor xml:id="_debugger_8h_source_1l00035"/>00035 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_debugger_8h_source_1l00036"/>00036 
+<anchor xml:id="_debugger_8h_source_1l00037"/>00037 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//&#32;BGEIGIEZEN_DEBUGGER_H_</emphasis>
+</programlisting></section>

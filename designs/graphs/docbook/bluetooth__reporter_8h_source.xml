@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_bluetooth__reporter_8h_source" xml:lang="en-US">
+<title>bluetooth_reporter.h</title>
+<indexterm><primary>bgeigiezen_firmware/handlers/bluetooth_reporter.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_bluetooth__reporter_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;BGEIGIEZEN_BLUETOOTH_CONNECTOR_H_</emphasis>
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;BGEIGIEZEN_BLUETOOTH_CONNECTOR_H_</emphasis>
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00003"/>00003 
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;BLEDevice.h&gt;</emphasis>
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00005"/>00005 
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&lt;Handler.hpp&gt;</emphasis>
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00007"/>00007 
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_bluetooth__settings_8h">utils/bluetooth_settings.h</link>&quot;</emphasis>
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_local__storage_8h">local_storage.h</link>&quot;</emphasis>
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_log__aggregator_8h">workers/log_aggregator.h</link>&quot;</emphasis>
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00011"/>00011 
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00015"/><link linkend="_class_bluetooth_reporter">00015</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_bluetooth_reporter">BluetoothReporter</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;Handler&#32;{
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00016"/>00016 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00017"/><link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513ef">00017</link> &#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513ef">Status</link>&#32;{
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00018"/><link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513efa494da09cb76a31e5032471d8e0bf965c">00018</link> &#32;&#32;&#32;&#32;<link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513efa494da09cb76a31e5032471d8e0bf965c">e_handler_idle</link>&#32;=&#32;-1,
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00019"/><link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513efad7fa083c0e4d8cbe9a7277581a37732c">00019</link> &#32;&#32;&#32;&#32;<link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513efad7fa083c0e4d8cbe9a7277581a37732c">e_handler_clients_available</link>,
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00020"/><link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513efaa5ea541335525df80cbf5fa90806d80b">00020</link> &#32;&#32;&#32;&#32;<link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513efaa5ea541335525df80cbf5fa90806d80b">e_handler_no_clients</link>,
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00021"/><link linkend="_class_bluetooth_reporter_1a093da9a48c3525414ea814fd89d0b23f">00021</link> &#32;&#32;}&#32;<link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513ef">Status</link>;
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00022"/>00022 
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00023"/>00023 &#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_class_bluetooth_reporter">BluetoothReporter</link>(<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;config);
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00024"/><link linkend="_class_bluetooth_reporter_1afb37baa6c32c83ffbeeb681138436db0">00024</link> &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_bluetooth_reporter_1afb37baa6c32c83ffbeeb681138436db0">~BluetoothReporter</link>()&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00025"/>00025 
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00026"/>00026 &#32;<emphasis role="keyword">protected</emphasis>:
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00027"/>00027 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_bluetooth_reporter_1a365b2431527d3601eca8f9349f73053a">activate</link>(<emphasis role="keywordtype">bool</emphasis>&#32;retry)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00028"/>00028 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_bluetooth_reporter_1a220046266dc3778677bca52b868e5471">deactivate</link>()&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00029"/>00029 &#32;&#32;int8_t&#32;<link linkend="_class_bluetooth_reporter_1a401eb1211e8bc88e281c5a61415e72af">handle_produced_work</link>(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00030"/>00030 &#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00031"/>00031 
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00032"/>00032 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;send(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_struct_data_line">DataLine</link>&amp;&#32;reading)&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00033"/>00033 
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00034"/>00034 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;create_ble_profile_service(BLEServer*&#32;pServer);
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00035"/>00035 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;create_ble_device_service(BLEServer*&#32;pServer);
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00036"/>00036 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;create_ble_data_service(BLEServer*&#32;pServer);
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00037"/>00037 
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00038"/>00038 &#32;&#32;<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;config;
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00039"/>00039 &#32;&#32;BLEServer*&#32;_pServer;
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00040"/>00040 &#32;&#32;BLECharacteristic*&#32;pDataRXCharacteristic;
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00041"/>00041 
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00042"/>00042 &#32;&#32;uint8_t&#32;addr[<link linkend="_bluetooth__settings_8h_1a041eba1dcd086f9b96f1276a20f0ff46">BLE_DATA_ADDR_SIZE</link>]&#32;=&#32;<link linkend="_bluetooth__settings_8h_1a49db92ab6ff81545d15bf8dedc5f41d1">BLE_DATA_ADDR</link>;
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00043"/>00043 };
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00044"/>00044 
+<anchor xml:id="_bluetooth__reporter_8h_source_1l00045"/>00045 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//BGEIGIEZEN_BLUETOOTH_CONNECTOR_H_</emphasis>
+</programlisting></section>

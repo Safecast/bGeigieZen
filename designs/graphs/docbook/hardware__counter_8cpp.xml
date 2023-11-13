@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_hardware__counter_8cpp" xml:lang="en-US">
+<title>bgeigiezen_firmware/utils/hardware_counter.cpp File Reference</title>
+<indexterm><primary>bgeigiezen_firmware/utils/hardware_counter.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;hardware_counter.h&quot;<?linebreak?>#include &quot;debugger.h&quot;<?linebreak?></programlisting>Include dependency graph for hardware_counter.cpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="hardware__counter_8cpp__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void IRAM_ATTR <link linkend="_hardware__counter_8cpp_1a90ea1c07ae1f9c94a7c3ad2139f4ebb6">pcnt_intr_handler</link> (void *arg)</para>
+</listitem>
+            <listitem><para>void IRAM_ATTR <link linkend="_hardware__counter_8cpp_1a332e473d9db05aedc2fa329a3e3392cf">timer_intr_handler</link> (void *arg)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_hardware__counter_8cpp_1a90ea1c07ae1f9c94a7c3ad2139f4ebb6"/><section>
+    <title>pcnt_intr_handler()</title>
+<indexterm><primary>pcnt_intr_handler</primary><secondary>hardware_counter.cpp</secondary></indexterm>
+<indexterm><primary>hardware_counter.cpp</primary><secondary>pcnt_intr_handler</secondary></indexterm>
+<para><computeroutput>void IRAM_ATTR pcnt_intr_handler (void * arg)</computeroutput></para><para>
+Definition at line <link linkend="_hardware__counter_8cpp_source_1l00008">8</link> of file <link linkend="_hardware__counter_8cpp_source">hardware_counter.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="hardware__counter_8cpp_a90ea1c07ae1f9c94a7c3ad2139f4ebb6_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_hardware__counter_8cpp_1a332e473d9db05aedc2fa329a3e3392cf"/><section>
+    <title>timer_intr_handler()</title>
+<indexterm><primary>timer_intr_handler</primary><secondary>hardware_counter.cpp</secondary></indexterm>
+<indexterm><primary>hardware_counter.cpp</primary><secondary>timer_intr_handler</secondary></indexterm>
+<para><computeroutput>void IRAM_ATTR timer_intr_handler (void * arg)</computeroutput></para><para>
+Definition at line <link linkend="_hardware__counter_8cpp_source_1l00017">17</link> of file <link linkend="_hardware__counter_8cpp_source">hardware_counter.cpp</link>.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_controller" xml:lang="en-US">
+<title>Controller Class Reference</title>
+<indexterm><primary>Controller</primary></indexterm>
+<para>
+<computeroutput>#include &lt;controller.h&gt;</computeroutput>
+</para>
+Inheritance diagram for Controller:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_controller__inherit__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for Controller:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_controller__coll__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_controller_1a1a4894b2d26fdfe064d979fe08cdbcee">Controller</link> (<link linkend="_class_local_storage">LocalStorage</link> &amp;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_controller_1a8d16a7a97c266dc0d5aa5685c4dcdd89">~Controller</link> ()=default</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_controller_1a4887c880538456e58174886b91a6a1b7">initialize</link> () override</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_controller_1a772a3f581d1741f01044e1c581139924">start_default_workers</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_controller_1a625bc0caffeed2079d81f64a9e558182">create_dummy_settings</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_controller_1a324f4a9b815a8d420a83f426a759a78a">load_sd_config</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Main controller for the system, implements state machine to run </para>
+<para>
+Definition at line <link linkend="_controller_8h_source_1l00028">28</link> of file <link linkend="_controller_8h_source">controller.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_controller_1a1a4894b2d26fdfe064d979fe08cdbcee"/><section>
+    <title>Controller()</title>
+<indexterm><primary>Controller</primary><secondary>Controller</secondary></indexterm>
+<indexterm><primary>Controller</primary><secondary>Controller</secondary></indexterm>
+<para><computeroutput>Controller::Controller (<link linkend="_class_local_storage">LocalStorage</link> &amp; settings)</computeroutput></para><para>
+Definition at line <link linkend="_controller_8cpp_source_1l00008">8</link> of file <link linkend="_controller_8cpp_source">controller.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_controller_1a8d16a7a97c266dc0d5aa5685c4dcdd89"/><section>
+    <title>~Controller()</title>
+<indexterm><primary>~Controller</primary><secondary>Controller</secondary></indexterm>
+<indexterm><primary>Controller</primary><secondary>~Controller</secondary></indexterm>
+<para><computeroutput>virtual Controller::~Controller ( )<computeroutput>[virtual]</computeroutput>, <computeroutput>[default]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_controller_1a625bc0caffeed2079d81f64a9e558182"/><section>
+    <title>create_dummy_settings()</title>
+<indexterm><primary>create_dummy_settings</primary><secondary>Controller</secondary></indexterm>
+<indexterm><primary>Controller</primary><secondary>create_dummy_settings</secondary></indexterm>
+<para><computeroutput>void Controller::create_dummy_settings ( )</computeroutput></para>
+<para>Create dummy settings local and sd card </para>
+<para>
+Definition at line <link linkend="_controller_8cpp_source_1l00079">79</link> of file <link linkend="_controller_8cpp_source">controller.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_controller_a625bc0caffeed2079d81f64a9e558182_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_controller_a625bc0caffeed2079d81f64a9e558182_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_controller_1a4887c880538456e58174886b91a6a1b7"/><section>
+    <title>initialize()</title>
+<indexterm><primary>initialize</primary><secondary>Controller</secondary></indexterm>
+<indexterm><primary>Controller</primary><secondary>initialize</secondary></indexterm>
+<para><computeroutput>void Controller::initialize ( )<computeroutput>[override]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_controller_8cpp_source_1l00015">15</link> of file <link linkend="_controller_8cpp_source">controller.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_controller_1a324f4a9b815a8d420a83f426a759a78a"/><section>
+    <title>load_sd_config()</title>
+<indexterm><primary>load_sd_config</primary><secondary>Controller</secondary></indexterm>
+<indexterm><primary>Controller</primary><secondary>load_sd_config</secondary></indexterm>
+<para><computeroutput>void Controller::load_sd_config ( )</computeroutput></para>
+<para>Load SD config into device memory </para>
+<para>
+Definition at line <link linkend="_controller_8cpp_source_1l00084">84</link> of file <link linkend="_controller_8cpp_source">controller.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_controller_a324f4a9b815a8d420a83f426a759a78a_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_controller_1a772a3f581d1741f01044e1c581139924"/><section>
+    <title>start_default_workers()</title>
+<indexterm><primary>start_default_workers</primary><secondary>Controller</secondary></indexterm>
+<indexterm><primary>Controller</primary><secondary>start_default_workers</secondary></indexterm>
+<para><computeroutput>void Controller::start_default_workers ( )</computeroutput></para>
+<para>Starts default workers and handlers, loads SD </para>
+<para>
+Definition at line <link linkend="_controller_8cpp_source_1l00019">19</link> of file <link linkend="_controller_8cpp_source">controller.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_controller_a772a3f581d1741f01044e1c581139924_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/<link linkend="_controller_8h">controller.h</link>bgeigiezen_firmware/<link linkend="_controller_8cpp">controller.cpp</link></section>
+</section>

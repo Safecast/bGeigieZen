@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_sd__wrapper_8cpp_source" xml:lang="en-US">
+<title>sd_wrapper.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/utils/sd_wrapper.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_sd__wrapper_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_sd__wrapper_8h">sd_wrapper.h</link>&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00002"/>00002 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_user__config_8h">user_config.h</link>&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_debugger_8h">debugger.h</link>&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00005"/>00005 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00006"/><link linkend="_sd__wrapper_8cpp_1ac55ff083f92a00b5f2f8319c3e5e04db">00006</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_VERSION&#32;&quot;version&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00007"/><link linkend="_sd__wrapper_8cpp_1a2df5eceb62a2d0dce531cac7ca33407a">00007</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_DEVICE_ID&#32;&quot;device_id&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00008"/><link linkend="_sd__wrapper_8cpp_1a9f044d8c4ae408db38e814feffcb5fbc">00008</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_USH_DIVIDER&#32;&quot;ush_divider&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00009"/><link linkend="_sd__wrapper_8cpp_1a00a66184f800abaf9cb25f290e8b3f84">00009</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_CPMN&#32;&quot;cpmn&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00010"/><link linkend="_sd__wrapper_8cpp_1afaa205767f75c398bb3e1d8678bf6529">00010</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_BQM_FACTOR&#32;&quot;bqm_factor&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00011"/><link linkend="_sd__wrapper_8cpp_1a9ccc771fac8173d9b5d5781b1e6f6181">00011</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_BQMN&#32;&quot;bqmn&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00012"/><link linkend="_sd__wrapper_8cpp_1aa87965ec12aef0e4fcb9d4fec14bd7d3">00012</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_COUNTRY_CODE&#32;&quot;country_code&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00013"/><link linkend="_sd__wrapper_8cpp_1a24c6ec49e9e9a1e42340df20d8995fc4">00013</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_GT&#32;&quot;gt&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00014"/><link linkend="_sd__wrapper_8cpp_1ad4ce124e4cf2be081eece78988875c04">00014</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_GM&#32;&quot;gm&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00015"/><link linkend="_sd__wrapper_8cpp_1a6d9e5ad62e51a576a064d8e46f2aa58d">00015</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_SENSOR_TYPE&#32;&quot;sensor_type&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00016"/><link linkend="_sd__wrapper_8cpp_1ae9856bf2a8b86dffce7bf6168aea6029">00016</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_SENSOR_SHIELD&#32;&quot;sensor_shield&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00017"/><link linkend="_sd__wrapper_8cpp_1a338a5f2dc4391e1ae4cc8634b691b8a7">00017</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_SENSOR_MODE&#32;&quot;sensor_mode&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00018"/><link linkend="_sd__wrapper_8cpp_1a50a25663e78c4de487166e4529048526">00018</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD&#32;&quot;access_point_password&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00019"/><link linkend="_sd__wrapper_8cpp_1aaba31efa735c3b7f88e713c72a4cabc9">00019</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_CLICK_SOUND_LEVEL&#32;&quot;click_sound_level&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00020"/><link linkend="_sd__wrapper_8cpp_1ab71e39123102592eed5af6334f8cbd02">00020</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_ALARM_THRESHOLD&#32;&quot;alarm_threshold&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00021"/><link linkend="_sd__wrapper_8cpp_1afb5f31072792d2f21b660cc2cc695d54">00021</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_WIFI_SSID&#32;&quot;wifi_ssid&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00022"/><link linkend="_sd__wrapper_8cpp_1aa8f0fbbf5a05583dd33c56c4ee018f41">00022</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_WIFI_PASSWORD&#32;&quot;wifi_password&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00023"/><link linkend="_sd__wrapper_8cpp_1a662cc17e01b8053062d589c76e5eac5a">00023</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_API_KEY&#32;&quot;api_key&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00024"/><link linkend="_sd__wrapper_8cpp_1a5c16e00a4816c8fd76fd1dc13ee3627c">00024</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_FIXED_LATITUDE&#32;&quot;fixed_latitude&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00025"/><link linkend="_sd__wrapper_8cpp_1a4934da27192775398139ad7459c6cf79">00025</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_FIXED_LONGITUDE&#32;&quot;fixed_longitude&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00026"/><link linkend="_sd__wrapper_8cpp_1a7efae71986bb43b0d34f613da8785ca4">00026</link> <emphasis role="preprocessor">#define&#32;SD_CONFIG_FIELD_FIXED_RANGE&#32;&quot;fixed_range&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00027"/>00027 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00028"/><link linkend="_sd__wrapper_8cpp_1ab1e5559f15733708d3b3ab6316b17425">00028</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1ab1e5559f15733708d3b3ab6316b17425">sd_config_version_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1ac55ff083f92a00b5f2f8319c3e5e04db">SD_CONFIG_FIELD_VERSION</link><emphasis role="stringliteral">&quot;=%s&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00029"/><link linkend="_sd__wrapper_8cpp_1a61ecfa2a1eff3111c758ef203807e699">00029</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1a61ecfa2a1eff3111c758ef203807e699">sd_config_device_id_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1a2df5eceb62a2d0dce531cac7ca33407a">SD_CONFIG_FIELD_DEVICE_ID</link><emphasis role="stringliteral">&quot;=%u&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00030"/><link linkend="_sd__wrapper_8cpp_1acc956ca38e5914bf7b7c32ec6bbf4de9">00030</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1acc956ca38e5914bf7b7c32ec6bbf4de9">sd_config_ush_divider_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1a9f044d8c4ae408db38e814feffcb5fbc">SD_CONFIG_FIELD_USH_DIVIDER</link><emphasis role="stringliteral">&quot;=%lf&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00031"/><link linkend="_sd__wrapper_8cpp_1a8abd4538f76d888863a2e5f7c93d80ec">00031</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1a8abd4538f76d888863a2e5f7c93d80ec">sd_config_cpmn_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1a00a66184f800abaf9cb25f290e8b3f84">SD_CONFIG_FIELD_CPMN</link><emphasis role="stringliteral">&quot;=%s&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00032"/><link linkend="_sd__wrapper_8cpp_1a93c83d0d043a33092cdf51a7d3a985c5">00032</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1a93c83d0d043a33092cdf51a7d3a985c5">sd_config_bqm_factor_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1afaa205767f75c398bb3e1d8678bf6529">SD_CONFIG_FIELD_BQM_FACTOR</link><emphasis role="stringliteral">&quot;=%lf&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00033"/><link linkend="_sd__wrapper_8cpp_1a1dd66e2128eba5d88ad8aba3a88bb0ea">00033</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1a1dd66e2128eba5d88ad8aba3a88bb0ea">sd_config_bqmn_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1a9ccc771fac8173d9b5d5781b1e6f6181">SD_CONFIG_FIELD_BQMN</link><emphasis role="stringliteral">&quot;=%s&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00034"/><link linkend="_sd__wrapper_8cpp_1a0225806f14cd1579005466669732b091">00034</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1a0225806f14cd1579005466669732b091">sd_config_country_code_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1aa87965ec12aef0e4fcb9d4fec14bd7d3">SD_CONFIG_FIELD_COUNTRY_CODE</link><emphasis role="stringliteral">&quot;=%s&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00035"/><link linkend="_sd__wrapper_8cpp_1a0c4d8519fcd81acc5e40ee747cbee1a5">00035</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1a0c4d8519fcd81acc5e40ee747cbee1a5">sd_config_gt_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1a24c6ec49e9e9a1e42340df20d8995fc4">SD_CONFIG_FIELD_GT</link><emphasis role="stringliteral">&quot;=%d&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00036"/><link linkend="_sd__wrapper_8cpp_1ac969281760b77387b4d7985790bf1238">00036</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1ac969281760b77387b4d7985790bf1238">sd_config_gm_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1ad4ce124e4cf2be081eece78988875c04">SD_CONFIG_FIELD_GM</link><emphasis role="stringliteral">&quot;=%d&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00037"/><link linkend="_sd__wrapper_8cpp_1a6b8e7cb92fa7ec587a777d543db489dd">00037</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1a6b8e7cb92fa7ec587a777d543db489dd">sd_config_sensor_type_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1a6d9e5ad62e51a576a064d8e46f2aa58d">SD_CONFIG_FIELD_SENSOR_TYPE</link><emphasis role="stringliteral">&quot;=%d&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00038"/><link linkend="_sd__wrapper_8cpp_1a4dddf6a08efb0db8e7f3c44c154fc8d9">00038</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1a4dddf6a08efb0db8e7f3c44c154fc8d9">sd_config_sensor_shield_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1ae9856bf2a8b86dffce7bf6168aea6029">SD_CONFIG_FIELD_SENSOR_SHIELD</link><emphasis role="stringliteral">&quot;=%d&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00039"/><link linkend="_sd__wrapper_8cpp_1a3145a9fce282015df3c7d1a862e3a41e">00039</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1a3145a9fce282015df3c7d1a862e3a41e">sd_config_sensor_mode_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1a338a5f2dc4391e1ae4cc8634b691b8a7">SD_CONFIG_FIELD_SENSOR_MODE</link><emphasis role="stringliteral">&quot;=%d&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00040"/><link linkend="_sd__wrapper_8cpp_1abdaea06ccbc0e904c8326d746a21068c">00040</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1abdaea06ccbc0e904c8326d746a21068c">sd_config_access_point_password_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1a50a25663e78c4de487166e4529048526">SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD</link><emphasis role="stringliteral">&quot;=%s&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00041"/><link linkend="_sd__wrapper_8cpp_1ab508173c1db7ab10854d5f4a337ee245">00041</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1ab508173c1db7ab10854d5f4a337ee245">sd_config_click_sound_level_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1aaba31efa735c3b7f88e713c72a4cabc9">SD_CONFIG_FIELD_CLICK_SOUND_LEVEL</link><emphasis role="stringliteral">&quot;=%hhu&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00042"/><link linkend="_sd__wrapper_8cpp_1af6b09bab6ad080afb1e8b23c80720f0b">00042</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1af6b09bab6ad080afb1e8b23c80720f0b">sd_config_alarm_threshold_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1ab71e39123102592eed5af6334f8cbd02">SD_CONFIG_FIELD_ALARM_THRESHOLD</link><emphasis role="stringliteral">&quot;=%d&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00043"/><link linkend="_sd__wrapper_8cpp_1aa4900be28f60838dd73306a229c133fc">00043</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1aa4900be28f60838dd73306a229c133fc">sd_config_wifi_ssid_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1afb5f31072792d2f21b660cc2cc695d54">SD_CONFIG_FIELD_WIFI_SSID</link><emphasis role="stringliteral">&quot;=%s&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00044"/><link linkend="_sd__wrapper_8cpp_1a2dbf62d8052ecbd68de7061f01ac06cd">00044</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1a2dbf62d8052ecbd68de7061f01ac06cd">sd_config_wifi_password_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1aa8f0fbbf5a05583dd33c56c4ee018f41">SD_CONFIG_FIELD_WIFI_PASSWORD</link><emphasis role="stringliteral">&quot;=%s&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00045"/><link linkend="_sd__wrapper_8cpp_1a0a19c314a85643ef82614487153b2a47">00045</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1a0a19c314a85643ef82614487153b2a47">sd_config_api_key_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1a662cc17e01b8053062d589c76e5eac5a">SD_CONFIG_FIELD_API_KEY</link><emphasis role="stringliteral">&quot;=%s&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00046"/><link linkend="_sd__wrapper_8cpp_1a53ce0b8f308a6648e28d3988a056eb17">00046</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1a53ce0b8f308a6648e28d3988a056eb17">sd_config_fixed_latitude_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1a5c16e00a4816c8fd76fd1dc13ee3627c">SD_CONFIG_FIELD_FIXED_LATITUDE</link><emphasis role="stringliteral">&quot;=%lf&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00047"/><link linkend="_sd__wrapper_8cpp_1a70a9775d4baf9ce894b9566e55fdaa3c">00047</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1a70a9775d4baf9ce894b9566e55fdaa3c">sd_config_fixed_longitude_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1a4934da27192775398139ad7459c6cf79">SD_CONFIG_FIELD_FIXED_LONGITUDE</link><emphasis role="stringliteral">&quot;=%lf&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00048"/><link linkend="_sd__wrapper_8cpp_1abb907d5a507b3a98d9b9dd02c0f3db27">00048</link> <emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_sd__wrapper_8cpp_1abb907d5a507b3a98d9b9dd02c0f3db27">sd_config_fixed_range_f</link>[]&#32;=&#32;<link linkend="_sd__wrapper_8cpp_1a7efae71986bb43b0d34f613da8785ca4">SD_CONFIG_FIELD_FIXED_RANGE</link><emphasis role="stringliteral">&quot;=%hu&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00049"/>00049 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00050"/>00050 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00051"/>00051 SDInterface::SDInterface()&#32;:&#32;_sd_ready(false),&#32;_last_read(0),&#32;_last_write(0),&#32;_last_try(0)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00052"/>00052 }
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00053"/>00053 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00054"/><link linkend="_class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe">00054</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe">SDInterface::ready</link>()&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00055"/>00055 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!SD.exists(<link linkend="_user__config_8h_1a8640e19b0a934a2937951a06148f1f38">TEST_FILENAME</link>))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00056"/>00056 &#32;&#32;&#32;&#32;<link linkend="_class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a">end</link>();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00057"/>00057 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00058"/>00058 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_sd_ready;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00059"/>00059 }
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00060"/>00060 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00065"/><link linkend="_class_s_d_interface_1a809a47ce4ef0dc0ea1918552601cbbdd">00065</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_s_d_interface_1a809a47ce4ef0dc0ea1918552601cbbdd">SDInterface::begin</link>()&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00066"/>00066 &#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;_first_try&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00067"/>00067 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!_sd_ready&#32;&amp;&amp;&#32;(_first_try&#32;||&#32;(millis()&#32;-&#32;_last_try&#32;&gt;&#32;5000)))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00068"/>00068 &#32;&#32;&#32;&#32;_first_try&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00069"/>00069 &#32;&#32;&#32;&#32;_last_try&#32;=&#32;millis();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00070"/>00070 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(SD.begin(<link linkend="_user__config_8h_1aafc508d7a2df49fd453b2ad0fe9183a2">SD_CS_PIN</link>))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;zen_test&#32;=&#32;SD.exists(<link linkend="_user__config_8h_1a8640e19b0a934a2937951a06148f1f38">TEST_FILENAME</link>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!zen_test)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;new_file&#32;=&#32;SD.open(<link linkend="_user__config_8h_1a8640e19b0a934a2937951a06148f1f38">TEST_FILENAME</link>,&#32;FILE_WRITE);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(new_file)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;new_file.close();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;_sd_ready&#32;=&#32;SD.exists(<link linkend="_user__config_8h_1a8640e19b0a934a2937951a06148f1f38">TEST_FILENAME</link>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00080"/>00080 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00081"/>00081 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_sd_ready;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00082"/>00082 }
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00083"/>00083 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00084"/><link linkend="_class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a">00084</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a">SDInterface::end</link>()&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00085"/>00085 &#32;&#32;_sd_ready&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00086"/>00086 &#32;&#32;SD.end();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00087"/>00087 }
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00088"/>00088 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00089"/><link linkend="_class_s_d_interface_1a3aa11cea31d2775204a4b387b6a1383c">00089</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_s_d_interface_1a3aa11cea31d2775204a4b387b6a1383c">SDInterface::log</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;log_name,&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t*&#32;data,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;buff_size)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00090"/>00090 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!_sd_ready)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00091"/>00091 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00092"/>00092 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00093"/>00093 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!SD.exists(log_name))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00094"/>00094 &#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a01e7feab704802b5523d4bf0054f0b61">DEBUG_PRINTF</link>(<emphasis role="stringliteral">&quot;Unable&#32;to&#32;log&#32;to&#32;non-existent&#32;file&#32;\&quot;%s\&quot;.\n&quot;</emphasis>,&#32;log_name);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00095"/>00095 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00096"/>00096 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00097"/>00097 &#32;&#32;<emphasis role="comment">//&#32;open&#32;the&#32;setup&#32;file</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00098"/>00098 &#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;log_file&#32;=&#32;SD.open(log_name,&#32;FILE_WRITE);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00099"/>00099 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!log_file)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00100"/>00100 &#32;&#32;&#32;&#32;<link linkend="_class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a">end</link>();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00101"/>00101 &#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a01e7feab704802b5523d4bf0054f0b61">DEBUG_PRINTF</link>(<emphasis role="stringliteral">&quot;Unable&#32;to&#32;open&#32;log&#32;file&#32;\&quot;%s\&quot;.\n&quot;</emphasis>,&#32;log_name);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00102"/>00102 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00103"/>00103 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00104"/>00104 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00105"/>00105 &#32;&#32;log_file.write(data,&#32;buff_size);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00106"/>00106 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00107"/>00107 &#32;&#32;_last_write&#32;=&#32;millis();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00108"/>00108 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00109"/>00109 }
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00110"/>00110 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00111"/><link linkend="_class_s_d_interface_1ac011e72bed01b65fb3af9cc1242b4f14">00111</link> <link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50">SDInterface::SdStatus</link>&#32;<link linkend="_class_s_d_interface_1ac011e72bed01b65fb3af9cc1242b4f14">SDInterface::has_safezen_content</link>(uint16_t&#32;device_id)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00112"/>00112 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!_sd_ready)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00113"/>00113 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a8a094cf03ccf414f4b77666f6c4e8611">SdStatus::e_sd_config_status_not_ready</link>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00114"/>00114 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00115"/>00115 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00116"/>00116 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!SD.exists(<link linkend="_user__config_8h_1a01a5470ab05566cfd96f7d3f9f9d865b">SETUP_FILENAME</link>))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00117"/>00117 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50aca5a6270a52c089d851e54e7919a72cf">SdStatus::e_sd_config_status_no_config_file</link>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00118"/>00118 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00119"/>00119 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00120"/>00120 &#32;&#32;<emphasis role="comment">//&#32;open&#32;the&#32;setup&#32;file</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00121"/>00121 &#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;setup_file&#32;=&#32;SD.open(<link linkend="_user__config_8h_1a01a5470ab05566cfd96f7d3f9f9d865b">SETUP_FILENAME</link>,&#32;FILE_READ);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00122"/>00122 &#32;&#32;_last_read&#32;=&#32;millis();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00123"/>00123 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00124"/>00124 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!setup_file)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00125"/>00125 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a97640d3ba2438308592c625779e0fe12">SdStatus::e_sd_config_status_config_no_content</link>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00126"/>00126 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00127"/>00127 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00128"/>00128 &#32;&#32;uint32_t&#32;file_device_id&#32;=&#32;0;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00129"/>00129 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00130"/>00130 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(setup_file.available())&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00131"/>00131 &#32;&#32;&#32;&#32;String&#32;line&#32;=&#32;setup_file.readStringUntil(<emphasis role="charliteral">&apos;\n&apos;</emphasis>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00132"/>00132 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(line.startsWith(<link linkend="_sd__wrapper_8cpp_1a2df5eceb62a2d0dce531cac7ca33407a">SD_CONFIG_FIELD_DEVICE_ID</link>))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;sscanf(line.c_str(),&#32;<link linkend="_sd__wrapper_8cpp_1a61ecfa2a1eff3111c758ef203807e699">sd_config_device_id_f</link>,&#32;&amp;file_device_id);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00135"/>00135 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00136"/>00136 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00137"/>00137 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00138"/>00138 &#32;&#32;<emphasis role="comment">//&#32;close&#32;the&#32;setup&#32;file</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00139"/>00139 &#32;&#32;setup_file.close();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00140"/>00140 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00141"/>00141 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(file_device_id&#32;==&#32;0)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00142"/>00142 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a97640d3ba2438308592c625779e0fe12">SdStatus::e_sd_config_status_config_no_content</link>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00143"/>00143 &#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(device_id&#32;&amp;&amp;&#32;file_device_id&#32;!=&#32;device_id)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00144"/>00144 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50ab3eaba2df7231bec6b29aee75b5b18c7">SdStatus::e_sd_config_status_config_different_id</link>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00145"/>00145 &#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00146"/>00146 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a4220a7d9f2295ecf4a6df95fc73de789">SdStatus::e_sd_config_status_ok</link>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00147"/>00147 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00148"/>00148 }
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00149"/>00149 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00150"/><link linkend="_class_s_d_interface_1afcc40c40bd409e59bb1aaeb0d42c110d">00150</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_s_d_interface_1afcc40c40bd409e59bb1aaeb0d42c110d">SDInterface::read_safezen_file</link>(<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00151"/>00151 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!_sd_ready)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00152"/>00152 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00153"/>00153 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00154"/>00154 &#32;&#32;File&#32;safecast_txt&#32;=&#32;SD.open(<link linkend="_user__config_8h_1a01a5470ab05566cfd96f7d3f9f9d865b">SETUP_FILENAME</link>,&#32;FILE_READ);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00155"/>00155 &#32;&#32;_last_read&#32;=&#32;millis();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00156"/>00156 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!safecast_txt)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00157"/>00157 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00158"/>00158 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00159"/>00159 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00160"/>00160 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;version[<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>]&#32;=&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00161"/>00161 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00162"/>00162 &#32;&#32;String&#32;first_line&#32;=&#32;safecast_txt.readStringUntil(<emphasis role="charliteral">&apos;\n&apos;</emphasis>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00163"/>00163 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(first_line.startsWith(<link linkend="_sd__wrapper_8cpp_1ac55ff083f92a00b5f2f8319c3e5e04db">SD_CONFIG_FIELD_VERSION</link>))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00164"/>00164 &#32;&#32;&#32;&#32;sscanf(first_line.c_str(),&#32;<link linkend="_sd__wrapper_8cpp_1ab1e5559f15733708d3b3ab6316b17425">sd_config_version_f</link>,&#32;version);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00165"/>00165 &#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00166"/>00166 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Expect&#32;latest&#32;version</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00167"/>00167 &#32;&#32;&#32;&#32;strcpy(version,&#32;<link linkend="_user__config_8h_1a698acb89e1bf5837b33c30ef35c30044">VERSION_STRING</link>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00168"/>00168 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00169"/>00169 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00170"/>00170 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp(version,&#32;<link linkend="_user__config_8h_1a698acb89e1bf5837b33c30ef35c30044">VERSION_STRING</link>)&#32;==&#32;0)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00171"/>00171 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;read_safezen_file_latest(<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>,&#32;safecast_txt);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00172"/>00172 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00173"/>00173 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00174"/>00174 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00175"/>00175 }
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00176"/>00176 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00177"/>00177 <emphasis role="keywordtype">bool</emphasis>&#32;SDInterface::read_safezen_file_latest(<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>,&#32;File&amp;&#32;file)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00178"/>00178 &#32;&#32;<emphasis role="comment">//&#32;Device&#32;settings</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00179"/>00179 &#32;&#32;uint32_t&#32;device_id&#32;=&#32;0;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00180"/>00180 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;access_point_password[<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>]&#32;=&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00181"/>00181 &#32;&#32;uint8_t&#32;click_sound_level&#32;=&#32;0;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00182"/>00182 &#32;&#32;uint32_t&#32;alarm_threshold&#32;=&#32;0;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00183"/>00183 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00184"/>00184 &#32;&#32;<emphasis role="comment">//&#32;Connection&#32;settings</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00185"/>00185 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;wifi_ssid[<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>]&#32;=&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00186"/>00186 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;wifi_password[<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>]&#32;=&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00187"/>00187 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;api_key[<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>]&#32;=&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00188"/>00188 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00189"/>00189 &#32;&#32;<emphasis role="comment">//&#32;Location&#32;settings</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00190"/>00190 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;fixed_latitude&#32;=&#32;0;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00191"/>00191 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;fixed_longitude&#32;=&#32;0;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00192"/>00192 &#32;&#32;uint16_t&#32;fixed_range&#32;=&#32;0;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00193"/>00193 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00194"/>00194 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(file.available())&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00195"/>00195 &#32;&#32;&#32;&#32;String&#32;line&#32;=&#32;file.readStringUntil(<emphasis role="charliteral">&apos;\n&apos;</emphasis>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00196"/>00196 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(line.length()&#32;==&#32;0)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00197"/>00197 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">continue</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00198"/>00198 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00199"/>00199 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(line.startsWith(<link linkend="_sd__wrapper_8cpp_1a2df5eceb62a2d0dce531cac7ca33407a">SD_CONFIG_FIELD_DEVICE_ID</link>))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00200"/>00200 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(sscanf(line.c_str(),&#32;<link linkend="_sd__wrapper_8cpp_1a61ecfa2a1eff3111c758ef203807e699">sd_config_device_id_f</link>,&#32;&amp;device_id))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00201"/>00201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a5b975387d77a0d68a0eae66ce9f265df">set_device_id</link>(device_id,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00202"/>00202 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00203"/>00203 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00204"/>00204 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(line.startsWith(<link linkend="_sd__wrapper_8cpp_1a662cc17e01b8053062d589c76e5eac5a">SD_CONFIG_FIELD_API_KEY</link>))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00205"/>00205 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(device_id&#32;&amp;&amp;&#32;sscanf(line.c_str(),&#32;<link linkend="_sd__wrapper_8cpp_1a0a19c314a85643ef82614487153b2a47">sd_config_api_key_f</link>,&#32;api_key))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00206"/>00206 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a0c0380d90c7cd50702c203c00254cc7a">set_api_key</link>(api_key,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00207"/>00207 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00208"/>00208 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00209"/>00209 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(line.startsWith(<link linkend="_sd__wrapper_8cpp_1a50a25663e78c4de487166e4529048526">SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD</link>))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00210"/>00210 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(device_id&#32;&amp;&amp;&#32;sscanf(line.c_str(),&#32;<link linkend="_sd__wrapper_8cpp_1abdaea06ccbc0e904c8326d746a21068c">sd_config_access_point_password_f</link>,&#32;access_point_password))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00211"/>00211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a22ccb69bc387bdfeea837a8f5f1456e1">set_ap_password</link>(access_point_password,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00212"/>00212 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00213"/>00213 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00214"/>00214 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(line.startsWith(<link linkend="_sd__wrapper_8cpp_1afb5f31072792d2f21b660cc2cc695d54">SD_CONFIG_FIELD_WIFI_SSID</link>))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00215"/>00215 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(device_id&#32;&amp;&amp;&#32;sscanf(line.c_str(),&#32;<link linkend="_sd__wrapper_8cpp_1aa4900be28f60838dd73306a229c133fc">sd_config_wifi_ssid_f</link>,&#32;wifi_ssid))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00216"/>00216 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a89834da9be662b2881d56b78bc72035e">set_wifi_ssid</link>(wifi_ssid,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00217"/>00217 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00218"/>00218 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00219"/>00219 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(line.startsWith(<link linkend="_sd__wrapper_8cpp_1aa8f0fbbf5a05583dd33c56c4ee018f41">SD_CONFIG_FIELD_WIFI_PASSWORD</link>))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00220"/>00220 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(device_id&#32;&amp;&amp;&#32;sscanf(line.c_str(),&#32;<link linkend="_sd__wrapper_8cpp_1a2dbf62d8052ecbd68de7061f01ac06cd">sd_config_wifi_password_f</link>,&#32;wifi_password))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00221"/>00221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a36a08d7042318aafd9a89e5e47d16218">set_wifi_password</link>(wifi_password,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00222"/>00222 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00223"/>00223 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00224"/>00224 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(line.startsWith(<link linkend="_sd__wrapper_8cpp_1aaba31efa735c3b7f88e713c72a4cabc9">SD_CONFIG_FIELD_CLICK_SOUND_LEVEL</link>))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00225"/>00225 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(device_id&#32;&amp;&amp;&#32;sscanf(line.c_str(),&#32;<link linkend="_sd__wrapper_8cpp_1ab508173c1db7ab10854d5f4a337ee245">sd_config_click_sound_level_f</link>,&#32;&amp;click_sound_level))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00226"/>00226 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a9a902bca0c91533e4bb39c5d57bac78d">set_click_sound_level</link>(click_sound_level,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00227"/>00227 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00228"/>00228 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00229"/>00229 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(line.startsWith(<link linkend="_sd__wrapper_8cpp_1ab71e39123102592eed5af6334f8cbd02">SD_CONFIG_FIELD_ALARM_THRESHOLD</link>))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00230"/>00230 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(device_id&#32;&amp;&amp;&#32;sscanf(line.c_str(),&#32;<link linkend="_sd__wrapper_8cpp_1af6b09bab6ad080afb1e8b23c80720f0b">sd_config_alarm_threshold_f</link>,&#32;&amp;alarm_threshold))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00231"/>00231 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a5f226cd5489714cd4b22e6341e454469">set_alarm_threshold</link>(alarm_threshold,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00232"/>00232 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00233"/>00233 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00234"/>00234 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(line.startsWith(<link linkend="_sd__wrapper_8cpp_1a5c16e00a4816c8fd76fd1dc13ee3627c">SD_CONFIG_FIELD_FIXED_LATITUDE</link>))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(device_id&#32;&amp;&amp;&#32;sscanf(line.c_str(),&#32;<link linkend="_sd__wrapper_8cpp_1a53ce0b8f308a6648e28d3988a056eb17">sd_config_fixed_latitude_f</link>,&#32;&amp;fixed_latitude))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00236"/>00236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a85feeba95879976c5b32d0e31a1cb0c3">set_fixed_latitude</link>(fixed_latitude,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00237"/>00237 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00238"/>00238 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00239"/>00239 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(line.startsWith(<link linkend="_sd__wrapper_8cpp_1a4934da27192775398139ad7459c6cf79">SD_CONFIG_FIELD_FIXED_LONGITUDE</link>))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00240"/>00240 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(device_id&#32;&amp;&amp;&#32;sscanf(line.c_str(),&#32;<link linkend="_sd__wrapper_8cpp_1a70a9775d4baf9ce894b9566e55fdaa3c">sd_config_fixed_longitude_f</link>,&#32;&amp;fixed_longitude))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00241"/>00241 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1aece6d66d88334ec1d56123af1e30beec">set_fixed_longitude</link>(fixed_longitude,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00242"/>00242 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00243"/>00243 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00244"/>00244 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(line.startsWith(<link linkend="_sd__wrapper_8cpp_1a7efae71986bb43b0d34f613da8785ca4">SD_CONFIG_FIELD_FIXED_RANGE</link>))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00245"/>00245 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(device_id&#32;&amp;&amp;&#32;sscanf(line.c_str(),&#32;<link linkend="_sd__wrapper_8cpp_1abb907d5a507b3a98d9b9dd02c0f3db27">sd_config_fixed_range_f</link>,&#32;&amp;fixed_range))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00246"/>00246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a90854142e6b8517446157c21889903a9">set_fixed_range</link>(fixed_range,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00247"/>00247 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00248"/>00248 &#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00249"/>00249 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a01e7feab704802b5523d4bf0054f0b61">DEBUG_PRINTF</link>(<emphasis role="stringliteral">&quot;Read&#32;???&#32;SAFEZEN&#32;line:&#32;%s&#32;\n&quot;</emphasis>,&#32;line.c_str());
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00250"/>00250 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00251"/>00251 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00252"/>00252 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00253"/>00253 &#32;&#32;file.close();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00254"/>00254 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00255"/>00255 &#32;&#32;_last_read&#32;=&#32;millis();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00256"/>00256 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00257"/>00257 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;!!device_id;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00258"/>00258 }
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00259"/>00259 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00260"/><link linkend="_class_s_d_interface_1a1eeb50f1000c0bb1442e522d756216b1">00260</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_s_d_interface_1a1eeb50f1000c0bb1442e522d756216b1">SDInterface::write_safezen_file</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;full)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00261"/>00261 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!_sd_ready)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00262"/>00262 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00263"/>00263 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00264"/>00264 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65">get_device_id</link>())&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00265"/>00265 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00266"/>00266 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00267"/>00267 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00268"/>00268 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(SD.exists(<link linkend="_user__config_8h_1a01a5470ab05566cfd96f7d3f9f9d865b">SETUP_FILENAME</link>))&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00269"/>00269 &#32;&#32;&#32;&#32;SD.remove(<link linkend="_user__config_8h_1a01a5470ab05566cfd96f7d3f9f9d865b">SETUP_FILENAME</link>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00270"/>00270 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00271"/>00271 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00272"/>00272 &#32;&#32;File&#32;safecast_txt&#32;=&#32;SD.open(<link linkend="_user__config_8h_1a01a5470ab05566cfd96f7d3f9f9d865b">SETUP_FILENAME</link>,&#32;FILE_WRITE);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00273"/>00273 &#32;&#32;_last_write&#32;=&#32;millis();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00274"/>00274 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!safecast_txt)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00275"/>00275 &#32;&#32;&#32;&#32;<link linkend="_class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a">end</link>();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00276"/>00276 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00277"/>00277 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00278"/>00278 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00279"/>00279 &#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;Writing&#32;SAFEZEN&#32;file&quot;</emphasis>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00280"/>00280 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00281"/>00281 &#32;&#32;safecast_txt.printf(<link linkend="_sd__wrapper_8cpp_1ab1e5559f15733708d3b3ab6316b17425">sd_config_version_f</link>,&#32;<link linkend="_user__config_8h_1a698acb89e1bf5837b33c30ef35c30044">VERSION_STRING</link>);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00282"/>00282 &#32;&#32;safecast_txt.println();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00283"/>00283 &#32;&#32;safecast_txt.printf(<link linkend="_sd__wrapper_8cpp_1a61ecfa2a1eff3111c758ef203807e699">sd_config_device_id_f</link>,&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65">get_device_id</link>());
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00284"/>00284 &#32;&#32;safecast_txt.println();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00285"/>00285 &#32;&#32;safecast_txt.printf(<link linkend="_sd__wrapper_8cpp_1a0a19c314a85643ef82614487153b2a47">sd_config_api_key_f</link>,&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a119e9cbf7e8edad53786b070ee2cb298">get_api_key</link>());
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00286"/>00286 &#32;&#32;safecast_txt.println();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00287"/>00287 &#32;&#32;safecast_txt.printf(<link linkend="_sd__wrapper_8cpp_1abdaea06ccbc0e904c8326d746a21068c">sd_config_access_point_password_f</link>,&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a3cc3942e1b3d46088e4ec092dd9b5034">get_ap_password</link>());
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00288"/>00288 &#32;&#32;safecast_txt.println();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00289"/>00289 &#32;&#32;safecast_txt.printf(<link linkend="_sd__wrapper_8cpp_1aa4900be28f60838dd73306a229c133fc">sd_config_wifi_ssid_f</link>,&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a8d0807c2fad52121c446d91f85976856">get_wifi_ssid</link>());
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00290"/>00290 &#32;&#32;safecast_txt.println();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00291"/>00291 &#32;&#32;safecast_txt.printf(<link linkend="_sd__wrapper_8cpp_1a2dbf62d8052ecbd68de7061f01ac06cd">sd_config_wifi_password_f</link>,&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a619ba1c828df4e5c97e7ac77115e72a2">get_wifi_password</link>());
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00292"/>00292 &#32;&#32;safecast_txt.println();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00293"/>00293 &#32;&#32;safecast_txt.printf(<link linkend="_sd__wrapper_8cpp_1ab508173c1db7ab10854d5f4a337ee245">sd_config_click_sound_level_f</link>,&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a1548b893a43891977ceaeaaa54fd59aa">get_click_sound_level</link>());
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00294"/>00294 &#32;&#32;safecast_txt.println();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00295"/>00295 &#32;&#32;safecast_txt.printf(<link linkend="_sd__wrapper_8cpp_1af6b09bab6ad080afb1e8b23c80720f0b">sd_config_alarm_threshold_f</link>,&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a498a4980d61582508f9966a5cfb6c00c">get_alarm_threshold</link>());
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00296"/>00296 &#32;&#32;safecast_txt.println();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00297"/>00297 &#32;&#32;safecast_txt.printf(<link linkend="_sd__wrapper_8cpp_1a53ce0b8f308a6648e28d3988a056eb17">sd_config_fixed_latitude_f</link>,&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca">get_fixed_latitude</link>());
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00298"/>00298 &#32;&#32;safecast_txt.println();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00299"/>00299 &#32;&#32;safecast_txt.printf(<link linkend="_sd__wrapper_8cpp_1a70a9775d4baf9ce894b9566e55fdaa3c">sd_config_fixed_longitude_f</link>,&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a2972e2632be5da773cfa65e23be878e5">get_fixed_longitude</link>());
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00300"/>00300 &#32;&#32;safecast_txt.println();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00301"/>00301 &#32;&#32;safecast_txt.printf(<link linkend="_sd__wrapper_8cpp_1abb907d5a507b3a98d9b9dd02c0f3db27">sd_config_fixed_range_f</link>,&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>.<link linkend="_class_local_storage_1a66a46a4e806da89c4e2f672d19d690fb">get_fixed_range</link>());
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00302"/>00302 &#32;&#32;safecast_txt.println();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00303"/>00303 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00304"/>00304 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(full)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00305"/>00305 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.printf(sd_config_ush_divider_f,&#32;settings.get_ush_divider());</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00306"/>00306 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.println();</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00307"/>00307 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.printf(sd_config_cpmn_f,&#32;settings.get_cpmn());</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00308"/>00308 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.println();</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00309"/>00309 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.printf(sd_config_bqm_factor_f,&#32;settings.get_bqm_factor());</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00310"/>00310 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.println();</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00311"/>00311 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.printf(sd_config_bqmn_f,&#32;settings.get_bqmn());</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00312"/>00312 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.println();</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00313"/>00313 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.printf(sd_config_country_code_f,&#32;settings.get_country_code());</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00314"/>00314 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.println();</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00315"/>00315 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.printf(sd_config_gt_f,&#32;settings.get_gt());</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00316"/>00316 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.println();</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00317"/>00317 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.printf(sd_config_gm_f,&#32;settings.get_gm());</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00318"/>00318 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.println();</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00319"/>00319 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.printf(sd_config_sensor_type_f,&#32;settings.get_sensor_type());</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00320"/>00320 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.println();</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00321"/>00321 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.printf(sd_config_sensor_shield_f,&#32;settings.get_sensor_shield());</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00322"/>00322 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.println();</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00323"/>00323 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.printf(sd_config_sensor_mode_f,&#32;settings.get_sensor_mode());</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00324"/>00324 <emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;safecast_txt.println();</emphasis>
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00325"/>00325 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00326"/>00326 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00327"/>00327 &#32;&#32;safecast_txt.close();
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00328"/>00328 
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00329"/>00329 &#32;&#32;File&#32;written_safecast_txt&#32;=&#32;SD.open(<link linkend="_user__config_8h_1a01a5470ab05566cfd96f7d3f9f9d865b">SETUP_FILENAME</link>,&#32;FILE_READ);
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00330"/>00330 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(safecast_txt)&#32;{
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00331"/>00331 &#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a01e7feab704802b5523d4bf0054f0b61">DEBUG_PRINTF</link>(<emphasis role="stringliteral">&quot;Finished&#32;writing&#32;SAFEZEN&#32;file:\n%s\n&quot;</emphasis>,&#32;written_safecast_txt.readString().c_str());
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00332"/>00332 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00333"/>00333 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_sd__wrapper_8cpp_source_1l00334"/>00334 }
+</programlisting></section>

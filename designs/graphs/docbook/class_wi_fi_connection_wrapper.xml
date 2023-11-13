@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_wi_fi_connection_wrapper" xml:lang="en-US">
+<title>WiFiConnectionWrapper Class Reference</title>
+<indexterm><primary>WiFiConnectionWrapper</primary></indexterm>
+<para>
+<computeroutput>#include &lt;wifi_connection.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static bool <link linkend="_class_wi_fi_connection_wrapper_1a7d869df899dfc5c676806d776597e484">connect_wifi</link> (const char *ssid, const char *password=nullptr)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_wi_fi_connection_wrapper_1ac1c3882d7ca0f8c43c0f3b0b662941f3">disconnect_wifi</link> ()</para>
+</listitem>
+            <listitem><para>static bool <link linkend="_class_wi_fi_connection_wrapper_1add8ab8299b5dcdcb6643f12aa0a46857">wifi_connected</link> ()</para>
+</listitem>
+            <listitem><para>static bool <link linkend="_class_wi_fi_connection_wrapper_1a8d0aa568afdfb72dd868ef93ff64808c">start_ap_server</link> (const char *host_ssid, const char *password)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_wi_fi_connection_wrapper_1aefd749dcacea79d5ff1a085bbae34adf">stop_ap_server</link> ()</para>
+</listitem>
+            <listitem><para>static bool <link linkend="_class_wi_fi_connection_wrapper_1a23df574a3c026ba7dc02ad887ac3f403">ap_server_up</link> ()</para>
+</listitem>
+            <listitem><para>static void <link linkend="_class_wi_fi_connection_wrapper_1a9c470948d1171fc6b9740386b19ccf32">set_hostname</link> (const char *hostname, bool ap_mode)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_wifi__connection_8h_source_1l00004">4</link> of file <link linkend="_wifi__connection_8h_source">wifi_connection.h</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_wi_fi_connection_wrapper_1a23df574a3c026ba7dc02ad887ac3f403"/><section>
+    <title>ap_server_up()</title>
+<indexterm><primary>ap_server_up</primary><secondary>WiFiConnectionWrapper</secondary></indexterm>
+<indexterm><primary>WiFiConnectionWrapper</primary><secondary>ap_server_up</secondary></indexterm>
+<para><computeroutput>bool WiFiConnectionWrapper::ap_server_up ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>check if wifi is connected <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_wifi__connection_8cpp_source_1l00054">54</link> of file <link linkend="_wifi__connection_8cpp_source">wifi_connection.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_wi_fi_connection_wrapper_a23df574a3c026ba7dc02ad887ac3f403_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_wi_fi_connection_wrapper_1a7d869df899dfc5c676806d776597e484"/><section>
+    <title>connect_wifi()</title>
+<indexterm><primary>connect_wifi</primary><secondary>WiFiConnectionWrapper</secondary></indexterm>
+<indexterm><primary>WiFiConnectionWrapper</primary><secondary>connect_wifi</secondary></indexterm>
+<para><computeroutput>bool WiFiConnectionWrapper::connect_wifi (const char * ssid, const char * password = <computeroutput>nullptr</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Connect to wifi endpoint 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ssid</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>password</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if connected </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_wifi__connection_8cpp_source_1l00008">8</link> of file <link linkend="_wifi__connection_8cpp_source">wifi_connection.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_wi_fi_connection_wrapper_a7d869df899dfc5c676806d776597e484_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_wi_fi_connection_wrapper_1ac1c3882d7ca0f8c43c0f3b0b662941f3"/><section>
+    <title>disconnect_wifi()</title>
+<indexterm><primary>disconnect_wifi</primary><secondary>WiFiConnectionWrapper</secondary></indexterm>
+<indexterm><primary>WiFiConnectionWrapper</primary><secondary>disconnect_wifi</secondary></indexterm>
+<para><computeroutput>void WiFiConnectionWrapper::disconnect_wifi ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>disconnect from wifi endpoint </para>
+<para>
+Definition at line <link linkend="_wifi__connection_8cpp_source_1l00024">24</link> of file <link linkend="_wifi__connection_8cpp_source">wifi_connection.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_wi_fi_connection_wrapper_ac1c3882d7ca0f8c43c0f3b0b662941f3_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_wi_fi_connection_wrapper_1a9c470948d1171fc6b9740386b19ccf32"/><section>
+    <title>set_hostname()</title>
+<indexterm><primary>set_hostname</primary><secondary>WiFiConnectionWrapper</secondary></indexterm>
+<indexterm><primary>WiFiConnectionWrapper</primary><secondary>set_hostname</secondary></indexterm>
+<para><computeroutput>void WiFiConnectionWrapper::set_hostname (const char * hostname, bool ap_mode)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Set wifi hostname </para>
+<para>
+Definition at line <link linkend="_wifi__connection_8cpp_source_1l00058">58</link> of file <link linkend="_wifi__connection_8cpp_source">wifi_connection.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_wi_fi_connection_wrapper_a9c470948d1171fc6b9740386b19ccf32_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_wi_fi_connection_wrapper_1a8d0aa568afdfb72dd868ef93ff64808c"/><section>
+    <title>start_ap_server()</title>
+<indexterm><primary>start_ap_server</primary><secondary>WiFiConnectionWrapper</secondary></indexterm>
+<indexterm><primary>WiFiConnectionWrapper</primary><secondary>start_ap_server</secondary></indexterm>
+<para><computeroutput>bool WiFiConnectionWrapper::start_ap_server (const char * host_ssid, const char * password)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Start access point server <formalpara><title>Returns</title>
+
+<para>true if up </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_wifi__connection_8cpp_source_1l00033">33</link> of file <link linkend="_wifi__connection_8cpp_source">wifi_connection.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_wi_fi_connection_wrapper_a8d0aa568afdfb72dd868ef93ff64808c_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_wi_fi_connection_wrapper_1aefd749dcacea79d5ff1a085bbae34adf"/><section>
+    <title>stop_ap_server()</title>
+<indexterm><primary>stop_ap_server</primary><secondary>WiFiConnectionWrapper</secondary></indexterm>
+<indexterm><primary>WiFiConnectionWrapper</primary><secondary>stop_ap_server</secondary></indexterm>
+<para><computeroutput>void WiFiConnectionWrapper::stop_ap_server ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Stop access point server </para>
+<para>
+Definition at line <link linkend="_wifi__connection_8cpp_source_1l00049">49</link> of file <link linkend="_wifi__connection_8cpp_source">wifi_connection.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_wi_fi_connection_wrapper_1add8ab8299b5dcdcb6643f12aa0a46857"/><section>
+    <title>wifi_connected()</title>
+<indexterm><primary>wifi_connected</primary><secondary>WiFiConnectionWrapper</secondary></indexterm>
+<indexterm><primary>WiFiConnectionWrapper</primary><secondary>wifi_connected</secondary></indexterm>
+<para><computeroutput>bool WiFiConnectionWrapper::wifi_connected ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>check if wifi is connected <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_wifi__connection_8cpp_source_1l00029">29</link> of file <link linkend="_wifi__connection_8cpp_source">wifi_connection.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_wi_fi_connection_wrapper_add8ab8299b5dcdcb6643f12aa0a46857_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/utils/<link linkend="_wifi__connection_8h">wifi_connection.h</link>bgeigiezen_firmware/utils/<link linkend="_wifi__connection_8cpp">wifi_connection.cpp</link></section>
+</section>

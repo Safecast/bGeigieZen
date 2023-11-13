@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_local__storage_8cpp_source" xml:lang="en-US">
+<title>local_storage.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/handlers/local_storage.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_local__storage_8cpp_source_1l00001"/>00001 
+<anchor xml:id="_local__storage_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_local__storage_8h">local_storage.h</link>&quot;</emphasis>
+<anchor xml:id="_local__storage_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_debugger_8h">debugger.h</link>&quot;</emphasis>
+<anchor xml:id="_local__storage_8cpp_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_identifiers_8h">identifiers.h</link>&quot;</emphasis>
+<anchor xml:id="_local__storage_8cpp_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_controller_8h">controller.h</link>&quot;</emphasis>
+<anchor xml:id="_local__storage_8cpp_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_api__connector_8h">api_connector.h</link>&quot;</emphasis>
+<anchor xml:id="_local__storage_8cpp_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_gps__connector_8h">workers/gps_connector.h</link>&quot;</emphasis>
+<anchor xml:id="_local__storage_8cpp_source_1l00008"/>00008 
+<anchor xml:id="_local__storage_8cpp_source_1l00009"/><link linkend="_local__storage_8cpp_1a9554b3e7d789b754364284c87bc3a132">00009</link> <emphasis role="preprocessor">#define&#32;D_SEND_FREQUENCY&#32;ApiConnector::e_api_send_frequency_5_min</emphasis>
+<anchor xml:id="_local__storage_8cpp_source_1l00010"/>00010 
+<anchor xml:id="_local__storage_8cpp_source_1l00011"/><link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">00011</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">memory_name</link>&#32;=&#32;<emphasis role="stringliteral">&quot;data&quot;</emphasis>;
+<anchor xml:id="_local__storage_8cpp_source_1l00012"/>00012 
+<anchor xml:id="_local__storage_8cpp_source_1l00013"/>00013 <emphasis role="comment">//&#32;Keys&#32;for&#32;config</emphasis>
+<anchor xml:id="_local__storage_8cpp_source_1l00014"/><link linkend="_local__storage_8cpp_1a1cc3c4ca432fdd11a925513552304d24">00014</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_local__storage_8cpp_1a1cc3c4ca432fdd11a925513552304d24">key_device_id</link>&#32;=&#32;<emphasis role="stringliteral">&quot;device_id&quot;</emphasis>;
+<anchor xml:id="_local__storage_8cpp_source_1l00015"/><link linkend="_local__storage_8cpp_1a7d9f3d754040151f4292a57431c5e1d3">00015</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_local__storage_8cpp_1a7d9f3d754040151f4292a57431c5e1d3">key_ap_password</link>&#32;=&#32;<emphasis role="stringliteral">&quot;device_password&quot;</emphasis>;
+<anchor xml:id="_local__storage_8cpp_source_1l00016"/><link linkend="_local__storage_8cpp_1ad6045c95b0899d869eb788d7ac34cc95">00016</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_local__storage_8cpp_1ad6045c95b0899d869eb788d7ac34cc95">key_wifi_ssid</link>&#32;=&#32;<emphasis role="stringliteral">&quot;wifi_ssid&quot;</emphasis>;
+<anchor xml:id="_local__storage_8cpp_source_1l00017"/><link linkend="_local__storage_8cpp_1af80482f4d17df6f62f5ba0cd6b63967c">00017</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_local__storage_8cpp_1af80482f4d17df6f62f5ba0cd6b63967c">key_wifi_password</link>&#32;=&#32;<emphasis role="stringliteral">&quot;wifi_password&quot;</emphasis>;
+<anchor xml:id="_local__storage_8cpp_source_1l00018"/><link linkend="_local__storage_8cpp_1a5c676b3fb3be8ab7e66402250230ca2d">00018</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_local__storage_8cpp_1a5c676b3fb3be8ab7e66402250230ca2d">key_api_key</link>&#32;=&#32;<emphasis role="stringliteral">&quot;api_key&quot;</emphasis>;
+<anchor xml:id="_local__storage_8cpp_source_1l00019"/><link linkend="_local__storage_8cpp_1a02b2ad8efdfe6025a45b06e1193782dc">00019</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_local__storage_8cpp_1a02b2ad8efdfe6025a45b06e1193782dc">key_alarm_threshold</link>&#32;=&#32;<emphasis role="stringliteral">&quot;alarm_threshold&quot;</emphasis>;
+<anchor xml:id="_local__storage_8cpp_source_1l00020"/><link linkend="_local__storage_8cpp_1aa293ec0668d51351996db4589c73628e">00020</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_local__storage_8cpp_1aa293ec0668d51351996db4589c73628e">key_click_sound_level</link>&#32;=&#32;<emphasis role="stringliteral">&quot;click_sound_level&quot;</emphasis>;
+<anchor xml:id="_local__storage_8cpp_source_1l00021"/><link linkend="_local__storage_8cpp_1afbe75d61c3a9a4d6cf9e2da21115fe3e">00021</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_local__storage_8cpp_1afbe75d61c3a9a4d6cf9e2da21115fe3e">key_fixed_range</link>&#32;=&#32;<emphasis role="stringliteral">&quot;fixed_range&quot;</emphasis>;
+<anchor xml:id="_local__storage_8cpp_source_1l00022"/><link linkend="_local__storage_8cpp_1a3b013a23545661c8d4c85699e54b015f">00022</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_local__storage_8cpp_1a3b013a23545661c8d4c85699e54b015f">key_fixed_longitude</link>&#32;=&#32;<emphasis role="stringliteral">&quot;fixed_longitude&quot;</emphasis>;
+<anchor xml:id="_local__storage_8cpp_source_1l00023"/><link linkend="_local__storage_8cpp_1ab12a1e02935187062efb6a12585e60f0">00023</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_local__storage_8cpp_1ab12a1e02935187062efb6a12585e60f0">key_fixed_latitude</link>&#32;=&#32;<emphasis role="stringliteral">&quot;fixed_latitude&quot;</emphasis>;
+<anchor xml:id="_local__storage_8cpp_source_1l00024"/><link linkend="_local__storage_8cpp_1af734d6e6d80ded442268461b91db22a3">00024</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_local__storage_8cpp_1af734d6e6d80ded442268461b91db22a3">key_last_longitude</link>&#32;=&#32;<emphasis role="stringliteral">&quot;last_longitude&quot;</emphasis>;
+<anchor xml:id="_local__storage_8cpp_source_1l00025"/><link linkend="_local__storage_8cpp_1adc8a2fcfb910f0c89841859660e686af">00025</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_local__storage_8cpp_1adc8a2fcfb910f0c89841859660e686af">key_last_latitude</link>&#32;=&#32;<emphasis role="stringliteral">&quot;last_latitude&quot;</emphasis>;
+<anchor xml:id="_local__storage_8cpp_source_1l00026"/>00026 
+<anchor xml:id="_local__storage_8cpp_source_1l00027"/><link linkend="_class_local_storage_1a0b6c01b08888b91281605a865ea1af2f">00027</link> <link linkend="_class_local_storage_1a0b6c01b08888b91281605a865ea1af2f">LocalStorage::LocalStorage</link>()&#32;:
+<anchor xml:id="_local__storage_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;Handler(),
+<anchor xml:id="_local__storage_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;_memory(),
+<anchor xml:id="_local__storage_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;_device_id(0),
+<anchor xml:id="_local__storage_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;_ap_password(<emphasis role="stringliteral">&quot;&quot;</emphasis>),
+<anchor xml:id="_local__storage_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;_alarm_threshold(0),
+<anchor xml:id="_local__storage_8cpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;_click_sound_level(0),
+<anchor xml:id="_local__storage_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;_wifi_ssid(<emphasis role="stringliteral">&quot;&quot;</emphasis>),
+<anchor xml:id="_local__storage_8cpp_source_1l00035"/>00035 &#32;&#32;&#32;&#32;_wifi_password(<emphasis role="stringliteral">&quot;&quot;</emphasis>),
+<anchor xml:id="_local__storage_8cpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;_api_key(<emphasis role="stringliteral">&quot;&quot;</emphasis>),
+<anchor xml:id="_local__storage_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;_fixed_longitude(0),
+<anchor xml:id="_local__storage_8cpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;_fixed_latitude(0),
+<anchor xml:id="_local__storage_8cpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;_fixed_range(0),
+<anchor xml:id="_local__storage_8cpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;_last_longitude(0),
+<anchor xml:id="_local__storage_8cpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;_last_latitude(0)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00042"/>00042 }
+<anchor xml:id="_local__storage_8cpp_source_1l00043"/>00043 
+<anchor xml:id="_local__storage_8cpp_source_1l00044"/><link linkend="_class_local_storage_1a809d095a05789828cc50ee1a4d575844">00044</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a809d095a05789828cc50ee1a4d575844">LocalStorage::reset_defaults</link>()&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00045"/>00045 &#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;test&quot;</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00046"/>00046 
+<anchor xml:id="_local__storage_8cpp_source_1l00047"/>00047 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_class_local_storage_1abf645efa025a556a3188b42d5f5590fe">clear</link>())&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00048"/>00048 &#32;&#32;&#32;&#32;<link linkend="_class_local_storage_1a5b975387d77a0d68a0eae66ce9f265df">set_device_id</link>(<link linkend="_user__config_8h_1ab5ab7140802b46e7db66cc9b92b61193">D_DEVICE_ID</link>,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00049"/>00049 &#32;&#32;&#32;&#32;<link linkend="_class_local_storage_1a22ccb69bc387bdfeea837a8f5f1456e1">set_ap_password</link>(<link linkend="_user__config_8h_1a89cb19740b0080c97b66e4d3a1dcc711">D_ACCESS_POINT_PASSWORD</link>,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00050"/>00050 &#32;&#32;&#32;&#32;<link linkend="_class_local_storage_1a5f226cd5489714cd4b22e6341e454469">set_alarm_threshold</link>(0,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00051"/>00051 &#32;&#32;&#32;&#32;<link linkend="_class_local_storage_1a9a902bca0c91533e4bb39c5d57bac78d">set_click_sound_level</link>(0,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;<link linkend="_class_local_storage_1a89834da9be662b2881d56b78bc72035e">set_wifi_ssid</link>(<link linkend="_user__config_8h_1aff876460366b50a61c98ba651c49adda">D_WIFI_SSID</link>,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00053"/>00053 &#32;&#32;&#32;&#32;<link linkend="_class_local_storage_1a36a08d7042318aafd9a89e5e47d16218">set_wifi_password</link>(<link linkend="_user__config_8h_1ac2201e2757292b5e01d7fdaa4bd777be">D_WIFI_PASSWORD</link>,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00054"/>00054 &#32;&#32;&#32;&#32;<link linkend="_class_local_storage_1a0c0380d90c7cd50702c203c00254cc7a">set_api_key</link>(<link linkend="_user__config_8h_1af2da36fb06d7b7d7efaf61e70b86f099">D_APIKEY</link>,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00055"/>00055 &#32;&#32;&#32;&#32;<link linkend="_class_local_storage_1aece6d66d88334ec1d56123af1e30beec">set_fixed_longitude</link>(0,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00056"/>00056 &#32;&#32;&#32;&#32;<link linkend="_class_local_storage_1a85feeba95879976c5b32d0e31a1cb0c3">set_fixed_latitude</link>(0,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00057"/>00057 &#32;&#32;&#32;&#32;<link linkend="_class_local_storage_1a90854142e6b8517446157c21889903a9">set_fixed_range</link>(0,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00058"/>00058 &#32;&#32;&#32;&#32;<link linkend="_class_local_storage_1a30925c71296c99004645906c9dabfc9d">set_last_longitude</link>(0,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00059"/>00059 &#32;&#32;&#32;&#32;<link linkend="_class_local_storage_1a61222cf72160eb65fe14a84ee43052bb">set_last_latitude</link>(0,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00060"/>00060 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00061"/>00061 }
+<anchor xml:id="_local__storage_8cpp_source_1l00062"/>00062 
+<anchor xml:id="_local__storage_8cpp_source_1l00063"/><link linkend="_class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65">00063</link> uint16_t&#32;<link linkend="_class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65">LocalStorage::get_device_id</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_local__storage_8cpp_source_1l00064"/>00064 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_device_id;
+<anchor xml:id="_local__storage_8cpp_source_1l00065"/>00065 }
+<anchor xml:id="_local__storage_8cpp_source_1l00066"/>00066 
+<anchor xml:id="_local__storage_8cpp_source_1l00067"/><link linkend="_class_local_storage_1a3cc3942e1b3d46088e4ec092dd9b5034">00067</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_class_local_storage_1a3cc3942e1b3d46088e4ec092dd9b5034">LocalStorage::get_ap_password</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_local__storage_8cpp_source_1l00068"/>00068 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_ap_password;
+<anchor xml:id="_local__storage_8cpp_source_1l00069"/>00069 }
+<anchor xml:id="_local__storage_8cpp_source_1l00070"/>00070 
+<anchor xml:id="_local__storage_8cpp_source_1l00071"/><link linkend="_class_local_storage_1a498a4980d61582508f9966a5cfb6c00c">00071</link> uint16_t&#32;<link linkend="_class_local_storage_1a498a4980d61582508f9966a5cfb6c00c">LocalStorage::get_alarm_threshold</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_local__storage_8cpp_source_1l00072"/>00072 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_alarm_threshold;
+<anchor xml:id="_local__storage_8cpp_source_1l00073"/>00073 }
+<anchor xml:id="_local__storage_8cpp_source_1l00074"/>00074 
+<anchor xml:id="_local__storage_8cpp_source_1l00075"/><link linkend="_class_local_storage_1a1548b893a43891977ceaeaaa54fd59aa">00075</link> uint8_t&#32;<link linkend="_class_local_storage_1a1548b893a43891977ceaeaaa54fd59aa">LocalStorage::get_click_sound_level</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_local__storage_8cpp_source_1l00076"/>00076 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_click_sound_level;
+<anchor xml:id="_local__storage_8cpp_source_1l00077"/>00077 }
+<anchor xml:id="_local__storage_8cpp_source_1l00078"/>00078 
+<anchor xml:id="_local__storage_8cpp_source_1l00079"/><link linkend="_class_local_storage_1a8d0807c2fad52121c446d91f85976856">00079</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_class_local_storage_1a8d0807c2fad52121c446d91f85976856">LocalStorage::get_wifi_ssid</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_local__storage_8cpp_source_1l00080"/>00080 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_wifi_ssid;
+<anchor xml:id="_local__storage_8cpp_source_1l00081"/>00081 }
+<anchor xml:id="_local__storage_8cpp_source_1l00082"/>00082 
+<anchor xml:id="_local__storage_8cpp_source_1l00083"/><link linkend="_class_local_storage_1a619ba1c828df4e5c97e7ac77115e72a2">00083</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_class_local_storage_1a619ba1c828df4e5c97e7ac77115e72a2">LocalStorage::get_wifi_password</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_local__storage_8cpp_source_1l00084"/>00084 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_wifi_password;
+<anchor xml:id="_local__storage_8cpp_source_1l00085"/>00085 }
+<anchor xml:id="_local__storage_8cpp_source_1l00086"/>00086 
+<anchor xml:id="_local__storage_8cpp_source_1l00087"/><link linkend="_class_local_storage_1a119e9cbf7e8edad53786b070ee2cb298">00087</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_class_local_storage_1a119e9cbf7e8edad53786b070ee2cb298">LocalStorage::get_api_key</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_local__storage_8cpp_source_1l00088"/>00088 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_api_key;
+<anchor xml:id="_local__storage_8cpp_source_1l00089"/>00089 }
+<anchor xml:id="_local__storage_8cpp_source_1l00090"/>00090 
+<anchor xml:id="_local__storage_8cpp_source_1l00091"/><link linkend="_class_local_storage_1a2972e2632be5da773cfa65e23be878e5">00091</link> <emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_class_local_storage_1a2972e2632be5da773cfa65e23be878e5">LocalStorage::get_fixed_longitude</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_local__storage_8cpp_source_1l00092"/>00092 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_fixed_longitude;
+<anchor xml:id="_local__storage_8cpp_source_1l00093"/>00093 }
+<anchor xml:id="_local__storage_8cpp_source_1l00094"/>00094 
+<anchor xml:id="_local__storage_8cpp_source_1l00095"/><link linkend="_class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca">00095</link> <emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca">LocalStorage::get_fixed_latitude</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_local__storage_8cpp_source_1l00096"/>00096 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_fixed_latitude;
+<anchor xml:id="_local__storage_8cpp_source_1l00097"/>00097 }
+<anchor xml:id="_local__storage_8cpp_source_1l00098"/>00098 
+<anchor xml:id="_local__storage_8cpp_source_1l00099"/><link linkend="_class_local_storage_1a66a46a4e806da89c4e2f672d19d690fb">00099</link> uint16_t&#32;<link linkend="_class_local_storage_1a66a46a4e806da89c4e2f672d19d690fb">LocalStorage::get_fixed_range</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_local__storage_8cpp_source_1l00100"/>00100 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_fixed_range;
+<anchor xml:id="_local__storage_8cpp_source_1l00101"/>00101 }
+<anchor xml:id="_local__storage_8cpp_source_1l00102"/>00102 
+<anchor xml:id="_local__storage_8cpp_source_1l00103"/><link linkend="_class_local_storage_1a120a3285914a098837bb4d3b8be20d0b">00103</link> <emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_class_local_storage_1a120a3285914a098837bb4d3b8be20d0b">LocalStorage::get_last_longitude</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_local__storage_8cpp_source_1l00104"/>00104 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_last_longitude;
+<anchor xml:id="_local__storage_8cpp_source_1l00105"/>00105 }
+<anchor xml:id="_local__storage_8cpp_source_1l00106"/>00106 
+<anchor xml:id="_local__storage_8cpp_source_1l00107"/><link linkend="_class_local_storage_1a9aa6633c81709db989f2bf3ea1f21521">00107</link> <emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_class_local_storage_1a9aa6633c81709db989f2bf3ea1f21521">LocalStorage::get_last_latitude</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_local__storage_8cpp_source_1l00108"/>00108 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_last_latitude;
+<anchor xml:id="_local__storage_8cpp_source_1l00109"/>00109 }
+<anchor xml:id="_local__storage_8cpp_source_1l00110"/>00110 
+<anchor xml:id="_local__storage_8cpp_source_1l00111"/><link linkend="_class_local_storage_1a5b975387d77a0d68a0eae66ce9f265df">00111</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a5b975387d77a0d68a0eae66ce9f265df">LocalStorage::set_device_id</link>(uint16_t&#32;device_id,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00112"/>00112 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(force&#32;||&#32;(device_id&#32;!=&#32;_device_id))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00113"/>00113 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.begin(<link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">memory_name</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;_device_id&#32;=&#32;device_id;
+<anchor xml:id="_local__storage_8cpp_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;_memory.putUShort(<link linkend="_local__storage_8cpp_1a1cc3c4ca432fdd11a925513552304d24">key_device_id</link>,&#32;_device_id);
+<anchor xml:id="_local__storage_8cpp_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;_memory.end();
+<anchor xml:id="_local__storage_8cpp_source_1l00117"/>00117 &#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;unable&#32;to&#32;save&#32;new&#32;value&#32;for&#32;device_id&quot;</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00119"/>00119 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00120"/>00120 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00121"/>00121 }
+<anchor xml:id="_local__storage_8cpp_source_1l00122"/>00122 
+<anchor xml:id="_local__storage_8cpp_source_1l00123"/><link linkend="_class_local_storage_1a22ccb69bc387bdfeea837a8f5f1456e1">00123</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a22ccb69bc387bdfeea837a8f5f1456e1">LocalStorage::set_ap_password</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;ap_password,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00124"/>00124 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(force&#32;||&#32;(ap_password&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>&#32;&amp;&amp;&#32;strlen(ap_password)&#32;&lt;&#32;<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00125"/>00125 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.begin(<link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">memory_name</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00126"/>00126 &#32;&#32;&#32;&#32;&#32;&#32;strcpy(_ap_password,&#32;ap_password);
+<anchor xml:id="_local__storage_8cpp_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;_memory.putString(<link linkend="_local__storage_8cpp_1a7d9f3d754040151f4292a57431c5e1d3">key_ap_password</link>,&#32;_ap_password);
+<anchor xml:id="_local__storage_8cpp_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;_memory.end();
+<anchor xml:id="_local__storage_8cpp_source_1l00129"/>00129 &#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;unable&#32;to&#32;save&#32;new&#32;value&#32;for&#32;ap_password&quot;</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00131"/>00131 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00132"/>00132 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00133"/>00133 }
+<anchor xml:id="_local__storage_8cpp_source_1l00134"/>00134 
+<anchor xml:id="_local__storage_8cpp_source_1l00135"/><link linkend="_class_local_storage_1a5f226cd5489714cd4b22e6341e454469">00135</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a5f226cd5489714cd4b22e6341e454469">LocalStorage::set_alarm_threshold</link>(uint16_t&#32;alarm_threshold,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00136"/>00136 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.begin(<link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">memory_name</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00137"/>00137 &#32;&#32;&#32;&#32;_alarm_threshold&#32;=&#32;alarm_threshold;
+<anchor xml:id="_local__storage_8cpp_source_1l00138"/>00138 &#32;&#32;&#32;&#32;_memory.putUInt(<link linkend="_local__storage_8cpp_1a02b2ad8efdfe6025a45b06e1193782dc">key_alarm_threshold</link>,&#32;alarm_threshold);
+<anchor xml:id="_local__storage_8cpp_source_1l00139"/>00139 &#32;&#32;&#32;&#32;_memory.end();
+<anchor xml:id="_local__storage_8cpp_source_1l00140"/>00140 &#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00141"/>00141 &#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;unable&#32;to&#32;save&#32;new&#32;value&#32;for&#32;ap_password&quot;</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00142"/>00142 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00143"/>00143 }
+<anchor xml:id="_local__storage_8cpp_source_1l00144"/>00144 
+<anchor xml:id="_local__storage_8cpp_source_1l00145"/><link linkend="_class_local_storage_1a9a902bca0c91533e4bb39c5d57bac78d">00145</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a9a902bca0c91533e4bb39c5d57bac78d">LocalStorage::set_click_sound_level</link>(uint8_t&#32;click_sound_level,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00146"/>00146 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.begin(<link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">memory_name</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00147"/>00147 &#32;&#32;&#32;&#32;_click_sound_level&#32;=&#32;click_sound_level;
+<anchor xml:id="_local__storage_8cpp_source_1l00148"/>00148 &#32;&#32;&#32;&#32;_memory.putUInt(<link linkend="_local__storage_8cpp_1aa293ec0668d51351996db4589c73628e">key_click_sound_level</link>,&#32;click_sound_level);
+<anchor xml:id="_local__storage_8cpp_source_1l00149"/>00149 &#32;&#32;&#32;&#32;_memory.end();
+<anchor xml:id="_local__storage_8cpp_source_1l00150"/>00150 &#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00151"/>00151 &#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;unable&#32;to&#32;save&#32;new&#32;value&#32;for&#32;ap_password&quot;</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00152"/>00152 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00153"/>00153 }
+<anchor xml:id="_local__storage_8cpp_source_1l00154"/>00154 
+<anchor xml:id="_local__storage_8cpp_source_1l00155"/><link linkend="_class_local_storage_1a89834da9be662b2881d56b78bc72035e">00155</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a89834da9be662b2881d56b78bc72035e">LocalStorage::set_wifi_ssid</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;wifi_ssid,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00156"/>00156 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(force&#32;||&#32;(wifi_ssid&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>&#32;&amp;&amp;&#32;strlen(wifi_ssid)&#32;&lt;&#32;<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00157"/>00157 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.begin(<link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">memory_name</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;strcpy(_wifi_ssid,&#32;wifi_ssid);
+<anchor xml:id="_local__storage_8cpp_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;_memory.putString(<link linkend="_local__storage_8cpp_1ad6045c95b0899d869eb788d7ac34cc95">key_wifi_ssid</link>,&#32;_wifi_ssid);
+<anchor xml:id="_local__storage_8cpp_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;_memory.end();
+<anchor xml:id="_local__storage_8cpp_source_1l00161"/>00161 &#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;unable&#32;to&#32;save&#32;new&#32;value&#32;for&#32;wifi_ssid&quot;</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00163"/>00163 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00164"/>00164 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00165"/>00165 }
+<anchor xml:id="_local__storage_8cpp_source_1l00166"/>00166 
+<anchor xml:id="_local__storage_8cpp_source_1l00167"/><link linkend="_class_local_storage_1a36a08d7042318aafd9a89e5e47d16218">00167</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a36a08d7042318aafd9a89e5e47d16218">LocalStorage::set_wifi_password</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;wifi_password,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00168"/>00168 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(force&#32;||&#32;(wifi_password&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>&#32;&amp;&amp;&#32;strlen(wifi_password)&#32;&lt;&#32;<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00169"/>00169 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.begin(<link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">memory_name</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;strcpy(_wifi_password,&#32;wifi_password);
+<anchor xml:id="_local__storage_8cpp_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;_memory.putString(<link linkend="_local__storage_8cpp_1af80482f4d17df6f62f5ba0cd6b63967c">key_wifi_password</link>,&#32;_wifi_password);
+<anchor xml:id="_local__storage_8cpp_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;_memory.end();
+<anchor xml:id="_local__storage_8cpp_source_1l00173"/>00173 &#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;unable&#32;to&#32;save&#32;new&#32;value&#32;for&#32;wifi_password&quot;</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00175"/>00175 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00176"/>00176 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00177"/>00177 }
+<anchor xml:id="_local__storage_8cpp_source_1l00178"/>00178 
+<anchor xml:id="_local__storage_8cpp_source_1l00179"/><link linkend="_class_local_storage_1a0c0380d90c7cd50702c203c00254cc7a">00179</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a0c0380d90c7cd50702c203c00254cc7a">LocalStorage::set_api_key</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;api_key,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00180"/>00180 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(force&#32;||&#32;(api_key&#32;!=&#32;<emphasis role="keyword">nullptr</emphasis>&#32;&amp;&amp;&#32;strlen(api_key)&#32;&lt;&#32;<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00181"/>00181 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.begin(<link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">memory_name</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;strcpy(_api_key,&#32;api_key);
+<anchor xml:id="_local__storage_8cpp_source_1l00183"/>00183 &#32;&#32;&#32;&#32;&#32;&#32;_memory.putString(<link linkend="_local__storage_8cpp_1a5c676b3fb3be8ab7e66402250230ca2d">key_api_key</link>,&#32;_api_key);
+<anchor xml:id="_local__storage_8cpp_source_1l00184"/>00184 &#32;&#32;&#32;&#32;&#32;&#32;_memory.end();
+<anchor xml:id="_local__storage_8cpp_source_1l00185"/>00185 &#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00186"/>00186 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;unable&#32;to&#32;save&#32;new&#32;value&#32;for&#32;api_key&quot;</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00187"/>00187 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00188"/>00188 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00189"/>00189 }
+<anchor xml:id="_local__storage_8cpp_source_1l00190"/>00190 
+<anchor xml:id="_local__storage_8cpp_source_1l00191"/><link linkend="_class_local_storage_1aece6d66d88334ec1d56123af1e30beec">00191</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1aece6d66d88334ec1d56123af1e30beec">LocalStorage::set_fixed_longitude</link>(<emphasis role="keywordtype">double</emphasis>&#32;fixed_longtitude,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00192"/>00192 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.begin(<link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">memory_name</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00193"/>00193 &#32;&#32;&#32;&#32;_fixed_longitude&#32;=&#32;fixed_longtitude;
+<anchor xml:id="_local__storage_8cpp_source_1l00194"/>00194 &#32;&#32;&#32;&#32;_memory.putDouble(<link linkend="_local__storage_8cpp_1a3b013a23545661c8d4c85699e54b015f">key_fixed_longitude</link>,&#32;fixed_longtitude);
+<anchor xml:id="_local__storage_8cpp_source_1l00195"/>00195 &#32;&#32;&#32;&#32;_memory.end();
+<anchor xml:id="_local__storage_8cpp_source_1l00196"/>00196 &#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00197"/>00197 &#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;unable&#32;to&#32;save&#32;new&#32;value&#32;for&#32;key_fixed_longitude&quot;</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00198"/>00198 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00199"/>00199 }
+<anchor xml:id="_local__storage_8cpp_source_1l00200"/>00200 
+<anchor xml:id="_local__storage_8cpp_source_1l00201"/><link linkend="_class_local_storage_1a85feeba95879976c5b32d0e31a1cb0c3">00201</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a85feeba95879976c5b32d0e31a1cb0c3">LocalStorage::set_fixed_latitude</link>(<emphasis role="keywordtype">double</emphasis>&#32;fixed_latitude,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00202"/>00202 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.begin(<link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">memory_name</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00203"/>00203 &#32;&#32;&#32;&#32;_fixed_latitude&#32;=&#32;fixed_latitude;
+<anchor xml:id="_local__storage_8cpp_source_1l00204"/>00204 &#32;&#32;&#32;&#32;_memory.putDouble(<link linkend="_local__storage_8cpp_1ab12a1e02935187062efb6a12585e60f0">key_fixed_latitude</link>,&#32;fixed_latitude);
+<anchor xml:id="_local__storage_8cpp_source_1l00205"/>00205 &#32;&#32;&#32;&#32;_memory.end();
+<anchor xml:id="_local__storage_8cpp_source_1l00206"/>00206 &#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00207"/>00207 &#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;unable&#32;to&#32;save&#32;new&#32;value&#32;for&#32;key_fixed_latitude&quot;</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00208"/>00208 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00209"/>00209 }
+<anchor xml:id="_local__storage_8cpp_source_1l00210"/>00210 
+<anchor xml:id="_local__storage_8cpp_source_1l00211"/><link linkend="_class_local_storage_1a90854142e6b8517446157c21889903a9">00211</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a90854142e6b8517446157c21889903a9">LocalStorage::set_fixed_range</link>(uint16_t&#32;fixed_range,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00212"/>00212 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.begin(<link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">memory_name</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00213"/>00213 &#32;&#32;&#32;&#32;_fixed_range&#32;=&#32;fixed_range;
+<anchor xml:id="_local__storage_8cpp_source_1l00214"/>00214 &#32;&#32;&#32;&#32;_memory.putUInt(<link linkend="_local__storage_8cpp_1afbe75d61c3a9a4d6cf9e2da21115fe3e">key_fixed_range</link>,&#32;fixed_range);
+<anchor xml:id="_local__storage_8cpp_source_1l00215"/>00215 &#32;&#32;&#32;&#32;_memory.end();
+<anchor xml:id="_local__storage_8cpp_source_1l00216"/>00216 &#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00217"/>00217 &#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;unable&#32;to&#32;save&#32;new&#32;value&#32;for&#32;key_fixed_range&quot;</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00218"/>00218 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00219"/>00219 }
+<anchor xml:id="_local__storage_8cpp_source_1l00220"/>00220 
+<anchor xml:id="_local__storage_8cpp_source_1l00221"/><link linkend="_class_local_storage_1a30925c71296c99004645906c9dabfc9d">00221</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a30925c71296c99004645906c9dabfc9d">LocalStorage::set_last_longitude</link>(<emphasis role="keywordtype">double</emphasis>&#32;last_longitude,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00222"/>00222 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.begin(<link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">memory_name</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00223"/>00223 &#32;&#32;&#32;&#32;_last_longitude&#32;=&#32;last_longitude;
+<anchor xml:id="_local__storage_8cpp_source_1l00224"/>00224 &#32;&#32;&#32;&#32;_memory.putDouble(<link linkend="_local__storage_8cpp_1af734d6e6d80ded442268461b91db22a3">key_last_longitude</link>,&#32;last_longitude);
+<anchor xml:id="_local__storage_8cpp_source_1l00225"/>00225 &#32;&#32;&#32;&#32;_memory.end();
+<anchor xml:id="_local__storage_8cpp_source_1l00226"/>00226 &#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00227"/>00227 &#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;unable&#32;to&#32;save&#32;new&#32;value&#32;for&#32;key_last_longitude&quot;</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00228"/>00228 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00229"/>00229 }
+<anchor xml:id="_local__storage_8cpp_source_1l00230"/>00230 
+<anchor xml:id="_local__storage_8cpp_source_1l00231"/><link linkend="_class_local_storage_1a61222cf72160eb65fe14a84ee43052bb">00231</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a61222cf72160eb65fe14a84ee43052bb">LocalStorage::set_last_latitude</link>(<emphasis role="keywordtype">double</emphasis>&#32;last_latitude,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00232"/>00232 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.begin(<link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">memory_name</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00233"/>00233 &#32;&#32;&#32;&#32;_last_latitude&#32;=&#32;last_latitude;
+<anchor xml:id="_local__storage_8cpp_source_1l00234"/>00234 &#32;&#32;&#32;&#32;_memory.putDouble(<link linkend="_local__storage_8cpp_1adc8a2fcfb910f0c89841859660e686af">key_last_latitude</link>,&#32;last_latitude);
+<anchor xml:id="_local__storage_8cpp_source_1l00235"/>00235 &#32;&#32;&#32;&#32;_memory.end();
+<anchor xml:id="_local__storage_8cpp_source_1l00236"/>00236 &#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00237"/>00237 &#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;unable&#32;to&#32;save&#32;new&#32;value&#32;for&#32;key_last_latitude&quot;</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00238"/>00238 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00239"/>00239 }
+<anchor xml:id="_local__storage_8cpp_source_1l00240"/>00240 
+<anchor xml:id="_local__storage_8cpp_source_1l00241"/><link linkend="_class_local_storage_1abf645efa025a556a3188b42d5f5590fe">00241</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_local_storage_1abf645efa025a556a3188b42d5f5590fe">LocalStorage::clear</link>()&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00242"/>00242 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.begin(<link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">memory_name</link>))&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00243"/>00243 &#32;&#32;&#32;&#32;_memory.clear();
+<anchor xml:id="_local__storage_8cpp_source_1l00244"/>00244 &#32;&#32;&#32;&#32;_memory.end();
+<anchor xml:id="_local__storage_8cpp_source_1l00245"/>00245 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_local__storage_8cpp_source_1l00246"/>00246 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00247"/>00247 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_local__storage_8cpp_source_1l00248"/>00248 }
+<anchor xml:id="_local__storage_8cpp_source_1l00249"/>00249 
+<anchor xml:id="_local__storage_8cpp_source_1l00250"/><link linkend="_class_local_storage_1a5452afc6c29b246572d3e01ee9eb84d8">00250</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_local_storage_1a5452afc6c29b246572d3e01ee9eb84d8">LocalStorage::activate</link>(<emphasis role="keywordtype">bool</emphasis>)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00251"/>00251 &#32;&#32;_memory.begin(<link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">memory_name</link>,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00252"/>00252 &#32;&#32;_device_id&#32;=&#32;_memory.getUShort(<link linkend="_local__storage_8cpp_1a1cc3c4ca432fdd11a925513552304d24">key_device_id</link>,&#32;<link linkend="_user__config_8h_1ab5ab7140802b46e7db66cc9b92b61193">D_DEVICE_ID</link>);
+<anchor xml:id="_local__storage_8cpp_source_1l00253"/>00253 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.getString(<link linkend="_local__storage_8cpp_1a7d9f3d754040151f4292a57431c5e1d3">key_ap_password</link>,&#32;_ap_password,&#32;<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>)&#32;==&#32;0)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00254"/>00254 &#32;&#32;&#32;&#32;strcpy(_ap_password,&#32;<link linkend="_user__config_8h_1a89cb19740b0080c97b66e4d3a1dcc711">D_ACCESS_POINT_PASSWORD</link>);
+<anchor xml:id="_local__storage_8cpp_source_1l00255"/>00255 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00256"/>00256 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.getString(<link linkend="_local__storage_8cpp_1ad6045c95b0899d869eb788d7ac34cc95">key_wifi_ssid</link>,&#32;_wifi_ssid,&#32;<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>)&#32;==&#32;0)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00257"/>00257 &#32;&#32;&#32;&#32;strcpy(_wifi_ssid,&#32;<link linkend="_user__config_8h_1aff876460366b50a61c98ba651c49adda">D_WIFI_SSID</link>);
+<anchor xml:id="_local__storage_8cpp_source_1l00258"/>00258 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00259"/>00259 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.getString(<link linkend="_local__storage_8cpp_1af80482f4d17df6f62f5ba0cd6b63967c">key_wifi_password</link>,&#32;_wifi_password,&#32;<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>)&#32;==&#32;0)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00260"/>00260 &#32;&#32;&#32;&#32;strcpy(_wifi_password,&#32;<link linkend="_user__config_8h_1ac2201e2757292b5e01d7fdaa4bd777be">D_WIFI_PASSWORD</link>);
+<anchor xml:id="_local__storage_8cpp_source_1l00261"/>00261 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00262"/>00262 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(_memory.getString(<link linkend="_local__storage_8cpp_1a5c676b3fb3be8ab7e66402250230ca2d">key_api_key</link>,&#32;_api_key,&#32;<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>)&#32;==&#32;0)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00263"/>00263 &#32;&#32;&#32;&#32;strcpy(_api_key,&#32;<link linkend="_user__config_8h_1af2da36fb06d7b7d7efaf61e70b86f099">D_APIKEY</link>);
+<anchor xml:id="_local__storage_8cpp_source_1l00264"/>00264 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00265"/>00265 &#32;&#32;_fixed_longitude&#32;=&#32;_memory.getDouble(<link linkend="_local__storage_8cpp_1a3b013a23545661c8d4c85699e54b015f">key_fixed_longitude</link>,&#32;0);
+<anchor xml:id="_local__storage_8cpp_source_1l00266"/>00266 &#32;&#32;_fixed_latitude&#32;=&#32;_memory.getDouble(<link linkend="_local__storage_8cpp_1ab12a1e02935187062efb6a12585e60f0">key_fixed_latitude</link>,&#32;0);
+<anchor xml:id="_local__storage_8cpp_source_1l00267"/>00267 &#32;&#32;_fixed_range&#32;=&#32;_memory.getUInt(<link linkend="_local__storage_8cpp_1afbe75d61c3a9a4d6cf9e2da21115fe3e">key_fixed_range</link>,&#32;0);
+<anchor xml:id="_local__storage_8cpp_source_1l00268"/>00268 &#32;&#32;_last_longitude&#32;=&#32;_memory.getDouble(<link linkend="_local__storage_8cpp_1af734d6e6d80ded442268461b91db22a3">key_last_longitude</link>,&#32;0);
+<anchor xml:id="_local__storage_8cpp_source_1l00269"/>00269 &#32;&#32;_last_latitude&#32;=&#32;_memory.getDouble(<link linkend="_local__storage_8cpp_1adc8a2fcfb910f0c89841859660e686af">key_last_latitude</link>,&#32;0);
+<anchor xml:id="_local__storage_8cpp_source_1l00270"/>00270 &#32;&#32;_memory.end();
+<anchor xml:id="_local__storage_8cpp_source_1l00271"/>00271 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_local__storage_8cpp_source_1l00272"/>00272 }
+<anchor xml:id="_local__storage_8cpp_source_1l00273"/>00273 
+<anchor xml:id="_local__storage_8cpp_source_1l00274"/><link linkend="_class_local_storage_1a3092068c5d940b705608fd5a548af2d7">00274</link> int8_t&#32;<link linkend="_class_local_storage_1a3092068c5d940b705608fd5a548af2d7">LocalStorage::handle_produced_work</link>(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00275"/>00275 &#32;&#32;<emphasis role="comment">//&#32;Get&#32;reading&#32;data&#32;to&#32;store</emphasis>
+<anchor xml:id="_local__storage_8cpp_source_1l00276"/>00276 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;<link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">gps</link>&#32;=&#32;(<link linkend="_class_gps_connector">GpsConnector</link>*)&#32;workers.at(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211">k_worker_gps_connector</link>);
+<anchor xml:id="_local__storage_8cpp_source_1l00277"/>00277 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">gps</link>-&gt;is_fresh()&#32;&amp;&amp;&#32;<link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">gps</link>-&gt;get_data().location_valid)&#32;{
+<anchor xml:id="_local__storage_8cpp_source_1l00278"/>00278 &#32;&#32;&#32;&#32;<link linkend="_class_local_storage_1a61222cf72160eb65fe14a84ee43052bb">set_last_latitude</link>(<link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">gps</link>-&gt;get_data().latitude,&#32;<emphasis role="keyword">false</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00279"/>00279 &#32;&#32;&#32;&#32;<link linkend="_class_local_storage_1a30925c71296c99004645906c9dabfc9d">set_last_longitude</link>(<link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">gps</link>-&gt;get_data().longitude,&#32;<emphasis role="keyword">false</emphasis>);
+<anchor xml:id="_local__storage_8cpp_source_1l00280"/>00280 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;Handler::e_handler_data_handled;
+<anchor xml:id="_local__storage_8cpp_source_1l00281"/>00281 &#32;&#32;}
+<anchor xml:id="_local__storage_8cpp_source_1l00282"/>00282 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;Handler::e_handler_idle;
+<anchor xml:id="_local__storage_8cpp_source_1l00283"/>00283 }
+</programlisting></section>

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_boot__screen_8cpp_source" xml:lang="en-US">
+<title>boot_screen.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/screens/boot_screen.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_boot__screen_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_boot__screen_8h">boot_screen.h</link>&quot;</emphasis>
+<anchor xml:id="_boot__screen_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_controller_8h">controller.h</link>&quot;</emphasis>
+<anchor xml:id="_boot__screen_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_debugger_8h">debugger.h</link>&quot;</emphasis>
+<anchor xml:id="_boot__screen_8cpp_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_drive__mode_8h">drive_mode.h</link>&quot;</emphasis>
+<anchor xml:id="_boot__screen_8cpp_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_sd__message_8h">sd_message.h</link>&quot;</emphasis>
+<anchor xml:id="_boot__screen_8cpp_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_user__config_8h">user_config.h</link>&quot;</emphasis>
+<anchor xml:id="_boot__screen_8cpp_source_1l00007"/>00007 
+<anchor xml:id="_boot__screen_8cpp_source_1l00008"/>00008 BootScreen::BootScreen()&#32;:&#32;<link linkend="_class_base_screen">BaseScreen</link>(<emphasis role="stringliteral">&quot;Boot&quot;</emphasis>,&#32;false),&#32;_entered_at(0)&#32;{
+<anchor xml:id="_boot__screen_8cpp_source_1l00009"/>00009 }
+<anchor xml:id="_boot__screen_8cpp_source_1l00010"/>00010 
+<anchor xml:id="_boot__screen_8cpp_source_1l00011"/><link linkend="_class_boot_screen_1a1d605b7d6ed086214a7f1a0bcd3d1fe2">00011</link> <link linkend="_class_base_screen">BaseScreen</link>*&#32;<link linkend="_class_boot_screen_1a1d605b7d6ed086214a7f1a0bcd3d1fe2">BootScreen::handle_input</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>,&#32;<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers)&#32;{
+<anchor xml:id="_boot__screen_8cpp_source_1l00012"/>00012 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(millis()&#32;-&#32;_entered_at&#32;&gt;&#32;3000)&#32;{
+<anchor xml:id="_boot__screen_8cpp_source_1l00013"/>00013 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>.get_data().sd_card_status&#32;!=&#32;<link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a4220a7d9f2295ecf4a6df95fc73de789">SDInterface::SdStatus::e_sd_config_status_ok</link>)&#32;{
+<anchor xml:id="_boot__screen_8cpp_source_1l00014"/>00014 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_sd_message_screen_1a1810a30f7d0d442372b5dce985956a19">SdMessageScreen::i</link>();
+<anchor xml:id="_boot__screen_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_boot__screen_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_drive_mode_screen_1ab1d30e84b76d85f1cfb6e5b6910d12b1">DriveModeScreen::i</link>();
+<anchor xml:id="_boot__screen_8cpp_source_1l00017"/>00017 &#32;&#32;}
+<anchor xml:id="_boot__screen_8cpp_source_1l00018"/>00018 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_boot__screen_8cpp_source_1l00019"/>00019 }
+<anchor xml:id="_boot__screen_8cpp_source_1l00020"/>00020 
+<anchor xml:id="_boot__screen_8cpp_source_1l00021"/><link linkend="_class_boot_screen_1af19273a9e16613f547b44773b1761fae">00021</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_boot_screen_1af19273a9e16613f547b44773b1761fae">BootScreen::enter_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)&#32;{
+<anchor xml:id="_boot__screen_8cpp_source_1l00022"/>00022 &#32;&#32;_entered_at&#32;=&#32;millis();
+<anchor xml:id="_boot__screen_8cpp_source_1l00023"/>00023 }
+<anchor xml:id="_boot__screen_8cpp_source_1l00024"/>00024 
+<anchor xml:id="_boot__screen_8cpp_source_1l00025"/><link linkend="_class_boot_screen_1a7703ae6ca965fa5481870a087976e7e8">00025</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_boot_screen_1a7703ae6ca965fa5481870a087976e7e8">BootScreen::leave_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)&#32;{
+<anchor xml:id="_boot__screen_8cpp_source_1l00026"/>00026 }
+<anchor xml:id="_boot__screen_8cpp_source_1l00027"/>00027 
+<anchor xml:id="_boot__screen_8cpp_source_1l00028"/><link linkend="_class_boot_screen_1ae251e91a0e4a84ef9b6739ed928ef3c5">00028</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_boot_screen_1ae251e91a0e4a84ef9b6739ed928ef3c5">BootScreen::render</link>(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers,&#32;<emphasis role="keyword">const</emphasis>&#32;handler_map_t&amp;&#32;handlers,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;{
+<anchor xml:id="_boot__screen_8cpp_source_1l00029"/>00029 &#32;&#32;<emphasis role="comment">//&#32;Display&#32;something</emphasis>
+<anchor xml:id="_boot__screen_8cpp_source_1l00030"/>00030 &#32;&#32;M5.Lcd.setCursor(10,&#32;10);
+<anchor xml:id="_boot__screen_8cpp_source_1l00031"/>00031 &#32;&#32;M5.Lcd.setTextColor(<link linkend="_user__config_8h_1af5dfdf39379d893376bb886f8caa35fd">LCD_COLOR_ACTIVE</link>,&#32;<link linkend="_user__config_8h_1abda62c97ed73836f3749f74f4de6664a">LCD_COLOR_BACKGROUND</link>);
+<anchor xml:id="_boot__screen_8cpp_source_1l00032"/>00032 &#32;&#32;M5.Lcd.drawString(<emphasis role="stringliteral">&quot;bGeigie&#32;Zen&quot;</emphasis>,&#32;90,&#32;50,&#32;4);
+<anchor xml:id="_boot__screen_8cpp_source_1l00033"/>00033 &#32;&#32;M5.Lcd.setTextColor(<link linkend="_user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62">LCD_COLOR_DEFAULT</link>,&#32;<link linkend="_user__config_8h_1abda62c97ed73836f3749f74f4de6664a">LCD_COLOR_BACKGROUND</link>);
+<anchor xml:id="_boot__screen_8cpp_source_1l00034"/>00034 &#32;&#32;M5.Lcd.drawString(<emphasis role="stringliteral">&quot;Some&#32;splash&#32;screen&#32;device&#32;details.&quot;</emphasis>,&#32;5,&#32;100,&#32;2);
+<anchor xml:id="_boot__screen_8cpp_source_1l00035"/>00035 &#32;&#32;M5.Lcd.drawString(<link linkend="_user__config_8h_1a698acb89e1bf5837b33c30ef35c30044">VERSION_STRING</link>,&#32;5,&#32;120,&#32;2);
+<anchor xml:id="_boot__screen_8cpp_source_1l00036"/>00036 &#32;&#32;<emphasis role="comment">//&#32;Display&#32;safecast&#32;copyright</emphasis>
+<anchor xml:id="_boot__screen_8cpp_source_1l00037"/>00037 &#32;&#32;M5.Lcd.setTextFont(1);
+<anchor xml:id="_boot__screen_8cpp_source_1l00038"/>00038 &#32;&#32;M5.Lcd.setTextColor(<link linkend="_user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62">LCD_COLOR_DEFAULT</link>,&#32;<link linkend="_user__config_8h_1abda62c97ed73836f3749f74f4de6664a">LCD_COLOR_BACKGROUND</link>);
+<anchor xml:id="_boot__screen_8cpp_source_1l00039"/>00039 &#32;&#32;M5.Lcd.drawString(<emphasis role="stringliteral">&quot;SAFECAST&quot;</emphasis>,&#32;230,&#32;215,&#32;1);
+<anchor xml:id="_boot__screen_8cpp_source_1l00040"/>00040 &#32;&#32;M5.Lcd.setTextColor(<link linkend="_user__config_8h_1af5dfdf39379d893376bb886f8caa35fd">LCD_COLOR_ACTIVE</link>,&#32;<link linkend="_user__config_8h_1abda62c97ed73836f3749f74f4de6664a">LCD_COLOR_BACKGROUND</link>);
+<anchor xml:id="_boot__screen_8cpp_source_1l00041"/>00041 &#32;&#32;M5.Lcd.drawString(<emphasis role="stringliteral">&quot;2023&quot;</emphasis>,&#32;285,&#32;215,&#32;1);
+<anchor xml:id="_boot__screen_8cpp_source_1l00042"/>00042 }
+</programlisting></section>

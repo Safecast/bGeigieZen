@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_gm__sensor_8cpp_source" xml:lang="en-US">
+<title>gm_sensor.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/workers/gm_sensor.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_gm__sensor_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;numeric&gt;</emphasis>
+<anchor xml:id="_gm__sensor_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_gm__sensor_8h">gm_sensor.h</link>&quot;</emphasis>
+<anchor xml:id="_gm__sensor_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_debugger_8h">debugger.h</link>&quot;</emphasis>
+<anchor xml:id="_gm__sensor_8cpp_source_1l00004"/>00004 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00005"/><link linkend="_class_geiger_counter_1aa91591f3424f247fd3e7f856839284e7">00005</link> <link linkend="_class_geiger_counter_1aa91591f3424f247fd3e7f856839284e7">GeigerCounter::GeigerCounter</link>()&#32;:&#32;Worker&lt;<link linkend="_struct_geiger_data">GeigerData</link>&gt;(),&#32;pulse_counter()&#32;{
+<anchor xml:id="_gm__sensor_8cpp_source_1l00006"/>00006 &#32;&#32;std::fill(_shift_reg.begin(),&#32;_shift_reg.end(),&#32;0);
+<anchor xml:id="_gm__sensor_8cpp_source_1l00007"/>00007 }
+<anchor xml:id="_gm__sensor_8cpp_source_1l00008"/>00008 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00009"/><link linkend="_class_geiger_counter_1a20619a3dcabbac2b7595322d283ccb72">00009</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_geiger_counter_1a20619a3dcabbac2b7595322d283ccb72">GeigerCounter::activate</link>(<emphasis role="keywordtype">bool</emphasis>&#32;retry)&#32;{
+<anchor xml:id="_gm__sensor_8cpp_source_1l00010"/>00010 &#32;&#32;<emphasis role="comment">//&#32;Connect&#32;to&#32;geigier&#32;muller&#32;sensor&#32;module&#32;connection</emphasis>
+<anchor xml:id="_gm__sensor_8cpp_source_1l00011"/>00011 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!retry)&#32;{
+<anchor xml:id="_gm__sensor_8cpp_source_1l00012"/>00012 &#32;&#32;&#32;&#32;pulse_counter.<link linkend="_class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7">begin</link>();
+<anchor xml:id="_gm__sensor_8cpp_source_1l00013"/>00013 &#32;&#32;}
+<anchor xml:id="_gm__sensor_8cpp_source_1l00014"/>00014 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00015"/>00015 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pulse_counter.<link linkend="_class_hardware_counter_1a0993c664a4e77d31ff2556e9f6143021">available</link>()&#32;&amp;&amp;&#32;pulse_counter.<link linkend="_class_hardware_counter_1ad8529a6e8473d44f214dd1649fed8c38">get_last_count</link>()&#32;&gt;&#32;0)&#32;{
+<anchor xml:id="_gm__sensor_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_gm__sensor_8cpp_source_1l00017"/>00017 &#32;&#32;}
+<anchor xml:id="_gm__sensor_8cpp_source_1l00018"/>00018 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_gm__sensor_8cpp_source_1l00019"/>00019 }
+<anchor xml:id="_gm__sensor_8cpp_source_1l00020"/>00020 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00021"/><link linkend="_class_geiger_counter_1ad27d8d0865e390e098d762e7a1d3de73">00021</link> int8_t&#32;<link linkend="_class_geiger_counter_1ad27d8d0865e390e098d762e7a1d3de73">GeigerCounter::produce_data</link>()&#32;{
+<anchor xml:id="_gm__sensor_8cpp_source_1l00022"/>00022 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!pulse_counter.<link linkend="_class_hardware_counter_1a0993c664a4e77d31ff2556e9f6143021">available</link>())&#32;{
+<anchor xml:id="_gm__sensor_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;e_worker_idle;
+<anchor xml:id="_gm__sensor_8cpp_source_1l00024"/>00024 &#32;&#32;}
+<anchor xml:id="_gm__sensor_8cpp_source_1l00025"/>00025 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00026"/>00026 &#32;&#32;data.cps&#32;=&#32;pulse_counter.<link linkend="_class_hardware_counter_1ad8529a6e8473d44f214dd1649fed8c38">get_last_count</link>();
+<anchor xml:id="_gm__sensor_8cpp_source_1l00027"/>00027 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00028"/>00028 &#32;&#32;<emphasis role="comment">//&#32;increase&#32;total&#32;count</emphasis>
+<anchor xml:id="_gm__sensor_8cpp_source_1l00029"/>00029 &#32;&#32;data.total&#32;+=&#32;data.cps;
+<anchor xml:id="_gm__sensor_8cpp_source_1l00030"/>00030 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00031"/>00031 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(data.cps&#32;==&#32;0&#32;&amp;&amp;&#32;data.total&#32;==&#32;0)&#32;{
+<anchor xml:id="_gm__sensor_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Don&apos;t&#32;start&#32;recording&#32;until&#32;anything&#32;has&#32;been&#32;read.</emphasis>
+<anchor xml:id="_gm__sensor_8cpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;e_worker_idle;
+<anchor xml:id="_gm__sensor_8cpp_source_1l00034"/>00034 &#32;&#32;}
+<anchor xml:id="_gm__sensor_8cpp_source_1l00035"/>00035 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00036"/>00036 &#32;&#32;<emphasis role="comment">//&#32;update&#32;the&#32;shift&#32;register</emphasis>
+<anchor xml:id="_gm__sensor_8cpp_source_1l00037"/>00037 &#32;&#32;_pos&#32;=&#32;(_pos&#32;+&#32;1)&#32;%&#32;<link linkend="_user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e">GEIGER_AVERAGING_N_BINS</link>;
+<anchor xml:id="_gm__sensor_8cpp_source_1l00038"/>00038 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_pos&#32;==&#32;0&#32;&amp;&amp;&#32;data.cpm_raw&#32;&gt;&#32;0)&#32;{
+<anchor xml:id="_gm__sensor_8cpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;data.valid&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_gm__sensor_8cpp_source_1l00040"/>00040 &#32;&#32;}
+<anchor xml:id="_gm__sensor_8cpp_source_1l00041"/>00041 &#32;&#32;_shift_reg[_pos]&#32;=&#32;data.cps;
+<anchor xml:id="_gm__sensor_8cpp_source_1l00042"/>00042 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00043"/>00043 &#32;&#32;<emphasis role="comment">//&#32;sum&#32;up&#32;the&#32;shift&#32;register</emphasis>
+<anchor xml:id="_gm__sensor_8cpp_source_1l00044"/>00044 &#32;&#32;data.cpm_raw&#32;=&#32;std::accumulate(_shift_reg.begin(),&#32;_shift_reg.end(),&#32;0u);
+<anchor xml:id="_gm__sensor_8cpp_source_1l00045"/>00045 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00046"/>00046 &#32;&#32;data.cp5s&#32;=&#32;_shift_reg[(_pos)&#32;%&#32;<link linkend="_user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e">GEIGER_AVERAGING_N_BINS</link>]
+<anchor xml:id="_gm__sensor_8cpp_source_1l00047"/>00047 &#32;&#32;&#32;&#32;&#32;&#32;+&#32;_shift_reg[(_pos&#32;+&#32;<link linkend="_user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e">GEIGER_AVERAGING_N_BINS</link>&#32;-&#32;1)&#32;%&#32;<link linkend="_user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e">GEIGER_AVERAGING_N_BINS</link>]
+<anchor xml:id="_gm__sensor_8cpp_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;+&#32;_shift_reg[(_pos&#32;+&#32;<link linkend="_user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e">GEIGER_AVERAGING_N_BINS</link>&#32;-&#32;2)&#32;%&#32;<link linkend="_user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e">GEIGER_AVERAGING_N_BINS</link>]
+<anchor xml:id="_gm__sensor_8cpp_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;+&#32;_shift_reg[(_pos&#32;+&#32;<link linkend="_user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e">GEIGER_AVERAGING_N_BINS</link>&#32;-&#32;3)&#32;%&#32;<link linkend="_user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e">GEIGER_AVERAGING_N_BINS</link>]
+<anchor xml:id="_gm__sensor_8cpp_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;+&#32;_shift_reg[(_pos&#32;+&#32;<link linkend="_user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e">GEIGER_AVERAGING_N_BINS</link>&#32;-&#32;4)&#32;%&#32;<link linkend="_user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e">GEIGER_AVERAGING_N_BINS</link>];
+<anchor xml:id="_gm__sensor_8cpp_source_1l00051"/>00051 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00052"/>00052 &#32;&#32;<emphasis role="comment">//&#32;CPM&#32;compensated&#32;for&#32;deadtime&#32;(medcom&#32;international)</emphasis>
+<anchor xml:id="_gm__sensor_8cpp_source_1l00053"/>00053 &#32;&#32;data.cpm_comp&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint32_t<emphasis role="keyword">&gt;</emphasis>(<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(data.cpm_raw)&#32;/&#32;(1&#32;-&#32;(<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(data.cpm_raw)&#32;*&#32;1.8833e-6)));
+<anchor xml:id="_gm__sensor_8cpp_source_1l00054"/>00054 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00055"/>00055 &#32;&#32;<emphasis role="comment">//&#32;peak&#32;measurement</emphasis>
+<anchor xml:id="_gm__sensor_8cpp_source_1l00056"/>00056 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(data.cpm_comp&#32;&gt;&#32;data.cpm_comp_peak)&#32;{
+<anchor xml:id="_gm__sensor_8cpp_source_1l00057"/>00057 &#32;&#32;&#32;&#32;data.cpm_comp_peak&#32;=&#32;data.cpm_comp;
+<anchor xml:id="_gm__sensor_8cpp_source_1l00058"/>00058 &#32;&#32;}
+<anchor xml:id="_gm__sensor_8cpp_source_1l00059"/>00059 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00060"/>00060 &#32;&#32;<emphasis role="comment">//&#32;micro-Sieverts&#32;per&#32;hour&#32;conversion</emphasis>
+<anchor xml:id="_gm__sensor_8cpp_source_1l00061"/>00061 &#32;&#32;data.uSv&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(data.cpm_comp)&#32;*&#32;_ush_factor;
+<anchor xml:id="_gm__sensor_8cpp_source_1l00062"/>00062 &#32;&#32;data.Bqm2&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(data.cpm_comp)&#32;*&#32;_bqm2_factor;
+<anchor xml:id="_gm__sensor_8cpp_source_1l00063"/>00063 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00064"/>00064 &#32;&#32;data.uSv_sec&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(data.cps)&#32;*&#32;_ush_factor&#32;*&#32;<link linkend="_user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e">GEIGER_AVERAGING_N_BINS</link>;
+<anchor xml:id="_gm__sensor_8cpp_source_1l00065"/>00065 &#32;&#32;data.Bqm2_sec&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(data.cps)&#32;*&#32;_bqm2_factor&#32;*&#32;<link linkend="_user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e">GEIGER_AVERAGING_N_BINS</link>;
+<anchor xml:id="_gm__sensor_8cpp_source_1l00066"/>00066 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00067"/>00067 &#32;&#32;data.uSv_5sec&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(data.cp5s)&#32;*&#32;_ush_factor&#32;*&#32;(<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(<link linkend="_user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e">GEIGER_AVERAGING_N_BINS</link>)&#32;/&#32;12);
+<anchor xml:id="_gm__sensor_8cpp_source_1l00068"/>00068 &#32;&#32;data.Bqm2_5sec&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(data.cp5s)&#32;*&#32;_bqm2_factor&#32;*&#32;(<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(<link linkend="_user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e">GEIGER_AVERAGING_N_BINS</link>)&#32;/&#32;12);
+<anchor xml:id="_gm__sensor_8cpp_source_1l00069"/>00069 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00070"/>00070 &#32;&#32;data.alert&#32;=&#32;data.cpm_comp&#32;&gt;&#32;_cpm_alert_level;
+<anchor xml:id="_gm__sensor_8cpp_source_1l00071"/>00071 
+<anchor xml:id="_gm__sensor_8cpp_source_1l00072"/>00072 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;e_worker_data_read;
+<anchor xml:id="_gm__sensor_8cpp_source_1l00073"/>00073 }
+</programlisting></section>

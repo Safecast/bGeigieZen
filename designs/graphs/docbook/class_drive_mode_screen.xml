@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_drive_mode_screen" xml:lang="en-US">
+<title>DriveModeScreen Class Reference</title>
+<indexterm><primary>DriveModeScreen</primary></indexterm>
+<para>
+<computeroutput>#include &lt;drive_mode.h&gt;</computeroutput>
+</para>
+Inheritance diagram for DriveModeScreen:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_drive_mode_screen__inherit__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for DriveModeScreen:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_drive_mode_screen__coll__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_base_screen">BaseScreen</link> * <link linkend="_class_drive_mode_screen_1a69c70a1c35f362131345ecd652cd4416">handle_input</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>, const worker_map_t &amp;workers) override</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_drive_mode_screen_1ac0c53ec7f983bfd75c289db8291d5aa3">leave_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>) override</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_class_base_screen">BaseScreen</link>        <itemizedlist>
+            <listitem><para>virtual <link linkend="_class_base_screen">BaseScreen</link> * <link linkend="_class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57">handle_input</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>, const worker_map_t &amp;workers)=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea">enter_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1">leave_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98">do_render</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers) final</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1a475d077e56c80429539f9c8a973752dd">force_next_render</link> () final</para>
+</listitem>
+            <listitem><para>virtual const char * <link linkend="_class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42">get_title</link> () const</para>
+</listitem>
+            <listitem><para>virtual bool <link linkend="_class_base_screen_1a2b0ff8ed2e49c96fa6e8d3e158d6db13">has_status_bar</link> () const</para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_drive_mode_screen">DriveModeScreen</link> * <link linkend="_class_drive_mode_screen_1ab1d30e84b76d85f1cfb6e5b6910d12b1">i</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85">render</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers, bool force) override</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Protected Member Functions inherited from <link linkend="_class_base_screen">BaseScreen</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_base_screen_1a2e28e5b4ef3027c3c4392dfb4a6c3ff8">BaseScreen</link> (const char *title, bool status_bar)</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_base_screen_1a86234c33321bb25d534c0347a946b084">~BaseScreen</link> ()=default</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1aca89a9c227f03adadb7022eb63ee3685">render</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers, bool force)=0</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_base_screen_1ac4042332f3362042ed3390297c8f1ea1">drawButton1</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_base_screen_1ad7040cea50962276539e67ac129d5c7c">drawButton2</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_base_screen_1a00da29022f614d7e72fd218ba1dcf747">drawButton3</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>)</para>
+</listitem>
+            <listitem><para>int16_t <link linkend="_class_base_screen_1a1129827abdd844b136988965ae4a72ba">printFloatFont</link> (float val, int prec, int x, int y, int font)</para>
+</listitem>
+            <listitem><para>int16_t <link linkend="_class_base_screen_1a7e56deb842ae278490c70910023eb8c8">printIntFont</link> (unsigned long val, int x, int y, int font)</para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+Public Types inherited from <link linkend="_class_base_screen">BaseScreen</link>        <itemizedlist>
+            <listitem><para>enum <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> { <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>
+, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669aeec92bb30ab578e6b0eceb97b61880fb">e_button_active</link>
+, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669aa1df192f7cb5a602ccdf145fb8e7bca2">e_button_disabled</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_drive__mode_8h_source_1l00006">6</link> of file <link linkend="_drive__mode_8h_source">drive_mode.h</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_drive_mode_screen_1a69c70a1c35f362131345ecd652cd4416"/><section>
+    <title>handle_input()</title>
+<indexterm><primary>handle_input</primary><secondary>DriveModeScreen</secondary></indexterm>
+<indexterm><primary>DriveModeScreen</primary><secondary>handle_input</secondary></indexterm>
+<para><computeroutput><link linkend="_class_base_screen">BaseScreen</link> * DriveModeScreen::handle_input (<link linkend="_class_controller">Controller</link> &amp; controller, const worker_map_t &amp; workers)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57">BaseScreen</link>.</para>
+<para>
+Definition at line <link linkend="_drive__mode_8cpp_source_1l00014">14</link> of file <link linkend="_drive__mode_8cpp_source">drive_mode.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_drive_mode_screen_a69c70a1c35f362131345ecd652cd4416_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_drive_mode_screen_1ab1d30e84b76d85f1cfb6e5b6910d12b1"/><section>
+    <title>i()</title>
+<indexterm><primary>i</primary><secondary>DriveModeScreen</secondary></indexterm>
+<indexterm><primary>DriveModeScreen</primary><secondary>i</secondary></indexterm>
+<para><computeroutput>static <link linkend="_class_drive_mode_screen">DriveModeScreen</link> * DriveModeScreen::i ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_drive__mode_8h_source_1l00008">8</link> of file <link linkend="_drive__mode_8h_source">drive_mode.h</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_drive_mode_screen_ab1d30e84b76d85f1cfb6e5b6910d12b1_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_drive_mode_screen_1ac0c53ec7f983bfd75c289db8291d5aa3"/><section>
+    <title>leave_screen()</title>
+<indexterm><primary>leave_screen</primary><secondary>DriveModeScreen</secondary></indexterm>
+<indexterm><primary>DriveModeScreen</primary><secondary>leave_screen</secondary></indexterm>
+<para><computeroutput>void DriveModeScreen::leave_screen (<link linkend="_class_controller">Controller</link> &amp; controller)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Leave the screen, use controller to disable screen specific workers/handlers 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>controller</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Reimplemented from <link linkend="_class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1">BaseScreen</link>.</para>
+<para>
+Definition at line <link linkend="_drive__mode_8cpp_source_1l00098">98</link> of file <link linkend="_drive__mode_8cpp_source">drive_mode.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85"/><section>
+    <title>render()</title>
+<indexterm><primary>render</primary><secondary>DriveModeScreen</secondary></indexterm>
+<indexterm><primary>DriveModeScreen</primary><secondary>render</secondary></indexterm>
+<para><computeroutput>void DriveModeScreen::render (const worker_map_t &amp; workers, const handler_map_t &amp; handlers, bool force)<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Render the screen with latest data 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>workers</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>handlers</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para>Menu</para>
+
+<para>Display drive data</para>
+<para>
+Implements <link linkend="_class_base_screen_1aca89a9c227f03adadb7022eb63ee3685">BaseScreen</link>.</para>
+<para>
+Definition at line <link linkend="_drive__mode_8cpp_source_1l00025">25</link> of file <link linkend="_drive__mode_8cpp_source">drive_mode.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_drive_mode_screen_a536a027601cda1dbbd3ff95324e08c85_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/screens/<link linkend="_drive__mode_8h">drive_mode.h</link>bgeigiezen_firmware/screens/<link linkend="_drive__mode_8cpp">drive_mode.cpp</link></section>
+</section>
