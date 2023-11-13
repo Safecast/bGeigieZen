@@ -35,13 +35,10 @@ double haversine_km(double lat1, double long1, double lat2, double long2) {
   return 6367 * c;
 }
 
-LogAggregator::LogAggregator(LocalStorage& settings) : Worker<DataLine>(5000), Handler(), _settings(settings) {}
+LogAggregator::LogAggregator(LocalStorage& settings) : ProcessWorker<DataLine>(5000), _settings(settings) {}
 
-int8_t LogAggregator::produce_data() {
-  return 0;
-}
 
-int8_t LogAggregator::handle_produced_work(const WorkerMap& workers) {
+int8_t LogAggregator::produce_data(const WorkerMap& workers) {
   const auto& gm_sensor_data = workers.worker<GeigerCounter>(k_worker_gm_sensor)->get_data();
   const auto& gps_data = workers.worker<GpsConnector>(k_worker_gps_connector)->get_data();
   const auto& battery_data = workers.worker<BatteryIndicator>(k_worker_battery_indicator)->get_data();
@@ -68,7 +65,7 @@ int8_t LogAggregator::handle_produced_work(const WorkerMap& workers) {
 
   sprintf(
       data.log_string,
-      "$%s,%04d,%s,%uld,%uld,%uld,%c,%0.7f,%c,%0.7f,%c,%.1f,%c,%d,%.1f",
+      "$%s,%04d,%s,%ul,%ul,%ul,%c,%0.7f,%c,%0.7f,%c,%.1f,%c,%d,%.1f",
       DEVICE_HEADER, _settings.get_device_id(),
       data.timestamp,
       gm_sensor_data.cpm_comp, gm_sensor_data.cp5s, gm_sensor_data.total, gm_sensor_data.valid ? 'A' : 'V',
@@ -89,5 +86,5 @@ int8_t LogAggregator::handle_produced_work(const WorkerMap& workers) {
 
   data.valid = gps_data.valid() && gm_sensor_data.valid;
 
-  return e_handler_data_handled;
+  return e_worker_data_read;
 }

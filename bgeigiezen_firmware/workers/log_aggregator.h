@@ -24,14 +24,13 @@ struct DataLine {
  * creates single, complete readings to log every 5 seconds
  * Used by SD logger, API connector, BT connector
  */
-class LogAggregator : public Worker<DataLine>, public Handler {
+class LogAggregator : public ProcessWorker<DataLine> {
  public:
   LogAggregator(LocalStorage& settings);
 
  protected:
 
-  int8_t produce_data() override;
-  int8_t handle_produced_work(const WorkerMap& workers) override;
+  int8_t produce_data(const WorkerMap& workers) override;
 
  private:
   LocalStorage& _settings;
