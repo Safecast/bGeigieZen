@@ -5,6 +5,7 @@
 #include "workers/battery_indicator.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
+#include "workers/log_aggregator.h"
 #include "workers/rtc_connector.h"
 #include "workers/zen_button.h"
 
@@ -26,45 +27,44 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
   const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator);
   const auto& rtc = workers.worker<RtcConnector>(k_worker_rtc_connector);
+  const auto& log_aggregator = workers.worker<LogAggregator>(k_worker_log_aggregator);
 
   drawButton1("");
   drawButton2("");
   drawButton3("Menu");
 
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  M5.Lcd.setCursor(0, 30);
+  M5.Lcd.setCursor(0, 25);
   M5.Lcd.printf("Battery: %d%% %s\n",
                 battery->get_data().percentage,
                 battery->get_data().isCharging ? "(charging)" : "          ");
   if (gm_sensor->get_active_state() == GeigerCounter::e_state_active) {
     M5.Lcd.printf("Geiger counter %s\n"
-                  " CPM raw: %d        \n"
-                  " CPM comp: %d %s     \n   uSv/h: %.4f      \n   Bq/m2: %.0f       \n"
-                  " CPB: %d      \n   uSv/h: %.4f      \n   Bq/m2: %.0f       \n",
+                  " CPM: raw %d, comp %d %s\n      uSv/h: %.4f,  Bq/m2: %.0f   \n"
+                  " CP5S: %d,  uSv/h: %.4f,  Bq/m2: %.0f      \n",
                   gm_sensor->get_data().valid ? "(valid)             " : "(collecting data...)",
                   gm_sensor->get_data().cpm_raw,
                   gm_sensor->get_data().cpm_comp,
-                  gm_sensor->get_data().alert ? "(ALERT!!!)" : "          ",
+                  gm_sensor->get_data().alert ? "A" : " ",
                   gm_sensor->get_data().uSv,
                   gm_sensor->get_data().Bqm2,
-                  gm_sensor->get_data().cps,
-                  gm_sensor->get_data().uSv_sec,
-                  gm_sensor->get_data().Bqm2_sec);
+                  gm_sensor->get_data().cp5s,
+                  gm_sensor->get_data().uSv_5sec,
+                  gm_sensor->get_data().Bqm2_5sec);
   }
   else {
     M5.Lcd.printf("Geiger counter\n Module not available\n\n");
   }
 
   if (gps->get_active_state() == GpsConnector::e_state_active) {
-    M5.Lcd.printf("GPS\n"
+    M5.Lcd.printf("GPS %s\n"
                   " location: %s                \n"
-                  "  latitude: %.5f             \n"
-                  "  longitude: %.5f            \n"
-                  "  altitude: %.2f (MSL)       \n"
-                  "  HDOP: %.1f                 \n"
+                  "  lat, long, altitude (MSL), HDOP:\n"
+                  "  %.5f, %.5f, %.2f, %.1f \n"
                   " satellites: %d %s           \n"
                   " date: %04d-%02d-%02d %s     \n"
                   " time: %02d:%02d:%02d %s     \n",
+                  gps->get_data().valid() ? "(valid)        " : "(incomplete...)",
                   gps->get_data().location_valid ? "             " : "(unavailable)",
                   gps->get_data().latitude,
                   gps->get_data().longitude,
@@ -88,8 +88,7 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   if (rtc->get_active_state() == RtcConnector::e_state_active) {
     M5.Lcd.printf("RTC\n"
                   " VoltLow: %s\n"
-                  " date: %04d-%02d-%02d\n"
-                  " time: %02d:%02d:%02d\n",
+                  " date: %04d-%02d-%02d time: %02d:%02d:%02d\n",
                   rtc->get_data().low_voltage ? "Low voltage " : "Voltage good",
                   rtc->get_data().year,
                   rtc->get_data().month,
@@ -101,4 +100,8 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   else {
     M5.Lcd.printf("RTC\n Module not available\n\n");
   }
+
+  M5.Lcd.printf("Logging data\n"
+                " Log string: %s\n",
+                log_aggregator->get_data().log_string);
 }
