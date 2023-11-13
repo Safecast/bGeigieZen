@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_api__connector_8cpp" xml:lang="en-US">
+<title>bgeigiezen_firmware/handlers/api_connector.cpp File Reference</title>
+<indexterm><primary>bgeigiezen_firmware/handlers/api_connector.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;api_connector.h&quot;<?linebreak?>#include &quot;debugger.h&quot;<?linebreak?>#include &quot;identifiers.h&quot;<?linebreak?></programlisting>Include dependency graph for api_connector.cpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="api__connector_8cpp__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_api__connector_8cpp_1ab28fa84742de00ea3342319de160ff37">RETRY_TIMEOUT</link>&#160;&#160;&#160;10000</para>
+</listitem>
+            <listitem><para>#define <link linkend="_api__connector_8cpp_1a0d96018382439d053d70c08e34171ab1">HOME_LOCATION_PRECISION_KM</link>&#160;&#160;&#160;0.4</para>
+</listitem>
+            <listitem><para>#define <link linkend="_api__connector_8cpp_1a6f0fba88f0240d897c0d29cecd95d525">SEND_FREQUENCY</link>(last_send,  sec,  slack)&#160;&#160;&#160;(last_send == 0 || (millis() - last_send) &gt; ((sec * 1000) - slack))</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_api__connector_8cpp_1a0d96018382439d053d70c08e34171ab1"/><section>
+    <title>HOME_LOCATION_PRECISION_KM</title>
+<indexterm><primary>HOME_LOCATION_PRECISION_KM</primary><secondary>api_connector.cpp</secondary></indexterm>
+<indexterm><primary>api_connector.cpp</primary><secondary>HOME_LOCATION_PRECISION_KM</secondary></indexterm>
+<para><computeroutput>#define HOME_LOCATION_PRECISION_KM&#160;&#160;&#160;0.4</computeroutput></para><para>
+Definition at line <link linkend="_api__connector_8cpp_source_1l00007">7</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
+</section>
+<anchor xml:id="_api__connector_8cpp_1ab28fa84742de00ea3342319de160ff37"/><section>
+    <title>RETRY_TIMEOUT</title>
+<indexterm><primary>RETRY_TIMEOUT</primary><secondary>api_connector.cpp</secondary></indexterm>
+<indexterm><primary>api_connector.cpp</primary><secondary>RETRY_TIMEOUT</secondary></indexterm>
+<para><computeroutput>#define RETRY_TIMEOUT&#160;&#160;&#160;10000</computeroutput></para><para>
+Definition at line <link linkend="_api__connector_8cpp_source_1l00006">6</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
+</section>
+<anchor xml:id="_api__connector_8cpp_1a6f0fba88f0240d897c0d29cecd95d525"/><section>
+    <title>SEND_FREQUENCY</title>
+<indexterm><primary>SEND_FREQUENCY</primary><secondary>api_connector.cpp</secondary></indexterm>
+<indexterm><primary>api_connector.cpp</primary><secondary>SEND_FREQUENCY</secondary></indexterm>
+<para><computeroutput>#define SEND_FREQUENCY( last_send,  sec,  slack)&#160;&#160;&#160;(last_send == 0 || (millis() - last_send) &gt; ((sec * 1000) - slack))</computeroutput></para><para>
+Definition at line <link linkend="_api__connector_8cpp_source_1l00010">10</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
+</section>
+</section>
+</section>

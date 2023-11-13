@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_geiger_counter" xml:lang="en-US">
+<title>GeigerCounter Class Reference</title>
+<indexterm><primary>GeigerCounter</primary></indexterm>
+<para>
+<computeroutput>#include &lt;gm_sensor.h&gt;</computeroutput>
+</para>
+Inheritance diagram for GeigerCounter:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_geiger_counter__inherit__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for GeigerCounter:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_geiger_counter__coll__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_geiger_counter_1aa91591f3424f247fd3e7f856839284e7">GeigerCounter</link> ()</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_geiger_counter_1ad04e18dfaf857c1af8d0d182e67e1b29">~GeigerCounter</link> ()=default</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_geiger_counter_1a20619a3dcabbac2b7595322d283ccb72">activate</link> (bool retry) override</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_geiger_counter_1ad27d8d0865e390e098d762e7a1d3de73">produce_data</link> () override</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Geiger counter worker, produces CPM among other data (See <link linkend="_struct_geiger_data">GeigerData</link>). </para>
+<para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00027">27</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_geiger_counter_1aa91591f3424f247fd3e7f856839284e7"/><section>
+    <title>GeigerCounter()</title>
+<indexterm><primary>GeigerCounter</primary><secondary>GeigerCounter</secondary></indexterm>
+<indexterm><primary>GeigerCounter</primary><secondary>GeigerCounter</secondary></indexterm>
+<para><computeroutput>GeigerCounter::GeigerCounter ( )<computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8cpp_source_1l00005">5</link> of file <link linkend="_gm__sensor_8cpp_source">gm_sensor.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_geiger_counter_1ad04e18dfaf857c1af8d0d182e67e1b29"/><section>
+    <title>~GeigerCounter()</title>
+<indexterm><primary>~GeigerCounter</primary><secondary>GeigerCounter</secondary></indexterm>
+<indexterm><primary>GeigerCounter</primary><secondary>~GeigerCounter</secondary></indexterm>
+<para><computeroutput>virtual GeigerCounter::~GeigerCounter ( )<computeroutput>[virtual]</computeroutput>, <computeroutput>[default]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_geiger_counter_1a20619a3dcabbac2b7595322d283ccb72"/><section>
+    <title>activate()</title>
+<indexterm><primary>activate</primary><secondary>GeigerCounter</secondary></indexterm>
+<indexterm><primary>GeigerCounter</primary><secondary>activate</secondary></indexterm>
+<para><computeroutput>bool GeigerCounter::activate (bool retry)<computeroutput>[override]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8cpp_source_1l00009">9</link> of file <link linkend="_gm__sensor_8cpp_source">gm_sensor.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_geiger_counter_a20619a3dcabbac2b7595322d283ccb72_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_geiger_counter_1ad27d8d0865e390e098d762e7a1d3de73"/><section>
+    <title>produce_data()</title>
+<indexterm><primary>produce_data</primary><secondary>GeigerCounter</secondary></indexterm>
+<indexterm><primary>GeigerCounter</primary><secondary>produce_data</secondary></indexterm>
+<para><computeroutput>int8_t GeigerCounter::produce_data ( )<computeroutput>[override]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8cpp_source_1l00021">21</link> of file <link linkend="_gm__sensor_8cpp_source">gm_sensor.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_geiger_counter_ad27d8d0865e390e098d762e7a1d3de73_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/workers/<link linkend="_gm__sensor_8h">gm_sensor.h</link>bgeigiezen_firmware/workers/<link linkend="_gm__sensor_8cpp">gm_sensor.cpp</link></section>
+</section>

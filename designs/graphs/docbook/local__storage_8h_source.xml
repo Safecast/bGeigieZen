@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_local__storage_8h_source" xml:lang="en-US">
+<title>local_storage.h</title>
+<indexterm><primary>bgeigiezen_firmware/handlers/local_storage.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_local__storage_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;BGEIGIEZEN_ESP_CONFIG_H_</emphasis>
+<anchor xml:id="_local__storage_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;BGEIGIEZEN_ESP_CONFIG_H_</emphasis>
+<anchor xml:id="_local__storage_8h_source_1l00003"/>00003 
+<anchor xml:id="_local__storage_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;Preferences.h&gt;</emphasis>
+<anchor xml:id="_local__storage_8h_source_1l00005"/>00005 
+<anchor xml:id="_local__storage_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&lt;Handler.hpp&gt;</emphasis>
+<anchor xml:id="_local__storage_8h_source_1l00007"/>00007 
+<anchor xml:id="_local__storage_8h_source_1l00008"/><link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">00008</link> <emphasis role="preprocessor">#define&#32;CONFIG_VAL_MAX&#32;32</emphasis>
+<anchor xml:id="_local__storage_8h_source_1l00009"/>00009 
+<anchor xml:id="_local__storage_8h_source_1l00013"/><link linkend="_class_local_storage">00013</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_local_storage">LocalStorage</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;Handler&#32;{
+<anchor xml:id="_local__storage_8h_source_1l00014"/>00014 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_local__storage_8h_source_1l00015"/>00015 &#32;&#32;<link linkend="_class_local_storage_1a0b6c01b08888b91281605a865ea1af2f">LocalStorage</link>();
+<anchor xml:id="_local__storage_8h_source_1l00016"/><link linkend="_class_local_storage_1a25de978ca30dc1686f928e34772c072a">00016</link> &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_local_storage_1a25de978ca30dc1686f928e34772c072a">~LocalStorage</link>()&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="_local__storage_8h_source_1l00017"/>00017 
+<anchor xml:id="_local__storage_8h_source_1l00021"/>00021 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a809d095a05789828cc50ee1a4d575844">reset_defaults</link>();
+<anchor xml:id="_local__storage_8h_source_1l00022"/>00022 
+<anchor xml:id="_local__storage_8h_source_1l00023"/>00023 &#32;&#32;<emphasis role="comment">//&#32;Getters&#32;and&#32;setters</emphasis>
+<anchor xml:id="_local__storage_8h_source_1l00024"/>00024 &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;uint16_t&#32;<link linkend="_class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65">get_device_id</link>()&#32;const&#32;final;
+<anchor xml:id="_local__storage_8h_source_1l00025"/>00025 &#32;&#32;virtual&#32;const&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_class_local_storage_1a3cc3942e1b3d46088e4ec092dd9b5034">get_ap_password</link>()&#32;const&#32;final;
+<anchor xml:id="_local__storage_8h_source_1l00026"/>00026 &#32;&#32;virtual&#32;uint16_t&#32;<link linkend="_class_local_storage_1a498a4980d61582508f9966a5cfb6c00c">get_alarm_threshold</link>()&#32;const&#32;final;
+<anchor xml:id="_local__storage_8h_source_1l00027"/>00027 &#32;&#32;virtual&#32;uint8_t&#32;<link linkend="_class_local_storage_1a1548b893a43891977ceaeaaa54fd59aa">get_click_sound_level</link>()&#32;const&#32;final;
+<anchor xml:id="_local__storage_8h_source_1l00028"/>00028 &#32;&#32;virtual&#32;const&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_class_local_storage_1a8d0807c2fad52121c446d91f85976856">get_wifi_ssid</link>()&#32;const&#32;final;
+<anchor xml:id="_local__storage_8h_source_1l00029"/>00029 &#32;&#32;virtual&#32;const&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_class_local_storage_1a619ba1c828df4e5c97e7ac77115e72a2">get_wifi_password</link>()&#32;const&#32;final;
+<anchor xml:id="_local__storage_8h_source_1l00030"/>00030 &#32;&#32;virtual&#32;const&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_class_local_storage_1a119e9cbf7e8edad53786b070ee2cb298">get_api_key</link>()&#32;const&#32;final;
+<anchor xml:id="_local__storage_8h_source_1l00031"/>00031 &#32;&#32;virtual&#32;<emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_class_local_storage_1a2972e2632be5da773cfa65e23be878e5">get_fixed_longitude</link>()&#32;const&#32;final;
+<anchor xml:id="_local__storage_8h_source_1l00032"/>00032 &#32;&#32;virtual&#32;<emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca">get_fixed_latitude</link>()&#32;const&#32;final;
+<anchor xml:id="_local__storage_8h_source_1l00033"/>00033 &#32;&#32;virtual&#32;uint16_t&#32;<link linkend="_class_local_storage_1a66a46a4e806da89c4e2f672d19d690fb">get_fixed_range</link>()&#32;const&#32;final;
+<anchor xml:id="_local__storage_8h_source_1l00034"/>00034 &#32;&#32;virtual&#32;<emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_class_local_storage_1a120a3285914a098837bb4d3b8be20d0b">get_last_longitude</link>()&#32;const&#32;final;
+<anchor xml:id="_local__storage_8h_source_1l00035"/>00035 &#32;&#32;virtual&#32;<emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_class_local_storage_1a9aa6633c81709db989f2bf3ea1f21521">get_last_latitude</link>()&#32;const&#32;final;
+<anchor xml:id="_local__storage_8h_source_1l00036"/>00036 
+<anchor xml:id="_local__storage_8h_source_1l00037"/>00037 &#32;&#32;virtual&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a5b975387d77a0d68a0eae66ce9f265df">set_device_id</link>(uint16_t&#32;device_id,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force);
+<anchor xml:id="_local__storage_8h_source_1l00038"/>00038 &#32;&#32;virtual&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a22ccb69bc387bdfeea837a8f5f1456e1">set_ap_password</link>(const&#32;<emphasis role="keywordtype">char</emphasis>*&#32;ap_password,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force);
+<anchor xml:id="_local__storage_8h_source_1l00039"/>00039 &#32;&#32;virtual&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a5f226cd5489714cd4b22e6341e454469">set_alarm_threshold</link>(uint16_t&#32;alarm_threshold,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force);
+<anchor xml:id="_local__storage_8h_source_1l00040"/>00040 &#32;&#32;virtual&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a9a902bca0c91533e4bb39c5d57bac78d">set_click_sound_level</link>(uint8_t&#32;click_sound_level,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force);
+<anchor xml:id="_local__storage_8h_source_1l00041"/>00041 &#32;&#32;virtual&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a89834da9be662b2881d56b78bc72035e">set_wifi_ssid</link>(const&#32;<emphasis role="keywordtype">char</emphasis>*&#32;wifi_ssid,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force);
+<anchor xml:id="_local__storage_8h_source_1l00042"/>00042 &#32;&#32;virtual&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a36a08d7042318aafd9a89e5e47d16218">set_wifi_password</link>(const&#32;<emphasis role="keywordtype">char</emphasis>*&#32;wifi_password,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force);
+<anchor xml:id="_local__storage_8h_source_1l00043"/>00043 &#32;&#32;virtual&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a0c0380d90c7cd50702c203c00254cc7a">set_api_key</link>(const&#32;<emphasis role="keywordtype">char</emphasis>*&#32;api_key,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force);
+<anchor xml:id="_local__storage_8h_source_1l00044"/>00044 &#32;&#32;virtual&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1aece6d66d88334ec1d56123af1e30beec">set_fixed_longitude</link>(<emphasis role="keywordtype">double</emphasis>&#32;fixed_longitude,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force);
+<anchor xml:id="_local__storage_8h_source_1l00045"/>00045 &#32;&#32;virtual&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a85feeba95879976c5b32d0e31a1cb0c3">set_fixed_latitude</link>(<emphasis role="keywordtype">double</emphasis>&#32;fixed_latitude,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force);
+<anchor xml:id="_local__storage_8h_source_1l00046"/>00046 &#32;&#32;virtual&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a30925c71296c99004645906c9dabfc9d">set_last_longitude</link>(<emphasis role="keywordtype">double</emphasis>&#32;last_longitude,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force);
+<anchor xml:id="_local__storage_8h_source_1l00047"/>00047 &#32;&#32;virtual&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a61222cf72160eb65fe14a84ee43052bb">set_last_latitude</link>(<emphasis role="keywordtype">double</emphasis>&#32;last_latitude,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force);
+<anchor xml:id="_local__storage_8h_source_1l00048"/>00048 &#32;&#32;virtual&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_local_storage_1a90854142e6b8517446157c21889903a9">set_fixed_range</link>(uint16_t&#32;fixed_range,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force);
+<anchor xml:id="_local__storage_8h_source_1l00049"/>00049 
+<anchor xml:id="_local__storage_8h_source_1l00050"/>00050 &#32;protected:
+<anchor xml:id="_local__storage_8h_source_1l00051"/>00051 &#32;&#32;virtual&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_local_storage_1abf645efa025a556a3188b42d5f5590fe">clear</link>();
+<anchor xml:id="_local__storage_8h_source_1l00052"/>00052 
+<anchor xml:id="_local__storage_8h_source_1l00056"/>00056 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_local_storage_1a5452afc6c29b246572d3e01ee9eb84d8">activate</link>(<emphasis role="keywordtype">bool</emphasis>)&#32;override;
+<anchor xml:id="_local__storage_8h_source_1l00057"/>00057 &#32;&#32;int8_t&#32;<link linkend="_class_local_storage_1a3092068c5d940b705608fd5a548af2d7">handle_produced_work</link>(const&#32;worker_map_t&amp;&#32;workers)&#32;override;
+<anchor xml:id="_local__storage_8h_source_1l00058"/>00058 &#32;private:
+<anchor xml:id="_local__storage_8h_source_1l00059"/>00059 &#32;&#32;Preferences&#32;_memory;
+<anchor xml:id="_local__storage_8h_source_1l00060"/>00060 
+<anchor xml:id="_local__storage_8h_source_1l00061"/>00061 &#32;&#32;<emphasis role="comment">//&#32;Device&#32;settings</emphasis>
+<anchor xml:id="_local__storage_8h_source_1l00062"/>00062 &#32;&#32;uint16_t&#32;_device_id;
+<anchor xml:id="_local__storage_8h_source_1l00063"/>00063 &#32;&#32;uint16_t&#32;_alarm_threshold;
+<anchor xml:id="_local__storage_8h_source_1l00064"/>00064 &#32;&#32;uint8_t&#32;_click_sound_level;
+<anchor xml:id="_local__storage_8h_source_1l00065"/>00065 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;_ap_password[<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>];
+<anchor xml:id="_local__storage_8h_source_1l00066"/>00066 
+<anchor xml:id="_local__storage_8h_source_1l00067"/>00067 &#32;&#32;<emphasis role="comment">//&#32;Connection&#32;settings</emphasis>
+<anchor xml:id="_local__storage_8h_source_1l00068"/>00068 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;_wifi_ssid[<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>];
+<anchor xml:id="_local__storage_8h_source_1l00069"/>00069 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;_wifi_password[<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>];
+<anchor xml:id="_local__storage_8h_source_1l00070"/>00070 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;_api_key[<link linkend="_local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d">CONFIG_VAL_MAX</link>];
+<anchor xml:id="_local__storage_8h_source_1l00071"/>00071 
+<anchor xml:id="_local__storage_8h_source_1l00072"/>00072 &#32;&#32;<emphasis role="comment">//&#32;Location&#32;settings</emphasis>
+<anchor xml:id="_local__storage_8h_source_1l00073"/>00073 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;_fixed_longitude;
+<anchor xml:id="_local__storage_8h_source_1l00074"/>00074 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;_fixed_latitude;
+<anchor xml:id="_local__storage_8h_source_1l00075"/>00075 &#32;&#32;uint16_t&#32;_fixed_range;
+<anchor xml:id="_local__storage_8h_source_1l00076"/>00076 
+<anchor xml:id="_local__storage_8h_source_1l00077"/>00077 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;_last_longitude;
+<anchor xml:id="_local__storage_8h_source_1l00078"/>00078 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;_last_latitude;
+<anchor xml:id="_local__storage_8h_source_1l00079"/>00079 };
+<anchor xml:id="_local__storage_8h_source_1l00080"/>00080 
+<anchor xml:id="_local__storage_8h_source_1l00081"/>00081 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//BGEIGIEZEN_ESP_CONFIG_H_</emphasis>
+</programlisting></section>

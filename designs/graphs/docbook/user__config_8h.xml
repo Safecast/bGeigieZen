@@ -1,0 +1,533 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_user__config_8h" xml:lang="en-US">
+<title>bgeigiezen_firmware/user_config.h File Reference</title>
+<indexterm><primary>bgeigiezen_firmware/user_config.h</primary></indexterm>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="user__config_8h__dep__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_user__config_8h_1a432138093c53d7580af9ec5c5dca387f">ENABLE_DEBUG</link>&#160;&#160;&#160;1</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1a18d295a837ac71add5578860b55e5502">STR</link>(x)&#160;&#160;&#160;<link linkend="_user__config_8h_1a9063e80f8777300c93afde6e6f4c9cea">TOSTRING</link>(x)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1a9063e80f8777300c93afde6e6f4c9cea">TOSTRING</link>(x)&#160;&#160;&#160;#x</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1a698acb89e1bf5837b33c30ef35c30044">VERSION_STRING</link>&#160;&#160;&#160;<link linkend="_user__config_8h_1a18d295a837ac71add5578860b55e5502">STR</link>(MAJOR_VERSION) &quot;.&quot; <link linkend="_user__config_8h_1a18d295a837ac71add5578860b55e5502">STR</link>(MINOR_VERSION) &quot;.&quot; <link linkend="_user__config_8h_1a18d295a837ac71add5578860b55e5502">STR</link>(PATCH_VERSION)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62">LCD_COLOR_DEFAULT</link>&#160;&#160;&#160;TFT_WHITE</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1af5dfdf39379d893376bb886f8caa35fd">LCD_COLOR_ACTIVE</link>&#160;&#160;&#160;TFT_ORANGE</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1a6eef98b3281e35c3149c9f3dd61a0284">LCD_COLOR_OLD</link>&#160;&#160;&#160;TFT_ORANGE</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1a7513793964f7e96f4fbb7a2016f1336a">LCD_COLOR_INACTIVE</link>&#160;&#160;&#160;TFT_DARKGREY</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1abda62c97ed73836f3749f74f4de6664a">LCD_COLOR_BACKGROUND</link>&#160;&#160;&#160;TFT_BLACK</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1a583b0748ee647a56a2e607bfe09d13dd">API_HOST</link>&#160;&#160;&#160;&quot;tt.safecast.org&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1ae7d310923399cda9586b4916f7070fc5">API_MEASUREMENTS_ENDPOINT</link>&#160;&#160;&#160;&quot;http://&quot; API_HOST &quot;/measurements.json&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1a688b2c08fbc53d20db8a5f829f372338">HEADER_API_CONTENT_TYPE</link>&#160;&#160;&#160;&quot;application/json&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1a37ec0fa268fd3617f7d7f5ad0a2d463e">HEADER_API_USER_AGENT</link>&#160;&#160;&#160;&quot;bGeigieCast/&quot; VERSION_STRING</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1a61e55f831ccc0dca94bf0e0f121f2a7c">ACCESS_POINT_SSID</link>&#160;&#160;&#160;&quot;bgeigiezen-%d&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1a2e6a8253ab0bc7773cfccfb1ae8d5fbc">SERVER_WIFI_PORT</link>&#160;&#160;&#160;80</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1a4e96e371af8e34654cb0d5d7057e70c0">ACCESS_POINT_IP</link>&#160;&#160;&#160;{192, 168, 5, 1}</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1a9d15ae2b09da9972e7498dfbd4645d0a">ACCESS_POINT_NMASK</link>&#160;&#160;&#160;{255, 255, 255, 0}</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1ab5ab7140802b46e7db66cc9b92b61193">D_DEVICE_ID</link>&#160;&#160;&#160;0</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1a89cb19740b0080c97b66e4d3a1dcc711">D_ACCESS_POINT_PASSWORD</link>&#160;&#160;&#160;&quot;safecast&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1aff876460366b50a61c98ba651c49adda">D_WIFI_SSID</link>&#160;&#160;&#160;&quot;your wifi ssid&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1ac2201e2757292b5e01d7fdaa4bd777be">D_WIFI_PASSWORD</link>&#160;&#160;&#160;&quot;yourwifipassword&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1af2da36fb06d7b7d7efaf61e70b86f099">D_APIKEY</link>&#160;&#160;&#160;&quot;&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_user__config_8h_1a7aa04dc4420c8b4555bf414988b5b259">D_USE_DEV_SERVER</link>&#160;&#160;&#160;true</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>constexpr uint8_t <link linkend="_user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e">GEIGER_AVERAGING_N_BINS</link> = 60</para>
+</listitem>
+            <listitem><para>constexpr float <link linkend="_user__config_8h_1abc4b551efadb337a797bc9cc75d0d356">GEIGER_SENSOR1_CPM_FACTOR</link> = 340.0</para>
+</listitem>
+            <listitem><para>constexpr uint8_t <link linkend="_user__config_8h_1a1ecad281135a3c0738229d664036ee71">GEIGER_AVERAGING_PERIOD_S</link> = 1</para>
+</listitem>
+            <listitem><para>constexpr int <link linkend="_user__config_8h_1a0b6d3c410877eab2e3300a19df913ec9">GPS_SERIAL_NUM</link> = 2</para>
+</listitem>
+            <listitem><para>constexpr uint32_t <link linkend="_user__config_8h_1a446cf1f11ef577601271779d15f827f8">GPS_BAUD_RATE</link> = 38400</para>
+</listitem>
+            <listitem><para>constexpr uint16_t <link linkend="_user__config_8h_1aecfd7acbf4096c781b999067802e3da2">GPS_INVALID_YEAR</link> = 2000</para>
+</listitem>
+            <listitem><para>constexpr uint16_t <link linkend="_user__config_8h_1a13386818aa2e64a61e349e424117ed6b">GPS_PDOP_THRESHOLD</link> = 500</para>
+</listitem>
+            <listitem><para>constexpr uint8_t <link linkend="_user__config_8h_1a31d20addda96801cf6c2c214e618797e">GPS_SATS_THRESHOLD</link> = 4</para>
+</listitem>
+            <listitem><para>constexpr uint32_t <link linkend="_user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691">GPS_FIX_AGE_LIMIT</link> = 1500</para>
+</listitem>
+            <listitem><para>constexpr uint32_t <link linkend="_user__config_8h_1a43cbffea60066e2efe91f3c374a131cc">LCD_REFRESH_RATE</link> = 1000</para>
+</listitem>
+            <listitem><para>constexpr uint8_t <link linkend="_user__config_8h_1aafc508d7a2df49fd453b2ad0fe9183a2">SD_CS_PIN</link> = 4</para>
+</listitem>
+            <listitem><para>constexpr char <link linkend="_user__config_8h_1ade09c1aae2a4e93b5fae3cd23c2c7291">QR_CODE_URL_BASE</link> [] = &quot;http://tt.safecast.org/id/geigiecast:&quot;</para>
+</listitem>
+            <listitem><para>constexpr uint8_t <link linkend="_user__config_8h_1a77c3a471e970c0c24389d6958e0adafa">QR_CODE_DEV_ID_NDIGITS</link> = 4</para>
+</listitem>
+            <listitem><para>constexpr char <link linkend="_user__config_8h_1ab1a574e4608cb50f6d09c38514d5162f">LOG_HEADER_LINE1</link> [] = &quot;# NEW LOG&quot;</para>
+</listitem>
+            <listitem><para>constexpr char <link linkend="_user__config_8h_1ad5ecdf56523a4f08b9a950c49123853c">LOG_HEADER_LINE2</link> [] = &quot;# format=&quot;</para>
+</listitem>
+            <listitem><para>constexpr char <link linkend="_user__config_8h_1a9315df8ddd1c7b2571a34d4bcfbe4088">LOG_HEADER_LINE3</link> [] = &quot;# deadtime=off&quot;</para>
+</listitem>
+            <listitem><para>constexpr char <link linkend="_user__config_8h_1a01a5470ab05566cfd96f7d3f9f9d865b">SETUP_FILENAME</link> [] = &quot;/SAFEZEN.txt&quot;</para>
+</listitem>
+            <listitem><para>constexpr char <link linkend="_user__config_8h_1a8640e19b0a934a2937951a06148f1f38">TEST_FILENAME</link> [] = &quot;/.zen&quot;</para>
+</listitem>
+            <listitem><para>constexpr uint8_t <link linkend="_user__config_8h_1a506534733e27626c593a1f035b753b75">SETUP_FILE_PARSE_BUFFER_SIZE</link> = 102</para>
+</listitem>
+            <listitem><para>constexpr uint32_t <link linkend="_user__config_8h_1a5059b5c68a761dbaa2c65a98184870c3">SETUP_DEFAULT_DEVICE_ID</link> = 0</para>
+</listitem>
+            <listitem><para>constexpr uint8_t <link linkend="_user__config_8h_1abc9e2547d25382d0ad7aaccc6cef1525">SETUP_USERNAME_MAXLEN</link> = 15</para>
+</listitem>
+            <listitem><para>constexpr float <link linkend="_user__config_8h_1a2aa1fad3e1a6050d9f8f3c86a0b080d0">SETUP_DEFAULT_USH_DIVIDER</link> = 334.0</para>
+</listitem>
+            <listitem><para>constexpr float <link linkend="_user__config_8h_1ab26b3dfb90d6765681099e737667c82a">SETUP_DEFAULT_BQM2_FACTOR</link> = 37.0</para>
+</listitem>
+            <listitem><para>constexpr uint32_t <link linkend="_user__config_8h_1a7ba88c7c1a85f3ab9f63ea1a97ecc4a5">SETUP_DEFAULT_SENSOR_HEIGHT</link> = 100</para>
+</listitem>
+            <listitem><para>constexpr uint8_t <link linkend="_user__config_8h_1af7d534d3b718b67ff5ae0d31fede2743">SETUP_DEFAULT_CPM_WINDOW</link> = 60</para>
+</listitem>
+            <listitem><para>constexpr uint32_t <link linkend="_user__config_8h_1ab7624ab834688b7fd335af2a43210451">SETUP_DEFAULT_ALERT_LEVEL</link> = 100</para>
+</listitem>
+            <listitem><para>constexpr char <link linkend="_user__config_8h_1a9142c06d7fb5e369e4d39a6263fc7e23">SETUP_DEFAULT_COUNTRY_CODE</link> [4] = &quot;JPN&quot;</para>
+</listitem>
+            <listitem><para>constexpr uint8_t <link linkend="_user__config_8h_1a4be694dd489f716bf5efa8adebdffa12">SETUP_DEFAULT_TIMEZONE</link> = 9</para>
+</listitem>
+            <listitem><para>constexpr char <link linkend="_user__config_8h_1af4522a39d440e3c86985f3c84361a859">DEVICE_HEADER</link> [] = &quot;BNRDD&quot;</para>
+</listitem>
+            <listitem><para>constexpr uint8_t <link linkend="_user__config_8h_1a4e6615bcf7c6eb1b66312eeff0ac0ad2">LOG_BUFFER_SIZE</link> = 100</para>
+</listitem>
+            <listitem><para>constexpr char <link linkend="_user__config_8h_1a89fcd816f83673066c6f0822c5a54f7f">ACCESS_POINT_SSID</link> [8] = &quot;bgeigie&quot;</para>
+</listitem>
+            <listitem><para>constexpr uint32_t <link linkend="_user__config_8h_1a36d2cf5e4905ba5d7f2221665b86079f">SERVER_WIFI_PORT</link> = 80</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_user__config_8h_1a4e96e371af8e34654cb0d5d7057e70c0"/><section>
+    <title>ACCESS_POINT_IP</title>
+<indexterm><primary>ACCESS_POINT_IP</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>ACCESS_POINT_IP</secondary></indexterm>
+<para><computeroutput>#define ACCESS_POINT_IP&#160;&#160;&#160;{192, 168, 5, 1}</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00101">101</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a9d15ae2b09da9972e7498dfbd4645d0a"/><section>
+    <title>ACCESS_POINT_NMASK</title>
+<indexterm><primary>ACCESS_POINT_NMASK</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>ACCESS_POINT_NMASK</secondary></indexterm>
+<para><computeroutput>#define ACCESS_POINT_NMASK&#160;&#160;&#160;{255, 255, 255, 0}</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00102">102</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a61e55f831ccc0dca94bf0e0f121f2a7c"/><section>
+    <title>ACCESS_POINT_SSID</title>
+<indexterm><primary>ACCESS_POINT_SSID</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>ACCESS_POINT_SSID</secondary></indexterm>
+<para><computeroutput>#define ACCESS_POINT_SSID&#160;&#160;&#160;&quot;bgeigiezen-%d&quot;</computeroutput></para>
+<para>Access point settings </para>
+<para>
+Definition at line <link linkend="_user__config_8h_source_1l00099">99</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a583b0748ee647a56a2e607bfe09d13dd"/><section>
+    <title>API_HOST</title>
+<indexterm><primary>API_HOST</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>API_HOST</secondary></indexterm>
+<para><computeroutput>#define API_HOST&#160;&#160;&#160;&quot;tt.safecast.org&quot;</computeroutput></para>
+<para>Hardware pins settings API connector settings </para>
+<para>
+Definition at line <link linkend="_user__config_8h_source_1l00093">93</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1ae7d310923399cda9586b4916f7070fc5"/><section>
+    <title>API_MEASUREMENTS_ENDPOINT</title>
+<indexterm><primary>API_MEASUREMENTS_ENDPOINT</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>API_MEASUREMENTS_ENDPOINT</secondary></indexterm>
+<para><computeroutput>#define API_MEASUREMENTS_ENDPOINT&#160;&#160;&#160;&quot;http://&quot; API_HOST &quot;/measurements.json&quot;</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00094">94</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a89cb19740b0080c97b66e4d3a1dcc711"/><section>
+    <title>D_ACCESS_POINT_PASSWORD</title>
+<indexterm><primary>D_ACCESS_POINT_PASSWORD</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>D_ACCESS_POINT_PASSWORD</secondary></indexterm>
+<para><computeroutput>#define D_ACCESS_POINT_PASSWORD&#160;&#160;&#160;&quot;safecast&quot;</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00106">106</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1af2da36fb06d7b7d7efaf61e70b86f099"/><section>
+    <title>D_APIKEY</title>
+<indexterm><primary>D_APIKEY</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>D_APIKEY</secondary></indexterm>
+<para><computeroutput>#define D_APIKEY&#160;&#160;&#160;&quot;&quot;</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00109">109</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1ab5ab7140802b46e7db66cc9b92b61193"/><section>
+    <title>D_DEVICE_ID</title>
+<indexterm><primary>D_DEVICE_ID</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>D_DEVICE_ID</secondary></indexterm>
+<para><computeroutput>#define D_DEVICE_ID&#160;&#160;&#160;0</computeroutput></para>
+<para>Default configurations </para>
+<para>
+Definition at line <link linkend="_user__config_8h_source_1l00105">105</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a7aa04dc4420c8b4555bf414988b5b259"/><section>
+    <title>D_USE_DEV_SERVER</title>
+<indexterm><primary>D_USE_DEV_SERVER</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>D_USE_DEV_SERVER</secondary></indexterm>
+<para><computeroutput>#define D_USE_DEV_SERVER&#160;&#160;&#160;true</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00110">110</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1ac2201e2757292b5e01d7fdaa4bd777be"/><section>
+    <title>D_WIFI_PASSWORD</title>
+<indexterm><primary>D_WIFI_PASSWORD</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>D_WIFI_PASSWORD</secondary></indexterm>
+<para><computeroutput>#define D_WIFI_PASSWORD&#160;&#160;&#160;&quot;yourwifipassword&quot;</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00108">108</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1aff876460366b50a61c98ba651c49adda"/><section>
+    <title>D_WIFI_SSID</title>
+<indexterm><primary>D_WIFI_SSID</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>D_WIFI_SSID</secondary></indexterm>
+<para><computeroutput>#define D_WIFI_SSID&#160;&#160;&#160;&quot;your wifi ssid&quot;</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00107">107</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a432138093c53d7580af9ec5c5dca387f"/><section>
+    <title>ENABLE_DEBUG</title>
+<indexterm><primary>ENABLE_DEBUG</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>ENABLE_DEBUG</secondary></indexterm>
+<para><computeroutput>#define ENABLE_DEBUG&#160;&#160;&#160;1</computeroutput></para>
+<para>System config </para>
+<para>
+Definition at line <link linkend="_user__config_8h_source_1l00011">11</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a688b2c08fbc53d20db8a5f829f372338"/><section>
+    <title>HEADER_API_CONTENT_TYPE</title>
+<indexterm><primary>HEADER_API_CONTENT_TYPE</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>HEADER_API_CONTENT_TYPE</secondary></indexterm>
+<para><computeroutput>#define HEADER_API_CONTENT_TYPE&#160;&#160;&#160;&quot;application/json&quot;</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00095">95</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a37ec0fa268fd3617f7d7f5ad0a2d463e"/><section>
+    <title>HEADER_API_USER_AGENT</title>
+<indexterm><primary>HEADER_API_USER_AGENT</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>HEADER_API_USER_AGENT</secondary></indexterm>
+<para><computeroutput>#define HEADER_API_USER_AGENT&#160;&#160;&#160;&quot;bGeigieCast/&quot; VERSION_STRING</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00096">96</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1af5dfdf39379d893376bb886f8caa35fd"/><section>
+    <title>LCD_COLOR_ACTIVE</title>
+<indexterm><primary>LCD_COLOR_ACTIVE</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>LCD_COLOR_ACTIVE</secondary></indexterm>
+<para><computeroutput>#define LCD_COLOR_ACTIVE&#160;&#160;&#160;TFT_ORANGE</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00047">47</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1abda62c97ed73836f3749f74f4de6664a"/><section>
+    <title>LCD_COLOR_BACKGROUND</title>
+<indexterm><primary>LCD_COLOR_BACKGROUND</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>LCD_COLOR_BACKGROUND</secondary></indexterm>
+<para><computeroutput>#define LCD_COLOR_BACKGROUND&#160;&#160;&#160;TFT_BLACK</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00050">50</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62"/><section>
+    <title>LCD_COLOR_DEFAULT</title>
+<indexterm><primary>LCD_COLOR_DEFAULT</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>LCD_COLOR_DEFAULT</secondary></indexterm>
+<para><computeroutput>#define LCD_COLOR_DEFAULT&#160;&#160;&#160;TFT_WHITE</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00046">46</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a7513793964f7e96f4fbb7a2016f1336a"/><section>
+    <title>LCD_COLOR_INACTIVE</title>
+<indexterm><primary>LCD_COLOR_INACTIVE</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>LCD_COLOR_INACTIVE</secondary></indexterm>
+<para><computeroutput>#define LCD_COLOR_INACTIVE&#160;&#160;&#160;TFT_DARKGREY</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00049">49</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a6eef98b3281e35c3149c9f3dd61a0284"/><section>
+    <title>LCD_COLOR_OLD</title>
+<indexterm><primary>LCD_COLOR_OLD</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>LCD_COLOR_OLD</secondary></indexterm>
+<para><computeroutput>#define LCD_COLOR_OLD&#160;&#160;&#160;TFT_ORANGE</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00048">48</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a2e6a8253ab0bc7773cfccfb1ae8d5fbc"/><section>
+    <title>SERVER_WIFI_PORT</title>
+<indexterm><primary>SERVER_WIFI_PORT</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>SERVER_WIFI_PORT</secondary></indexterm>
+<para><computeroutput>#define SERVER_WIFI_PORT&#160;&#160;&#160;80</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00100">100</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a18d295a837ac71add5578860b55e5502"/><section>
+    <title>STR</title>
+<indexterm><primary>STR</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>STR</secondary></indexterm>
+<para><computeroutput>#define STR( x)&#160;&#160;&#160;<link linkend="_user__config_8h_1a9063e80f8777300c93afde6e6f4c9cea">TOSTRING</link>(x)</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00012">12</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a9063e80f8777300c93afde6e6f4c9cea"/><section>
+    <title>TOSTRING</title>
+<indexterm><primary>TOSTRING</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>TOSTRING</secondary></indexterm>
+<para><computeroutput>#define TOSTRING( x)&#160;&#160;&#160;#x</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00013">13</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a698acb89e1bf5837b33c30ef35c30044"/><section>
+    <title>VERSION_STRING</title>
+<indexterm><primary>VERSION_STRING</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>VERSION_STRING</secondary></indexterm>
+<para><computeroutput>#define VERSION_STRING&#160;&#160;&#160;<link linkend="_user__config_8h_1a18d295a837ac71add5578860b55e5502">STR</link>(MAJOR_VERSION) &quot;.&quot; <link linkend="_user__config_8h_1a18d295a837ac71add5578860b55e5502">STR</link>(MINOR_VERSION) &quot;.&quot; <link linkend="_user__config_8h_1a18d295a837ac71add5578860b55e5502">STR</link>(PATCH_VERSION)</computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00017">17</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_user__config_8h_1a89fcd816f83673066c6f0822c5a54f7f"/><section>
+    <title>ACCESS_POINT_SSID</title>
+<indexterm><primary>ACCESS_POINT_SSID</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>ACCESS_POINT_SSID</secondary></indexterm>
+<para><computeroutput>constexpr char ACCESS_POINT_SSID[8] = &quot;bgeigie&quot;<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00083">83</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1af4522a39d440e3c86985f3c84361a859"/><section>
+    <title>DEVICE_HEADER</title>
+<indexterm><primary>DEVICE_HEADER</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>DEVICE_HEADER</secondary></indexterm>
+<para><computeroutput>constexpr char DEVICE_HEADER[] = &quot;BNRDD&quot;<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00079">79</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e"/><section>
+    <title>GEIGER_AVERAGING_N_BINS</title>
+<indexterm><primary>GEIGER_AVERAGING_N_BINS</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>GEIGER_AVERAGING_N_BINS</secondary></indexterm>
+<para><computeroutput>constexpr uint8_t GEIGER_AVERAGING_N_BINS = 60<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00023">23</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a1ecad281135a3c0738229d664036ee71"/><section>
+    <title>GEIGER_AVERAGING_PERIOD_S</title>
+<indexterm><primary>GEIGER_AVERAGING_PERIOD_S</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>GEIGER_AVERAGING_PERIOD_S</secondary></indexterm>
+<para><computeroutput>constexpr uint8_t GEIGER_AVERAGING_PERIOD_S = 1<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00025">25</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1abc4b551efadb337a797bc9cc75d0d356"/><section>
+    <title>GEIGER_SENSOR1_CPM_FACTOR</title>
+<indexterm><primary>GEIGER_SENSOR1_CPM_FACTOR</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>GEIGER_SENSOR1_CPM_FACTOR</secondary></indexterm>
+<para><computeroutput>constexpr float GEIGER_SENSOR1_CPM_FACTOR = 340.0<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00024">24</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a446cf1f11ef577601271779d15f827f8"/><section>
+    <title>GPS_BAUD_RATE</title>
+<indexterm><primary>GPS_BAUD_RATE</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>GPS_BAUD_RATE</secondary></indexterm>
+<para><computeroutput>constexpr uint32_t GPS_BAUD_RATE = 38400<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00038">38</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691"/><section>
+    <title>GPS_FIX_AGE_LIMIT</title>
+<indexterm><primary>GPS_FIX_AGE_LIMIT</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>GPS_FIX_AGE_LIMIT</secondary></indexterm>
+<para><computeroutput>constexpr uint32_t GPS_FIX_AGE_LIMIT = 1500<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00042">42</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1aecfd7acbf4096c781b999067802e3da2"/><section>
+    <title>GPS_INVALID_YEAR</title>
+<indexterm><primary>GPS_INVALID_YEAR</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>GPS_INVALID_YEAR</secondary></indexterm>
+<para><computeroutput>constexpr uint16_t GPS_INVALID_YEAR = 2000<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00039">39</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a13386818aa2e64a61e349e424117ed6b"/><section>
+    <title>GPS_PDOP_THRESHOLD</title>
+<indexterm><primary>GPS_PDOP_THRESHOLD</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>GPS_PDOP_THRESHOLD</secondary></indexterm>
+<para><computeroutput>constexpr uint16_t GPS_PDOP_THRESHOLD = 500<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00040">40</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a31d20addda96801cf6c2c214e618797e"/><section>
+    <title>GPS_SATS_THRESHOLD</title>
+<indexterm><primary>GPS_SATS_THRESHOLD</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>GPS_SATS_THRESHOLD</secondary></indexterm>
+<para><computeroutput>constexpr uint8_t GPS_SATS_THRESHOLD = 4<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00041">41</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a0b6d3c410877eab2e3300a19df913ec9"/><section>
+    <title>GPS_SERIAL_NUM</title>
+<indexterm><primary>GPS_SERIAL_NUM</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>GPS_SERIAL_NUM</secondary></indexterm>
+<para><computeroutput>constexpr int GPS_SERIAL_NUM = 2<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00037">37</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a43cbffea60066e2efe91f3c374a131cc"/><section>
+    <title>LCD_REFRESH_RATE</title>
+<indexterm><primary>LCD_REFRESH_RATE</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>LCD_REFRESH_RATE</secondary></indexterm>
+<para><computeroutput>constexpr uint32_t LCD_REFRESH_RATE = 1000<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00045">45</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a4e6615bcf7c6eb1b66312eeff0ac0ad2"/><section>
+    <title>LOG_BUFFER_SIZE</title>
+<indexterm><primary>LOG_BUFFER_SIZE</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>LOG_BUFFER_SIZE</secondary></indexterm>
+<para><computeroutput>constexpr uint8_t LOG_BUFFER_SIZE = 100<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00080">80</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1ab1a574e4608cb50f6d09c38514d5162f"/><section>
+    <title>LOG_HEADER_LINE1</title>
+<indexterm><primary>LOG_HEADER_LINE1</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>LOG_HEADER_LINE1</secondary></indexterm>
+<para><computeroutput>constexpr char LOG_HEADER_LINE1[] = &quot;# NEW LOG&quot;<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00060">60</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1ad5ecdf56523a4f08b9a950c49123853c"/><section>
+    <title>LOG_HEADER_LINE2</title>
+<indexterm><primary>LOG_HEADER_LINE2</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>LOG_HEADER_LINE2</secondary></indexterm>
+<para><computeroutput>constexpr char LOG_HEADER_LINE2[] = &quot;# format=&quot;<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00061">61</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a9315df8ddd1c7b2571a34d4bcfbe4088"/><section>
+    <title>LOG_HEADER_LINE3</title>
+<indexterm><primary>LOG_HEADER_LINE3</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>LOG_HEADER_LINE3</secondary></indexterm>
+<para><computeroutput>constexpr char LOG_HEADER_LINE3[] = &quot;# deadtime=off&quot;<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00062">62</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a77c3a471e970c0c24389d6958e0adafa"/><section>
+    <title>QR_CODE_DEV_ID_NDIGITS</title>
+<indexterm><primary>QR_CODE_DEV_ID_NDIGITS</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>QR_CODE_DEV_ID_NDIGITS</secondary></indexterm>
+<para><computeroutput>constexpr uint8_t QR_CODE_DEV_ID_NDIGITS = 4<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00057">57</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1ade09c1aae2a4e93b5fae3cd23c2c7291"/><section>
+    <title>QR_CODE_URL_BASE</title>
+<indexterm><primary>QR_CODE_URL_BASE</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>QR_CODE_URL_BASE</secondary></indexterm>
+<para><computeroutput>constexpr char QR_CODE_URL_BASE[] = &quot;http://tt.safecast.org/id/geigiecast:&quot;<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00056">56</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1aafc508d7a2df49fd453b2ad0fe9183a2"/><section>
+    <title>SD_CS_PIN</title>
+<indexterm><primary>SD_CS_PIN</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>SD_CS_PIN</secondary></indexterm>
+<para><computeroutput>constexpr uint8_t SD_CS_PIN = 4<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00053">53</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a36d2cf5e4905ba5d7f2221665b86079f"/><section>
+    <title>SERVER_WIFI_PORT</title>
+<indexterm><primary>SERVER_WIFI_PORT</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>SERVER_WIFI_PORT</secondary></indexterm>
+<para><computeroutput>constexpr uint32_t SERVER_WIFI_PORT = 80<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00084">84</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1ab7624ab834688b7fd335af2a43210451"/><section>
+    <title>SETUP_DEFAULT_ALERT_LEVEL</title>
+<indexterm><primary>SETUP_DEFAULT_ALERT_LEVEL</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>SETUP_DEFAULT_ALERT_LEVEL</secondary></indexterm>
+<para><computeroutput>constexpr uint32_t SETUP_DEFAULT_ALERT_LEVEL = 100<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00074">74</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1ab26b3dfb90d6765681099e737667c82a"/><section>
+    <title>SETUP_DEFAULT_BQM2_FACTOR</title>
+<indexterm><primary>SETUP_DEFAULT_BQM2_FACTOR</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>SETUP_DEFAULT_BQM2_FACTOR</secondary></indexterm>
+<para><computeroutput>constexpr float SETUP_DEFAULT_BQM2_FACTOR = 37.0<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00071">71</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a9142c06d7fb5e369e4d39a6263fc7e23"/><section>
+    <title>SETUP_DEFAULT_COUNTRY_CODE</title>
+<indexterm><primary>SETUP_DEFAULT_COUNTRY_CODE</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>SETUP_DEFAULT_COUNTRY_CODE</secondary></indexterm>
+<para><computeroutput>constexpr char SETUP_DEFAULT_COUNTRY_CODE[4] = &quot;JPN&quot;<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00075">75</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1af7d534d3b718b67ff5ae0d31fede2743"/><section>
+    <title>SETUP_DEFAULT_CPM_WINDOW</title>
+<indexterm><primary>SETUP_DEFAULT_CPM_WINDOW</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>SETUP_DEFAULT_CPM_WINDOW</secondary></indexterm>
+<para><computeroutput>constexpr uint8_t SETUP_DEFAULT_CPM_WINDOW = 60<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00073">73</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a5059b5c68a761dbaa2c65a98184870c3"/><section>
+    <title>SETUP_DEFAULT_DEVICE_ID</title>
+<indexterm><primary>SETUP_DEFAULT_DEVICE_ID</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>SETUP_DEFAULT_DEVICE_ID</secondary></indexterm>
+<para><computeroutput>constexpr uint32_t SETUP_DEFAULT_DEVICE_ID = 0<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00068">68</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a7ba88c7c1a85f3ab9f63ea1a97ecc4a5"/><section>
+    <title>SETUP_DEFAULT_SENSOR_HEIGHT</title>
+<indexterm><primary>SETUP_DEFAULT_SENSOR_HEIGHT</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>SETUP_DEFAULT_SENSOR_HEIGHT</secondary></indexterm>
+<para><computeroutput>constexpr uint32_t SETUP_DEFAULT_SENSOR_HEIGHT = 100<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00072">72</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a4be694dd489f716bf5efa8adebdffa12"/><section>
+    <title>SETUP_DEFAULT_TIMEZONE</title>
+<indexterm><primary>SETUP_DEFAULT_TIMEZONE</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>SETUP_DEFAULT_TIMEZONE</secondary></indexterm>
+<para><computeroutput>constexpr uint8_t SETUP_DEFAULT_TIMEZONE = 9<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00076">76</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a2aa1fad3e1a6050d9f8f3c86a0b080d0"/><section>
+    <title>SETUP_DEFAULT_USH_DIVIDER</title>
+<indexterm><primary>SETUP_DEFAULT_USH_DIVIDER</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>SETUP_DEFAULT_USH_DIVIDER</secondary></indexterm>
+<para><computeroutput>constexpr float SETUP_DEFAULT_USH_DIVIDER = 334.0<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00070">70</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a506534733e27626c593a1f035b753b75"/><section>
+    <title>SETUP_FILE_PARSE_BUFFER_SIZE</title>
+<indexterm><primary>SETUP_FILE_PARSE_BUFFER_SIZE</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>SETUP_FILE_PARSE_BUFFER_SIZE</secondary></indexterm>
+<para><computeroutput>constexpr uint8_t SETUP_FILE_PARSE_BUFFER_SIZE = 102<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00067">67</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a01a5470ab05566cfd96f7d3f9f9d865b"/><section>
+    <title>SETUP_FILENAME</title>
+<indexterm><primary>SETUP_FILENAME</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>SETUP_FILENAME</secondary></indexterm>
+<para><computeroutput>constexpr char SETUP_FILENAME[] = &quot;/SAFEZEN.txt&quot;<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00065">65</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1abc9e2547d25382d0ad7aaccc6cef1525"/><section>
+    <title>SETUP_USERNAME_MAXLEN</title>
+<indexterm><primary>SETUP_USERNAME_MAXLEN</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>SETUP_USERNAME_MAXLEN</secondary></indexterm>
+<para><computeroutput>constexpr uint8_t SETUP_USERNAME_MAXLEN = 15<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00069">69</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+<anchor xml:id="_user__config_8h_1a8640e19b0a934a2937951a06148f1f38"/><section>
+    <title>TEST_FILENAME</title>
+<indexterm><primary>TEST_FILENAME</primary><secondary>user_config.h</secondary></indexterm>
+<indexterm><primary>user_config.h</primary><secondary>TEST_FILENAME</secondary></indexterm>
+<para><computeroutput>constexpr char TEST_FILENAME[] = &quot;/.zen&quot;<computeroutput>[constexpr]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_user__config_8h_source_1l00066">66</link> of file <link linkend="_user__config_8h_source">user_config.h</link>.</para>
+</section>
+</section>
+</section>

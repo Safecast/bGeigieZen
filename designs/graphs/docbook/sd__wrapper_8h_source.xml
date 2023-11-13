@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_sd__wrapper_8h_source" xml:lang="en-US">
+<title>sd_wrapper.h</title>
+<indexterm><primary>bgeigiezen_firmware/utils/sd_wrapper.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_sd__wrapper_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;__SD_WRAPPER_H_</emphasis>
+<anchor xml:id="_sd__wrapper_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;__SD_WRAPPER_H_</emphasis>
+<anchor xml:id="_sd__wrapper_8h_source_1l00003"/>00003 
+<anchor xml:id="_sd__wrapper_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;SD.h&gt;</emphasis>
+<anchor xml:id="_sd__wrapper_8h_source_1l00005"/>00005 
+<anchor xml:id="_sd__wrapper_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_local__storage_8h">handlers/local_storage.h</link>&quot;</emphasis>
+<anchor xml:id="_sd__wrapper_8h_source_1l00007"/>00007 
+<anchor xml:id="_sd__wrapper_8h_source_1l00008"/><link linkend="_sd__wrapper_8h_1a14aa6bc35048b9d37e67e96fcb03504e">00008</link> <emphasis role="preprocessor">#define&#32;MAX_LOG_NAME&#32;255</emphasis>
+<anchor xml:id="_sd__wrapper_8h_source_1l00009"/>00009 
+<anchor xml:id="_sd__wrapper_8h_source_1l00014"/><link linkend="_class_s_d_interface">00014</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_s_d_interface">SDInterface</link>&#32;{
+<anchor xml:id="_sd__wrapper_8h_source_1l00015"/>00015 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_sd__wrapper_8h_source_1l00016"/><link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50">00016</link> &#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50">SdStatus</link>&#32;{
+<anchor xml:id="_sd__wrapper_8h_source_1l00017"/><link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a8a094cf03ccf414f4b77666f6c4e8611">00017</link> &#32;&#32;&#32;&#32;<link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a8a094cf03ccf414f4b77666f6c4e8611">e_sd_config_status_not_ready</link>,
+<anchor xml:id="_sd__wrapper_8h_source_1l00018"/><link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a4220a7d9f2295ecf4a6df95fc73de789">00018</link> &#32;&#32;&#32;&#32;<link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a4220a7d9f2295ecf4a6df95fc73de789">e_sd_config_status_ok</link>,
+<anchor xml:id="_sd__wrapper_8h_source_1l00019"/><link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50ab3eaba2df7231bec6b29aee75b5b18c7">00019</link> &#32;&#32;&#32;&#32;<link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50ab3eaba2df7231bec6b29aee75b5b18c7">e_sd_config_status_config_different_id</link>,
+<anchor xml:id="_sd__wrapper_8h_source_1l00020"/><link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a97640d3ba2438308592c625779e0fe12">00020</link> &#32;&#32;&#32;&#32;<link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a97640d3ba2438308592c625779e0fe12">e_sd_config_status_config_no_content</link>,
+<anchor xml:id="_sd__wrapper_8h_source_1l00021"/><link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50aca5a6270a52c089d851e54e7919a72cf">00021</link> &#32;&#32;&#32;&#32;<link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50aca5a6270a52c089d851e54e7919a72cf">e_sd_config_status_no_config_file</link>,
+<anchor xml:id="_sd__wrapper_8h_source_1l00022"/>00022 &#32;&#32;};
+<anchor xml:id="_sd__wrapper_8h_source_1l00023"/>00023 
+<anchor xml:id="_sd__wrapper_8h_source_1l00024"/><link linkend="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500">00024</link> &#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500">SdError</link>&#32;{
+<anchor xml:id="_sd__wrapper_8h_source_1l00025"/><link linkend="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500af0739939ceb0afbd4c08f58400b510e2">00025</link> &#32;&#32;&#32;&#32;<link linkend="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500af0739939ceb0afbd4c08f58400b510e2">e_sd_err_not_ready</link>,
+<anchor xml:id="_sd__wrapper_8h_source_1l00026"/><link linkend="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500a9e6fa9818cf185dba1b2e4f9d34b89d7">00026</link> &#32;&#32;&#32;&#32;<link linkend="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500a9e6fa9818cf185dba1b2e4f9d34b89d7">e_sd_err_file_open_w_fail</link>,
+<anchor xml:id="_sd__wrapper_8h_source_1l00027"/>00027 &#32;&#32;&#32;&#32;<link linkend="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500a6f24e3394bc18ffac9170adfde185951">e_sd_err_file_open_r_fail</link>
+<anchor xml:id="_sd__wrapper_8h_source_1l00028"/><link linkend="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500a6f24e3394bc18ffac9170adfde185951">00028</link> &#32;&#32;};
+<anchor xml:id="_sd__wrapper_8h_source_1l00029"/>00029 
+<anchor xml:id="_sd__wrapper_8h_source_1l00030"/><link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59d">00030</link> &#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59d">SdLogType</link>&#32;{
+<anchor xml:id="_sd__wrapper_8h_source_1l00031"/><link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da65cc75f54f901217b5289a3769337657">00031</link> &#32;&#32;&#32;&#32;<link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da65cc75f54f901217b5289a3769337657">e_sd_log_type_journal</link>,
+<anchor xml:id="_sd__wrapper_8h_source_1l00032"/><link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da4b4cbc732b487b71514a6e738c232d54">00032</link> &#32;&#32;&#32;&#32;<link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da4b4cbc732b487b71514a6e738c232d54">e_sd_log_type_drive</link>,
+<anchor xml:id="_sd__wrapper_8h_source_1l00033"/><link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da2aa337c4e3454815707279c590c91742">00033</link> &#32;&#32;&#32;&#32;<link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da2aa337c4e3454815707279c590c91742">e_sd_log_type_survey</link>,
+<anchor xml:id="_sd__wrapper_8h_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59daccab658091fbf0eed54aaad98fb07add">e_sd_log_type_error</link>
+<anchor xml:id="_sd__wrapper_8h_source_1l00035"/><link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59daccab658091fbf0eed54aaad98fb07add">00035</link> &#32;&#32;};
+<anchor xml:id="_sd__wrapper_8h_source_1l00036"/>00036 
+<anchor xml:id="_sd__wrapper_8h_source_1l00037"/><link linkend="_class_s_d_interface_1afbcd9b0cdc8f6c6eabf2202aabf78a93">00037</link> &#32;&#32;<link linkend="_class_s_d_interface_1afbcd9b0cdc8f6c6eabf2202aabf78a93">SDInterface</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_s_d_interface">SDInterface</link>&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_sd__wrapper_8h_source_1l00038"/><link linkend="_class_s_d_interface_1a0e610420f9195a31def20935935bcad6">00038</link> &#32;&#32;<link linkend="_class_s_d_interface">SDInterface</link>&amp;&#32;<link linkend="_class_s_d_interface_1a0e610420f9195a31def20935935bcad6">operator=</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_s_d_interface">SDInterface</link>&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_sd__wrapper_8h_source_1l00039"/><link linkend="_class_s_d_interface_1a89395c7916aff77ceecb5d4e9932b2c6">00039</link> &#32;&#32;<link linkend="_class_s_d_interface_1a89395c7916aff77ceecb5d4e9932b2c6">SDInterface</link>(<link linkend="_class_s_d_interface">SDInterface</link>&amp;&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_sd__wrapper_8h_source_1l00040"/><link linkend="_class_s_d_interface_1a1aa6910b72ec4d30ae716c8818432034">00040</link> &#32;&#32;<link linkend="_class_s_d_interface">SDInterface</link>&amp;&#32;<link linkend="_class_s_d_interface_1a1aa6910b72ec4d30ae716c8818432034">operator=</link>(<link linkend="_class_s_d_interface">SDInterface</link>&amp;&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_sd__wrapper_8h_source_1l00041"/>00041 
+<anchor xml:id="_sd__wrapper_8h_source_1l00046"/><link linkend="_class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f">00046</link> &#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<link linkend="_class_s_d_interface">SDInterface</link>&amp;&#32;<link linkend="_class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f">i</link>()&#32;{
+<anchor xml:id="_sd__wrapper_8h_source_1l00047"/>00047 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<link linkend="_class_s_d_interface">SDInterface</link>&#32;wrapper;
+<anchor xml:id="_sd__wrapper_8h_source_1l00048"/>00048 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;wrapper;
+<anchor xml:id="_sd__wrapper_8h_source_1l00049"/>00049 &#32;&#32;}
+<anchor xml:id="_sd__wrapper_8h_source_1l00050"/>00050 
+<anchor xml:id="_sd__wrapper_8h_source_1l00054"/>00054 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe">ready</link>();
+<anchor xml:id="_sd__wrapper_8h_source_1l00055"/>00055 
+<anchor xml:id="_sd__wrapper_8h_source_1l00060"/>00060 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_s_d_interface_1a809a47ce4ef0dc0ea1918552601cbbdd">begin</link>();
+<anchor xml:id="_sd__wrapper_8h_source_1l00061"/>00061 
+<anchor xml:id="_sd__wrapper_8h_source_1l00065"/>00065 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a">end</link>();
+<anchor xml:id="_sd__wrapper_8h_source_1l00066"/>00066 
+<anchor xml:id="_sd__wrapper_8h_source_1l00069"/>00069 <emphasis role="comment">//&#32;&#32;bool&#32;setup_log(log_type_t&#32;type,&#32;char*&#32;log_name_output);</emphasis>
+<anchor xml:id="_sd__wrapper_8h_source_1l00070"/>00070 
+<anchor xml:id="_sd__wrapper_8h_source_1l00073"/>00073 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_s_d_interface_1a3aa11cea31d2775204a4b387b6a1383c">log</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;log_name,&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t*&#32;data,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;buff_size);
+<anchor xml:id="_sd__wrapper_8h_source_1l00074"/>00074 
+<anchor xml:id="_sd__wrapper_8h_source_1l00079"/>00079 &#32;&#32;<link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50">SdStatus</link>&#32;<link linkend="_class_s_d_interface_1ac011e72bed01b65fb3af9cc1242b4f14">has_safezen_content</link>(uint16_t&#32;device_id);
+<anchor xml:id="_sd__wrapper_8h_source_1l00080"/>00080 
+<anchor xml:id="_sd__wrapper_8h_source_1l00085"/>00085 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_s_d_interface_1afcc40c40bd409e59bb1aaeb0d42c110d">read_safezen_file</link>(<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>);
+<anchor xml:id="_sd__wrapper_8h_source_1l00086"/>00086 
+<anchor xml:id="_sd__wrapper_8h_source_1l00091"/>00091 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_s_d_interface_1a1eeb50f1000c0bb1442e522d756216b1">write_safezen_file</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;full&#32;=&#32;<emphasis role="keyword">false</emphasis>);
+<anchor xml:id="_sd__wrapper_8h_source_1l00092"/>00092 
+<anchor xml:id="_sd__wrapper_8h_source_1l00093"/>00093 &#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_sd__wrapper_8h_source_1l00094"/>00094 &#32;&#32;<link linkend="_class_s_d_interface">SDInterface</link>();
+<anchor xml:id="_sd__wrapper_8h_source_1l00095"/>00095 
+<anchor xml:id="_sd__wrapper_8h_source_1l00100"/>00100 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;read_safezen_file_latest(<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>,&#32;File&amp;&#32;file);
+<anchor xml:id="_sd__wrapper_8h_source_1l00101"/>00101 
+<anchor xml:id="_sd__wrapper_8h_source_1l00102"/>00102 
+<anchor xml:id="_sd__wrapper_8h_source_1l00103"/>00103 
+<anchor xml:id="_sd__wrapper_8h_source_1l00104"/>00104 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;_sd_ready;
+<anchor xml:id="_sd__wrapper_8h_source_1l00105"/>00105 &#32;&#32;uint32_t&#32;_last_read;
+<anchor xml:id="_sd__wrapper_8h_source_1l00106"/>00106 &#32;&#32;uint32_t&#32;_last_write;
+<anchor xml:id="_sd__wrapper_8h_source_1l00107"/>00107 &#32;&#32;uint32_t&#32;_last_try;
+<anchor xml:id="_sd__wrapper_8h_source_1l00108"/>00108 };
+<anchor xml:id="_sd__wrapper_8h_source_1l00109"/>00109 
+<anchor xml:id="_sd__wrapper_8h_source_1l00110"/>00110 <emphasis role="preprocessor">#endif&#32;&#32;</emphasis><emphasis role="comment">//&#32;__SD_WRAPPER_H_</emphasis>
+</programlisting></section>

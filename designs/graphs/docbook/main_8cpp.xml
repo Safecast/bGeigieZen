@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_main_8cpp" xml:lang="en-US">
+<title>bgeigiezen_firmware/main.cpp File Reference</title>
+<indexterm><primary>bgeigiezen_firmware/main.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;Arduino.h&gt;<?linebreak?>#include &quot;identifiers.h&quot;<?linebreak?>#include &quot;controller.h&quot;<?linebreak?>#include &quot;workers/gps_connector.h&quot;<?linebreak?>#include &quot;workers/gm_sensor.h&quot;<?linebreak?>#include &quot;workers/zen_button.h&quot;<?linebreak?>#include &quot;workers/shake_detector.h&quot;<?linebreak?>#include &quot;workers/battery_indicator.h&quot;<?linebreak?>#include &quot;workers/log_aggregator.h&quot;<?linebreak?>#include &quot;workers/rtc_connector.h&quot;<?linebreak?>#include &quot;gfx_screen.h&quot;<?linebreak?>#include &quot;debugger.h&quot;<?linebreak?></programlisting>Include dependency graph for main.cpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8cpp__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_zen_button">ZenButton</link> <link linkend="_main_8cpp_1a0545b0e81b175ec1ffc51bdea06d4826">zen_A</link> (M5.BtnA)</para>
+</listitem>
+            <listitem><para><link linkend="_class_zen_button">ZenButton</link> <link linkend="_main_8cpp_1a57f4b91a8bc40525b0cbebd234968c5d">zen_B</link> (M5.BtnB)</para>
+</listitem>
+            <listitem><para><link linkend="_class_zen_button">ZenButton</link> <link linkend="_main_8cpp_1a68ec89250dc79e85ab90a9e1c4e7f2a2">zen_C</link> (M5.BtnC)</para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d">setup</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_main_8cpp_1afe461d27b9c48d5921c00d521181f12f">loop</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>SFE_UBLOX_GNSS <link linkend="_main_8cpp_1aa58ff36b40f59925c16651a5344ebfa8">gnss</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_local_storage">LocalStorage</link> <link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_controller">Controller</link> <link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link> (<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_gps_connector">GpsConnector</link> <link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">gps</link> (<link linkend="_user__config_8h_1a0b6d3c410877eab2e3300a19df913ec9">GPS_SERIAL_NUM</link>, <link linkend="_main_8cpp_1aa58ff36b40f59925c16651a5344ebfa8">gnss</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_geiger_counter">GeigerCounter</link> <link linkend="_main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b">gm_sensor</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_battery_indicator">BatteryIndicator</link> <link linkend="_main_8cpp_1a40c3633d7598f468c5672dbcedaaf46c">battery_indicator</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_rtc_connector">RtcConnector</link> <link linkend="_main_8cpp_1a07c2d18832864fb5bb1417ce6cb8dbce">rtc</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_shake_detector">ShakeDetector</link> <link linkend="_main_8cpp_1aec547d64ab192c39476f5cbad0e32eb0">shake_detector</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_log_aggregator">LogAggregator</link> <link linkend="_main_8cpp_1a14fad6b96fd26bd4219043784815c08b">log_aggregator</link> (<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_g_f_x_screen">GFXScreen</link> <link linkend="_main_8cpp_1a8cb3808a6d150a5aad73326d6d0a7ce1">gfx_screen</link> (<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>, <link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_main_8cpp_1afe461d27b9c48d5921c00d521181f12f"/><section>
+    <title>loop()</title>
+<indexterm><primary>loop</primary><secondary>main.cpp</secondary></indexterm>
+<indexterm><primary>main.cpp</primary><secondary>loop</secondary></indexterm>
+<para><computeroutput>void loop ( )</computeroutput></para><para>
+Definition at line <link linkend="_main_8cpp_source_1l00114">114</link> of file <link linkend="_main_8cpp_source">main.cpp</link>.</para>
+</section>
+<anchor xml:id="_main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d"/><section>
+    <title>setup()</title>
+<indexterm><primary>setup</primary><secondary>main.cpp</secondary></indexterm>
+<indexterm><primary>main.cpp</primary><secondary>setup</secondary></indexterm>
+<para><computeroutput>void setup ( )</computeroutput></para>
+<para>Hardware configurations</para>
+
+<para>Software configurations</para>
+<para>
+Definition at line <link linkend="_main_8cpp_source_1l00084">84</link> of file <link linkend="_main_8cpp_source">main.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8cpp_a4fc01d736fe50cf5b977f755b675f11d_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_main_8cpp_1a0545b0e81b175ec1ffc51bdea06d4826"/><section>
+    <title>zen_A()</title>
+<indexterm><primary>zen_A</primary><secondary>main.cpp</secondary></indexterm>
+<indexterm><primary>main.cpp</primary><secondary>zen_A</secondary></indexterm>
+<para><computeroutput><link linkend="_class_zen_button">ZenButton</link> zen_A (M5. BtnA)</computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8cpp_a0545b0e81b175ec1ffc51bdea06d4826_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_main_8cpp_1a57f4b91a8bc40525b0cbebd234968c5d"/><section>
+    <title>zen_B()</title>
+<indexterm><primary>zen_B</primary><secondary>main.cpp</secondary></indexterm>
+<indexterm><primary>main.cpp</primary><secondary>zen_B</secondary></indexterm>
+<para><computeroutput><link linkend="_class_zen_button">ZenButton</link> zen_B (M5. BtnB)</computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8cpp_a57f4b91a8bc40525b0cbebd234968c5d_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_main_8cpp_1a68ec89250dc79e85ab90a9e1c4e7f2a2"/><section>
+    <title>zen_C()</title>
+<indexterm><primary>zen_C</primary><secondary>main.cpp</secondary></indexterm>
+<indexterm><primary>main.cpp</primary><secondary>zen_C</secondary></indexterm>
+<para><computeroutput><link linkend="_class_zen_button">ZenButton</link> zen_C (M5. BtnC)</computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="main_8cpp_a68ec89250dc79e85ab90a9e1c4e7f2a2_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_main_8cpp_1a40c3633d7598f468c5672dbcedaaf46c"/><section>
+    <title>battery_indicator</title>
+<indexterm><primary>battery_indicator</primary><secondary>main.cpp</secondary></indexterm>
+<indexterm><primary>main.cpp</primary><secondary>battery_indicator</secondary></indexterm>
+<para><computeroutput><link linkend="_class_battery_indicator">BatteryIndicator</link> battery_indicator</computeroutput></para><para>
+Definition at line <link linkend="_main_8cpp_source_1l00074">74</link> of file <link linkend="_main_8cpp_source">main.cpp</link>.</para>
+</section>
+<anchor xml:id="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd"/><section>
+    <title>controller</title>
+<indexterm><primary>controller</primary><secondary>main.cpp</secondary></indexterm>
+<indexterm><primary>main.cpp</primary><secondary>controller</secondary></indexterm>
+<para><computeroutput><link linkend="_class_controller">Controller</link> controller(<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>) (<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link> )</computeroutput></para></section>
+<anchor xml:id="_main_8cpp_1a8cb3808a6d150a5aad73326d6d0a7ce1"/><section>
+    <title>gfx_screen</title>
+<indexterm><primary>gfx_screen</primary><secondary>main.cpp</secondary></indexterm>
+<indexterm><primary>main.cpp</primary><secondary>gfx_screen</secondary></indexterm>
+<para><computeroutput><link linkend="_class_g_f_x_screen">GFXScreen</link> gfx_screen(<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>, <link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>) (<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link> , <link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link> )</computeroutput></para></section>
+<anchor xml:id="_main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b"/><section>
+    <title>gm_sensor</title>
+<indexterm><primary>gm_sensor</primary><secondary>main.cpp</secondary></indexterm>
+<indexterm><primary>main.cpp</primary><secondary>gm_sensor</secondary></indexterm>
+<para><computeroutput><link linkend="_class_geiger_counter">GeigerCounter</link> gm_sensor</computeroutput></para><para>
+Definition at line <link linkend="_main_8cpp_source_1l00073">73</link> of file <link linkend="_main_8cpp_source">main.cpp</link>.</para>
+</section>
+<anchor xml:id="_main_8cpp_1aa58ff36b40f59925c16651a5344ebfa8"/><section>
+    <title>gnss</title>
+<indexterm><primary>gnss</primary><secondary>main.cpp</secondary></indexterm>
+<indexterm><primary>main.cpp</primary><secondary>gnss</secondary></indexterm>
+<para><computeroutput>SFE_UBLOX_GNSS gnss</computeroutput></para>
+<para>The bGeigieZen is the next generation, modern Open Source customizable Geiger Counter. The followup to the successful bGeigieNanoKit.</para>
+
+<para>Homepage: <link xlink:href="https://bgeigiezen.safecast.jp/">https://bgeigiezen.safecast.jp/</link> GitHub <link xlink:href="https://github.com/Safecast/bGeigieZen">https://github.com/Safecast/bGeigieZen</link> wiki: <link xlink:href="https://github.com/Safecast/bGeigieZen/wiki">https://github.com/Safecast/bGeigieZen/wiki</link> Slack channel: #bgeigiezen</para>
+
+<para>Copyright (c) 2023, Safecast</para>
+
+<para>All rights reserved.</para>
+
+<para>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. Neither the name of the &lt;organization&gt; nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</para>
+
+<para>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL &lt;COPYRIGHT HOLDER&gt; BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</para>
+
+<para>History Versions:</para>
+
+<para>Contact: </para>
+<para>
+Definition at line <link linkend="_main_8cpp_source_1l00064">64</link> of file <link linkend="_main_8cpp_source">main.cpp</link>.</para>
+</section>
+<anchor xml:id="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403"/><section>
+    <title>gps</title>
+<indexterm><primary>gps</primary><secondary>main.cpp</secondary></indexterm>
+<indexterm><primary>main.cpp</primary><secondary>gps</secondary></indexterm>
+<para><computeroutput><link linkend="_class_gps_connector">GpsConnector</link> gps(<link linkend="_user__config_8h_1a0b6d3c410877eab2e3300a19df913ec9">GPS_SERIAL_NUM</link>, <link linkend="_main_8cpp_1aa58ff36b40f59925c16651a5344ebfa8">gnss</link>) (<link linkend="_user__config_8h_1a0b6d3c410877eab2e3300a19df913ec9">GPS_SERIAL_NUM</link> , <link linkend="_main_8cpp_1aa58ff36b40f59925c16651a5344ebfa8">gnss</link> )</computeroutput></para></section>
+<anchor xml:id="_main_8cpp_1a14fad6b96fd26bd4219043784815c08b"/><section>
+    <title>log_aggregator</title>
+<indexterm><primary>log_aggregator</primary><secondary>main.cpp</secondary></indexterm>
+<indexterm><primary>main.cpp</primary><secondary>log_aggregator</secondary></indexterm>
+<para><computeroutput><link linkend="_class_log_aggregator">LogAggregator</link> log_aggregator(<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>) (<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link> )</computeroutput></para></section>
+<anchor xml:id="_main_8cpp_1a07c2d18832864fb5bb1417ce6cb8dbce"/><section>
+    <title>rtc</title>
+<indexterm><primary>rtc</primary><secondary>main.cpp</secondary></indexterm>
+<indexterm><primary>main.cpp</primary><secondary>rtc</secondary></indexterm>
+<para><computeroutput><link linkend="_class_rtc_connector">RtcConnector</link> rtc</computeroutput></para><para>
+Definition at line <link linkend="_main_8cpp_source_1l00075">75</link> of file <link linkend="_main_8cpp_source">main.cpp</link>.</para>
+</section>
+<anchor xml:id="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17"/><section>
+    <title>settings</title>
+<indexterm><primary>settings</primary><secondary>main.cpp</secondary></indexterm>
+<indexterm><primary>main.cpp</primary><secondary>settings</secondary></indexterm>
+<para><computeroutput><link linkend="_class_local_storage">LocalStorage</link> settings</computeroutput></para><para>
+Definition at line <link linkend="_main_8cpp_source_1l00066">66</link> of file <link linkend="_main_8cpp_source">main.cpp</link>.</para>
+</section>
+<anchor xml:id="_main_8cpp_1aec547d64ab192c39476f5cbad0e32eb0"/><section>
+    <title>shake_detector</title>
+<indexterm><primary>shake_detector</primary><secondary>main.cpp</secondary></indexterm>
+<indexterm><primary>main.cpp</primary><secondary>shake_detector</secondary></indexterm>
+<para><computeroutput><link linkend="_class_shake_detector">ShakeDetector</link> shake_detector</computeroutput></para><para>
+Definition at line <link linkend="_main_8cpp_source_1l00076">76</link> of file <link linkend="_main_8cpp_source">main.cpp</link>.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_controller_8h_source" xml:lang="en-US">
+<title>controller.h</title>
+<indexterm><primary>bgeigiezen_firmware/controller.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_controller_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;BGEIGIEZEN_CONTROLLER_H_</emphasis>
+<anchor xml:id="_controller_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;BGEIGIEZEN_CONTROLLER_H_</emphasis>
+<anchor xml:id="_controller_8h_source_1l00003"/>00003 
+<anchor xml:id="_controller_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_local__storage_8h">handlers/local_storage.h</link>&quot;</emphasis>
+<anchor xml:id="_controller_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_sd__wrapper_8h">utils/sd_wrapper.h</link>&quot;</emphasis>
+<anchor xml:id="_controller_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&lt;Aggregator.hpp&gt;</emphasis>
+<anchor xml:id="_controller_8h_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&lt;Handler.hpp&gt;</emphasis>
+<anchor xml:id="_controller_8h_source_1l00008"/>00008 
+<anchor xml:id="_controller_8h_source_1l00009"/><link linkend="_struct_device_state">00009</link> <emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_device_state">DeviceState</link>&#32;{
+<anchor xml:id="_controller_8h_source_1l00010"/><link linkend="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9">00010</link> &#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9">Mode</link>&#32;{
+<anchor xml:id="_controller_8h_source_1l00011"/><link linkend="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9ae2c3220b8b997cebebc4346434fa9594">00011</link> &#32;&#32;&#32;&#32;<link linkend="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9ae2c3220b8b997cebebc4346434fa9594">e_mode_not_set</link>,
+<anchor xml:id="_controller_8h_source_1l00012"/><link linkend="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9a2062bfe8b3a5aaba404b1efad2fa3687">00012</link> &#32;&#32;&#32;&#32;<link linkend="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9a2062bfe8b3a5aaba404b1efad2fa3687">e_mode_simple</link>,
+<anchor xml:id="_controller_8h_source_1l00013"/><link linkend="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9abda2c76c2ac34132df0b238412a19b84">00013</link> &#32;&#32;&#32;&#32;<link linkend="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9abda2c76c2ac34132df0b238412a19b84">e_mode_advanced</link>,
+<anchor xml:id="_controller_8h_source_1l00014"/>00014 &#32;&#32;};
+<anchor xml:id="_controller_8h_source_1l00015"/>00015 
+<anchor xml:id="_controller_8h_source_1l00016"/><link linkend="_struct_device_state_1a99bc29ac8c5a39044953985cfdda8d3e">00016</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_struct_device_state_1a99bc29ac8c5a39044953985cfdda8d3e">initialized</link>;
+<anchor xml:id="_controller_8h_source_1l00017"/><link linkend="_struct_device_state_1a664f04e5b1d2d2763b2d406217b97ebf">00017</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_struct_device_state_1a664f04e5b1d2d2763b2d406217b97ebf">local_available</link>;
+<anchor xml:id="_controller_8h_source_1l00018"/><link linkend="_struct_device_state_1a0ba517f0942911384d20d545a59e77eb">00018</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_struct_device_state_1a0ba517f0942911384d20d545a59e77eb">rtc_available</link>;
+<anchor xml:id="_controller_8h_source_1l00019"/><link linkend="_struct_device_state_1a9f0f22f8a77b94040987f0ad1dc1316d">00019</link> &#32;&#32;<link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50">SDInterface::SdStatus</link>&#32;<link linkend="_struct_device_state_1a9f0f22f8a77b94040987f0ad1dc1316d">sd_card_status</link>;
+<anchor xml:id="_controller_8h_source_1l00020"/><link linkend="_struct_device_state_1a447772342db30431c1183572585dc5e4">00020</link> &#32;&#32;<link linkend="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9">Mode</link>&#32;<link linkend="_struct_device_state_1a447772342db30431c1183572585dc5e4">mode</link>;
+<anchor xml:id="_controller_8h_source_1l00021"/>00021 
+<anchor xml:id="_controller_8h_source_1l00022"/>00022 };
+<anchor xml:id="_controller_8h_source_1l00023"/>00023 
+<anchor xml:id="_controller_8h_source_1l00024"/>00024 
+<anchor xml:id="_controller_8h_source_1l00028"/><link linkend="_class_controller">00028</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_controller">Controller</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;Aggregator,&#32;<emphasis role="keyword">public</emphasis>&#32;Worker&lt;DeviceState&gt;&#32;{
+<anchor xml:id="_controller_8h_source_1l00029"/>00029 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_controller_8h_source_1l00030"/>00030 &#32;&#32;<link linkend="_class_controller">Controller</link>(<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>);
+<anchor xml:id="_controller_8h_source_1l00031"/><link linkend="_class_controller_1a8d16a7a97c266dc0d5aa5685c4dcdd89">00031</link> &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_controller_1a8d16a7a97c266dc0d5aa5685c4dcdd89">~Controller</link>()&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="_controller_8h_source_1l00032"/>00032 
+<anchor xml:id="_controller_8h_source_1l00036"/>00036 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_controller_1a4887c880538456e58174886b91a6a1b7">initialize</link>()&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_controller_8h_source_1l00037"/>00037 
+<anchor xml:id="_controller_8h_source_1l00041"/>00041 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_controller_1a772a3f581d1741f01044e1c581139924">start_default_workers</link>();
+<anchor xml:id="_controller_8h_source_1l00042"/>00042 
+<anchor xml:id="_controller_8h_source_1l00046"/>00046 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_controller_1a625bc0caffeed2079d81f64a9e558182">create_dummy_settings</link>();
+<anchor xml:id="_controller_8h_source_1l00047"/>00047 
+<anchor xml:id="_controller_8h_source_1l00051"/>00051 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_controller_1a324f4a9b815a8d420a83f426a759a78a">load_sd_config</link>();
+<anchor xml:id="_controller_8h_source_1l00052"/>00052 
+<anchor xml:id="_controller_8h_source_1l00053"/>00053 &#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_controller_8h_source_1l00058"/>00058 &#32;&#32;int8_t&#32;produce_data()&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_controller_8h_source_1l00059"/>00059 
+<anchor xml:id="_controller_8h_source_1l00063"/>00063 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;reset_system();
+<anchor xml:id="_controller_8h_source_1l00064"/>00064 
+<anchor xml:id="_controller_8h_source_1l00065"/>00065 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;_initialized;
+<anchor xml:id="_controller_8h_source_1l00066"/>00066 &#32;&#32;<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;_settings;
+<anchor xml:id="_controller_8h_source_1l00067"/>00067 
+<anchor xml:id="_controller_8h_source_1l00068"/>00068 };
+<anchor xml:id="_controller_8h_source_1l00069"/>00069 
+<anchor xml:id="_controller_8h_source_1l00070"/>00070 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//&#32;BGEIGIEZEN_CONTROLLER_H_</emphasis>
+</programlisting></section>

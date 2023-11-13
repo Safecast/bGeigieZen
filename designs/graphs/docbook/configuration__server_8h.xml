@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_configuration__server_8h" xml:lang="en-US">
+<title>bgeigiezen_firmware/workers/configuration_server.h File Reference</title>
+<indexterm><primary>bgeigiezen_firmware/workers/configuration_server.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;WiFi.h&gt;<?linebreak?>#include &lt;WebServer.h&gt;<?linebreak?>#include &lt;Worker.hpp&gt;<?linebreak?>#include &lt;Supervisor.hpp&gt;<?linebreak?>#include &quot;handlers/local_storage.h&quot;<?linebreak?>#include &quot;utils/wifi_connection.h&quot;<?linebreak?></programlisting>Include dependency graph for configuration_server.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="configuration__server_8h__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="configuration__server_8h__dep__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_config_web_server">ConfigWebServer</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4a">ServerStatus</link> { <link linkend="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aa4b8c7d857d90208a15c3af10b3eaf36a">k_server_status_offline</link>
+, <link linkend="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aacdcee34b8952d730fe2ec62d29195b4c">k_server_status_running_wifi</link>
+, <link linkend="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aae66ec56782b751934b4ae350253e524c">k_server_status_running_access_point</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4a"/><section>
+    <title>ServerStatus</title>
+<indexterm><primary>ServerStatus</primary><secondary>configuration_server.h</secondary></indexterm>
+<indexterm><primary>configuration_server.h</primary><secondary>ServerStatus</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4a">ServerStatus</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>k_server_status_offline</primary><secondary>configuration_server.h</secondary></indexterm>
+<indexterm><primary>configuration_server.h</primary><secondary>k_server_status_offline</secondary></indexterm>
+<anchor xml:id="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aa4b8c7d857d90208a15c3af10b3eaf36a"/>k_server_status_offline</entry><entry></entry></row><row><entry><indexterm><primary>k_server_status_running_wifi</primary><secondary>configuration_server.h</secondary></indexterm>
+<indexterm><primary>configuration_server.h</primary><secondary>k_server_status_running_wifi</secondary></indexterm>
+<anchor xml:id="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aacdcee34b8952d730fe2ec62d29195b4c"/>k_server_status_running_wifi</entry><entry></entry></row><row><entry><indexterm><primary>k_server_status_running_access_point</primary><secondary>configuration_server.h</secondary></indexterm>
+<indexterm><primary>configuration_server.h</primary><secondary>k_server_status_running_access_point</secondary></indexterm>
+<anchor xml:id="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aae66ec56782b751934b4ae350253e524c"/>k_server_status_running_access_point</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_configuration__server_8h_source_1l00013">13</link> of file <link linkend="_configuration__server_8h_source">configuration_server.h</link>.</para>
+</section>
+</section>
+</section>

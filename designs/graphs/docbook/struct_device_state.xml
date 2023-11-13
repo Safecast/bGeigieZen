@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_device_state" xml:lang="en-US">
+<title>DeviceState Struct Reference</title>
+<indexterm><primary>DeviceState</primary></indexterm>
+<para>
+<computeroutput>#include &lt;controller.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9">Mode</link> { <link linkend="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9ae2c3220b8b997cebebc4346434fa9594">e_mode_not_set</link>
+, <link linkend="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9a2062bfe8b3a5aaba404b1efad2fa3687">e_mode_simple</link>
+, <link linkend="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9abda2c76c2ac34132df0b238412a19b84">e_mode_advanced</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_struct_device_state_1a99bc29ac8c5a39044953985cfdda8d3e">initialized</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_struct_device_state_1a664f04e5b1d2d2763b2d406217b97ebf">local_available</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_struct_device_state_1a0ba517f0942911384d20d545a59e77eb">rtc_available</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50">SDInterface::SdStatus</link> <link linkend="_struct_device_state_1a9f0f22f8a77b94040987f0ad1dc1316d">sd_card_status</link></para>
+</listitem>
+            <listitem><para><link linkend="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9">Mode</link> <link linkend="_struct_device_state_1a447772342db30431c1183572585dc5e4">mode</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_controller_8h_source_1l00009">9</link> of file <link linkend="_controller_8h_source">controller.h</link>.</para>
+</section>
+<section>
+<title>Member Enumeration Documentation</title>
+<anchor xml:id="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9"/><section>
+    <title>Mode</title>
+<indexterm><primary>Mode</primary><secondary>DeviceState</secondary></indexterm>
+<indexterm><primary>DeviceState</primary><secondary>Mode</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9">DeviceState::Mode</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>e_mode_not_set</primary><secondary>DeviceState</secondary></indexterm>
+<indexterm><primary>DeviceState</primary><secondary>e_mode_not_set</secondary></indexterm>
+<anchor xml:id="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9ae2c3220b8b997cebebc4346434fa9594"/>e_mode_not_set</entry><entry></entry></row><row><entry><indexterm><primary>e_mode_simple</primary><secondary>DeviceState</secondary></indexterm>
+<indexterm><primary>DeviceState</primary><secondary>e_mode_simple</secondary></indexterm>
+<anchor xml:id="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9a2062bfe8b3a5aaba404b1efad2fa3687"/>e_mode_simple</entry><entry></entry></row><row><entry><indexterm><primary>e_mode_advanced</primary><secondary>DeviceState</secondary></indexterm>
+<indexterm><primary>DeviceState</primary><secondary>e_mode_advanced</secondary></indexterm>
+<anchor xml:id="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9abda2c76c2ac34132df0b238412a19b84"/>e_mode_advanced</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_controller_8h_source_1l00010">10</link> of file <link linkend="_controller_8h_source">controller.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_device_state_1a99bc29ac8c5a39044953985cfdda8d3e"/><section>
+    <title>initialized</title>
+<indexterm><primary>initialized</primary><secondary>DeviceState</secondary></indexterm>
+<indexterm><primary>DeviceState</primary><secondary>initialized</secondary></indexterm>
+<para><computeroutput>bool DeviceState::initialized</computeroutput></para><para>
+Definition at line <link linkend="_controller_8h_source_1l00016">16</link> of file <link linkend="_controller_8h_source">controller.h</link>.</para>
+</section>
+<anchor xml:id="_struct_device_state_1a664f04e5b1d2d2763b2d406217b97ebf"/><section>
+    <title>local_available</title>
+<indexterm><primary>local_available</primary><secondary>DeviceState</secondary></indexterm>
+<indexterm><primary>DeviceState</primary><secondary>local_available</secondary></indexterm>
+<para><computeroutput>bool DeviceState::local_available</computeroutput></para><para>
+Definition at line <link linkend="_controller_8h_source_1l00017">17</link> of file <link linkend="_controller_8h_source">controller.h</link>.</para>
+</section>
+<anchor xml:id="_struct_device_state_1a447772342db30431c1183572585dc5e4"/><section>
+    <title>mode</title>
+<indexterm><primary>mode</primary><secondary>DeviceState</secondary></indexterm>
+<indexterm><primary>DeviceState</primary><secondary>mode</secondary></indexterm>
+<para><computeroutput><link linkend="_struct_device_state_1ae85122e455cbb9989f3907df2f4badb9">Mode</link> DeviceState::mode</computeroutput></para><para>
+Definition at line <link linkend="_controller_8h_source_1l00020">20</link> of file <link linkend="_controller_8h_source">controller.h</link>.</para>
+</section>
+<anchor xml:id="_struct_device_state_1a0ba517f0942911384d20d545a59e77eb"/><section>
+    <title>rtc_available</title>
+<indexterm><primary>rtc_available</primary><secondary>DeviceState</secondary></indexterm>
+<indexterm><primary>DeviceState</primary><secondary>rtc_available</secondary></indexterm>
+<para><computeroutput>bool DeviceState::rtc_available</computeroutput></para><para>
+Definition at line <link linkend="_controller_8h_source_1l00018">18</link> of file <link linkend="_controller_8h_source">controller.h</link>.</para>
+</section>
+<anchor xml:id="_struct_device_state_1a9f0f22f8a77b94040987f0ad1dc1316d"/><section>
+    <title>sd_card_status</title>
+<indexterm><primary>sd_card_status</primary><secondary>DeviceState</secondary></indexterm>
+<indexterm><primary>DeviceState</primary><secondary>sd_card_status</secondary></indexterm>
+<para><computeroutput><link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50">SDInterface::SdStatus</link> DeviceState::sd_card_status</computeroutput></para><para>
+Definition at line <link linkend="_controller_8h_source_1l00019">19</link> of file <link linkend="_controller_8h_source">controller.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+bgeigiezen_firmware/<link linkend="_controller_8h">controller.h</link></section>
+</section>

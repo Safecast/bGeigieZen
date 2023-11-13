@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_identifiers_8h_source" xml:lang="en-US">
+<title>identifiers.h</title>
+<indexterm><primary>bgeigiezen_firmware/identifiers.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_identifiers_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;BGEIGIEZEN_IDENTIFIERS_H_</emphasis>
+<anchor xml:id="_identifiers_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;BGEIGIEZEN_IDENTIFIERS_H_</emphasis>
+<anchor xml:id="_identifiers_8h_source_1l00003"/>00003 
+<anchor xml:id="_identifiers_8h_source_1l00007"/><link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76f">00007</link> <emphasis role="keyword">enum</emphasis>&#32;<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76f">DataWorkers</link>&#32;{
+<anchor xml:id="_identifiers_8h_source_1l00008"/><link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211">00008</link> &#32;&#32;<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211">k_worker_gps_connector</link>&#32;=&#32;0,
+<anchor xml:id="_identifiers_8h_source_1l00009"/><link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa6daa8cab2f33582eddf479bf8dc018d9">00009</link> &#32;&#32;<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa6daa8cab2f33582eddf479bf8dc018d9">k_worker_battery_indicator</link>,
+<anchor xml:id="_identifiers_8h_source_1l00010"/><link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa84141b7b60c4055e432a1f28ae9aa98b">00010</link> &#32;&#32;<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa84141b7b60c4055e432a1f28ae9aa98b">k_worker_rtc_connector</link>,
+<anchor xml:id="_identifiers_8h_source_1l00011"/><link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fadce40ed07be9b46afdd704f59b77a907">00011</link> &#32;&#32;<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fadce40ed07be9b46afdd704f59b77a907">k_worker_gm_sensor</link>,
+<anchor xml:id="_identifiers_8h_source_1l00012"/><link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa40dd481c8643b09aff483e9f4f7c2006">00012</link> &#32;&#32;<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa40dd481c8643b09aff483e9f4f7c2006">k_worker_log_aggregator</link>,
+<anchor xml:id="_identifiers_8h_source_1l00013"/><link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa951ed1e78f9184858e490f6522b39c5d">00013</link> &#32;&#32;<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa951ed1e78f9184858e490f6522b39c5d">k_worker_shake_detector</link>,
+<anchor xml:id="_identifiers_8h_source_1l00014"/><link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa34908d3524a003a1a416f710d3bf096b">00014</link> &#32;&#32;<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa34908d3524a003a1a416f710d3bf096b">k_worker_button_1</link>,
+<anchor xml:id="_identifiers_8h_source_1l00015"/><link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fae09f915b7a21b04751f8379fe4ea0b88">00015</link> &#32;&#32;<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fae09f915b7a21b04751f8379fe4ea0b88">k_worker_button_2</link>,
+<anchor xml:id="_identifiers_8h_source_1l00016"/><link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa824a84bb0222b57ea4966a17b90b110c">00016</link> &#32;&#32;<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa824a84bb0222b57ea4966a17b90b110c">k_worker_button_3</link>,
+<anchor xml:id="_identifiers_8h_source_1l00017"/><link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fad35320cf9c17965d52ea2427552a20f7">00017</link> &#32;&#32;<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fad35320cf9c17965d52ea2427552a20f7">k_worker_device_state</link>,
+<anchor xml:id="_identifiers_8h_source_1l00018"/>00018 };
+<anchor xml:id="_identifiers_8h_source_1l00019"/>00019 
+<anchor xml:id="_identifiers_8h_source_1l00023"/><link linkend="_identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8">00023</link> <emphasis role="keyword">enum</emphasis>&#32;<link linkend="_identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8">DataHandlers</link>&#32;{
+<anchor xml:id="_identifiers_8h_source_1l00024"/><link linkend="_identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8ae62e75c687017be7a3279ccd1aaeb593">00024</link> &#32;&#32;<link linkend="_identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8ae62e75c687017be7a3279ccd1aaeb593">k_handler_bluetooth_reporter</link>&#32;=&#32;0,
+<anchor xml:id="_identifiers_8h_source_1l00025"/><link linkend="_identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8ad174dad7202e8845d4dd50a439aa76aa">00025</link> &#32;&#32;<link linkend="_identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8ad174dad7202e8845d4dd50a439aa76aa">k_handler_api_reporter</link>,
+<anchor xml:id="_identifiers_8h_source_1l00026"/><link linkend="_identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8ae56ed9df6bb863ff9b227da84d1d3437">00026</link> &#32;&#32;<link linkend="_identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8ae56ed9df6bb863ff9b227da84d1d3437">k_handler_local_storage</link>,
+<anchor xml:id="_identifiers_8h_source_1l00027"/>00027 };
+<anchor xml:id="_identifiers_8h_source_1l00028"/>00028 
+<anchor xml:id="_identifiers_8h_source_1l00029"/>00029 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//BGEIGIEZEN_IDENTIFIERS_H_</emphasis>
+</programlisting></section>

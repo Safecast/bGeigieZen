@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_bluetooth_reporter" xml:lang="en-US">
+<title>BluetoothReporter Class Reference</title>
+<indexterm><primary>BluetoothReporter</primary></indexterm>
+<para>
+<computeroutput>#include &lt;bluetooth_reporter.h&gt;</computeroutput>
+</para>
+Inheritance diagram for BluetoothReporter:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_bluetooth_reporter__inherit__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for BluetoothReporter:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_bluetooth_reporter__coll__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513ef">Status</link> { <link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513efa494da09cb76a31e5032471d8e0bf965c">e_handler_idle</link> = -1
+, <link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513efad7fa083c0e4d8cbe9a7277581a37732c">e_handler_clients_available</link>
+, <link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513efaa5ea541335525df80cbf5fa90806d80b">e_handler_no_clients</link>
+ }</para>
+</listitem>
+            <listitem><para>typedef enum <link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513ef">BluetoothReporter::Status</link> <link linkend="_class_bluetooth_reporter_1a093da9a48c3525414ea814fd89d0b23f">Status</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_bluetooth_reporter_1a5c2b08bae1ddb5845d6f90d81712deea">BluetoothReporter</link> (<link linkend="_class_local_storage">LocalStorage</link> &amp;config)</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_bluetooth_reporter_1afb37baa6c32c83ffbeeb681138436db0">~BluetoothReporter</link> ()=default</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_class_bluetooth_reporter_1a365b2431527d3601eca8f9349f73053a">activate</link> (bool retry) override</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_bluetooth_reporter_1a220046266dc3778677bca52b868e5471">deactivate</link> () override</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_bluetooth_reporter_1a401eb1211e8bc88e281c5a61415e72af">handle_produced_work</link> (const worker_map_t &amp;workers) override</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Setups up bluetooth endpoint for the device, allowing it to send readings over bluetooth </para>
+<para>
+Definition at line <link linkend="_bluetooth__reporter_8h_source_1l00015">15</link> of file <link linkend="_bluetooth__reporter_8h_source">bluetooth_reporter.h</link>.</para>
+</section>
+<section>
+<title>Member Typedef Documentation</title>
+<anchor xml:id="_class_bluetooth_reporter_1a093da9a48c3525414ea814fd89d0b23f"/><section>
+    <title>Status</title>
+<indexterm><primary>Status</primary><secondary>BluetoothReporter</secondary></indexterm>
+<indexterm><primary>BluetoothReporter</primary><secondary>Status</secondary></indexterm>
+<para><computeroutput>typedef enum <link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513ef">BluetoothReporter::Status</link> <link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513ef">BluetoothReporter::Status</link></computeroutput></para></section>
+</section>
+<section>
+<title>Member Enumeration Documentation</title>
+<anchor xml:id="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513ef"/><section>
+    <title>Status</title>
+<indexterm><primary>Status</primary><secondary>BluetoothReporter</secondary></indexterm>
+<indexterm><primary>BluetoothReporter</primary><secondary>Status</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513ef">BluetoothReporter::Status</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>e_handler_idle</primary><secondary>BluetoothReporter</secondary></indexterm>
+<indexterm><primary>BluetoothReporter</primary><secondary>e_handler_idle</secondary></indexterm>
+<anchor xml:id="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513efa494da09cb76a31e5032471d8e0bf965c"/>e_handler_idle</entry><entry></entry></row><row><entry><indexterm><primary>e_handler_clients_available</primary><secondary>BluetoothReporter</secondary></indexterm>
+<indexterm><primary>BluetoothReporter</primary><secondary>e_handler_clients_available</secondary></indexterm>
+<anchor xml:id="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513efad7fa083c0e4d8cbe9a7277581a37732c"/>e_handler_clients_available</entry><entry></entry></row><row><entry><indexterm><primary>e_handler_no_clients</primary><secondary>BluetoothReporter</secondary></indexterm>
+<indexterm><primary>BluetoothReporter</primary><secondary>e_handler_no_clients</secondary></indexterm>
+<anchor xml:id="_class_bluetooth_reporter_1a023b2a81babe7fb7b929b1fb63e513efaa5ea541335525df80cbf5fa90806d80b"/>e_handler_no_clients</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_bluetooth__reporter_8h_source_1l00017">17</link> of file <link linkend="_bluetooth__reporter_8h_source">bluetooth_reporter.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_bluetooth_reporter_1a5c2b08bae1ddb5845d6f90d81712deea"/><section>
+    <title>BluetoothReporter()</title>
+<indexterm><primary>BluetoothReporter</primary><secondary>BluetoothReporter</secondary></indexterm>
+<indexterm><primary>BluetoothReporter</primary><secondary>BluetoothReporter</secondary></indexterm>
+<para><computeroutput>BluetoothReporter::BluetoothReporter (<link linkend="_class_local_storage">LocalStorage</link> &amp; config)<computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__reporter_8cpp_source_1l00007">7</link> of file <link linkend="_bluetooth__reporter_8cpp_source">bluetooth_reporter.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_bluetooth_reporter_1afb37baa6c32c83ffbeeb681138436db0"/><section>
+    <title>~BluetoothReporter()</title>
+<indexterm><primary>~BluetoothReporter</primary><secondary>BluetoothReporter</secondary></indexterm>
+<indexterm><primary>BluetoothReporter</primary><secondary>~BluetoothReporter</secondary></indexterm>
+<para><computeroutput>virtual BluetoothReporter::~BluetoothReporter ( )<computeroutput>[virtual]</computeroutput>, <computeroutput>[default]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_bluetooth_reporter_1a365b2431527d3601eca8f9349f73053a"/><section>
+    <title>activate()</title>
+<indexterm><primary>activate</primary><secondary>BluetoothReporter</secondary></indexterm>
+<indexterm><primary>BluetoothReporter</primary><secondary>activate</secondary></indexterm>
+<para><computeroutput>bool BluetoothReporter::activate (bool retry)<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__reporter_8cpp_source_1l00014">14</link> of file <link linkend="_bluetooth__reporter_8cpp_source">bluetooth_reporter.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_bluetooth_reporter_a365b2431527d3601eca8f9349f73053a_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_bluetooth_reporter_1a220046266dc3778677bca52b868e5471"/><section>
+    <title>deactivate()</title>
+<indexterm><primary>deactivate</primary><secondary>BluetoothReporter</secondary></indexterm>
+<indexterm><primary>BluetoothReporter</primary><secondary>deactivate</secondary></indexterm>
+<para><computeroutput>void BluetoothReporter::deactivate ( )<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__reporter_8cpp_source_1l00052">52</link> of file <link linkend="_bluetooth__reporter_8cpp_source">bluetooth_reporter.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_bluetooth_reporter_1a401eb1211e8bc88e281c5a61415e72af"/><section>
+    <title>handle_produced_work()</title>
+<indexterm><primary>handle_produced_work</primary><secondary>BluetoothReporter</secondary></indexterm>
+<indexterm><primary>BluetoothReporter</primary><secondary>handle_produced_work</secondary></indexterm>
+<para><computeroutput>int8_t BluetoothReporter::handle_produced_work (const worker_map_t &amp; workers)<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__reporter_8cpp_source_1l00060">60</link> of file <link linkend="_bluetooth__reporter_8cpp_source">bluetooth_reporter.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/handlers/<link linkend="_bluetooth__reporter_8h">bluetooth_reporter.h</link>bgeigiezen_firmware/handlers/<link linkend="_bluetooth__reporter_8cpp">bluetooth_reporter.cpp</link></section>
+</section>

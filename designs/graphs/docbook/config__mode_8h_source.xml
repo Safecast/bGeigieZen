@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_config__mode_8h_source" xml:lang="en-US">
+<title>config_mode.h</title>
+<indexterm><primary>bgeigiezen_firmware/screens/config_mode.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_config__mode_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;SCREENS_CONFIG_SCREEN_H</emphasis>
+<anchor xml:id="_config__mode_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;SCREENS_CONFIG_SCREEN_H</emphasis>
+<anchor xml:id="_config__mode_8h_source_1l00003"/>00003 
+<anchor xml:id="_config__mode_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_base__screen_8h">base_screen.h</link>&quot;</emphasis>
+<anchor xml:id="_config__mode_8h_source_1l00005"/>00005 
+<anchor xml:id="_config__mode_8h_source_1l00006"/><link linkend="_class_config_mode_screen">00006</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_config_mode_screen">ConfigModeScreen</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_base_screen">BaseScreen</link>&#32;{
+<anchor xml:id="_config__mode_8h_source_1l00007"/>00007 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_config__mode_8h_source_1l00008"/><link linkend="_class_config_mode_screen_1a72be77f4f8fed19d61ce83d69735bc8d">00008</link> &#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<link linkend="_class_config_mode_screen">ConfigModeScreen</link>*&#32;<link linkend="_class_config_mode_screen_1a72be77f4f8fed19d61ce83d69735bc8d">i</link>()&#32;{
+<anchor xml:id="_config__mode_8h_source_1l00009"/>00009 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<link linkend="_class_config_mode_screen">ConfigModeScreen</link>&#32;screen;
+<anchor xml:id="_config__mode_8h_source_1l00010"/>00010 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;&amp;screen;
+<anchor xml:id="_config__mode_8h_source_1l00011"/>00011 &#32;&#32;}
+<anchor xml:id="_config__mode_8h_source_1l00012"/>00012 
+<anchor xml:id="_config__mode_8h_source_1l00013"/>00013 &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_base_screen">BaseScreen</link>*&#32;<link linkend="_class_config_mode_screen_1a7fcba3bb1764bd72b76c1f80f1f6a762">handle_input</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>,&#32;<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_config__mode_8h_source_1l00014"/>00014 &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_config_mode_screen_1a63e57a291d31fc8974e1801314b0c75b">enter_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_config__mode_8h_source_1l00015"/>00015 &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_config_mode_screen_1a6d5e41de275a9ff08fa50351a20c3190">leave_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_config__mode_8h_source_1l00016"/>00016 
+<anchor xml:id="_config__mode_8h_source_1l00017"/>00017 &#32;<emphasis role="keyword">protected</emphasis>:
+<anchor xml:id="_config__mode_8h_source_1l00018"/>00018 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_config_mode_screen_1a5878db5e53f53183144488937f6657e9">render</link>(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers,&#32;<emphasis role="keyword">const</emphasis>&#32;handler_map_t&amp;&#32;handlers,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_config__mode_8h_source_1l00019"/>00019 
+<anchor xml:id="_config__mode_8h_source_1l00020"/>00020 &#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_config__mode_8h_source_1l00021"/>00021 &#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_class_config_mode_screen">ConfigModeScreen</link>();
+<anchor xml:id="_config__mode_8h_source_1l00022"/>00022 };
+<anchor xml:id="_config__mode_8h_source_1l00023"/>00023 
+<anchor xml:id="_config__mode_8h_source_1l00024"/>00024 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//SCREENS_CONFIG_SCREEN_H</emphasis>
+</programlisting></section>

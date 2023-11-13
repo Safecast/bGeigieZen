@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_shake__detector_8h_source" xml:lang="en-US">
+<title>shake_detector.h</title>
+<indexterm><primary>bgeigiezen_firmware/workers/shake_detector.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_shake__detector_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;BGEIGIEZEN_IMU_SENSOR_H_</emphasis>
+<anchor xml:id="_shake__detector_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;BGEIGIEZEN_IMU_SENSOR_H_</emphasis>
+<anchor xml:id="_shake__detector_8h_source_1l00003"/>00003 
+<anchor xml:id="_shake__detector_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;Arduino.h&gt;</emphasis>
+<anchor xml:id="_shake__detector_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;Worker.hpp&gt;</emphasis>
+<anchor xml:id="_shake__detector_8h_source_1l00006"/>00006 
+<anchor xml:id="_shake__detector_8h_source_1l00010"/><link linkend="_class_shake_detector">00010</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_shake_detector">ShakeDetector</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;Worker&lt;bool&gt;&#32;{
+<anchor xml:id="_shake__detector_8h_source_1l00011"/>00011 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_shake__detector_8h_source_1l00012"/>00012 
+<anchor xml:id="_shake__detector_8h_source_1l00013"/>00013 &#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_class_shake_detector_1a9cbb698212292255a2b60c09a9d340d7">ShakeDetector</link>();
+<anchor xml:id="_shake__detector_8h_source_1l00014"/>00014 
+<anchor xml:id="_shake__detector_8h_source_1l00015"/><link linkend="_class_shake_detector_1ac55e925145e78ce96a7146660a652afa">00015</link> &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_shake_detector_1ac55e925145e78ce96a7146660a652afa">~ShakeDetector</link>()&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="_shake__detector_8h_source_1l00016"/>00016 
+<anchor xml:id="_shake__detector_8h_source_1l00017"/>00017 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_shake_detector_1a5dc083162379d0ba05a98c4507024d3d">activate</link>(<emphasis role="keywordtype">bool</emphasis>&#32;retry)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_shake__detector_8h_source_1l00018"/>00018 
+<anchor xml:id="_shake__detector_8h_source_1l00019"/>00019 &#32;&#32;int8_t&#32;<link linkend="_class_shake_detector_1ab893081444f2674bd8b26c76a445d83b">produce_data</link>()&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_shake__detector_8h_source_1l00020"/>00020 
+<anchor xml:id="_shake__detector_8h_source_1l00021"/>00021 &#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_shake__detector_8h_source_1l00022"/>00022 &#32;&#32;<emphasis role="comment">//&#32;IMU&#32;sensor&#32;data</emphasis>
+<anchor xml:id="_shake__detector_8h_source_1l00023"/>00023 &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;_gyroX;
+<anchor xml:id="_shake__detector_8h_source_1l00024"/>00024 &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;_gyroY;
+<anchor xml:id="_shake__detector_8h_source_1l00025"/>00025 &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;_gyroZ;
+<anchor xml:id="_shake__detector_8h_source_1l00026"/>00026 &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;_accX;
+<anchor xml:id="_shake__detector_8h_source_1l00027"/>00027 &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;_accY;
+<anchor xml:id="_shake__detector_8h_source_1l00028"/>00028 &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;_accZ;
+<anchor xml:id="_shake__detector_8h_source_1l00029"/>00029 &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;_pitch;
+<anchor xml:id="_shake__detector_8h_source_1l00030"/>00030 &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;_roll;
+<anchor xml:id="_shake__detector_8h_source_1l00031"/>00031 &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;_yaw;
+<anchor xml:id="_shake__detector_8h_source_1l00032"/>00032 &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;_temp;
+<anchor xml:id="_shake__detector_8h_source_1l00033"/>00033 };
+<anchor xml:id="_shake__detector_8h_source_1l00034"/>00034 
+<anchor xml:id="_shake__detector_8h_source_1l00035"/>00035 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//BGEIGIEZEN_IMU_SENSOR_H_</emphasis>
+</programlisting></section>

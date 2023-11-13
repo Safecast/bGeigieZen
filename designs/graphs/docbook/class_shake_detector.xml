@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_shake_detector" xml:lang="en-US">
+<title>ShakeDetector Class Reference</title>
+<indexterm><primary>ShakeDetector</primary></indexterm>
+<para>
+<computeroutput>#include &lt;shake_detector.h&gt;</computeroutput>
+</para>
+Inheritance diagram for ShakeDetector:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_shake_detector__inherit__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for ShakeDetector:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_shake_detector__coll__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_shake_detector_1a9cbb698212292255a2b60c09a9d340d7">ShakeDetector</link> ()</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_shake_detector_1ac55e925145e78ce96a7146660a652afa">~ShakeDetector</link> ()=default</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_shake_detector_1a5dc083162379d0ba05a98c4507024d3d">activate</link> (bool retry) override</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_shake_detector_1ab893081444f2674bd8b26c76a445d83b">produce_data</link> () override</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Uses the Inertial Measurement Unit in M5 device to detect any shaking (wake up) </para>
+<para>
+Definition at line <link linkend="_shake__detector_8h_source_1l00010">10</link> of file <link linkend="_shake__detector_8h_source">shake_detector.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_shake_detector_1a9cbb698212292255a2b60c09a9d340d7"/><section>
+    <title>ShakeDetector()</title>
+<indexterm><primary>ShakeDetector</primary><secondary>ShakeDetector</secondary></indexterm>
+<indexterm><primary>ShakeDetector</primary><secondary>ShakeDetector</secondary></indexterm>
+<para><computeroutput>ShakeDetector::ShakeDetector ( )<computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_shake__detector_8cpp_source_1l00009">9</link> of file <link linkend="_shake__detector_8cpp_source">shake_detector.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_shake_detector_1ac55e925145e78ce96a7146660a652afa"/><section>
+    <title>~ShakeDetector()</title>
+<indexterm><primary>~ShakeDetector</primary><secondary>ShakeDetector</secondary></indexterm>
+<indexterm><primary>ShakeDetector</primary><secondary>~ShakeDetector</secondary></indexterm>
+<para><computeroutput>virtual ShakeDetector::~ShakeDetector ( )<computeroutput>[virtual]</computeroutput>, <computeroutput>[default]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_shake_detector_1a5dc083162379d0ba05a98c4507024d3d"/><section>
+    <title>activate()</title>
+<indexterm><primary>activate</primary><secondary>ShakeDetector</secondary></indexterm>
+<indexterm><primary>ShakeDetector</primary><secondary>activate</secondary></indexterm>
+<para><computeroutput>bool ShakeDetector::activate (bool retry)<computeroutput>[override]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_shake__detector_8cpp_source_1l00023">23</link> of file <link linkend="_shake__detector_8cpp_source">shake_detector.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_shake_detector_1ab893081444f2674bd8b26c76a445d83b"/><section>
+    <title>produce_data()</title>
+<indexterm><primary>produce_data</primary><secondary>ShakeDetector</secondary></indexterm>
+<indexterm><primary>ShakeDetector</primary><secondary>produce_data</secondary></indexterm>
+<para><computeroutput>int8_t ShakeDetector::produce_data ( )<computeroutput>[override]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_shake__detector_8cpp_source_1l00030">30</link> of file <link linkend="_shake__detector_8cpp_source">shake_detector.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/workers/<link linkend="_shake__detector_8h">shake_detector.h</link>bgeigiezen_firmware/workers/<link linkend="_shake__detector_8cpp">shake_detector.cpp</link></section>
+</section>

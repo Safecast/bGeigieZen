@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_battery_indicator" xml:lang="en-US">
+<title>BatteryIndicator Class Reference</title>
+<indexterm><primary>BatteryIndicator</primary></indexterm>
+<para>
+<computeroutput>#include &lt;battery_indicator.h&gt;</computeroutput>
+</para>
+Inheritance diagram for BatteryIndicator:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_battery_indicator__inherit__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for BatteryIndicator:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_battery_indicator__coll__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_battery_indicator_1a62a7d0af06591a6aade8056cb34f77c9">BatteryIndicator</link> ()</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_battery_indicator_1a15ad00b7baa3ee3da9d45524c0da2a3a">~BatteryIndicator</link> ()=default</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_battery_indicator_1a0ceaf9e9ee720fc1279838aeb4f8cf51">activate</link> (bool retry) override</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_battery_indicator_1a2549ee1d50e87017b4b6067820d9518a">produce_data</link> () override</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Battery indicator worker, uses the M5 library to check up on the battery and charging status </para>
+<para>
+Definition at line <link linkend="_battery__indicator_8h_source_1l00018">18</link> of file <link linkend="_battery__indicator_8h_source">battery_indicator.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_battery_indicator_1a62a7d0af06591a6aade8056cb34f77c9"/><section>
+    <title>BatteryIndicator()</title>
+<indexterm><primary>BatteryIndicator</primary><secondary>BatteryIndicator</secondary></indexterm>
+<indexterm><primary>BatteryIndicator</primary><secondary>BatteryIndicator</secondary></indexterm>
+<para><computeroutput>BatteryIndicator::BatteryIndicator ( )<computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_battery__indicator_8cpp_source_1l00009">9</link> of file <link linkend="_battery__indicator_8cpp_source">battery_indicator.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_battery_indicator_1a15ad00b7baa3ee3da9d45524c0da2a3a"/><section>
+    <title>~BatteryIndicator()</title>
+<indexterm><primary>~BatteryIndicator</primary><secondary>BatteryIndicator</secondary></indexterm>
+<indexterm><primary>BatteryIndicator</primary><secondary>~BatteryIndicator</secondary></indexterm>
+<para><computeroutput>virtual BatteryIndicator::~BatteryIndicator ( )<computeroutput>[virtual]</computeroutput>, <computeroutput>[default]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_battery_indicator_1a0ceaf9e9ee720fc1279838aeb4f8cf51"/><section>
+    <title>activate()</title>
+<indexterm><primary>activate</primary><secondary>BatteryIndicator</secondary></indexterm>
+<indexterm><primary>BatteryIndicator</primary><secondary>activate</secondary></indexterm>
+<para><computeroutput>bool BatteryIndicator::activate (bool retry)<computeroutput>[override]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_battery__indicator_8cpp_source_1l00012">12</link> of file <link linkend="_battery__indicator_8cpp_source">battery_indicator.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_battery_indicator_1a2549ee1d50e87017b4b6067820d9518a"/><section>
+    <title>produce_data()</title>
+<indexterm><primary>produce_data</primary><secondary>BatteryIndicator</secondary></indexterm>
+<indexterm><primary>BatteryIndicator</primary><secondary>produce_data</secondary></indexterm>
+<para><computeroutput>int8_t BatteryIndicator::produce_data ( )<computeroutput>[override]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_battery__indicator_8cpp_source_1l00016">16</link> of file <link linkend="_battery__indicator_8cpp_source">battery_indicator.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/workers/<link linkend="_battery__indicator_8h">battery_indicator.h</link>bgeigiezen_firmware/workers/<link linkend="_battery__indicator_8cpp">battery_indicator.cpp</link></section>
+</section>

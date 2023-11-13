@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_drive__mode_8cpp_source" xml:lang="en-US">
+<title>drive_mode.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/screens/drive_mode.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_drive__mode_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_drive__mode_8h">drive_mode.h</link>&quot;</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_debugger_8h">debugger.h</link>&quot;</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_identifiers_8h">identifiers.h</link>&quot;</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_menu__window_8h">menu_window.h</link>&quot;</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_battery__indicator_8h">workers/battery_indicator.h</link>&quot;</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_gm__sensor_8h">workers/gm_sensor.h</link>&quot;</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_gps__connector_8h">workers/gps_connector.h</link>&quot;</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_rtc__connector_8h">workers/rtc_connector.h</link>&quot;</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_zen__button_8h">workers/zen_button.h</link>&quot;</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00010"/>00010 
+<anchor xml:id="_drive__mode_8cpp_source_1l00011"/>00011 DriveModeScreen::DriveModeScreen()&#32;:&#32;<link linkend="_class_base_screen">BaseScreen</link>(<emphasis role="stringliteral">&quot;Drive&quot;</emphasis>,&#32;true),&#32;_log_available(false),&#32;_log_to_file(<emphasis role="stringliteral">&quot;&quot;</emphasis>)&#32;{
+<anchor xml:id="_drive__mode_8cpp_source_1l00012"/>00012 }
+<anchor xml:id="_drive__mode_8cpp_source_1l00013"/>00013 
+<anchor xml:id="_drive__mode_8cpp_source_1l00014"/><link linkend="_class_drive_mode_screen_1a69c70a1c35f362131345ecd652cd4416">00014</link> <link linkend="_class_base_screen">BaseScreen</link>*&#32;<link linkend="_class_drive_mode_screen_1a69c70a1c35f362131345ecd652cd4416">DriveModeScreen::handle_input</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>,&#32;<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers)&#32;{
+<anchor xml:id="_drive__mode_8cpp_source_1l00015"/>00015 &#32;&#32;_log_available&#32;=&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>.get_data().sd_card_status&#32;==&#32;<link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a4220a7d9f2295ecf4a6df95fc73de789">SDInterface::e_sd_config_status_ok</link>;
+<anchor xml:id="_drive__mode_8cpp_source_1l00016"/>00016 &#32;&#32;<emphasis role="comment">//&#32;TODO:&#32;handle&#32;log&#32;button</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00017"/>00017 
+<anchor xml:id="_drive__mode_8cpp_source_1l00018"/>00018 &#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;menu_button&#32;=&#32;workers.worker&lt;<link linkend="_class_zen_button">ZenButton</link>&gt;(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa824a84bb0222b57ea4966a17b90b110c">k_worker_button_3</link>);
+<anchor xml:id="_drive__mode_8cpp_source_1l00019"/>00019 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(menu_button-&gt;is_fresh()&#32;&amp;&amp;&#32;menu_button-&gt;get_data().shortPress)&#32;{
+<anchor xml:id="_drive__mode_8cpp_source_1l00020"/>00020 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_menu_window_1a9c91d3d091851ede9828695486d29de1">MenuWindow::i</link>();
+<anchor xml:id="_drive__mode_8cpp_source_1l00021"/>00021 &#32;&#32;}
+<anchor xml:id="_drive__mode_8cpp_source_1l00022"/>00022 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_drive__mode_8cpp_source_1l00023"/>00023 }
+<anchor xml:id="_drive__mode_8cpp_source_1l00024"/>00024 
+<anchor xml:id="_drive__mode_8cpp_source_1l00025"/><link linkend="_class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85">00025</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85">DriveModeScreen::render</link>(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers,&#32;<emphasis role="keyword">const</emphasis>&#32;handler_map_t&amp;&#32;handlers,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;{
+<anchor xml:id="_drive__mode_8cpp_source_1l00027"/>00027 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strlen(_log_to_file))&#32;{
+<anchor xml:id="_drive__mode_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Is&#32;logging</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;<link linkend="_class_base_screen_1ac4042332f3362042ed3390297c8f1ea1">drawButton1</link>(<emphasis role="stringliteral">&quot;Stop&#32;log&quot;</emphasis>);
+<anchor xml:id="_drive__mode_8cpp_source_1l00030"/>00030 &#32;&#32;}
+<anchor xml:id="_drive__mode_8cpp_source_1l00031"/>00031 &#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_drive__mode_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<link linkend="_class_base_screen_1ac4042332f3362042ed3390297c8f1ea1">drawButton1</link>(<emphasis role="stringliteral">&quot;Start&#32;log&quot;</emphasis>,&#32;_log_available&#32;?&#32;<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>&#32;:&#32;<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669aa1df192f7cb5a602ccdf145fb8e7bca2">e_button_disabled</link>);
+<anchor xml:id="_drive__mode_8cpp_source_1l00033"/>00033 &#32;&#32;}
+<anchor xml:id="_drive__mode_8cpp_source_1l00034"/>00034 &#32;&#32;<link linkend="_class_base_screen_1ad7040cea50962276539e67ac129d5c7c">drawButton2</link>(<emphasis role="stringliteral">&quot;&quot;</emphasis>);
+<anchor xml:id="_drive__mode_8cpp_source_1l00035"/>00035 &#32;&#32;<link linkend="_class_base_screen_1a00da29022f614d7e72fd218ba1dcf747">drawButton3</link>(<emphasis role="stringliteral">&quot;Menu&quot;</emphasis>);
+<anchor xml:id="_drive__mode_8cpp_source_1l00036"/>00036 
+<anchor xml:id="_drive__mode_8cpp_source_1l00038"/>00038 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;<link linkend="_main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b">gm_sensor</link>&#32;=&#32;workers.worker&lt;<link linkend="_class_geiger_counter">GeigerCounter</link>&gt;(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fadce40ed07be9b46afdd704f59b77a907">k_worker_gm_sensor</link>);
+<anchor xml:id="_drive__mode_8cpp_source_1l00039"/>00039 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;<link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">gps</link>&#32;=&#32;workers.worker&lt;<link linkend="_class_gps_connector">GpsConnector</link>&gt;(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211">k_worker_gps_connector</link>);
+<anchor xml:id="_drive__mode_8cpp_source_1l00040"/>00040 
+<anchor xml:id="_drive__mode_8cpp_source_1l00041"/>00041 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b">gm_sensor</link>-&gt;get_data().valid)&#32;{
+<anchor xml:id="_drive__mode_8cpp_source_1l00042"/>00042 &#32;&#32;&#32;&#32;M5.Lcd.setTextColor(<link linkend="_user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62">LCD_COLOR_DEFAULT</link>,&#32;<link linkend="_user__config_8h_1abda62c97ed73836f3749f74f4de6664a">LCD_COLOR_BACKGROUND</link>);
+<anchor xml:id="_drive__mode_8cpp_source_1l00043"/>00043 &#32;&#32;}
+<anchor xml:id="_drive__mode_8cpp_source_1l00044"/>00044 &#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_drive__mode_8cpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;M5.Lcd.setTextColor(<link linkend="_user__config_8h_1a6eef98b3281e35c3149c9f3dd61a0284">LCD_COLOR_OLD</link>,&#32;<link linkend="_user__config_8h_1abda62c97ed73836f3749f74f4de6664a">LCD_COLOR_BACKGROUND</link>);
+<anchor xml:id="_drive__mode_8cpp_source_1l00046"/>00046 &#32;&#32;}
+<anchor xml:id="_drive__mode_8cpp_source_1l00047"/>00047 
+<anchor xml:id="_drive__mode_8cpp_source_1l00048"/>00048 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b">gm_sensor</link>-&gt;is_fresh()&#32;||&#32;force)&#32;{
+<anchor xml:id="_drive__mode_8cpp_source_1l00049"/>00049 
+<anchor xml:id="_drive__mode_8cpp_source_1l00050"/>00050 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Display&#32;CPM</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00051"/>00051 &#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;cpm_width&#32;=&#32;<link linkend="_class_base_screen_1a7e56deb842ae278490c70910023eb8c8">printIntFont</link>(<link linkend="_main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b">gm_sensor</link>-&gt;get_data().cpm_comp,&#32;20,&#32;100,&#32;7);
+<anchor xml:id="_drive__mode_8cpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;cpm_text_width&#32;=&#32;M5.Lcd.drawString(<emphasis role="stringliteral">&quot;&#32;CPM&quot;</emphasis>,&#32;20&#32;+&#32;cpm_width,&#32;105,&#32;4);&#32;<emphasis role="comment">//&#32;Prints&#32;after&#32;cpm&#32;value</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00053"/>00053 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_drive_mode_screen_1ab1d30e84b76d85f1cfb6e5b6910d12b1">i</link>&#32;=&#32;0;
+<anchor xml:id="_drive__mode_8cpp_source_1l00054"/>00054 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(320&#32;-&#32;(20&#32;+&#32;cpm_width&#32;+&#32;cpm_text_width&#32;+&#32;<link linkend="_class_drive_mode_screen_1ab1d30e84b76d85f1cfb6e5b6910d12b1">i</link>)&#32;&gt;&#32;0)&#32;{
+<anchor xml:id="_drive__mode_8cpp_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Fill&#32;rest&#32;of&#32;the&#32;line&#32;with&#32;empty&#32;spaces</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_drive_mode_screen_1ab1d30e84b76d85f1cfb6e5b6910d12b1">i</link>&#32;+=&#32;M5.Lcd.drawString(<emphasis role="stringliteral">&quot;&#32;&quot;</emphasis>,&#32;20&#32;+&#32;cpm_width&#32;+&#32;cpm_text_width&#32;+&#32;<link linkend="_class_drive_mode_screen_1ab1d30e84b76d85f1cfb6e5b6910d12b1">i</link>,&#32;105,&#32;4);
+<anchor xml:id="_drive__mode_8cpp_source_1l00057"/>00057 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_drive__mode_8cpp_source_1l00058"/>00058 
+<anchor xml:id="_drive__mode_8cpp_source_1l00059"/>00059 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Display&#32;uSv/h</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;ush_width&#32;=&#32;<link linkend="_class_base_screen_1a1129827abdd844b136988965ae4a72ba">printFloatFont</link>(<link linkend="_main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b">gm_sensor</link>-&gt;get_data().uSv,&#32;3,&#32;20,&#32;140,&#32;4);
+<anchor xml:id="_drive__mode_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;ush_text_width&#32;=&#32;M5.Lcd.drawString(<emphasis role="stringliteral">&quot;&#32;uSv/h&quot;</emphasis>,&#32;20&#32;+&#32;ush_width,&#32;140,&#32;4);&#32;<emphasis role="comment">//&#32;Prints&#32;after&#32;ush&#32;value</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00062"/>00062 &#32;&#32;&#32;&#32;<link linkend="_class_drive_mode_screen_1ab1d30e84b76d85f1cfb6e5b6910d12b1">i</link>&#32;=&#32;0;
+<anchor xml:id="_drive__mode_8cpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(320&#32;-&#32;(20&#32;+&#32;ush_width&#32;+&#32;ush_text_width&#32;+&#32;<link linkend="_class_drive_mode_screen_1ab1d30e84b76d85f1cfb6e5b6910d12b1">i</link>)&#32;&gt;&#32;0)&#32;{
+<anchor xml:id="_drive__mode_8cpp_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Fill&#32;rest&#32;of&#32;the&#32;line&#32;with&#32;empty&#32;spaces</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_drive_mode_screen_1ab1d30e84b76d85f1cfb6e5b6910d12b1">i</link>&#32;+=&#32;M5.Lcd.drawString(<emphasis role="stringliteral">&quot;&#32;&quot;</emphasis>,&#32;20&#32;+&#32;ush_width&#32;+&#32;ush_text_width&#32;+&#32;<link linkend="_class_drive_mode_screen_1ab1d30e84b76d85f1cfb6e5b6910d12b1">i</link>,&#32;140,&#32;4);
+<anchor xml:id="_drive__mode_8cpp_source_1l00066"/>00066 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_drive__mode_8cpp_source_1l00067"/>00067 &#32;&#32;}
+<anchor xml:id="_drive__mode_8cpp_source_1l00068"/>00068 
+<anchor xml:id="_drive__mode_8cpp_source_1l00069"/>00069 &#32;&#32;<emphasis role="comment">//&#32;Display&#32;GPS&#32;data&#32;always,&#32;change&#32;colour&#32;if&#32;not&#32;fresh</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00070"/>00070 
+<anchor xml:id="_drive__mode_8cpp_source_1l00071"/>00071 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">gps</link>-&gt;get_data().location_valid)&#32;{
+<anchor xml:id="_drive__mode_8cpp_source_1l00072"/>00072 &#32;&#32;&#32;&#32;M5.Lcd.setTextColor(<link linkend="_user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62">LCD_COLOR_DEFAULT</link>,&#32;<link linkend="_user__config_8h_1abda62c97ed73836f3749f74f4de6664a">LCD_COLOR_BACKGROUND</link>);
+<anchor xml:id="_drive__mode_8cpp_source_1l00073"/>00073 &#32;&#32;}
+<anchor xml:id="_drive__mode_8cpp_source_1l00074"/>00074 &#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_drive__mode_8cpp_source_1l00075"/>00075 &#32;&#32;&#32;&#32;M5.Lcd.setTextColor(<link linkend="_user__config_8h_1a6eef98b3281e35c3149c9f3dd61a0284">LCD_COLOR_OLD</link>,&#32;<link linkend="_user__config_8h_1abda62c97ed73836f3749f74f4de6664a">LCD_COLOR_BACKGROUND</link>);
+<anchor xml:id="_drive__mode_8cpp_source_1l00076"/>00076 &#32;&#32;}
+<anchor xml:id="_drive__mode_8cpp_source_1l00077"/>00077 
+<anchor xml:id="_drive__mode_8cpp_source_1l00078"/>00078 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">gps</link>-&gt;is_fresh()&#32;||&#32;force)&#32;{
+<anchor xml:id="_drive__mode_8cpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;M5.Lcd.setCursor(0,&#32;150);
+<anchor xml:id="_drive__mode_8cpp_source_1l00080"/>00080 &#32;&#32;&#32;&#32;<link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">gps</link>-&gt;get_data().satsInView&#32;&lt;&#32;2&#32;?&#32;(M5.Lcd.setTextColor(TFT_RED,&#32;TFT_BLACK))
+<anchor xml:id="_drive__mode_8cpp_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;M5.Lcd.setTextColor(TFT_GREEN,&#32;TFT_BLACK);
+<anchor xml:id="_drive__mode_8cpp_source_1l00082"/>00082 &#32;&#32;&#32;&#32;M5.Lcd.print(<emphasis role="stringliteral">&quot;Satellites&#32;:&quot;</emphasis>);
+<anchor xml:id="_drive__mode_8cpp_source_1l00083"/>00083 &#32;&#32;&#32;&#32;M5.Lcd.print(<link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">gps</link>-&gt;get_data().satsInView,&#32;5);
+<anchor xml:id="_drive__mode_8cpp_source_1l00084"/>00084 &#32;&#32;&#32;&#32;M5.Lcd.setTextColor(WHITE,&#32;BLACK);
+<anchor xml:id="_drive__mode_8cpp_source_1l00085"/>00085 &#32;&#32;&#32;&#32;M5.Lcd.println();
+<anchor xml:id="_drive__mode_8cpp_source_1l00086"/>00086 &#32;&#32;&#32;&#32;M5.Lcd.print(<emphasis role="stringliteral">&quot;Latitude&#32;&#32;&#32;:&quot;</emphasis>);
+<anchor xml:id="_drive__mode_8cpp_source_1l00087"/>00087 &#32;&#32;&#32;&#32;M5.Lcd.print(<link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">gps</link>-&gt;get_data().latitude,&#32;6);
+<anchor xml:id="_drive__mode_8cpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;M5.Lcd.println();
+<anchor xml:id="_drive__mode_8cpp_source_1l00089"/>00089 &#32;&#32;&#32;&#32;M5.Lcd.print(<emphasis role="stringliteral">&quot;Longitude&#32;&#32;:&quot;</emphasis>);
+<anchor xml:id="_drive__mode_8cpp_source_1l00090"/>00090 &#32;&#32;&#32;&#32;M5.Lcd.print(<link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">gps</link>-&gt;get_data().longitude,&#32;6);
+<anchor xml:id="_drive__mode_8cpp_source_1l00091"/>00091 &#32;&#32;&#32;&#32;M5.Lcd.println();
+<anchor xml:id="_drive__mode_8cpp_source_1l00092"/>00092 &#32;&#32;&#32;&#32;M5.Lcd.print(<emphasis role="stringliteral">&quot;Altitude&#32;&#32;&#32;:&quot;</emphasis>);
+<anchor xml:id="_drive__mode_8cpp_source_1l00093"/>00093 &#32;&#32;&#32;&#32;M5.Lcd.print(<link linkend="_main_8cpp_1ad0efad1d9b5c57a17909a5d741fa2403">gps</link>-&gt;get_data().altitudeMSL,&#32;2);
+<anchor xml:id="_drive__mode_8cpp_source_1l00094"/>00094 &#32;&#32;&#32;&#32;M5.Lcd.println();
+<anchor xml:id="_drive__mode_8cpp_source_1l00095"/>00095 &#32;&#32;}
+<anchor xml:id="_drive__mode_8cpp_source_1l00096"/>00096 }
+<anchor xml:id="_drive__mode_8cpp_source_1l00097"/>00097 
+<anchor xml:id="_drive__mode_8cpp_source_1l00098"/><link linkend="_class_drive_mode_screen_1ac0c53ec7f983bfd75c289db8291d5aa3">00098</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_drive_mode_screen_1ac0c53ec7f983bfd75c289db8291d5aa3">DriveModeScreen::leave_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)&#32;{
+<anchor xml:id="_drive__mode_8cpp_source_1l00099"/>00099 &#32;&#32;<emphasis role="comment">//&#32;TODO:&#32;close&#32;logging&#32;to&#32;file</emphasis>
+<anchor xml:id="_drive__mode_8cpp_source_1l00100"/>00100 }
+</programlisting></section>

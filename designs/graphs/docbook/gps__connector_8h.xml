@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_gps__connector_8h" xml:lang="en-US">
+<title>bgeigiezen_firmware/workers/gps_connector.h File Reference</title>
+<indexterm><primary>bgeigiezen_firmware/workers/gps_connector.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;Arduino.h&gt;<?linebreak?>#include &lt;RBD_Timer.h&gt;<?linebreak?>#include &lt;Worker.hpp&gt;<?linebreak?>#include &lt;user_config.h&gt;<?linebreak?>#include &lt;SparkFun_u-blox_GNSS_Arduino_Library.h&gt;<?linebreak?></programlisting>Include dependency graph for gps_connector.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="gps__connector_8h__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="gps__connector_8h__dep__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_gnss_data">GnssData</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_gps_connector">GpsConnector</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_gps__connector_8h_1a9a2b3fc7d7a953453f2b5167ab13f540">SFE_UBLOX_REDUCED_PROG_MEM</link></para>
+
+<para>Manage position fix and date-time from GNSS receiver. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_gps__connector_8h_1a3062f1162ea6e769a0391b729ba8fd43">SFE_UBLOX_DISABLE_AUTO_NMEA</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_gps__connector_8h_1a3062f1162ea6e769a0391b729ba8fd43"/><section>
+    <title>SFE_UBLOX_DISABLE_AUTO_NMEA</title>
+<indexterm><primary>SFE_UBLOX_DISABLE_AUTO_NMEA</primary><secondary>gps_connector.h</secondary></indexterm>
+<indexterm><primary>gps_connector.h</primary><secondary>SFE_UBLOX_DISABLE_AUTO_NMEA</secondary></indexterm>
+<para><computeroutput>#define SFE_UBLOX_DISABLE_AUTO_NMEA</computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00024">24</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+<anchor xml:id="_gps__connector_8h_1a9a2b3fc7d7a953453f2b5167ab13f540"/><section>
+    <title>SFE_UBLOX_REDUCED_PROG_MEM</title>
+<indexterm><primary>SFE_UBLOX_REDUCED_PROG_MEM</primary><secondary>gps_connector.h</secondary></indexterm>
+<indexterm><primary>gps_connector.h</primary><secondary>SFE_UBLOX_REDUCED_PROG_MEM</secondary></indexterm>
+<para><computeroutput>#define SFE_UBLOX_REDUCED_PROG_MEM</computeroutput></para><para>
+
+<para>Manage position fix and date-time from GNSS receiver. </para>
+</para>
+
+<para>Based on u-blox 8 receiver integrated Beitian BN-880 module, using the UBX communications protocol instead of the usual NMEA-183. The problem with NMEA is that it was really designed for boats, where close enough to see with binoculars was good enough (well, not really but it makes for a good story). The real issue is that it&apos;s hard to get consistent fix and time data by parsing NMEA sentences. </para>
+<para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00022">22</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+</section>
+</section>
+</section>

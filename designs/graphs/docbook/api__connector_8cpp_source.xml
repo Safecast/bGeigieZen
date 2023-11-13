@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_api__connector_8cpp_source" xml:lang="en-US">
+<title>api_connector.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/handlers/api_connector.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_api__connector_8cpp_source_1l00001"/>00001 
+<anchor xml:id="_api__connector_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_api__connector_8h">api_connector.h</link>&quot;</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_debugger_8h">debugger.h</link>&quot;</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_identifiers_8h">identifiers.h</link>&quot;</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00005"/>00005 
+<anchor xml:id="_api__connector_8cpp_source_1l00006"/><link linkend="_api__connector_8cpp_1ab28fa84742de00ea3342319de160ff37">00006</link> <emphasis role="preprocessor">#define&#32;RETRY_TIMEOUT&#32;10000</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00007"/><link linkend="_api__connector_8cpp_1a0d96018382439d053d70c08e34171ab1">00007</link> <emphasis role="preprocessor">#define&#32;HOME_LOCATION_PRECISION_KM&#32;0.4</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00008"/>00008 
+<anchor xml:id="_api__connector_8cpp_source_1l00009"/>00009 <emphasis role="comment">//&#32;subtracting&#32;1&#32;seconds&#32;so&#32;data&#32;is&#32;sent&#32;more&#32;often&#32;than&#32;not.</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00010"/><link linkend="_api__connector_8cpp_1a6f0fba88f0240d897c0d29cecd95d525">00010</link> <emphasis role="preprocessor">#define&#32;SEND_FREQUENCY(last_send,&#32;sec,&#32;slack)&#32;(last_send&#32;==&#32;0&#32;||&#32;(millis()&#32;-&#32;last_send)&#32;&gt;&#32;((sec&#32;*&#32;1000)&#32;-&#32;slack))</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00011"/>00011 
+<anchor xml:id="_api__connector_8cpp_source_1l00012"/><link linkend="_class_api_connector_1abc35b6946aaa4ea60a97154beefa638b">00012</link> <link linkend="_class_api_connector_1abc35b6946aaa4ea60a97154beefa638b">ApiConnector::ApiConnector</link>(<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;config)&#32;:
+<anchor xml:id="_api__connector_8cpp_source_1l00013"/>00013 &#32;&#32;&#32;&#32;Handler(),
+<anchor xml:id="_api__connector_8cpp_source_1l00014"/>00014 &#32;&#32;&#32;&#32;_config(config),
+<anchor xml:id="_api__connector_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;_last_success_send(0),
+<anchor xml:id="_api__connector_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;_current_default_response(e_api_reporter_idle)&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00017"/>00017 }
+<anchor xml:id="_api__connector_8cpp_source_1l00018"/>00018 
+<anchor xml:id="_api__connector_8cpp_source_1l00019"/><link linkend="_class_api_connector_1af62308ca3c907717f3217491b7a6612c">00019</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_api_connector_1af62308ca3c907717f3217491b7a6612c">ApiConnector::time_to_send</link>(<emphasis role="keywordtype">unsigned</emphasis>&#32;offset)<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_api__connector_8cpp_source_1l00020"/>00020 &#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(<link linkend="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4aeeb7d9827cf810be5f209638a7e56c33">e_api_send_frequency_1_min</link>)&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00021"/>00021 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4ae695d59916bd6aa20cbd36b3e9e43486">e_api_send_frequency_5_sec</link>:
+<anchor xml:id="_api__connector_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_api__connector_8cpp_1a6f0fba88f0240d897c0d29cecd95d525">SEND_FREQUENCY</link>(_last_success_send,&#32;5,&#32;offset);
+<anchor xml:id="_api__connector_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4aeeb7d9827cf810be5f209638a7e56c33">e_api_send_frequency_1_min</link>:
+<anchor xml:id="_api__connector_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_api__connector_8cpp_1a6f0fba88f0240d897c0d29cecd95d525">SEND_FREQUENCY</link>(_last_success_send,&#32;60,&#32;offset);
+<anchor xml:id="_api__connector_8cpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4a55fc1e5ea7d88d8095033d37c67d52a4">e_api_send_frequency_5_min</link>:
+<anchor xml:id="_api__connector_8cpp_source_1l00026"/>00026 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:&#32;&#32;<emphasis role="comment">//&#32;Default&#32;5&#32;min&#32;frequency</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_api__connector_8cpp_1a6f0fba88f0240d897c0d29cecd95d525">SEND_FREQUENCY</link>(_last_success_send,&#32;5&#32;*&#32;60,&#32;offset);
+<anchor xml:id="_api__connector_8cpp_source_1l00028"/>00028 &#32;&#32;}
+<anchor xml:id="_api__connector_8cpp_source_1l00029"/>00029 }
+<anchor xml:id="_api__connector_8cpp_source_1l00030"/>00030 
+<anchor xml:id="_api__connector_8cpp_source_1l00031"/><link linkend="_class_api_connector_1a27801902e618afb9d835438d66ddec3c">00031</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_api_connector_1a27801902e618afb9d835438d66ddec3c">ApiConnector::activate</link>(<emphasis role="keywordtype">bool</emphasis>&#32;retry)&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00032"/>00032 &#32;&#32;<emphasis role="keyword">static</emphasis>&#32;uint32_t&#32;last_try&#32;=&#32;0;
+<anchor xml:id="_api__connector_8cpp_source_1l00033"/>00033 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_wi_fi_connection_wrapper_1add8ab8299b5dcdcb6643f12aa0a46857">WiFiConnectionWrapper::wifi_connected</link>())&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_api__connector_8cpp_source_1l00035"/>00035 &#32;&#32;}
+<anchor xml:id="_api__connector_8cpp_source_1l00036"/>00036 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(retry&#32;&amp;&amp;&#32;millis()&#32;-&#32;last_try&#32;&lt;&#32;<link linkend="_api__connector_8cpp_1ab28fa84742de00ea3342319de160ff37">RETRY_TIMEOUT</link>)&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_api__connector_8cpp_source_1l00038"/>00038 &#32;&#32;}
+<anchor xml:id="_api__connector_8cpp_source_1l00039"/>00039 &#32;&#32;last_try&#32;=&#32;millis();
+<anchor xml:id="_api__connector_8cpp_source_1l00040"/>00040 
+<anchor xml:id="_api__connector_8cpp_source_1l00041"/>00041 &#32;&#32;<link linkend="_class_wi_fi_connection_wrapper_1a7d869df899dfc5c676806d776597e484">WiFiConnectionWrapper::connect_wifi</link>(_config.<link linkend="_class_local_storage_1a8d0807c2fad52121c446d91f85976856">get_wifi_ssid</link>(),&#32;_config.<link linkend="_class_local_storage_1a619ba1c828df4e5c97e7ac77115e72a2">get_wifi_password</link>());
+<anchor xml:id="_api__connector_8cpp_source_1l00042"/>00042 
+<anchor xml:id="_api__connector_8cpp_source_1l00043"/>00043 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;WiFi.isConnected();
+<anchor xml:id="_api__connector_8cpp_source_1l00044"/>00044 }
+<anchor xml:id="_api__connector_8cpp_source_1l00045"/>00045 
+<anchor xml:id="_api__connector_8cpp_source_1l00046"/><link linkend="_class_api_connector_1a2f3ddac28265bde686f1d9e245b991eb">00046</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_api_connector_1a2f3ddac28265bde686f1d9e245b991eb">ApiConnector::deactivate</link>()&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00047"/>00047 &#32;&#32;_current_default_response&#32;=&#32;<link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717ada9c4157d7bd03f7071d415f99f273d2">e_api_reporter_idle</link>;
+<anchor xml:id="_api__connector_8cpp_source_1l00048"/>00048 &#32;&#32;<link linkend="_class_wi_fi_connection_wrapper_1ac1c3882d7ca0f8c43c0f3b0b662941f3">WiFiConnectionWrapper::disconnect_wifi</link>();
+<anchor xml:id="_api__connector_8cpp_source_1l00049"/>00049 }
+<anchor xml:id="_api__connector_8cpp_source_1l00050"/>00050 
+<anchor xml:id="_api__connector_8cpp_source_1l00051"/><link linkend="_class_api_connector_1a46089ea3e64a0c222657429e68c5beca">00051</link> int8_t&#32;<link linkend="_class_api_connector_1a46089ea3e64a0c222657429e68c5beca">ApiConnector::handle_produced_work</link>(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers)&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00052"/>00052 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;data_worker&#32;=&#32;workers.worker&lt;<link linkend="_class_log_aggregator">LogAggregator</link>&gt;(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa40dd481c8643b09aff483e9f4f7c2006">k_worker_log_aggregator</link>);
+<anchor xml:id="_api__connector_8cpp_source_1l00053"/>00053 
+<anchor xml:id="_api__connector_8cpp_source_1l00054"/>00054 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!data_worker&#32;||&#32;!data_worker-&gt;is_fresh())&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00055"/>00055 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;No&#32;fresh&#32;data</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00056"/>00056 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_current_default_response;
+<anchor xml:id="_api__connector_8cpp_source_1l00057"/>00057 &#32;&#32;}
+<anchor xml:id="_api__connector_8cpp_source_1l00058"/>00058 
+<anchor xml:id="_api__connector_8cpp_source_1l00059"/>00059 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_api_connector_1af62308ca3c907717f3217491b7a6612c">time_to_send</link>())&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_api_connector_1af62308ca3c907717f3217491b7a6612c">time_to_send</link>(6000))&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;almost&#32;time&#32;to&#32;send,&#32;start&#32;wifi&#32;if&#32;not&#32;connected&#32;yet</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_api_connector_1a27801902e618afb9d835438d66ddec3c">activate</link>(<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_api__connector_8cpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_api__connector_8cpp_source_1l00064"/>00064 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_current_default_response;
+<anchor xml:id="_api__connector_8cpp_source_1l00065"/>00065 &#32;&#32;}
+<anchor xml:id="_api__connector_8cpp_source_1l00066"/>00066 
+<anchor xml:id="_api__connector_8cpp_source_1l00067"/>00067 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;line&#32;=&#32;data_worker-&gt;get_data();
+<anchor xml:id="_api__connector_8cpp_source_1l00068"/>00068 
+<anchor xml:id="_api__connector_8cpp_source_1l00069"/>00069 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(line.valid&#32;&amp;&amp;&#32;line.in_fixed_range)&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00070"/>00070 &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">long</emphasis>&#32;time_at_send&#32;=&#32;millis();
+<anchor xml:id="_api__connector_8cpp_source_1l00071"/>00071 &#32;&#32;&#32;&#32;_current_default_response&#32;=&#32;send_reading(line);
+<anchor xml:id="_api__connector_8cpp_source_1l00072"/>00072 
+<anchor xml:id="_api__connector_8cpp_source_1l00073"/>00073 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_current_default_response&#32;==&#32;<link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a5c6cf8f03d275050a7373e360dff0909">e_api_reporter_send_success</link>)&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;_last_success_send&#32;=&#32;time_at_send;
+<anchor xml:id="_api__connector_8cpp_source_1l00075"/>00075 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_api__connector_8cpp_source_1l00076"/>00076 &#32;&#32;}
+<anchor xml:id="_api__connector_8cpp_source_1l00077"/>00077 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_current_default_response;
+<anchor xml:id="_api__connector_8cpp_source_1l00078"/>00078 }
+<anchor xml:id="_api__connector_8cpp_source_1l00079"/>00079 
+<anchor xml:id="_api__connector_8cpp_source_1l00080"/>00080 <link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717">ApiConnector::ApiHandlerStatus</link>&#32;ApiConnector::send_reading(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_struct_data_line">DataLine</link>&amp;&#32;data)&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00081"/>00081 
+<anchor xml:id="_api__connector_8cpp_source_1l00082"/>00082 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!WiFi.isConnected()&#32;&amp;&amp;&#32;!<link linkend="_class_api_connector_1a27801902e618afb9d835438d66ddec3c">activate</link>(<emphasis role="keyword">true</emphasis>))&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00083"/>00083 &#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;Unable&#32;to&#32;send,&#32;lost&#32;connection&quot;</emphasis>);
+<anchor xml:id="_api__connector_8cpp_source_1l00084"/>00084 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717aeedeeef2ce17687fdcd6326db176b20a">e_api_reporter_error_not_connected</link>;
+<anchor xml:id="_api__connector_8cpp_source_1l00085"/>00085 &#32;&#32;}
+<anchor xml:id="_api__connector_8cpp_source_1l00086"/>00086 
+<anchor xml:id="_api__connector_8cpp_source_1l00087"/>00087 &#32;&#32;HTTPClient&#32;http;
+<anchor xml:id="_api__connector_8cpp_source_1l00088"/>00088 
+<anchor xml:id="_api__connector_8cpp_source_1l00089"/>00089 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;url[100];
+<anchor xml:id="_api__connector_8cpp_source_1l00090"/>00090 &#32;&#32;sprintf(url,&#32;<emphasis role="stringliteral">&quot;%s?api_key=%s&amp;&quot;</emphasis>,&#32;<link linkend="_user__config_8h_1ae7d310923399cda9586b4916f7070fc5">API_MEASUREMENTS_ENDPOINT</link>,&#32;_config.<link linkend="_class_local_storage_1a119e9cbf7e8edad53786b070ee2cb298">get_api_key</link>());
+<anchor xml:id="_api__connector_8cpp_source_1l00091"/>00091 
+<anchor xml:id="_api__connector_8cpp_source_1l00092"/>00092 &#32;&#32;<emphasis role="comment">//Specify&#32;destination&#32;for&#32;HTTP&#32;request</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00093"/>00093 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!http.begin(url))&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00094"/>00094 &#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;Unable&#32;to&#32;begin&#32;url&#32;connection&quot;</emphasis>);
+<anchor xml:id="_api__connector_8cpp_source_1l00095"/>00095 &#32;&#32;&#32;&#32;http.end();&#32;&#32;<emphasis role="comment">//Free&#32;resources</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00096"/>00096 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717abf2ec433e6a95b2c211e011517128471">e_api_reporter_error_remote_not_available</link>;
+<anchor xml:id="_api__connector_8cpp_source_1l00097"/>00097 &#32;&#32;}
+<anchor xml:id="_api__connector_8cpp_source_1l00098"/>00098 
+<anchor xml:id="_api__connector_8cpp_source_1l00099"/>00099 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;payload[200];
+<anchor xml:id="_api__connector_8cpp_source_1l00100"/>00100 
+<anchor xml:id="_api__connector_8cpp_source_1l00101"/>00101 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_class_api_connector_1ac19687cf6ae2d1d0bcb2e77ee9e8c539">reading_to_json</link>(data,&#32;payload))&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00102"/>00102 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a29a3d191db6db09f7d4757322d81438d">e_api_reporter_error_to_json</link>;
+<anchor xml:id="_api__connector_8cpp_source_1l00103"/>00103 &#32;&#32;}
+<anchor xml:id="_api__connector_8cpp_source_1l00104"/>00104 
+<anchor xml:id="_api__connector_8cpp_source_1l00105"/>00105 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;content_length[5];
+<anchor xml:id="_api__connector_8cpp_source_1l00106"/>00106 
+<anchor xml:id="_api__connector_8cpp_source_1l00107"/>00107 &#32;&#32;sprintf(content_length,&#32;<emphasis role="stringliteral">&quot;%d&quot;</emphasis>,&#32;strlen(payload));
+<anchor xml:id="_api__connector_8cpp_source_1l00108"/>00108 
+<anchor xml:id="_api__connector_8cpp_source_1l00109"/>00109 &#32;&#32;http.setUserAgent(<link linkend="_user__config_8h_1a37ec0fa268fd3617f7d7f5ad0a2d463e">HEADER_API_USER_AGENT</link>);
+<anchor xml:id="_api__connector_8cpp_source_1l00110"/>00110 &#32;&#32;http.addHeader(<emphasis role="stringliteral">&quot;Host&quot;</emphasis>,&#32;<link linkend="_user__config_8h_1a583b0748ee647a56a2e607bfe09d13dd">API_HOST</link>);
+<anchor xml:id="_api__connector_8cpp_source_1l00111"/>00111 &#32;&#32;http.addHeader(<emphasis role="stringliteral">&quot;Content-Type&quot;</emphasis>,&#32;<link linkend="_user__config_8h_1a688b2c08fbc53d20db8a5f829f372338">HEADER_API_CONTENT_TYPE</link>);
+<anchor xml:id="_api__connector_8cpp_source_1l00112"/>00112 &#32;&#32;http.addHeader(<emphasis role="stringliteral">&quot;Content-Length&quot;</emphasis>,&#32;content_length);
+<anchor xml:id="_api__connector_8cpp_source_1l00113"/>00113 
+<anchor xml:id="_api__connector_8cpp_source_1l00114"/>00114 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;httpResponseCode&#32;=&#32;http.POST(payload);
+<anchor xml:id="_api__connector_8cpp_source_1l00115"/>00115 
+<anchor xml:id="_api__connector_8cpp_source_1l00116"/>00116 &#32;&#32;String&#32;response&#32;=&#32;http.getString();
+<anchor xml:id="_api__connector_8cpp_source_1l00117"/>00117 &#32;&#32;<link linkend="_debugger_8h_1a01e7feab704802b5523d4bf0054f0b61">DEBUG_PRINTF</link>(<emphasis role="stringliteral">&quot;POST&#32;complete,&#32;status&#32;%d\r\nrepsonse:&#32;\r\n\r\n%s\r\n\r\n&quot;</emphasis>,&#32;httpResponseCode,&#32;response.c_str());
+<anchor xml:id="_api__connector_8cpp_source_1l00118"/>00118 &#32;&#32;http.end();&#32;&#32;<emphasis role="comment">//Free&#32;resources</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00119"/>00119 
+<anchor xml:id="_api__connector_8cpp_source_1l00120"/>00120 <emphasis role="comment">//&#32;&#32;if&#32;(_config.get_send_frequency()&#32;!=&#32;e_api_send_frequency_5_sec)&#32;{</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00121"/>00121 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Disconnect&#32;from&#32;wifi&#32;between&#32;readings&#32;(not&#32;needed&#32;when&#32;sending&#32;every&#32;5&#32;seconds)</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00122"/>00122 <emphasis role="comment">//&#32;&#32;&#32;&#32;WiFiConnectionWrapper::disconnect_wifi();</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00123"/>00123 <emphasis role="comment">//&#32;&#32;}</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00124"/>00124 
+<anchor xml:id="_api__connector_8cpp_source_1l00125"/>00125 &#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(httpResponseCode)&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00126"/>00126 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;200&#32;...&#32;204:
+<anchor xml:id="_api__connector_8cpp_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a5c6cf8f03d275050a7373e360dff0909">e_api_reporter_send_success</link>;
+<anchor xml:id="_api__connector_8cpp_source_1l00128"/>00128 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;400:
+<anchor xml:id="_api__connector_8cpp_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a0eb4fc88c576f048ed5f47be9da3be88">e_api_reporter_error_server_rejected_post_400</link>;
+<anchor xml:id="_api__connector_8cpp_source_1l00130"/>00130 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;401:
+<anchor xml:id="_api__connector_8cpp_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a41188ca61a8819bac63964431728fb19">e_api_reporter_error_server_rejected_post_401</link>;
+<anchor xml:id="_api__connector_8cpp_source_1l00132"/>00132 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;403:
+<anchor xml:id="_api__connector_8cpp_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a03c4f15d5aa2fc9ef5d3608eba481897">e_api_reporter_error_server_rejected_post_403</link>;
+<anchor xml:id="_api__connector_8cpp_source_1l00134"/>00134 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;500&#32;...&#32;599:
+<anchor xml:id="_api__connector_8cpp_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717ad7308ded852533ee42fbba18e1577f6b">e_api_reporter_error_server_rejected_post_5xx</link>;
+<anchor xml:id="_api__connector_8cpp_source_1l00136"/>00136 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+<anchor xml:id="_api__connector_8cpp_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717abf2ec433e6a95b2c211e011517128471">e_api_reporter_error_remote_not_available</link>;
+<anchor xml:id="_api__connector_8cpp_source_1l00138"/>00138 &#32;&#32;}
+<anchor xml:id="_api__connector_8cpp_source_1l00139"/>00139 
+<anchor xml:id="_api__connector_8cpp_source_1l00140"/>00140 }
+<anchor xml:id="_api__connector_8cpp_source_1l00141"/>00141 
+<anchor xml:id="_api__connector_8cpp_source_1l00142"/><link linkend="_class_api_connector_1ac19687cf6ae2d1d0bcb2e77ee9e8c539">00142</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_api_connector_1ac19687cf6ae2d1d0bcb2e77ee9e8c539">ApiConnector::reading_to_json</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_struct_data_line">DataLine</link>&amp;&#32;line,&#32;<emphasis role="keywordtype">char</emphasis>*&#32;out)&#32;{
+<anchor xml:id="_api__connector_8cpp_source_1l00143"/>00143 &#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;result&#32;=&#32;sprintf(
+<anchor xml:id="_api__connector_8cpp_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;out,
+<anchor xml:id="_api__connector_8cpp_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;{\&quot;captured_at\&quot;:\&quot;%s\&quot;,&quot;</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\&quot;device_id\&quot;:%d,&quot;</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\&quot;value\&quot;:%d,&quot;</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\&quot;unit\&quot;:\&quot;cpm\&quot;,&quot;</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\&quot;longitude\&quot;:%.5f,&quot;</emphasis>
+<anchor xml:id="_api__connector_8cpp_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;\&quot;latitude\&quot;:%.5f}\n&quot;</emphasis>,
+<anchor xml:id="_api__connector_8cpp_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;line.<link linkend="_struct_data_line_1a1ee77be147052e0a8fbac4a94c6b1786">timestamp</link>,
+<anchor xml:id="_api__connector_8cpp_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;_config.<link linkend="_class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65">get_device_id</link>(),
+<anchor xml:id="_api__connector_8cpp_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;line.<link linkend="_struct_data_line_1a4c3181b5e8ec468e96f66ee0d89fc607">cpm</link>,
+<anchor xml:id="_api__connector_8cpp_source_1l00154"/>00154 &#32;&#32;&#32;&#32;&#32;&#32;_config.<link linkend="_class_local_storage_1a2972e2632be5da773cfa65e23be878e5">get_fixed_longitude</link>(),
+<anchor xml:id="_api__connector_8cpp_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;_config.<link linkend="_class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca">get_fixed_latitude</link>()
+<anchor xml:id="_api__connector_8cpp_source_1l00156"/>00156 &#32;&#32;);
+<anchor xml:id="_api__connector_8cpp_source_1l00157"/>00157 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;result&#32;&gt;&#32;0;
+<anchor xml:id="_api__connector_8cpp_source_1l00158"/>00158 }
+<anchor xml:id="_api__connector_8cpp_source_1l00159"/>00159 
+</programlisting></section>

@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_g_f_x_screen" xml:lang="en-US">
+<title>GFXScreen Class Reference</title>
+<indexterm><primary>GFXScreen</primary></indexterm>
+<para>
+<computeroutput>#include &lt;gfx_screen.h&gt;</computeroutput>
+</para>
+Inheritance diagram for GFXScreen:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_g_f_x_screen__inherit__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for GFXScreen:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_g_f_x_screen__coll__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298">ScreenType</link> { <?linebreak?><link linkend="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298a32f2075c3e5791d297613fbe38781464">e_screen_splash</link>
+, <link linkend="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298add9933f8e5b0fa2d8f3ca158db95e783">e_screen_init_no_sd_no_data</link>
+, <link linkend="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298af32ce51b63aa40194d06a050e6e2e135">e_screen_init_empty_sd_no_data</link>
+, <link linkend="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298ad9c0df03da4390daaaa975d7e1e3bf5c">e_screen_init_empty_sd_mem_data</link>
+, <?linebreak?><link linkend="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298a9a33af48da0e89311f2c0034b243d173">e_screen_init_no_sd_mem_data</link>
+, <link linkend="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298a6a70a9a400e5d8fcfc118cb1ebf44b12">e_screen_init_zen_sd_no_data</link>
+, <link linkend="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298a8a509d56d657348a83f594a228487249">e_screen_drive_mode</link>
+, <link linkend="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298a42435471bcf68fe075d852d14f3815dd">e_screen_survey_mode</link>
+, <?linebreak?><link linkend="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298a4cd2df41326d27a435f8744bb7e35f38">e_screen_fixed_mode</link>
+, <link linkend="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298a979b862bcd0dd72f357060778ef15db9">e_screen_upload_drive</link>
+, <link linkend="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298a7236ded1344c04325a2f8391b3b17f23">e_screen_config_mode</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_g_f_x_screen_1a71ab01ccbc43de9a848ca9576feebe1c">GFXScreen</link> (<link linkend="_class_local_storage">LocalStorage</link> &amp;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>, <link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_g_f_x_screen_1afcd0eaa354a264ea21d87582237105c0">~GFXScreen</link> ()=default</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a">handle_report</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers) override</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_g_f_x_screen_1a1f5f80dd70f0b3975746457fc3759b74">initialize</link> () override</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>M5 Screen renderer </para>
+<para>
+Definition at line <link linkend="_gfx__screen_8h_source_1l00013">13</link> of file <link linkend="_gfx__screen_8h_source">gfx_screen.h</link>.</para>
+</section>
+<section>
+<title>Member Enumeration Documentation</title>
+<anchor xml:id="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298"/><section>
+    <title>ScreenType</title>
+<indexterm><primary>ScreenType</primary><secondary>GFXScreen</secondary></indexterm>
+<indexterm><primary>GFXScreen</primary><secondary>ScreenType</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298">GFXScreen::ScreenType</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>e_screen_splash</primary><secondary>GFXScreen</secondary></indexterm>
+<indexterm><primary>GFXScreen</primary><secondary>e_screen_splash</secondary></indexterm>
+<anchor xml:id="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298a32f2075c3e5791d297613fbe38781464"/>e_screen_splash</entry><entry></entry></row><row><entry><indexterm><primary>e_screen_init_no_sd_no_data</primary><secondary>GFXScreen</secondary></indexterm>
+<indexterm><primary>GFXScreen</primary><secondary>e_screen_init_no_sd_no_data</secondary></indexterm>
+<anchor xml:id="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298add9933f8e5b0fa2d8f3ca158db95e783"/>e_screen_init_no_sd_no_data</entry><entry></entry></row><row><entry><indexterm><primary>e_screen_init_empty_sd_no_data</primary><secondary>GFXScreen</secondary></indexterm>
+<indexterm><primary>GFXScreen</primary><secondary>e_screen_init_empty_sd_no_data</secondary></indexterm>
+<anchor xml:id="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298af32ce51b63aa40194d06a050e6e2e135"/>e_screen_init_empty_sd_no_data</entry><entry></entry></row><row><entry><indexterm><primary>e_screen_init_empty_sd_mem_data</primary><secondary>GFXScreen</secondary></indexterm>
+<indexterm><primary>GFXScreen</primary><secondary>e_screen_init_empty_sd_mem_data</secondary></indexterm>
+<anchor xml:id="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298ad9c0df03da4390daaaa975d7e1e3bf5c"/>e_screen_init_empty_sd_mem_data</entry><entry></entry></row><row><entry><indexterm><primary>e_screen_init_no_sd_mem_data</primary><secondary>GFXScreen</secondary></indexterm>
+<indexterm><primary>GFXScreen</primary><secondary>e_screen_init_no_sd_mem_data</secondary></indexterm>
+<anchor xml:id="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298a9a33af48da0e89311f2c0034b243d173"/>e_screen_init_no_sd_mem_data</entry><entry></entry></row><row><entry><indexterm><primary>e_screen_init_zen_sd_no_data</primary><secondary>GFXScreen</secondary></indexterm>
+<indexterm><primary>GFXScreen</primary><secondary>e_screen_init_zen_sd_no_data</secondary></indexterm>
+<anchor xml:id="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298a6a70a9a400e5d8fcfc118cb1ebf44b12"/>e_screen_init_zen_sd_no_data</entry><entry></entry></row><row><entry><indexterm><primary>e_screen_drive_mode</primary><secondary>GFXScreen</secondary></indexterm>
+<indexterm><primary>GFXScreen</primary><secondary>e_screen_drive_mode</secondary></indexterm>
+<anchor xml:id="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298a8a509d56d657348a83f594a228487249"/>e_screen_drive_mode</entry><entry></entry></row><row><entry><indexterm><primary>e_screen_survey_mode</primary><secondary>GFXScreen</secondary></indexterm>
+<indexterm><primary>GFXScreen</primary><secondary>e_screen_survey_mode</secondary></indexterm>
+<anchor xml:id="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298a42435471bcf68fe075d852d14f3815dd"/>e_screen_survey_mode</entry><entry></entry></row><row><entry><indexterm><primary>e_screen_fixed_mode</primary><secondary>GFXScreen</secondary></indexterm>
+<indexterm><primary>GFXScreen</primary><secondary>e_screen_fixed_mode</secondary></indexterm>
+<anchor xml:id="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298a4cd2df41326d27a435f8744bb7e35f38"/>e_screen_fixed_mode</entry><entry></entry></row><row><entry><indexterm><primary>e_screen_upload_drive</primary><secondary>GFXScreen</secondary></indexterm>
+<indexterm><primary>GFXScreen</primary><secondary>e_screen_upload_drive</secondary></indexterm>
+<anchor xml:id="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298a979b862bcd0dd72f357060778ef15db9"/>e_screen_upload_drive</entry><entry></entry></row><row><entry><indexterm><primary>e_screen_config_mode</primary><secondary>GFXScreen</secondary></indexterm>
+<indexterm><primary>GFXScreen</primary><secondary>e_screen_config_mode</secondary></indexterm>
+<anchor xml:id="_class_g_f_x_screen_1ad114bf0bfabc68956957580cb82fd298a7236ded1344c04325a2f8391b3b17f23"/>e_screen_config_mode</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_gfx__screen_8h_source_1l00016">16</link> of file <link linkend="_gfx__screen_8h_source">gfx_screen.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_g_f_x_screen_1a71ab01ccbc43de9a848ca9576feebe1c"/><section>
+    <title>GFXScreen()</title>
+<indexterm><primary>GFXScreen</primary><secondary>GFXScreen</secondary></indexterm>
+<indexterm><primary>GFXScreen</primary><secondary>GFXScreen</secondary></indexterm>
+<para><computeroutput>GFXScreen::GFXScreen (<link linkend="_class_local_storage">LocalStorage</link> &amp; settings, <link linkend="_class_controller">Controller</link> &amp; controller)<computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_gfx__screen_8cpp_source_1l00020">20</link> of file <link linkend="_gfx__screen_8cpp_source">gfx_screen.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_g_f_x_screen_1afcd0eaa354a264ea21d87582237105c0"/><section>
+    <title>~GFXScreen()</title>
+<indexterm><primary>~GFXScreen</primary><secondary>GFXScreen</secondary></indexterm>
+<indexterm><primary>GFXScreen</primary><secondary>~GFXScreen</secondary></indexterm>
+<para><computeroutput>virtual GFXScreen::~GFXScreen ( )<computeroutput>[virtual]</computeroutput>, <computeroutput>[default]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a"/><section>
+    <title>handle_report()</title>
+<indexterm><primary>handle_report</primary><secondary>GFXScreen</secondary></indexterm>
+<indexterm><primary>GFXScreen</primary><secondary>handle_report</secondary></indexterm>
+<para><computeroutput>void GFXScreen::handle_report (const worker_map_t &amp; workers, const handler_map_t &amp; handlers)<computeroutput>[override]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_gfx__screen_8cpp_source_1l00095">95</link> of file <link linkend="_gfx__screen_8cpp_source">gfx_screen.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_g_f_x_screen_aea8f5b94e15d3fcc53790cf1df9d915a_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_g_f_x_screen_1a1f5f80dd70f0b3975746457fc3759b74"/><section>
+    <title>initialize()</title>
+<indexterm><primary>initialize</primary><secondary>GFXScreen</secondary></indexterm>
+<indexterm><primary>GFXScreen</primary><secondary>initialize</secondary></indexterm>
+<para><computeroutput>void GFXScreen::initialize ( )<computeroutput>[override]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_gfx__screen_8cpp_source_1l00023">23</link> of file <link linkend="_gfx__screen_8cpp_source">gfx_screen.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_g_f_x_screen_a1f5f80dd70f0b3975746457fc3759b74_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/<link linkend="_gfx__screen_8h">gfx_screen.h</link>bgeigiezen_firmware/<link linkend="_gfx__screen_8cpp">gfx_screen.cpp</link></section>
+</section>

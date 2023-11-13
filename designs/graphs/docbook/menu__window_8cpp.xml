@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_menu__window_8cpp" xml:lang="en-US">
+<title>bgeigiezen_firmware/screens/menu_window.cpp File Reference</title>
+<indexterm><primary>bgeigiezen_firmware/screens/menu_window.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;menu_window.h&quot;<?linebreak?>#include &quot;config_mode.h&quot;<?linebreak?>#include &quot;controller.h&quot;<?linebreak?>#include &quot;debug_mode.h&quot;<?linebreak?>#include &quot;drive_mode.h&quot;<?linebreak?>#include &quot;fixed_mode.h&quot;<?linebreak?>#include &quot;identifiers.h&quot;<?linebreak?>#include &quot;survey_mode.h&quot;<?linebreak?>#include &quot;user_config.h&quot;<?linebreak?>#include &quot;workers/zen_button.h&quot;<?linebreak?></programlisting>Include dependency graph for menu_window.cpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="menu__window_8cpp__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_struct_menu_window_1_1_menu_item">MenuWindow::MenuItem</link> <link linkend="_menu__window_8cpp_1a4b59e60e86fb1f6153f6626432a84d8b">DRIVE_MENU_ITEM</link></para>
+</listitem>
+            <listitem><para><link linkend="_struct_menu_window_1_1_menu_item">MenuWindow::MenuItem</link> <link linkend="_menu__window_8cpp_1a0ca5b349c3e6b43ea11ee806dca3e787">SURVEY_MENU_ITEM</link></para>
+</listitem>
+            <listitem><para><link linkend="_struct_menu_window_1_1_menu_item">MenuWindow::MenuItem</link> <link linkend="_menu__window_8cpp_1a942f3d804117fe6f4883c447ab41c292">FIXED_MENU_ITEM</link></para>
+</listitem>
+            <listitem><para><link linkend="_struct_menu_window_1_1_menu_item">MenuWindow::MenuItem</link> <link linkend="_menu__window_8cpp_1a5823719827ec33ebba2ddaad345d3c9b">LOG_VIEWER_MENU_ITEM</link></para>
+</listitem>
+            <listitem><para><link linkend="_struct_menu_window_1_1_menu_item">MenuWindow::MenuItem</link> <link linkend="_menu__window_8cpp_1ab9b76abc4ad22e6f214c2d6520d29ab2">SETTINGS_MENU_ITEM</link></para>
+</listitem>
+            <listitem><para><link linkend="_struct_menu_window_1_1_menu_item">MenuWindow::MenuItem</link> <link linkend="_menu__window_8cpp_1a677bc7fe2ebc99c79b0d027e521386c1">DEBUG_MENU_ITEM</link></para>
+</listitem>
+            <listitem><para><link linkend="_struct_menu_window_1_1_menu_item">MenuWindow::MenuItem</link> <link linkend="_menu__window_8cpp_1a740f5bfa72a65fb451a190504b48d8e0">ENTER_SIMPLE_MODE_MENU_ITEM</link></para>
+</listitem>
+            <listitem><para><link linkend="_struct_menu_window_1_1_menu_item">MenuWindow::MenuItem</link> <link linkend="_menu__window_8cpp_1a4d04b25f80fb23ed0bc6e86578cbe134">ENTER_ADVANCED_MODE_MENU_ITEM</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_menu__window_8cpp_1a677bc7fe2ebc99c79b0d027e521386c1"/><section>
+    <title>DEBUG_MENU_ITEM</title>
+<indexterm><primary>DEBUG_MENU_ITEM</primary><secondary>menu_window.cpp</secondary></indexterm>
+<indexterm><primary>menu_window.cpp</primary><secondary>DEBUG_MENU_ITEM</secondary></indexterm>
+<para><computeroutput><link linkend="_struct_menu_window_1_1_menu_item">MenuWindow::MenuItem</link> DEBUG_MENU_ITEM</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=&#32;{
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Debug&#32;info&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Connected&#32;modules,&#32;their&#32;data&#32;and&#32;status&#32;all&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;together&#32;in&#32;a&#32;simple&#32;view&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="keyword">true</emphasis>,
+}
+</programlisting><para>
+Definition at line <link linkend="_menu__window_8cpp_source_1l00042">42</link> of file <link linkend="_menu__window_8cpp_source">menu_window.cpp</link>.</para>
+</section>
+<anchor xml:id="_menu__window_8cpp_1a4b59e60e86fb1f6153f6626432a84d8b"/><section>
+    <title>DRIVE_MENU_ITEM</title>
+<indexterm><primary>DRIVE_MENU_ITEM</primary><secondary>menu_window.cpp</secondary></indexterm>
+<indexterm><primary>menu_window.cpp</primary><secondary>DRIVE_MENU_ITEM</secondary></indexterm>
+<para><computeroutput><link linkend="_struct_menu_window_1_1_menu_item">MenuWindow::MenuItem</link> DRIVE_MENU_ITEM</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=&#32;{
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Drive&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Put&#32;the&#32;zen&#32;on&#32;your&#32;car&#32;and&#32;drive!&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="keyword">true</emphasis>,
+}
+</programlisting><para>
+Definition at line <link linkend="_menu__window_8cpp_source_1l00012">12</link> of file <link linkend="_menu__window_8cpp_source">menu_window.cpp</link>.</para>
+</section>
+<anchor xml:id="_menu__window_8cpp_1a4d04b25f80fb23ed0bc6e86578cbe134"/><section>
+    <title>ENTER_ADVANCED_MODE_MENU_ITEM</title>
+<indexterm><primary>ENTER_ADVANCED_MODE_MENU_ITEM</primary><secondary>menu_window.cpp</secondary></indexterm>
+<indexterm><primary>menu_window.cpp</primary><secondary>ENTER_ADVANCED_MODE_MENU_ITEM</secondary></indexterm>
+<para><computeroutput><link linkend="_struct_menu_window_1_1_menu_item">MenuWindow::MenuItem</link> ENTER_ADVANCED_MODE_MENU_ITEM</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=&#32;{
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Advanced&#32;mode&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Switch&#32;to&#32;advanced&#32;mode!&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="keyword">true</emphasis>,
+}
+</programlisting><para>
+Definition at line <link linkend="_menu__window_8cpp_source_1l00054">54</link> of file <link linkend="_menu__window_8cpp_source">menu_window.cpp</link>.</para>
+</section>
+<anchor xml:id="_menu__window_8cpp_1a740f5bfa72a65fb451a190504b48d8e0"/><section>
+    <title>ENTER_SIMPLE_MODE_MENU_ITEM</title>
+<indexterm><primary>ENTER_SIMPLE_MODE_MENU_ITEM</primary><secondary>menu_window.cpp</secondary></indexterm>
+<indexterm><primary>menu_window.cpp</primary><secondary>ENTER_SIMPLE_MODE_MENU_ITEM</secondary></indexterm>
+<para><computeroutput><link linkend="_struct_menu_window_1_1_menu_item">MenuWindow::MenuItem</link> ENTER_SIMPLE_MODE_MENU_ITEM</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=&#32;{
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Simple&#32;mode&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Switch&#32;to&#32;simple&#32;mode!&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="keyword">true</emphasis>,
+}
+</programlisting><para>
+Definition at line <link linkend="_menu__window_8cpp_source_1l00048">48</link> of file <link linkend="_menu__window_8cpp_source">menu_window.cpp</link>.</para>
+</section>
+<anchor xml:id="_menu__window_8cpp_1a942f3d804117fe6f4883c447ab41c292"/><section>
+    <title>FIXED_MENU_ITEM</title>
+<indexterm><primary>FIXED_MENU_ITEM</primary><secondary>menu_window.cpp</secondary></indexterm>
+<indexterm><primary>menu_window.cpp</primary><secondary>FIXED_MENU_ITEM</secondary></indexterm>
+<para><computeroutput><link linkend="_struct_menu_window_1_1_menu_item">MenuWindow::MenuItem</link> FIXED_MENU_ITEM</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=&#32;{
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Fixed&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Place&#32;the&#32;zen&#32;at&#32;a&#32;fixed&#32;location&#32;and&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;upload&#32;data&#32;over&#32;wifi!&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="keyword">false</emphasis>,
+}
+</programlisting><para>
+Definition at line <link linkend="_menu__window_8cpp_source_1l00024">24</link> of file <link linkend="_menu__window_8cpp_source">menu_window.cpp</link>.</para>
+</section>
+<anchor xml:id="_menu__window_8cpp_1a5823719827ec33ebba2ddaad345d3c9b"/><section>
+    <title>LOG_VIEWER_MENU_ITEM</title>
+<indexterm><primary>LOG_VIEWER_MENU_ITEM</primary><secondary>menu_window.cpp</secondary></indexterm>
+<indexterm><primary>menu_window.cpp</primary><secondary>LOG_VIEWER_MENU_ITEM</secondary></indexterm>
+<para><computeroutput><link linkend="_struct_menu_window_1_1_menu_item">MenuWindow::MenuItem</link> LOG_VIEWER_MENU_ITEM</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=&#32;{
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Logs&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;View&#32;and&#32;upload&#32;logs!&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="keyword">false</emphasis>,
+}
+</programlisting><para>
+Definition at line <link linkend="_menu__window_8cpp_source_1l00030">30</link> of file <link linkend="_menu__window_8cpp_source">menu_window.cpp</link>.</para>
+</section>
+<anchor xml:id="_menu__window_8cpp_1ab9b76abc4ad22e6f214c2d6520d29ab2"/><section>
+    <title>SETTINGS_MENU_ITEM</title>
+<indexterm><primary>SETTINGS_MENU_ITEM</primary><secondary>menu_window.cpp</secondary></indexterm>
+<indexterm><primary>menu_window.cpp</primary><secondary>SETTINGS_MENU_ITEM</secondary></indexterm>
+<para><computeroutput><link linkend="_struct_menu_window_1_1_menu_item">MenuWindow::MenuItem</link> SETTINGS_MENU_ITEM</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=&#32;{
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Settings&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Configure&#32;your&#32;device!&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="keyword">true</emphasis>,
+}
+</programlisting><para>
+Definition at line <link linkend="_menu__window_8cpp_source_1l00036">36</link> of file <link linkend="_menu__window_8cpp_source">menu_window.cpp</link>.</para>
+</section>
+<anchor xml:id="_menu__window_8cpp_1a0ca5b349c3e6b43ea11ee806dca3e787"/><section>
+    <title>SURVEY_MENU_ITEM</title>
+<indexterm><primary>SURVEY_MENU_ITEM</primary><secondary>menu_window.cpp</secondary></indexterm>
+<indexterm><primary>menu_window.cpp</primary><secondary>SURVEY_MENU_ITEM</secondary></indexterm>
+<para><computeroutput><link linkend="_struct_menu_window_1_1_menu_item">MenuWindow::MenuItem</link> SURVEY_MENU_ITEM</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=&#32;{
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Survey&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Take&#32;the&#32;Zen&#32;out&#32;of&#32;the&#32;case&#32;and&#32;test&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;sources&#32;directly!&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="keyword">true</emphasis>,
+}
+</programlisting><para>
+Definition at line <link linkend="_menu__window_8cpp_source_1l00018">18</link> of file <link linkend="_menu__window_8cpp_source">menu_window.cpp</link>.</para>
+</section>
+</section>
+</section>

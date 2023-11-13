@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_battery__indicator_8cpp_source" xml:lang="en-US">
+<title>battery_indicator.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/workers/battery_indicator.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_battery__indicator_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_battery__indicator_8h">battery_indicator.h</link>&quot;</emphasis>
+<anchor xml:id="_battery__indicator_8cpp_source_1l00002"/>00002 
+<anchor xml:id="_battery__indicator_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#ifdef&#32;M5_CORE2</emphasis>
+<anchor xml:id="_battery__indicator_8cpp_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;M5Core2.h&gt;</emphasis>
+<anchor xml:id="_battery__indicator_8cpp_source_1l00005"/>00005 <emphasis role="preprocessor">#elif&#32;M5_BASIC</emphasis>
+<anchor xml:id="_battery__indicator_8cpp_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&lt;M5Stack.h&gt;</emphasis>
+<anchor xml:id="_battery__indicator_8cpp_source_1l00007"/>00007 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_battery__indicator_8cpp_source_1l00008"/>00008 
+<anchor xml:id="_battery__indicator_8cpp_source_1l00009"/><link linkend="_class_battery_indicator_1a62a7d0af06591a6aade8056cb34f77c9">00009</link> <link linkend="_class_battery_indicator_1a62a7d0af06591a6aade8056cb34f77c9">BatteryIndicator::BatteryIndicator</link>()&#32;:&#32;Worker&lt;<link linkend="_struct_battery_status">BatteryStatus</link>&gt;(1000)&#32;{
+<anchor xml:id="_battery__indicator_8cpp_source_1l00010"/>00010 }
+<anchor xml:id="_battery__indicator_8cpp_source_1l00011"/>00011 
+<anchor xml:id="_battery__indicator_8cpp_source_1l00012"/><link linkend="_class_battery_indicator_1a0ceaf9e9ee720fc1279838aeb4f8cf51">00012</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_battery_indicator_1a0ceaf9e9ee720fc1279838aeb4f8cf51">BatteryIndicator::activate</link>(<emphasis role="keywordtype">bool</emphasis>&#32;retry)&#32;{
+<anchor xml:id="_battery__indicator_8cpp_source_1l00013"/>00013 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_battery__indicator_8cpp_source_1l00014"/>00014 }
+<anchor xml:id="_battery__indicator_8cpp_source_1l00015"/>00015 
+<anchor xml:id="_battery__indicator_8cpp_source_1l00016"/><link linkend="_class_battery_indicator_1a2549ee1d50e87017b4b6067820d9518a">00016</link> int8_t&#32;<link linkend="_class_battery_indicator_1a2549ee1d50e87017b4b6067820d9518a">BatteryIndicator::produce_data</link>()&#32;{
+<anchor xml:id="_battery__indicator_8cpp_source_1l00017"/>00017 
+<anchor xml:id="_battery__indicator_8cpp_source_1l00018"/>00018 <emphasis role="preprocessor">#ifdef&#32;M5_CORE2</emphasis>
+<anchor xml:id="_battery__indicator_8cpp_source_1l00019"/>00019 &#32;&#32;data.isCharging&#32;=&#32;M5.Axp.isCharging();
+<anchor xml:id="_battery__indicator_8cpp_source_1l00020"/>00020 &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;batVoltage&#32;=&#32;M5.Axp.GetBatVoltage();
+<anchor xml:id="_battery__indicator_8cpp_source_1l00021"/>00021 &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;batPercentage&#32;=&#32;(&#32;batVoltage&#32;&lt;&#32;3.2f&#32;)&#32;?&#32;0&#32;:&#32;(&#32;batVoltage&#32;-&#32;3.2f&#32;)&#32;*&#32;100;
+<anchor xml:id="_battery__indicator_8cpp_source_1l00022"/>00022 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(batPercentage&#32;&gt;&#32;100)&#32;{
+<anchor xml:id="_battery__indicator_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;data.percentage&#32;=&#32;100;
+<anchor xml:id="_battery__indicator_8cpp_source_1l00024"/>00024 &#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_battery__indicator_8cpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;data.percentage&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint8_t<emphasis role="keyword">&gt;</emphasis>(batPercentage);
+<anchor xml:id="_battery__indicator_8cpp_source_1l00026"/>00026 &#32;&#32;}
+<anchor xml:id="_battery__indicator_8cpp_source_1l00027"/>00027 <emphasis role="comment">//&#32;&#32;data.voltage&#32;=&#32;M5.Axp.GetBatVoltage();</emphasis>
+<anchor xml:id="_battery__indicator_8cpp_source_1l00028"/>00028 <emphasis role="preprocessor">#elif&#32;M5_BASIC</emphasis>
+<anchor xml:id="_battery__indicator_8cpp_source_1l00029"/>00029 &#32;&#32;data.isCharging&#32;=&#32;M5.Power.isCharging();
+<anchor xml:id="_battery__indicator_8cpp_source_1l00030"/>00030 &#32;&#32;data.percentage&#32;=&#32;M5.Power.getBatteryLevel();
+<anchor xml:id="_battery__indicator_8cpp_source_1l00031"/>00031 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_battery__indicator_8cpp_source_1l00032"/>00032 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;e_worker_data_read;
+<anchor xml:id="_battery__indicator_8cpp_source_1l00033"/>00033 }
+</programlisting></section>

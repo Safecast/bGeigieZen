@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_data_line" xml:lang="en-US">
+<title>DataLine Struct Reference</title>
+<indexterm><primary>DataLine</primary></indexterm>
+<para>
+<computeroutput>#include &lt;log_aggregator.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_struct_data_line_1a606a727066ee6409bb0de6439b97c856">valid</link></para>
+</listitem>
+            <listitem><para>char <link linkend="_struct_data_line_1a45cee5eda819375c48082a67910e2c0d">log_string</link> [100]</para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_struct_data_line_1a4c3181b5e8ec468e96f66ee0d89fc607">cpm</link></para>
+</listitem>
+            <listitem><para>char <link linkend="_struct_data_line_1a1ee77be147052e0a8fbac4a94c6b1786">timestamp</link> [20]</para>
+</listitem>
+            <listitem><para>double <link linkend="_struct_data_line_1a85ec6d244f6ef370c015cf55b4c783f4">longitude</link></para>
+</listitem>
+            <listitem><para>double <link linkend="_struct_data_line_1a16ff25715c3cfcb264dc5b59727ed63b">latitude</link></para>
+</listitem>
+            <listitem><para>double <link linkend="_struct_data_line_1aac7fcc08bfdda1f87a710588996a7f87">altitude</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_struct_data_line_1a4f792da4bab2d7292b75b8ff5c7211f7">in_fixed_range</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Data collection </para>
+<para>
+Definition at line <link linkend="_log__aggregator_8h_source_1l00010">10</link> of file <link linkend="_log__aggregator_8h_source">log_aggregator.h</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_data_line_1aac7fcc08bfdda1f87a710588996a7f87"/><section>
+    <title>altitude</title>
+<indexterm><primary>altitude</primary><secondary>DataLine</secondary></indexterm>
+<indexterm><primary>DataLine</primary><secondary>altitude</secondary></indexterm>
+<para><computeroutput>double DataLine::altitude</computeroutput></para><para>
+Definition at line <link linkend="_log__aggregator_8h_source_1l00018">18</link> of file <link linkend="_log__aggregator_8h_source">log_aggregator.h</link>.</para>
+</section>
+<anchor xml:id="_struct_data_line_1a4c3181b5e8ec468e96f66ee0d89fc607"/><section>
+    <title>cpm</title>
+<indexterm><primary>cpm</primary><secondary>DataLine</secondary></indexterm>
+<indexterm><primary>DataLine</primary><secondary>cpm</secondary></indexterm>
+<para><computeroutput>uint16_t DataLine::cpm</computeroutput></para><para>
+Definition at line <link linkend="_log__aggregator_8h_source_1l00014">14</link> of file <link linkend="_log__aggregator_8h_source">log_aggregator.h</link>.</para>
+</section>
+<anchor xml:id="_struct_data_line_1a4f792da4bab2d7292b75b8ff5c7211f7"/><section>
+    <title>in_fixed_range</title>
+<indexterm><primary>in_fixed_range</primary><secondary>DataLine</secondary></indexterm>
+<indexterm><primary>DataLine</primary><secondary>in_fixed_range</secondary></indexterm>
+<para><computeroutput>bool DataLine::in_fixed_range</computeroutput></para><para>
+Definition at line <link linkend="_log__aggregator_8h_source_1l00019">19</link> of file <link linkend="_log__aggregator_8h_source">log_aggregator.h</link>.</para>
+</section>
+<anchor xml:id="_struct_data_line_1a16ff25715c3cfcb264dc5b59727ed63b"/><section>
+    <title>latitude</title>
+<indexterm><primary>latitude</primary><secondary>DataLine</secondary></indexterm>
+<indexterm><primary>DataLine</primary><secondary>latitude</secondary></indexterm>
+<para><computeroutput>double DataLine::latitude</computeroutput></para><para>
+Definition at line <link linkend="_log__aggregator_8h_source_1l00017">17</link> of file <link linkend="_log__aggregator_8h_source">log_aggregator.h</link>.</para>
+</section>
+<anchor xml:id="_struct_data_line_1a45cee5eda819375c48082a67910e2c0d"/><section>
+    <title>log_string</title>
+<indexterm><primary>log_string</primary><secondary>DataLine</secondary></indexterm>
+<indexterm><primary>DataLine</primary><secondary>log_string</secondary></indexterm>
+<para><computeroutput>char DataLine::log_string[100]</computeroutput></para><para>
+Definition at line <link linkend="_log__aggregator_8h_source_1l00012">12</link> of file <link linkend="_log__aggregator_8h_source">log_aggregator.h</link>.</para>
+</section>
+<anchor xml:id="_struct_data_line_1a85ec6d244f6ef370c015cf55b4c783f4"/><section>
+    <title>longitude</title>
+<indexterm><primary>longitude</primary><secondary>DataLine</secondary></indexterm>
+<indexterm><primary>DataLine</primary><secondary>longitude</secondary></indexterm>
+<para><computeroutput>double DataLine::longitude</computeroutput></para><para>
+Definition at line <link linkend="_log__aggregator_8h_source_1l00016">16</link> of file <link linkend="_log__aggregator_8h_source">log_aggregator.h</link>.</para>
+</section>
+<anchor xml:id="_struct_data_line_1a1ee77be147052e0a8fbac4a94c6b1786"/><section>
+    <title>timestamp</title>
+<indexterm><primary>timestamp</primary><secondary>DataLine</secondary></indexterm>
+<indexterm><primary>DataLine</primary><secondary>timestamp</secondary></indexterm>
+<para><computeroutput>char DataLine::timestamp[20]</computeroutput></para><para>
+Definition at line <link linkend="_log__aggregator_8h_source_1l00015">15</link> of file <link linkend="_log__aggregator_8h_source">log_aggregator.h</link>.</para>
+</section>
+<anchor xml:id="_struct_data_line_1a606a727066ee6409bb0de6439b97c856"/><section>
+    <title>valid</title>
+<indexterm><primary>valid</primary><secondary>DataLine</secondary></indexterm>
+<indexterm><primary>DataLine</primary><secondary>valid</secondary></indexterm>
+<para><computeroutput>bool DataLine::valid</computeroutput></para><para>
+Definition at line <link linkend="_log__aggregator_8h_source_1l00011">11</link> of file <link linkend="_log__aggregator_8h_source">log_aggregator.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+bgeigiezen_firmware/workers/<link linkend="_log__aggregator_8h">log_aggregator.h</link></section>
+</section>

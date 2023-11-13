@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_todo" xml:lang="en-US">
+<title>Todo List</title>
+<indexterm><primary>Todo List</primary></indexterm>
+
+<para><variablelist>
+<varlistentry><term>Member <link linkend="_class_gps_connector_1aa7063a9ff75593b35995241c579b070f">GpsConnector::GpsConnector</link>  (uint8_t gps_serial_num, SFE_UBLOX_GNSS &amp;gnss)</term>
+<listitem>
+<para><anchor xml:id="_todo_1_todo000001"/>Split into a date &amp; time producer and a position producer The date and time are received sooner than position because fewer satellites are needed for time information. This means that we can set the clock and open log files before the full 3D position fix is ready. Eventually, gps_connector is separate and there are two workers, datetime and position, each pulling information from gps_connector. With Core2 (and Core with external RTC), date-time can be obtained from the RTC before GNSS receives time. In that case, the date-time worker can choose the more reliable of the two: GNSS preferred, RTC otherwise. We also have the issue of initializing RTC on a brand new device, that can be done from GNSS. </para>
+</listitem></varlistentry>
+</variablelist>
+</para>
+</section>

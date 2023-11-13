@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_gm__sensor_8h_source" xml:lang="en-US">
+<title>gm_sensor.h</title>
+<indexterm><primary>bgeigiezen_firmware/workers/gm_sensor.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_gm__sensor_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;BGEIGIEZEN_GEIGER_COUNTER_H_</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;BGEIGIEZEN_GEIGER_COUNTER_H_</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00003"/>00003 
+<anchor xml:id="_gm__sensor_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;Worker.hpp&gt;</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;<link linkend="_hardware__counter_8h">utils/hardware_counter.h</link>&gt;</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00006"/>00006 
+<anchor xml:id="_gm__sensor_8h_source_1l00007"/><link linkend="_struct_geiger_data">00007</link> <emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_geiger_data">GeigerData</link>&#32;{
+<anchor xml:id="_gm__sensor_8h_source_1l00008"/><link linkend="_struct_geiger_data_1ace47dff387083abff03224021c8e1217">00008</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_struct_geiger_data_1ace47dff387083abff03224021c8e1217">valid</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;&#32;&#32;<emphasis role="comment">//&#32;True&#32;if&#32;accumulated&#32;data&#32;over&#32;1+&#32;minute</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00009"/><link linkend="_struct_geiger_data_1a40aef9acd9b1827fd55584dd266de524">00009</link> &#32;&#32;uint16_t&#32;<link linkend="_struct_geiger_data_1a40aef9acd9b1827fd55584dd266de524">cps</link>&#32;=&#32;0;&#32;&#32;<emphasis role="comment">//&#32;Past&#32;second</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00010"/><link linkend="_struct_geiger_data_1a5bfc9af14c14579f884bbf5ce6edc68f">00010</link> &#32;&#32;uint16_t&#32;<link linkend="_struct_geiger_data_1a5bfc9af14c14579f884bbf5ce6edc68f">cp5s</link>&#32;=&#32;0;&#32;&#32;<emphasis role="comment">//&#32;Past&#32;5&#32;seconds</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00011"/><link linkend="_struct_geiger_data_1a66f2c59cb6b786c5d40baf2f533a790b">00011</link> &#32;&#32;uint32_t&#32;<link linkend="_struct_geiger_data_1a66f2c59cb6b786c5d40baf2f533a790b">cpm_raw</link>&#32;=&#32;0;&#32;&#32;<emphasis role="comment">//&#32;Past&#32;minute</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00012"/><link linkend="_struct_geiger_data_1acde146c506e543a976f3684bacac78e9">00012</link> &#32;&#32;uint32_t&#32;<link linkend="_struct_geiger_data_1acde146c506e543a976f3684bacac78e9">cpm_comp</link>&#32;=&#32;0;&#32;&#32;<emphasis role="comment">//&#32;cpm_raw&#32;compensated&#32;for&#32;medcom&#32;deadtime</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00013"/><link linkend="_struct_geiger_data_1a80b52486d7bf6a78d91e8a371c8e249f">00013</link> &#32;&#32;uint32_t&#32;<link linkend="_struct_geiger_data_1a80b52486d7bf6a78d91e8a371c8e249f">cpm_comp_peak</link>&#32;=&#32;0;&#32;&#32;<emphasis role="comment">//&#32;highest&#32;cpm_comp&#32;recorded</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00014"/><link linkend="_struct_geiger_data_1aa064d0894267741ccf9608ba920c7db8">00014</link> &#32;&#32;uint32_t&#32;<link linkend="_struct_geiger_data_1aa064d0894267741ccf9608ba920c7db8">total</link>&#32;=&#32;0;&#32;&#32;<emphasis role="comment">//&#32;Total&#32;since&#32;initialization</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00015"/><link linkend="_struct_geiger_data_1a81ecc00a99630edc0699b19bdc7ae140">00015</link> &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;<link linkend="_struct_geiger_data_1a81ecc00a99630edc0699b19bdc7ae140">uSv</link>&#32;=&#32;0.0;&#32;&#32;<emphasis role="comment">//&#32;cpm_comp&#32;converted&#32;to&#32;uSv/h</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00016"/><link linkend="_struct_geiger_data_1a2bcd68de2b048b085cd1a35a4648ff15">00016</link> &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;<link linkend="_struct_geiger_data_1a2bcd68de2b048b085cd1a35a4648ff15">Bqm2</link>&#32;=&#32;0.0;&#32;&#32;<emphasis role="comment">//&#32;cpm_comp&#32;converted&#32;to&#32;Bq/m²</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00017"/><link linkend="_struct_geiger_data_1aef46f8c0c1fce07338a04c92ed102329">00017</link> &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;<link linkend="_struct_geiger_data_1aef46f8c0c1fce07338a04c92ed102329">uSv_sec</link>&#32;=&#32;0.0;&#32;&#32;<emphasis role="comment">//&#32;cps&#32;converted&#32;to&#32;uSv/h</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00018"/><link linkend="_struct_geiger_data_1a2510caebbe9da3c2ba64b4744ffe6da3">00018</link> &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;<link linkend="_struct_geiger_data_1a2510caebbe9da3c2ba64b4744ffe6da3">Bqm2_sec</link>&#32;=&#32;0.0;&#32;&#32;<emphasis role="comment">//&#32;cps&#32;converted&#32;to&#32;Bq/m²</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00019"/><link linkend="_struct_geiger_data_1afec940a76e00b11fdfb2070605e50e84">00019</link> &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;<link linkend="_struct_geiger_data_1afec940a76e00b11fdfb2070605e50e84">uSv_5sec</link>&#32;=&#32;0.0;&#32;&#32;<emphasis role="comment">//&#32;cp5s&#32;converted&#32;to&#32;uSv/h</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00020"/><link linkend="_struct_geiger_data_1a534aff9ab3721280a60b60fcee99aebc">00020</link> &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;<link linkend="_struct_geiger_data_1a534aff9ab3721280a60b60fcee99aebc">Bqm2_5sec</link>&#32;=&#32;0.0;&#32;&#32;<emphasis role="comment">//&#32;cp5s&#32;converted&#32;to&#32;Bq/m²</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00021"/><link linkend="_struct_geiger_data_1ae88406bbe767571e0d180c93d2a77fa7">00021</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_struct_geiger_data_1ae88406bbe767571e0d180c93d2a77fa7">alert</link>&#32;=&#32;<emphasis role="keyword">false</emphasis>;&#32;&#32;<emphasis role="comment">//&#32;cpm_comp&#32;&gt;&#32;alert&#32;level</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00022"/>00022 };
+<anchor xml:id="_gm__sensor_8h_source_1l00023"/>00023 
+<anchor xml:id="_gm__sensor_8h_source_1l00027"/><link linkend="_class_geiger_counter">00027</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_geiger_counter">GeigerCounter</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;Worker&lt;GeigerData&gt;&#32;{
+<anchor xml:id="_gm__sensor_8h_source_1l00028"/>00028 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_gm__sensor_8h_source_1l00029"/>00029 &#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_class_geiger_counter_1aa91591f3424f247fd3e7f856839284e7">GeigerCounter</link>();
+<anchor xml:id="_gm__sensor_8h_source_1l00030"/><link linkend="_class_geiger_counter_1ad04e18dfaf857c1af8d0d182e67e1b29">00030</link> &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_geiger_counter_1ad04e18dfaf857c1af8d0d182e67e1b29">~GeigerCounter</link>()&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="_gm__sensor_8h_source_1l00031"/>00031 
+<anchor xml:id="_gm__sensor_8h_source_1l00032"/>00032 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_geiger_counter_1a20619a3dcabbac2b7595322d283ccb72">activate</link>(<emphasis role="keywordtype">bool</emphasis>&#32;retry)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_gm__sensor_8h_source_1l00033"/>00033 
+<anchor xml:id="_gm__sensor_8h_source_1l00034"/>00034 &#32;&#32;int8_t&#32;<link linkend="_class_geiger_counter_1ad27d8d0865e390e098d762e7a1d3de73">produce_data</link>()&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_gm__sensor_8h_source_1l00035"/>00035 &#32;&#32;
+<anchor xml:id="_gm__sensor_8h_source_1l00036"/>00036 &#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_gm__sensor_8h_source_1l00037"/>00037 &#32;&#32;<link linkend="_class_hardware_counter">HardwareCounter</link>&#32;pulse_counter;
+<anchor xml:id="_gm__sensor_8h_source_1l00038"/>00038 &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;_ush_factor&#32;=&#32;1.0&#32;/&#32;<link linkend="_user__config_8h_1a2aa1fad3e1a6050d9f8f3c86a0b080d0">SETUP_DEFAULT_USH_DIVIDER</link>;
+<anchor xml:id="_gm__sensor_8h_source_1l00039"/>00039 &#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;_bqm2_factor&#32;=&#32;<link linkend="_user__config_8h_1ab26b3dfb90d6765681099e737667c82a">SETUP_DEFAULT_BQM2_FACTOR</link>;&#32;&#32;<emphasis role="comment">//&#32;default&#32;factor&#32;for&#32;surface&#32;measurements</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00040"/>00040 &#32;&#32;uint32_t&#32;_cpm_alert_level&#32;=&#32;<link linkend="_user__config_8h_1ab7624ab834688b7fd335af2a43210451">SETUP_DEFAULT_ALERT_LEVEL</link>;
+<anchor xml:id="_gm__sensor_8h_source_1l00041"/>00041 
+<anchor xml:id="_gm__sensor_8h_source_1l00042"/>00042 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;_pos&#32;=&#32;0;&#32;&#32;<emphasis role="comment">//&#32;current&#32;position&#32;in&#32;shift&#32;register</emphasis>
+<anchor xml:id="_gm__sensor_8h_source_1l00043"/>00043 &#32;&#32;std::array&lt;uint32_t,&#32;GEIGER_AVERAGING_N_BINS&gt;&#32;_shift_reg;
+<anchor xml:id="_gm__sensor_8h_source_1l00044"/>00044 
+<anchor xml:id="_gm__sensor_8h_source_1l00045"/>00045 
+<anchor xml:id="_gm__sensor_8h_source_1l00046"/>00046 };
+<anchor xml:id="_gm__sensor_8h_source_1l00047"/>00047 
+<anchor xml:id="_gm__sensor_8h_source_1l00048"/>00048 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//BGEIGIEZEN_GEIGER_COUNTER_H_</emphasis>
+</programlisting></section>

@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_configuration__server_8cpp_source" xml:lang="en-US">
+<title>configuration_server.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/workers/configuration_server.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_configuration__server_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_configuration__server_8h">configuration_server.h</link>&quot;</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_user__config_8h">user_config.h</link>&quot;</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_http__pages_8h">utils/http_pages.h</link>&quot;</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00004"/>00004 
+<anchor xml:id="_configuration__server_8cpp_source_1l00005"/><link linkend="_configuration__server_8cpp_1ab28fa84742de00ea3342319de160ff37">00005</link> <emphasis role="preprocessor">#define&#32;RETRY_TIMEOUT&#32;4000</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00006"/>00006 
+<anchor xml:id="_configuration__server_8cpp_source_1l00007"/>00007 <emphasis role="keyword">template</emphasis>&lt;<emphasis role="keyword">typename</emphasis>&#32;T,&#32;<emphasis role="keyword">typename</emphasis>&#32;T2&gt;
+<anchor xml:id="_configuration__server_8cpp_source_1l00008"/><link linkend="_configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653">00008</link> T&#32;<link linkend="_configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653">clamp</link>(T2&#32;val,&#32;T&#32;min,&#32;T&#32;max)&#32;{
+<anchor xml:id="_configuration__server_8cpp_source_1l00009"/>00009 &#32;&#32;T&#32;_val&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis>T<emphasis role="keyword">&gt;</emphasis>(val);
+<anchor xml:id="_configuration__server_8cpp_source_1l00010"/>00010 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_val&#32;&lt;&#32;min&#32;?&#32;min&#32;:&#32;_val&#32;&gt;&#32;max&#32;?&#32;max&#32;:&#32;_val;
+<anchor xml:id="_configuration__server_8cpp_source_1l00011"/>00011 }
+<anchor xml:id="_configuration__server_8cpp_source_1l00012"/>00012 
+<anchor xml:id="_configuration__server_8cpp_source_1l00013"/><link linkend="_class_config_web_server_1a001c5b747ffda5655ffa7828efe7a83b">00013</link> <link linkend="_class_config_web_server_1a001c5b747ffda5655ffa7828efe7a83b">ConfigWebServer::ConfigWebServer</link>(<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;config)
+<anchor xml:id="_configuration__server_8cpp_source_1l00014"/>00014 &#32;&#32;&#32;&#32;:&#32;Worker&lt;<link linkend="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4a">ServerStatus</link>&gt;(<link linkend="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aa4b8c7d857d90208a15c3af10b3eaf36a">k_server_status_offline</link>,&#32;0),
+<anchor xml:id="_configuration__server_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;&#32;&#32;_server(<link linkend="_user__config_8h_1a2e6a8253ab0bc7773cfccfb1ae8d5fbc">SERVER_WIFI_PORT</link>),
+<anchor xml:id="_configuration__server_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;&#32;&#32;_config(config)&#32;{
+<anchor xml:id="_configuration__server_8cpp_source_1l00017"/>00017 &#32;&#32;<link linkend="_class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092">add_urls</link>();
+<anchor xml:id="_configuration__server_8cpp_source_1l00018"/>00018 }
+<anchor xml:id="_configuration__server_8cpp_source_1l00019"/>00019 
+<anchor xml:id="_configuration__server_8cpp_source_1l00020"/><link linkend="_class_config_web_server_1a5fba48f2cf78029036a923eb27bc0674">00020</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_config_web_server_1a5fba48f2cf78029036a923eb27bc0674">ConfigWebServer::activate</link>(<emphasis role="keywordtype">bool</emphasis>)&#32;{
+<anchor xml:id="_configuration__server_8cpp_source_1l00021"/>00021 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(<link linkend="_class_wi_fi_connection_wrapper_1add8ab8299b5dcdcb6643f12aa0a46857">WiFiConnectionWrapper::wifi_connected</link>()&#32;||&#32;<link linkend="_class_wi_fi_connection_wrapper_1a23df574a3c026ba7dc02ad887ac3f403">WiFiConnectionWrapper::ap_server_up</link>())&#32;{
+<anchor xml:id="_configuration__server_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Set&#32;DNS&#32;hostname&#32;for&#32;easy&#32;access</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;hostname[16];
+<anchor xml:id="_configuration__server_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;sprintf(hostname,&#32;<link linkend="_user__config_8h_1a61e55f831ccc0dca94bf0e0f121f2a7c">ACCESS_POINT_SSID</link>,&#32;_config.<link linkend="_class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65">get_device_id</link>());
+<anchor xml:id="_configuration__server_8cpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<link linkend="_class_wi_fi_connection_wrapper_1a9c470948d1171fc6b9740386b19ccf32">WiFiConnectionWrapper::set_hostname</link>(hostname,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_configuration__server_8cpp_source_1l00026"/>00026 
+<anchor xml:id="_configuration__server_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Start&#32;config&#32;server</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;_server.begin(<link linkend="_user__config_8h_1a2e6a8253ab0bc7773cfccfb1ae8d5fbc">SERVER_WIFI_PORT</link>);
+<anchor xml:id="_configuration__server_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;<link linkend="_class_http_pages_1a9d1744128b715be721740fe9783a3b98">HttpPages::internet_access</link>&#32;=&#32;<link linkend="_class_wi_fi_connection_wrapper_1add8ab8299b5dcdcb6643f12aa0a46857">WiFiConnectionWrapper::wifi_connected</link>();
+<anchor xml:id="_configuration__server_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_configuration__server_8cpp_source_1l00031"/>00031 &#32;&#32;}
+<anchor xml:id="_configuration__server_8cpp_source_1l00032"/>00032 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_configuration__server_8cpp_source_1l00033"/>00033 }
+<anchor xml:id="_configuration__server_8cpp_source_1l00034"/>00034 
+<anchor xml:id="_configuration__server_8cpp_source_1l00035"/><link linkend="_class_config_web_server_1ac0bce5e4a438388e030c21d56243c643">00035</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_config_web_server_1ac0bce5e4a438388e030c21d56243c643">ConfigWebServer::deactivate</link>()&#32;{
+<anchor xml:id="_configuration__server_8cpp_source_1l00036"/>00036 &#32;&#32;_server.close();
+<anchor xml:id="_configuration__server_8cpp_source_1l00037"/>00037 &#32;&#32;_server.stop();
+<anchor xml:id="_configuration__server_8cpp_source_1l00038"/>00038 }
+<anchor xml:id="_configuration__server_8cpp_source_1l00039"/>00039 
+<anchor xml:id="_configuration__server_8cpp_source_1l00040"/><link linkend="_class_config_web_server_1a1275de30c892a8fc52e64f958732ac91">00040</link> int8_t&#32;<link linkend="_class_config_web_server_1a1275de30c892a8fc52e64f958732ac91">ConfigWebServer::produce_data</link>()&#32;{
+<anchor xml:id="_configuration__server_8cpp_source_1l00041"/>00041 &#32;&#32;_server.handleClient();
+<anchor xml:id="_configuration__server_8cpp_source_1l00042"/>00042 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(data&#32;==&#32;<link linkend="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aa4b8c7d857d90208a15c3af10b3eaf36a">k_server_status_offline</link>)&#32;{
+<anchor xml:id="_configuration__server_8cpp_source_1l00043"/>00043 &#32;&#32;&#32;&#32;data&#32;=&#32;<link linkend="_class_http_pages_1a9d1744128b715be721740fe9783a3b98">HttpPages::internet_access</link>&#32;?&#32;<link linkend="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aacdcee34b8952d730fe2ec62d29195b4c">k_server_status_running_wifi</link>&#32;:&#32;<link linkend="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aae66ec56782b751934b4ae350253e524c">k_server_status_running_access_point</link>;
+<anchor xml:id="_configuration__server_8cpp_source_1l00044"/>00044 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;Worker::e_worker_data_read;
+<anchor xml:id="_configuration__server_8cpp_source_1l00045"/>00045 &#32;&#32;}
+<anchor xml:id="_configuration__server_8cpp_source_1l00046"/>00046 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;Worker::e_worker_idle;
+<anchor xml:id="_configuration__server_8cpp_source_1l00047"/>00047 }
+<anchor xml:id="_configuration__server_8cpp_source_1l00048"/>00048 
+<anchor xml:id="_configuration__server_8cpp_source_1l00049"/><link linkend="_class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092">00049</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092">ConfigWebServer::add_urls</link>()&#32;{
+<anchor xml:id="_configuration__server_8cpp_source_1l00050"/>00050 &#32;&#32;<emphasis role="comment">//&#32;Home</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00051"/>00051 &#32;&#32;_server.on(<emphasis role="stringliteral">&quot;/&quot;</emphasis>,&#32;HTTP_GET,&#32;[<emphasis role="keyword">this</emphasis>]()&#32;{
+<anchor xml:id="_configuration__server_8cpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;_server.sendHeader(<emphasis role="stringliteral">&quot;Connection&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;close&quot;</emphasis>);
+<anchor xml:id="_configuration__server_8cpp_source_1l00053"/>00053 &#32;&#32;&#32;&#32;_server.send(200,&#32;<emphasis role="stringliteral">&quot;text/html&quot;</emphasis>,&#32;<link linkend="_class_http_pages_1a1d1d7cd02d52ee3802c8a968777d4c51">HttpPages::get_home_page</link>(_config.<link linkend="_class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65">get_device_id</link>()));
+<anchor xml:id="_configuration__server_8cpp_source_1l00054"/>00054 &#32;&#32;});
+<anchor xml:id="_configuration__server_8cpp_source_1l00055"/>00055 
+<anchor xml:id="_configuration__server_8cpp_source_1l00056"/>00056 &#32;&#32;<emphasis role="comment">//&#32;Configure&#32;Device</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00057"/>00057 &#32;&#32;_server.on(<emphasis role="stringliteral">&quot;/device&quot;</emphasis>,&#32;HTTP_GET,&#32;[<emphasis role="keyword">this</emphasis>]()&#32;{
+<anchor xml:id="_configuration__server_8cpp_source_1l00058"/>00058 &#32;&#32;&#32;&#32;_server.sendHeader(<emphasis role="stringliteral">&quot;Connection&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;close&quot;</emphasis>);
+<anchor xml:id="_configuration__server_8cpp_source_1l00059"/>00059 &#32;&#32;&#32;&#32;_server.send(200,&#32;<emphasis role="stringliteral">&quot;text/html&quot;</emphasis>,&#32;<link linkend="_class_http_pages_1a699f3b010b822aeef2cf40f0d865038c">HttpPages::get_config_device_page</link>(
+<anchor xml:id="_configuration__server_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_server.hasArg(<emphasis role="stringliteral">&quot;success&quot;</emphasis>),
+<anchor xml:id="_configuration__server_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_config.<link linkend="_class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65">get_device_id</link>()
+<anchor xml:id="_configuration__server_8cpp_source_1l00062"/>00062 &#32;&#32;&#32;&#32;));
+<anchor xml:id="_configuration__server_8cpp_source_1l00063"/>00063 &#32;&#32;});
+<anchor xml:id="_configuration__server_8cpp_source_1l00064"/>00064 
+<anchor xml:id="_configuration__server_8cpp_source_1l00065"/>00065 &#32;&#32;<emphasis role="comment">//&#32;Configure&#32;Connection</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00066"/>00066 &#32;&#32;_server.on(<emphasis role="stringliteral">&quot;/connection&quot;</emphasis>,&#32;HTTP_GET,&#32;[<emphasis role="keyword">this</emphasis>]()&#32;{
+<anchor xml:id="_configuration__server_8cpp_source_1l00067"/>00067 &#32;&#32;&#32;&#32;_server.sendHeader(<emphasis role="stringliteral">&quot;Connection&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;close&quot;</emphasis>);
+<anchor xml:id="_configuration__server_8cpp_source_1l00068"/>00068 &#32;&#32;&#32;&#32;_server.send(200,&#32;<emphasis role="stringliteral">&quot;text/html&quot;</emphasis>,&#32;<link linkend="_class_http_pages_1a71db1b40789f4ad547741bc3b5a4b9a2">HttpPages::get_config_connection_page</link>(
+<anchor xml:id="_configuration__server_8cpp_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_server.hasArg(<emphasis role="stringliteral">&quot;success&quot;</emphasis>),
+<anchor xml:id="_configuration__server_8cpp_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_config.<link linkend="_class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65">get_device_id</link>()
+<anchor xml:id="_configuration__server_8cpp_source_1l00071"/>00071 &#32;&#32;&#32;&#32;));
+<anchor xml:id="_configuration__server_8cpp_source_1l00072"/>00072 &#32;&#32;});
+<anchor xml:id="_configuration__server_8cpp_source_1l00073"/>00073 
+<anchor xml:id="_configuration__server_8cpp_source_1l00074"/>00074 &#32;&#32;<emphasis role="comment">//&#32;Configure&#32;Location</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00075"/>00075 &#32;&#32;_server.on(<emphasis role="stringliteral">&quot;/location&quot;</emphasis>,&#32;HTTP_GET,&#32;[<emphasis role="keyword">this</emphasis>]()&#32;{
+<anchor xml:id="_configuration__server_8cpp_source_1l00076"/>00076 
+<anchor xml:id="_configuration__server_8cpp_source_1l00077"/>00077 &#32;&#32;&#32;&#32;_server.sendHeader(<emphasis role="stringliteral">&quot;Connection&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;close&quot;</emphasis>);
+<anchor xml:id="_configuration__server_8cpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;_server.send(200,&#32;<emphasis role="stringliteral">&quot;text/html&quot;</emphasis>,&#32;<link linkend="_class_http_pages_1a75dc19ae45871ef3dfc2c412fe520862">HttpPages::get_config_location_page</link>(
+<anchor xml:id="_configuration__server_8cpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_server.hasArg(<emphasis role="stringliteral">&quot;success&quot;</emphasis>),
+<anchor xml:id="_configuration__server_8cpp_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_config.<link linkend="_class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65">get_device_id</link>()
+<anchor xml:id="_configuration__server_8cpp_source_1l00081"/>00081 &#32;&#32;&#32;&#32;));
+<anchor xml:id="_configuration__server_8cpp_source_1l00082"/>00082 
+<anchor xml:id="_configuration__server_8cpp_source_1l00083"/>00083 &#32;&#32;&#32;&#32;_server.sendHeader(<emphasis role="stringliteral">&quot;Connection&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;close&quot;</emphasis>);
+<anchor xml:id="_configuration__server_8cpp_source_1l00084"/>00084 &#32;&#32;});
+<anchor xml:id="_configuration__server_8cpp_source_1l00085"/>00085 
+<anchor xml:id="_configuration__server_8cpp_source_1l00086"/>00086 &#32;&#32;<emphasis role="comment">//&#32;Save&#32;config</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00087"/>00087 &#32;&#32;_server.on(<emphasis role="stringliteral">&quot;/save&quot;</emphasis>,&#32;HTTP_POST,&#32;[<emphasis role="keyword">this</emphasis>]()&#32;{
+<anchor xml:id="_configuration__server_8cpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;handle_save();
+<anchor xml:id="_configuration__server_8cpp_source_1l00089"/>00089 &#32;&#32;});
+<anchor xml:id="_configuration__server_8cpp_source_1l00090"/>00090 
+<anchor xml:id="_configuration__server_8cpp_source_1l00091"/>00091 &#32;&#32;_server.on(<emphasis role="stringliteral">&quot;/reboot&quot;</emphasis>,&#32;[<emphasis role="keyword">this</emphasis>]()&#32;{&#32;<emphasis role="comment">//&#32;Reboot</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00092"/>00092 &#32;&#32;&#32;&#32;_server.send(200,&#32;<emphasis role="stringliteral">&quot;text/plain&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;OK&quot;</emphasis>);
+<anchor xml:id="_configuration__server_8cpp_source_1l00093"/>00093 &#32;&#32;&#32;&#32;_server.client().flush();
+<anchor xml:id="_configuration__server_8cpp_source_1l00094"/>00094 &#32;&#32;&#32;&#32;ESP.restart();
+<anchor xml:id="_configuration__server_8cpp_source_1l00095"/>00095 &#32;&#32;});
+<anchor xml:id="_configuration__server_8cpp_source_1l00096"/>00096 
+<anchor xml:id="_configuration__server_8cpp_source_1l00097"/>00097 &#32;&#32;<emphasis role="comment">//&#32;css&#32;get</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00098"/>00098 &#32;&#32;_server.on(<emphasis role="stringliteral">&quot;/pure.css&quot;</emphasis>,&#32;HTTP_GET,&#32;[<emphasis role="keyword">this</emphasis>]()&#32;{
+<anchor xml:id="_configuration__server_8cpp_source_1l00099"/>00099 &#32;&#32;&#32;&#32;_server.sendHeader(<emphasis role="stringliteral">&quot;Content-Encoding&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;gzip&quot;</emphasis>);
+<anchor xml:id="_configuration__server_8cpp_source_1l00100"/>00100 &#32;&#32;&#32;&#32;_server.send_P(200,&#32;<emphasis role="stringliteral">&quot;text/css&quot;</emphasis>,&#32;<emphasis role="keyword">reinterpret_cast&lt;</emphasis><emphasis role="keyword">const&#32;</emphasis><emphasis role="keywordtype">char</emphasis>*<emphasis role="keyword">&gt;</emphasis>(<link linkend="_class_http_pages_1a4a7f7da507251011076206062a49e0af">HttpPages::pure_css</link>),&#32;<link linkend="_http__pages_8h_1ada5878d891f82a42326746c9dbe6b9a6">PURE_CSS_SIZE</link>);
+<anchor xml:id="_configuration__server_8cpp_source_1l00101"/>00101 &#32;&#32;});
+<anchor xml:id="_configuration__server_8cpp_source_1l00102"/>00102 
+<anchor xml:id="_configuration__server_8cpp_source_1l00103"/>00103 &#32;&#32;<emphasis role="comment">//&#32;css&#32;get</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00104"/>00104 &#32;&#32;_server.on(<emphasis role="stringliteral">&quot;/favicon.ico&quot;</emphasis>,&#32;HTTP_GET,&#32;[<emphasis role="keyword">this</emphasis>]()&#32;{
+<anchor xml:id="_configuration__server_8cpp_source_1l00105"/>00105 &#32;&#32;&#32;&#32;_server.send_P(200,&#32;<emphasis role="stringliteral">&quot;image/x-icon&quot;</emphasis>,&#32;<emphasis role="keyword">reinterpret_cast&lt;</emphasis><emphasis role="keyword">const&#32;</emphasis><emphasis role="keywordtype">char</emphasis>*<emphasis role="keyword">&gt;</emphasis>(<link linkend="_class_http_pages_1a9be2569908780465b83751bc08251a61">HttpPages::favicon</link>),&#32;<link linkend="_http__pages_8h_1abc7068a1efb6caca697cbfa09cb56f32">FAVICON_SIZE</link>);
+<anchor xml:id="_configuration__server_8cpp_source_1l00106"/>00106 &#32;&#32;});
+<anchor xml:id="_configuration__server_8cpp_source_1l00107"/>00107 }
+<anchor xml:id="_configuration__server_8cpp_source_1l00108"/>00108 
+<anchor xml:id="_configuration__server_8cpp_source_1l00109"/>00109 <emphasis role="keywordtype">void</emphasis>&#32;ConfigWebServer::handle_save()&#32;{
+<anchor xml:id="_configuration__server_8cpp_source_1l00110"/>00110 <emphasis role="comment">//&#32;&#32;if(_server.hasArg(...))&#32;{</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00111"/>00111 <emphasis role="comment">//&#32;&#32;&#32;&#32;_config.set...(_server.arg(...).c_str(),&#32;...);</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00112"/>00112 <emphasis role="comment">//&#32;&#32;}</emphasis>
+<anchor xml:id="_configuration__server_8cpp_source_1l00113"/>00113 
+<anchor xml:id="_configuration__server_8cpp_source_1l00114"/>00114 &#32;&#32;_server.sendHeader(<emphasis role="stringliteral">&quot;Location&quot;</emphasis>,&#32;_server.arg(<emphasis role="stringliteral">&quot;next&quot;</emphasis>)&#32;+&#32;<emphasis role="stringliteral">&quot;?success=true&quot;</emphasis>);
+<anchor xml:id="_configuration__server_8cpp_source_1l00115"/>00115 &#32;&#32;_server.send(302,&#32;<emphasis role="stringliteral">&quot;text/html&quot;</emphasis>);
+<anchor xml:id="_configuration__server_8cpp_source_1l00116"/>00116 &#32;&#32;_server.client().flush();
+<anchor xml:id="_configuration__server_8cpp_source_1l00117"/>00117 }
+</programlisting></section>

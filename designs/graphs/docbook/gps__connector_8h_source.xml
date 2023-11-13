@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_gps__connector_8h_source" xml:lang="en-US">
+<title>gps_connector.h</title>
+<indexterm><primary>bgeigiezen_firmware/workers/gps_connector.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_gps__connector_8h_source_1l00001"/>00001 
+<anchor xml:id="_gps__connector_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#ifndef&#32;BGEIGIEZEN_GPS_SENSOR_H_</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00012"/>00012 <emphasis role="preprocessor">#define&#32;BGEIGIEZEN_GPS_SENSOR_H_</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00013"/>00013 
+<anchor xml:id="_gps__connector_8h_source_1l00014"/>00014 <emphasis role="preprocessor">#include&#32;&lt;Arduino.h&gt;</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00015"/>00015 <emphasis role="preprocessor">#include&#32;&lt;RBD_Timer.h&gt;</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00016"/>00016 <emphasis role="preprocessor">#include&#32;&lt;Worker.hpp&gt;</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00017"/>00017 <emphasis role="preprocessor">#include&#32;&lt;<link linkend="_user__config_8h">user_config.h</link>&gt;</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00018"/>00018 
+<anchor xml:id="_gps__connector_8h_source_1l00019"/>00019 <emphasis role="comment">//&#32;Sparkfun&#32;Electronics&#32;library&#32;v2&#32;(original&#32;is&#32;deprecated,&#32;V3&#32;is&#32;for&#32;devices&#32;newer&#32;than&#32;M8)</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00020"/>00020 <emphasis role="comment">//&#32;Apply&#32;these&#32;two&#32;definitions&#32;here&#32;instead&#32;of&#32;altering&#32;the&#32;files&#32;in&#32;libdeps</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00021"/>00021 <emphasis role="comment">//&#32;Uncomment&#32;the&#32;next&#32;line&#32;(or&#32;add&#32;SFE_UBLOX_REDUCED_PROG_MEM&#32;as&#32;a&#32;compiler&#32;directive)&#32;to&#32;reduce&#32;the&#32;amount&#32;of&#32;program&#32;memory&#32;used&#32;by&#32;the&#32;library</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00022"/><link linkend="_gps__connector_8h_1a9a2b3fc7d7a953453f2b5167ab13f540">00022</link> <emphasis role="preprocessor">#define&#32;SFE_UBLOX_REDUCED_PROG_MEM&#32;</emphasis><emphasis role="comment">//&#32;Uncommenting&#32;this&#32;line&#32;will&#32;delete&#32;the&#32;minor&#32;debug&#32;messages&#32;to&#32;save&#32;memory</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00023"/>00023 <emphasis role="comment">//&#32;Uncomment&#32;the&#32;next&#32;line&#32;(or&#32;add&#32;SFE_UBLOX_DISABLE_AUTO_NMEA&#32;as&#32;a&#32;compiler&#32;directive)&#32;to&#32;reduce&#32;the&#32;amount&#32;of&#32;program&#32;memory&#32;used&#32;by&#32;the&#32;library</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00024"/><link linkend="_gps__connector_8h_1a3062f1162ea6e769a0391b729ba8fd43">00024</link> <emphasis role="preprocessor">#define&#32;SFE_UBLOX_DISABLE_AUTO_NMEA&#32;</emphasis><emphasis role="comment">//&#32;Uncommenting&#32;this&#32;line&#32;will&#32;disable&#32;auto-NMEA&#32;support&#32;to&#32;save&#32;memory</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00025"/>00025 <emphasis role="preprocessor">#include&#32;&lt;SparkFun_u-blox_GNSS_Arduino_Library.h&gt;</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00026"/>00026 
+<anchor xml:id="_gps__connector_8h_source_1l00027"/><link linkend="_struct_gnss_data">00027</link> <emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_gnss_data">GnssData</link>&#32;{
+<anchor xml:id="_gps__connector_8h_source_1l00028"/>00028 &#32;&#32;<emphasis role="comment">//&#32;When&#32;true,&#32;the&#32;item&#32;related&#32;to&#32;each&#32;Boolean&#32;is&#32;valid&#32;and&#32;updated&#32;in&#32;the</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00029"/>00029 &#32;&#32;<emphasis role="comment">//&#32;most&#32;recent&#32;poll&#32;of&#32;the&#32;gps_connector&#32;worker&#32;by&#32;the&#32;controller.&#32;If&#32;the&#32;</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00030"/>00030 &#32;&#32;<emphasis role="comment">//&#32;gps_connector&#32;doesn&apos;t&#32;have&#32;a&#32;new&#32;fix&#32;because&#32;it&#32;only&#32;becomes&#32;available</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00031"/>00031 &#32;&#32;<emphasis role="comment">//&#32;every&#32;1&#32;second,&#32;then&#32;the&#32;corresponding&#32;Boolean&#32;becomes&#32;false.</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00032"/>00032 &#32;&#32;<emphasis role="comment">//&#32;If&#32;stale,&#32;render&#32;in&#32;gray/white&#32;text.&#32;</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00033"/><link linkend="_struct_gnss_data_1a6912d592ab6fe6edce0f30c25601b947">00033</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_struct_gnss_data_1a6912d592ab6fe6edce0f30c25601b947">location_valid</link>;
+<anchor xml:id="_gps__connector_8h_source_1l00034"/><link linkend="_struct_gnss_data_1ae388719eb60b5e365c1ff37d0322eabf">00034</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_struct_gnss_data_1ae388719eb60b5e365c1ff37d0322eabf">satellites_valid</link>;
+<anchor xml:id="_gps__connector_8h_source_1l00035"/><link linkend="_struct_gnss_data_1a2dfadddc5f94b12baa0cf2ac3ccc1fd8">00035</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_struct_gnss_data_1a2dfadddc5f94b12baa0cf2ac3ccc1fd8">date_valid</link>;
+<anchor xml:id="_gps__connector_8h_source_1l00036"/><link linkend="_struct_gnss_data_1a44dce35e9d2ff7e54fe1a5daaafeb7e0">00036</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_struct_gnss_data_1a44dce35e9d2ff7e54fe1a5daaafeb7e0">time_valid</link>;
+<anchor xml:id="_gps__connector_8h_source_1l00037"/>00037 
+<anchor xml:id="_gps__connector_8h_source_1l00038"/><link linkend="_struct_gnss_data_1aedd0b5e4e6a8b73715ec2a5f97b97401">00038</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_struct_gnss_data_1aedd0b5e4e6a8b73715ec2a5f97b97401">valid</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_gps__connector_8h_source_1l00039"/>00039 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_struct_gnss_data_1a6912d592ab6fe6edce0f30c25601b947">location_valid</link>&#32;&amp;&amp;&#32;<link linkend="_struct_gnss_data_1ae388719eb60b5e365c1ff37d0322eabf">satellites_valid</link>&#32;&amp;&amp;&#32;<link linkend="_struct_gnss_data_1a2dfadddc5f94b12baa0cf2ac3ccc1fd8">date_valid</link>&#32;&amp;&amp;&#32;<link linkend="_struct_gnss_data_1a44dce35e9d2ff7e54fe1a5daaafeb7e0">time_valid</link>;
+<anchor xml:id="_gps__connector_8h_source_1l00040"/>00040 &#32;&#32;}
+<anchor xml:id="_gps__connector_8h_source_1l00041"/>00041 
+<anchor xml:id="_gps__connector_8h_source_1l00042"/>00042 &#32;&#32;<emphasis role="comment">//&#32;Position</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00043"/><link linkend="_struct_gnss_data_1a81efa192d3bc42bba228fb66e0322f57">00043</link> &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_struct_gnss_data_1a81efa192d3bc42bba228fb66e0322f57">latitude</link>;&#32;&#32;<emphasis role="comment">//&#32;Longitude:&#32;deg</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00044"/><link linkend="_struct_gnss_data_1a3869e76ad6bc7e1da392f31a620467aa">00044</link> &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_struct_gnss_data_1a3869e76ad6bc7e1da392f31a620467aa">longitude</link>;&#32;<emphasis role="comment">//&#32;Longitude:&#32;deg</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00045"/><link linkend="_struct_gnss_data_1a76141979345be47d549b4b573e2f02ee">00045</link> &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_struct_gnss_data_1a76141979345be47d549b4b573e2f02ee">altitudeMSL</link>;&#32;&#32;<emphasis role="comment">//&#32;above&#32;mean&#32;sea&#32;level&#32;in&#32;meters</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00046"/>00046 
+<anchor xml:id="_gps__connector_8h_source_1l00047"/>00047 &#32;&#32;<emphasis role="comment">//&#32;Confidence</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00048"/><link linkend="_struct_gnss_data_1a5c0549e186eda2349ba05c53ea33fb71">00048</link> &#32;&#32;uint8_t&#32;<link linkend="_struct_gnss_data_1a5c0549e186eda2349ba05c53ea33fb71">satsInView</link>;&#32;&#32;<emphasis role="comment">//&#32;satellites&#32;used&#32;to&#32;calculate&#32;fix</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00049"/><link linkend="_struct_gnss_data_1aabd167b8694b8e15bb695241b5c6242d">00049</link> &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_struct_gnss_data_1aabd167b8694b8e15bb695241b5c6242d">hdop</link>;
+<anchor xml:id="_gps__connector_8h_source_1l00050"/>00050 
+<anchor xml:id="_gps__connector_8h_source_1l00051"/>00051 
+<anchor xml:id="_gps__connector_8h_source_1l00052"/>00052 &#32;&#32;<emphasis role="comment">//&#32;Date&#32;&amp;&#32;Time</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00053"/><link linkend="_struct_gnss_data_1a3ea97efe2658783303e9567d6ff79ff1">00053</link> &#32;&#32;uint16_t&#32;<link linkend="_struct_gnss_data_1a3ea97efe2658783303e9567d6ff79ff1">year</link>;
+<anchor xml:id="_gps__connector_8h_source_1l00054"/><link linkend="_struct_gnss_data_1a43b69cd3cf4afbbd71a2b6574b33e487">00054</link> &#32;&#32;uint8_t&#32;<link linkend="_struct_gnss_data_1a43b69cd3cf4afbbd71a2b6574b33e487">month</link>;
+<anchor xml:id="_gps__connector_8h_source_1l00055"/><link linkend="_struct_gnss_data_1a6851119d66adbff10f39148a71a51a51">00055</link> &#32;&#32;uint8_t&#32;<link linkend="_struct_gnss_data_1a6851119d66adbff10f39148a71a51a51">day</link>;
+<anchor xml:id="_gps__connector_8h_source_1l00056"/><link linkend="_struct_gnss_data_1a7b758dda23019c4603a07046b252e9b8">00056</link> &#32;&#32;uint8_t&#32;<link linkend="_struct_gnss_data_1a7b758dda23019c4603a07046b252e9b8">hour</link>;
+<anchor xml:id="_gps__connector_8h_source_1l00057"/><link linkend="_struct_gnss_data_1a21f857584d5627b3a01fc775dbe66691">00057</link> &#32;&#32;uint8_t&#32;<link linkend="_struct_gnss_data_1a21f857584d5627b3a01fc775dbe66691">minute</link>;
+<anchor xml:id="_gps__connector_8h_source_1l00058"/><link linkend="_struct_gnss_data_1a2d68cd9dd5fb0405a7c507a318ccfaf1">00058</link> &#32;&#32;uint8_t&#32;<link linkend="_struct_gnss_data_1a2d68cd9dd5fb0405a7c507a318ccfaf1">second</link>;
+<anchor xml:id="_gps__connector_8h_source_1l00059"/>00059 
+<anchor xml:id="_gps__connector_8h_source_1l00060"/>00060 };
+<anchor xml:id="_gps__connector_8h_source_1l00061"/>00061 
+<anchor xml:id="_gps__connector_8h_source_1l00065"/><link linkend="_class_gps_connector">00065</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_gps_connector">GpsConnector</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;Worker&lt;GnssData&gt;&#32;{
+<anchor xml:id="_gps__connector_8h_source_1l00066"/>00066 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_gps__connector_8h_source_1l00067"/>00067 
+<anchor xml:id="_gps__connector_8h_source_1l00068"/>00068 &#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_class_gps_connector">GpsConnector</link>(uint8_t&#32;gps_serial_num,&#32;SFE_UBLOX_GNSS&amp;&#32;gnss);
+<anchor xml:id="_gps__connector_8h_source_1l00069"/>00069 
+<anchor xml:id="_gps__connector_8h_source_1l00070"/><link linkend="_class_gps_connector_1a407cbc36ea5bca53e9471c4d27af4225">00070</link> &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_gps_connector_1a407cbc36ea5bca53e9471c4d27af4225">~GpsConnector</link>()&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="_gps__connector_8h_source_1l00071"/>00071 
+<anchor xml:id="_gps__connector_8h_source_1l00072"/>00072 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_gps_connector_1ae9c39a62d97e5491bb420cba02df2a98">activate</link>(<emphasis role="keywordtype">bool</emphasis>&#32;retry)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_gps__connector_8h_source_1l00073"/>00073 
+<anchor xml:id="_gps__connector_8h_source_1l00074"/>00074 &#32;&#32;int8_t&#32;<link linkend="_class_gps_connector_1a772998cb4be0a4a1f4964e7dfc6962db">produce_data</link>()&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_gps__connector_8h_source_1l00075"/>00075 
+<anchor xml:id="_gps__connector_8h_source_1l00076"/>00076 &#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_gps__connector_8h_source_1l00077"/>00077 &#32;&#32;<emphasis role="comment">/*&#32;u-blox&#32;UBX&#32;protocol&#32;query&#32;PVT&#32;gets&#32;position,&#32;velocity&#32;&amp;&#32;time&#32;in&#32;one&#32;call.</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00078"/>00078 <emphasis role="comment">&#32;&#32;&#32;*&#32;The&#32;call&#32;returns&#32;false&#32;if&#32;no&#32;new&#32;fix&#32;has&#32;been&#32;received.&#32;In&#32;other&#32;words,</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00079"/>00079 <emphasis role="comment">&#32;&#32;&#32;*&#32;each&#32;call&#32;only&#32;succeeds&#32;once&#32;until&#32;the&#32;next&#32;fix&#32;update.</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00080"/>00080 <emphasis role="comment">&#32;&#32;&#32;*&#32;Use&#32;pdop&#32;and&#32;satsInView&#32;to&#32;determine&#32;acceptability.</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00081"/>00081 <emphasis role="comment">&#32;&#32;*/</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00082"/>00082 &#32;&#32;SFE_UBLOX_GNSS&amp;&#32;<link linkend="_main_8cpp_1aa58ff36b40f59925c16651a5344ebfa8">gnss</link>;
+<anchor xml:id="_gps__connector_8h_source_1l00083"/>00083 &#32;&#32;HardwareSerial&#32;ss;
+<anchor xml:id="_gps__connector_8h_source_1l00084"/>00084 &#32;&#32;uint32_t&#32;tried_38400_at;
+<anchor xml:id="_gps__connector_8h_source_1l00085"/>00085 &#32;&#32;uint32_t&#32;tried_9600_at;
+<anchor xml:id="_gps__connector_8h_source_1l00086"/>00086 &#32;&#32;uint32_t&#32;_init_at;
+<anchor xml:id="_gps__connector_8h_source_1l00087"/>00087 
+<anchor xml:id="_gps__connector_8h_source_1l00088"/>00088 &#32;&#32;<emphasis role="comment">//&#32;Age&#32;each&#32;item.&#32;If&#32;the&#32;corresponding&#32;timer&#32;times&#32;out,&#32;it&apos;s&#32;stale.</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00089"/>00089 &#32;&#32;RBD::Timer&#32;location_timer{<link linkend="_user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691">GPS_FIX_AGE_LIMIT</link>};
+<anchor xml:id="_gps__connector_8h_source_1l00090"/>00090 &#32;&#32;RBD::Timer&#32;date_timer{<link linkend="_user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691">GPS_FIX_AGE_LIMIT</link>};
+<anchor xml:id="_gps__connector_8h_source_1l00091"/>00091 &#32;&#32;RBD::Timer&#32;time_timer{<link linkend="_user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691">GPS_FIX_AGE_LIMIT</link>};
+<anchor xml:id="_gps__connector_8h_source_1l00092"/>00092 &#32;&#32;RBD::Timer&#32;time_getpvt{<link linkend="_user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691">GPS_FIX_AGE_LIMIT</link>};&#32;&#32;<emphasis role="comment">//&#32;if&#32;no&#32;response&#32;from&#32;getPVT()</emphasis>
+<anchor xml:id="_gps__connector_8h_source_1l00093"/>00093 
+<anchor xml:id="_gps__connector_8h_source_1l00094"/>00094 };
+<anchor xml:id="_gps__connector_8h_source_1l00095"/>00095 
+<anchor xml:id="_gps__connector_8h_source_1l00096"/>00096 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//BGEIGIEZEN_GPS_SENSOR_H_</emphasis>
+</programlisting></section>
