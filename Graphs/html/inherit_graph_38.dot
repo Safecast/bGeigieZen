@@ -1,0 +1,15 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node0 [id="Node000000",label="Subject",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_subject.html",tooltip=" "];
+  Node0 -> Node1 [id="edge32_Node000000_Node000001",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 [id="Node000001",label="Measurement\< GPSData \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_measurement.html",tooltip=" "];
+  Node1 -> Node2 [id="edge33_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="GPSThread",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_g_p_s_thread.html",tooltip=" "];
+  Node0 -> Node3 [id="edge34_Node000000_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="Measurement\< T \>",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_measurement.html",tooltip=" "];
+}
