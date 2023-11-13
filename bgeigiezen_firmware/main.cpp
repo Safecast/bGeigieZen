@@ -103,7 +103,6 @@ void setup() {
   controller.register_worker(k_worker_device_state, controller);
 
   DEBUG_PRINTLN("Register handlers...");
-  controller.register_handler(k_handler_log_aggregator, log_aggregator);
   controller.register_handler(k_handler_local_storage, settings);
 
   DEBUG_PRINTLN("Register supervisors...");
