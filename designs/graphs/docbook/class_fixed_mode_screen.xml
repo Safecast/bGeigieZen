@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_fixed_mode_screen" xml:lang="en-US">
+<title>FixedModeScreen Class Reference</title>
+<indexterm><primary>FixedModeScreen</primary></indexterm>
+<para>
+<computeroutput>#include &lt;fixed_mode.h&gt;</computeroutput>
+</para>
+Inheritance diagram for FixedModeScreen:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_fixed_mode_screen__inherit__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for FixedModeScreen:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_fixed_mode_screen__coll__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>virtual <link linkend="_class_base_screen">BaseScreen</link> * <link linkend="_class_fixed_mode_screen_1afb1295bc1c4272752239f7ea2ee111a4">handle_input</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>, const worker_map_t &amp;workers) override</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_fixed_mode_screen_1ac6674655b2713b9cf9194eada7424ddd">enter_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>) override</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_fixed_mode_screen_1afcdf6db54b6e44220c39b0b0dfbcf162">leave_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>) override</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_class_base_screen">BaseScreen</link>        <itemizedlist>
+            <listitem><para>virtual <link linkend="_class_base_screen">BaseScreen</link> * <link linkend="_class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57">handle_input</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>, const worker_map_t &amp;workers)=0</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea">enter_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1">leave_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98">do_render</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers) final</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1a475d077e56c80429539f9c8a973752dd">force_next_render</link> () final</para>
+</listitem>
+            <listitem><para>virtual const char * <link linkend="_class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42">get_title</link> () const</para>
+</listitem>
+            <listitem><para>virtual bool <link linkend="_class_base_screen_1a2b0ff8ed2e49c96fa6e8d3e158d6db13">has_status_bar</link> () const</para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_fixed_mode_screen">FixedModeScreen</link> * <link linkend="_class_fixed_mode_screen_1ac55a276104c28aa1bc3891d1b24c1603">i</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af">render</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers, bool force) override</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Protected Member Functions inherited from <link linkend="_class_base_screen">BaseScreen</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_base_screen_1a2e28e5b4ef3027c3c4392dfb4a6c3ff8">BaseScreen</link> (const char *title, bool status_bar)</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_base_screen_1a86234c33321bb25d534c0347a946b084">~BaseScreen</link> ()=default</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1aca89a9c227f03adadb7022eb63ee3685">render</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers, bool force)=0</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_base_screen_1ac4042332f3362042ed3390297c8f1ea1">drawButton1</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_base_screen_1ad7040cea50962276539e67ac129d5c7c">drawButton2</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_base_screen_1a00da29022f614d7e72fd218ba1dcf747">drawButton3</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>)</para>
+</listitem>
+            <listitem><para>int16_t <link linkend="_class_base_screen_1a1129827abdd844b136988965ae4a72ba">printFloatFont</link> (float val, int prec, int x, int y, int font)</para>
+</listitem>
+            <listitem><para>int16_t <link linkend="_class_base_screen_1a7e56deb842ae278490c70910023eb8c8">printIntFont</link> (unsigned long val, int x, int y, int font)</para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+Public Types inherited from <link linkend="_class_base_screen">BaseScreen</link>        <itemizedlist>
+            <listitem><para>enum <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> { <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>
+, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669aeec92bb30ab578e6b0eceb97b61880fb">e_button_active</link>
+, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669aa1df192f7cb5a602ccdf145fb8e7bca2">e_button_disabled</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_fixed__mode_8h_source_1l00006">6</link> of file <link linkend="_fixed__mode_8h_source">fixed_mode.h</link>.</para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_fixed_mode_screen_1ac6674655b2713b9cf9194eada7424ddd"/><section>
+    <title>enter_screen()</title>
+<indexterm><primary>enter_screen</primary><secondary>FixedModeScreen</secondary></indexterm>
+<indexterm><primary>FixedModeScreen</primary><secondary>enter_screen</secondary></indexterm>
+<para><computeroutput>void FixedModeScreen::enter_screen (<link linkend="_class_controller">Controller</link> &amp; controller)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Enter the screen, use controller to enable screen specific workers/handlers 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>controller</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Reimplemented from <link linkend="_class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea">BaseScreen</link>.</para>
+<para>
+Definition at line <link linkend="_fixed__mode_8cpp_source_1l00021">21</link> of file <link linkend="_fixed__mode_8cpp_source">fixed_mode.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_fixed_mode_screen_1afb1295bc1c4272752239f7ea2ee111a4"/><section>
+    <title>handle_input()</title>
+<indexterm><primary>handle_input</primary><secondary>FixedModeScreen</secondary></indexterm>
+<indexterm><primary>FixedModeScreen</primary><secondary>handle_input</secondary></indexterm>
+<para><computeroutput><link linkend="_class_base_screen">BaseScreen</link> * FixedModeScreen::handle_input (<link linkend="_class_controller">Controller</link> &amp; controller, const worker_map_t &amp; workers)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Implements <link linkend="_class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57">BaseScreen</link>.</para>
+<para>
+Definition at line <link linkend="_fixed__mode_8cpp_source_1l00009">9</link> of file <link linkend="_fixed__mode_8cpp_source">fixed_mode.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_fixed_mode_screen_afb1295bc1c4272752239f7ea2ee111a4_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_fixed_mode_screen_1ac55a276104c28aa1bc3891d1b24c1603"/><section>
+    <title>i()</title>
+<indexterm><primary>i</primary><secondary>FixedModeScreen</secondary></indexterm>
+<indexterm><primary>FixedModeScreen</primary><secondary>i</secondary></indexterm>
+<para><computeroutput>static <link linkend="_class_fixed_mode_screen">FixedModeScreen</link> * FixedModeScreen::i ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_fixed__mode_8h_source_1l00008">8</link> of file <link linkend="_fixed__mode_8h_source">fixed_mode.h</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_fixed_mode_screen_ac55a276104c28aa1bc3891d1b24c1603_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_fixed_mode_screen_1afcdf6db54b6e44220c39b0b0dfbcf162"/><section>
+    <title>leave_screen()</title>
+<indexterm><primary>leave_screen</primary><secondary>FixedModeScreen</secondary></indexterm>
+<indexterm><primary>FixedModeScreen</primary><secondary>leave_screen</secondary></indexterm>
+<para><computeroutput>void FixedModeScreen::leave_screen (<link linkend="_class_controller">Controller</link> &amp; controller)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Leave the screen, use controller to disable screen specific workers/handlers 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>controller</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Reimplemented from <link linkend="_class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1">BaseScreen</link>.</para>
+<para>
+Definition at line <link linkend="_fixed__mode_8cpp_source_1l00024">24</link> of file <link linkend="_fixed__mode_8cpp_source">fixed_mode.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af"/><section>
+    <title>render()</title>
+<indexterm><primary>render</primary><secondary>FixedModeScreen</secondary></indexterm>
+<indexterm><primary>FixedModeScreen</primary><secondary>render</secondary></indexterm>
+<para><computeroutput>void FixedModeScreen::render (const worker_map_t &amp; workers, const handler_map_t &amp; handlers, bool force)<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Render the screen with latest data 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>workers</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>handlers</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implements <link linkend="_class_base_screen_1aca89a9c227f03adadb7022eb63ee3685">BaseScreen</link>.</para>
+<para>
+Definition at line <link linkend="_fixed__mode_8cpp_source_1l00017">17</link> of file <link linkend="_fixed__mode_8cpp_source">fixed_mode.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_fixed_mode_screen_a765438b789be58d1b2a14e3180c350af_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/screens/<link linkend="_fixed__mode_8h">fixed_mode.h</link>bgeigiezen_firmware/screens/<link linkend="_fixed__mode_8cpp">fixed_mode.cpp</link></section>
+</section>

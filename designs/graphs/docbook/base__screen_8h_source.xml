@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_base__screen_8h_source" xml:lang="en-US">
+<title>base_screen.h</title>
+<indexterm><primary>bgeigiezen_firmware/screens/base_screen.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_base__screen_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;BGEIGIEZEN_BASE_SCREEN_H_</emphasis>
+<anchor xml:id="_base__screen_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;BGEIGIEZEN_BASE_SCREEN_H_</emphasis>
+<anchor xml:id="_base__screen_8h_source_1l00003"/>00003 
+<anchor xml:id="_base__screen_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#ifdef&#32;M5_CORE2</emphasis>
+<anchor xml:id="_base__screen_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;M5Core2.h&gt;</emphasis>
+<anchor xml:id="_base__screen_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#elif&#32;M5_BASIC</emphasis>
+<anchor xml:id="_base__screen_8h_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&lt;M5Stack.h&gt;</emphasis>
+<anchor xml:id="_base__screen_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_base__screen_8h_source_1l00009"/>00009 
+<anchor xml:id="_base__screen_8h_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_controller_8h">controller.h</link>&quot;</emphasis>
+<anchor xml:id="_base__screen_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&lt;Supervisor.hpp&gt;</emphasis>
+<anchor xml:id="_base__screen_8h_source_1l00012"/>00012 
+<anchor xml:id="_base__screen_8h_source_1l00013"/><link linkend="_class_base_screen">00013</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_base_screen">BaseScreen</link>&#32;{
+<anchor xml:id="_base__screen_8h_source_1l00014"/>00014 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_base__screen_8h_source_1l00015"/><link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">00015</link> &#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_struct_button_state">ButtonState</link>&#32;{
+<anchor xml:id="_base__screen_8h_source_1l00016"/><link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">00016</link> &#32;&#32;&#32;&#32;<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>,
+<anchor xml:id="_base__screen_8h_source_1l00017"/><link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669aeec92bb30ab578e6b0eceb97b61880fb">00017</link> &#32;&#32;&#32;&#32;<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669aeec92bb30ab578e6b0eceb97b61880fb">e_button_active</link>,
+<anchor xml:id="_base__screen_8h_source_1l00018"/>00018 &#32;&#32;&#32;&#32;<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669aa1df192f7cb5a602ccdf145fb8e7bca2">e_button_disabled</link>
+<anchor xml:id="_base__screen_8h_source_1l00019"/><link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669aa1df192f7cb5a602ccdf145fb8e7bca2">00019</link> &#32;&#32;};
+<anchor xml:id="_base__screen_8h_source_1l00020"/>00020 
+<anchor xml:id="_base__screen_8h_source_1l00021"/><link linkend="_class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57">00021</link> &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_base_screen">BaseScreen</link>*&#32;<link linkend="_class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57">handle_input</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>,&#32;<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers)&#32;=&#32;0;
+<anchor xml:id="_base__screen_8h_source_1l00026"/>00026 &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea">enter_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>);
+<anchor xml:id="_base__screen_8h_source_1l00027"/>00027 
+<anchor xml:id="_base__screen_8h_source_1l00032"/>00032 &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1">leave_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>);
+<anchor xml:id="_base__screen_8h_source_1l00033"/>00033 
+<anchor xml:id="_base__screen_8h_source_1l00039"/>00039 &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98">do_render</link>(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers,&#32;<emphasis role="keyword">const</emphasis>&#32;handler_map_t&amp;&#32;handlers)&#32;<emphasis role="keyword">final</emphasis>;
+<anchor xml:id="_base__screen_8h_source_1l00040"/>00040 
+<anchor xml:id="_base__screen_8h_source_1l00046"/>00046 &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_base_screen_1a475d077e56c80429539f9c8a973752dd">force_next_render</link>()&#32;final;
+<anchor xml:id="_base__screen_8h_source_1l00047"/>00047 
+<anchor xml:id="_base__screen_8h_source_1l00052"/>00052 &#32;&#32;virtual&#32;const&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42">get_title</link>()&#32;const;
+<anchor xml:id="_base__screen_8h_source_1l00053"/>00053 
+<anchor xml:id="_base__screen_8h_source_1l00058"/>00058 &#32;&#32;virtual&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_base_screen_1a2b0ff8ed2e49c96fa6e8d3e158d6db13">has_status_bar</link>()&#32;const;
+<anchor xml:id="_base__screen_8h_source_1l00059"/>00059 
+<anchor xml:id="_base__screen_8h_source_1l00060"/>00060 &#32;protected:
+<anchor xml:id="_base__screen_8h_source_1l00061"/>00061 &#32;&#32;explicit&#32;<link linkend="_class_base_screen">BaseScreen</link>(const&#32;<emphasis role="keywordtype">char</emphasis>*&#32;title,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;status_bar);
+<anchor xml:id="_base__screen_8h_source_1l00062"/><link linkend="_class_base_screen_1a86234c33321bb25d534c0347a946b084">00062</link> &#32;&#32;virtual&#32;~<link linkend="_class_base_screen">BaseScreen</link>()&#32;=&#32;default;
+<anchor xml:id="_base__screen_8h_source_1l00063"/>00063 
+<anchor xml:id="_base__screen_8h_source_1l00069"/><link linkend="_class_base_screen_1aca89a9c227f03adadb7022eb63ee3685">00069</link> &#32;&#32;virtual&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_base_screen_1aca89a9c227f03adadb7022eb63ee3685">render</link>(const&#32;worker_map_t&amp;&#32;workers,&#32;const&#32;handler_map_t&amp;&#32;handlers,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;=&#32;0;
+<anchor xml:id="_base__screen_8h_source_1l00070"/>00070 
+<anchor xml:id="_base__screen_8h_source_1l00071"/>00071 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_base_screen_1ac4042332f3362042ed3390297c8f1ea1">drawButton1</link>(const&#32;<emphasis role="keywordtype">char</emphasis>*&#32;text,&#32;<link linkend="_struct_button_state">ButtonState</link>&#32;state&#32;=&#32;<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>);
+<anchor xml:id="_base__screen_8h_source_1l00072"/>00072 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_base_screen_1ad7040cea50962276539e67ac129d5c7c">drawButton2</link>(const&#32;<emphasis role="keywordtype">char</emphasis>*&#32;text,&#32;<link linkend="_struct_button_state">ButtonState</link>&#32;state&#32;=&#32;<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>);
+<anchor xml:id="_base__screen_8h_source_1l00073"/>00073 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_base_screen_1a00da29022f614d7e72fd218ba1dcf747">drawButton3</link>(const&#32;<emphasis role="keywordtype">char</emphasis>*&#32;text,&#32;<link linkend="_struct_button_state">ButtonState</link>&#32;state&#32;=&#32;<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>);
+<anchor xml:id="_base__screen_8h_source_1l00074"/>00074 
+<anchor xml:id="_base__screen_8h_source_1l00075"/>00075 &#32;&#32;int16_t&#32;<link linkend="_class_base_screen_1a1129827abdd844b136988965ae4a72ba">printFloatFont</link>(<emphasis role="keywordtype">float</emphasis>&#32;val,&#32;<emphasis role="keywordtype">int</emphasis>&#32;prec,&#32;<emphasis role="keywordtype">int</emphasis>&#32;x,&#32;<emphasis role="keywordtype">int</emphasis>&#32;y,&#32;<emphasis role="keywordtype">int</emphasis>&#32;font);
+<anchor xml:id="_base__screen_8h_source_1l00076"/>00076 &#32;&#32;int16_t&#32;<link linkend="_class_base_screen_1a7e56deb842ae278490c70910023eb8c8">printIntFont</link>(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">long</emphasis>&#32;val,&#32;<emphasis role="keywordtype">int</emphasis>&#32;x,&#32;<emphasis role="keywordtype">int</emphasis>&#32;y,&#32;<emphasis role="keywordtype">int</emphasis>&#32;font);
+<anchor xml:id="_base__screen_8h_source_1l00077"/>00077 
+<anchor xml:id="_base__screen_8h_source_1l00078"/>00078 &#32;private:
+<anchor xml:id="_base__screen_8h_source_1l00079"/>00079 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;drawButton(uint16_t&#32;x,&#32;const&#32;<emphasis role="keywordtype">char</emphasis>*&#32;text,&#32;<link linkend="_struct_button_state">ButtonState</link>&#32;state);
+<anchor xml:id="_base__screen_8h_source_1l00080"/>00080 
+<anchor xml:id="_base__screen_8h_source_1l00081"/>00081 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;_title[20];
+<anchor xml:id="_base__screen_8h_source_1l00082"/>00082 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;_status_bar;
+<anchor xml:id="_base__screen_8h_source_1l00083"/>00083 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;_force_render;
+<anchor xml:id="_base__screen_8h_source_1l00084"/>00084 };
+<anchor xml:id="_base__screen_8h_source_1l00085"/>00085 
+<anchor xml:id="_base__screen_8h_source_1l00086"/>00086 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//BGEIGIEZEN_BASE_SCREEN_H_</emphasis>
+</programlisting></section>

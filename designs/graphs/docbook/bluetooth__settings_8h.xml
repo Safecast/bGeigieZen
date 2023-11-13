@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_bluetooth__settings_8h" xml:lang="en-US">
+<title>bgeigiezen_firmware/utils/bluetooth_settings.h File Reference</title>
+<indexterm><primary>bgeigiezen_firmware/utils/bluetooth_settings.h</primary></indexterm>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="bluetooth__settings_8h__dep__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1a041eba1dcd086f9b96f1276a20f0ff46">BLE_DATA_ADDR_SIZE</link>&#160;&#160;&#160;6</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1a49db92ab6ff81545d15bf8dedc5f41d1">BLE_DATA_ADDR</link>&#160;&#160;&#160;{0x88, 0x6B, 0x0F, 0x09, 0x7C, 0x9A}</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1ab154e3d90168b1e072abf1bc47e3f834">BLE_PROFILE_NAME</link>&#160;&#160;&#160;&quot;bGeigie advanced module&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1a27a1dcdc78d6e3428cbb87a3f4a5099e">BLE_DEVICE_INFO_MANUFACTURER</link>&#160;&#160;&#160;&quot;Safecast&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1aed9fb2a82708a94b08eae9af058c3464">BLE_DEVICE_INFO_MODEL</link>&#160;&#160;&#160;&quot;bGeigieNano ESP32&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1a811d72a5d1679c378be10fcf9218cb2a">BLE_DEVICE_INFO_FIRMWARE_REVISION</link>&#160;&#160;&#160;&quot;1.0.0&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1a9c45a4a0a556a1fc53f05d4b45d5851b">BLE_DEVICE_INFO_HARDWARE_REVISION</link>&#160;&#160;&#160;&quot;1.0.0 REV-A&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1a90a3ef3bd58a248e476f1f3be3ddbb52">SERVICE_PROFILE_UUID</link>&#160;&#160;&#160;&quot;1800&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1a5cb5232a755401b676ca4226bfbc630c">CHARACTERISTIC_PROFILE_NAME_UUID</link>&#160;&#160;&#160;&quot;2a00&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1a21a88651f42a8a7478c80233ce1fa09a">CHARACTERISTIC_PROFILE_APPEARANCE_UUID</link>&#160;&#160;&#160;&quot;2a01&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1a5250794891dcef66de810c415423b99c">SERVICE_DEVICE_UUID</link>&#160;&#160;&#160;&quot;180A&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1ac61d2647caedf5bd2489844ca9e4765c">CHARACTERISTIC_DEVICE_MANUFACTURER_UUID</link>&#160;&#160;&#160;&quot;2a29&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1a3196ee0950589226e460597e04c5da13">CHARACTERISTIC_DEVICE_MODEL_UUID</link>&#160;&#160;&#160;&quot;2a24&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1a310f01ca63431c35e6c4e002d975ab88">CHARACTERISTIC_DEVICE_FIRMWARE_UUID</link>&#160;&#160;&#160;&quot;2a26&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1a173552332550777bd3c1e9f50c893fe1">CHARACTERISTIC_DEVICE_REVISION_UUID</link>&#160;&#160;&#160;&quot;2a27&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1affd01cdf182aa884be43d5db5a742a6c">SERVICE_DATA_UUID</link>&#160;&#160;&#160;&quot;EF080D8C-C3BE-41FF-BD3F-05A5F4795D7F&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1a797689b683ef8b5eb602232e73553070">CHARACTERISTIC_DATA_BDADDR_UUID</link>&#160;&#160;&#160;&quot;38117F3C-28AB-4718-AB95-172B363F2AE0&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1a83195297eba0885643c34be60cee1c79">CHARACTERISTIC_DATA_BAUD_UUID</link>&#160;&#160;&#160;&quot;2FBC0F31-726A-4014-B9FE-C8BE0652E982&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1af77cea89f6d779be568e67b03d385bc5">CHARACTERISTIC_DATA_RX_UUID</link>&#160;&#160;&#160;&quot;A1E8F5B1-696B-4E4C-87C6-69DFE0B0093B&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_bluetooth__settings_8h_1aa24574c6c21e93db279e78f8c50fa51b">CHARACTERISTIC_DATA_TX_UUID</link>&#160;&#160;&#160;&quot;1494440E-9A58-4CC0-81E4-DDEA7F74F623&quot;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_bluetooth__settings_8h_1a49db92ab6ff81545d15bf8dedc5f41d1"/><section>
+    <title>BLE_DATA_ADDR</title>
+<indexterm><primary>BLE_DATA_ADDR</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>BLE_DATA_ADDR</secondary></indexterm>
+<para><computeroutput>#define BLE_DATA_ADDR&#160;&#160;&#160;{0x88, 0x6B, 0x0F, 0x09, 0x7C, 0x9A}</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00005">5</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1a041eba1dcd086f9b96f1276a20f0ff46"/><section>
+    <title>BLE_DATA_ADDR_SIZE</title>
+<indexterm><primary>BLE_DATA_ADDR_SIZE</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>BLE_DATA_ADDR_SIZE</secondary></indexterm>
+<para><computeroutput>#define BLE_DATA_ADDR_SIZE&#160;&#160;&#160;6</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00004">4</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1a811d72a5d1679c378be10fcf9218cb2a"/><section>
+    <title>BLE_DEVICE_INFO_FIRMWARE_REVISION</title>
+<indexterm><primary>BLE_DEVICE_INFO_FIRMWARE_REVISION</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>BLE_DEVICE_INFO_FIRMWARE_REVISION</secondary></indexterm>
+<para><computeroutput>#define BLE_DEVICE_INFO_FIRMWARE_REVISION&#160;&#160;&#160;&quot;1.0.0&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00011">11</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1a9c45a4a0a556a1fc53f05d4b45d5851b"/><section>
+    <title>BLE_DEVICE_INFO_HARDWARE_REVISION</title>
+<indexterm><primary>BLE_DEVICE_INFO_HARDWARE_REVISION</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>BLE_DEVICE_INFO_HARDWARE_REVISION</secondary></indexterm>
+<para><computeroutput>#define BLE_DEVICE_INFO_HARDWARE_REVISION&#160;&#160;&#160;&quot;1.0.0 REV-A&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00012">12</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1a27a1dcdc78d6e3428cbb87a3f4a5099e"/><section>
+    <title>BLE_DEVICE_INFO_MANUFACTURER</title>
+<indexterm><primary>BLE_DEVICE_INFO_MANUFACTURER</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>BLE_DEVICE_INFO_MANUFACTURER</secondary></indexterm>
+<para><computeroutput>#define BLE_DEVICE_INFO_MANUFACTURER&#160;&#160;&#160;&quot;Safecast&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00009">9</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1aed9fb2a82708a94b08eae9af058c3464"/><section>
+    <title>BLE_DEVICE_INFO_MODEL</title>
+<indexterm><primary>BLE_DEVICE_INFO_MODEL</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>BLE_DEVICE_INFO_MODEL</secondary></indexterm>
+<para><computeroutput>#define BLE_DEVICE_INFO_MODEL&#160;&#160;&#160;&quot;bGeigieNano ESP32&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00010">10</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1ab154e3d90168b1e072abf1bc47e3f834"/><section>
+    <title>BLE_PROFILE_NAME</title>
+<indexterm><primary>BLE_PROFILE_NAME</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>BLE_PROFILE_NAME</secondary></indexterm>
+<para><computeroutput>#define BLE_PROFILE_NAME&#160;&#160;&#160;&quot;bGeigie advanced module&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00007">7</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1a83195297eba0885643c34be60cee1c79"/><section>
+    <title>CHARACTERISTIC_DATA_BAUD_UUID</title>
+<indexterm><primary>CHARACTERISTIC_DATA_BAUD_UUID</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>CHARACTERISTIC_DATA_BAUD_UUID</secondary></indexterm>
+<para><computeroutput>#define CHARACTERISTIC_DATA_BAUD_UUID&#160;&#160;&#160;&quot;2FBC0F31-726A-4014-B9FE-C8BE0652E982&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00026">26</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1a797689b683ef8b5eb602232e73553070"/><section>
+    <title>CHARACTERISTIC_DATA_BDADDR_UUID</title>
+<indexterm><primary>CHARACTERISTIC_DATA_BDADDR_UUID</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>CHARACTERISTIC_DATA_BDADDR_UUID</secondary></indexterm>
+<para><computeroutput>#define CHARACTERISTIC_DATA_BDADDR_UUID&#160;&#160;&#160;&quot;38117F3C-28AB-4718-AB95-172B363F2AE0&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00025">25</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1af77cea89f6d779be568e67b03d385bc5"/><section>
+    <title>CHARACTERISTIC_DATA_RX_UUID</title>
+<indexterm><primary>CHARACTERISTIC_DATA_RX_UUID</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>CHARACTERISTIC_DATA_RX_UUID</secondary></indexterm>
+<para><computeroutput>#define CHARACTERISTIC_DATA_RX_UUID&#160;&#160;&#160;&quot;A1E8F5B1-696B-4E4C-87C6-69DFE0B0093B&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00027">27</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1aa24574c6c21e93db279e78f8c50fa51b"/><section>
+    <title>CHARACTERISTIC_DATA_TX_UUID</title>
+<indexterm><primary>CHARACTERISTIC_DATA_TX_UUID</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>CHARACTERISTIC_DATA_TX_UUID</secondary></indexterm>
+<para><computeroutput>#define CHARACTERISTIC_DATA_TX_UUID&#160;&#160;&#160;&quot;1494440E-9A58-4CC0-81E4-DDEA7F74F623&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00028">28</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1a310f01ca63431c35e6c4e002d975ab88"/><section>
+    <title>CHARACTERISTIC_DEVICE_FIRMWARE_UUID</title>
+<indexterm><primary>CHARACTERISTIC_DEVICE_FIRMWARE_UUID</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>CHARACTERISTIC_DEVICE_FIRMWARE_UUID</secondary></indexterm>
+<para><computeroutput>#define CHARACTERISTIC_DEVICE_FIRMWARE_UUID&#160;&#160;&#160;&quot;2a26&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00021">21</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1ac61d2647caedf5bd2489844ca9e4765c"/><section>
+    <title>CHARACTERISTIC_DEVICE_MANUFACTURER_UUID</title>
+<indexterm><primary>CHARACTERISTIC_DEVICE_MANUFACTURER_UUID</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>CHARACTERISTIC_DEVICE_MANUFACTURER_UUID</secondary></indexterm>
+<para><computeroutput>#define CHARACTERISTIC_DEVICE_MANUFACTURER_UUID&#160;&#160;&#160;&quot;2a29&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00019">19</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1a3196ee0950589226e460597e04c5da13"/><section>
+    <title>CHARACTERISTIC_DEVICE_MODEL_UUID</title>
+<indexterm><primary>CHARACTERISTIC_DEVICE_MODEL_UUID</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>CHARACTERISTIC_DEVICE_MODEL_UUID</secondary></indexterm>
+<para><computeroutput>#define CHARACTERISTIC_DEVICE_MODEL_UUID&#160;&#160;&#160;&quot;2a24&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00020">20</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1a173552332550777bd3c1e9f50c893fe1"/><section>
+    <title>CHARACTERISTIC_DEVICE_REVISION_UUID</title>
+<indexterm><primary>CHARACTERISTIC_DEVICE_REVISION_UUID</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>CHARACTERISTIC_DEVICE_REVISION_UUID</secondary></indexterm>
+<para><computeroutput>#define CHARACTERISTIC_DEVICE_REVISION_UUID&#160;&#160;&#160;&quot;2a27&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00022">22</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1a21a88651f42a8a7478c80233ce1fa09a"/><section>
+    <title>CHARACTERISTIC_PROFILE_APPEARANCE_UUID</title>
+<indexterm><primary>CHARACTERISTIC_PROFILE_APPEARANCE_UUID</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>CHARACTERISTIC_PROFILE_APPEARANCE_UUID</secondary></indexterm>
+<para><computeroutput>#define CHARACTERISTIC_PROFILE_APPEARANCE_UUID&#160;&#160;&#160;&quot;2a01&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00016">16</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1a5cb5232a755401b676ca4226bfbc630c"/><section>
+    <title>CHARACTERISTIC_PROFILE_NAME_UUID</title>
+<indexterm><primary>CHARACTERISTIC_PROFILE_NAME_UUID</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>CHARACTERISTIC_PROFILE_NAME_UUID</secondary></indexterm>
+<para><computeroutput>#define CHARACTERISTIC_PROFILE_NAME_UUID&#160;&#160;&#160;&quot;2a00&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00015">15</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1affd01cdf182aa884be43d5db5a742a6c"/><section>
+    <title>SERVICE_DATA_UUID</title>
+<indexterm><primary>SERVICE_DATA_UUID</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>SERVICE_DATA_UUID</secondary></indexterm>
+<para><computeroutput>#define SERVICE_DATA_UUID&#160;&#160;&#160;&quot;EF080D8C-C3BE-41FF-BD3F-05A5F4795D7F&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00024">24</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1a5250794891dcef66de810c415423b99c"/><section>
+    <title>SERVICE_DEVICE_UUID</title>
+<indexterm><primary>SERVICE_DEVICE_UUID</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>SERVICE_DEVICE_UUID</secondary></indexterm>
+<para><computeroutput>#define SERVICE_DEVICE_UUID&#160;&#160;&#160;&quot;180A&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00018">18</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+<anchor xml:id="_bluetooth__settings_8h_1a90a3ef3bd58a248e476f1f3be3ddbb52"/><section>
+    <title>SERVICE_PROFILE_UUID</title>
+<indexterm><primary>SERVICE_PROFILE_UUID</primary><secondary>bluetooth_settings.h</secondary></indexterm>
+<indexterm><primary>bluetooth_settings.h</primary><secondary>SERVICE_PROFILE_UUID</secondary></indexterm>
+<para><computeroutput>#define SERVICE_PROFILE_UUID&#160;&#160;&#160;&quot;1800&quot;</computeroutput></para><para>
+Definition at line <link linkend="_bluetooth__settings_8h_source_1l00014">14</link> of file <link linkend="_bluetooth__settings_8h_source">bluetooth_settings.h</link>.</para>
+</section>
+</section>
+</section>

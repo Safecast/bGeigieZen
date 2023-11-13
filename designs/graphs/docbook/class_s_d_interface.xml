@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_s_d_interface" xml:lang="en-US">
+<title>SDInterface Class Reference</title>
+<indexterm><primary>SDInterface</primary></indexterm>
+<para>
+<computeroutput>#include &lt;sd_wrapper.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50">SdStatus</link> { <?linebreak?><link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a8a094cf03ccf414f4b77666f6c4e8611">e_sd_config_status_not_ready</link>
+, <link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a4220a7d9f2295ecf4a6df95fc73de789">e_sd_config_status_ok</link>
+, <link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50ab3eaba2df7231bec6b29aee75b5b18c7">e_sd_config_status_config_different_id</link>
+, <link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a97640d3ba2438308592c625779e0fe12">e_sd_config_status_config_no_content</link>
+, <?linebreak?><link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50aca5a6270a52c089d851e54e7919a72cf">e_sd_config_status_no_config_file</link>
+ }</para>
+</listitem>
+            <listitem><para>enum <link linkend="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500">SdError</link> { <link linkend="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500af0739939ceb0afbd4c08f58400b510e2">e_sd_err_not_ready</link>
+, <link linkend="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500a9e6fa9818cf185dba1b2e4f9d34b89d7">e_sd_err_file_open_w_fail</link>
+, <link linkend="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500a6f24e3394bc18ffac9170adfde185951">e_sd_err_file_open_r_fail</link>
+ }</para>
+</listitem>
+            <listitem><para>enum <link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59d">SdLogType</link> { <link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da65cc75f54f901217b5289a3769337657">e_sd_log_type_journal</link>
+, <link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da4b4cbc732b487b71514a6e738c232d54">e_sd_log_type_drive</link>
+, <link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da2aa337c4e3454815707279c590c91742">e_sd_log_type_survey</link>
+, <link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59daccab658091fbf0eed54aaad98fb07add">e_sd_log_type_error</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_s_d_interface_1afbcd9b0cdc8f6c6eabf2202aabf78a93">SDInterface</link> (const <link linkend="_class_s_d_interface">SDInterface</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><link linkend="_class_s_d_interface">SDInterface</link> &amp; <link linkend="_class_s_d_interface_1a0e610420f9195a31def20935935bcad6">operator=</link> (const <link linkend="_class_s_d_interface">SDInterface</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><link linkend="_class_s_d_interface_1a89395c7916aff77ceecb5d4e9932b2c6">SDInterface</link> (<link linkend="_class_s_d_interface">SDInterface</link> &amp;&amp;)=delete</para>
+</listitem>
+            <listitem><para><link linkend="_class_s_d_interface">SDInterface</link> &amp; <link linkend="_class_s_d_interface_1a1aa6910b72ec4d30ae716c8818432034">operator=</link> (<link linkend="_class_s_d_interface">SDInterface</link> &amp;&amp;)=delete</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe">ready</link> ()</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_s_d_interface_1a809a47ce4ef0dc0ea1918552601cbbdd">begin</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a">end</link> ()</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_s_d_interface_1a3aa11cea31d2775204a4b387b6a1383c">log</link> (const char *log_name, const uint8_t *data, size_t buff_size)</para>
+</listitem>
+            <listitem><para><link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50">SdStatus</link> <link linkend="_class_s_d_interface_1ac011e72bed01b65fb3af9cc1242b4f14">has_safezen_content</link> (uint16_t device_id)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_s_d_interface_1afcc40c40bd409e59bb1aaeb0d42c110d">read_safezen_file</link> (<link linkend="_class_local_storage">LocalStorage</link> &amp;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_s_d_interface_1a1eeb50f1000c0bb1442e522d756216b1">write_safezen_file</link> (const <link linkend="_class_local_storage">LocalStorage</link> &amp;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>, bool full=false)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_s_d_interface">SDInterface</link> &amp; <link linkend="_class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f">i</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This singleton class provides an interface to check that the SD card is already connected and operational </para>
+<para>
+Definition at line <link linkend="_sd__wrapper_8h_source_1l00014">14</link> of file <link linkend="_sd__wrapper_8h_source">sd_wrapper.h</link>.</para>
+</section>
+<section>
+<title>Member Enumeration Documentation</title>
+<anchor xml:id="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500"/><section>
+    <title>SdError</title>
+<indexterm><primary>SdError</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>SdError</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500">SDInterface::SdError</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>e_sd_err_not_ready</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>e_sd_err_not_ready</secondary></indexterm>
+<anchor xml:id="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500af0739939ceb0afbd4c08f58400b510e2"/>e_sd_err_not_ready</entry><entry></entry></row><row><entry><indexterm><primary>e_sd_err_file_open_w_fail</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>e_sd_err_file_open_w_fail</secondary></indexterm>
+<anchor xml:id="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500a9e6fa9818cf185dba1b2e4f9d34b89d7"/>e_sd_err_file_open_w_fail</entry><entry></entry></row><row><entry><indexterm><primary>e_sd_err_file_open_r_fail</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>e_sd_err_file_open_r_fail</secondary></indexterm>
+<anchor xml:id="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500a6f24e3394bc18ffac9170adfde185951"/>e_sd_err_file_open_r_fail</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_sd__wrapper_8h_source_1l00024">24</link> of file <link linkend="_sd__wrapper_8h_source">sd_wrapper.h</link>.</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59d"/><section>
+    <title>SdLogType</title>
+<indexterm><primary>SdLogType</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>SdLogType</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59d">SDInterface::SdLogType</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>e_sd_log_type_journal</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>e_sd_log_type_journal</secondary></indexterm>
+<anchor xml:id="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da65cc75f54f901217b5289a3769337657"/>e_sd_log_type_journal</entry><entry></entry></row><row><entry><indexterm><primary>e_sd_log_type_drive</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>e_sd_log_type_drive</secondary></indexterm>
+<anchor xml:id="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da4b4cbc732b487b71514a6e738c232d54"/>e_sd_log_type_drive</entry><entry></entry></row><row><entry><indexterm><primary>e_sd_log_type_survey</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>e_sd_log_type_survey</secondary></indexterm>
+<anchor xml:id="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da2aa337c4e3454815707279c590c91742"/>e_sd_log_type_survey</entry><entry></entry></row><row><entry><indexterm><primary>e_sd_log_type_error</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>e_sd_log_type_error</secondary></indexterm>
+<anchor xml:id="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59daccab658091fbf0eed54aaad98fb07add"/>e_sd_log_type_error</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_sd__wrapper_8h_source_1l00030">30</link> of file <link linkend="_sd__wrapper_8h_source">sd_wrapper.h</link>.</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50"/><section>
+    <title>SdStatus</title>
+<indexterm><primary>SdStatus</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>SdStatus</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50">SDInterface::SdStatus</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>e_sd_config_status_not_ready</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>e_sd_config_status_not_ready</secondary></indexterm>
+<anchor xml:id="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a8a094cf03ccf414f4b77666f6c4e8611"/>e_sd_config_status_not_ready</entry><entry></entry></row><row><entry><indexterm><primary>e_sd_config_status_ok</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>e_sd_config_status_ok</secondary></indexterm>
+<anchor xml:id="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a4220a7d9f2295ecf4a6df95fc73de789"/>e_sd_config_status_ok</entry><entry></entry></row><row><entry><indexterm><primary>e_sd_config_status_config_different_id</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>e_sd_config_status_config_different_id</secondary></indexterm>
+<anchor xml:id="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50ab3eaba2df7231bec6b29aee75b5b18c7"/>e_sd_config_status_config_different_id</entry><entry></entry></row><row><entry><indexterm><primary>e_sd_config_status_config_no_content</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>e_sd_config_status_config_no_content</secondary></indexterm>
+<anchor xml:id="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a97640d3ba2438308592c625779e0fe12"/>e_sd_config_status_config_no_content</entry><entry></entry></row><row><entry><indexterm><primary>e_sd_config_status_no_config_file</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>e_sd_config_status_no_config_file</secondary></indexterm>
+<anchor xml:id="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50aca5a6270a52c089d851e54e7919a72cf"/>e_sd_config_status_no_config_file</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_sd__wrapper_8h_source_1l00016">16</link> of file <link linkend="_sd__wrapper_8h_source">sd_wrapper.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_s_d_interface_1afbcd9b0cdc8f6c6eabf2202aabf78a93"/><section>
+    <title>SDInterface()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>SDInterface</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>SDInterface</secondary></indexterm>
+<para><computeroutput>SDInterface::SDInterface (const <link linkend="_class_s_d_interface">SDInterface</link> &amp; )<computeroutput>[delete]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_s_d_interface_1a89395c7916aff77ceecb5d4e9932b2c6"/><section>
+    <title>SDInterface()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>SDInterface</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>SDInterface</secondary></indexterm>
+<para><computeroutput>SDInterface::SDInterface (<link linkend="_class_s_d_interface">SDInterface</link> &amp;&amp; )<computeroutput>[delete]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_s_d_interface_1a809a47ce4ef0dc0ea1918552601cbbdd"/><section>
+    <title>begin()</title>
+<indexterm><primary>begin</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>begin</secondary></indexterm>
+<para><computeroutput>bool SDInterface::begin ( )</computeroutput></para>
+<para>We note that for the ESP32, the SD library is robust to multiple call to the <link linkend="_class_s_d_interface_1a809a47ce4ef0dc0ea1918552601cbbdd">begin()</link> function <formalpara><title>Returns</title>
+
+<para>true if available</para>
+</formalpara>
+We note that for the ESP32, the SD library is robust to multiple call to the <link linkend="_class_s_d_interface_1a809a47ce4ef0dc0ea1918552601cbbdd">begin()</link> function <formalpara><title>Returns</title>
+
+<para>true if ready </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00065">65</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a"/><section>
+    <title>end()</title>
+<indexterm><primary>end</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>end</secondary></indexterm>
+<para><computeroutput>void SDInterface::end ( )</computeroutput></para>
+<para>close SD connection </para>
+<para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00084">84</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a9975927e1e09aa528248b65aafd3f17a_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1ac011e72bed01b65fb3af9cc1242b4f14"/><section>
+    <title>has_safezen_content()</title>
+<indexterm><primary>has_safezen_content</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>has_safezen_content</secondary></indexterm>
+<para><computeroutput><link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50">SDInterface::SdStatus</link> SDInterface::has_safezen_content (uint16_t device_id)</computeroutput></para>
+<para>Get device id from SAFEZEN.txt file on the SD card <formalpara><title>Returns</title>
+
+<para>device id if available, else 0 </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00111">111</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f"/><section>
+    <title>i()</title>
+<indexterm><primary>i</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>i</secondary></indexterm>
+<para><computeroutput>static <link linkend="_class_s_d_interface">SDInterface</link> &amp; SDInterface::i ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Singleton <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_sd__wrapper_8h_source_1l00046">46</link> of file <link linkend="_sd__wrapper_8h_source">sd_wrapper.h</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a5b6c9815962e1ef35c816e116c84f15f_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1a3aa11cea31d2775204a4b387b6a1383c"/><section>
+    <title>log()</title>
+<indexterm><primary>log</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>log</secondary></indexterm>
+<para><computeroutput>bool SDInterface::log (const char * log_name, const uint8_t * data, size_t buff_size)</computeroutput></para><para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00089">89</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a3aa11cea31d2775204a4b387b6a1383c_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1a0e610420f9195a31def20935935bcad6"/><section>
+    <title>operator=()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>operator=</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>operator=</secondary></indexterm>
+<para><computeroutput><link linkend="_class_s_d_interface">SDInterface</link> &amp; SDInterface::operator= (const <link linkend="_class_s_d_interface">SDInterface</link> &amp; )<computeroutput>[delete]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_s_d_interface_1a1aa6910b72ec4d30ae716c8818432034"/><section>
+    <title>operator=()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>operator=</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>operator=</secondary></indexterm>
+<para><computeroutput><link linkend="_class_s_d_interface">SDInterface</link> &amp; SDInterface::operator= (<link linkend="_class_s_d_interface">SDInterface</link> &amp;&amp; )<computeroutput>[delete]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_s_d_interface_1afcc40c40bd409e59bb1aaeb0d42c110d"/><section>
+    <title>read_safezen_file()</title>
+<indexterm><primary>read_safezen_file</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>read_safezen_file</secondary></indexterm>
+<para><computeroutput>bool SDInterface::read_safezen_file (<link linkend="_class_local_storage">LocalStorage</link> &amp; settings)</computeroutput></para>
+<para>Read SAFEZEN.txt file contents on SD card to local storage <formalpara><title>Returns</title>
+
+<para>true if succeeded </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00150">150</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_afcc40c40bd409e59bb1aaeb0d42c110d_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe"/><section>
+    <title>ready()</title>
+<indexterm><primary>ready</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>ready</secondary></indexterm>
+<para><computeroutput>bool SDInterface::ready ( )</computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para>true if ready </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00054">54</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a1bfbb7e34aa9616fd103ffc12c3c0fbe_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1a1eeb50f1000c0bb1442e522d756216b1"/><section>
+    <title>write_safezen_file()</title>
+<indexterm><primary>write_safezen_file</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>write_safezen_file</secondary></indexterm>
+<para><computeroutput>bool SDInterface::write_safezen_file (const <link linkend="_class_local_storage">LocalStorage</link> &amp; settings, bool full = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Write SAFEZEN.txt file on the SD card from local storage <formalpara><title>Returns</title>
+
+<para>true if succeeded </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00260">260</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a1eeb50f1000c0bb1442e522d756216b1_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a1eeb50f1000c0bb1442e522d756216b1_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/utils/<link linkend="_sd__wrapper_8h">sd_wrapper.h</link>bgeigiezen_firmware/utils/<link linkend="_sd__wrapper_8cpp">sd_wrapper.cpp</link></section>
+</section>

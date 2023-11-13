@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_battery__indicator_8h_source" xml:lang="en-US">
+<title>battery_indicator.h</title>
+<indexterm><primary>bgeigiezen_firmware/workers/battery_indicator.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_battery__indicator_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;BGEIGIEZEN_BATTERYINDICATOR_H_</emphasis>
+<anchor xml:id="_battery__indicator_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;BGEIGIEZEN_BATTERYINDICATOR_H_</emphasis>
+<anchor xml:id="_battery__indicator_8h_source_1l00003"/>00003 
+<anchor xml:id="_battery__indicator_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;Worker.hpp&gt;</emphasis>
+<anchor xml:id="_battery__indicator_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
+<anchor xml:id="_battery__indicator_8h_source_1l00006"/>00006 
+<anchor xml:id="_battery__indicator_8h_source_1l00010"/><link linkend="_struct_battery_status">00010</link> <emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_battery_status">BatteryStatus</link>&#32;{
+<anchor xml:id="_battery__indicator_8h_source_1l00011"/><link linkend="_struct_battery_status_1a9b31c61bbcc4cb9a8f0b9985120724e6">00011</link> &#32;&#32;uint8_t&#32;<link linkend="_struct_battery_status_1a9b31c61bbcc4cb9a8f0b9985120724e6">percentage</link>;
+<anchor xml:id="_battery__indicator_8h_source_1l00012"/><link linkend="_struct_battery_status_1ab5b72f29887267032f0733cae27c147c">00012</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_struct_battery_status_1ab5b72f29887267032f0733cae27c147c">isCharging</link>;
+<anchor xml:id="_battery__indicator_8h_source_1l00013"/>00013 };
+<anchor xml:id="_battery__indicator_8h_source_1l00014"/>00014 
+<anchor xml:id="_battery__indicator_8h_source_1l00018"/><link linkend="_class_battery_indicator">00018</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_battery_indicator">BatteryIndicator</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;Worker&lt;BatteryStatus&gt;&#32;{
+<anchor xml:id="_battery__indicator_8h_source_1l00019"/>00019 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_battery__indicator_8h_source_1l00020"/>00020 &#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_class_battery_indicator_1a62a7d0af06591a6aade8056cb34f77c9">BatteryIndicator</link>();
+<anchor xml:id="_battery__indicator_8h_source_1l00021"/><link linkend="_class_battery_indicator_1a15ad00b7baa3ee3da9d45524c0da2a3a">00021</link> &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_battery_indicator_1a15ad00b7baa3ee3da9d45524c0da2a3a">~BatteryIndicator</link>()&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="_battery__indicator_8h_source_1l00022"/>00022 
+<anchor xml:id="_battery__indicator_8h_source_1l00023"/>00023 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_battery_indicator_1a0ceaf9e9ee720fc1279838aeb4f8cf51">activate</link>(<emphasis role="keywordtype">bool</emphasis>&#32;retry)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_battery__indicator_8h_source_1l00024"/>00024 
+<anchor xml:id="_battery__indicator_8h_source_1l00025"/>00025 &#32;&#32;int8_t&#32;<link linkend="_class_battery_indicator_1a2549ee1d50e87017b4b6067820d9518a">produce_data</link>()&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_battery__indicator_8h_source_1l00026"/>00026 
+<anchor xml:id="_battery__indicator_8h_source_1l00027"/>00027 &#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_battery__indicator_8h_source_1l00028"/>00028 
+<anchor xml:id="_battery__indicator_8h_source_1l00029"/>00029 };
+<anchor xml:id="_battery__indicator_8h_source_1l00030"/>00030 
+<anchor xml:id="_battery__indicator_8h_source_1l00031"/>00031 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//BGEIGIEZEN_BATTERYINDICATOR_H_</emphasis>
+</programlisting></section>

@@ -1,0 +1,548 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_local_storage" xml:lang="en-US">
+<title>LocalStorage Class Reference</title>
+<indexterm><primary>LocalStorage</primary></indexterm>
+<para>
+<computeroutput>#include &lt;local_storage.h&gt;</computeroutput>
+</para>
+Inheritance diagram for LocalStorage:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage__inherit__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for LocalStorage:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage__coll__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_local_storage_1a0b6c01b08888b91281605a865ea1af2f">LocalStorage</link> ()</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_local_storage_1a25de978ca30dc1686f928e34772c072a">~LocalStorage</link> ()=default</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_local_storage_1a809d095a05789828cc50ee1a4d575844">reset_defaults</link> ()</para>
+</listitem>
+            <listitem><para>virtual uint16_t <link linkend="_class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65">get_device_id</link> () const final</para>
+</listitem>
+            <listitem><para>virtual const char * <link linkend="_class_local_storage_1a3cc3942e1b3d46088e4ec092dd9b5034">get_ap_password</link> () const final</para>
+</listitem>
+            <listitem><para>virtual uint16_t <link linkend="_class_local_storage_1a498a4980d61582508f9966a5cfb6c00c">get_alarm_threshold</link> () const final</para>
+</listitem>
+            <listitem><para>virtual uint8_t <link linkend="_class_local_storage_1a1548b893a43891977ceaeaaa54fd59aa">get_click_sound_level</link> () const final</para>
+</listitem>
+            <listitem><para>virtual const char * <link linkend="_class_local_storage_1a8d0807c2fad52121c446d91f85976856">get_wifi_ssid</link> () const final</para>
+</listitem>
+            <listitem><para>virtual const char * <link linkend="_class_local_storage_1a619ba1c828df4e5c97e7ac77115e72a2">get_wifi_password</link> () const final</para>
+</listitem>
+            <listitem><para>virtual const char * <link linkend="_class_local_storage_1a119e9cbf7e8edad53786b070ee2cb298">get_api_key</link> () const final</para>
+</listitem>
+            <listitem><para>virtual double <link linkend="_class_local_storage_1a2972e2632be5da773cfa65e23be878e5">get_fixed_longitude</link> () const final</para>
+</listitem>
+            <listitem><para>virtual double <link linkend="_class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca">get_fixed_latitude</link> () const final</para>
+</listitem>
+            <listitem><para>virtual uint16_t <link linkend="_class_local_storage_1a66a46a4e806da89c4e2f672d19d690fb">get_fixed_range</link> () const final</para>
+</listitem>
+            <listitem><para>virtual double <link linkend="_class_local_storage_1a120a3285914a098837bb4d3b8be20d0b">get_last_longitude</link> () const final</para>
+</listitem>
+            <listitem><para>virtual double <link linkend="_class_local_storage_1a9aa6633c81709db989f2bf3ea1f21521">get_last_latitude</link> () const final</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_local_storage_1a5b975387d77a0d68a0eae66ce9f265df">set_device_id</link> (uint16_t device_id, bool force)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_local_storage_1a22ccb69bc387bdfeea837a8f5f1456e1">set_ap_password</link> (const char *ap_password, bool force)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_local_storage_1a5f226cd5489714cd4b22e6341e454469">set_alarm_threshold</link> (uint16_t alarm_threshold, bool force)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_local_storage_1a9a902bca0c91533e4bb39c5d57bac78d">set_click_sound_level</link> (uint8_t click_sound_level, bool force)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_local_storage_1a89834da9be662b2881d56b78bc72035e">set_wifi_ssid</link> (const char *wifi_ssid, bool force)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_local_storage_1a36a08d7042318aafd9a89e5e47d16218">set_wifi_password</link> (const char *wifi_password, bool force)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_local_storage_1a0c0380d90c7cd50702c203c00254cc7a">set_api_key</link> (const char *api_key, bool force)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_local_storage_1aece6d66d88334ec1d56123af1e30beec">set_fixed_longitude</link> (double fixed_longitude, bool force)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_local_storage_1a85feeba95879976c5b32d0e31a1cb0c3">set_fixed_latitude</link> (double fixed_latitude, bool force)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_local_storage_1a30925c71296c99004645906c9dabfc9d">set_last_longitude</link> (double last_longitude, bool force)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_local_storage_1a61222cf72160eb65fe14a84ee43052bb">set_last_latitude</link> (double last_latitude, bool force)</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_local_storage_1a90854142e6b8517446157c21889903a9">set_fixed_range</link> (uint16_t fixed_range, bool force)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>virtual bool <link linkend="_class_local_storage_1abf645efa025a556a3188b42d5f5590fe">clear</link> ()</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_local_storage_1a5452afc6c29b246572d3e01ee9eb84d8">activate</link> (bool) override</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_local_storage_1a3092068c5d940b705608fd5a548af2d7">handle_produced_work</link> (const worker_map_t &amp;workers) override</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Configurations for the ESP32, stored in the flash memory </para>
+<para>
+Definition at line <link linkend="_local__storage_8h_source_1l00013">13</link> of file <link linkend="_local__storage_8h_source">local_storage.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_local_storage_1a0b6c01b08888b91281605a865ea1af2f"/><section>
+    <title>LocalStorage()</title>
+<indexterm><primary>LocalStorage</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>LocalStorage</secondary></indexterm>
+<para><computeroutput>LocalStorage::LocalStorage ( )</computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00027">27</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_local_storage_1a25de978ca30dc1686f928e34772c072a"/><section>
+    <title>~LocalStorage()</title>
+<indexterm><primary>~LocalStorage</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>~LocalStorage</secondary></indexterm>
+<para><computeroutput>virtual LocalStorage::~LocalStorage ( )<computeroutput>[virtual]</computeroutput>, <computeroutput>[default]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_local_storage_1a5452afc6c29b246572d3e01ee9eb84d8"/><section>
+    <title>activate()</title>
+<indexterm><primary>activate</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>activate</secondary></indexterm>
+<para><computeroutput>bool LocalStorage::activate (bool )<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Read all settings </para>
+<para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00250">250</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_local_storage_1abf645efa025a556a3188b42d5f5590fe"/><section>
+    <title>clear()</title>
+<indexterm><primary>clear</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>clear</secondary></indexterm>
+<para><computeroutput>bool LocalStorage::clear ( )<computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00241">241</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_abf645efa025a556a3188b42d5f5590fe_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a498a4980d61582508f9966a5cfb6c00c"/><section>
+    <title>get_alarm_threshold()</title>
+<indexterm><primary>get_alarm_threshold</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>get_alarm_threshold</secondary></indexterm>
+<para><computeroutput>uint16_t LocalStorage::get_alarm_threshold ( ) const<computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00071">71</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a498a4980d61582508f9966a5cfb6c00c_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a3cc3942e1b3d46088e4ec092dd9b5034"/><section>
+    <title>get_ap_password()</title>
+<indexterm><primary>get_ap_password</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>get_ap_password</secondary></indexterm>
+<para><computeroutput>const char * LocalStorage::get_ap_password ( ) const<computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00067">67</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a3cc3942e1b3d46088e4ec092dd9b5034_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a119e9cbf7e8edad53786b070ee2cb298"/><section>
+    <title>get_api_key()</title>
+<indexterm><primary>get_api_key</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>get_api_key</secondary></indexterm>
+<para><computeroutput>const char * LocalStorage::get_api_key ( ) const<computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00087">87</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a119e9cbf7e8edad53786b070ee2cb298_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a1548b893a43891977ceaeaaa54fd59aa"/><section>
+    <title>get_click_sound_level()</title>
+<indexterm><primary>get_click_sound_level</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>get_click_sound_level</secondary></indexterm>
+<para><computeroutput>uint8_t LocalStorage::get_click_sound_level ( ) const<computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00075">75</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a1548b893a43891977ceaeaaa54fd59aa_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65"/><section>
+    <title>get_device_id()</title>
+<indexterm><primary>get_device_id</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>get_device_id</secondary></indexterm>
+<para><computeroutput>uint16_t LocalStorage::get_device_id ( ) const<computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00063">63</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a21a006de02dc8ab7f3a47aafeb894f65_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca"/><section>
+    <title>get_fixed_latitude()</title>
+<indexterm><primary>get_fixed_latitude</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>get_fixed_latitude</secondary></indexterm>
+<para><computeroutput>double LocalStorage::get_fixed_latitude ( ) const<computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00095">95</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a2366a6a1473c708580e4b9ad1d92f3ca_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a2972e2632be5da773cfa65e23be878e5"/><section>
+    <title>get_fixed_longitude()</title>
+<indexterm><primary>get_fixed_longitude</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>get_fixed_longitude</secondary></indexterm>
+<para><computeroutput>double LocalStorage::get_fixed_longitude ( ) const<computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00091">91</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a2972e2632be5da773cfa65e23be878e5_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a66a46a4e806da89c4e2f672d19d690fb"/><section>
+    <title>get_fixed_range()</title>
+<indexterm><primary>get_fixed_range</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>get_fixed_range</secondary></indexterm>
+<para><computeroutput>uint16_t LocalStorage::get_fixed_range ( ) const<computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00099">99</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a66a46a4e806da89c4e2f672d19d690fb_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a9aa6633c81709db989f2bf3ea1f21521"/><section>
+    <title>get_last_latitude()</title>
+<indexterm><primary>get_last_latitude</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>get_last_latitude</secondary></indexterm>
+<para><computeroutput>double LocalStorage::get_last_latitude ( ) const<computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00107">107</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_local_storage_1a120a3285914a098837bb4d3b8be20d0b"/><section>
+    <title>get_last_longitude()</title>
+<indexterm><primary>get_last_longitude</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>get_last_longitude</secondary></indexterm>
+<para><computeroutput>double LocalStorage::get_last_longitude ( ) const<computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00103">103</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_local_storage_1a619ba1c828df4e5c97e7ac77115e72a2"/><section>
+    <title>get_wifi_password()</title>
+<indexterm><primary>get_wifi_password</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>get_wifi_password</secondary></indexterm>
+<para><computeroutput>const char * LocalStorage::get_wifi_password ( ) const<computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00083">83</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a619ba1c828df4e5c97e7ac77115e72a2_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a8d0807c2fad52121c446d91f85976856"/><section>
+    <title>get_wifi_ssid()</title>
+<indexterm><primary>get_wifi_ssid</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>get_wifi_ssid</secondary></indexterm>
+<para><computeroutput>const char * LocalStorage::get_wifi_ssid ( ) const<computeroutput>[final]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00079">79</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a8d0807c2fad52121c446d91f85976856_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a3092068c5d940b705608fd5a548af2d7"/><section>
+    <title>handle_produced_work()</title>
+<indexterm><primary>handle_produced_work</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>handle_produced_work</secondary></indexterm>
+<para><computeroutput>int8_t LocalStorage::handle_produced_work (const worker_map_t &amp; workers)<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00274">274</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a3092068c5d940b705608fd5a548af2d7_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a809d095a05789828cc50ee1a4d575844"/><section>
+    <title>reset_defaults()</title>
+<indexterm><primary>reset_defaults</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>reset_defaults</secondary></indexterm>
+<para><computeroutput>void LocalStorage::reset_defaults ( )</computeroutput></para>
+<para>Reset settings to default (defined in user_config) </para>
+<para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00044">44</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a809d095a05789828cc50ee1a4d575844_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a5f226cd5489714cd4b22e6341e454469"/><section>
+    <title>set_alarm_threshold()</title>
+<indexterm><primary>set_alarm_threshold</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>set_alarm_threshold</secondary></indexterm>
+<para><computeroutput>void LocalStorage::set_alarm_threshold (uint16_t alarm_threshold, bool force)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00135">135</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a5f226cd5489714cd4b22e6341e454469_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a22ccb69bc387bdfeea837a8f5f1456e1"/><section>
+    <title>set_ap_password()</title>
+<indexterm><primary>set_ap_password</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>set_ap_password</secondary></indexterm>
+<para><computeroutput>void LocalStorage::set_ap_password (const char * ap_password, bool force)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00123">123</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a22ccb69bc387bdfeea837a8f5f1456e1_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a0c0380d90c7cd50702c203c00254cc7a"/><section>
+    <title>set_api_key()</title>
+<indexterm><primary>set_api_key</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>set_api_key</secondary></indexterm>
+<para><computeroutput>void LocalStorage::set_api_key (const char * api_key, bool force)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00179">179</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a0c0380d90c7cd50702c203c00254cc7a_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a9a902bca0c91533e4bb39c5d57bac78d"/><section>
+    <title>set_click_sound_level()</title>
+<indexterm><primary>set_click_sound_level</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>set_click_sound_level</secondary></indexterm>
+<para><computeroutput>void LocalStorage::set_click_sound_level (uint8_t click_sound_level, bool force)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00145">145</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a9a902bca0c91533e4bb39c5d57bac78d_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a5b975387d77a0d68a0eae66ce9f265df"/><section>
+    <title>set_device_id()</title>
+<indexterm><primary>set_device_id</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>set_device_id</secondary></indexterm>
+<para><computeroutput>void LocalStorage::set_device_id (uint16_t device_id, bool force)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00111">111</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a5b975387d77a0d68a0eae66ce9f265df_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a85feeba95879976c5b32d0e31a1cb0c3"/><section>
+    <title>set_fixed_latitude()</title>
+<indexterm><primary>set_fixed_latitude</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>set_fixed_latitude</secondary></indexterm>
+<para><computeroutput>void LocalStorage::set_fixed_latitude (double fixed_latitude, bool force)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00201">201</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a85feeba95879976c5b32d0e31a1cb0c3_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1aece6d66d88334ec1d56123af1e30beec"/><section>
+    <title>set_fixed_longitude()</title>
+<indexterm><primary>set_fixed_longitude</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>set_fixed_longitude</secondary></indexterm>
+<para><computeroutput>void LocalStorage::set_fixed_longitude (double fixed_longitude, bool force)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00191">191</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_aece6d66d88334ec1d56123af1e30beec_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a90854142e6b8517446157c21889903a9"/><section>
+    <title>set_fixed_range()</title>
+<indexterm><primary>set_fixed_range</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>set_fixed_range</secondary></indexterm>
+<para><computeroutput>void LocalStorage::set_fixed_range (uint16_t fixed_range, bool force)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00211">211</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a90854142e6b8517446157c21889903a9_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a61222cf72160eb65fe14a84ee43052bb"/><section>
+    <title>set_last_latitude()</title>
+<indexterm><primary>set_last_latitude</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>set_last_latitude</secondary></indexterm>
+<para><computeroutput>void LocalStorage::set_last_latitude (double last_latitude, bool force)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00231">231</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a61222cf72160eb65fe14a84ee43052bb_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a30925c71296c99004645906c9dabfc9d"/><section>
+    <title>set_last_longitude()</title>
+<indexterm><primary>set_last_longitude</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>set_last_longitude</secondary></indexterm>
+<para><computeroutput>void LocalStorage::set_last_longitude (double last_longitude, bool force)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00221">221</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a30925c71296c99004645906c9dabfc9d_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a36a08d7042318aafd9a89e5e47d16218"/><section>
+    <title>set_wifi_password()</title>
+<indexterm><primary>set_wifi_password</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>set_wifi_password</secondary></indexterm>
+<para><computeroutput>void LocalStorage::set_wifi_password (const char * wifi_password, bool force)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00167">167</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a36a08d7042318aafd9a89e5e47d16218_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_local_storage_1a89834da9be662b2881d56b78bc72035e"/><section>
+    <title>set_wifi_ssid()</title>
+<indexterm><primary>set_wifi_ssid</primary><secondary>LocalStorage</secondary></indexterm>
+<indexterm><primary>LocalStorage</primary><secondary>set_wifi_ssid</secondary></indexterm>
+<para><computeroutput>void LocalStorage::set_wifi_ssid (const char * wifi_ssid, bool force)<computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00155">155</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_local_storage_a89834da9be662b2881d56b78bc72035e_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/handlers/<link linkend="_local__storage_8h">local_storage.h</link>bgeigiezen_firmware/handlers/<link linkend="_local__storage_8cpp">local_storage.cpp</link></section>
+</section>

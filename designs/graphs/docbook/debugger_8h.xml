@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_debugger_8h" xml:lang="en-US">
+<title>bgeigiezen_firmware/debugger.h File Reference</title>
+<indexterm><primary>bgeigiezen_firmware/debugger.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;Arduino.h&gt;<?linebreak?>#include &quot;user_config.h&quot;<?linebreak?></programlisting>Include dependency graph for debugger.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="debugger_8h__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="debugger_8h__dep__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_debugger_8h_1a01cc042ece075ab5f79f608fed6aa192">DEBUG_STREAM</link>&#160;&#160;&#160;Serial</para>
+</listitem>
+            <listitem><para>#define <link linkend="_debugger_8h_1a566dec2de5e81d85ae24115e33a65b39">DEBUG_BAUD</link>&#160;&#160;&#160;115200</para>
+</listitem>
+            <listitem><para>#define <link linkend="_debugger_8h_1a99e2e45e03525a9c0a43ccb2b9831057">DEBUG_BEGIN</link>()&#160;&#160;&#160;DEBUG_STREAM.begin(<link linkend="_debugger_8h_1a566dec2de5e81d85ae24115e33a65b39">DEBUG_BAUD</link>)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_debugger_8h_1a4af5a6b3ea1e4fe9df4c0891c175fcfa">DEBUG_PRINT</link>(val)&#160;&#160;&#160;DEBUG_STREAM.print(val)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(val)&#160;&#160;&#160;DEBUG_STREAM.println(val)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_debugger_8h_1a01e7feab704802b5523d4bf0054f0b61">DEBUG_PRINTF</link>(format, ...)&#160;&#160;&#160;DEBUG_STREAM.printf(format, ##__VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_debugger_8h_1ab879a9a4883c211958a78f4d4f0a98ed">DEBUG_FLUSH</link>()&#160;&#160;&#160;DEBUG_STREAM.flush()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_debugger_8h_1a566dec2de5e81d85ae24115e33a65b39"/><section>
+    <title>DEBUG_BAUD</title>
+<indexterm><primary>DEBUG_BAUD</primary><secondary>debugger.h</secondary></indexterm>
+<indexterm><primary>debugger.h</primary><secondary>DEBUG_BAUD</secondary></indexterm>
+<para><computeroutput>#define DEBUG_BAUD&#160;&#160;&#160;115200</computeroutput></para><para>
+Definition at line <link linkend="_debugger_8h_source_1l00018">18</link> of file <link linkend="_debugger_8h_source">debugger.h</link>.</para>
+</section>
+<anchor xml:id="_debugger_8h_1a99e2e45e03525a9c0a43ccb2b9831057"/><section>
+    <title>DEBUG_BEGIN</title>
+<indexterm><primary>DEBUG_BEGIN</primary><secondary>debugger.h</secondary></indexterm>
+<indexterm><primary>debugger.h</primary><secondary>DEBUG_BEGIN</secondary></indexterm>
+<para><computeroutput>#define DEBUG_BEGIN( )&#160;&#160;&#160;DEBUG_STREAM.begin(<link linkend="_debugger_8h_1a566dec2de5e81d85ae24115e33a65b39">DEBUG_BAUD</link>)</computeroutput></para><para>
+Definition at line <link linkend="_debugger_8h_source_1l00021">21</link> of file <link linkend="_debugger_8h_source">debugger.h</link>.</para>
+</section>
+<anchor xml:id="_debugger_8h_1ab879a9a4883c211958a78f4d4f0a98ed"/><section>
+    <title>DEBUG_FLUSH</title>
+<indexterm><primary>DEBUG_FLUSH</primary><secondary>debugger.h</secondary></indexterm>
+<indexterm><primary>debugger.h</primary><secondary>DEBUG_FLUSH</secondary></indexterm>
+<para><computeroutput>#define DEBUG_FLUSH( )&#160;&#160;&#160;DEBUG_STREAM.flush()</computeroutput></para><para>
+Definition at line <link linkend="_debugger_8h_source_1l00025">25</link> of file <link linkend="_debugger_8h_source">debugger.h</link>.</para>
+</section>
+<anchor xml:id="_debugger_8h_1a4af5a6b3ea1e4fe9df4c0891c175fcfa"/><section>
+    <title>DEBUG_PRINT</title>
+<indexterm><primary>DEBUG_PRINT</primary><secondary>debugger.h</secondary></indexterm>
+<indexterm><primary>debugger.h</primary><secondary>DEBUG_PRINT</secondary></indexterm>
+<para><computeroutput>#define DEBUG_PRINT( val)&#160;&#160;&#160;DEBUG_STREAM.print(val)</computeroutput></para><para>
+Definition at line <link linkend="_debugger_8h_source_1l00022">22</link> of file <link linkend="_debugger_8h_source">debugger.h</link>.</para>
+</section>
+<anchor xml:id="_debugger_8h_1a01e7feab704802b5523d4bf0054f0b61"/><section>
+    <title>DEBUG_PRINTF</title>
+<indexterm><primary>DEBUG_PRINTF</primary><secondary>debugger.h</secondary></indexterm>
+<indexterm><primary>debugger.h</primary><secondary>DEBUG_PRINTF</secondary></indexterm>
+<para><computeroutput>#define DEBUG_PRINTF( format,  ...)&#160;&#160;&#160;DEBUG_STREAM.printf(format, ##__VA_ARGS__)</computeroutput></para><para>
+Definition at line <link linkend="_debugger_8h_source_1l00024">24</link> of file <link linkend="_debugger_8h_source">debugger.h</link>.</para>
+</section>
+<anchor xml:id="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40"/><section>
+    <title>DEBUG_PRINTLN</title>
+<indexterm><primary>DEBUG_PRINTLN</primary><secondary>debugger.h</secondary></indexterm>
+<indexterm><primary>debugger.h</primary><secondary>DEBUG_PRINTLN</secondary></indexterm>
+<para><computeroutput>#define DEBUG_PRINTLN( val)&#160;&#160;&#160;DEBUG_STREAM.println(val)</computeroutput></para><para>
+Definition at line <link linkend="_debugger_8h_source_1l00023">23</link> of file <link linkend="_debugger_8h_source">debugger.h</link>.</para>
+</section>
+<anchor xml:id="_debugger_8h_1a01cc042ece075ab5f79f608fed6aa192"/><section>
+    <title>DEBUG_STREAM</title>
+<indexterm><primary>DEBUG_STREAM</primary><secondary>debugger.h</secondary></indexterm>
+<indexterm><primary>debugger.h</primary><secondary>DEBUG_STREAM</secondary></indexterm>
+<para><computeroutput>#define DEBUG_STREAM&#160;&#160;&#160;Serial</computeroutput></para><para>
+Definition at line <link linkend="_debugger_8h_source_1l00014">14</link> of file <link linkend="_debugger_8h_source">debugger.h</link>.</para>
+</section>
+</section>
+</section>

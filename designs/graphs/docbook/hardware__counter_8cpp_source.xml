@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_hardware__counter_8cpp_source" xml:lang="en-US">
+<title>hardware_counter.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/utils/hardware_counter.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_hardware__counter_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_hardware__counter_8h">hardware_counter.h</link>&quot;</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_debugger_8h">debugger.h</link>&quot;</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00003"/>00003 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00004"/>00004 <emphasis role="comment">/*&#32;Decode&#32;what&#32;PCNT&apos;s&#32;unit&#32;originated&#32;an&#32;interrupt</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00005"/>00005 <emphasis role="comment">&#32;*&#32;and&#32;pass&#32;this&#32;information&#32;together&#32;with&#32;the&#32;event&#32;type</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00006"/>00006 <emphasis role="comment">&#32;*&#32;the&#32;main&#32;program&#32;using&#32;a&#32;queue.</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00007"/>00007 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00008"/><link linkend="_hardware__counter_8cpp_1a90ea1c07ae1f9c94a7c3ad2139f4ebb6">00008</link> <emphasis role="keywordtype">void</emphasis>&#32;IRAM_ATTR&#32;<link linkend="_hardware__counter_8cpp_1a90ea1c07ae1f9c94a7c3ad2139f4ebb6">pcnt_intr_handler</link>(<emphasis role="keywordtype">void</emphasis>*&#32;arg)&#32;{
+<anchor xml:id="_hardware__counter_8cpp_source_1l00009"/>00009 &#32;&#32;<emphasis role="keyword">auto</emphasis>*&#32;n_wraparound&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint32_t*<emphasis role="keyword">&gt;</emphasis>(arg);
+<anchor xml:id="_hardware__counter_8cpp_source_1l00010"/>00010 &#32;&#32;(*n_wraparound)++;
+<anchor xml:id="_hardware__counter_8cpp_source_1l00011"/>00011 }
+<anchor xml:id="_hardware__counter_8cpp_source_1l00012"/>00012 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00013"/>00013 <emphasis role="comment">/*&#32;The&#32;timer&#32;interrupt&#32;routine</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00014"/>00014 <emphasis role="comment">&#32;*&#32;Records&#32;the&#32;number&#32;of&#32;pulses,&#32;reset&#32;the&#32;pulse&#32;counter,&#32;and&#32;set&#32;the</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00015"/>00015 <emphasis role="comment">&#32;*&#32;available&#32;flag</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00016"/>00016 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00017"/><link linkend="_class_hardware_counter_1a50db37e683b37fc7c123c4a285237e18">00017</link> <emphasis role="keywordtype">void</emphasis>&#32;IRAM_ATTR&#32;<link linkend="_hardware__counter_8cpp_1a332e473d9db05aedc2fa329a3e3392cf">timer_intr_handler</link>(<emphasis role="keywordtype">void</emphasis>*&#32;arg)&#32;{
+<anchor xml:id="_hardware__counter_8cpp_source_1l00018"/>00018 &#32;&#32;<emphasis role="keyword">auto</emphasis>*&#32;counter&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis><link linkend="_class_hardware_counter">HardwareCounter</link>*<emphasis role="keyword">&gt;</emphasis>(arg);
+<anchor xml:id="_hardware__counter_8cpp_source_1l00019"/>00019 &#32;&#32;counter-&gt;_last_count&#32;=&#32;counter-&gt;_get_count_reset();
+<anchor xml:id="_hardware__counter_8cpp_source_1l00020"/>00020 &#32;&#32;counter-&gt;_available&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_hardware__counter_8cpp_source_1l00021"/>00021 }
+<anchor xml:id="_hardware__counter_8cpp_source_1l00022"/>00022 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00023"/><link linkend="_class_hardware_counter_1a83b878ed339ece4944ac7a70b3324cbc">00023</link> <link linkend="_class_hardware_counter_1a83b878ed339ece4944ac7a70b3324cbc">HardwareCounter::HardwareCounter</link>()&#32;:
+<anchor xml:id="_hardware__counter_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;_timer(),
+<anchor xml:id="_hardware__counter_8cpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;_delay_s(<link linkend="_user__config_8h_1a1ecad281135a3c0738229d664036ee71">GEIGER_AVERAGING_PERIOD_S</link>),
+<anchor xml:id="_hardware__counter_8cpp_source_1l00026"/>00026 &#32;&#32;&#32;&#32;_gpio(GEIGER_PULSE_GPIO),
+<anchor xml:id="_hardware__counter_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;_unit(PCNT_UNIT_0),
+<anchor xml:id="_hardware__counter_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;_max_value(std::numeric_limits&lt;int16_t&gt;::max()),
+<anchor xml:id="_hardware__counter_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;_n_wraparound(0),
+<anchor xml:id="_hardware__counter_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;_last_count(0),
+<anchor xml:id="_hardware__counter_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;_available(false)&#32;{
+<anchor xml:id="_hardware__counter_8cpp_source_1l00032"/>00032 }
+<anchor xml:id="_hardware__counter_8cpp_source_1l00033"/>00033 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00034"/><link linkend="_class_hardware_counter_1a0993c664a4e77d31ff2556e9f6143021">00034</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_hardware_counter_1a0993c664a4e77d31ff2556e9f6143021">HardwareCounter::available</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_hardware__counter_8cpp_source_1l00035"/>00035 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_available;
+<anchor xml:id="_hardware__counter_8cpp_source_1l00036"/>00036 }
+<anchor xml:id="_hardware__counter_8cpp_source_1l00037"/>00037 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00038"/><link linkend="_class_hardware_counter_1ad8529a6e8473d44f214dd1649fed8c38">00038</link> uint32_t&#32;<link linkend="_class_hardware_counter_1ad8529a6e8473d44f214dd1649fed8c38">HardwareCounter::get_last_count</link>()&#32;{
+<anchor xml:id="_hardware__counter_8cpp_source_1l00039"/>00039 &#32;&#32;_available&#32;=&#32;<emphasis role="keyword">false</emphasis>;&#32;&#32;<emphasis role="comment">//&#32;remove&#32;flag&#32;after&#32;consumption</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00040"/>00040 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_last_count;
+<anchor xml:id="_hardware__counter_8cpp_source_1l00041"/>00041 }
+<anchor xml:id="_hardware__counter_8cpp_source_1l00042"/>00042 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00043"/><link linkend="_class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7">00043</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7">HardwareCounter::begin</link>()&#32;{
+<anchor xml:id="_hardware__counter_8cpp_source_1l00044"/>00044 &#32;&#32;<emphasis role="comment">/*&#32;Prepare&#32;configuration&#32;for&#32;the&#32;PCNT&#32;unit&#32;*/</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00045"/>00045 &#32;&#32;<emphasis role="comment">//&#32;Careful,&#32;in&#32;C++&#32;the&#32;order&#32;of&#32;the&#32;fields&#32;should&#32;be&#32;the&#32;exact&#32;one&#32;of&#32;the</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00046"/>00046 &#32;&#32;<emphasis role="comment">//&#32;definition</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00047"/>00047 &#32;&#32;pcnt_config_t&#32;pcnt_config&#32;=&#32;{
+<anchor xml:id="_hardware__counter_8cpp_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Set&#32;PCNT&#32;input&#32;signal&#32;and&#32;control&#32;GPIOs</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;.pulse_gpio_num=_gpio,
+<anchor xml:id="_hardware__counter_8cpp_source_1l00050"/>00050 &#32;&#32;&#32;&#32;&#32;&#32;.ctrl_gpio_num=-1,&#32;&#32;<emphasis role="comment">//&#32;no&#32;control&#32;pin&#32;is&#32;used</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;What&#32;to&#32;do&#32;when&#32;control&#32;input&#32;is&#32;low&#32;or&#32;high?</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;.lctrl_mode=PCNT_MODE_KEEP,&#32;&#32;<emphasis role="comment">//&#32;Keep&#32;the&#32;primary&#32;counter&#32;mode&#32;if&#32;low</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;.hctrl_mode=PCNT_MODE_KEEP,&#32;&#32;<emphasis role="comment">//&#32;Keep&#32;the&#32;primary&#32;counter&#32;mode&#32;if&#32;high</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;What&#32;to&#32;do&#32;on&#32;the&#32;positive&#32;/&#32;negative&#32;edge&#32;of&#32;pulse&#32;input?</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00055"/>00055 &#32;&#32;&#32;&#32;&#32;&#32;.pos_mode=PCNT_COUNT_DIS,&#32;&#32;<emphasis role="comment">//&#32;Keep&#32;the&#32;counter&#32;value&#32;on&#32;the&#32;positive&#32;edge</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00056"/>00056 &#32;&#32;&#32;&#32;&#32;&#32;.neg_mode=PCNT_COUNT_INC,&#32;&#32;<emphasis role="comment">//&#32;Count&#32;up&#32;on&#32;the&#32;negative&#32;edge</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00057"/>00057 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Set&#32;the&#32;maximum&#32;and&#32;minimum&#32;limit&#32;values&#32;to&#32;watch</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;.counter_h_lim=_max_value,&#32;&#32;<emphasis role="comment">//&#32;max&#32;of&#32;16&#32;bit&#32;counter</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00059"/>00059 &#32;&#32;&#32;&#32;&#32;&#32;.counter_l_lim=0,
+<anchor xml:id="_hardware__counter_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;.unit=_unit,
+<anchor xml:id="_hardware__counter_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;.channel=PCNT_CHANNEL_0,
+<anchor xml:id="_hardware__counter_8cpp_source_1l00062"/>00062 &#32;&#32;};
+<anchor xml:id="_hardware__counter_8cpp_source_1l00063"/>00063 &#32;&#32;<emphasis role="comment">/*&#32;Initialize&#32;PCNT&#32;unit&#32;*/</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00064"/>00064 &#32;&#32;pcnt_unit_config(&amp;pcnt_config);
+<anchor xml:id="_hardware__counter_8cpp_source_1l00065"/>00065 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00066"/>00066 &#32;&#32;<emphasis role="comment">/*&#32;Configure&#32;and&#32;enable&#32;the&#32;input&#32;filter&#32;*/</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00067"/>00067 &#32;&#32;<emphasis role="comment">/*</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00068"/>00068 <emphasis role="comment">&#32;&#32;&#32;pcnt_set_filter_value(_unit,&#32;100);&#32;&#32;//&#32;we&#32;should&#32;set&#32;this&#32;to&#32;match&#32;the</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00069"/>00069 <emphasis role="comment">&#32;&#32;&#32;iRover&#32;pcnt_filter_enable(_unit);</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00070"/>00070 <emphasis role="comment">&#32;&#32;&#32;*/</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00071"/>00071 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00072"/>00072 &#32;&#32;<emphasis role="comment">/*&#32;Enable&#32;events&#32;on&#32;maximum&#32;limit&#32;value&#32;*/</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00073"/>00073 &#32;&#32;pcnt_event_enable(_unit,&#32;PCNT_EVT_H_LIM);
+<anchor xml:id="_hardware__counter_8cpp_source_1l00074"/>00074 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00075"/>00075 &#32;&#32;<emphasis role="comment">/*&#32;Initialize&#32;PCNT&apos;s&#32;counter&#32;*/</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00076"/>00076 &#32;&#32;pcnt_counter_pause(_unit);
+<anchor xml:id="_hardware__counter_8cpp_source_1l00077"/>00077 &#32;&#32;pcnt_counter_clear(_unit);
+<anchor xml:id="_hardware__counter_8cpp_source_1l00078"/>00078 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00079"/>00079 &#32;&#32;<emphasis role="comment">/*&#32;Install&#32;interrupt&#32;service&#32;and&#32;add&#32;isr&#32;callback&#32;handler&#32;*/</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00080"/>00080 &#32;&#32;pcnt_isr_service_install(0);
+<anchor xml:id="_hardware__counter_8cpp_source_1l00081"/>00081 &#32;&#32;pcnt_isr_handler_add(_unit,&#32;<link linkend="_hardware__counter_8cpp_1a90ea1c07ae1f9c94a7c3ad2139f4ebb6">pcnt_intr_handler</link>,&#32;(<emphasis role="keywordtype">void</emphasis>*)&#32;&amp;_n_wraparound);
+<anchor xml:id="_hardware__counter_8cpp_source_1l00082"/>00082 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00083"/>00083 &#32;&#32;<emphasis role="comment">//&#32;start&#32;the&#32;timer</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00084"/>00084 &#32;&#32;_timer.attach(<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">float</emphasis><emphasis role="keyword">&gt;</emphasis>(_delay_s),&#32;<link linkend="_class_hardware_counter_1a50db37e683b37fc7c123c4a285237e18">timer_intr_handler</link>,&#32;(<emphasis role="keywordtype">void</emphasis>*)&#32;<emphasis role="keyword">this</emphasis>);
+<anchor xml:id="_hardware__counter_8cpp_source_1l00085"/>00085 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00086"/>00086 &#32;&#32;<emphasis role="comment">//&#32;reset&#32;and&#32;start&#32;counting</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00087"/>00087 &#32;&#32;<link linkend="_class_hardware_counter_1aa7f151e2edd3d718edab3568ffc75dc4">reset</link>();
+<anchor xml:id="_hardware__counter_8cpp_source_1l00088"/>00088 }
+<anchor xml:id="_hardware__counter_8cpp_source_1l00089"/>00089 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00090"/><link linkend="_class_hardware_counter_1aa7f151e2edd3d718edab3568ffc75dc4">00090</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_hardware_counter_1aa7f151e2edd3d718edab3568ffc75dc4">HardwareCounter::reset</link>()&#32;{
+<anchor xml:id="_hardware__counter_8cpp_source_1l00091"/>00091 &#32;&#32;pcnt_counter_pause(_unit);
+<anchor xml:id="_hardware__counter_8cpp_source_1l00092"/>00092 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00093"/>00093 &#32;&#32;<emphasis role="comment">//&#32;set&#32;start&#32;time</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00094"/>00094 &#32;&#32;_start_time&#32;=&#32;millis();
+<anchor xml:id="_hardware__counter_8cpp_source_1l00095"/>00095 &#32;&#32;_available&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_hardware__counter_8cpp_source_1l00096"/>00096 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00097"/>00097 &#32;&#32;<emphasis role="comment">/*&#32;reset&#32;PCNT&apos;s&#32;counter&#32;*/</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00098"/>00098 &#32;&#32;pcnt_counter_clear(_unit);
+<anchor xml:id="_hardware__counter_8cpp_source_1l00099"/>00099 &#32;&#32;_n_wraparound&#32;=&#32;0;
+<anchor xml:id="_hardware__counter_8cpp_source_1l00100"/>00100 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00101"/>00101 &#32;&#32;pcnt_counter_resume(_unit);
+<anchor xml:id="_hardware__counter_8cpp_source_1l00102"/>00102 }
+<anchor xml:id="_hardware__counter_8cpp_source_1l00103"/>00103 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00104"/>00104 uint32_t&#32;HardwareCounter::_get_count_reset()&#32;{
+<anchor xml:id="_hardware__counter_8cpp_source_1l00105"/>00105 &#32;&#32;<emphasis role="comment">//&#32;compute&#32;current&#32;value&#32;of&#32;counter&#32;and&#32;reset</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00106"/>00106 &#32;&#32;int16_t&#32;count&#32;=&#32;0;
+<anchor xml:id="_hardware__counter_8cpp_source_1l00107"/>00107 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00108"/>00108 &#32;&#32;<emphasis role="comment">//&#32;get&#32;the&#32;value&#32;of&#32;the&#32;hardware&#32;counter</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00109"/>00109 &#32;&#32;esp_err_t&#32;ret&#32;=&#32;pcnt_get_counter_value(_unit,&#32;&amp;count);
+<anchor xml:id="_hardware__counter_8cpp_source_1l00110"/>00110 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(ret&#32;!=&#32;ESP_OK)&#32;{
+<anchor xml:id="_hardware__counter_8cpp_source_1l00111"/>00111 &#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;A&#32;problem&#32;occurred&#32;in&#32;the&#32;hardware&#32;counter&quot;</emphasis>);
+<anchor xml:id="_hardware__counter_8cpp_source_1l00112"/>00112 &#32;&#32;}
+<anchor xml:id="_hardware__counter_8cpp_source_1l00113"/>00113 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00114"/>00114 &#32;&#32;<emphasis role="comment">//&#32;compute&#32;the&#32;total&#32;value&#32;taking&#32;into&#32;account&#32;the&#32;wrap-arounds</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00115"/>00115 &#32;&#32;uint32_t&#32;total_count&#32;=&#32;_n_wraparound&#32;*&#32;_max_value&#32;+&#32;count;
+<anchor xml:id="_hardware__counter_8cpp_source_1l00116"/>00116 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00117"/>00117 &#32;&#32;<emphasis role="comment">//&#32;reset&#32;the&#32;counter</emphasis>
+<anchor xml:id="_hardware__counter_8cpp_source_1l00118"/>00118 &#32;&#32;<link linkend="_class_hardware_counter_1aa7f151e2edd3d718edab3568ffc75dc4">reset</link>();
+<anchor xml:id="_hardware__counter_8cpp_source_1l00119"/>00119 
+<anchor xml:id="_hardware__counter_8cpp_source_1l00120"/>00120 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;total_count;
+<anchor xml:id="_hardware__counter_8cpp_source_1l00121"/>00121 }
+</programlisting></section>

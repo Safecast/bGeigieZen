@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_base__screen_8cpp_source" xml:lang="en-US">
+<title>base_screen.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/screens/base_screen.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_base__screen_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_base__screen_8h">base_screen.h</link>&quot;</emphasis>
+<anchor xml:id="_base__screen_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_user__config_8h">user_config.h</link>&quot;</emphasis>
+<anchor xml:id="_base__screen_8cpp_source_1l00003"/>00003 
+<anchor xml:id="_base__screen_8cpp_source_1l00004"/><link linkend="_base__screen_8cpp_1a21f24486fd8c4be082345cc50d58daf3">00004</link> <emphasis role="preprocessor">#define&#32;BUTTON_TEXT_MAX_LENGTH&#32;13</emphasis>
+<anchor xml:id="_base__screen_8cpp_source_1l00005"/>00005 
+<anchor xml:id="_base__screen_8cpp_source_1l00006"/><link linkend="_class_base_screen_1a2e28e5b4ef3027c3c4392dfb4a6c3ff8">00006</link> <link linkend="_class_base_screen_1a2e28e5b4ef3027c3c4392dfb4a6c3ff8">BaseScreen::BaseScreen</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;title,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;status_bar)&#32;:&#32;_status_bar(status_bar)&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00007"/>00007 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strlen(title)&#32;&lt;&#32;20)&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00008"/>00008 &#32;&#32;&#32;&#32;strcpy(_title,&#32;title);
+<anchor xml:id="_base__screen_8cpp_source_1l00009"/>00009 &#32;&#32;}
+<anchor xml:id="_base__screen_8cpp_source_1l00010"/>00010 }
+<anchor xml:id="_base__screen_8cpp_source_1l00011"/>00011 
+<anchor xml:id="_base__screen_8cpp_source_1l00012"/>00012 <emphasis role="keywordtype">void</emphasis>&#32;BaseScreen::drawButton(uint16_t&#32;x,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;text,&#32;<link linkend="_struct_button_state">ButtonState</link>&#32;state)&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00013"/>00013 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strlen(text)&#32;&gt;&#32;<link linkend="_base__screen_8cpp_1a21f24486fd8c4be082345cc50d58daf3">BUTTON_TEXT_MAX_LENGTH</link>)&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00014"/>00014 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Dont&#32;render&#32;long&#32;button&#32;text&#32;:(</emphasis>
+<anchor xml:id="_base__screen_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_base__screen_8cpp_source_1l00016"/>00016 &#32;&#32;}
+<anchor xml:id="_base__screen_8cpp_source_1l00017"/>00017 
+<anchor xml:id="_base__screen_8cpp_source_1l00018"/>00018 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;border_color&#32;=&#32;<link linkend="_user__config_8h_1abda62c97ed73836f3749f74f4de6664a">LCD_COLOR_BACKGROUND</link>;
+<anchor xml:id="_base__screen_8cpp_source_1l00019"/>00019 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;text_color&#32;=&#32;<link linkend="_user__config_8h_1af5dfdf39379d893376bb886f8caa35fd">LCD_COLOR_ACTIVE</link>;
+<anchor xml:id="_base__screen_8cpp_source_1l00020"/>00020 
+<anchor xml:id="_base__screen_8cpp_source_1l00021"/>00021 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strlen(text))&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(state)&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>:
+<anchor xml:id="_base__screen_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;border_color&#32;=&#32;<link linkend="_user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62">LCD_COLOR_DEFAULT</link>;
+<anchor xml:id="_base__screen_8cpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_base__screen_8cpp_source_1l00026"/>00026 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669aeec92bb30ab578e6b0eceb97b61880fb">e_button_active</link>:
+<anchor xml:id="_base__screen_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;border_color&#32;=&#32;<link linkend="_user__config_8h_1af5dfdf39379d893376bb886f8caa35fd">LCD_COLOR_ACTIVE</link>;
+<anchor xml:id="_base__screen_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_base__screen_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669aa1df192f7cb5a602ccdf145fb8e7bca2">e_button_disabled</link>:
+<anchor xml:id="_base__screen_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;border_color&#32;=&#32;<link linkend="_user__config_8h_1a7513793964f7e96f4fbb7a2016f1336a">LCD_COLOR_INACTIVE</link>;
+<anchor xml:id="_base__screen_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;text_color&#32;=&#32;<link linkend="_user__config_8h_1a7513793964f7e96f4fbb7a2016f1336a">LCD_COLOR_INACTIVE</link>;
+<anchor xml:id="_base__screen_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">break</emphasis>;
+<anchor xml:id="_base__screen_8cpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_base__screen_8cpp_source_1l00034"/>00034 &#32;&#32;}
+<anchor xml:id="_base__screen_8cpp_source_1l00035"/>00035 
+<anchor xml:id="_base__screen_8cpp_source_1l00036"/>00036 &#32;&#32;M5.Lcd.drawRoundRect(x,&#32;-5,&#32;90,&#32;20,&#32;4,&#32;border_color);
+<anchor xml:id="_base__screen_8cpp_source_1l00037"/>00037 &#32;&#32;M5.Lcd.setTextColor(text_color,&#32;<link linkend="_user__config_8h_1abda62c97ed73836f3749f74f4de6664a">LCD_COLOR_BACKGROUND</link>);
+<anchor xml:id="_base__screen_8cpp_source_1l00038"/>00038 
+<anchor xml:id="_base__screen_8cpp_source_1l00039"/>00039 &#32;&#32;<emphasis role="comment">//&#32;Center&#32;the&#32;button&#32;text,&#32;making&#32;sure&#32;around&#32;the&#32;text&#32;is&#32;whitespace&#32;to&#32;clear&#32;previous&#32;texts</emphasis>
+<anchor xml:id="_base__screen_8cpp_source_1l00040"/>00040 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;blob[<link linkend="_base__screen_8cpp_1a21f24486fd8c4be082345cc50d58daf3">BUTTON_TEXT_MAX_LENGTH</link>&#32;+&#32;1]&#32;=&#32;<emphasis role="stringliteral">&quot;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;</emphasis>;
+<anchor xml:id="_base__screen_8cpp_source_1l00041"/>00041 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;strlen(text);&#32;++i)&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00042"/>00042 &#32;&#32;&#32;&#32;blob[i&#32;+&#32;((<link linkend="_base__screen_8cpp_1a21f24486fd8c4be082345cc50d58daf3">BUTTON_TEXT_MAX_LENGTH</link>&#32;-&#32;strlen(text))&#32;/&#32;2)]&#32;=&#32;text[i];
+<anchor xml:id="_base__screen_8cpp_source_1l00043"/>00043 &#32;&#32;}
+<anchor xml:id="_base__screen_8cpp_source_1l00044"/>00044 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strlen(text)&#32;%&#32;2&#32;!=&#32;<link linkend="_base__screen_8cpp_1a21f24486fd8c4be082345cc50d58daf3">BUTTON_TEXT_MAX_LENGTH</link>&#32;%&#32;2)&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;blob[<link linkend="_base__screen_8cpp_1a21f24486fd8c4be082345cc50d58daf3">BUTTON_TEXT_MAX_LENGTH</link>&#32;-&#32;1]&#32;=&#32;<emphasis role="charliteral">&apos;\0&apos;</emphasis>;
+<anchor xml:id="_base__screen_8cpp_source_1l00046"/>00046 &#32;&#32;}
+<anchor xml:id="_base__screen_8cpp_source_1l00047"/>00047 &#32;&#32;M5.Lcd.drawString(blob,&#32;(x&#32;+&#32;45)&#32;-&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint16_t<emphasis role="keyword">&gt;</emphasis>(strlen(blob)&#32;*&#32;3),&#32;10);
+<anchor xml:id="_base__screen_8cpp_source_1l00048"/>00048 &#32;&#32;M5.Lcd.flush();
+<anchor xml:id="_base__screen_8cpp_source_1l00049"/>00049 }
+<anchor xml:id="_base__screen_8cpp_source_1l00050"/>00050 
+<anchor xml:id="_base__screen_8cpp_source_1l00051"/><link linkend="_class_base_screen_1ac4042332f3362042ed3390297c8f1ea1">00051</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_base_screen_1ac4042332f3362042ed3390297c8f1ea1">BaseScreen::drawButton1</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;text,&#32;<link linkend="_struct_button_state">ButtonState</link>&#32;state)&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00052"/>00052 <emphasis role="preprocessor">#ifdef&#32;M5_CORE2</emphasis>
+<anchor xml:id="_base__screen_8cpp_source_1l00053"/>00053 &#32;&#32;drawButton(8,&#32;text,&#32;state);
+<anchor xml:id="_base__screen_8cpp_source_1l00054"/>00054 <emphasis role="preprocessor">#elif&#32;M5_BASIC</emphasis>
+<anchor xml:id="_base__screen_8cpp_source_1l00055"/>00055 &#32;&#32;drawButton(20,&#32;text,&#32;state);
+<anchor xml:id="_base__screen_8cpp_source_1l00056"/>00056 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_base__screen_8cpp_source_1l00057"/>00057 }
+<anchor xml:id="_base__screen_8cpp_source_1l00058"/>00058 
+<anchor xml:id="_base__screen_8cpp_source_1l00059"/><link linkend="_class_base_screen_1ad7040cea50962276539e67ac129d5c7c">00059</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_base_screen_1ad7040cea50962276539e67ac129d5c7c">BaseScreen::drawButton2</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;text,&#32;<link linkend="_struct_button_state">ButtonState</link>&#32;state)&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00060"/>00060 <emphasis role="preprocessor">#ifdef&#32;M5_CORE2</emphasis>
+<anchor xml:id="_base__screen_8cpp_source_1l00061"/>00061 &#32;&#32;drawButton(115,&#32;text,&#32;state);
+<anchor xml:id="_base__screen_8cpp_source_1l00062"/>00062 <emphasis role="preprocessor">#elif&#32;M5_BASIC</emphasis>
+<anchor xml:id="_base__screen_8cpp_source_1l00063"/>00063 &#32;&#32;drawButton(115,&#32;text,&#32;state);
+<anchor xml:id="_base__screen_8cpp_source_1l00064"/>00064 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_base__screen_8cpp_source_1l00065"/>00065 }
+<anchor xml:id="_base__screen_8cpp_source_1l00066"/>00066 
+<anchor xml:id="_base__screen_8cpp_source_1l00067"/><link linkend="_class_base_screen_1a00da29022f614d7e72fd218ba1dcf747">00067</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_base_screen_1a00da29022f614d7e72fd218ba1dcf747">BaseScreen::drawButton3</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;text,&#32;<link linkend="_struct_button_state">ButtonState</link>&#32;state)&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00068"/>00068 <emphasis role="preprocessor">#ifdef&#32;M5_CORE2</emphasis>
+<anchor xml:id="_base__screen_8cpp_source_1l00069"/>00069 &#32;&#32;drawButton(222,&#32;text,&#32;state);
+<anchor xml:id="_base__screen_8cpp_source_1l00070"/>00070 <emphasis role="preprocessor">#elif&#32;M5_BASIC</emphasis>
+<anchor xml:id="_base__screen_8cpp_source_1l00071"/>00071 &#32;&#32;drawButton(210,&#32;text,&#32;state);
+<anchor xml:id="_base__screen_8cpp_source_1l00072"/>00072 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_base__screen_8cpp_source_1l00073"/>00073 }
+<anchor xml:id="_base__screen_8cpp_source_1l00074"/>00074 
+<anchor xml:id="_base__screen_8cpp_source_1l00075"/><link linkend="_class_base_screen_1a1129827abdd844b136988965ae4a72ba">00075</link> int16_t&#32;<link linkend="_class_base_screen_1a1129827abdd844b136988965ae4a72ba">BaseScreen::printFloatFont</link>(<emphasis role="keywordtype">float</emphasis>&#32;val,&#32;<emphasis role="keywordtype">int</emphasis>&#32;prec,&#32;<emphasis role="keywordtype">int</emphasis>&#32;x,&#32;<emphasis role="keywordtype">int</emphasis>&#32;y,&#32;<emphasis role="keywordtype">int</emphasis>&#32;font)&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00076"/>00076 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;sz[32]&#32;=&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>;
+<anchor xml:id="_base__screen_8cpp_source_1l00077"/>00077 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;format[32]&#32;=&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>;
+<anchor xml:id="_base__screen_8cpp_source_1l00078"/>00078 &#32;&#32;sprintf(format,&#32;<emphasis role="stringliteral">&quot;%%.%df&quot;</emphasis>,&#32;prec);
+<anchor xml:id="_base__screen_8cpp_source_1l00079"/>00079 &#32;&#32;sprintf(sz,&#32;format,&#32;val);
+<anchor xml:id="_base__screen_8cpp_source_1l00080"/>00080 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;M5.Lcd.drawString((sz),&#32;x,&#32;y,&#32;font);
+<anchor xml:id="_base__screen_8cpp_source_1l00081"/>00081 }
+<anchor xml:id="_base__screen_8cpp_source_1l00082"/>00082 
+<anchor xml:id="_base__screen_8cpp_source_1l00083"/>00083 <emphasis role="comment">//&#32;Prints&#32;int&#32;with&#32;fonts</emphasis>
+<anchor xml:id="_base__screen_8cpp_source_1l00084"/><link linkend="_class_base_screen_1a7e56deb842ae278490c70910023eb8c8">00084</link> int16_t&#32;<link linkend="_class_base_screen_1a7e56deb842ae278490c70910023eb8c8">BaseScreen::printIntFont</link>(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">long</emphasis>&#32;val,&#32;<emphasis role="keywordtype">int</emphasis>&#32;x,&#32;<emphasis role="keywordtype">int</emphasis>&#32;y,&#32;<emphasis role="keywordtype">int</emphasis>&#32;font)&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00085"/>00085 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;sz[32]&#32;=&#32;<emphasis role="stringliteral">&quot;&quot;</emphasis>;
+<anchor xml:id="_base__screen_8cpp_source_1l00086"/>00086 &#32;&#32;sprintf(sz,&#32;<emphasis role="stringliteral">&quot;%ld&quot;</emphasis>,&#32;val);
+<anchor xml:id="_base__screen_8cpp_source_1l00087"/>00087 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;M5.Lcd.drawString((sz),&#32;x,&#32;y,&#32;font);
+<anchor xml:id="_base__screen_8cpp_source_1l00088"/>00088 }
+<anchor xml:id="_base__screen_8cpp_source_1l00089"/>00089 
+<anchor xml:id="_base__screen_8cpp_source_1l00090"/><link linkend="_class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea">00090</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea">BaseScreen::enter_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00091"/>00091 }
+<anchor xml:id="_base__screen_8cpp_source_1l00092"/>00092 
+<anchor xml:id="_base__screen_8cpp_source_1l00093"/><link linkend="_class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1">00093</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1">BaseScreen::leave_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00094"/>00094 }
+<anchor xml:id="_base__screen_8cpp_source_1l00095"/>00095 
+<anchor xml:id="_base__screen_8cpp_source_1l00096"/><link linkend="_class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42">00096</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42">BaseScreen::get_title</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_base__screen_8cpp_source_1l00097"/>00097 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_title;
+<anchor xml:id="_base__screen_8cpp_source_1l00098"/>00098 }
+<anchor xml:id="_base__screen_8cpp_source_1l00099"/>00099 
+<anchor xml:id="_base__screen_8cpp_source_1l00100"/><link linkend="_class_base_screen_1a2b0ff8ed2e49c96fa6e8d3e158d6db13">00100</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_base_screen_1a2b0ff8ed2e49c96fa6e8d3e158d6db13">BaseScreen::has_status_bar</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_base__screen_8cpp_source_1l00101"/>00101 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_status_bar;
+<anchor xml:id="_base__screen_8cpp_source_1l00102"/>00102 }
+<anchor xml:id="_base__screen_8cpp_source_1l00103"/>00103 
+<anchor xml:id="_base__screen_8cpp_source_1l00104"/><link linkend="_class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98">00104</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98">BaseScreen::do_render</link>(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers,&#32;<emphasis role="keyword">const</emphasis>&#32;handler_map_t&amp;&#32;handlers)&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00105"/>00105 &#32;&#32;<link linkend="_class_base_screen_1aca89a9c227f03adadb7022eb63ee3685">render</link>(workers,&#32;handlers,&#32;_force_render);
+<anchor xml:id="_base__screen_8cpp_source_1l00106"/>00106 &#32;&#32;_force_render&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_base__screen_8cpp_source_1l00107"/>00107 }
+<anchor xml:id="_base__screen_8cpp_source_1l00108"/>00108 
+<anchor xml:id="_base__screen_8cpp_source_1l00109"/><link linkend="_class_base_screen_1a475d077e56c80429539f9c8a973752dd">00109</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_base_screen_1a475d077e56c80429539f9c8a973752dd">BaseScreen::force_next_render</link>()&#32;{
+<anchor xml:id="_base__screen_8cpp_source_1l00110"/>00110 &#32;&#32;_force_render&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_base__screen_8cpp_source_1l00111"/>00111 }
+</programlisting></section>

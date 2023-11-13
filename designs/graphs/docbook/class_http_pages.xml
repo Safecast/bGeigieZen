@@ -1,0 +1,341 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_http_pages" xml:lang="en-US">
+<title>HttpPages Class Reference</title>
+<indexterm><primary>HttpPages</primary></indexterm>
+<para>
+<computeroutput>#include &lt;http_pages.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_http_pages_1a737989b229f10049a7e687eb3fba60cf">HttpPages</link> ()=delete</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static const char * <link linkend="_class_http_pages_1a1d1d7cd02d52ee3802c8a968777d4c51">get_home_page</link> (uint32_t device_id)</para>
+</listitem>
+            <listitem><para>static const char * <link linkend="_class_http_pages_1a699f3b010b822aeef2cf40f0d865038c">get_config_device_page</link> (bool display_success, uint32_t device_id)</para>
+</listitem>
+            <listitem><para>static const char * <link linkend="_class_http_pages_1a71db1b40789f4ad547741bc3b5a4b9a2">get_config_connection_page</link> (bool display_success, uint32_t device_id)</para>
+</listitem>
+            <listitem><para>static const char * <link linkend="_class_http_pages_1a75dc19ae45871ef3dfc2c412fe520862">get_config_location_page</link> (bool display_success, uint32_t device_id)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>static const uint8_t <link linkend="_class_http_pages_1a4a7f7da507251011076206062a49e0af">pure_css</link> [<link linkend="_http__pages_8h_1ada5878d891f82a42326746c9dbe6b9a6">PURE_CSS_SIZE</link>]</para>
+</listitem>
+            <listitem><para>static const uint8_t <link linkend="_class_http_pages_1a9be2569908780465b83751bc08251a61">favicon</link> [<link linkend="_http__pages_8h_1abc7068a1efb6caca697cbfa09cb56f32">FAVICON_SIZE</link>]</para>
+</listitem>
+            <listitem><para>static const char * <link linkend="_class_http_pages_1a27971511660fee4a1b5f5f8b7f7e47f4">pure_js</link></para>
+</listitem>
+            <listitem><para>static bool <link linkend="_class_http_pages_1a9d1744128b715be721740fe9783a3b98">internet_access</link> = false</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_http__pages_8h_source_1l00012">12</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_http_pages_1a737989b229f10049a7e687eb3fba60cf"/><section>
+    <title>HttpPages()</title>
+<indexterm><primary>HttpPages</primary><secondary>HttpPages</secondary></indexterm>
+<indexterm><primary>HttpPages</primary><secondary>HttpPages</secondary></indexterm>
+<para><computeroutput>HttpPages::HttpPages ( )<computeroutput>[delete]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_http_pages_1a71db1b40789f4ad547741bc3b5a4b9a2"/><section>
+    <title>get_config_connection_page()</title>
+<indexterm><primary>get_config_connection_page</primary><secondary>HttpPages</secondary></indexterm>
+<indexterm><primary>HttpPages</primary><secondary>get_config_connection_page</secondary></indexterm>
+<para><computeroutput>const char * HttpPages::get_config_connection_page (bool display_success, uint32_t device_id)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Render the configuration page for connection settings 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>display_success</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>device_id</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>device_password</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>wifi_ssid</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>wifi_password</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>api_key</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>use_dev</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>complete page rendered </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00135">135</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_http_pages_a71db1b40789f4ad547741bc3b5a4b9a2_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_http_pages_1a699f3b010b822aeef2cf40f0d865038c"/><section>
+    <title>get_config_device_page()</title>
+<indexterm><primary>get_config_device_page</primary><secondary>HttpPages</secondary></indexterm>
+<indexterm><primary>HttpPages</primary><secondary>get_config_device_page</secondary></indexterm>
+<para><computeroutput>const char * HttpPages::get_config_device_page (bool display_success, uint32_t device_id)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Render the configuration page for device settings 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>display_success</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>device_id</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>led_intensity</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>colorblind</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>complete page rendered </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00095">95</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_http_pages_a699f3b010b822aeef2cf40f0d865038c_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_http_pages_1a75dc19ae45871ef3dfc2c412fe520862"/><section>
+    <title>get_config_location_page()</title>
+<indexterm><primary>get_config_location_page</primary><secondary>HttpPages</secondary></indexterm>
+<indexterm><primary>HttpPages</primary><secondary>get_config_location_page</secondary></indexterm>
+<para><computeroutput>const char * HttpPages::get_config_location_page (bool display_success, uint32_t device_id)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Render the configuration page for location settings 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>display_success</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>device_id</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>use_home_location</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>home_latitude</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>home_longitude</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>last_latitude</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>last_longitude</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>complete page rendered </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00115">115</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_http_pages_a75dc19ae45871ef3dfc2c412fe520862_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_http_pages_1a1d1d7cd02d52ee3802c8a968777d4c51"/><section>
+    <title>get_home_page()</title>
+<indexterm><primary>get_home_page</primary><secondary>HttpPages</secondary></indexterm>
+<indexterm><primary>HttpPages</primary><secondary>get_home_page</secondary></indexterm>
+<para><computeroutput>const char * HttpPages::get_home_page (uint32_t device_id)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Render the home page 
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>device_id</entry><entry>
+<para>: To display the device id on the page </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>complete page rendered </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00074">74</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_http_pages_a1d1d7cd02d52ee3802c8a968777d4c51_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_http_pages_1a9be2569908780465b83751bc08251a61"/><section>
+    <title>favicon</title>
+<indexterm><primary>favicon</primary><secondary>HttpPages</secondary></indexterm>
+<indexterm><primary>HttpPages</primary><secondary>favicon</secondary></indexterm>
+<para><computeroutput>const uint8_t HttpPages::favicon<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00071">71</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_class_http_pages_1a9d1744128b715be721740fe9783a3b98"/><section>
+    <title>internet_access</title>
+<indexterm><primary>internet_access</primary><secondary>HttpPages</secondary></indexterm>
+<indexterm><primary>HttpPages</primary><secondary>internet_access</secondary></indexterm>
+<para><computeroutput>bool HttpPages::internet_access = false<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00074">74</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_class_http_pages_1a4a7f7da507251011076206062a49e0af"/><section>
+    <title>pure_css</title>
+<indexterm><primary>pure_css</primary><secondary>HttpPages</secondary></indexterm>
+<indexterm><primary>HttpPages</primary><secondary>pure_css</secondary></indexterm>
+<para><computeroutput>const uint8_t HttpPages::pure_css<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Gzipped pure css library <link xlink:href="https://purecss.io/">https://purecss.io/</link> </para>
+<para>
+Definition at line <link linkend="_http__pages_8h_source_1l00070">70</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_class_http_pages_1a27971511660fee4a1b5f5f8b7f7e47f4"/><section>
+    <title>pure_js</title>
+<indexterm><primary>pure_js</primary><secondary>HttpPages</secondary></indexterm>
+<indexterm><primary>HttpPages</primary><secondary>pure_js</secondary></indexterm>
+<para><computeroutput>const char * HttpPages::pure_js<computeroutput>[static]</computeroutput></computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;(function&#32;(w,d){const&#32;a=&apos;active&apos;,l=d.getElementById(&apos;layout&apos;),m=d.getElementById(&apos;menu&apos;),n=d&quot;</emphasis>
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;.getElementById(&apos;menuLink&apos;),c=d.getElementById(&apos;main&apos;),tc=(e,b)=&gt;{const&#32;r=e.className.split(&quot;</emphasis>
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;/\\s+/),p=r.length;let&#32;i=0;while&#32;(i&#32;&lt;&#32;p){if(r[i]===b){r.splice(i,1);break;}i++;}if(i===p){r.&quot;</emphasis>
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;push(b);}e.className=r.join(&apos;&#32;&apos;);},ta=(e)=&gt;{e.preventDefault();tc(l,a);tc(m,a);tc(n,a);};n.o&quot;</emphasis>
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;nclick=(e)=&gt;ta(e);c.onclick=(e)=&gt;m.className.indexOf(a)!==-1&#32;&amp;&amp;&#32;ta(e);}(this,this.document));&quot;</emphasis>
+</programlisting><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00072">72</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/utils/<link linkend="_http__pages_8h">http_pages.h</link>bgeigiezen_firmware/utils/<link linkend="_http__pages_8cpp">http_pages.cpp</link></section>
+</section>

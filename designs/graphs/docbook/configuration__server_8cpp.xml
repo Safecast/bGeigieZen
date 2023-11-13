@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_configuration__server_8cpp" xml:lang="en-US">
+<title>bgeigiezen_firmware/workers/configuration_server.cpp File Reference</title>
+<indexterm><primary>bgeigiezen_firmware/workers/configuration_server.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;configuration_server.h&quot;<?linebreak?>#include &quot;user_config.h&quot;<?linebreak?>#include &quot;utils/http_pages.h&quot;<?linebreak?></programlisting>Include dependency graph for configuration_server.cpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="configuration__server_8cpp__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_configuration__server_8cpp_1ab28fa84742de00ea3342319de160ff37">RETRY_TIMEOUT</link>&#160;&#160;&#160;4000</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>template&lt;typename T , typename T2 &gt; </para><para>T <link linkend="_configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653">clamp</link> (T2 val, T min, T max)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_configuration__server_8cpp_1ab28fa84742de00ea3342319de160ff37"/><section>
+    <title>RETRY_TIMEOUT</title>
+<indexterm><primary>RETRY_TIMEOUT</primary><secondary>configuration_server.cpp</secondary></indexterm>
+<indexterm><primary>configuration_server.cpp</primary><secondary>RETRY_TIMEOUT</secondary></indexterm>
+<para><computeroutput>#define RETRY_TIMEOUT&#160;&#160;&#160;4000</computeroutput></para><para>
+Definition at line <link linkend="_configuration__server_8cpp_source_1l00005">5</link> of file <link linkend="_configuration__server_8cpp_source">configuration_server.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653"/><section>
+    <title>clamp()</title>
+<indexterm><primary>clamp</primary><secondary>configuration_server.cpp</secondary></indexterm>
+<indexterm><primary>configuration_server.cpp</primary><secondary>clamp</secondary></indexterm>
+<computeroutput>template&lt;typename T , typename T2 &gt; </computeroutput><para><computeroutput>T clamp (T2 val, T min, T max)</computeroutput></para><para>
+Definition at line <link linkend="_configuration__server_8cpp_source_1l00008">8</link> of file <link linkend="_configuration__server_8cpp_source">configuration_server.cpp</link>.</para>
+</section>
+</section>
+</section>

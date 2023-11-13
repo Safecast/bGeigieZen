@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_local__storage_8cpp" xml:lang="en-US">
+<title>bgeigiezen_firmware/handlers/local_storage.cpp File Reference</title>
+<indexterm><primary>bgeigiezen_firmware/handlers/local_storage.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;local_storage.h&quot;<?linebreak?>#include &quot;debugger.h&quot;<?linebreak?>#include &quot;identifiers.h&quot;<?linebreak?>#include &quot;controller.h&quot;<?linebreak?>#include &quot;api_connector.h&quot;<?linebreak?>#include &quot;workers/gps_connector.h&quot;<?linebreak?></programlisting>Include dependency graph for local_storage.cpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="local__storage_8cpp__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_local__storage_8cpp_1a9554b3e7d789b754364284c87bc3a132">D_SEND_FREQUENCY</link>&#160;&#160;&#160;<link linkend="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4a55fc1e5ea7d88d8095033d37c67d52a4">ApiConnector::e_api_send_frequency_5_min</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>const char * <link linkend="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893">memory_name</link> = &quot;data&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_local__storage_8cpp_1a1cc3c4ca432fdd11a925513552304d24">key_device_id</link> = &quot;device_id&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_local__storage_8cpp_1a7d9f3d754040151f4292a57431c5e1d3">key_ap_password</link> = &quot;device_password&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_local__storage_8cpp_1ad6045c95b0899d869eb788d7ac34cc95">key_wifi_ssid</link> = &quot;wifi_ssid&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_local__storage_8cpp_1af80482f4d17df6f62f5ba0cd6b63967c">key_wifi_password</link> = &quot;wifi_password&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_local__storage_8cpp_1a5c676b3fb3be8ab7e66402250230ca2d">key_api_key</link> = &quot;api_key&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_local__storage_8cpp_1a02b2ad8efdfe6025a45b06e1193782dc">key_alarm_threshold</link> = &quot;alarm_threshold&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_local__storage_8cpp_1aa293ec0668d51351996db4589c73628e">key_click_sound_level</link> = &quot;click_sound_level&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_local__storage_8cpp_1afbe75d61c3a9a4d6cf9e2da21115fe3e">key_fixed_range</link> = &quot;fixed_range&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_local__storage_8cpp_1a3b013a23545661c8d4c85699e54b015f">key_fixed_longitude</link> = &quot;fixed_longitude&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_local__storage_8cpp_1ab12a1e02935187062efb6a12585e60f0">key_fixed_latitude</link> = &quot;fixed_latitude&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_local__storage_8cpp_1af734d6e6d80ded442268461b91db22a3">key_last_longitude</link> = &quot;last_longitude&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_local__storage_8cpp_1adc8a2fcfb910f0c89841859660e686af">key_last_latitude</link> = &quot;last_latitude&quot;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_local__storage_8cpp_1a9554b3e7d789b754364284c87bc3a132"/><section>
+    <title>D_SEND_FREQUENCY</title>
+<indexterm><primary>D_SEND_FREQUENCY</primary><secondary>local_storage.cpp</secondary></indexterm>
+<indexterm><primary>local_storage.cpp</primary><secondary>D_SEND_FREQUENCY</secondary></indexterm>
+<para><computeroutput>#define D_SEND_FREQUENCY&#160;&#160;&#160;<link linkend="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4a55fc1e5ea7d88d8095033d37c67d52a4">ApiConnector::e_api_send_frequency_5_min</link></computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00009">9</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_local__storage_8cpp_1a02b2ad8efdfe6025a45b06e1193782dc"/><section>
+    <title>key_alarm_threshold</title>
+<indexterm><primary>key_alarm_threshold</primary><secondary>local_storage.cpp</secondary></indexterm>
+<indexterm><primary>local_storage.cpp</primary><secondary>key_alarm_threshold</secondary></indexterm>
+<para><computeroutput>const char* key_alarm_threshold = &quot;alarm_threshold&quot;</computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00019">19</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+<anchor xml:id="_local__storage_8cpp_1a7d9f3d754040151f4292a57431c5e1d3"/><section>
+    <title>key_ap_password</title>
+<indexterm><primary>key_ap_password</primary><secondary>local_storage.cpp</secondary></indexterm>
+<indexterm><primary>local_storage.cpp</primary><secondary>key_ap_password</secondary></indexterm>
+<para><computeroutput>const char* key_ap_password = &quot;device_password&quot;</computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00015">15</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+<anchor xml:id="_local__storage_8cpp_1a5c676b3fb3be8ab7e66402250230ca2d"/><section>
+    <title>key_api_key</title>
+<indexterm><primary>key_api_key</primary><secondary>local_storage.cpp</secondary></indexterm>
+<indexterm><primary>local_storage.cpp</primary><secondary>key_api_key</secondary></indexterm>
+<para><computeroutput>const char* key_api_key = &quot;api_key&quot;</computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00018">18</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+<anchor xml:id="_local__storage_8cpp_1aa293ec0668d51351996db4589c73628e"/><section>
+    <title>key_click_sound_level</title>
+<indexterm><primary>key_click_sound_level</primary><secondary>local_storage.cpp</secondary></indexterm>
+<indexterm><primary>local_storage.cpp</primary><secondary>key_click_sound_level</secondary></indexterm>
+<para><computeroutput>const char* key_click_sound_level = &quot;click_sound_level&quot;</computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00020">20</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+<anchor xml:id="_local__storage_8cpp_1a1cc3c4ca432fdd11a925513552304d24"/><section>
+    <title>key_device_id</title>
+<indexterm><primary>key_device_id</primary><secondary>local_storage.cpp</secondary></indexterm>
+<indexterm><primary>local_storage.cpp</primary><secondary>key_device_id</secondary></indexterm>
+<para><computeroutput>const char* key_device_id = &quot;device_id&quot;</computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00014">14</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+<anchor xml:id="_local__storage_8cpp_1ab12a1e02935187062efb6a12585e60f0"/><section>
+    <title>key_fixed_latitude</title>
+<indexterm><primary>key_fixed_latitude</primary><secondary>local_storage.cpp</secondary></indexterm>
+<indexterm><primary>local_storage.cpp</primary><secondary>key_fixed_latitude</secondary></indexterm>
+<para><computeroutput>const char* key_fixed_latitude = &quot;fixed_latitude&quot;</computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00023">23</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+<anchor xml:id="_local__storage_8cpp_1a3b013a23545661c8d4c85699e54b015f"/><section>
+    <title>key_fixed_longitude</title>
+<indexterm><primary>key_fixed_longitude</primary><secondary>local_storage.cpp</secondary></indexterm>
+<indexterm><primary>local_storage.cpp</primary><secondary>key_fixed_longitude</secondary></indexterm>
+<para><computeroutput>const char* key_fixed_longitude = &quot;fixed_longitude&quot;</computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00022">22</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+<anchor xml:id="_local__storage_8cpp_1afbe75d61c3a9a4d6cf9e2da21115fe3e"/><section>
+    <title>key_fixed_range</title>
+<indexterm><primary>key_fixed_range</primary><secondary>local_storage.cpp</secondary></indexterm>
+<indexterm><primary>local_storage.cpp</primary><secondary>key_fixed_range</secondary></indexterm>
+<para><computeroutput>const char* key_fixed_range = &quot;fixed_range&quot;</computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00021">21</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+<anchor xml:id="_local__storage_8cpp_1adc8a2fcfb910f0c89841859660e686af"/><section>
+    <title>key_last_latitude</title>
+<indexterm><primary>key_last_latitude</primary><secondary>local_storage.cpp</secondary></indexterm>
+<indexterm><primary>local_storage.cpp</primary><secondary>key_last_latitude</secondary></indexterm>
+<para><computeroutput>const char* key_last_latitude = &quot;last_latitude&quot;</computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00025">25</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+<anchor xml:id="_local__storage_8cpp_1af734d6e6d80ded442268461b91db22a3"/><section>
+    <title>key_last_longitude</title>
+<indexterm><primary>key_last_longitude</primary><secondary>local_storage.cpp</secondary></indexterm>
+<indexterm><primary>local_storage.cpp</primary><secondary>key_last_longitude</secondary></indexterm>
+<para><computeroutput>const char* key_last_longitude = &quot;last_longitude&quot;</computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00024">24</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+<anchor xml:id="_local__storage_8cpp_1af80482f4d17df6f62f5ba0cd6b63967c"/><section>
+    <title>key_wifi_password</title>
+<indexterm><primary>key_wifi_password</primary><secondary>local_storage.cpp</secondary></indexterm>
+<indexterm><primary>local_storage.cpp</primary><secondary>key_wifi_password</secondary></indexterm>
+<para><computeroutput>const char* key_wifi_password = &quot;wifi_password&quot;</computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00017">17</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+<anchor xml:id="_local__storage_8cpp_1ad6045c95b0899d869eb788d7ac34cc95"/><section>
+    <title>key_wifi_ssid</title>
+<indexterm><primary>key_wifi_ssid</primary><secondary>local_storage.cpp</secondary></indexterm>
+<indexterm><primary>local_storage.cpp</primary><secondary>key_wifi_ssid</secondary></indexterm>
+<para><computeroutput>const char* key_wifi_ssid = &quot;wifi_ssid&quot;</computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00016">16</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+<anchor xml:id="_local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893"/><section>
+    <title>memory_name</title>
+<indexterm><primary>memory_name</primary><secondary>local_storage.cpp</secondary></indexterm>
+<indexterm><primary>local_storage.cpp</primary><secondary>memory_name</secondary></indexterm>
+<para><computeroutput>const char* memory_name = &quot;data&quot;</computeroutput></para><para>
+Definition at line <link linkend="_local__storage_8cpp_source_1l00011">11</link> of file <link linkend="_local__storage_8cpp_source">local_storage.cpp</link>.</para>
+</section>
+</section>
+</section>

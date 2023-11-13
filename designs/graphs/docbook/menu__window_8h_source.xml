@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_menu__window_8h_source" xml:lang="en-US">
+<title>menu_window.h</title>
+<indexterm><primary>bgeigiezen_firmware/screens/menu_window.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_menu__window_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;BGEIGIEZEN_BGEIGIEZEN_FIRMWARE_SCREENS_MENU_ITEMS_H</emphasis>
+<anchor xml:id="_menu__window_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;BGEIGIEZEN_BGEIGIEZEN_FIRMWARE_SCREENS_MENU_ITEMS_H</emphasis>
+<anchor xml:id="_menu__window_8h_source_1l00003"/>00003 
+<anchor xml:id="_menu__window_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_base__screen_8h">base_screen.h</link>&quot;</emphasis>
+<anchor xml:id="_menu__window_8h_source_1l00005"/>00005 
+<anchor xml:id="_menu__window_8h_source_1l00006"/><link linkend="_menu__window_8h_1a278b7def2739a9e9f87fcd420308d74c">00006</link> <emphasis role="preprocessor">#define&#32;ADVANCED_MENU_ITEMS&#32;6</emphasis>
+<anchor xml:id="_menu__window_8h_source_1l00007"/>00007 
+<anchor xml:id="_menu__window_8h_source_1l00011"/><link linkend="_class_menu_window">00011</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_menu_window">MenuWindow</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_base_screen">BaseScreen</link>&#32;{
+<anchor xml:id="_menu__window_8h_source_1l00012"/>00012 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_menu__window_8h_source_1l00013"/><link linkend="_struct_menu_window_1_1_menu_item">00013</link> &#32;&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_menu_window_1_1_menu_item">MenuItem</link>&#32;{
+<anchor xml:id="_menu__window_8h_source_1l00014"/><link linkend="_struct_menu_window_1_1_menu_item_1aff2ebb161b65cdca1ad58048cf42a505">00014</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_struct_menu_window_1_1_menu_item_1aff2ebb161b65cdca1ad58048cf42a505">title</link>;
+<anchor xml:id="_menu__window_8h_source_1l00015"/><link linkend="_struct_menu_window_1_1_menu_item_1a41fa94add9639a840623689378d9c440">00015</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_struct_menu_window_1_1_menu_item_1a41fa94add9639a840623689378d9c440">tooltip_l1</link>;
+<anchor xml:id="_menu__window_8h_source_1l00016"/><link linkend="_struct_menu_window_1_1_menu_item_1aa359db42368a159ffd0600be99eb63e4">00016</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_struct_menu_window_1_1_menu_item_1aa359db42368a159ffd0600be99eb63e4">tooltip_l2</link>;
+<anchor xml:id="_menu__window_8h_source_1l00017"/><link linkend="_struct_menu_window_1_1_menu_item_1a2687170e51cc2df57a42f500c21fe88d">00017</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_struct_menu_window_1_1_menu_item_1a2687170e51cc2df57a42f500c21fe88d">enabled</link>;
+<anchor xml:id="_menu__window_8h_source_1l00018"/>00018 &#32;&#32;};
+<anchor xml:id="_menu__window_8h_source_1l00019"/>00019 
+<anchor xml:id="_menu__window_8h_source_1l00020"/><link linkend="_class_menu_window_1a9c91d3d091851ede9828695486d29de1">00020</link> &#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<link linkend="_class_menu_window">MenuWindow</link>*&#32;<link linkend="_class_menu_window_1a9c91d3d091851ede9828695486d29de1">i</link>()&#32;{
+<anchor xml:id="_menu__window_8h_source_1l00021"/>00021 &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<link linkend="_class_menu_window">MenuWindow</link>&#32;screen;
+<anchor xml:id="_menu__window_8h_source_1l00022"/>00022 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;&amp;screen;
+<anchor xml:id="_menu__window_8h_source_1l00023"/>00023 &#32;&#32;}
+<anchor xml:id="_menu__window_8h_source_1l00024"/>00024 
+<anchor xml:id="_menu__window_8h_source_1l00025"/>00025 &#32;&#32;<link linkend="_class_base_screen">BaseScreen</link>*&#32;<link linkend="_class_menu_window_1afe3cdb7f44d6d7a534044abc6b4e1b92">handle_input</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>,&#32;<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_menu__window_8h_source_1l00026"/>00026 
+<anchor xml:id="_menu__window_8h_source_1l00027"/>00027 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_menu_window_1a94aa1a34a3af160f64c4575f0f7a66be">is_open</link>()&#32;<emphasis role="keyword">const</emphasis>;
+<anchor xml:id="_menu__window_8h_source_1l00028"/>00028 
+<anchor xml:id="_menu__window_8h_source_1l00029"/>00029 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_menu_window_1a2971f694878323174c931b8a466c5e82">enter_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_menu__window_8h_source_1l00030"/>00030 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_menu_window_1a2c5ae75df9da64b970dcbd408efc17ae">leave_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_menu__window_8h_source_1l00031"/>00031 
+<anchor xml:id="_menu__window_8h_source_1l00032"/>00032 &#32;<emphasis role="keyword">protected</emphasis>:
+<anchor xml:id="_menu__window_8h_source_1l00033"/>00033 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_menu_window_1a668a8a350e49de44844d8d06d0032938">render</link>(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers,&#32;<emphasis role="keyword">const</emphasis>&#32;handler_map_t&amp;&#32;handlers,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_menu__window_8h_source_1l00034"/>00034 
+<anchor xml:id="_menu__window_8h_source_1l00035"/>00035 &#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_menu__window_8h_source_1l00036"/>00036 &#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_class_menu_window">MenuWindow</link>();
+<anchor xml:id="_menu__window_8h_source_1l00037"/>00037 
+<anchor xml:id="_menu__window_8h_source_1l00038"/>00038 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;menu_open;
+<anchor xml:id="_menu__window_8h_source_1l00039"/>00039 &#32;&#32;uint8_t&#32;menu_index;
+<anchor xml:id="_menu__window_8h_source_1l00040"/>00040 &#32;&#32;uint8_t&#32;max_index;&#32;<emphasis role="comment">//&#32;Set&#32;on&#32;enter&#32;menu</emphasis>
+<anchor xml:id="_menu__window_8h_source_1l00041"/>00041 &#32;&#32;MenuItem&#32;advanced_menu[<link linkend="_menu__window_8h_1a278b7def2739a9e9f87fcd420308d74c">ADVANCED_MENU_ITEMS</link>];
+<anchor xml:id="_menu__window_8h_source_1l00042"/>00042 };
+<anchor xml:id="_menu__window_8h_source_1l00043"/>00043 
+<anchor xml:id="_menu__window_8h_source_1l00044"/>00044 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//BGEIGIEZEN_BGEIGIEZEN_FIRMWARE_SCREENS_MENU_ITEMS_H</emphasis>
+</programlisting></section>

@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_geiger_data" xml:lang="en-US">
+<title>GeigerData Struct Reference</title>
+<indexterm><primary>GeigerData</primary></indexterm>
+<para>
+<computeroutput>#include &lt;gm_sensor.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_struct_geiger_data_1ace47dff387083abff03224021c8e1217">valid</link> = false</para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_struct_geiger_data_1a40aef9acd9b1827fd55584dd266de524">cps</link> = 0</para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_struct_geiger_data_1a5bfc9af14c14579f884bbf5ce6edc68f">cp5s</link> = 0</para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_struct_geiger_data_1a66f2c59cb6b786c5d40baf2f533a790b">cpm_raw</link> = 0</para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_struct_geiger_data_1acde146c506e543a976f3684bacac78e9">cpm_comp</link> = 0</para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_struct_geiger_data_1a80b52486d7bf6a78d91e8a371c8e249f">cpm_comp_peak</link> = 0</para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_struct_geiger_data_1aa064d0894267741ccf9608ba920c7db8">total</link> = 0</para>
+</listitem>
+            <listitem><para>float <link linkend="_struct_geiger_data_1a81ecc00a99630edc0699b19bdc7ae140">uSv</link> = 0.0</para>
+</listitem>
+            <listitem><para>float <link linkend="_struct_geiger_data_1a2bcd68de2b048b085cd1a35a4648ff15">Bqm2</link> = 0.0</para>
+</listitem>
+            <listitem><para>float <link linkend="_struct_geiger_data_1aef46f8c0c1fce07338a04c92ed102329">uSv_sec</link> = 0.0</para>
+</listitem>
+            <listitem><para>float <link linkend="_struct_geiger_data_1a2510caebbe9da3c2ba64b4744ffe6da3">Bqm2_sec</link> = 0.0</para>
+</listitem>
+            <listitem><para>float <link linkend="_struct_geiger_data_1afec940a76e00b11fdfb2070605e50e84">uSv_5sec</link> = 0.0</para>
+</listitem>
+            <listitem><para>float <link linkend="_struct_geiger_data_1a534aff9ab3721280a60b60fcee99aebc">Bqm2_5sec</link> = 0.0</para>
+</listitem>
+            <listitem><para>bool <link linkend="_struct_geiger_data_1ae88406bbe767571e0d180c93d2a77fa7">alert</link> = false</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00007">7</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_geiger_data_1ae88406bbe767571e0d180c93d2a77fa7"/><section>
+    <title>alert</title>
+<indexterm><primary>alert</primary><secondary>GeigerData</secondary></indexterm>
+<indexterm><primary>GeigerData</primary><secondary>alert</secondary></indexterm>
+<para><computeroutput>bool GeigerData::alert = false</computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00021">21</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+</section>
+<anchor xml:id="_struct_geiger_data_1a2bcd68de2b048b085cd1a35a4648ff15"/><section>
+    <title>Bqm2</title>
+<indexterm><primary>Bqm2</primary><secondary>GeigerData</secondary></indexterm>
+<indexterm><primary>GeigerData</primary><secondary>Bqm2</secondary></indexterm>
+<para><computeroutput>float GeigerData::Bqm2 = 0.0</computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00016">16</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+</section>
+<anchor xml:id="_struct_geiger_data_1a534aff9ab3721280a60b60fcee99aebc"/><section>
+    <title>Bqm2_5sec</title>
+<indexterm><primary>Bqm2_5sec</primary><secondary>GeigerData</secondary></indexterm>
+<indexterm><primary>GeigerData</primary><secondary>Bqm2_5sec</secondary></indexterm>
+<para><computeroutput>float GeigerData::Bqm2_5sec = 0.0</computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00020">20</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+</section>
+<anchor xml:id="_struct_geiger_data_1a2510caebbe9da3c2ba64b4744ffe6da3"/><section>
+    <title>Bqm2_sec</title>
+<indexterm><primary>Bqm2_sec</primary><secondary>GeigerData</secondary></indexterm>
+<indexterm><primary>GeigerData</primary><secondary>Bqm2_sec</secondary></indexterm>
+<para><computeroutput>float GeigerData::Bqm2_sec = 0.0</computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00018">18</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+</section>
+<anchor xml:id="_struct_geiger_data_1a5bfc9af14c14579f884bbf5ce6edc68f"/><section>
+    <title>cp5s</title>
+<indexterm><primary>cp5s</primary><secondary>GeigerData</secondary></indexterm>
+<indexterm><primary>GeigerData</primary><secondary>cp5s</secondary></indexterm>
+<para><computeroutput>uint16_t GeigerData::cp5s = 0</computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00010">10</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+</section>
+<anchor xml:id="_struct_geiger_data_1acde146c506e543a976f3684bacac78e9"/><section>
+    <title>cpm_comp</title>
+<indexterm><primary>cpm_comp</primary><secondary>GeigerData</secondary></indexterm>
+<indexterm><primary>GeigerData</primary><secondary>cpm_comp</secondary></indexterm>
+<para><computeroutput>uint32_t GeigerData::cpm_comp = 0</computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00012">12</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+</section>
+<anchor xml:id="_struct_geiger_data_1a80b52486d7bf6a78d91e8a371c8e249f"/><section>
+    <title>cpm_comp_peak</title>
+<indexterm><primary>cpm_comp_peak</primary><secondary>GeigerData</secondary></indexterm>
+<indexterm><primary>GeigerData</primary><secondary>cpm_comp_peak</secondary></indexterm>
+<para><computeroutput>uint32_t GeigerData::cpm_comp_peak = 0</computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00013">13</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+</section>
+<anchor xml:id="_struct_geiger_data_1a66f2c59cb6b786c5d40baf2f533a790b"/><section>
+    <title>cpm_raw</title>
+<indexterm><primary>cpm_raw</primary><secondary>GeigerData</secondary></indexterm>
+<indexterm><primary>GeigerData</primary><secondary>cpm_raw</secondary></indexterm>
+<para><computeroutput>uint32_t GeigerData::cpm_raw = 0</computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00011">11</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+</section>
+<anchor xml:id="_struct_geiger_data_1a40aef9acd9b1827fd55584dd266de524"/><section>
+    <title>cps</title>
+<indexterm><primary>cps</primary><secondary>GeigerData</secondary></indexterm>
+<indexterm><primary>GeigerData</primary><secondary>cps</secondary></indexterm>
+<para><computeroutput>uint16_t GeigerData::cps = 0</computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00009">9</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+</section>
+<anchor xml:id="_struct_geiger_data_1aa064d0894267741ccf9608ba920c7db8"/><section>
+    <title>total</title>
+<indexterm><primary>total</primary><secondary>GeigerData</secondary></indexterm>
+<indexterm><primary>GeigerData</primary><secondary>total</secondary></indexterm>
+<para><computeroutput>uint32_t GeigerData::total = 0</computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00014">14</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+</section>
+<anchor xml:id="_struct_geiger_data_1a81ecc00a99630edc0699b19bdc7ae140"/><section>
+    <title>uSv</title>
+<indexterm><primary>uSv</primary><secondary>GeigerData</secondary></indexterm>
+<indexterm><primary>GeigerData</primary><secondary>uSv</secondary></indexterm>
+<para><computeroutput>float GeigerData::uSv = 0.0</computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00015">15</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+</section>
+<anchor xml:id="_struct_geiger_data_1afec940a76e00b11fdfb2070605e50e84"/><section>
+    <title>uSv_5sec</title>
+<indexterm><primary>uSv_5sec</primary><secondary>GeigerData</secondary></indexterm>
+<indexterm><primary>GeigerData</primary><secondary>uSv_5sec</secondary></indexterm>
+<para><computeroutput>float GeigerData::uSv_5sec = 0.0</computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00019">19</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+</section>
+<anchor xml:id="_struct_geiger_data_1aef46f8c0c1fce07338a04c92ed102329"/><section>
+    <title>uSv_sec</title>
+<indexterm><primary>uSv_sec</primary><secondary>GeigerData</secondary></indexterm>
+<indexterm><primary>GeigerData</primary><secondary>uSv_sec</secondary></indexterm>
+<para><computeroutput>float GeigerData::uSv_sec = 0.0</computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00017">17</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+</section>
+<anchor xml:id="_struct_geiger_data_1ace47dff387083abff03224021c8e1217"/><section>
+    <title>valid</title>
+<indexterm><primary>valid</primary><secondary>GeigerData</secondary></indexterm>
+<indexterm><primary>GeigerData</primary><secondary>valid</secondary></indexterm>
+<para><computeroutput>bool GeigerData::valid = false</computeroutput></para><para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00008">8</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+bgeigiezen_firmware/workers/<link linkend="_gm__sensor_8h">gm_sensor.h</link></section>
+</section>

@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_config_web_server" xml:lang="en-US">
+<title>ConfigWebServer Class Reference</title>
+<indexterm><primary>ConfigWebServer</primary></indexterm>
+<para>
+<computeroutput>#include &lt;configuration_server.h&gt;</computeroutput>
+</para>
+Inheritance diagram for ConfigWebServer:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_config_web_server__inherit__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for ConfigWebServer:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_config_web_server__coll__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_config_web_server_1a001c5b747ffda5655ffa7828efe7a83b">ConfigWebServer</link> (<link linkend="_class_local_storage">LocalStorage</link> &amp;config)</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_config_web_server_1a25c459b986060d38b5557e1eb42a0f4f">~ConfigWebServer</link> ()=default</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_config_web_server_1a1275de30c892a8fc52e64f958732ac91">produce_data</link> () override</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092">add_urls</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_class_config_web_server_1a5fba48f2cf78029036a923eb27bc0674">activate</link> (bool retry) override</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_config_web_server_1ac0bce5e4a438388e030c21d56243c643">deactivate</link> () override</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Class to host a web server for configuring the ESP32. Will set up an access point based on <link linkend="_user__config_8h">user_config.h</link> &quot;Access point settings&quot;. </para>
+<para>
+Definition at line <link linkend="_configuration__server_8h_source_1l00023">23</link> of file <link linkend="_configuration__server_8h_source">configuration_server.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_config_web_server_1a001c5b747ffda5655ffa7828efe7a83b"/><section>
+    <title>ConfigWebServer()</title>
+<indexterm><primary>ConfigWebServer</primary><secondary>ConfigWebServer</secondary></indexterm>
+<indexterm><primary>ConfigWebServer</primary><secondary>ConfigWebServer</secondary></indexterm>
+<para><computeroutput>ConfigWebServer::ConfigWebServer (<link linkend="_class_local_storage">LocalStorage</link> &amp; config)<computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_configuration__server_8cpp_source_1l00013">13</link> of file <link linkend="_configuration__server_8cpp_source">configuration_server.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_config_web_server_a001c5b747ffda5655ffa7828efe7a83b_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_config_web_server_1a25c459b986060d38b5557e1eb42a0f4f"/><section>
+    <title>~ConfigWebServer()</title>
+<indexterm><primary>~ConfigWebServer</primary><secondary>ConfigWebServer</secondary></indexterm>
+<indexterm><primary>ConfigWebServer</primary><secondary>~ConfigWebServer</secondary></indexterm>
+<para><computeroutput>virtual ConfigWebServer::~ConfigWebServer ( )<computeroutput>[virtual]</computeroutput>, <computeroutput>[default]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_config_web_server_1a5fba48f2cf78029036a923eb27bc0674"/><section>
+    <title>activate()</title>
+<indexterm><primary>activate</primary><secondary>ConfigWebServer</secondary></indexterm>
+<indexterm><primary>ConfigWebServer</primary><secondary>activate</secondary></indexterm>
+<para><computeroutput>bool ConfigWebServer::activate (bool retry)<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Initialize the web server, does nothing if it is already initialized. <formalpara><title>Returns</title>
+
+<para>true if initialization was success </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_configuration__server_8cpp_source_1l00020">20</link> of file <link linkend="_configuration__server_8cpp_source">configuration_server.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_config_web_server_a5fba48f2cf78029036a923eb27bc0674_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092"/><section>
+    <title>add_urls()</title>
+<indexterm><primary>add_urls</primary><secondary>ConfigWebServer</secondary></indexterm>
+<indexterm><primary>ConfigWebServer</primary><secondary>add_urls</secondary></indexterm>
+<para><computeroutput>void ConfigWebServer::add_urls ( )</computeroutput></para>
+<para>Initialize the web server and endpoints </para>
+<para>
+Definition at line <link linkend="_configuration__server_8cpp_source_1l00049">49</link> of file <link linkend="_configuration__server_8cpp_source">configuration_server.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_config_web_server_a35c4374f69f6421d8c2ec61934f2c092_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_config_web_server_a35c4374f69f6421d8c2ec61934f2c092_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_config_web_server_1ac0bce5e4a438388e030c21d56243c643"/><section>
+    <title>deactivate()</title>
+<indexterm><primary>deactivate</primary><secondary>ConfigWebServer</secondary></indexterm>
+<indexterm><primary>ConfigWebServer</primary><secondary>deactivate</secondary></indexterm>
+<para><computeroutput>void ConfigWebServer::deactivate ( )<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Stops the web server </para>
+<para>
+Definition at line <link linkend="_configuration__server_8cpp_source_1l00035">35</link> of file <link linkend="_configuration__server_8cpp_source">configuration_server.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_config_web_server_1a1275de30c892a8fc52e64f958732ac91"/><section>
+    <title>produce_data()</title>
+<indexterm><primary>produce_data</primary><secondary>ConfigWebServer</secondary></indexterm>
+<indexterm><primary>ConfigWebServer</primary><secondary>produce_data</secondary></indexterm>
+<para><computeroutput>int8_t ConfigWebServer::produce_data ( )<computeroutput>[override]</computeroutput></computeroutput></para>
+<para>Checks if there are requests and handles them </para>
+<para>
+Definition at line <link linkend="_configuration__server_8cpp_source_1l00040">40</link> of file <link linkend="_configuration__server_8cpp_source">configuration_server.cpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/workers/<link linkend="_configuration__server_8h">configuration_server.h</link>bgeigiezen_firmware/workers/<link linkend="_configuration__server_8cpp">configuration_server.cpp</link></section>
+</section>
