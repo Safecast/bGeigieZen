@@ -6,16 +6,17 @@
 */
 
 #include "rtc_connector.h"
-
+#include "gps_connector.h"
+#include "identifiers.h"
 
 #ifdef M5_CORE2
-RtcConnector::RtcConnector() : Worker<RtcData>({.year=0, .month=0, .day=0, .hour=0, .minute=0, .second=0, .low_voltage=false, .valid=false}, 1000),
+RtcConnector::RtcConnector() : ProcessWorker<RtcData>({.year=0, .month=0, .day=0, .hour=0, .minute=0, .second=0, .low_voltage=false, .valid=false}, 1000),
                                rtc(I2C_BM8563_DEFAULT_ADDRESS, Wire1),
                                dateStruct({.weekDay=0, .month=0, .date=0, .year=0}),
                                timeStruct({.hours=0, .minutes=0, .seconds=0}) {
 }
 #else
-RtcConnector::RtcConnector() : Worker<RtcData>({.year=0, .month=0, .day=0, .hour=0, .minute=0, .second=0, .low_voltage=false, .valid=false}, 1000) {
+RtcConnector::RtcConnector() : ProcessWorker<RtcData>({.year=0, .month=0, .day=0, .hour=0, .minute=0, .second=0, .low_voltage=false, .valid=false}, 1000) {
 }
 #endif
 
@@ -39,13 +40,13 @@ bool RtcConnector::activate(bool retry) {
 #endif
 }
 
-int8_t RtcConnector::produce_data() {
+int8_t RtcConnector::produce_data(const worker_map_t& workers) {
 #ifdef M5_CORE2
   rtc.getDate(&dateStruct);
   rtc.getTime(&timeStruct);
   data.low_voltage = rtc.getVoltLow();
 
-  if (!data.low_voltage && dateStruct.year >= 2023) {
+  if (!data.low_voltage && dateStruct.year >= 2023 && dateStruct.year < 2050) {  // just to make sure year isn't absurdly high
     // Data is valid
     data.valid = true;
     data.second = timeStruct.seconds;
@@ -56,7 +57,31 @@ int8_t RtcConnector::produce_data() {
     data.year = dateStruct.year;
     return e_worker_data_read;
   } else {
-    // Unable to validate data,
+    // Unable to validate data, check gps
+    const auto& gps_data = workers.worker<GpsConnector>(k_worker_gps_connector)->get_data();
+    if (gps_data.time_valid && gps_data.date_valid) {
+      set_from_gps(gps_data);
+      return e_worker_data_read;
+    } else {
+      // No valid options
+      data.valid = false;
+      data.second = 0;
+      data.minute = 0;
+      data.hour = 0;
+      data.day = 0;
+      data.month = 0;
+      data.year = 0;
+    }
+  }
+
+#else
+  // TODO: handle M5core
+  // Try gps
+  const auto& gps_data = workers.worker<GpsConnector>(k_worker_gps_connector)->get_data();
+  if (gps_data.time_valid && gps_data.date_valid) {
+    set_from_gps(gps_data);
+    return e_worker_data_read;
+  } else {
     data.valid = false;
     data.second = 0;
     data.minute = 0;
@@ -65,8 +90,24 @@ int8_t RtcConnector::produce_data() {
     data.month = 0;
     data.year = 0;
   }
-
 #endif
 
   return e_worker_idle;
+}
+
+void RtcConnector::set_from_gps(const GnssData& gps_data) {
+  data.valid = true;
+  data.second = gps_data.second;
+  data.minute = gps_data.minute;
+  data.hour = gps_data.hour;
+  data.day = gps_data.day;
+  data.month = gps_data.month;
+  data.year = gps_data.year;
+
+#ifdef M5_CORE2
+  // Set RTC values by gps
+  rtc.setDate(&dateStruct);
+  rtc.setTime(&timeStruct);
+#endif
+
 }

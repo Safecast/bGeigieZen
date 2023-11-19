@@ -1,5 +1,6 @@
 #include "drive_mode.h"
 #include "debugger.h"
+#include "handlers/sd_logger.h"
 #include "identifiers.h"
 #include "menu_window.h"
 #include "workers/battery_indicator.h"
@@ -8,11 +9,10 @@
 #include "workers/rtc_connector.h"
 #include "workers/zen_button.h"
 
-DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _log_available(false), _log_to_file("") {
+DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _log_available(false) {
 }
 
 BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
-  _log_available = controller.get_data().sd_card_status == SDInterface::e_sd_config_status_ok;
   // TODO: handle log button
 
   auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
@@ -23,8 +23,10 @@ BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_m
 }
 
 void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
+  _log_available = workers.worker<Controller>(k_worker_device_state)->get_data().sd_card_status == SDInterface::e_sd_config_status_ok;
+  bool logger_active = handlers.handler<SdLogger>(k_handler_drive_logger)->get_active_state() == Handler::e_state_active;
   /// Menu
-  if (strlen(_log_to_file)) {
+  if (_log_available && logger_active) {
     // Is logging
     drawButton1("Stop log");
   }
