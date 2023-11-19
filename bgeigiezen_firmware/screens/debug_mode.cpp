@@ -40,7 +40,7 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
                 battery->get_data().isCharging ? "(charging)" : "          ");
   if (gm_sensor->get_active_state() == GeigerCounter::e_state_active) {
     M5.Lcd.printf("Geiger counter %s\n"
-                  " CPM: raw %d, comp %d %s\n      uSv/h: %.4f,  Bq/m2: %.0f   \n"
+                  " CPM: raw %d, comp %d %s       \n   uSv/h: %.4f,  Bq/m2: %.0f   \n"
                   " CP5S: %d,  uSv/h: %.4f,  Bq/m2: %.0f      \n",
                   gm_sensor->get_data().valid ? "(valid)             " : "(collecting data...)",
                   gm_sensor->get_data().cpm_raw,
