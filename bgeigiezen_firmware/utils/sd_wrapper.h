@@ -27,13 +27,6 @@ class SDInterface {
     e_sd_err_file_open_r_fail
   };
 
-  enum SdLogType {
-    e_sd_log_type_journal,
-    e_sd_log_type_drive,
-    e_sd_log_type_survey,
-    e_sd_log_type_error
-  };
-
   SDInterface(const SDInterface&) = delete;
   SDInterface& operator=(const SDInterface&) = delete;
   SDInterface(SDInterface&&) = delete;
@@ -66,7 +59,12 @@ class SDInterface {
 
   /**
    */
-//  bool setup_log(log_type_t type, char* log_name_output);
+  bool setup_log(char* log_name_output);
+
+  /**
+   * Rename log file
+   */
+  bool rename_log(const char* old_log_name, const char* new_log_name);
 
   /**
    */

@@ -16,28 +16,26 @@ void IRAM_ATTR pcnt_intr_handler(void* arg) {
  */
 void IRAM_ATTR timer_intr_handler(void* arg) {
   auto* counter = static_cast<HardwareCounter*>(arg);
-  counter->_last_count = counter->_get_count_reset();
-  counter->_available = true;
+  counter->_count_buffer.add(counter->_get_count_reset());
 }
 
 HardwareCounter::HardwareCounter() :
     _timer(),
+    _count_buffer(),
     _delay_s(GEIGER_AVERAGING_PERIOD_S),
     _gpio(GEIGER_PULSE_GPIO),
     _unit(PCNT_UNIT_0),
     _max_value(std::numeric_limits<int16_t>::max()),
     _n_wraparound(0),
-    _last_count(0),
     _available(false) {
 }
 
 bool HardwareCounter::available() const {
-  return _available;
+  return !_count_buffer.empty();
 }
 
 uint32_t HardwareCounter::get_last_count() {
-  _available = false;  // remove flag after consumption
-  return _last_count;
+  return _count_buffer.empty() ? 0 : _count_buffer.get();
 }
 
 void HardwareCounter::begin() {
@@ -92,7 +90,6 @@ void HardwareCounter::reset() {
 
   // set start time
   _start_time = millis();
-  _available = false;
 
   /* reset PCNT's counter */
   pcnt_counter_clear(_unit);

@@ -12,7 +12,6 @@ BluetoothReporter::BluetoothReporter(LocalStorage& config) :
 }
 
 bool BluetoothReporter::activate(bool) {
-  return false;
   if(!config.get_device_id()) {
     DEBUG_PRINTLN("Cannot initialize bluetooth without device id");
     return false;
