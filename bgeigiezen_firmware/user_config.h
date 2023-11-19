@@ -78,6 +78,7 @@ constexpr uint8_t SETUP_DEFAULT_TIMEZONE = 9;
 // - Logging
 constexpr char DEVICE_HEADER[] = "BNRDD";
 constexpr uint8_t LOG_BUFFER_SIZE = 100;
+constexpr uint8_t LOG_FILENAME_SIZE = 100;
 
 // Access point settings
 constexpr char ACCESS_POINT_SSID[8] = "bgeigie"; // With device id"

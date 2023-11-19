@@ -21,9 +21,10 @@
 #include <M5Core2.h>
 #include <I2C_BM8563.h>
 #endif
+#include "debugger.h"
+#include "gps_connector.h"
 #include <Worker.hpp>
 #include <user_config.h>
-#include "debugger.h"
 
 struct RtcData {
   // Date & Time
@@ -45,7 +46,7 @@ struct RtcData {
 /**
  * RTC device worker, produces the current date and time.
  */
-class RtcConnector : public Worker<RtcData> {
+class RtcConnector : public ProcessWorker<RtcData> {
  public:
 
   explicit RtcConnector();
@@ -54,9 +55,11 @@ class RtcConnector : public Worker<RtcData> {
 
   bool activate(bool retry) override;
 
-  int8_t produce_data() override;
+  int8_t produce_data(const worker_map_t& workers) override;
 
  private:
+
+  void set_from_gps(const GnssData& gps_data);
 
 #ifdef M5_CORE2
   I2C_BM8563 rtc;

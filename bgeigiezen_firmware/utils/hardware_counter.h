@@ -6,11 +6,13 @@
 #define __HARDWARECOUNTER_H__
 
 #include <limits>
-
 #include <Ticker.h>
 #include <driver/pcnt.h>
 
 #include "user_config.h"
+#include "circular_buffer.h"
+
+#define PULSE_COUNT_BUFFER_MAX 15
 
 /**
  * Counts pulses coming in over gpio
@@ -34,13 +36,13 @@ class HardwareCounter {
 
 
   Ticker _timer;
+  CircularBuffer<uint32_t, PULSE_COUNT_BUFFER_MAX> _count_buffer;
 
   uint32_t _delay_s;
   int _gpio;
   pcnt_unit_t _unit;
   const int16_t _max_value;
   uint32_t _n_wraparound;
-  uint32_t _last_count;
   uint32_t _start_time;
   bool _available;
 

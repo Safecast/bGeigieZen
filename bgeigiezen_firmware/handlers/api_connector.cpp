@@ -111,6 +111,8 @@ ApiConnector::ApiHandlerStatus ApiConnector::send_reading(const DataLine& data) 
   http.addHeader("Content-Type", HEADER_API_CONTENT_TYPE);
   http.addHeader("Content-Length", content_length);
 
+  // TODO: perhaps api send in separate thread
+
   int httpResponseCode = http.POST(payload);
 
   String response = http.getString();
@@ -121,6 +123,8 @@ ApiConnector::ApiHandlerStatus ApiConnector::send_reading(const DataLine& data) 
     // Disconnect from wifi between readings (not needed when sending every 5 seconds)
 //    WiFiConnectionWrapper::disconnect_wifi();
 //  }
+
+  // TODO: Check response measurement ID
 
   switch (httpResponseCode) {
     case 200 ... 204:

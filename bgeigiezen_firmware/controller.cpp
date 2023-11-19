@@ -17,13 +17,7 @@ void Controller::initialize() {
 }
 
 void Controller::start_default_workers() {
-
-  // TODO: load sd_config into storage
-
-#ifdef M5_CORE2
   set_worker_active(k_worker_rtc_connector, true);
-#endif
-
   set_worker_active(k_worker_battery_indicator, true);
   set_worker_active(k_worker_gps_connector, true);
   set_worker_active(k_worker_gm_sensor, true);

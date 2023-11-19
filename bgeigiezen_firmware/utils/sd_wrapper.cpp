@@ -332,3 +332,14 @@ bool SDInterface::write_safezen_file(const LocalStorage& settings, bool full) {
   }
   return true;
 }
+
+bool SDInterface::rename_log(const char* old_log_name, const char* new_log_name) {
+  if (!_sd_ready) {
+    return false;
+  }
+
+  if (!SD.exists(old_log_name)) {
+    return false;
+  }
+  return SD.rename(old_log_name, new_log_name);
+}

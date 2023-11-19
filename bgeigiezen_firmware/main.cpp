@@ -49,17 +49,18 @@
 
 #include <Arduino.h>
 
-#include "identifiers.h"
 #include "controller.h"
-#include "workers/gps_connector.h"
-#include "workers/gm_sensor.h"
-#include "workers/zen_button.h"
-#include "workers/shake_detector.h"
+#include "debugger.h"
+#include "gfx_screen.h"
+#include "handlers/sd_logger.h"
+#include "identifiers.h"
 #include "workers/battery_indicator.h"
+#include "workers/gm_sensor.h"
+#include "workers/gps_connector.h"
 #include "workers/log_aggregator.h"
 #include "workers/rtc_connector.h"
-#include "gfx_screen.h"
-#include "debugger.h"
+#include "workers/shake_detector.h"
+#include "workers/zen_button.h"
 
 SFE_UBLOX_GNSS gnss;
 
@@ -77,6 +78,9 @@ ShakeDetector shake_detector;
 LogAggregator log_aggregator(settings);
 
 // Data handlers
+SdLogger journal_logger(settings, SdLogger::journal);
+SdLogger drive_logger(settings, SdLogger::drive);
+SdLogger survey_logger(settings, SdLogger::survey);
 
 // Supervisors
 GFXScreen gfx_screen(settings, controller);
@@ -104,6 +108,9 @@ void setup() {
 
   DEBUG_PRINTLN("Register handlers...");
   controller.register_handler(k_handler_local_storage, settings);
+  controller.register_handler(k_handler_journal_logger, journal_logger);
+  controller.register_handler(k_handler_drive_logger, drive_logger);
+  controller.register_handler(k_handler_survey_logger, survey_logger);
 
   DEBUG_PRINTLN("Register supervisors...");
   controller.register_supervisor(gfx_screen);
