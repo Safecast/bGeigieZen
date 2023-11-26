@@ -59,16 +59,16 @@ class SDInterface {
 
   /**
    */
-  bool setup_log(char* log_name_output);
+  bool setup_log(const char* dir, const char* log_name_output, bool clear_on_exist);
 
   /**
    * Rename log file
    */
-  bool rename_log(const char* old_log_name, const char* new_log_name);
+  bool rename_log(const char* old_log_name, const char* new_log_name) const;
 
   /**
    */
-  bool log(const char* log_name, const uint8_t* data, size_t buff_size);
+  bool log_println(const char* log_name, const char* data);
 
   /**
    * Get device id from SAFEZEN.txt file on the SD card
