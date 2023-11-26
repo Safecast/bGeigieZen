@@ -96,5 +96,6 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 }
 
 void DriveModeScreen::leave_screen(Controller& controller) {
-  // TODO: close logging to file
+  // close logging to file
+  controller.set_handler_active(k_handler_drive_logger, false);
 }
