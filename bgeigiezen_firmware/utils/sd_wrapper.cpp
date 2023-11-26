@@ -86,7 +86,7 @@ void SDInterface::end() {
   SD.end();
 }
 
-bool SDInterface::log(const char* log_name, const uint8_t* data, size_t buff_size) {
+bool SDInterface::log_println(const char* log_name, const char* data) {
   if (!_sd_ready) {
     return false;
   }
@@ -94,18 +94,21 @@ bool SDInterface::log(const char* log_name, const uint8_t* data, size_t buff_siz
     DEBUG_PRINTF("Unable to log to non-existent file \"%s\".\n", log_name);
     return false;
   }
-  // open the setup file
-  auto log_file = SD.open(log_name, FILE_WRITE);
+  // open the setup file in append mode to add lines
+  auto log_file = SD.open(log_name, FILE_APPEND);
   if (!log_file) {
     end();
     DEBUG_PRINTF("Unable to open log file \"%s\".\n", log_name);
     return false;
   }
 
-  log_file.write(data, buff_size);
+  log_file.println(data);
 
+//  DEBUG_PRINTF("Logged '%s' to '%s'.\n", data, log_name);
+
+  log_file.close();
   _last_write = millis();
-  return false;
+  return true;
 }
 
 SDInterface::SdStatus SDInterface::has_safezen_content(uint16_t device_id) {
@@ -333,7 +336,29 @@ bool SDInterface::write_safezen_file(const LocalStorage& settings, bool full) {
   return true;
 }
 
-bool SDInterface::rename_log(const char* old_log_name, const char* new_log_name) {
+bool SDInterface::setup_log(const char* dir, const char* log_name_output, bool clear_on_exist) {
+  if (SD.exists(log_name_output)) {
+    if (clear_on_exist) {
+      SD.remove(log_name_output);
+    } else {
+      return false;
+    }
+  } else {
+    SD.mkdir(dir);
+  }
+  File safecast_txt = SD.open(log_name_output, FILE_WRITE);
+  _last_write = millis();
+  if (!safecast_txt) {
+    end();
+    return false;
+  }
+  safecast_txt.printf("");
+  safecast_txt.close();
+  return true;
+}
+
+
+bool SDInterface::rename_log(const char* old_log_name, const char* new_log_name) const {
   if (!_sd_ready) {
     return false;
   }

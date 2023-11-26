@@ -36,7 +36,7 @@ bool RtcConnector::activate(bool retry) {
   rtc.getTime(&timeStruct);
   return true;
 #else
-  return false;
+  return true;
 #endif
 }
 
@@ -81,7 +81,21 @@ int8_t RtcConnector::produce_data(const worker_map_t& workers) {
   if (gps_data.time_valid && gps_data.date_valid) {
     set_from_gps(gps_data);
     return e_worker_data_read;
+  } else if (data.valid) {
+    // TODO: tick up if previous data valid, can we use the following as simple implementation?
+    data.second = (data.second + 1) % 60;
+    if (data.second == 0) {
+      data.minute = (data.minute + 1) % 60;
+      if (data.minute == 0) {
+        data.hour = (data.hour + 1) % 24;
+        if (data.hour == 0) {
+          // hour ticked up to a new day, we skip that for now and let next gps data handle it
+          data.valid = false;
+        }
+      }
+    }
   } else {
+    // No valid date/time data available
     data.valid = false;
     data.second = 0;
     data.minute = 0;

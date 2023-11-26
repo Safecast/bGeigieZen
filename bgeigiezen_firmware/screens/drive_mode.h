@@ -20,6 +20,7 @@ class DriveModeScreen : public BaseScreen {
   explicit DriveModeScreen();
 
   bool _log_available;
+  bool _currently_logging;
 };
 
 #endif //SCREENS_DRIVE_SCREEN_H

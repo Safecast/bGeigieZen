@@ -64,6 +64,9 @@ constexpr char LOG_HEADER_LINE3[] = "# deadtime=off";
 // - Setup
 constexpr char SETUP_FILENAME[] = "/SAFEZEN.txt";
 constexpr char TEST_FILENAME[] = "/.zen";
+constexpr char JOURNAL_LOG_DIRECTORY[] = "/journals";
+constexpr char DRIVE_LOG_DIRECTORY[] = "/drives";
+constexpr char SURVEY_LOG_DIRECTORY[] = "/surveys";
 constexpr uint8_t SETUP_FILE_PARSE_BUFFER_SIZE = 102;
 constexpr uint32_t SETUP_DEFAULT_DEVICE_ID = 0;
 constexpr uint8_t SETUP_USERNAME_MAXLEN = 15;
@@ -94,7 +97,7 @@ constexpr uint32_t SERVER_WIFI_PORT = 80;
 #define API_HOST "tt.safecast.org"
 #define API_MEASUREMENTS_ENDPOINT "http://" API_HOST "/measurements.json"
 #define HEADER_API_CONTENT_TYPE "application/json"
-#define HEADER_API_USER_AGENT "bGeigieCast/" VERSION_STRING
+#define HEADER_API_USER_AGENT "bGeigieZen/" VERSION_STRING
 
 /** Access point settings **/
 #define ACCESS_POINT_SSID       "bgeigiezen-%d" // With device id

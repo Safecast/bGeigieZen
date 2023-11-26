@@ -28,7 +28,7 @@ void Controller::start_default_workers() {
   set_worker_active(k_worker_button_1, true);
   set_worker_active(k_worker_device_state, true);
 
-
+  set_handler_active(k_handler_journal_logger, true);
 }
 
 void Controller::reset_system() {
