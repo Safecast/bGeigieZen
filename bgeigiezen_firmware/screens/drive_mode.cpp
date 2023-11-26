@@ -9,12 +9,10 @@
 #include "workers/rtc_connector.h"
 #include "workers/zen_button.h"
 
-DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _log_available(false) {
+DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _log_available(false), _currently_logging(false) {
 }
 
 BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
-  // TODO: handle log button
-
   auto log_button = workers.worker<ZenButton>(k_worker_button_1);
   if (_log_available && log_button->is_fresh() && log_button->get_data().shortPress) {
     controller.set_handler_active(k_handler_drive_logger, !_currently_logging);
@@ -54,21 +52,11 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 
     // Display CPM
     auto cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 20, 100, 7);
-    auto cpm_text_width = M5.Lcd.drawString(" CPM", 20 + cpm_width, 105, 4); // Prints after cpm value
-    int i = 0;
-    while (320 - (20 + cpm_width + cpm_text_width + i) > 0) {
-      // Fill rest of the line with empty spaces
-      i += M5.Lcd.drawString(" ", 20 + cpm_width + cpm_text_width + i, 105, 4);
-    }
+    M5.Lcd.drawString(" CPM", 20 + cpm_width, 105, 4); // Prints after cpm value
 
     // Display uSv/h
     auto ush_width = printFloatFont(gm_sensor->get_data().uSv, 3, 20, 140, 4);
-    auto ush_text_width = M5.Lcd.drawString(" uSv/h", 20 + ush_width, 140, 4); // Prints after ush value
-    i = 0;
-    while (320 - (20 + ush_width + ush_text_width + i) > 0) {
-      // Fill rest of the line with empty spaces
-      i += M5.Lcd.drawString(" ", 20 + ush_width + ush_text_width + i, 140, 4);
-    }
+    M5.Lcd.drawString(" uSv/h", 20 + ush_width, 140, 4); // Prints after ush value
   }
 
   // Display GPS data always, change colour if not fresh
