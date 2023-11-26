@@ -9,7 +9,7 @@
 #define DATED_LOG_NAME_F "%s/%d-%d-%d_%d%d.txt"
 
 
-SdLogger::SdLogger(LocalStorage& config, const LogType log_type) : Handler(), _config(config), _log_type(log_type), _logging_to(""), _is_temp(true) {
+SdLogger::SdLogger(LocalStorage& config, const LogType log_type) : Handler(), _config(config), _log_type(log_type), _logging_to(""), _is_temp(true), _total(0) {
 }
 
 bool SdLogger::activate(bool) {
@@ -30,12 +30,19 @@ bool SdLogger::activate(bool) {
       && SDInterface::i().log_println(_logging_to, LOG_HEADER_LINE3);
 
   _is_temp = true;
+  _total = 0;
   DEBUG_PRINTF("Started new log '%s'.\n", _logging_to);
   return success;
 }
 
 void SdLogger::deactivate() {
-  DEBUG_PRINTF("End logging to '%s'.\n", _logging_to);
+  if (_total < MIN_LOG_LINES_FOR_KEEP) {
+    // Delete
+    DEBUG_PRINTF("End logging to '%s', deleting file due to insufficient lines (%d).\n", _logging_to, _total);
+    SDInterface::i().delete_log(_logging_to);
+  } else {
+    DEBUG_PRINTF("End logging to '%s', total of %d lines logged.\n", _logging_to, _total);
+  }
   strcpy(_logging_to, "");
 }
 
@@ -55,6 +62,7 @@ int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
       }
     }
 
+    _total++;
     SDInterface::i().log_println(_logging_to, log_data->get_data().log_string);
   }
 

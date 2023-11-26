@@ -67,6 +67,11 @@ class SDInterface {
   bool rename_log(const char* old_log_name, const char* new_log_name) const;
 
   /**
+   * Delete log file
+   */
+  bool delete_log(const char* log_name) const;
+
+  /**
    */
   bool log_println(const char* log_name, const char* data);
 
