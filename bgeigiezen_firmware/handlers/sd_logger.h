@@ -28,11 +28,13 @@ class SdLogger : public Handler {
   int8_t handle_produced_work(const worker_map_t& workers) override;
 
  private:
+  const char* get_dir() const;
 
   LocalStorage& _config;
   LogType _log_type;
 
   char _logging_to[LOG_FILENAME_SIZE];
+  bool _is_temp;
 
 };
 

@@ -15,6 +15,11 @@ DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _log_available(f
 BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
   // TODO: handle log button
 
+  auto log_button = workers.worker<ZenButton>(k_worker_button_1);
+  if (_log_available && log_button->is_fresh() && log_button->get_data().shortPress) {
+    controller.set_handler_active(k_handler_drive_logger, !_currently_logging);
+  }
+
   auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
   if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
     return MenuWindow::i();
@@ -24,9 +29,9 @@ BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_m
 
 void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   _log_available = workers.worker<Controller>(k_worker_device_state)->get_data().sd_card_status == SDInterface::e_sd_config_status_ok;
-  bool logger_active = handlers.handler<SdLogger>(k_handler_drive_logger)->get_active_state() == Handler::e_state_active;
+  _currently_logging = handlers.handler<SdLogger>(k_handler_drive_logger)->get_active_state() == Handler::e_state_active;
   /// Menu
-  if (_log_available && logger_active) {
+  if (_log_available && _currently_logging) {
     // Is logging
     drawButton1("Stop log");
   }
@@ -40,14 +45,12 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   const auto& gm_sensor = workers.worker<GeigerCounter>(k_worker_gm_sensor);
   const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
 
-  if (gm_sensor->get_data().valid) {
-    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  }
-  else {
-    M5.Lcd.setTextColor(LCD_COLOR_OLD, LCD_COLOR_BACKGROUND);
-  }
 
   if (gm_sensor->is_fresh() || force) {
+    M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_OLD, LCD_COLOR_BACKGROUND);
+
+    // Clean CPM area
+    M5.Lcd.fillRect(0, 52, 320, 90, LCD_COLOR_BACKGROUND);
 
     // Display CPM
     auto cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 20, 100, 7);
@@ -70,14 +73,9 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 
   // Display GPS data always, change colour if not fresh
 
-  if (gps->get_data().location_valid) {
-    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  }
-  else {
-    M5.Lcd.setTextColor(LCD_COLOR_OLD, LCD_COLOR_BACKGROUND);
-  }
-
   if (gps->is_fresh() || force) {
+    M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_OLD, LCD_COLOR_BACKGROUND);
+
     M5.Lcd.setCursor(0, 150);
     gps->get_data().satsInView < 2 ? (M5.Lcd.setTextColor(TFT_RED, TFT_BLACK))
                                    : M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);

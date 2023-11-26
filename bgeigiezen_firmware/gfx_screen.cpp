@@ -83,6 +83,8 @@ void GFXScreen::setBrightness(uint8_t lvl, bool overdrive) {
 
 void GFXScreen::clear() {
   // Clear display
+
+  M5.Lcd.startWrite();
   M5.Lcd.clear();
   M5.Lcd.setTextDatum(BL_DATUM);  // By default, text x,y is bottom left corner
   M5.Lcd.setTextFont(1);
@@ -90,6 +92,8 @@ void GFXScreen::clear() {
     _screen->force_next_render();
   }
   setBrightness(LEVEL_BRIGHT);
+  M5.Lcd.endWrite();
+
 }
 
 void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& handlers) {
@@ -124,6 +128,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
     }
 
     if (workers.any_updates() || handlers.any_updates() || (millis() - _last_render > 1000)) {
+      M5.Lcd.startWrite();
       M5.Lcd.setRotation(3);
       if (_menu->is_open()) {
         _menu->do_render(workers, handlers);
@@ -140,6 +145,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
       }
 
       M5.Lcd.setRotation(1);
+      M5.Lcd.endWrite();
       _last_render = millis();
 
     }
