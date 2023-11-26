@@ -67,6 +67,7 @@ constexpr char TEST_FILENAME[] = "/.zen";
 constexpr char JOURNAL_LOG_DIRECTORY[] = "/journals";
 constexpr char DRIVE_LOG_DIRECTORY[] = "/drives";
 constexpr char SURVEY_LOG_DIRECTORY[] = "/surveys";
+constexpr uint8_t MIN_LOG_LINES_FOR_KEEP = 2;
 constexpr uint8_t SETUP_FILE_PARSE_BUFFER_SIZE = 102;
 constexpr uint32_t SETUP_DEFAULT_DEVICE_ID = 0;
 constexpr uint8_t SETUP_USERNAME_MAXLEN = 15;
