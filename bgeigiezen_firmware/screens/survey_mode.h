@@ -19,6 +19,9 @@ class SurveyModeScreen : public BaseScreen {
 
  private:
   explicit SurveyModeScreen();
+
+  bool _log_available;
+  bool _currently_logging;
 };
 
 #endif //SCREENS_SURVEY_SCREEN_H
