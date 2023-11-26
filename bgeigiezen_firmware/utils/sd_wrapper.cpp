@@ -357,7 +357,6 @@ bool SDInterface::setup_log(const char* dir, const char* log_name_output, bool c
   return true;
 }
 
-
 bool SDInterface::rename_log(const char* old_log_name, const char* new_log_name) const {
   if (!_sd_ready) {
     return false;
@@ -367,4 +366,12 @@ bool SDInterface::rename_log(const char* old_log_name, const char* new_log_name)
     return false;
   }
   return SD.rename(old_log_name, new_log_name);
+}
+
+bool SDInterface::delete_log(const char* log_name) const {
+  if (!_sd_ready) {
+    return false;
+  }
+
+  return SD.remove(log_name);
 }
