@@ -10,7 +10,7 @@
 /**
  * Configurations for the ESP32, stored in the flash memory
  */
-class LocalStorage : public Handler {
+class LocalStorage : public ProcessWorker<bool> {
  public:
   LocalStorage();
   virtual ~LocalStorage() = default;
@@ -54,7 +54,7 @@ class LocalStorage : public Handler {
    * Read all settings
    */
   bool activate(bool) override;
-  int8_t handle_produced_work(const worker_map_t& workers) override;
+  int8_t produce_data(const worker_map_t& workers) override;
  private:
   Preferences _memory;
 

@@ -42,9 +42,15 @@ class SDInterface {
   }
 
   /**
+   * Checks sd readiness, will end sd connection if sd has been lost
    * @return true if ready
    */
   bool ready();
+
+  /**
+   * @return last know status
+   */
+  SdStatus status() const;
 
   /**
    * We note that for the ESP32, the SD library is robust to multiple call to the begin() function
@@ -64,12 +70,12 @@ class SDInterface {
   /**
    * Rename log file
    */
-  bool rename_log(const char* old_log_name, const char* new_log_name) const;
+  bool rename_log(const char* old_log_name, const char* new_log_name);
 
   /**
    * Delete log file
    */
-  bool delete_log(const char* log_name) const;
+  bool delete_log(const char* log_name);
 
   /**
    */
@@ -85,13 +91,13 @@ class SDInterface {
    * Read SAFEZEN.txt file contents on SD card to local storage
    * @return true if succeeded
    */
-  bool read_safezen_file(LocalStorage& settings);
+  bool read_safezen_file_to_settings(LocalStorage& settings);
 
   /**
    * Write SAFEZEN.txt file on the SD card from local storage
    * @return true if succeeded
    */
-  bool write_safezen_file(const LocalStorage& settings, bool full = false);
+  bool write_safezen_file_from_settings(const LocalStorage& settings, bool full = false);
 
  private:
   SDInterface();
@@ -104,7 +110,7 @@ class SDInterface {
 
 
 
-  bool _sd_ready;
+  SdStatus _status;
   uint32_t _last_read;
   uint32_t _last_write;
   uint32_t _last_try;

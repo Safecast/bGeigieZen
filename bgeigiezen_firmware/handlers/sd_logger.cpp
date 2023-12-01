@@ -48,8 +48,13 @@ void SdLogger::deactivate() {
 
 int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
   const auto& log_data = workers.worker<LogAggregator>(k_worker_log_aggregator);
-  if(log_data->is_fresh()) {
+  if (log_data->is_fresh()) {
+    if (!SDInterface::i().ready()) {
+      DEBUG_PRINTF("Abrupt stop logging '%s', sd card not ready.\n", _logging_to);
+      return e_handler_error;
+    }
     if (_is_temp) {
+      // Check RTC for time to rename log file
       const auto& rtc_data = workers.worker<RtcConnector>(k_worker_rtc_connector)->get_data();
       if (rtc_data.valid) {
         // Renaming the log file
@@ -62,10 +67,17 @@ int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
       }
     }
 
-    _total++;
-    SDInterface::i().log_println(_logging_to, log_data->get_data().log_string);
+    if (SDInterface::i().log_println(_logging_to, log_data->get_data().log_string)) {
+      // Line written to SD card log file
+      _total++;
+      return e_handler_data_handled;
+    } else {
+      // Something went wrong writing to the sd card log file
+      return e_handler_error;
+    }
   }
 
+  //No data handled
   return e_handler_idle;
 }
 
@@ -78,6 +90,6 @@ const char* SdLogger::get_dir() const {
     case survey:
       return SURVEY_LOG_DIRECTORY;
     default:
-      return "";
+      return "unknown";
   }
 }

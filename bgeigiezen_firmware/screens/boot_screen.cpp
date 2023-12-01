@@ -1,7 +1,9 @@
 #include "boot_screen.h"
 #include "controller.h"
 #include "debugger.h"
-#include "drive_mode.h"
+#include "default_entry_screen.h"
+#include "first_time_startup.h"
+#include "identifiers.h"
 #include "sd_message.h"
 #include "user_config.h"
 
@@ -10,10 +12,13 @@ BootScreen::BootScreen() : BaseScreen("Boot", false), _entered_at(0) {
 
 BaseScreen* BootScreen::handle_input(Controller& controller, const worker_map_t& workers) {
   if (millis() - _entered_at > 3000) {
+    const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
     if (controller.get_data().sd_card_status != SDInterface::SdStatus::e_sd_config_status_ok) {
       return SdMessageScreen::i();
+    } else if (!settings->get_device_id()) {
+      return FirstTimeStartupScreen::i();
     }
-    return DriveModeScreen::i();
+    return DefaultEntryScreen::i();
   }
   return nullptr;
 }

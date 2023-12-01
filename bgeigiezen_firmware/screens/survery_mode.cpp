@@ -24,7 +24,7 @@ BaseScreen* SurveyModeScreen::handle_input(Controller& controller, const worker_
 
 void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   _log_available = workers.worker<Controller>(k_worker_device_state)->get_data().sd_card_status == SDInterface::e_sd_config_status_ok;
-  _currently_logging = handlers.handler<SdLogger>(k_handler_survey_logger)->get_active_state() == Handler::e_state_active;
+  _currently_logging = handlers.handler<SdLogger>(k_handler_survey_logger)->active();
 
   if (_log_available && _currently_logging) {
     // Is logging

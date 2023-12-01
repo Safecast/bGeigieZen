@@ -25,7 +25,7 @@ const char* key_last_longitude = "last_longitude";
 const char* key_last_latitude = "last_latitude";
 
 LocalStorage::LocalStorage() :
-    Handler(),
+    ProcessWorker<bool>(),
     _memory(),
     _device_id(0),
     _ap_password(""),
@@ -42,8 +42,6 @@ LocalStorage::LocalStorage() :
 }
 
 void LocalStorage::reset_defaults() {
-  DEBUG_PRINTLN("test");
-
   if(clear()) {
     set_device_id(D_DEVICE_ID, true);
     set_ap_password(D_ACCESS_POINT_PASSWORD, true);
@@ -271,13 +269,13 @@ bool LocalStorage::activate(bool) {
   return true;
 }
 
-int8_t LocalStorage::handle_produced_work(const worker_map_t& workers) {
+int8_t LocalStorage::produce_data(const worker_map_t& workers) {
   // Get reading data to store
   const auto& gps = (GpsConnector*) workers.at(k_worker_gps_connector);
   if(gps->is_fresh() && gps->get_data().location_valid) {
     set_last_latitude(gps->get_data().latitude, false);
     set_last_longitude(gps->get_data().longitude, false);
-    return Handler::e_handler_data_handled;
+    return Worker::e_worker_data_read;
   }
-  return Handler::e_handler_idle;
+  return Worker::e_worker_idle;
 }

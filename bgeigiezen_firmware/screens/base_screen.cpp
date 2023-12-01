@@ -101,6 +101,9 @@ bool BaseScreen::has_status_bar() const {
   return _status_bar;
 }
 
+void BaseScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
+}
+
 void BaseScreen::do_render(const worker_map_t& workers, const handler_map_t& handlers) {
   render(workers, handlers, _force_render);
   _force_render = false;

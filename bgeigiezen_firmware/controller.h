@@ -48,7 +48,17 @@ class Controller : public Aggregator, public Worker<DeviceState> {
   /**
    * Load SD config into device memory
    */
-  void load_sd_config();
+  bool load_sd_config();
+
+  /**
+   * Writes device settings onto SD
+   */
+  bool write_sd_config();
+
+  /**
+   * Reset memory settings and restart system
+   */
+  void reset_all();
 
  private:
   /**
