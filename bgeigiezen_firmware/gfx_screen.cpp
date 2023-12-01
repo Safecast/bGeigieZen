@@ -4,11 +4,12 @@
 #include <M5Stack.h>
 #endif
 
-#include "gfx_screen.h"
-#include "identifiers.h"
 #include "controller.h"
 #include "debugger.h"
+#include "gfx_screen.h"
+#include "identifiers.h"
 #include "screens/boot_screen.h"
+#include "screens/default_entry_screen.h"
 
 static constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
 static constexpr uint8_t LEVEL_DIMMED = 10;
@@ -116,6 +117,9 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
           DEBUG_PRINTLN("Menu opened");
           _menu->enter_screen(_controller);
           new_screen = nullptr;
+        } else if (new_screen == DefaultEntryScreen::i()) {
+          // entered the default entry screen, handle it right away, no need to render this
+          new_screen = new_screen->handle_input(_controller, workers);
         }
       }
       if (new_screen && new_screen != _screen) {

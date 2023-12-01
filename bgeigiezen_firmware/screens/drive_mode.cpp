@@ -22,12 +22,18 @@ BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_m
   if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
     return MenuWindow::i();
   }
+
+  // TODO: handle something like this
+//  if (controller.is_fresh() && controller.get_data().sd_card_status == SDInterface::SdStatus::e_sd_config_status_config_different_id) {
+//    return SdMessageScreen::i();
+//  }
+
   return nullptr;
 }
 
 void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   _log_available = workers.worker<Controller>(k_worker_device_state)->get_data().sd_card_status == SDInterface::e_sd_config_status_ok;
-  _currently_logging = handlers.handler<SdLogger>(k_handler_drive_logger)->get_active_state() == Handler::e_state_active;
+  _currently_logging = handlers.handler<SdLogger>(k_handler_drive_logger)->active();
   /// Menu
   if (_log_available && _currently_logging) {
     // Is logging

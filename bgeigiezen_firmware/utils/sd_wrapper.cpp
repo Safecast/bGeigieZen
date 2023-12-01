@@ -48,14 +48,18 @@ constexpr char sd_config_fixed_longitude_f[] = SD_CONFIG_FIELD_FIXED_LONGITUDE"=
 constexpr char sd_config_fixed_range_f[] = SD_CONFIG_FIELD_FIXED_RANGE"=%hu";
 
 
-SDInterface::SDInterface() : _sd_ready(false), _last_read(0), _last_write(0), _last_try(0) {
+SDInterface::SDInterface() : _status(SdStatus::e_sd_config_status_not_ready), _last_read(0), _last_write(0), _last_try(0) {
 }
 
 bool SDInterface::ready() {
   if (!SD.exists(TEST_FILENAME)) {
     end();
   }
-  return _sd_ready;
+  return _status != e_sd_config_status_not_ready;
+}
+
+SDInterface::SdStatus SDInterface::status() const {
+  return _status;
 }
 
 /**
@@ -64,7 +68,7 @@ bool SDInterface::ready() {
  */
 bool SDInterface::begin() {
   static bool _first_try = true;
-  if (!_sd_ready && (_first_try || (millis() - _last_try > 5000))) {
+  if (!ready() && (_first_try || (millis() - _last_try > 5000))) {
     _first_try = false;
     _last_try = millis();
     if (SD.begin(SD_CS_PIN)) {
@@ -75,19 +79,19 @@ bool SDInterface::begin() {
           new_file.close();
         }
       }
-      _sd_ready = SD.exists(TEST_FILENAME);
+      _status = SD.exists(TEST_FILENAME) ? e_sd_config_status_config_no_content : e_sd_config_status_not_ready;
     }
   }
-  return _sd_ready;
+  return ready();
 }
 
 void SDInterface::end() {
-  _sd_ready = false;
+  _status = e_sd_config_status_not_ready;
   SD.end();
 }
 
 bool SDInterface::log_println(const char* log_name, const char* data) {
-  if (!_sd_ready) {
+  if (!ready()) {
     return false;
   }
   if (!SD.exists(log_name)) {
@@ -112,12 +116,13 @@ bool SDInterface::log_println(const char* log_name, const char* data) {
 }
 
 SDInterface::SdStatus SDInterface::has_safezen_content(uint16_t device_id) {
-  if (!_sd_ready) {
-    return SdStatus::e_sd_config_status_not_ready;
+  if (!ready()) {
+    _status = e_sd_config_status_not_ready;
+    return _status;
   }
 
   if (!SD.exists(SETUP_FILENAME)) {
-    return SdStatus::e_sd_config_status_no_config_file;
+    return _status = e_sd_config_status_no_config_file;
   }
 
   // open the setup file
@@ -125,7 +130,7 @@ SDInterface::SdStatus SDInterface::has_safezen_content(uint16_t device_id) {
   _last_read = millis();
 
   if (!setup_file) {
-    return SdStatus::e_sd_config_status_config_no_content;
+    return _status = e_sd_config_status_config_no_content;
   }
 
   uint32_t file_device_id = 0;
@@ -142,16 +147,17 @@ SDInterface::SdStatus SDInterface::has_safezen_content(uint16_t device_id) {
   setup_file.close();
 
   if (file_device_id == 0) {
-    return SdStatus::e_sd_config_status_config_no_content;
+    _status = e_sd_config_status_config_no_content;
   } else if (device_id && file_device_id != device_id) {
-    return SdStatus::e_sd_config_status_config_different_id;
+    _status = e_sd_config_status_config_different_id;
   } else {
-    return SdStatus::e_sd_config_status_ok;
+    _status = e_sd_config_status_ok;
   }
+  return _status;
 }
 
-bool SDInterface::read_safezen_file(LocalStorage& settings) {
-  if (!_sd_ready) {
+bool SDInterface::read_safezen_file_to_settings(LocalStorage& settings) {
+  if (!ready()) {
     return false;
   }
   File safecast_txt = SD.open(SETUP_FILENAME, FILE_READ);
@@ -257,11 +263,14 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
 
   _last_read = millis();
 
+  if (device_id) {
+    _status = e_sd_config_status_ok;
+  }
   return !!device_id;
 }
 
-bool SDInterface::write_safezen_file(const LocalStorage& settings, bool full) {
-  if (!_sd_ready) {
+bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings, bool full) {
+  if (!ready()) {
     return false;
   }
   if (!settings.get_device_id()) {
@@ -331,8 +340,10 @@ bool SDInterface::write_safezen_file(const LocalStorage& settings, bool full) {
 
   File written_safecast_txt = SD.open(SETUP_FILENAME, FILE_READ);
   if (safecast_txt) {
+    _status = e_sd_config_status_ok;
     DEBUG_PRINTF("Finished writing SAFEZEN file:\n%s\n", written_safecast_txt.readString().c_str());
   }
+
   return true;
 }
 
@@ -357,8 +368,8 @@ bool SDInterface::setup_log(const char* dir, const char* log_name_output, bool c
   return true;
 }
 
-bool SDInterface::rename_log(const char* old_log_name, const char* new_log_name) const {
-  if (!_sd_ready) {
+bool SDInterface::rename_log(const char* old_log_name, const char* new_log_name) {
+  if (!ready()) {
     return false;
   }
 
@@ -368,8 +379,8 @@ bool SDInterface::rename_log(const char* old_log_name, const char* new_log_name)
   return SD.rename(old_log_name, new_log_name);
 }
 
-bool SDInterface::delete_log(const char* log_name) const {
-  if (!_sd_ready) {
+bool SDInterface::delete_log(const char* log_name) {
+  if (!ready()) {
     return false;
   }
 

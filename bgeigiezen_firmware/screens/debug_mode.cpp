@@ -38,7 +38,7 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   M5.Lcd.printf("Battery: %d%% %s\n",
                 battery->get_data().percentage,
                 battery->get_data().isCharging ? "(charging)" : "          ");
-  if (gm_sensor->get_active_state() == GeigerCounter::e_state_active) {
+  if (gm_sensor->active()) {
     M5.Lcd.printf("Geiger counter %s\n"
                   " CPM: raw %d, comp %d %s       \n   uSv/h: %.4f,  Bq/m2: %.0f   \n"
                   " CP5S: %d,  uSv/h: %.4f,  Bq/m2: %.0f      \n",
@@ -56,7 +56,7 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     M5.Lcd.printf("Geiger counter\n Module not available\n\n");
   }
 
-  if (gps->get_active_state() == GpsConnector::e_state_active) {
+  if (gps->active()) {
     M5.Lcd.printf("GPS %s\n"
                   " location: %s                \n"
                   "  lat, long, altitude (MSL), HDOP:\n"
@@ -85,7 +85,7 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     M5.Lcd.printf("GPS\n Module not available\n\n");
   }
 
-  if (rtc->get_active_state() == RtcConnector::e_state_active) {
+  if (rtc->active()) {
     M5.Lcd.printf("RTC\n"
                   " VoltLow: %s\n"
                   " date: %04d-%02d-%02d time: %02d:%02d:%02d\n",

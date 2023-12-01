@@ -1,6 +1,7 @@
 #include "first_time_startup.h"
-#include "drive_mode.h"
+#include "default_entry_screen.h"
 #include "identifiers.h"
+#include "user_config.h"
 #include "workers/zen_button.h"
 
 FirstTimeStartupScreen::FirstTimeStartupScreen() : BaseScreen("Welcome", false) {
@@ -13,18 +14,23 @@ BaseScreen* FirstTimeStartupScreen::handle_input(Controller& controller, const w
     //    return Drive::i();
   }
   if (continue_button->is_fresh() && continue_button->get_data().shortPress) {
-    return DriveModeScreen::i();
+    return DefaultEntryScreen::i();
   }
   return nullptr;
 }
 
 void FirstTimeStartupScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
-  drawButton3("More info");
+  drawButton1("More info", e_button_disabled);
   drawButton3("Continue");
+
+  M5.Lcd.setTextColor(LCD_COLOR_ACTIVE, LCD_COLOR_BACKGROUND);
+  M5.Lcd.drawString("Welcome to your Zen!", 40, 80, 4);
+  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  M5.Lcd.drawString("Your device is now ready for use", 60, 110, 2);
+  M5.Lcd.drawString("Enjoy it!", 130, 140, 2);
+  M5.Lcd.drawString("- Safecast team", 110, 160, 2);
 }
 
 void FirstTimeStartupScreen::enter_screen(Controller& controller) {
-}
-
-void FirstTimeStartupScreen::leave_screen(Controller& controller) {
+  controller.load_sd_config();
 }
