@@ -66,7 +66,7 @@ class BaseScreen {
    * @param workers
    * @param handlers
    */
-  virtual void render(const worker_map_t& workers, const handler_map_t& handlers, bool force) = 0;
+  virtual void render(const worker_map_t& workers, const handler_map_t& handlers, bool force);
 
   void drawButton1(const char* text, ButtonState state = e_button_default);
   void drawButton2(const char* text, ButtonState state = e_button_default);

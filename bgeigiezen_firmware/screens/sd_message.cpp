@@ -1,5 +1,6 @@
 #include "sd_message.h"
 #include "controller.h"
+#include "default_entry_screen.h"
 #include "drive_mode.h"
 #include "handlers/local_storage.h"
 #include "identifiers.h"
@@ -14,6 +15,10 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
   const auto& button1 = workers.worker<ZenButton>(k_worker_button_1);
   const auto& button2 = workers.worker<ZenButton>(k_worker_button_2);
   const auto& button3 = workers.worker<ZenButton>(k_worker_button_3);
+
+  if (controller.get_data().sd_card_status == SDInterface::SdStatus::e_sd_config_status_ok) {
+    return DefaultEntryScreen::i();
+  }
 
   switch (error_type) {
     case k_unknown:
@@ -34,7 +39,7 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
         return nullptr;
       }
       if (button3->is_fresh() && button3->get_data().shortPress) {
-        return DriveModeScreen::i();
+        return DefaultEntryScreen::i();
       }
       break;
     case k_empty_sd_with_storage:
@@ -44,9 +49,10 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
       }
       if (button2->is_fresh() && button2->get_data().shortPress) {
         // TODO: handle Button 2 Write
+        controller.write_sd_config();
       }
       if (button3->is_fresh() && button3->get_data().shortPress) {
-        return DriveModeScreen::i();
+        return DefaultEntryScreen::i();
       }
       break;
     case k_empty_sd_no_storage:
@@ -68,7 +74,7 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
         // TODO: handle Button 2 Overwrite
       }
       if (button3->is_fresh() && button3->get_data().shortPress) {
-        return DriveModeScreen::i();
+        return DefaultEntryScreen::i();
       }
       break;
   }

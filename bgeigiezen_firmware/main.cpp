@@ -105,9 +105,9 @@ void setup() {
   controller.register_worker(k_worker_button_1, zen_C);
   controller.register_worker(k_worker_log_aggregator, log_aggregator);
   controller.register_worker(k_worker_device_state, controller);
+  controller.register_worker(k_worker_local_storage, settings);
 
   DEBUG_PRINTLN("Register handlers...");
-  controller.register_handler(k_handler_local_storage, settings);
   controller.register_handler(k_handler_journal_logger, journal_logger);
   controller.register_handler(k_handler_drive_logger, drive_logger);
   controller.register_handler(k_handler_survey_logger, survey_logger);

@@ -15,6 +15,7 @@ enum DataWorkers {
   k_worker_button_2,
   k_worker_button_3,
   k_worker_device_state,
+  k_worker_local_storage,
 };
 
 /**
@@ -23,7 +24,6 @@ enum DataWorkers {
 enum DataHandlers {
   k_handler_bluetooth_reporter = 0,
   k_handler_api_reporter,
-  k_handler_local_storage,
   k_handler_journal_logger,
   k_handler_drive_logger,
   k_handler_survey_logger,
