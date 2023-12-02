@@ -20,7 +20,7 @@ class SurveyModeScreen : public BaseScreen {
  private:
   explicit SurveyModeScreen();
 
-  bool _log_available;
+  bool _logging_available;
   bool _currently_logging;
 };
 

@@ -12,6 +12,7 @@ class SdMessageScreen : public BaseScreen {
     k_empty_sd_with_storage,
     k_empty_sd_no_storage,
     k_config_sd_different_id,
+    k_new_device,
   };
 
   static SdMessageScreen* i() {
