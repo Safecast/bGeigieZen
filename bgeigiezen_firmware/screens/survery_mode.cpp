@@ -6,12 +6,12 @@
 #include "workers/gps_connector.h"
 #include "workers/zen_button.h"
 
-SurveyModeScreen::SurveyModeScreen() : BaseScreen("Survey", true), _log_available(false), _currently_logging(false) {
+SurveyModeScreen::SurveyModeScreen() : BaseScreen("Survey", true), _logging_available(false), _currently_logging(false) {
 }
 
 BaseScreen* SurveyModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
   auto log_button = workers.worker<ZenButton>(k_worker_button_1);
-  if (_log_available && log_button->is_fresh() && log_button->get_data().shortPress) {
+  if (_logging_available && log_button->is_fresh() && log_button->get_data().shortPress) {
     controller.set_handler_active(k_handler_survey_logger, !_currently_logging);
   }
 
@@ -23,15 +23,15 @@ BaseScreen* SurveyModeScreen::handle_input(Controller& controller, const worker_
 }
 
 void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
-  _log_available = workers.worker<Controller>(k_worker_device_state)->get_data().sd_card_status == SDInterface::e_sd_config_status_ok;
+  _logging_available = workers.worker<Controller>(k_worker_device_state)->get_data().sd_card_status == SDInterface::e_sd_config_status_ok;
   _currently_logging = handlers.handler<SdLogger>(k_handler_survey_logger)->active();
 
-  if (_log_available && _currently_logging) {
+  if (_logging_available && _currently_logging) {
     // Is logging
     drawButton1("Stop log");
   }
   else {
-    drawButton1("Start log", _log_available ? e_button_default : e_button_disabled);
+    drawButton1("Start log", _logging_available ? e_button_default : e_button_disabled);
   }
   drawButton2("");
   drawButton3("Menu");

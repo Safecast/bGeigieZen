@@ -23,12 +23,16 @@ void FirstTimeStartupScreen::render(const worker_map_t& workers, const handler_m
   drawButton1("More info", e_button_disabled);
   drawButton3("Continue");
 
+  const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
+
   M5.Lcd.setTextColor(LCD_COLOR_ACTIVE, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawString("Welcome to your Zen!", 40, 80, 4);
+  M5.Lcd.drawString("Welcome to your Zen!", 38, 80, 4);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawString("Your device is now ready for use", 60, 110, 2);
-  M5.Lcd.drawString("Enjoy it!", 130, 140, 2);
-  M5.Lcd.drawString("- Safecast team", 110, 160, 2);
+  M5.Lcd.drawString("#", 135, 100, 2);
+  M5.Lcd.drawNumber(settings->get_device_id(), 145, 100, 2);
+  M5.Lcd.drawString("Your device is now ready for use.", 55, 130, 2);
+  M5.Lcd.drawString("Have fun measuring!", 100, 160, 2);
+  M5.Lcd.drawString("- Safecast team", 110, 180, 2);
 }
 
 void FirstTimeStartupScreen::enter_screen(Controller& controller) {
