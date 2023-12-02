@@ -14,7 +14,7 @@ SdLogger::SdLogger(LocalStorage& config, const LogType log_type) : Handler(), _c
 
 bool SdLogger::activate(bool) {
   // Check SD readiness
-  if (!SDInterface::i().ready()) {
+  if (!SDInterface::i().can_write_logs()) {
     return false;
   }
   // Create temporary log file
@@ -48,6 +48,7 @@ void SdLogger::deactivate() {
 
 int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
   const auto& log_data = workers.worker<LogAggregator>(k_worker_log_aggregator);
+  const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
   if (log_data->is_fresh()) {
     if (!SDInterface::i().ready()) {
       DEBUG_PRINTF("Abrupt stop logging '%s', sd card not ready.\n", _logging_to);

@@ -115,6 +115,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         if (new_screen == _menu) {
           // opened menu, not a new screen
           DEBUG_PRINTLN("Menu opened");
+          clear();
           _menu->enter_screen(_controller);
           new_screen = nullptr;
         } else if (new_screen == DefaultEntryScreen::i()) {
