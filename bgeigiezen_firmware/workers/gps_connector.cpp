@@ -1,20 +1,17 @@
 /** @brief GNSS handler using UBX protocol library 
  * 
- * @todo Split into a date & time producer and a position producer
- * The date and time are received sooner than position because fewer
- * satellites are needed for time information. This means that we can set
- * the clock and open log files before the full 3D position fix is ready.
- * Eventually, gps_connector is separate and there are two workers, datetime
- * and position, each pulling information from gps_connector.
- * With Core2 (and Core with external RTC), date-time can be obtained from
- * the RTC before GNSS receives time. In that case, the date-time worker can
- * choose the more reliable of the two: GNSS preferred, RTC otherwise.
- * We also have the issue of initializing RTC on a brand new device, that 
- * can be done from GNSS.
+ * When activated, set auto receive for the UBX protocol commands used:
+ * UBX-NAV-PVT: position, velocity and time
+ * UBX-NAV-DOP: dilution of precision, for horizontal DOP
+ * UBX-NAV-SAT: enumeration of satellites in view, for number of sats.
+ * Based on examples by Paul Clark, SparkFun Electronics
+ * https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library
+ * 
 */
 
 #include "gps_connector.h"
 #include "debugger.h"
+
 
 GpsConnector::GpsConnector(uint8_t gps_serial_num, SFE_UBLOX_GNSS& gnss) : Worker<GnssData>(), gnss(gnss), ss(gps_serial_num), tried_38400_at(0), tried_9600_at(0), _init_at(0) {
 }
@@ -55,12 +52,17 @@ bool GpsConnector::activate(bool retry) {
   }
 
   // Confirm that we actually have a connection
-  DEBUG_PRINTF("GNSS: u-blox protocol version %02d.%02d\n", gnss.getProtocolVersionHigh(), gnss.getProtocolVersionLow());
+  DEBUG_PRINTF("GNSS: u-blox protocol version %02d.%02d\n",
+                gnss.getProtocolVersionHigh(),
+                gnss.getProtocolVersionLow());
 
   // Set Auto on NAV-PVT and NAV-DOP queries for non-blocking access
   // getPVT() and getDOP() will return true if a new navigation solution is available
   gnss.setAutoPVT(true); // Tell the GNSS to "send" each solution
   gnss.setAutoDOP(true); // Enable/disable automatic DOP reports at the navigation frequency
+  gnss.setAutoNAVSAT(true); // Enable/disable automatic satellite reports at the navigation frequency
+
+  gnss.setAutoNAVSATcallbackPtr(&GpsConnector::satellites_callback); // Enable automatic NAV PVT messages with callback to printPVTdata
 
   // Mark the fix items invalid to start
   data.location_valid = false;
@@ -119,6 +121,11 @@ int8_t GpsConnector::produce_data() {
     ret_status = e_worker_data_read;
   }
   else {
+    // No valid fix, get number of satellites:
+    if(gnss.getSurveyInActive()) {
+      // If number of satellites > 0, report nsats
+    }
+    // else worker_idle
     ret_status = e_worker_idle;
     if (time_getpvt.isExpired()) {
       data.satellites_valid = false;
@@ -129,4 +136,11 @@ int8_t GpsConnector::produce_data() {
   }
 
   return ret_status;
+}
+
+void GpsConnector::satellites_callback(UBX_NAV_SAT_data_t *ubxDataStruct)
+{
+  auto nsats = ubxDataStruct->header.numSvs;
+  Serial.print(nsats);
+  Serial.println(" satellites");
 }
