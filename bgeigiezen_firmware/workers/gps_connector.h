@@ -86,8 +86,8 @@ class GpsConnector : public Worker<GnssData> {
   uint32_t tried_9600_at;
   uint32_t _init_at;
 
-  // UBX-NAV-SAT callback
-  void satellites_callback(UBX_NAV_SAT_data_t *ubxDataStruct);
+  // // UBX-NAV-SAT callback
+  // void satellites_callback(UBX_NAV_SAT_data_t *ubxDataStruct);
 
   // Age each item. If the corresponding timer times out, it's stale.
   RBD::Timer location_timer{GPS_FIX_AGE_LIMIT};
