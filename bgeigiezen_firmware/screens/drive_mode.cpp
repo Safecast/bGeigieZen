@@ -32,7 +32,8 @@ BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_m
 }
 
 void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
-  _logging_available = workers.worker<Controller>(k_worker_device_state)->get_data().sd_card_status == SDInterface::e_sd_config_status_ok;
+  const auto& controller_data = workers.worker<Controller>(k_worker_device_state)->get_data();
+  _logging_available = controller_data.local_available && controller_data.sd_card_status == SDInterface::e_sd_config_status_ok;
   _currently_logging = handlers.handler<SdLogger>(k_handler_drive_logger)->active();
   /// Menu
   if (_logging_available && _currently_logging) {

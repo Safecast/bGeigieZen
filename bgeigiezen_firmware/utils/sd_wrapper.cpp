@@ -52,7 +52,7 @@ SDInterface::SDInterface() : _status(SdStatus::e_sd_config_status_not_ready), _l
 }
 
 bool SDInterface::ready() {
-  if (!SD.exists(TEST_FILENAME)) {
+  if (_status != e_sd_config_status_not_ready && !SD.exists(TEST_FILENAME)) {
     end();
   }
   return _status != e_sd_config_status_not_ready;
