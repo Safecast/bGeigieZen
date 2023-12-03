@@ -33,6 +33,7 @@ struct GnssData {
   // If stale, render in gray/white text. 
   bool location_valid;
   bool satellites_valid;
+  bool satellites_tracked_valid;
   bool date_valid;
   bool time_valid;
 
@@ -47,6 +48,7 @@ struct GnssData {
 
   // Confidence
   uint8_t satsInView;  // satellites used to calculate fix
+  uint8_t satsTracked;  // satellites visible, even if no fix
   double hdop;
 
 
@@ -94,6 +96,7 @@ class GpsConnector : public Worker<GnssData> {
   RBD::Timer date_timer{GPS_FIX_AGE_LIMIT};
   RBD::Timer time_timer{GPS_FIX_AGE_LIMIT};
   RBD::Timer time_getpvt{GPS_FIX_AGE_LIMIT};  // if no response from getPVT()
+  RBD::Timer time_getnavsat{GPS_FIX_AGE_LIMIT};  // if no response from getNAVSAT()
 
 };
 
