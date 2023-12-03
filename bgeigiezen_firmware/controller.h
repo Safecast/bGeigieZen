@@ -15,7 +15,6 @@ struct DeviceState {
 
   bool initialized;
   bool local_available;
-  bool rtc_available;
   SDInterface::SdStatus sd_card_status;
   Mode mode;
 
