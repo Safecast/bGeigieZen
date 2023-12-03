@@ -62,7 +62,9 @@ bool GpsConnector::activate(bool retry) {
   gnss.setAutoDOP(true); // Enable/disable automatic DOP reports at the navigation frequency
   gnss.setAutoNAVSAT(true); // Enable/disable automatic satellite reports at the navigation frequency
 
-  gnss.setAutoNAVSATcallbackPtr(&GpsConnector::satellites_callback); // Enable automatic NAV PVT messages with callback to printPVTdata
+  // // Enable automatic NAV SAT messages with callback to satellites_callback
+  // auto function_ptr = std::bind(&GpsConnector::satellites_callback, this);
+  // gnss.setAutoNAVSTATUScallbackPtr(function_ptr);
 
   // Mark the fix items invalid to start
   data.location_valid = false;
@@ -121,26 +123,42 @@ int8_t GpsConnector::produce_data() {
     ret_status = e_worker_data_read;
   }
   else {
-    // No valid fix, get number of satellites:
-    if(gnss.getSurveyInActive()) {
+    // No valid fix, get number of satellites.
+    // DEBUG_PRINTLN("No valid fix, getNAVSAT.");
+    if(gnss.getNAVSAT() && gnss.packetUBXNAVSAT != NULL)
+    {
+      // Get number of satellites
+      auto nsats = gnss.packetUBXNAVSAT->data.header.numSvs;
+      gnss.flushNAVSAT();
+      DEBUG_PRINT(nsats);
+      DEBUG_PRINTLN(" satellites tracked.");
       // If number of satellites > 0, report nsats
+      if(nsats > 0) {
+        data.satellites_valid = true;
+        data.satsInView = nsats; // Satellites being tracked
+      } else {
+        data.satellites_valid = false;
+        data.satsInView = 0; // Satellites being tracked
+      }
     }
     // else worker_idle
-    ret_status = e_worker_idle;
-    if (time_getpvt.isExpired()) {
-      data.satellites_valid = false;
-      data.location_valid = false;
-      data.date_valid = false;
-      data.time_valid = false;
+    else {
+      ret_status = e_worker_idle;
+      if (time_getpvt.isExpired()) {
+        data.satellites_valid = false;
+        data.location_valid = false;
+        data.date_valid = false;
+        data.time_valid = false;
+      }
     }
   }
 
   return ret_status;
 }
 
-void GpsConnector::satellites_callback(UBX_NAV_SAT_data_t *ubxDataStruct)
-{
-  auto nsats = ubxDataStruct->header.numSvs;
-  Serial.print(nsats);
-  Serial.println(" satellites");
-}
+// void GpsConnector::satellites_callback(UBX_NAV_SAT_data_t *ubxDataStruct)
+// {
+//   auto nsats = ubxDataStruct->header.numSvs;
+//   Serial.print(nsats);
+//   Serial.println(" satellites");
+// }
