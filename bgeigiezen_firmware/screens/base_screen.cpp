@@ -9,7 +9,7 @@ BaseScreen::BaseScreen(const char* title, bool status_bar) : _status_bar(status_
   }
 }
 
-void BaseScreen::drawButton(uint16_t x, const char* text, ButtonState state) {
+void BaseScreen::drawButton(uint16_t x, const char* text, ButtonState state) const {
   if (strlen(text) > BUTTON_TEXT_MAX_LENGTH) {
     // Dont render long button text :(
     return;
@@ -48,7 +48,7 @@ void BaseScreen::drawButton(uint16_t x, const char* text, ButtonState state) {
   M5.Lcd.flush();
 }
 
-void BaseScreen::drawButton1(const char* text, ButtonState state) {
+void BaseScreen::drawButton1(const char* text, ButtonState state) const {
 #ifdef M5_CORE2
   drawButton(8, text, state);
 #elif M5_BASIC
@@ -56,7 +56,7 @@ void BaseScreen::drawButton1(const char* text, ButtonState state) {
 #endif
 }
 
-void BaseScreen::drawButton2(const char* text, ButtonState state) {
+void BaseScreen::drawButton2(const char* text, ButtonState state) const {
 #ifdef M5_CORE2
   drawButton(115, text, state);
 #elif M5_BASIC
@@ -64,7 +64,7 @@ void BaseScreen::drawButton2(const char* text, ButtonState state) {
 #endif
 }
 
-void BaseScreen::drawButton3(const char* text, ButtonState state) {
+void BaseScreen::drawButton3(const char* text, ButtonState state) const {
 #ifdef M5_CORE2
   drawButton(222, text, state);
 #elif M5_BASIC
@@ -72,7 +72,7 @@ void BaseScreen::drawButton3(const char* text, ButtonState state) {
 #endif
 }
 
-int16_t BaseScreen::printFloatFont(float val, int prec, int x, int y, int font) {
+int BaseScreen::printFloatFont(float val, int prec, int x, int y, int font) const {
   char sz[32] = "";
   char format[32] = "";
   sprintf(format, "%%.%df", prec);
@@ -81,7 +81,7 @@ int16_t BaseScreen::printFloatFont(float val, int prec, int x, int y, int font) 
 }
 
 // Prints int with fonts
-int16_t BaseScreen::printIntFont(unsigned long val, int x, int y, int font) {
+int BaseScreen::printIntFont(unsigned long val, int x, int y, int font) const {
   char sz[32] = "";
   sprintf(sz, "%ld", val);
   return M5.Lcd.drawString((sz), x, y, font);

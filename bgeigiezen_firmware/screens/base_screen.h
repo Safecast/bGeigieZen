@@ -68,15 +68,15 @@ class BaseScreen {
    */
   virtual void render(const worker_map_t& workers, const handler_map_t& handlers, bool force);
 
-  void drawButton1(const char* text, ButtonState state = e_button_default);
-  void drawButton2(const char* text, ButtonState state = e_button_default);
-  void drawButton3(const char* text, ButtonState state = e_button_default);
+  void drawButton1(const char* text, ButtonState state = e_button_default) const;
+  void drawButton2(const char* text, ButtonState state = e_button_default) const;
+  void drawButton3(const char* text, ButtonState state = e_button_default) const;
 
-  int16_t printFloatFont(float val, int prec, int x, int y, int font);
-  int16_t printIntFont(unsigned long val, int x, int y, int font);
+  int printFloatFont(float val, int prec, int x, int y, int font) const;
+  int printIntFont(unsigned long val, int x, int y, int font) const;
 
  private:
-  void drawButton(uint16_t x, const char* text, ButtonState state);
+  void drawButton(uint16_t x, const char* text, ButtonState state) const;
 
   char _title[20];
   bool _status_bar;
