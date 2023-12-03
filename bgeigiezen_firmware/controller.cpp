@@ -57,8 +57,6 @@ int8_t Controller::produce_data() {
     if (SDInterface::i().begin()) {
       // SD is inserted
       data.sd_card_status = SDInterface::i().has_safezen_content(_settings.get_device_id());
-      // start journal logger
-      set_handler_active(k_handler_journal_logger, true);
       _status = e_worker_data_read;
     }
   } else if (!SDInterface::i().ready()) {
@@ -73,6 +71,12 @@ int8_t Controller::produce_data() {
     data.sd_card_status = SDInterface::i().status();
     _status = e_worker_data_read;
   }
+
+  if (_status == e_worker_data_read && _settings.get_device_id() && data.sd_card_status == SDInterface::e_sd_config_status_ok) {
+    // start journal logger (if not active yet)
+    set_handler_active(k_handler_journal_logger, true);
+  }
+
   return _status;
 }
 
