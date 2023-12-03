@@ -62,15 +62,12 @@ bool GpsConnector::activate(bool retry) {
   gnss.setAutoDOP(true); // Enable/disable automatic DOP reports at the navigation frequency
   gnss.setAutoNAVSAT(true); // Enable/disable automatic satellite reports at the navigation frequency
 
-  // // Enable automatic NAV SAT messages with callback to satellites_callback
-  // auto function_ptr = std::bind(&GpsConnector::satellites_callback, this);
-  // gnss.setAutoNAVSTATUScallbackPtr(function_ptr);
-
-  // Mark the fix items invalid to start
+ // Mark the fix items invalid to start
   data.location_valid = false;
   data.date_valid = false;
   data.time_valid = false;
   data.satellites_valid = false;
+  data.satellites_tracked_valid = false;
 
   return true;
 }
@@ -78,17 +75,47 @@ bool GpsConnector::activate(bool retry) {
 int8_t GpsConnector::produce_data() {
   auto ret_status = e_worker_idle;
 
-  // getPVT and getDOP will return true if there actually is a fresh navigation solution
-  // available. "LLH" is longitude, latitude, height.
-  // getPVT() returns UTC date and time (do not use GNSS time, see note in u-blox spec)
-  if (gnss.getPVT() && gnss.getDOP()) {
+  // getPVT and getDOP will return true if there actually is a fresh
+  // navigation solution available. "LLH" is longitude, latitude, height.
+  // getPVT() returns UTC date and time.
+  // Do not use GNSS time, see u-blox spec section 9.
+  if (gnss.getPVT() && gnss.getDOP() && gnss.getNAVSAT()) {
+    // DEBUG_PRINTF("[%d] gnss.getPVT() && gnss.getDOP() && gnss.getNAVSAT() is true.\n", millis());
     time_getpvt.restart();
+    time_getnavsat.restart();
 
-    // Satellites is a special case, we want to see it even if no fix.
-    data.satellites_valid = true;
-    data.satsInView = gnss.getSIV(); // Satellites In View
-
+    if (gnss.getGnssFixOk()) {
+      DEBUG_PRINTF("[%d] gnss.getGnssFixOk() is true.\n", millis());
+      data.hdop = gnss.getHorizontalDOP(); // Position Dilution of Precision
+      data.latitude = gnss.getLatitude() * 1e-7;
+      data.longitude = gnss.getLongitude() * 1e-7;
+      data.altitudeMSL = gnss.getAltitudeMSL() * 1e-3; // Above MSL (not ellipsoid)
+      data.location_valid = true;
+      data.satellites_valid = true;
+      data.satsInView = gnss.getSIV(); // Satellites In View
+      location_timer.restart();
+      ret_status = e_worker_data_read;
+    }
+    else {
+      // No valid fix, get number of satellites tracked.
+      if(gnss.packetUBXNAVSAT != NULL) {
+        data.satellites_valid = false;
+        data.satsInView = 0; // Satellites used in fix
+        // Get number of satellites
+        auto nsats = gnss.packetUBXNAVSAT->data.header.numSvs;
+        gnss.flushNAVSAT();
+        DEBUG_PRINTF("[%d] %d satellites tracked.\n", millis(), nsats);
+        data.satellites_tracked_valid = true;
+        data.satsTracked = nsats; // Satellites being tracked
+        ret_status = e_worker_data_read;
+      }
+      if (location_timer.isExpired()) {
+            data.location_valid = false;
+          }
+    }
+ 
     if (gnss.getDateValid()) {
+      DEBUG_PRINTF("[%d] gnss.getDateValid() is true.\n", millis());
       data.year = gnss.getYear();
       data.month = gnss.getMonth();
       data.day = gnss.getDay();
@@ -100,6 +127,7 @@ int8_t GpsConnector::produce_data() {
     }
 
     if (gnss.getTimeValid()) {
+      DEBUG_PRINTF("[%d] gnss.getTimeValid() is true.\n", millis());
       data.hour = gnss.getHour();
       data.minute = gnss.getMinute();
       data.second = gnss.getSecond();
@@ -109,56 +137,21 @@ int8_t GpsConnector::produce_data() {
     else if (time_timer.isExpired()) {
       data.time_valid = false;
     }
-    if (gnss.getGnssFixOk()) {
-      data.hdop = gnss.getHorizontalDOP(); // Position Dilution of Precision
-      data.latitude = gnss.getLatitude() * 1e-7;
-      data.longitude = gnss.getLongitude() * 1e-7;
-      data.altitudeMSL = gnss.getAltitudeMSL() * 1e-3; // Above MSL (not ellipsoid)
-      data.location_valid = true;
-      location_timer.restart();
-    }
-    else if (location_timer.isExpired()) {
-      data.location_valid = false;
-    }
     ret_status = e_worker_data_read;
   }
+  // else worker_idle
   else {
-    // No valid fix, get number of satellites.
-    // DEBUG_PRINTLN("No valid fix, getNAVSAT.");
-    if(gnss.getNAVSAT() && gnss.packetUBXNAVSAT != NULL)
-    {
-      // Get number of satellites
-      auto nsats = gnss.packetUBXNAVSAT->data.header.numSvs;
-      gnss.flushNAVSAT();
-      DEBUG_PRINT(nsats);
-      DEBUG_PRINTLN(" satellites tracked.");
-      // If number of satellites > 0, report nsats
-      if(nsats > 0) {
-        data.satellites_valid = true;
-        data.satsInView = nsats; // Satellites being tracked
-      } else {
-        data.satellites_valid = false;
-        data.satsInView = 0; // Satellites being tracked
-      }
+    ret_status = e_worker_idle;
+    if (time_getpvt.isExpired()) {
+      data.satellites_valid = false;
+      data.location_valid = false;
+      data.date_valid = false;
+      data.time_valid = false;
     }
-    // else worker_idle
-    else {
-      ret_status = e_worker_idle;
-      if (time_getpvt.isExpired()) {
-        data.satellites_valid = false;
-        data.location_valid = false;
-        data.date_valid = false;
-        data.time_valid = false;
-      }
+    if(time_getnavsat.isExpired()) {
+      data.satellites_tracked_valid = false;
     }
   }
 
   return ret_status;
 }
-
-// void GpsConnector::satellites_callback(UBX_NAV_SAT_data_t *ubxDataStruct)
-// {
-//   auto nsats = ubxDataStruct->header.numSvs;
-//   Serial.print(nsats);
-//   Serial.println(" satellites");
-// }
