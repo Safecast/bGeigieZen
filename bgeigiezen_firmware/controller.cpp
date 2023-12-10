@@ -7,7 +7,7 @@
 
 Controller::Controller(LocalStorage& settings)
     : Aggregator(),
-      Worker<DeviceState>({false, false, false, SDInterface::SdStatus::e_sd_config_status_not_ready, DeviceState::Mode::e_mode_not_set}, 1000),
+      Worker<DeviceState>({false, false, SDInterface::SdStatus::e_sd_config_status_not_ready, DeviceState::Mode::e_mode_not_set}, 1000),
       _initialized(false),
       _settings(settings) {
 }

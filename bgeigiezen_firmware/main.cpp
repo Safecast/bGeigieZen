@@ -90,7 +90,7 @@ TaskHandle_t Task1;
 void M5_update_loop(void*) {
   while(1) {
     M5.update();
-    delay(10);
+    delay(5);
   }
 }
 
