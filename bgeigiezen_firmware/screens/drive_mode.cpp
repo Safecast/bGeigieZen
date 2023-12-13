@@ -67,15 +67,22 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   }
 
   // Display GPS data always, change colour if not fresh
-
   if (gps->is_fresh() || force) {
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_OLD, LCD_COLOR_BACKGROUND);
 
+    // Which satellites data to display?
+    uint8_t nsatellites = 0;  // temp for satellites to display
+    if(gps->get_data().satellites_valid) {
+      nsatellites = gps->get_data().satsInView;
+    } else if (gps->get_data().satellites_tracked_valid) {
+      nsatellites = gps->get_data().satsTracked;
+    }
     M5.Lcd.setCursor(0, 150);
-    gps->get_data().satsInView < 2 ? (M5.Lcd.setTextColor(TFT_RED, TFT_BLACK))
-                                   : M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
-    M5.Lcd.print("Satellites :");
-    M5.Lcd.print(gps->get_data().satsInView, 5);
+    nsatellites < 1 ? (M5.Lcd.setTextColor(TFT_RED, TFT_BLACK))
+                    : M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
+    // @todo When number goes from 2 digits to 1, the rightmost digit is not erased.
+    M5.Lcd.print("Satellites: ");
+    M5.Lcd.print(nsatellites);
     M5.Lcd.setTextColor(WHITE, BLACK);
     M5.Lcd.println();
     M5.Lcd.print("Latitude   :");
