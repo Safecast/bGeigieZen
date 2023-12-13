@@ -66,7 +66,6 @@ bool GpsConnector::activate(bool retry) {
   data.location_valid = false;
   data.date_valid = false;
   data.time_valid = false;
-  data.satellites_valid = false;
   data.satellites_tracked_valid = false;
 
   return true;
@@ -91,7 +90,6 @@ int8_t GpsConnector::produce_data() {
       data.longitude = gnss.getLongitude() * 1e-7;
       data.altitudeMSL = gnss.getAltitudeMSL() * 1e-3; // Above MSL (not ellipsoid)
       data.location_valid = true;
-      data.satellites_valid = true;
       data.satsInView = gnss.getSIV(); // Satellites In View
       location_timer.restart();
       ret_status = e_worker_data_read;
@@ -99,7 +97,6 @@ int8_t GpsConnector::produce_data() {
     else {
       // No valid fix, get number of satellites tracked.
       if(gnss.packetUBXNAVSAT != NULL) {
-        data.satellites_valid = false;
         data.satsInView = 0; // Satellites used in fix
         // Get number of satellites
         auto nsats = gnss.packetUBXNAVSAT->data.header.numSvs;
@@ -110,8 +107,8 @@ int8_t GpsConnector::produce_data() {
         ret_status = e_worker_data_read;
       }
       if (location_timer.isExpired()) {
-            data.location_valid = false;
-          }
+        data.location_valid = false;
+      }
     }
  
     if (gnss.getDateValid()) {
@@ -143,7 +140,6 @@ int8_t GpsConnector::produce_data() {
   else {
     ret_status = e_worker_idle;
     if (time_getpvt.isExpired()) {
-      data.satellites_valid = false;
       data.location_valid = false;
       data.date_valid = false;
       data.time_valid = false;
