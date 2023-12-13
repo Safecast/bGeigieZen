@@ -10,6 +10,7 @@
 #include "identifiers.h"
 #include "screens/boot_screen.h"
 #include "screens/default_entry_screen.h"
+#include "workers/rtc_connector.h"
 
 static constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
 static constexpr uint8_t LEVEL_DIMMED = 10;
@@ -144,9 +145,21 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
       if (_screen->has_status_bar()) {
         // Render bottom status bar
         M5.Lcd.drawLine(0, 220, 320, 220, TFT_WHITE);
-        M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
-        M5.Lcd.drawString("(TODO: status icons)", 5, 233);
-        M5.Lcd.drawString(_screen->get_title(), 315 - static_cast<uint8_t>((strlen(_screen->get_title()) * 6)), 233);
+
+        // Time HH:MM
+        const auto& time = workers.worker<RtcConnector>(k_worker_rtc_connector)->get_data();
+        M5.Lcd.setCursor(5, 227);
+        time.valid ? M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, TFT_BLACK) : M5.Lcd.setTextColor(LCD_COLOR_OLD, TFT_BLACK);
+        M5.Lcd.printf("%02d:%02d ", time.hour, time.minute);
+
+        // Status icons
+        M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, TFT_BLACK);
+        M5.Lcd.setCursor(45, 227);
+        M5.Lcd.printf("(TODO: status icons)");
+
+        // Screen name
+        M5.Lcd.setCursor(315 - static_cast<uint8_t>((strlen(_screen->get_title()) * 6)), 227);
+        M5.Lcd.print(_screen->get_title());
       }
 
       M5.Lcd.setRotation(1);

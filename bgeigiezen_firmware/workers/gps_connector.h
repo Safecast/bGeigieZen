@@ -38,7 +38,7 @@ struct GnssData {
   bool time_valid;
 
   bool valid() const {
-    return location_valid && satellites_valid && date_valid && time_valid;
+    return location_valid && satellites_tracked_valid && date_valid && time_valid;
   }
 
   // Position
