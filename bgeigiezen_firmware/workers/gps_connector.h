@@ -23,6 +23,7 @@
 // Uncomment the next line (or add SFE_UBLOX_DISABLE_AUTO_NMEA as a compiler directive) to reduce the amount of program memory used by the library
 #define SFE_UBLOX_DISABLE_AUTO_NMEA // Uncommenting this line will disable auto-NMEA support to save memory
 #include <SparkFun_u-blox_GNSS_Arduino_Library.h>
+#include <u-blox_structs.h>  // structs internal to SparkFun library
 
 struct GnssData {
   // When true, the item related to each Boolean is valid and updated in the
@@ -32,6 +33,7 @@ struct GnssData {
   // If stale, render in gray/white text. 
   bool location_valid;
   bool satellites_valid;
+  bool satellites_tracked_valid;
   bool date_valid;
   bool time_valid;
 
@@ -46,6 +48,7 @@ struct GnssData {
 
   // Confidence
   uint8_t satsInView;  // satellites used to calculate fix
+  uint8_t satsTracked;  // satellites visible, even if no fix
   double hdop;
 
 
@@ -85,11 +88,15 @@ class GpsConnector : public Worker<GnssData> {
   uint32_t tried_9600_at;
   uint32_t _init_at;
 
+  // // UBX-NAV-SAT callback
+  // void satellites_callback(UBX_NAV_SAT_data_t *ubxDataStruct);
+
   // Age each item. If the corresponding timer times out, it's stale.
   RBD::Timer location_timer{GPS_FIX_AGE_LIMIT};
   RBD::Timer date_timer{GPS_FIX_AGE_LIMIT};
   RBD::Timer time_timer{GPS_FIX_AGE_LIMIT};
   RBD::Timer time_getpvt{GPS_FIX_AGE_LIMIT};  // if no response from getPVT()
+  RBD::Timer time_getnavsat{GPS_FIX_AGE_LIMIT};  // if no response from getNAVSAT()
 
 };
 
