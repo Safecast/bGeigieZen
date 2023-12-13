@@ -72,28 +72,27 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 
     // Which satellites data to display?
     uint8_t nsatellites = 0;  // temp for satellites to display
-    if(gps->get_data().satellites_valid) {
+    if(gps->get_data().location_valid) {
       nsatellites = gps->get_data().satsInView;
+      M5.Lcd.setTextColor(LCD_COLOR_SUCCESS, TFT_BLACK);
     } else if (gps->get_data().satellites_tracked_valid) {
       nsatellites = gps->get_data().satsTracked;
+      M5.Lcd.setTextColor(LCD_COLOR_ACTIVE, TFT_BLACK);
+    } else {
+      M5.Lcd.setTextColor(LCD_COLOR_ERROR, TFT_BLACK);
     }
     M5.Lcd.setCursor(0, 150);
-    nsatellites < 1 ? (M5.Lcd.setTextColor(TFT_RED, TFT_BLACK))
-                    : M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
     // @todo When number goes from 2 digits to 1, the rightmost digit is not erased.
     M5.Lcd.print("Satellites: ");
     M5.Lcd.print(nsatellites);
+    M5.Lcd.println("  ");
     M5.Lcd.setTextColor(WHITE, BLACK);
-    M5.Lcd.println();
     M5.Lcd.print("Latitude   :");
-    M5.Lcd.print(gps->get_data().latitude, 6);
-    M5.Lcd.println();
+    M5.Lcd.println(gps->get_data().latitude, 6);
     M5.Lcd.print("Longitude  :");
-    M5.Lcd.print(gps->get_data().longitude, 6);
-    M5.Lcd.println();
+    M5.Lcd.println(gps->get_data().longitude, 6);
     M5.Lcd.print("Altitude   :");
-    M5.Lcd.print(gps->get_data().altitudeMSL, 2);
-    M5.Lcd.println();
+    M5.Lcd.println(gps->get_data().altitudeMSL, 2);
   }
 }
 
