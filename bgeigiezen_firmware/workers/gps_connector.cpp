@@ -2,7 +2,7 @@
  * 
  * When activated, set auto receive for the UBX protocol commands used:
  * UBX-NAV-PVT: position, velocity and time
- * UBX-NAV-DOP: dilution of precision, for horizontal DOP
+ * ***REMOVED*** UBX-NAV-DOP: dilution of precision, for horizontal DOP
  * UBX-NAV-SAT: enumeration of satellites in view, for number of sats.
  * Based on examples by Paul Clark, SparkFun Electronics
  * https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library
@@ -96,6 +96,8 @@ int8_t GpsConnector::produce_data() {
       data.satsInView = gnss.getSIV(); // Satellites In View
       location_timer.restart();
       ret_status = e_worker_data_read;
+      // DEBUG: Compare PDOP from NAV-PVT and HDOP from NAV-DOP
+      DEBUG_PRINTF("FixOK\n  PDOP: %d; HDOP: %d\n", gnss.getPDOP(), data.hdop);
     }
     else {
       // No valid fix, get number of satellites tracked.
