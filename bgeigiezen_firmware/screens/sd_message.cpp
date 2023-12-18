@@ -84,7 +84,7 @@ void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& h
     case k_no_sd_no_storage:
       drawButton1("Reboot");
       drawButton3("Continue");
-      M5.Lcd.setTextColor(LCD_COLOR_ACTIVE, LCD_COLOR_BACKGROUND);
+      M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
       M5.Lcd.drawString("Welcome to your Zen!", 40, 60, 4);
       M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
       M5.Lcd.drawString("Please insert your bGeigieZen SD-card", 10, 100, 2);
@@ -95,7 +95,7 @@ void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& h
     case k_empty_sd_no_storage:
       drawButton1("Reboot");
       drawButton3("Continue");
-      M5.Lcd.setTextColor(LCD_COLOR_ACTIVE, LCD_COLOR_BACKGROUND);
+      M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
       M5.Lcd.drawString("Welcome to your Zen!", 40, 60, 4);
       M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
       M5.Lcd.drawString("Please add SAFEZEN.txt your SD-card,", 10, 100, 2);
@@ -105,7 +105,7 @@ void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& h
     case k_no_sd_with_storage:
       drawButton1("Reboot");
       drawButton3("Continue");
-      M5.Lcd.setTextColor(LCD_COLOR_ACTIVE, LCD_COLOR_BACKGROUND);
+      M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
       M5.Lcd.drawString("SD card notification", 46, 60, 4);
       M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
       M5.Lcd.drawString("No SDCARD in slot", 10, 100, 2);
@@ -116,7 +116,7 @@ void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& h
       drawButton1("Reboot");
       drawButton2("Write");
       drawButton3("Continue");
-      M5.Lcd.setTextColor(LCD_COLOR_ACTIVE, LCD_COLOR_BACKGROUND);
+      M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
       M5.Lcd.drawString("SD card notification", 46, 60, 4);
       M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
       M5.Lcd.drawString("No valid config found on SD card", 10, 100, 2);
@@ -128,7 +128,7 @@ void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& h
       drawButton1("Load");
       drawButton2("Overwrite");
       drawButton3("Continue");
-      M5.Lcd.setTextColor(LCD_COLOR_ACTIVE, LCD_COLOR_BACKGROUND);
+      M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
       M5.Lcd.drawString("SD card notification", 46, 60, 4);
       M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
       M5.Lcd.drawString("SD config with different device id found", 10, 100, 2);
@@ -144,7 +144,7 @@ void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& h
   //display Safecast copyright
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.drawString("SAFECAST", 230, 215, 1);
-  M5.Lcd.setTextColor(LCD_COLOR_ACTIVE, LCD_COLOR_BACKGROUND);
+  M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
   M5.Lcd.drawString("2023", 285, 215, 1);
 }
 
