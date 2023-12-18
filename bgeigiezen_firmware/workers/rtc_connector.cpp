@@ -78,7 +78,7 @@ int8_t RtcConnector::produce_data(const worker_map_t& workers) {
   // TODO: handle M5core
   // Try gps
   const auto& gps_data = workers.worker<GpsConnector>(k_worker_gps_connector)->get_data();
-  if (gps_data.time_valid && gps_data.date_valid) {
+  if (gps_data.date_valid) {
     set_from_gps(gps_data);
     return e_worker_data_read;
   } else if (data.valid) {

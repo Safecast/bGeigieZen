@@ -32,7 +32,6 @@ struct GnssData {
   // every 1 second, then the corresponding Boolean becomes false.
   // If stale, render in gray/white text. 
   bool location_valid;
-  bool satellites_valid;
   bool satellites_tracked_valid;
   bool date_valid;
   bool time_valid;
@@ -95,8 +94,7 @@ class GpsConnector : public Worker<GnssData> {
   RBD::Timer location_timer{GPS_FIX_AGE_LIMIT};
   RBD::Timer date_timer{GPS_FIX_AGE_LIMIT};
   RBD::Timer time_timer{GPS_FIX_AGE_LIMIT};
-  RBD::Timer time_getpvt{GPS_FIX_AGE_LIMIT};  // if no response from getPVT()
-  RBD::Timer time_getnavsat{GPS_FIX_AGE_LIMIT};  // if no response from getNAVSAT()
+  RBD::Timer navsat_timer{GPS_FIX_AGE_LIMIT};  // if no response from getNAVSAT()
 
 };
 

@@ -39,17 +39,16 @@ constexpr uint32_t GPS_BAUD_RATE = 38400;
 constexpr uint16_t GPS_INVALID_YEAR = 2000;
 constexpr uint16_t GPS_PDOP_THRESHOLD = 500;  // Exact value TBD
 constexpr uint8_t GPS_SATS_THRESHOLD = 4;  // strictly necessary is 4, but more is better
-constexpr uint32_t GPS_FIX_AGE_LIMIT = 1500; // ms before we decide the fix is too old.
+constexpr uint32_t GPS_FIX_AGE_LIMIT = 2500; // ms before we decide the fix is too old.
 
 // - LCD display
 constexpr uint32_t LCD_REFRESH_RATE = 1000;  // 1s
-#define LCD_COLOR_DEFAULT TFT_WHITE
-#define LCD_COLOR_SUCCESS TFT_GREEN
-#define LCD_COLOR_ERROR TFT_RED
-#define LCD_COLOR_ACTIVE TFT_ORANGE
-#define LCD_COLOR_OLD TFT_ORANGE
-#define LCD_COLOR_INACTIVE TFT_DARKGREY
 #define LCD_COLOR_BACKGROUND TFT_BLACK
+#define LCD_COLOR_DEFAULT TFT_WHITE
+#define LCD_COLOR_STALE_INCOMPLETE TFT_ORANGE
+#define LCD_COLOR_ERROR TFT_RED
+#define LCD_COLOR_INACTIVE TFT_DARKGREY
+#define LCD_COLOR_ACTIVITY TFT_GREEN
 
 // - SD card
 constexpr uint8_t SD_CS_PIN = 4;  // GPIO 4

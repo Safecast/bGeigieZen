@@ -65,6 +65,11 @@ class SDInterface {
   bool begin();
 
   /**
+   * @return true last write in last 0.5 sec
+   */
+  bool just_wrote() const;
+
+  /**
    * close SD connection
    */
   void end();

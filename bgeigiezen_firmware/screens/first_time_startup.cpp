@@ -25,7 +25,7 @@ void FirstTimeStartupScreen::render(const worker_map_t& workers, const handler_m
 
   const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
 
-  M5.Lcd.setTextColor(LCD_COLOR_ACTIVE, LCD_COLOR_BACKGROUND);
+  M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
   M5.Lcd.drawString("Welcome to your Zen!", 38, 80, 4);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.drawString("#", 135, 100, 2);

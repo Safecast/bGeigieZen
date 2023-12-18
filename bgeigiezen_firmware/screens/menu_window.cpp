@@ -119,9 +119,9 @@ void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handle
   drawButton3("Back", e_button_active);
 
   // Draw menu rect
-  M5.Lcd.drawRoundRect(210, 20, 90, 100, 4, LCD_COLOR_ACTIVE);
+  M5.Lcd.drawRoundRect(210, 20, 90, 100, 4, LCD_COLOR_STALE_INCOMPLETE);
   for (int i = 0; i < ADVANCED_MENU_ITEMS; ++i) {
-    M5.Lcd.setTextColor(advanced_menu[i].enabled ? (i == menu_index ? LCD_COLOR_ACTIVE : LCD_COLOR_DEFAULT) : TFT_DARKGREY, LCD_COLOR_BACKGROUND);
+    M5.Lcd.setTextColor(advanced_menu[i].enabled ? (i == menu_index ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_DEFAULT) : TFT_DARKGREY, LCD_COLOR_BACKGROUND);
     M5.Lcd.drawString(advanced_menu[i].title, 230, 40 + (i * 10));
     if (i == menu_index) {
       M5.Lcd.drawString(">", 220, 40 + (i * 10));
@@ -132,7 +132,7 @@ void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handle
   }
 
   // Draw tooltip bar
-  M5.Lcd.drawRoundRect(20, 180, 280, 30, 4, LCD_COLOR_ACTIVE);
+  M5.Lcd.drawRoundRect(20, 180, 280, 30, 4, LCD_COLOR_STALE_INCOMPLETE);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.drawString(advanced_menu[menu_index].tooltip_l1, 30, 194);
   M5.Lcd.drawString(advanced_menu[menu_index].tooltip_l2, 30, 206);

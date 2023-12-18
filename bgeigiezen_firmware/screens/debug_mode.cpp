@@ -76,10 +76,10 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
                   gps->get_data().date_valid ? gps->get_data().month : 0,
                   gps->get_data().date_valid ? gps->get_data().day : 0,
                   gps->get_data().date_valid ? "             " : "(unavailable)",
-                  gps->get_data().time_valid ? gps->get_data().hour : 0,
-                  gps->get_data().time_valid ? gps->get_data().minute : 0,
-                  gps->get_data().time_valid ? gps->get_data().second : 0,
-                  gps->get_data().time_valid ? "             " : "(unavailable)");
+                  gps->get_data().date_valid ? gps->get_data().hour : 0,
+                  gps->get_data().date_valid ? gps->get_data().minute : 0,
+                  gps->get_data().date_valid ? gps->get_data().second : 0,
+                  gps->get_data().date_valid ? "             " : "(unavailable)");
   }
   else {
     M5.Lcd.printf("GPS\n Module not available\n\n");
