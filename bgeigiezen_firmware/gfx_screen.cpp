@@ -10,6 +10,7 @@
 #include "identifiers.h"
 #include "screens/boot_screen.h"
 #include "screens/default_entry_screen.h"
+#include "workers/battery_indicator.h"
 #include "workers/rtc_connector.h"
 
 static constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
@@ -146,20 +147,62 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         // Render bottom status bar
         M5.Lcd.drawLine(0, 220, 320, 220, TFT_WHITE);
 
+        // Screen name
+        M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        M5.Lcd.setCursor(5, 227);
+        M5.Lcd.print(_screen->get_title());
+        M5.Lcd.print(" | ");
+
+        // Status icon: GPS
+        const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector)->get_data();
+        uint8_t satellites = 0;  // temp for satellites to display
+        if(gps.location_valid) {
+          satellites = gps.satsInView;
+          M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, TFT_BLACK);
+        } else if (gps.satellites_tracked_valid) {
+          satellites = gps.satsTracked;
+          M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
+        } else {
+          M5.Lcd.setTextColor(LCD_COLOR_ERROR, TFT_BLACK);
+        }
+        M5.Lcd.printf("GPS%d ", satellites);
+
+        // Status icon: SD
+        M5.Lcd.setTextColor(SDInterface::i().just_wrote() ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        M5.Lcd.print("SD ");
+
+        // Status icon: Geiger Tube
+        M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        M5.Lcd.print("GM ");
+
+        // Status icon: WiFi
+        M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        M5.Lcd.print("WF ");
+
+        // Status icon: Bluetooth
+        M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        M5.Lcd.print("BT ");
+
+        // Device
+        if (_settings.get_device_id() < 10000) {
+          M5.Lcd.setCursor(194, 227);
+          M5.Lcd.setTextColor(_settings.get_device_id() ? LCD_COLOR_DEFAULT : LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
+          M5.Lcd.printf("zen#%04d ", _settings.get_device_id());
+        } else {
+          M5.Lcd.setCursor(188, 227);
+          M5.Lcd.setTextColor(_settings.get_device_id() ? LCD_COLOR_DEFAULT : LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
+          M5.Lcd.printf("zen#%5d ", _settings.get_device_id());
+        }
+
+        // Battery
+        const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator)->get_data();
+        M5.Lcd.setTextColor(battery.isCharging ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        M5.Lcd.printf("%3d%%B ", battery.percentage);
+
         // Time HH:MM
         const auto& time = workers.worker<RtcConnector>(k_worker_rtc_connector)->get_data();
-        M5.Lcd.setCursor(5, 227);
-        time.valid ? M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, TFT_BLACK) : M5.Lcd.setTextColor(LCD_COLOR_OLD, TFT_BLACK);
-        M5.Lcd.printf("%02d:%02d ", time.hour, time.minute);
-
-        // Status icons
-        M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, TFT_BLACK);
-        M5.Lcd.setCursor(45, 227);
-        M5.Lcd.printf("(TODO: status icons)");
-
-        // Screen name
-        M5.Lcd.setCursor(315 - static_cast<uint8_t>((strlen(_screen->get_title()) * 6)), 227);
-        M5.Lcd.print(_screen->get_title());
+        M5.Lcd.setTextColor(time.valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+        M5.Lcd.printf("%02d:%02d", time.hour, time.minute);
       }
 
       M5.Lcd.setRotation(1);

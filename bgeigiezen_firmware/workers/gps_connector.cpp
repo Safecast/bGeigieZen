@@ -13,7 +13,7 @@
 #include "debugger.h"
 
 
-GpsConnector::GpsConnector(uint8_t gps_serial_num, SFE_UBLOX_GNSS& gnss) : Worker<GnssData>(), gnss(gnss), ss(gps_serial_num), tried_38400_at(0), tried_9600_at(0), _init_at(0) {
+GpsConnector::GpsConnector(uint8_t gps_serial_num, SFE_UBLOX_GNSS& gnss) : Worker<GnssData>(900), gnss(gnss), ss(gps_serial_num), tried_38400_at(0), tried_9600_at(0), _init_at(0) {
 }
 /**
  * @return true if initialized GNSS library, false if no connection with module.
@@ -78,13 +78,11 @@ int8_t GpsConnector::produce_data() {
   // navigation solution available. "LLH" is longitude, latitude, height.
   // getPVT() returns UTC date and time.
   // Do not use GNSS time, see u-blox spec section 9.
-  if (gnss.getPVT() && gnss.getDOP() && gnss.getNAVSAT()) {
-    // DEBUG_PRINTF("[%d] gnss.getPVT() && gnss.getDOP() && gnss.getNAVSAT() is true.\n", millis());
-    time_getpvt.restart();
-    time_getnavsat.restart();
+  if (gnss.getPVT() && gnss.getDOP(10) && gnss.getNAVSAT(10)) {
+//     DEBUG_PRINTF("[%lu] gnss.getPVT() && gnss.getDOP() && gnss.getNAVSAT() is true.\n", millis());
 
     if (gnss.getGnssFixOk()) {
-      DEBUG_PRINTF("[%d] gnss.getGnssFixOk() is true.\n", millis());
+//      DEBUG_PRINTF("[%lu] gnss.getGnssFixOk() is true.\n", millis());
       data.hdop = gnss.getHorizontalDOP(); // Position Dilution of Precision
       data.latitude = gnss.getLatitude() * 1e-7;
       data.longitude = gnss.getLongitude() * 1e-7;
@@ -94,59 +92,50 @@ int8_t GpsConnector::produce_data() {
       location_timer.restart();
       ret_status = e_worker_data_read;
     }
-    else {
-      // No valid fix, get number of satellites tracked.
-      if(gnss.packetUBXNAVSAT != NULL) {
-        data.satsInView = 0; // Satellites used in fix
-        // Get number of satellites
-        auto nsats = gnss.packetUBXNAVSAT->data.header.numSvs;
-        gnss.flushNAVSAT();
-        DEBUG_PRINTF("[%d] %d satellites tracked.\n", millis(), nsats);
-        data.satellites_tracked_valid = true;
-        data.satsTracked = nsats; // Satellites being tracked
-        ret_status = e_worker_data_read;
-      }
-      if (location_timer.isExpired()) {
-        data.location_valid = false;
-      }
+
+    if(gnss.packetUBXNAVSAT != nullptr) {
+      // Get number of tracked satellites
+      data.satsTracked = gnss.packetUBXNAVSAT->data.header.numSvs;
+      gnss.flushNAVSAT();
+//      DEBUG_PRINTF("[%lu] %d satellites tracked.\n", millis(), data.satsTracked);
+      data.satellites_tracked_valid = true;
+      navsat_timer.restart();
+      ret_status = e_worker_data_read;
     }
- 
+
     if (gnss.getDateValid()) {
-      DEBUG_PRINTF("[%d] gnss.getDateValid() is true.\n", millis());
+//      DEBUG_PRINTF("[%lu] gnss.getDateValid() is true.\n", millis());
       data.year = gnss.getYear();
       data.month = gnss.getMonth();
       data.day = gnss.getDay();
       data.date_valid = true;
       date_timer.restart();
-    }
-    else if (date_timer.isExpired()) {
-      data.date_valid = false;
+      ret_status = e_worker_data_read;
     }
 
     if (gnss.getTimeValid()) {
-      DEBUG_PRINTF("[%d] gnss.getTimeValid() is true.\n", millis());
+//      DEBUG_PRINTF("[%lu] gnss.getTimeValid() is true.\n", millis());
       data.hour = gnss.getHour();
       data.minute = gnss.getMinute();
       data.second = gnss.getSecond();
       data.time_valid = true;
       time_timer.restart();
+      ret_status = e_worker_data_read;
     }
-    else if (time_timer.isExpired()) {
-      data.time_valid = false;
-    }
-    ret_status = e_worker_data_read;
   }
-  // else worker_idle
-  else {
-    ret_status = e_worker_idle;
-    if (time_getpvt.isExpired()) {
-      data.location_valid = false;
-      data.date_valid = false;
-      data.time_valid = false;
-    }
-    if(time_getnavsat.isExpired()) {
-      data.satellites_tracked_valid = false;
-    }
+
+  // Check expiry
+  if(navsat_timer.isExpired()) {
+    data.satellites_tracked_valid = false;
+  }
+  if (location_timer.isExpired()) {
+    data.location_valid = false;
+  }
+  if (time_timer.isExpired()) {
+    data.time_valid = false;
+  }
+  if (date_timer.isExpired()) {
+    data.date_valid = false;
   }
 
   return ret_status;

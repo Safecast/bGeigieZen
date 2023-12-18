@@ -52,32 +52,30 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 
 
   if (gm_sensor->is_fresh() || force) {
-    M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_OLD, LCD_COLOR_BACKGROUND);
-
-    // Clean CPM area
-    M5.Lcd.fillRect(0, 52, 320, 90, LCD_COLOR_BACKGROUND);
+    M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
 
     // Display CPM
     auto cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 20, 100, 7);
-    M5.Lcd.drawString(" CPM", 20 + cpm_width, 105, 4); // Prints after cpm value
+    M5.Lcd.drawString(" CPM        ", 20 + cpm_width, 105, 4); // Prints after cpm value
+    M5.Lcd.drawString("        ", 20 + cpm_width, 105 - 26, 4); // Prints blanks after cpm value, above CPM text
 
     // Display uSv/h
-    auto ush_width = printFloatFont(gm_sensor->get_data().uSv, 3, 20, 140, 4);
+    auto ush_width = printFloatFont(gm_sensor->get_data().uSv, 4, 20, 140, 4);
     M5.Lcd.drawString(" uSv/h", 20 + ush_width, 140, 4); // Prints after ush value
   }
 
   // Display GPS data always, change colour if not fresh
   if (gps->is_fresh() || force) {
-    M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_OLD, LCD_COLOR_BACKGROUND);
+    M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
 
     // Which satellites data to display?
     uint8_t nsatellites = 0;  // temp for satellites to display
     if(gps->get_data().location_valid) {
       nsatellites = gps->get_data().satsInView;
-      M5.Lcd.setTextColor(LCD_COLOR_SUCCESS, TFT_BLACK);
+      M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, TFT_BLACK);
     } else if (gps->get_data().satellites_tracked_valid) {
       nsatellites = gps->get_data().satsTracked;
-      M5.Lcd.setTextColor(LCD_COLOR_ACTIVE, TFT_BLACK);
+      M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
     } else {
       M5.Lcd.setTextColor(LCD_COLOR_ERROR, TFT_BLACK);
     }
@@ -86,7 +84,7 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     M5.Lcd.print("Satellites: ");
     M5.Lcd.print(nsatellites);
     M5.Lcd.println("  ");
-    M5.Lcd.setTextColor(WHITE, BLACK);
+    M5.Lcd.setTextColor(gps->get_data().location_valid ? WHITE : LCD_COLOR_STALE_INCOMPLETE, BLACK);
     M5.Lcd.print("Latitude   :");
     M5.Lcd.println(gps->get_data().latitude, 6);
     M5.Lcd.print("Longitude  :");

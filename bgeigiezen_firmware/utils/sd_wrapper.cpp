@@ -89,6 +89,10 @@ bool SDInterface::begin() {
   return ready();
 }
 
+bool SDInterface::just_wrote() const {
+  return _last_write && (_last_write + 500) > millis();
+}
+
 void SDInterface::end() {
   _status = e_sd_config_status_not_ready;
   SD.end();

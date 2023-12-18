@@ -16,7 +16,7 @@ void BaseScreen::drawButton(uint16_t x, const char* text, ButtonState state) con
   }
 
   int border_color = LCD_COLOR_BACKGROUND;
-  int text_color = LCD_COLOR_ACTIVE;
+  int text_color = LCD_COLOR_STALE_INCOMPLETE;
 
   if (strlen(text)) {
     switch (state) {
@@ -24,7 +24,7 @@ void BaseScreen::drawButton(uint16_t x, const char* text, ButtonState state) con
         border_color = LCD_COLOR_DEFAULT;
         break;
       case e_button_active:
-        border_color = LCD_COLOR_ACTIVE;
+        border_color = LCD_COLOR_STALE_INCOMPLETE;
         break;
       case e_button_disabled:
         border_color = LCD_COLOR_INACTIVE;
