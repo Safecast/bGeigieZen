@@ -56,6 +56,9 @@ bool GpsConnector::activate(bool retry) {
                 gnss.getProtocolVersionHigh(),
                 gnss.getProtocolVersionLow());
 
+  // Send UBX, disable NMEA-0183 messages; we are ignoring NMEA anyway.
+  gnss.setPortOutput(COM_PORT_UART1, COM_TYPE_UBX);
+
   // Set Auto on NAV-PVT and NAV-DOP queries for non-blocking access
   // getPVT() and getDOP() will return true if a new navigation solution is available
   gnss.setAutoPVT(true); // Tell the GNSS to "send" each solution
