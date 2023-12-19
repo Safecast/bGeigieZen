@@ -75,14 +75,15 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     if(gps->get_data().location_valid) {
       nsatellites = gps->get_data().satsInView;
       M5.Lcd.setTextColor(LCD_COLOR_SUCCESS, TFT_BLACK);
-    } else if (gps->get_data().satellites_tracked_valid) {
-      nsatellites = gps->get_data().satsTracked;
-      M5.Lcd.setTextColor(LCD_COLOR_ACTIVE, TFT_BLACK);
-    } else {
-      M5.Lcd.setTextColor(LCD_COLOR_ERROR, TFT_BLACK);
+    } 
+    // else if (gps->get_data().satellites_tracked_valid) {
+    //   nsatellites = gps->get_data().satsTracked;
+    //   M5.Lcd.setTextColor(LCD_COLOR_ACTIVE, TFT_BLACK);
+    // } 
+    else {
+      M5.Lcd.setTextColor(LCD_COLOR_OLD, TFT_BLACK); // or LCD_COLOR_ACTIVE , LCD_COLOR_ERROR or LCD_COLOR_OLD?
     }
     M5.Lcd.setCursor(0, 150);
-    // @todo When number goes from 2 digits to 1, the rightmost digit is not erased.
     M5.Lcd.print("Satellites: ");
     M5.Lcd.print(nsatellites);
     M5.Lcd.println("  ");

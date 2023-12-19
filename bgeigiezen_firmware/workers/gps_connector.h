@@ -33,12 +33,11 @@ struct GnssData {
   // If stale, render in gray/white text. 
   bool location_valid;
   bool satellites_valid;
-  bool satellites_tracked_valid;
   bool date_valid;
   bool time_valid;
 
   bool valid() const {
-    return location_valid && satellites_tracked_valid && date_valid && time_valid;
+    return location_valid && date_valid && time_valid;
   }
 
   // Position
@@ -49,7 +48,7 @@ struct GnssData {
   // Confidence
   uint8_t satsInView;  // satellites used to calculate fix
   uint8_t satsTracked;  // satellites visible, even if no fix
-  double hdop;
+  double pdop;  // position dilution of precision (not horizontal)
 
 
   // Date & Time
@@ -88,16 +87,11 @@ class GpsConnector : public Worker<GnssData> {
   uint32_t tried_9600_at;
   uint32_t _init_at;
 
-  // // UBX-NAV-SAT callback
-  // void satellites_callback(UBX_NAV_SAT_data_t *ubxDataStruct);
-
   // Age each item. If the corresponding timer times out, it's stale.
   RBD::Timer location_timer{GPS_FIX_AGE_LIMIT};
   RBD::Timer date_timer{GPS_FIX_AGE_LIMIT};
   RBD::Timer time_timer{GPS_FIX_AGE_LIMIT};
   RBD::Timer time_getpvt{GPS_FIX_AGE_LIMIT};  // if no response from getPVT()
-  RBD::Timer time_getnavsat{GPS_FIX_AGE_LIMIT};  // if no response from getNAVSAT()
-
 };
 
 #endif //BGEIGIEZEN_GPS_SENSOR_H_

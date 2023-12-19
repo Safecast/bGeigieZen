@@ -69,7 +69,7 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
                   gps->get_data().latitude,
                   gps->get_data().longitude,
                   gps->get_data().altitudeMSL,
-                  gps->get_data().hdop,
+                  gps->get_data().pdop,
                   gps->get_data().satsTracked,
                   gps->get_data().satsInView,
                   gps->get_data().date_valid ? gps->get_data().year : 0,
