@@ -176,22 +176,24 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         M5.Lcd.print("GM ");
 
         // Status icon: WiFi
-        M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        M5.Lcd.setTextColor(LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
         M5.Lcd.print("WF ");
 
         // Status icon: Bluetooth
-        M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        M5.Lcd.setTextColor(LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
         M5.Lcd.print("BT ");
 
         // Device
         if (_settings.get_device_id() < 10000) {
-          M5.Lcd.setCursor(194, 227);
+          // 4-digit device id
+          M5.Lcd.setCursor(200, 227);
           M5.Lcd.setTextColor(_settings.get_device_id() ? LCD_COLOR_DEFAULT : LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
-          M5.Lcd.printf("zen#%04d ", _settings.get_device_id());
+          M5.Lcd.printf("zen%04d ", _settings.get_device_id());
         } else {
-          M5.Lcd.setCursor(188, 227);
-          M5.Lcd.setTextColor(_settings.get_device_id() ? LCD_COLOR_DEFAULT : LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
-          M5.Lcd.printf("zen#%5d ", _settings.get_device_id());
+          // 5-digit device id
+          M5.Lcd.setCursor(194, 227);
+          M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+          M5.Lcd.printf("zen%5d ", _settings.get_device_id());
         }
 
         // Battery

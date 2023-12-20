@@ -42,6 +42,7 @@ bool GpsConnector::activate(bool retry) {
     if (gnss.begin(ss, 500)) {
       DEBUG_PRINTLN("GNSS: connected at 9600 baud, switching to 38400");
       gnss.setSerialRate(38400);
+      ss.updateBaudRate(38400);
     }
     else {
       return false;
@@ -118,6 +119,7 @@ int8_t GpsConnector::produce_data() {
       data.hour = gnss.getHour();
       data.minute = gnss.getMinute();
       data.second = gnss.getSecond();
+      data.unix = gnss.getUnixEpoch();
       data.time_valid = true;
       time_timer.restart();
       ret_status = e_worker_data_read;
