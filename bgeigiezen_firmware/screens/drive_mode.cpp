@@ -66,28 +66,28 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 
   // Display GPS data always, change colour if not fresh
   if (gps->is_fresh() || force) {
+    // Print drive data
+    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+    const auto distance_width = M5.Lcd.drawString("Distance ", 20, 166, 2); // Prints after ush value
+    const auto heading_width = M5.Lcd.drawString("Heading ", 20, 184, 2); // Prints after ush value
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+    printFloatFont(0.0, 1, 20 + distance_width, 166, 2); // Prints after ush value
+    M5.Lcd.drawString("Somewhere", 20 + heading_width, 184, 2); // Prints after ush value
 
-    // Which satellites data to display?
-    uint8_t nsatellites = 0;  // temp for satellites to display
-    if(gps->get_data().location_valid) {
-      nsatellites = gps->get_data().satsInView;
-      M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, TFT_BLACK);
-    } 
-    else {
-      M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
-    }
-    M5.Lcd.setCursor(0, 150);
-    M5.Lcd.print("Satellites: ");
-    M5.Lcd.print(nsatellites);
-    M5.Lcd.println("  ");
-    M5.Lcd.setTextColor(gps->get_data().location_valid ? WHITE : LCD_COLOR_STALE_INCOMPLETE, BLACK);
+    // Print location data
+    M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+    M5.Lcd.setCursor(180, 150);
     M5.Lcd.print("Latitude   :");
     M5.Lcd.println(gps->get_data().latitude, 6);
+    M5.Lcd.setCursor(180, 159);
     M5.Lcd.print("Longitude  :");
     M5.Lcd.println(gps->get_data().longitude, 6);
+    M5.Lcd.setCursor(180, 168);
     M5.Lcd.print("Altitude   :");
     M5.Lcd.println(gps->get_data().altitudeMSL, 2);
+    M5.Lcd.setCursor(180, 177);
+    M5.Lcd.print("DOP        :");
+    M5.Lcd.println(gps->get_data().pdop, 2);
   }
 }
 
