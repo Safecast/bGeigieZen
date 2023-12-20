@@ -68,6 +68,8 @@ class RtcConnector : public ProcessWorker<RtcData> {
   I2C_BM8563_TimeTypeDef timeStruct;
 #endif
 
+  // ESP Internal
+  struct timeval tv;
 };
 
 #endif //BGEIGIEZEN_RTC_CONNECTOR_H_

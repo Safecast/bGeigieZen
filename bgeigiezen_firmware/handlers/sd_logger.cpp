@@ -6,7 +6,7 @@
 // e.g. /drives/latest.txt
 #define TEMP_LOG_NAME_F "%s/latest.txt"
 // e.g. /drives/2023-11-20_1230.txt
-#define DATED_LOG_NAME_F "%s/%d-%d-%d_%d%d.txt"
+#define DATED_LOG_NAME_F "%s/%04d-%02d-%02d_%02d%02d.txt"
 
 
 SdLogger::SdLogger(LocalStorage& config, const LogType log_type) : Handler(), _config(config), _log_type(log_type), _logging_to(""), _is_temp(true), _total(0) {
