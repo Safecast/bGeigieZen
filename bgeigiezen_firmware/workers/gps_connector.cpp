@@ -55,13 +55,6 @@ bool GpsConnector::activate(bool retry) {
     return false;
   }
 
-  // // Force a factory reset (while debugging)
-  // DEBUG_PRINTLN("GNSS: Forcing factory reset (cold start).");
-  // gnss.factoryReset();
-  // delay(500);
-  // DEBUG_PRINTLN("GNSS: reconnecting.");
-
-
   // Confirm that we actually have a connection
   DEBUG_PRINTF("GNSS: u-blox protocol version %02d.%02d\n",
                 gnss.getProtocolVersionHigh(),
@@ -72,9 +65,7 @@ bool GpsConnector::activate(bool retry) {
 
   // Set Auto on NAV-PVT for non-blocking access
   // getPVT() will return true if a new navigation solution is available
-  gnss.setAutoPVT(true); // Tell the GNSS to "send" each solution
-  // gnss.setAutoDOP(true); // Enable/disable automatic DOP reports at the navigation frequency
-  // gnss.setAutoNAVSAT(true); // Enable/disable automatic satellite reports at the navigation frequency
+  gnss.setAutoPVT(true); // Tell the GNSS to send the solution as it is computed (1 second)
 
  // Mark the fix items invalid to start
   data.location_valid = false;
@@ -142,9 +133,6 @@ int8_t GpsConnector::produce_data() {
   }
 
   // Check expiry
-  if(navsat_timer.isExpired()) {
-    data.satellites_tracked_valid = false;
-  }
   if (location_timer.isExpired()) {
     data.location_valid = false;
   }
