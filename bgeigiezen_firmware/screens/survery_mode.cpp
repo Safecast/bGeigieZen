@@ -46,13 +46,13 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
     M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
 
     // Display uSv/h
-    auto ush_width = printFloatFont(gm_sensor->get_data().uSv_5sec, 3, 20, 100, 7);
-    M5.Lcd.drawString(" uSv/h        ", 20 + ush_width, 105, 4); // Prints after ush value
-    M5.Lcd.drawString("        ", 20 + ush_width, 105 - 26, 4); // Prints blanks after cpm value, above CPM text
+    auto ush_width = printFloatFont(gm_sensor->get_data().uSv_5sec, 3, 0, 100, 7);
+    M5.Lcd.drawString(" uSv/h        ", 0 + ush_width, 105, 4); // Prints after ush value
+    M5.Lcd.drawString("        ", 0 + ush_width, 105 - 26, 4); // Prints blanks after cpm value, above CPM text
 
     // Display CPM
-    auto cpm_width = printIntFont(gm_sensor->get_data().cp5s, 20, 140, 4);
-    M5.Lcd.drawString(" CP5S", 20 + cpm_width, 140, 4); // Prints after cp5s value
+    auto cpm_width = printIntFont(gm_sensor->get_data().cp5s, 0, 140, 4);
+    M5.Lcd.drawString(" CP5S", 0 + cpm_width, 140, 4); // Prints after cp5s value
   }
 
 
