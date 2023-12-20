@@ -90,7 +90,7 @@ int8_t GpsConnector::produce_data() {
 
     if (gnss.getGnssFixOk()) {
       // DEBUG_PRINTF("[%d] gnss.getGnssFixOk() is true.\n", millis());
-      data.pdop = gnss.getPDOP(); // Position Dilution of Precision
+      data.pdop = gnss.getPDOP() * 1e-2; // Position Dilution of Precision
       data.latitude = gnss.getLatitude() * 1e-7;
       data.longitude = gnss.getLongitude() * 1e-7;
       data.altitudeMSL = gnss.getAltitudeMSL() * 1e-3; // Above MSL (not ellipsoid)
@@ -120,15 +120,17 @@ int8_t GpsConnector::produce_data() {
       data.hour = gnss.getHour();
       data.minute = gnss.getMinute();
       data.second = gnss.getSecond();
-      data.unix = gnss.getUnixEpoch();
       data.time_valid = true;
       time_timer.restart();
       ret_status = e_worker_data_read;
     }
+
+    gnss.flushPVT();
   }
 
   // Check expiry
   if (location_timer.isExpired()) {
+    data.satsInView = 0;
     data.location_valid = false;
   }
   if (time_timer.isExpired()) {
