@@ -62,7 +62,7 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
       }
       break;
     case k_config_sd_different_id:
-      if (button2->is_fresh() && button2->get_data().shortPress) {
+      if (button1->is_fresh() && button1->get_data().shortPress) {
         controller.load_sd_config();
       }
       if (button2->is_fresh() && button2->get_data().shortPress) {
