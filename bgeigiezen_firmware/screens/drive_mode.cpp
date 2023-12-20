@@ -54,27 +54,27 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   if (gm_sensor->is_fresh() || force) {
     // Display CPM
     M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    auto cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 20, 100, 7);
+    auto cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 0, 100, 7);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-    M5.Lcd.drawString(" CPM        ", 20 + cpm_width, 105, 4); // Prints after cpm value
-    M5.Lcd.drawString("        ", 20 + cpm_width, 105 - 26, 4); // Prints blanks after cpm value, above CPM text
+    M5.Lcd.drawString(" CPM        ", 0 + cpm_width, 105, 4); // Prints after cpm value
+    M5.Lcd.drawString("        ", 0 + cpm_width, 105 - 26, 4); // Prints blanks after cpm value, above CPM text
 
     // Display uSv/h
     M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    auto ush_width = printFloatFont(gm_sensor->get_data().uSv, 4, 20, 140, 4);
+    auto ush_width = printFloatFont(gm_sensor->get_data().uSv, 4, 0, 140, 4);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-    M5.Lcd.drawString(" uSv/h", 20 + ush_width, 140, 4); // Prints after ush value
+    M5.Lcd.drawString(" uSv/h", 0 + ush_width, 140, 4); // Prints after ush value
   }
 
   // Display GPS data always, change colour if not fresh
   if (gps->is_fresh() || force) {
     // Print drive data
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-    const auto distance_width = M5.Lcd.drawString("Distance ", 20, 166, 2); // Prints after ush value
-    const auto heading_width = M5.Lcd.drawString("Heading ", 20, 184, 2); // Prints after ush value
+    const auto distance_width = M5.Lcd.drawString("Distance :", 0, 157, 1); // Prints after ush value
+    const auto heading_width = M5.Lcd.drawString("Heading  :", 0, 165, 1); // Prints after ush value
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    printFloatFont(0.0, 1, 20 + distance_width, 166, 2); // Prints after ush value
-    M5.Lcd.drawString("Somewhere", 20 + heading_width, 184, 2); // Prints after ush value
+    printFloatFont(0.0, 1, 0 + distance_width, 157, 1); // Prints after ush value
+    M5.Lcd.drawString("Somewhere", 0 + heading_width, 165, 1); // Prints after ush value
 
     // Print location data
     M5.Lcd.setCursor(180, 150);
