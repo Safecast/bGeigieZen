@@ -120,15 +120,17 @@ int8_t GpsConnector::produce_data() {
       data.hour = gnss.getHour();
       data.minute = gnss.getMinute();
       data.second = gnss.getSecond();
-      data.unix = gnss.getUnixEpoch();
       data.time_valid = true;
       time_timer.restart();
       ret_status = e_worker_data_read;
     }
+
+    gnss.flushPVT();
   }
 
   // Check expiry
   if (location_timer.isExpired()) {
+    data.satsInView = 0;
     data.location_valid = false;
   }
   if (time_timer.isExpired()) {
