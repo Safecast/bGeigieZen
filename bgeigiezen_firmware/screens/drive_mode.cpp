@@ -38,10 +38,10 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   /// Menu
   if (_logging_available && _currently_logging) {
     // Is logging
-    drawButton1("Stop log");
+    drawButton1("Stop drive");
   }
   else {
-    drawButton1("Start log", _logging_available ? e_button_default : e_button_disabled);
+    drawButton1("Start drive", _logging_available ? e_button_default : e_button_disabled);
   }
   drawButton2("");
   drawButton3("Menu");
