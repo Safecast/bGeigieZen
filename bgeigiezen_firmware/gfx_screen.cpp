@@ -159,11 +159,8 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         if(gps.location_valid) {
           satellites = gps.satsInView;
           M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, TFT_BLACK);
-        } else if (gps.satellites_tracked_valid) {
-          satellites = gps.satsTracked;
-          M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
         } else {
-          M5.Lcd.setTextColor(LCD_COLOR_ERROR, TFT_BLACK);
+          M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
         }
         M5.Lcd.printf("GPS%d ", satellites);
 

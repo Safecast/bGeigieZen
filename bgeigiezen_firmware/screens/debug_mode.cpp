@@ -61,7 +61,7 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
                   " location: %s                \n"
                   "  lat, long, altitude (MSL), HDOP:\n"
                   "  %.5f, %.5f, %.2f, %.1f \n"
-                  " satellites: %d tracked, %d in view   \n"
+                  " satellites: %d in view   \n"
                   " date: %04d-%02d-%02d %s     \n"
                   " time: %02d:%02d:%02d %s     \n",
                   gps->get_data().valid() ? "(valid)        " : "(incomplete...)",
@@ -69,8 +69,7 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
                   gps->get_data().latitude,
                   gps->get_data().longitude,
                   gps->get_data().altitudeMSL,
-                  gps->get_data().hdop,
-                  gps->get_data().satsTracked,
+                  gps->get_data().pdop,
                   gps->get_data().satsInView,
                   gps->get_data().date_valid ? gps->get_data().year : 0,
                   gps->get_data().date_valid ? gps->get_data().month : 0,
