@@ -74,10 +74,6 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
       nsatellites = gps->get_data().satsInView;
       M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, TFT_BLACK);
     } 
-    // else if (gps->get_data().satellites_tracked_valid) {
-    //   nsatellites = gps->get_data().satsTracked;
-    //   M5.Lcd.setTextColor(LCD_COLOR_ACTIVE, TFT_BLACK);
-    // } 
     else {
       M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
     }
