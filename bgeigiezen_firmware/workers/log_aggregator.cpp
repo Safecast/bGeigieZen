@@ -69,7 +69,7 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
       DEVICE_HEADER, _settings.get_device_id(),
       data.timestamp,
       gm_sensor_data.cpm_comp, gm_sensor_data.cp5s, gm_sensor_data.total, gm_sensor_data.valid ? 'A' : 'V',
-      latitude, NS, longitude, WE, data.altitude, gps_data.valid() ? 'A' : 'V', gps_data.satsInView, gps_data.hdop);
+      latitude, NS, longitude, WE, data.altitude, gps_data.valid() ? 'A' : 'V', gps_data.satsInView, gps_data.pdop);
 
   size_t len = 0;
   len = strlen(data.log_string);
