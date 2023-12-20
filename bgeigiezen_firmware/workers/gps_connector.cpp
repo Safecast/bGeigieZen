@@ -2,11 +2,14 @@
  * 
  * When activated, set auto receive for the UBX protocol commands used:
  * UBX-NAV-PVT: position, velocity and time
- * UBX-NAV-DOP: dilution of precision, for horizontal DOP
- * UBX-NAV-SAT: enumeration of satellites in view, for number of sats.
+ * ***REMOVED*** UBX-NAV-DOP: dilution of precision, for horizontal DOP
+ * ***REMOVED*** UBX-NAV-SAT: enumeration of satellites in view, for number of sats.
  * Based on examples by Paul Clark, SparkFun Electronics
  * https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library
  * 
+ * ***REMOVED*** The two removed packets were not providing any additional
+ * useful information. HDOP was always zero. NSATS was the total number of
+ * satellites, regardless of their status in computing a fix.
 */
 
 #include "gps_connector.h"
@@ -19,6 +22,7 @@ GpsConnector::GpsConnector(uint8_t gps_serial_num, SFE_UBLOX_GNSS& gnss) : Worke
  * @return true if initialized GNSS library, false if no connection with module.
 */
 bool GpsConnector::activate(bool retry) {
+
   // From Sparkfun examples/Example12_UseUart
   // Assume that the U-Blox GNSS is running at 9600 baud (the default) or at 38400 baud.
   if (!retry) {
@@ -51,22 +55,31 @@ bool GpsConnector::activate(bool retry) {
     return false;
   }
 
+  // // Force a factory reset (while debugging)
+  // DEBUG_PRINTLN("GNSS: Forcing factory reset (cold start).");
+  // gnss.factoryReset();
+  // delay(500);
+  // DEBUG_PRINTLN("GNSS: reconnecting.");
+
+
   // Confirm that we actually have a connection
   DEBUG_PRINTF("GNSS: u-blox protocol version %02d.%02d\n",
                 gnss.getProtocolVersionHigh(),
                 gnss.getProtocolVersionLow());
 
-  // Set Auto on NAV-PVT and NAV-DOP queries for non-blocking access
-  // getPVT() and getDOP() will return true if a new navigation solution is available
+  // Send UBX, disable NMEA-0183 messages that we are ignoring anyway.
+  gnss.setPortOutput(COM_PORT_UART1, COM_TYPE_UBX);
+
+  // Set Auto on NAV-PVT for non-blocking access
+  // getPVT() will return true if a new navigation solution is available
   gnss.setAutoPVT(true); // Tell the GNSS to "send" each solution
-  gnss.setAutoDOP(true); // Enable/disable automatic DOP reports at the navigation frequency
-  gnss.setAutoNAVSAT(true); // Enable/disable automatic satellite reports at the navigation frequency
+  // gnss.setAutoDOP(true); // Enable/disable automatic DOP reports at the navigation frequency
+  // gnss.setAutoNAVSAT(true); // Enable/disable automatic satellite reports at the navigation frequency
 
  // Mark the fix items invalid to start
   data.location_valid = false;
   data.date_valid = false;
   data.time_valid = false;
-  data.satellites_tracked_valid = false;
 
   return true;
 }
@@ -74,16 +87,17 @@ bool GpsConnector::activate(bool retry) {
 int8_t GpsConnector::produce_data() {
   auto ret_status = e_worker_idle;
 
-  // getPVT and getDOP will return true if there actually is a fresh
-  // navigation solution available. "LLH" is longitude, latitude, height.
+  // getPVT returns true if there is a fresh navigation solution available.
+  // "LLH" is longitude, latitude, height.
   // getPVT() returns UTC date and time.
   // Do not use GNSS time, see u-blox spec section 9.
-  if (gnss.getPVT() && gnss.getDOP(10) && gnss.getNAVSAT(10)) {
-//     DEBUG_PRINTF("[%lu] gnss.getPVT() && gnss.getDOP() && gnss.getNAVSAT() is true.\n", millis());
+  if (gnss.getPVT()) {
+    // DEBUG_PRINTF("[%d] gnss.getPVT() && gnss.getDOP() && gnss.getNAVSAT() is true.\n", millis());
+    location_timer.restart();
 
     if (gnss.getGnssFixOk()) {
-//      DEBUG_PRINTF("[%lu] gnss.getGnssFixOk() is true.\n", millis());
-      data.hdop = gnss.getHorizontalDOP(); // Position Dilution of Precision
+      // DEBUG_PRINTF("[%d] gnss.getGnssFixOk() is true.\n", millis());
+      data.pdop = gnss.getPDOP(); // Position Dilution of Precision
       data.latitude = gnss.getLatitude() * 1e-7;
       data.longitude = gnss.getLongitude() * 1e-7;
       data.altitudeMSL = gnss.getAltitudeMSL() * 1e-3; // Above MSL (not ellipsoid)
@@ -91,16 +105,19 @@ int8_t GpsConnector::produce_data() {
       data.satsInView = gnss.getSIV(); // Satellites In View
       location_timer.restart();
       ret_status = e_worker_data_read;
+      // DEBUG: Compare PDOP from NAV-PVT and HDOP from NAV-DOP
+      // DEBUG_PRINTF("[%d] GnssFixOk (type = %d).\n"
+      //               "  SATS: %d; PDOP: %d; HDOP: %d\n",
+      //               millis(), gnss.getFixType(),
+      //               data.satsInView, gnss.getPDOP(), data.hdop);
     }
-
-    if(gnss.packetUBXNAVSAT != nullptr) {
-      // Get number of tracked satellites
-      data.satsTracked = gnss.packetUBXNAVSAT->data.header.numSvs;
-      gnss.flushNAVSAT();
-//      DEBUG_PRINTF("[%lu] %d satellites tracked.\n", millis(), data.satsTracked);
-      data.satellites_tracked_valid = true;
-      navsat_timer.restart();
+    else {
+      // No valid fix, report zero satellites.
+      data.satsInView = 0; // Satellites used in fix
       ret_status = e_worker_data_read;
+      if (location_timer.isExpired()) {
+        data.location_valid = false;
+      }
     }
 
     if (gnss.getDateValid()) {
