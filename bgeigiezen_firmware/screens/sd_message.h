@@ -16,8 +16,8 @@ class SdMessageScreen : public BaseScreen {
   };
 
   static SdMessageScreen* i() {
-    static SdMessageScreen screen;
-    return &screen;
+    static auto screen = new SdMessageScreen();
+    return screen;
   }
 
   virtual BaseScreen* handle_input(Controller& controller, const worker_map_t& workers) override;

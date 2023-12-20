@@ -112,7 +112,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
           _menu->leave_screen(_controller);
           clear();
         }
-      } else {
+      } else if (_screen) {
         new_screen = _screen->handle_input(_controller, workers);
         if (new_screen == _menu) {
           // opened menu, not a new screen
