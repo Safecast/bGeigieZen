@@ -60,6 +60,7 @@ class RtcConnector : public ProcessWorker<RtcData> {
  private:
 
   void set_from_gps(const GnssData& gps_data);
+  void set_unix_data();
 
 #ifdef M5_CORE2
   I2C_BM8563 rtc;

@@ -38,17 +38,15 @@ bool RtcConnector::activate(bool retry) {
   data.low_voltage = rtc.getVoltLow();
   rtc.getDate(&dateStruct);
   rtc.getTime(&timeStruct);
-  return true;
 #else
-
+#endif
   // set current day/time
-  ;
   settimeofday(&tv, nullptr);
   return true;
-#endif
 }
 
 int8_t RtcConnector::produce_data(const worker_map_t& workers) {
+  auto ret_status = e_worker_idle;
 #ifdef M5_CORE2
   rtc.getDate(&dateStruct);
   rtc.getTime(&timeStruct);
@@ -66,17 +64,12 @@ int8_t RtcConnector::produce_data(const worker_map_t& workers) {
     data.month = dateStruct.month;
     data.year = dateStruct.year;
 
-    if (gps_data.time_valid) {
-      tv.tv_sec = gps_data.unix;
-      settimeofday(&tv, nullptr);
-    }
-
-    return e_worker_data_read;
+    ret_status = e_worker_data_read;
   } else {
     // Unable to validate data, check gps
     if (gps_data.time_valid && gps_data.date_valid) {
       set_from_gps(gps_data);
-      return e_worker_data_read;
+      ret_status = e_worker_data_read;
     } else {
       // No valid options
       data.valid = false;
@@ -95,7 +88,7 @@ int8_t RtcConnector::produce_data(const worker_map_t& workers) {
   const auto& gps_data = workers.worker<GpsConnector>(k_worker_gps_connector)->get_data();
   if (gps_data.date_valid) {
     set_from_gps(gps_data);
-    return e_worker_data_read;
+    ret_status = e_worker_data_read;
   } else if (data.valid) {
     // TODO: tick up if previous data valid, can we use the following as simple implementation?
     data.second = (data.second + 1) % 60;
@@ -106,6 +99,8 @@ int8_t RtcConnector::produce_data(const worker_map_t& workers) {
         if (data.hour == 0) {
           // hour ticked up to a new day, we skip that for now and let next gps data handle it
           data.valid = false;
+        } else {
+          ret_status = e_worker_data_read;
         }
       }
     }
@@ -121,7 +116,27 @@ int8_t RtcConnector::produce_data(const worker_map_t& workers) {
   }
 #endif
 
-  return e_worker_idle;
+  set_unix_data();
+  return ret_status;
+}
+
+void RtcConnector::set_unix_data() {
+  if (data.valid && data.year > 2020 && tv.tv_sec == UNIX_DEFAULT) {
+    // Taken from ublox unix calculation
+    uint32_t t = SFE_UBLOX_DAYS_FROM_1970_TO_2020;                                                                           // Jan 1st 2020 as days from Jan 1st 1970
+    t += (uint32_t)SFE_UBLOX_DAYS_SINCE_2020[data.year - 2020];                                             // Add on the number of days since 2020
+    t += (uint32_t)SFE_UBLOX_DAYS_SINCE_MONTH[data.year % 4 == 0 ? 0 : 1][data.month - 1]; // Add on the number of days since Jan 1st
+    t += (uint32_t)data.day - 1;                                                                            // Add on the number of days since the 1st of the month
+    t *= 24;                                                                                                                 // Convert to hours
+    t += (uint32_t)data.hour;                                                                               // Add on the hour
+    t *= 60;                                                                                                                 // Convert to minutes
+    t += (uint32_t)data.minute;                                                                                // Add on the minute
+    t *= 60;                                                                                                                 // Convert to seconds
+    t += (uint32_t)data.second;                                                                                // Add on the second
+    tv.tv_sec = t;
+    settimeofday(&tv, nullptr);
+//    setenv("TZ", "CET-1CEST,M3.5.0/2,M10.5.0/ 3", 1); // https://www.gnu.org/software/libc/manual/html_node/TZ-Variable.html
+  }
 }
 
 void RtcConnector::set_from_gps(const GnssData& gps_data) {
@@ -133,13 +148,12 @@ void RtcConnector::set_from_gps(const GnssData& gps_data) {
   data.month = gps_data.month;
   data.year = gps_data.year;
 
-  tv.tv_sec = gps_data.unix;
-  settimeofday(&tv, nullptr);
 
 #ifdef M5_CORE2
   // Set RTC values by gps
   rtc.setDate(&dateStruct);
   rtc.setTime(&timeStruct);
 #endif
-
 }
+
+
