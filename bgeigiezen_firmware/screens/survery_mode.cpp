@@ -29,10 +29,10 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
 
   if (_logging_available && _currently_logging) {
     // Is logging
-    drawButton1("Stop log");
+    drawButton1("Stop survey");
   }
   else {
-    drawButton1("Start log", _logging_available ? e_button_default : e_button_disabled);
+    drawButton1("Start survey", _logging_available ? e_button_default : e_button_disabled);
   }
   drawButton2("");
   drawButton3("Menu");
