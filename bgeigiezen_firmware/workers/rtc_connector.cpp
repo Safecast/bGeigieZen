@@ -9,14 +9,18 @@
 #include "gps_connector.h"
 #include "identifiers.h"
 
+// 1 jan 2023
+#define UNIX_DEFAULT 1672527600
+
 #ifdef M5_CORE2
 RtcConnector::RtcConnector() : ProcessWorker<RtcData>({.year=0, .month=0, .day=0, .hour=0, .minute=0, .second=0, .low_voltage=false, .valid=false}, 1000),
                                rtc(I2C_BM8563_DEFAULT_ADDRESS, Wire1),
                                dateStruct({.weekDay=0, .month=0, .date=0, .year=0}),
-                               timeStruct({.hours=0, .minutes=0, .seconds=0}) {
+                               timeStruct({.hours=0, .minutes=0, .seconds=0}),
+                               tv{.tv_sec=UNIX_DEFAULT} {
 }
 #else
-RtcConnector::RtcConnector() : ProcessWorker<RtcData>({.year=0, .month=0, .day=0, .hour=0, .minute=0, .second=0, .low_voltage=false, .valid=false}, 1000) {
+RtcConnector::RtcConnector() : ProcessWorker<RtcData>({.year=0, .month=0, .day=0, .hour=0, .minute=0, .second=0, .low_voltage=false, .valid=false}, 1000), tv{.tv_sec=UNIX_DEFAULT} {
 }
 #endif
 
@@ -36,6 +40,10 @@ bool RtcConnector::activate(bool retry) {
   rtc.getTime(&timeStruct);
   return true;
 #else
+
+  // set current day/time
+  ;
+  settimeofday(&tv, nullptr);
   return true;
 #endif
 }
@@ -46,6 +54,8 @@ int8_t RtcConnector::produce_data(const worker_map_t& workers) {
   rtc.getTime(&timeStruct);
   data.low_voltage = rtc.getVoltLow();
 
+  const auto& gps_data = workers.worker<GpsConnector>(k_worker_gps_connector)->get_data();
+
   if (!data.low_voltage && dateStruct.year >= 2023 && dateStruct.year < 2050) {  // just to make sure year isn't absurdly high
     // Data is valid
     data.valid = true;
@@ -55,10 +65,15 @@ int8_t RtcConnector::produce_data(const worker_map_t& workers) {
     data.day = dateStruct.date;
     data.month = dateStruct.month;
     data.year = dateStruct.year;
+
+    if (gps_data.time_valid) {
+      tv.tv_sec = gps_data.unix;
+      settimeofday(&tv, nullptr);
+    }
+
     return e_worker_data_read;
   } else {
     // Unable to validate data, check gps
-    const auto& gps_data = workers.worker<GpsConnector>(k_worker_gps_connector)->get_data();
     if (gps_data.time_valid && gps_data.date_valid) {
       set_from_gps(gps_data);
       return e_worker_data_read;
@@ -117,6 +132,9 @@ void RtcConnector::set_from_gps(const GnssData& gps_data) {
   data.day = gps_data.day;
   data.month = gps_data.month;
   data.year = gps_data.year;
+
+  tv.tv_sec = gps_data.unix;
+  settimeofday(&tv, nullptr);
 
 #ifdef M5_CORE2
   // Set RTC values by gps
