@@ -90,7 +90,7 @@ int8_t GpsConnector::produce_data() {
 
     if (gnss.getGnssFixOk()) {
       // DEBUG_PRINTF("[%d] gnss.getGnssFixOk() is true.\n", millis());
-      data.pdop = gnss.getPDOP(); // Position Dilution of Precision
+      data.pdop = gnss.getPDOP() * 1e-2; // Position Dilution of Precision
       data.latitude = gnss.getLatitude() * 1e-7;
       data.longitude = gnss.getLongitude() * 1e-7;
       data.altitudeMSL = gnss.getAltitudeMSL() * 1e-3; // Above MSL (not ellipsoid)
