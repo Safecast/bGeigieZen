@@ -89,7 +89,7 @@ GFXScreen gfx_screen(settings, controller);
 TaskHandle_t Task1;
 void M5_update_loop(void*) {
   while(1) {
-    M5.update();
+    // Temp not in use
     delay(5);
   }
 }
@@ -126,9 +126,10 @@ void setup() {
 
   controller.start_default_workers();
 
-  xTaskCreatePinnedToCore(M5_update_loop, "M5Update", 10000, nullptr, 0, &Task1, 0);
+//  xTaskCreatePinnedToCore(M5_update_loop, "M5Update", 10000, nullptr, 0, &Task1, 0);
 }
 
 void loop() {
+  M5.update();
   controller.run();
 }

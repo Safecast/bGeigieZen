@@ -37,7 +37,6 @@ bool GpsConnector::activate(bool retry) {
       gnss.setSerialRate(38400);
     }
     else {
-      tried_9600_at = 0; // try 9600 next
       return false;
     }
   }
@@ -50,7 +49,6 @@ bool GpsConnector::activate(bool retry) {
       ss.updateBaudRate(38400);
     }
     else {
-      tried_38400_at = 0; // try 38400 next
       return false;
     }
   }
