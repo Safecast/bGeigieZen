@@ -151,7 +151,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
         M5.Lcd.setCursor(5, 227);
         M5.Lcd.print(_screen->get_title());
-        M5.Lcd.print(" | ");
+        M5.Lcd.print(":");
 
         // Status icon: GPS
         const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector)->get_data();
@@ -183,14 +183,14 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         // Device
         if (_settings.get_device_id() < 10000) {
           // 4-digit device id
-          M5.Lcd.setCursor(200, 227);
+          M5.Lcd.setCursor(175, 227);
           M5.Lcd.setTextColor(_settings.get_device_id() ? LCD_COLOR_DEFAULT : LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
-          M5.Lcd.printf("zen%04d ", _settings.get_device_id());
+          M5.Lcd.printf("#%04d", _settings.get_device_id());
         } else {
           // 5-digit device id
           M5.Lcd.setCursor(194, 227);
           M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-          M5.Lcd.printf("zen%5d ", _settings.get_device_id());
+          M5.Lcd.printf("#%5d", _settings.get_device_id());
         }
 
         // Battery
@@ -201,7 +201,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         // Time HH:MM
         const auto& time = workers.worker<RtcConnector>(k_worker_rtc_connector)->get_data();
         M5.Lcd.setTextColor(time.valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-        M5.Lcd.printf("%02d:%02d", time.hour, time.minute);
+        M5.Lcd.printf("%02d/%02d/%02d:%02d",time.year, time.day, time.hour, time.minute);
       }
 
       M5.Lcd.setRotation(1);
