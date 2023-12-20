@@ -12,8 +12,7 @@ class MenuWindow : public BaseScreen {
  public:
   struct MenuItem {
     const char* title;
-    const char* tooltip_l1;
-    const char* tooltip_l2;
+    const char* tooltip;
     const bool enabled;
   };
 
@@ -37,6 +36,7 @@ class MenuWindow : public BaseScreen {
 
   bool menu_open;
   uint8_t menu_index;
+  uint8_t selected_screen_index;
   uint8_t max_index; // Set on enter menu
   MenuItem advanced_menu[ADVANCED_MENU_ITEMS];
 };
