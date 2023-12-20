@@ -11,6 +11,7 @@
 #include "screens/boot_screen.h"
 #include "screens/default_entry_screen.h"
 #include "workers/battery_indicator.h"
+#include "workers/gm_sensor.h"
 #include "workers/rtc_connector.h"
 
 static constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
@@ -151,25 +152,40 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
         M5.Lcd.setCursor(0, 227);
         M5.Lcd.print(_screen->get_title());
-        M5.Lcd.print(":");
+        M5.Lcd.print(" ");
+
+        // Status icon: Battery
+        const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator)->get_data();
+        M5.Lcd.setTextColor(battery.isCharging ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        M5.Lcd.printf("%d%% ", battery.percentage);
 
         // Status icon: GPS
-        const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector)->get_data();
+        const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
         uint8_t satellites = 0;  // temp for satellites to display
-        if(gps.location_valid) {
-          satellites = gps.satsInView;
-          M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, TFT_BLACK);
+        if (!gps->active()) {
+          M5.Lcd.setTextColor(LCD_COLOR_ERROR, TFT_BLACK);
+          M5.Lcd.printf("GPS ");
         } else {
-          M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
+          if (gps->get_data().location_valid) {
+            satellites = gps->get_data().satsInView;
+            M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, TFT_BLACK);
+          } else {
+            M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
+          }
+          M5.Lcd.printf("GPS%d ", satellites);
         }
-        M5.Lcd.printf("GPS%d ", satellites);
 
         // Status icon: SD
-        M5.Lcd.setTextColor(SDInterface::i().just_wrote() ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        if (!SDInterface::i().can_write_logs()) {
+          M5.Lcd.setTextColor(LCD_COLOR_ERROR, TFT_BLACK);
+        } else {
+          M5.Lcd.setTextColor(SDInterface::i().just_wrote() ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        }
         M5.Lcd.print("SD ");
 
         // Status icon: Geiger Tube
-        M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        const auto& gm = workers.worker<GeigerCounter>(k_worker_gm_sensor);
+        M5.Lcd.setTextColor(gm->active() ? LCD_COLOR_DEFAULT : LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
         M5.Lcd.print("GM ");
 
         // Status icon: WiFi
@@ -183,25 +199,20 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         // Device
         if (_settings.get_device_id() < 10000) {
           // 4-digit device id
-          M5.Lcd.setCursor(158, 227);
+          M5.Lcd.setCursor(186, 227);
           M5.Lcd.setTextColor(_settings.get_device_id() ? LCD_COLOR_DEFAULT : LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
-          M5.Lcd.printf("#%04d", _settings.get_device_id());
+          M5.Lcd.printf("#%04d ", _settings.get_device_id());
         } else {
           // 5-digit device id
-          M5.Lcd.setCursor(177, 227);
+          M5.Lcd.setCursor(180, 227);
           M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-          M5.Lcd.printf("#%5d", _settings.get_device_id());
+          M5.Lcd.printf("#%5d ", _settings.get_device_id());
         }
 
-        // Battery
-        const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator)->get_data();
-        M5.Lcd.setTextColor(battery.isCharging ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-        M5.Lcd.printf("%3d%%B ", battery.percentage);
-
         // Time HH:MM
-        const auto& time = workers.worker<RtcConnector>(k_worker_rtc_connector)->get_data();
-        M5.Lcd.setTextColor(time.valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-        M5.Lcd.printf("%02d/%02d/%02d/%02d:%02d",time.year,time.month, time.day, time.hour, time.minute);
+        const auto& rtc = workers.worker<RtcConnector>(k_worker_rtc_connector)->get_data();
+        M5.Lcd.setTextColor(rtc.valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+        M5.Lcd.printf("%04d/%02d/%02d %02d:%02d", rtc.year, rtc.month, rtc.day, rtc.hour, rtc.minute);
       }
 
       M5.Lcd.setRotation(1);
