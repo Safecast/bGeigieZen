@@ -37,6 +37,7 @@ bool GpsConnector::activate(bool retry) {
       gnss.setSerialRate(38400);
     }
     else {
+      tried_9600_at = 0; // try 9600 next
       return false;
     }
   }
@@ -49,6 +50,7 @@ bool GpsConnector::activate(bool retry) {
       ss.updateBaudRate(38400);
     }
     else {
+      tried_38400_at = 0; // try 38400 next
       return false;
     }
   }
@@ -84,8 +86,7 @@ int8_t GpsConnector::produce_data() {
   // getPVT() returns UTC date and time.
   // Do not use GNSS time, see u-blox spec section 9.
   if (gnss.getPVT()) {
-    // DEBUG_PRINTF("[%d] gnss.getPVT() && gnss.getDOP() && gnss.getNAVSAT() is true.\n", millis());
-    location_timer.restart();
+    // DEBUG_PRINTF("[%d] gnss.getPVT() is true.\n", millis());
 
     if (gnss.getGnssFixOk()) {
       // DEBUG_PRINTF("[%d] gnss.getGnssFixOk() is true.\n", millis());
@@ -102,14 +103,6 @@ int8_t GpsConnector::produce_data() {
       //               "  SATS: %d; PDOP: %d; HDOP: %d\n",
       //               millis(), gnss.getFixType(),
       //               data.satsInView, gnss.getPDOP(), data.hdop);
-    }
-    else {
-      // No valid fix, report zero satellites.
-      data.satsInView = 0; // Satellites used in fix
-      ret_status = e_worker_data_read;
-      if (location_timer.isExpired()) {
-        data.location_valid = false;
-      }
     }
 
     if (gnss.getDateValid()) {
