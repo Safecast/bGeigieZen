@@ -6,6 +6,8 @@
 #include "workers/gps_connector.h"
 #include "workers/zen_button.h"
 
+SurveyModeScreen SurveyModeScreen_i;
+
 SurveyModeScreen::SurveyModeScreen() : BaseScreen("Survey", true), _logging_available(false), _currently_logging(false) {
 }
 
@@ -17,7 +19,7 @@ BaseScreen* SurveyModeScreen::handle_input(Controller& controller, const worker_
 
   auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
   if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
-    return MenuWindow::i();
+    return &MenuWindow_i;
   }
   return nullptr;
 }

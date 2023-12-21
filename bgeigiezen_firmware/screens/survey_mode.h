@@ -5,10 +5,7 @@
 
 class SurveyModeScreen : public BaseScreen {
  public:
-  static SurveyModeScreen* i() {
-    static SurveyModeScreen screen;
-    return &screen;
-  }
+  explicit SurveyModeScreen();
 
   virtual BaseScreen* handle_input(Controller& controller, const worker_map_t& workers) override;
   virtual void enter_screen(Controller& controller) override;
@@ -18,10 +15,11 @@ class SurveyModeScreen : public BaseScreen {
   void render(const worker_map_t& workers, const handler_map_t& handlers, bool force) override;
 
  private:
-  explicit SurveyModeScreen();
 
   bool _logging_available;
   bool _currently_logging;
 };
+
+extern SurveyModeScreen SurveyModeScreen_i;
 
 #endif //SCREENS_SURVEY_SCREEN_H

@@ -9,13 +9,15 @@
 #include "workers/rtc_connector.h"
 #include "workers/zen_button.h"
 
+DebugModeScreen DebugModeScreen_i;
+
 DebugModeScreen::DebugModeScreen() : BaseScreen("Debug", true) {
 }
 
 BaseScreen* DebugModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
   auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
   if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
-    return MenuWindow::i();
+    return &MenuWindow_i;
   }
   return nullptr;
 }

@@ -57,6 +57,8 @@ MenuWindow::MenuItem ENTER_ADVANCED_MODE_MENU_ITEM = {
     true,
 };
 
+MenuWindow MenuWindow_i;
+
 MenuWindow::MenuWindow() : BaseScreen("Menu", true),
                            menu_open(false),
                            menu_index(0),
@@ -92,19 +94,19 @@ BaseScreen* MenuWindow::handle_input(Controller& controller, const worker_map_t&
     selected_screen_index = menu_index;
     switch (menu_index) {
       case 0:
-        return DriveModeScreen::i();
+        return &DriveModeScreen_i;
       case 1:
-        return SurveyModeScreen::i();
+        return &SurveyModeScreen_i;
       case 2:
-        return FixedModeScreen::i();
+        return &FixedModeScreen_i;
       case 3:
         return nullptr; //TODO
       case 4:
-        return ConfigModeScreen::i();
+        return &ConfigModeScreen_i;
       case 5:
-        return ZenInfoScreen::i();
+        return &ZenInfoScreen_i;
       case 6:
-        return DebugModeScreen::i();
+        return &DebugModeScreen_i;
     }
     return nullptr;
   }

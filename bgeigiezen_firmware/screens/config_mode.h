@@ -5,10 +5,7 @@
 
 class ConfigModeScreen : public BaseScreen {
  public:
-  static ConfigModeScreen* i() {
-    static ConfigModeScreen screen;
-    return &screen;
-  }
+  explicit ConfigModeScreen();
 
   virtual BaseScreen* handle_input(Controller& controller, const worker_map_t& workers) override;
   virtual void enter_screen(Controller& controller) override;
@@ -18,7 +15,8 @@ class ConfigModeScreen : public BaseScreen {
   void render(const worker_map_t& workers, const handler_map_t& handlers, bool force) override;
 
  private:
-  explicit ConfigModeScreen();
 };
+
+extern ConfigModeScreen ConfigModeScreen_i;
 
 #endif //SCREENS_CONFIG_SCREEN_H

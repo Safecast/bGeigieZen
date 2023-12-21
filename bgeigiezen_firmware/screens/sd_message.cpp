@@ -9,6 +9,8 @@
 #include "utils/device_utils.h"
 #include "workers/zen_button.h"
 
+SdMessageScreen SdMessageScreen_i;
+
 SdMessageScreen::SdMessageScreen() : BaseScreen("SD message", false), error_type(SdMessageType::k_unknown) {
 }
 
@@ -18,7 +20,7 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
   const auto& button3 = workers.worker<ZenButton>(k_worker_button_3);
 
   if (controller.get_data().sd_card_status == SDInterface::SdStatus::e_sd_config_status_ok) {
-    return DefaultEntryScreen::i();
+    return &DefaultEntryScreen_i;
   }
 
   switch (error_type) {
@@ -29,14 +31,14 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
       }
       break;
     case k_new_device:
-      return FirstTimeStartupScreen::i();
+      return &FirstTimeStartupScreen_i;
     case k_no_sd_with_storage:
       if (button1->is_fresh() && button1->get_data().shortPress) {
         DeviceUtils::shutdown(true);
         return nullptr;
       }
       if (button3->is_fresh() && button3->get_data().shortPress) {
-        return DefaultEntryScreen::i();
+        return &DefaultEntryScreen_i;
       }
       break;
     case k_empty_sd_no_storage:
@@ -46,7 +48,7 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
         return nullptr;
       }
       if (button3->is_fresh() && button3->get_data().shortPress) {
-        return DefaultEntryScreen::i();
+        return &DefaultEntryScreen_i;
       }
       break;
     case k_empty_sd_with_storage:
@@ -58,7 +60,7 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
         controller.write_sd_config();
       }
       if (button3->is_fresh() && button3->get_data().shortPress) {
-        return DefaultEntryScreen::i();
+        return &DefaultEntryScreen_i;
       }
       break;
     case k_config_sd_different_id:
@@ -69,7 +71,7 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
         controller.write_sd_config();
       }
       if (button3->is_fresh() && button3->get_data().shortPress) {
-        return DefaultEntryScreen::i();
+        return &DefaultEntryScreen_i;
       }
       break;
   }
