@@ -5,16 +5,14 @@
 
 class DefaultEntryScreen : public BaseScreen {
  public:
-  static DefaultEntryScreen* i() {
-    static DefaultEntryScreen screen;
-    return &screen;
-  }
+  explicit DefaultEntryScreen();
 
   BaseScreen* handle_input(Controller& controller, const worker_map_t& workers) override;
 
  private:
-  explicit DefaultEntryScreen();
 
 };
+
+extern DefaultEntryScreen DefaultEntryScreen_i;
 
 #endif //SCREENS_DEFAULT_ENTRY_SCREEN_H

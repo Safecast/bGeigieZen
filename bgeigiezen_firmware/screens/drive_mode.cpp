@@ -9,6 +9,8 @@
 #include "workers/rtc_connector.h"
 #include "workers/zen_button.h"
 
+DriveModeScreen DriveModeScreen_i;
+
 DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _logging_available(false), _currently_logging(false) {
 }
 
@@ -20,12 +22,12 @@ BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_m
 
   auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
   if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
-    return MenuWindow::i();
+    return &MenuWindow_i;
   }
 
   // TODO: handle something like this
 //  if (controller.is_fresh() && controller.get_data().sd_card_status == SDInterface::SdStatus::e_sd_config_status_config_different_id) {
-//    return SdMessageScreen::i();
+//    return &SdMessageScreen_i;
 //  }
 
   return nullptr;

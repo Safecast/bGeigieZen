@@ -15,11 +15,7 @@ class MenuWindow : public BaseScreen {
     const char* tooltip;
     const bool enabled;
   };
-
-  static MenuWindow* i() {
-    static MenuWindow screen;
-    return &screen;
-  }
+  explicit MenuWindow();
 
   BaseScreen* handle_input(Controller& controller, const worker_map_t& workers) override;
 
@@ -32,7 +28,6 @@ class MenuWindow : public BaseScreen {
   void render(const worker_map_t& workers, const handler_map_t& handlers, bool force) override;
 
  private:
-  explicit MenuWindow();
 
   bool menu_open;
   uint8_t menu_index;
@@ -40,5 +35,7 @@ class MenuWindow : public BaseScreen {
   uint8_t max_index; // Set on enter menu
   MenuItem advanced_menu[ADVANCED_MENU_ITEMS];
 };
+
+extern MenuWindow MenuWindow_i;
 
 #endif //BGEIGIEZEN_BGEIGIEZEN_FIRMWARE_SCREENS_MENU_ITEMS_H
