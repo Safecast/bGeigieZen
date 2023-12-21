@@ -58,7 +58,7 @@ bool SDInterface::ready() {
   return _status != e_sd_config_status_not_ready;
 }
 
-bool SDInterface::can_write_logs() {
+bool SDInterface::can_write_logs() const {
   return _status == e_sd_config_status_ok;
 }
 

@@ -1,9 +1,18 @@
 #include "base_screen.h"
+#include "identifiers.h"
 #include "user_config.h"
+#include "workers/gm_sensor.h"
+#include "workers/gps_connector.h"
 
-#define BUTTON_TEXT_MAX_LENGTH 13
+#define BUTTON_TEXT_MAX_LENGTH 14
 
-BaseScreen::BaseScreen(const char* title, bool status_bar) : _status_bar(status_bar) {
+BaseScreen::BaseScreen(const char* title, bool status_bar)
+    : _status_bar(status_bar),
+      required_gps(false),
+      required_sd(false),
+      required_tube(false),
+      required_wifi(false),
+      required_ble(false) {
   if (strlen(title) < 20) {
     strcpy(_title, title);
   }
@@ -37,7 +46,7 @@ void BaseScreen::drawButton(uint16_t x, const char* text, ButtonState state) con
   M5.Lcd.setTextColor(text_color, LCD_COLOR_BACKGROUND);
 
   // Center the button text, making sure around the text is whitespace to clear previous texts
-  char blob[BUTTON_TEXT_MAX_LENGTH + 1] = "             ";
+  char blob[BUTTON_TEXT_MAX_LENGTH + 1] = "              ";
   for (size_t i = 0; i < strlen(text); ++i) {
     blob[i + ((BUTTON_TEXT_MAX_LENGTH - strlen(text)) / 2)] = text[i];
   }
@@ -111,4 +120,26 @@ void BaseScreen::do_render(const worker_map_t& workers, const handler_map_t& han
 
 void BaseScreen::force_next_render() {
   _force_render = true;
+}
+
+const __FlashStringHelper* BaseScreen::get_error_message(const worker_map_t& workers, const handler_map_t& handlers) const {
+  if (required_tube && millis() > 2000 && !workers.worker<GeigerCounter>(k_worker_gm_sensor)->active()) {
+    return STATUS_ERROR_GEIGER;
+  }
+  if (required_gps && !workers.worker<GpsConnector>(k_worker_gps_connector)->active()) {
+    return STATUS_ERROR_GPS;
+  }
+  if (required_sd && !SDInterface::i().can_write_logs()) {
+    return STATUS_ERROR_SD;
+  }
+  if (required_wifi) {
+    // TODO something for fixed mode
+    return STATUS_ERROR_WIFI_CREDENTIALS;
+  }
+
+  return nullptr;
+}
+
+const __FlashStringHelper* BaseScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) const {
+  return nullptr;
 }

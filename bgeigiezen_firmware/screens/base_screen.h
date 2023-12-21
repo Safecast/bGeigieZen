@@ -10,6 +10,14 @@
 #include "controller.h"
 #include <Supervisor.hpp>
 
+#define STATUS_ERROR_GEIGER F(" NO GEIGER TUBE CONNECTED ");
+#define STATUS_ERROR_GPS F(" NO GPS MODULE CONNECTED ");
+#define STATUS_ERROR_SD F(" NO SD CARD INSERTED ");
+#define STATUS_ERROR_WIFI_CREDENTIALS F(" NO WI-FI CREDENTIALS CONFIGURED ");
+#define STATUS_ERROR_WIFI_CONNECTION F(" UNABLE TO CONNECT TO WI-FI ");
+
+
+
 class BaseScreen {
  public:
   enum ButtonState {
@@ -57,6 +65,24 @@ class BaseScreen {
    */
   virtual bool has_status_bar() const;
 
+  /**
+   * Get screen error message (if available), else nullptr
+   * @return
+   */
+  virtual const __FlashStringHelper* get_error_message(const worker_map_t& workers, const handler_map_t& handlers) const;
+
+  /**
+   * Get screen status message (if available), else nullptr
+   * @return
+   */
+  virtual const __FlashStringHelper* get_status_message(const worker_map_t& workers, const handler_map_t& handlers) const;
+
+  bool has_required_gps() const { return required_gps; }
+  bool has_required_sd() const { return required_sd; }
+  bool has_required_tube() const { return required_tube; }
+  bool has_required_wifi() const { return required_wifi; }
+  bool has_required_ble() const { return required_ble; }
+
  protected:
   explicit BaseScreen(const char* title, bool status_bar);
   virtual ~BaseScreen() = default;
@@ -74,6 +100,13 @@ class BaseScreen {
 
   int printFloatFont(float val, int prec, int x, int y, int font) const;
   int printIntFont(unsigned long val, int x, int y, int font) const;
+
+  // required modules for status bar
+  bool required_gps;
+  bool required_sd;
+  bool required_tube;
+  bool required_wifi;
+  bool required_ble;
 
  private:
   void drawButton(uint16_t x, const char* text, ButtonState state) const;
