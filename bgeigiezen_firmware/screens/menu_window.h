@@ -3,7 +3,7 @@
 
 #include "base_screen.h"
 
-#define ADVANCED_MENU_ITEMS 6
+#define ADVANCED_MENU_ITEMS 7
 
 /**
  * Menu items is a separate screen render on top of the "current screen" in the gfx screen
