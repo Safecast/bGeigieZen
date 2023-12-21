@@ -51,7 +51,7 @@ class SDInterface {
    * Eeturns true if sd was properly set up with device id and all..
    * @return true if ready
    */
-  bool can_write_logs();
+  bool can_write_logs() const;
 
   /**
    * @return last know status

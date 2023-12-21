@@ -27,7 +27,15 @@ BaseScreen* SurveyModeScreen::handle_input(Controller& controller, const worker_
 void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   const auto& controller_data = workers.worker<Controller>(k_worker_device_state)->get_data();
   _logging_available = controller_data.local_available && controller_data.sd_card_status == SDInterface::e_sd_config_status_ok;
-  _currently_logging = handlers.handler<SdLogger>(k_handler_survey_logger)->active();
+  bool currently_logging = handlers.handler<SdLogger>(k_handler_survey_logger)->active();
+  if (_currently_logging && !currently_logging) {
+    _logging_stop = millis();
+    _logging_start = 0;
+  } else if (!_currently_logging && currently_logging) {
+    _logging_start = millis();
+    _logging_stop = 0;
+  }
+  _currently_logging = currently_logging;
 
   if (_logging_available && _currently_logging) {
     // Is logging
@@ -81,8 +89,12 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
   }
 }
 
-void SurveyModeScreen::enter_screen(Controller& controller) {
-}
-
-void SurveyModeScreen::leave_screen(Controller& controller) {
+const __FlashStringHelper* SurveyModeScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) const {
+  if (_logging_start && _logging_start + 2000 > millis()) {
+    return F(" STARTED LOGGING, stay safe! ");
+  }
+  if (_logging_stop && _logging_stop + 2000 > millis()) {
+    return F(" COMPLETED LOGGING SURVEY ");
+  }
+  return BaseScreen::get_status_message(workers, handlers);
 }
