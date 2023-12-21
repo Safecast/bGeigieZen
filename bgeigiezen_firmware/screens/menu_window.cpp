@@ -9,30 +9,36 @@
 #include "survey_mode.h"
 #include "user_config.h"
 #include "workers/zen_button.h"
+#include "zen_info.h"
 
 MenuWindow::MenuItem DRIVE_MENU_ITEM = {
-    "Drive",
+    "Drive mode",
     "Put the zen on your car and drive!",
     true,
 };
 MenuWindow::MenuItem SURVEY_MENU_ITEM = {
-    "Survey",
+    "Survey mode",
     "Take the Zen out of the case and test   sources directly!",
     true,
 };
 MenuWindow::MenuItem FIXED_MENU_ITEM = {
-    "Fixed",
+    "Fixed mode",
     "Place the zen at a    fixed location and    upload data over     wifi!",
     false,
 };
 MenuWindow::MenuItem LOG_VIEWER_MENU_ITEM = {
-    "Logs",
-    "View and upload     logs!",
+    "Log viewer",
+    "View and upload     logs over wifi!",
     false,
 };
 MenuWindow::MenuItem SETTINGS_MENU_ITEM = {
     "Settings",
     "Configure your      device!",
+    true,
+};
+MenuWindow::MenuItem MORE_INFO_MENU_ITEM = {
+    "Learn more",
+    "Explore what you    can do with your     bGeigieZen",
     true,
 };
 MenuWindow::MenuItem DEBUG_MENU_ITEM = {
@@ -61,6 +67,7 @@ MenuWindow::MenuWindow() : BaseScreen("Menu", true),
                                FIXED_MENU_ITEM,
                                LOG_VIEWER_MENU_ITEM,
                                SETTINGS_MENU_ITEM,
+                               MORE_INFO_MENU_ITEM,
                                DEBUG_MENU_ITEM} {
 }
 
@@ -82,24 +89,21 @@ BaseScreen* MenuWindow::handle_input(Controller& controller, const worker_map_t&
 
   if (button2->is_fresh() && button2->get_data().shortPress && advanced_menu[menu_index].enabled) {
     // TODO: return selected screen
+    selected_screen_index = menu_index;
     switch (menu_index) {
       case 0:
-        selected_screen_index = 0;
         return DriveModeScreen::i();
       case 1:
-        selected_screen_index = 1;
         return SurveyModeScreen::i();
       case 2:
-        selected_screen_index = 2;
         return FixedModeScreen::i();
       case 3:
-        selected_screen_index = 3;
         return nullptr; //TODO
       case 4:
-        selected_screen_index = 4;
         return ConfigModeScreen::i();
       case 5:
-        selected_screen_index = 5;
+        return ZenInfoScreen::i();
+      case 6:
         return DebugModeScreen::i();
     }
     return nullptr;
