@@ -4,6 +4,8 @@
 #include "user_config.h"
 #include "workers/zen_button.h"
 
+ZenInfoScreen ZenInfoScreen_i;
+
 ZenInfoScreen::ZenInfoScreen() : BaseScreen("Info", true), page(e_zen_info_page_main) {
 }
 
@@ -15,7 +17,7 @@ BaseScreen* ZenInfoScreen::handle_input(Controller& controller, const worker_map
   }
   auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
   if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
-    return MenuWindow::i();
+    return &MenuWindow_i;
   }
   return nullptr;
 }

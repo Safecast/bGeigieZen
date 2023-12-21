@@ -15,10 +15,7 @@ class SdMessageScreen : public BaseScreen {
     k_new_device,
   };
 
-  static SdMessageScreen* i() {
-    static auto screen = new SdMessageScreen();
-    return screen;
-  }
+  explicit SdMessageScreen();
 
   virtual BaseScreen* handle_input(Controller& controller, const worker_map_t& workers) override;
   virtual void enter_screen(Controller& controller) override;
@@ -28,9 +25,10 @@ class SdMessageScreen : public BaseScreen {
   void render(const worker_map_t& workers, const handler_map_t& handlers, bool force) override;
 
  private:
-  explicit SdMessageScreen();
 
   SdMessageType error_type;
 };
+
+extern SdMessageScreen SdMessageScreen_i;
 
 #endif //SCREENS_SD_ERROR_SCREEN_H

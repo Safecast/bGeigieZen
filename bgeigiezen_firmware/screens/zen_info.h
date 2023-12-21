@@ -5,10 +5,7 @@
 
 class ZenInfoScreen : public BaseScreen {
  public:
-  static ZenInfoScreen* i() {
-    static ZenInfoScreen screen;
-    return &screen;
-  }
+  explicit ZenInfoScreen();
 
   virtual BaseScreen* handle_input(Controller& controller, const worker_map_t& workers) override;
   virtual void enter_screen(Controller& controller) override;
@@ -22,10 +19,11 @@ class ZenInfoScreen : public BaseScreen {
     e_zen_info_page_qr,
   };
 
-  explicit ZenInfoScreen();
 
   ZenInfoPage page;
 
 };
+
+extern ZenInfoScreen ZenInfoScreen_i;
 
 #endif //ZEN_INFO_SCREEN_H

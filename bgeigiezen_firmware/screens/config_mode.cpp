@@ -3,13 +3,15 @@
 #include "menu_window.h"
 #include "workers/zen_button.h"
 
+ConfigModeScreen ConfigModeScreen_i;
+
 ConfigModeScreen::ConfigModeScreen() : BaseScreen("Settings", true) {
 }
 
 BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
   auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
   if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
-    return MenuWindow::i();
+    return &MenuWindow_i;
   }
   auto reset_button = workers.worker<ZenButton>(k_worker_button_1);
   if (reset_button->is_fresh() && reset_button->get_data().shortPress) {

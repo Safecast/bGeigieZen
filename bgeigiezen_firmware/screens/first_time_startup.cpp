@@ -5,6 +5,8 @@
 #include "workers/zen_button.h"
 #include "zen_info.h"
 
+FirstTimeStartupScreen FirstTimeStartupScreen_i;
+
 FirstTimeStartupScreen::FirstTimeStartupScreen() : BaseScreen("Welcome", false) {
 }
 
@@ -12,10 +14,10 @@ BaseScreen* FirstTimeStartupScreen::handle_input(Controller& controller, const w
   auto info_button = workers.worker<ZenButton>(k_worker_button_1);
   auto continue_button = workers.worker<ZenButton>(k_worker_button_3);
   if (info_button->is_fresh() && info_button->get_data().shortPress) {
-    return ZenInfoScreen::i();
+    return &ZenInfoScreen_i;
   }
   if (continue_button->is_fresh() && continue_button->get_data().shortPress) {
-    return DefaultEntryScreen::i();
+    return &DefaultEntryScreen_i;
   }
   return nullptr;
 }

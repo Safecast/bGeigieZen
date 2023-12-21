@@ -21,7 +21,7 @@ static constexpr uint32_t DELAY_DIMMING_DEFAULT = 2 * 60 * 1000;  // ms before d
 static constexpr uint32_t DELAY_BLANKING_DEFAULT = 3 * 60 * 1000;  // ms before blanking screen
 
 
-GFXScreen::GFXScreen(LocalStorage& settings, Controller& controller) : Supervisor(), _controller(controller), _settings(settings), _last_render(0), _screen(nullptr), _menu(MenuWindow::i()) {
+GFXScreen::GFXScreen(LocalStorage& settings, Controller& controller) : Supervisor(), _controller(controller), _settings(settings), _last_render(0), _screen(nullptr), _menu(&MenuWindow_i) {
 }
 
 void GFXScreen::initialize() {
@@ -33,7 +33,7 @@ void GFXScreen::initialize() {
 #else
 #endif
 
-  _screen = BootScreen::i();
+  _screen = &BootScreen_i;
   _screen->enter_screen(_controller);
   clear();
 }
@@ -121,11 +121,12 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
           clear();
           _menu->enter_screen(_controller);
           new_screen = nullptr;
-        } else if (new_screen == DefaultEntryScreen::i()) {
+        } else if (new_screen == &DefaultEntryScreen_i) {
           // entered the default entry screen, handle it right away, no need to render this
           new_screen = new_screen->handle_input(_controller, workers);
         }
       }
+      DEBUG_PRINTF("[%lu] new screen entered %lu\n", millis(), new_screen);
       if (new_screen && new_screen != _screen) {
         DEBUG_PRINTF("New screen entered: %s\n", new_screen->get_title());
         _screen->leave_screen(_controller);

@@ -5,10 +5,7 @@
 
 class FixedModeScreen : public BaseScreen {
  public:
-  static FixedModeScreen* i() {
-    static FixedModeScreen screen;
-    return &screen;
-  }
+  explicit FixedModeScreen();
 
   virtual BaseScreen* handle_input(Controller& controller, const worker_map_t& workers) override;
   virtual void enter_screen(Controller& controller) override;
@@ -18,7 +15,8 @@ class FixedModeScreen : public BaseScreen {
   void render(const worker_map_t& workers, const handler_map_t& handlers, bool force) override;
 
  private:
-  explicit FixedModeScreen();
 };
+
+extern FixedModeScreen FixedModeScreen_i;
 
 #endif //SCREENS_FIXED_SCREEN_H
