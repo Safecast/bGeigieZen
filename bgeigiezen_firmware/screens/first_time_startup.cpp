@@ -3,6 +3,7 @@
 #include "identifiers.h"
 #include "user_config.h"
 #include "workers/zen_button.h"
+#include "zen_info.h"
 
 FirstTimeStartupScreen::FirstTimeStartupScreen() : BaseScreen("Welcome", false) {
 }
@@ -11,7 +12,7 @@ BaseScreen* FirstTimeStartupScreen::handle_input(Controller& controller, const w
   auto info_button = workers.worker<ZenButton>(k_worker_button_1);
   auto continue_button = workers.worker<ZenButton>(k_worker_button_3);
   if (info_button->is_fresh() && info_button->get_data().shortPress) {
-    //    return Drive::i();
+    return ZenInfoScreen::i();
   }
   if (continue_button->is_fresh() && continue_button->get_data().shortPress) {
     return DefaultEntryScreen::i();
@@ -20,7 +21,7 @@ BaseScreen* FirstTimeStartupScreen::handle_input(Controller& controller, const w
 }
 
 void FirstTimeStartupScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
-  drawButton1("More info", e_button_disabled);
+  drawButton1("Learn more");
   drawButton3("Continue");
 
   const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
