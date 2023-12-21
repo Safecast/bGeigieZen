@@ -11,7 +11,10 @@
 
 DriveModeScreen DriveModeScreen_i;
 
-DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _logging_available(false), _currently_logging(false) {
+DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _logging_available(false), _currently_logging(false), _logging_start(0), _logging_stop(0) {
+  required_tube = true;
+  required_gps = true;
+  required_sd = true;
 }
 
 BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
@@ -36,14 +39,24 @@ BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_m
 void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   const auto& controller_data = workers.worker<Controller>(k_worker_device_state)->get_data();
   _logging_available = controller_data.local_available && controller_data.sd_card_status == SDInterface::e_sd_config_status_ok;
-  _currently_logging = handlers.handler<SdLogger>(k_handler_drive_logger)->active();
+
+  bool currently_logging = handlers.handler<SdLogger>(k_handler_drive_logger)->active();
+  if (_currently_logging && !currently_logging) {
+    _logging_stop = millis();
+    _logging_start = 0;
+  } else if (!_currently_logging && currently_logging) {
+    _logging_start = millis();
+    _logging_stop = 0;
+  }
+  _currently_logging = currently_logging;
+
   /// Menu
   if (_logging_available && _currently_logging) {
     // Is logging
-    drawButton1("Stop drive");
+    drawButton1("Stop driving");
   }
   else {
-    drawButton1("Start drive", _logging_available ? e_button_default : e_button_disabled);
+    drawButton1("Start driving", _logging_available ? e_button_default : e_button_disabled);
   }
   drawButton2("");
   drawButton3("Menu");
@@ -79,30 +92,40 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     M5.Lcd.drawString("Somewhere", 0 + heading_width, 165, 1); // Prints after ush value
 
     // Print location data
-    M5.Lcd.setCursor(180, 150);
+    M5.Lcd.setCursor(170, 150);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("Latitude   :");
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.println(gps->get_data().latitude, 6);
-    M5.Lcd.setCursor(180, 159);
+    M5.Lcd.printf("%.6f  ", gps->get_data().latitude);
+    M5.Lcd.setCursor(170, 159);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("Longitude  :");
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.println(gps->get_data().longitude, 6);
-    M5.Lcd.setCursor(180, 168);
+    M5.Lcd.printf("%.6f  ", gps->get_data().longitude);
+    M5.Lcd.setCursor(170, 168);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("Altitude   :");
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.println(gps->get_data().altitudeMSL, 2);
-    M5.Lcd.setCursor(180, 177);
+    M5.Lcd.printf("%.2f  ", gps->get_data().altitudeMSL);
+    M5.Lcd.setCursor(170, 177);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("DOP        :");
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.println(gps->get_data().pdop, 2);
+    M5.Lcd.printf("%.2f  ", gps->get_data().pdop);
   }
 }
 
 void DriveModeScreen::leave_screen(Controller& controller) {
   // close logging to file
   controller.set_handler_active(k_handler_drive_logger, false);
+}
+
+const __FlashStringHelper* DriveModeScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) const {
+  if (_logging_start && _logging_start + 2000 > millis()) {
+    return F(" STARTED LOGGING, safe travels! ");
+  }
+  if (_logging_stop && _logging_stop + 2000 > millis()) {
+    return F(" COMPLETED LOGGING DRIVE ");
+  }
+  return BaseScreen::get_status_message(workers, handlers);
 }

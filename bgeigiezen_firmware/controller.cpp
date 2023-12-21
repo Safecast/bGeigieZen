@@ -17,16 +17,16 @@ void Controller::initialize() {
 }
 
 void Controller::start_default_workers() {
-  set_worker_active(k_worker_local_storage, true);
-  set_worker_active(k_worker_rtc_connector, true);
-  set_worker_active(k_worker_battery_indicator, true);
-  set_worker_active(k_worker_gps_connector, true);
-  set_worker_active(k_worker_gm_sensor, true);
-  set_worker_active(k_worker_log_aggregator, true);
-//  set_worker_active(k_worker_shake_detector, true);
   set_worker_active(k_worker_button_3, true);
   set_worker_active(k_worker_button_2, true);
   set_worker_active(k_worker_button_1, true);
+  set_worker_active(k_worker_local_storage, true);
+  set_worker_active(k_worker_rtc_connector, true);
+  set_worker_active(k_worker_battery_indicator, true);
+  set_worker_active(k_worker_gm_sensor, true);
+  set_worker_active(k_worker_gps_connector, true);
+  set_worker_active(k_worker_log_aggregator, true);
+//  set_worker_active(k_worker_shake_detector, true);
   set_worker_active(k_worker_device_state, true);
 }
 
