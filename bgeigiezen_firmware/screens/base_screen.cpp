@@ -50,7 +50,7 @@ void BaseScreen::drawButton(uint16_t x, const char* text, ButtonState state) con
 
 void BaseScreen::drawButton1(const char* text, ButtonState state) const {
 #ifdef M5_CORE2
-  drawButton(8, text, state);
+  drawButton(10, text, state);
 #elif M5_BASIC
   drawButton(20, text, state);
 #endif
@@ -66,7 +66,7 @@ void BaseScreen::drawButton2(const char* text, ButtonState state) const {
 
 void BaseScreen::drawButton3(const char* text, ButtonState state) const {
 #ifdef M5_CORE2
-  drawButton(222, text, state);
+  drawButton(220, text, state);
 #elif M5_BASIC
   drawButton(210, text, state);
 #endif

@@ -27,9 +27,9 @@ GFXScreen::GFXScreen(LocalStorage& settings, Controller& controller) : Superviso
 void GFXScreen::initialize() {
 #ifdef M5_CORE2
   // Change touch screen buttons slightly to overlap with button indicators
-  M5.BtnA.set(8, 230, 90, 50);
+  M5.BtnA.set(10, 230, 90, 50);
   M5.BtnB.set(115, 230, 90, 50);
-  M5.BtnC.set(222, 230, 90, 50);
+  M5.BtnC.set(220, 230, 90, 50);
 #else
 #endif
 

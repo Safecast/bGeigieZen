@@ -116,14 +116,30 @@ void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handle
   // Draw buttons
   drawButton1("Next");
   drawButton2("Enter", advanced_menu[menu_index].enabled ? e_button_default : e_button_disabled);
-  drawButton3("Back", e_button_active);
+  drawButton3("Close", e_button_active);
 
-  // Draw menu rect
-  M5.Lcd.drawRoundRect(8, 20, 304, 170, 4, LCD_COLOR_STALE_INCOMPLETE);
+  // Draw menu overlay border
+  M5.Lcd.drawRoundRect(10, 20, 300, 170, 4, LCD_COLOR_STALE_INCOMPLETE);
+  // Visually connect button to overlay
+#ifdef M5_CORE2
+  M5.Lcd.fillRect(220, 12, 90, 12, LCD_COLOR_BACKGROUND);
+  M5.Lcd.drawLine(220, 12, 220, 20, LCD_COLOR_STALE_INCOMPLETE);
+  M5.Lcd.drawLine(309, 12, 309, 23, LCD_COLOR_STALE_INCOMPLETE);
+#elif M5_BASIC
+  M5.Lcd.fillRect(210, 12, 90, 12, LCD_COLOR_BACKGROUND);
+  M5.Lcd.drawLine(210, 12, 210, 20, LCD_COLOR_STALE_INCOMPLETE);
+  M5.Lcd.drawLine(299, 12, 299, 20, LCD_COLOR_STALE_INCOMPLETE);
+#endif
+  // Draw tooltip block
+  M5.Lcd.fillRoundRect(161, 26, 142, 158, 4, LCD_COLOR_BACKGROUND);
+  M5.Lcd.drawLine(160, 33, 160, 177, LCD_COLOR_STALE_INCOMPLETE);
+//  M5.Lcd.drawRoundRect(160, 25, 144, 160, 4, LCD_COLOR_INACTIVE);
+
+
   for (int i = 0; i < ADVANCED_MENU_ITEMS; ++i) {
     M5.Lcd.setTextColor(advanced_menu[i].enabled ? (i == menu_index ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_DEFAULT) : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.drawLine(14, 48 + (i * 16), 160, 48 + (i * 16), (i == menu_index ? (advanced_menu[i].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE) : LCD_COLOR_BACKGROUND));
-    M5.Lcd.setCursor(14, 40 + (i * 16), 2);
+    M5.Lcd.drawLine(16, 48 + (i * 16), 159, 48 + (i * 16), (i == menu_index ? (advanced_menu[i].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE) : LCD_COLOR_BACKGROUND));
+    M5.Lcd.setCursor(16, 40 + (i * 16), 2);
     if (i == menu_index) {
       M5.Lcd.print("> ");
     }
@@ -134,9 +150,6 @@ void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handle
     M5.Lcd.print("  ");
   }
 
-  // Draw tooltip block
-  M5.Lcd.fillRoundRect(161, 26, 142, 158, 4, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawRoundRect(160, 25, 144, 160, 4, LCD_COLOR_STALE_INCOMPLETE);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.setCursor(170, 30);
   M5.Lcd.println(advanced_menu[menu_index].title);
