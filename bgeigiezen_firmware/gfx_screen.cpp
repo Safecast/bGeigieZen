@@ -126,7 +126,6 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
           new_screen = new_screen->handle_input(_controller, workers);
         }
       }
-      DEBUG_PRINTF("[%lu] new screen entered %lu\n", millis(), new_screen);
       if (new_screen && new_screen != _screen) {
         DEBUG_PRINTF("New screen entered: %s\n", new_screen->get_title());
         _screen->leave_screen(_controller);

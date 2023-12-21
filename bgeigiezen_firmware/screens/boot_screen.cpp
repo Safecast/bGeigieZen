@@ -13,17 +13,13 @@ BootScreen::BootScreen() : BaseScreen("Boot", false), _entered_at(0) {
 }
 
 BaseScreen* BootScreen::handle_input(Controller& controller, const worker_map_t& workers) {
-  DEBUG_PRINTF("[%lu] boot screen handle input, is done: %d\n", millis(), millis() > 3000 + _entered_at);
   if (millis() > 3000 + _entered_at) {
     const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
     if (controller.get_data().sd_card_status != SDInterface::SdStatus::e_sd_config_status_ok) {
-      DEBUG_PRINTF("[%lu] boot screen handled input, enter SdMessageScreen\n", millis());
       return &SdMessageScreen_i;
     } else if (!settings->get_device_id()) {
-      DEBUG_PRINTF("[%lu] boot screen handled input, enter FirstTimeStartupScreen\n", millis());
       return &FirstTimeStartupScreen_i;
     }
-    DEBUG_PRINTF("[%lu] boot screen handled input, enter DefaultEntryScreen\n", millis());
     return &DefaultEntryScreen_i;
   }
   return nullptr;
