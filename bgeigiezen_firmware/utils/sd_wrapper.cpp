@@ -165,6 +165,7 @@ SDInterface::SdStatus SDInterface::has_safezen_content(uint16_t device_id) {
 }
 
 bool SDInterface::read_safezen_file_to_settings(LocalStorage& settings) {
+  DEBUG_PRINTLN("read_safezen_file_to_settings");
   if (!ready()) {
     return false;
   }
@@ -184,11 +185,13 @@ bool SDInterface::read_safezen_file_to_settings(LocalStorage& settings) {
     strcpy(version, VERSION_STRING);
   }
 
+  // Add earlier / non-compatible versions here too
   if (strcmp(version, VERSION_STRING) == 0) {
     return read_safezen_file_latest(settings, safecast_txt);
   }
 
-  return false;
+  // try with latest, at this point it should at least get the id
+  return read_safezen_file_latest(settings, safecast_txt);
 }
 
 bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
@@ -272,6 +275,7 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   _last_read = millis();
 
   if (device_id) {
+    DEBUG_PRINTLN("Succesfully loaded settings from SD config into memory");
     _status = e_sd_config_status_ok;
   }
   return !!device_id;
