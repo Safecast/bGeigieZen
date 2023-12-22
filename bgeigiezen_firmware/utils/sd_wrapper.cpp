@@ -220,7 +220,6 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
 
   while (file.available()) {
     String line = file.readStringUntil('\n');
-    DEBUG_PRINTLN(line);
     if (line.length() == 0) {
       continue;
     }
