@@ -130,11 +130,7 @@ SDInterface::SdStatus SDInterface::has_safezen_content(uint16_t device_id) {
   }
 
   if (!SD.exists(SETUP_FILENAME)) {
-    if (SD.exists(SETUP_FILENAME_ALT)) {
-      SD.rename(SETUP_FILENAME_ALT, SETUP_FILENAME);
-    } else {
-      return _status = e_sd_config_status_no_config_file;
-    }
+    return _status = e_sd_config_status_no_config_file;
   }
 
   // open the setup file
@@ -173,9 +169,7 @@ bool SDInterface::read_safezen_file_to_settings(LocalStorage& settings) {
   if (!ready()) {
     return false;
   }
-  if (SD.exists(SETUP_FILENAME_ALT)) {
-    SD.rename(SETUP_FILENAME_ALT, SETUP_FILENAME);
-  }
+
   File safecast_txt = SD.open(SETUP_FILENAME, FILE_READ);
   if (!safecast_txt) {
     return false;
@@ -298,10 +292,6 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
 
   if (SD.exists(SETUP_FILENAME)) {
     SD.remove(SETUP_FILENAME);
-  }
-
-  if (SD.exists(SETUP_FILENAME_ALT)) {
-    SD.remove(SETUP_FILENAME_ALT);
   }
 
   File safecast_txt = SD.open(SETUP_FILENAME, FILE_WRITE);
