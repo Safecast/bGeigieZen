@@ -194,13 +194,13 @@ bool SDInterface::read_safezen_file_to_settings(LocalStorage& settings) {
 
   // Reopen settings in case version wasn't found, first line would've been skipped
   safecast_txt.close();
-  safecast_txt = SD.open(SETUP_FILENAME, FILE_READ);
-  if (!safecast_txt) {
+  File safecast_txt_reopened = SD.open(SETUP_FILENAME, FILE_READ);
+  if (!safecast_txt_reopened) {
     return false;
   }
 
   // try with latest, at this point it should at least get the id
-  return read_safezen_file_latest(settings, safecast_txt);
+  return read_safezen_file_latest(settings, safecast_txt_reopened);
 }
 
 bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
