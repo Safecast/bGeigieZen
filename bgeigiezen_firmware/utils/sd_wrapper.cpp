@@ -191,6 +191,14 @@ bool SDInterface::read_safezen_file_to_settings(LocalStorage& settings) {
     return read_safezen_file_latest(settings, safecast_txt);
   }
 
+
+  // Reopen settings in case version wasn't found, first line would've been skipped
+  safecast_txt.close();
+  safecast_txt = SD.open(SETUP_FILENAME, FILE_READ);
+  if (!safecast_txt) {
+    return false;
+  }
+
   // try with latest, at this point it should at least get the id
   return read_safezen_file_latest(settings, safecast_txt);
 }
@@ -267,7 +275,7 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
         settings.set_fixed_range(fixed_range, true);
       }
     } else {
-      DEBUG_PRINTF("Read ??? SAFEZEN line: %s \n", line.c_str());
+      DEBUG_PRINTF("Read (currently) unsupported SAFEZEN line: %s \n", line.c_str());
     }
   }
 
@@ -276,8 +284,10 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   _last_read = millis();
 
   if (device_id) {
-    DEBUG_PRINTLN("Succesfully loaded settings from SD config into memory");
+    DEBUG_PRINTLN("Successfully loaded settings from SD config into memory");
     _status = e_sd_config_status_ok;
+  } else {
+    _status = e_sd_config_status_no_config_file;
   }
   return !!device_id;
 }
