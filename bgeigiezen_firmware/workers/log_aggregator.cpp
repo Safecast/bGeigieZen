@@ -7,6 +7,18 @@
 #define D2R (PI / 180.0)
 #define FIXED_LOCATION_RANGE_KM 0.4
 
+/**
+ * Convert degree degree to decimal minutes for log line
+ * @param dd
+ * @return dm
+ */
+double dd_to_dm(double dd) {
+  double degrees = static_cast<int>(dd);
+  double minutes = (dd - degrees) * 60;
+  return (degrees) * 100 + minutes;
+}
+
+
 
 /* compute check sum of N bytes in array s */
 char checksum(const char* s, size_t N) {
@@ -53,9 +65,9 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
 
   // Create log line (for logging and sending over bluetooth
 
-  double latitude = data.latitude < 0 ? data.latitude * -1 : data.latitude;
+  double latitude = dd_to_dm(data.latitude < 0 ? data.latitude * -1 : data.latitude);
   char NS = data.latitude < 0 ? 'S' : 'N';
-  double longitude = data.longitude < 0 ? data.longitude * -1 : data.longitude;
+  double longitude = dd_to_dm(data.longitude < 0 ? data.longitude * -1 : data.longitude);
   char WE = data.longitude < 0 ? 'W' : 'E';
 
   sprintf(
@@ -65,7 +77,7 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
 
   sprintf(
       data.log_string,
-      "$%s,%04d,%s,%u,%u,%u,%c,%0.7f,%c,%0.7f,%c,%.1f,%c,%d,%.1f",
+      "$%s,%04d,%s,%u,%u,%u,%c,%0.4f,%c,%0.4f,%c,%.1f,%c,%d,%.1f",
       DEVICE_HEADER, _settings.get_device_id(),
       data.timestamp,
       gm_sensor_data.cpm_comp, gm_sensor_data.cp5s, gm_sensor_data.total, gm_sensor_data.valid ? 'A' : 'V',
