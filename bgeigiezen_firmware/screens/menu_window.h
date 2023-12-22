@@ -13,7 +13,8 @@ class MenuWindow : public BaseScreen {
   struct MenuItem {
     const char* title;
     const char* tooltip;
-    const bool enabled;
+    bool enabled;
+    BaseScreen* screen;
   };
   explicit MenuWindow();
 
