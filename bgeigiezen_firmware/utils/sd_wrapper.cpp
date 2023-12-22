@@ -182,8 +182,14 @@ bool SDInterface::read_safezen_file_to_settings(LocalStorage& settings) {
   if (first_line.startsWith(SD_CONFIG_FIELD_VERSION)) {
     sscanf(first_line.c_str(), sd_config_version_f, version);
   } else {
-    // Expect latest version
+    // No version line read, expect latest version
     strcpy(version, VERSION_STRING);
+    // Reopen settings, because first line was (probably) some configuration
+    safecast_txt.close();
+    safecast_txt = SD.open(SETUP_FILENAME, FILE_READ);
+    if (!safecast_txt) {
+      return false;
+    }
   }
 
   // Add earlier / non-compatible versions here too
@@ -191,16 +197,8 @@ bool SDInterface::read_safezen_file_to_settings(LocalStorage& settings) {
     return read_safezen_file_latest(settings, safecast_txt);
   }
 
-
-  // Reopen settings in case version wasn't found, first line would've been skipped
-  safecast_txt.close();
-  File safecast_txt_reopened = SD.open(SETUP_FILENAME, FILE_READ);
-  if (!safecast_txt_reopened) {
-    return false;
-  }
-
   // try with latest, at this point it should at least get the id
-  return read_safezen_file_latest(settings, safecast_txt_reopened);
+  return read_safezen_file_latest(settings, safecast_txt);
 }
 
 bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
@@ -222,6 +220,7 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
 
   while (file.available()) {
     String line = file.readStringUntil('\n');
+    DEBUG_PRINTLN(line);
     if (line.length() == 0) {
       continue;
     }
