@@ -65,6 +65,7 @@ constexpr char LOG_HEADER_LINE3[] = "# deadtime=off";
 
 // - Setup
 constexpr char SETUP_FILENAME[] = "/SAFEZEN.txt";
+constexpr char SETUP_FILENAME_ALT[] = "/SAFEZEN.TXT";  // File will be renamed to SETUP_FILENAME
 constexpr char TEST_FILENAME[] = "/.zen";
 constexpr char JOURNAL_LOG_DIRECTORY[] = "/journals";
 constexpr char DRIVE_LOG_DIRECTORY[] = "/drives";
