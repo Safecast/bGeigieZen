@@ -121,10 +121,10 @@ void DriveModeScreen::leave_screen(Controller& controller) {
 }
 
 const __FlashStringHelper* DriveModeScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) const {
-  if (_logging_start && _logging_start + 2000 > millis()) {
+  if (_logging_start && _logging_start + STATUS_MESSAGE_DURATION > millis()) {
     return F(" STARTED LOGGING, safe travels! ");
   }
-  if (_logging_stop && _logging_stop + 2000 > millis()) {
+  if (_logging_stop && _logging_stop + STATUS_MESSAGE_DURATION > millis()) {
     return F(" COMPLETED LOGGING DRIVE ");
   }
   return BaseScreen::get_status_message(workers, handlers);

@@ -15,36 +15,43 @@ MenuWindow::MenuItem DRIVE_MENU_ITEM = {
     "Drive mode",
     "Put the zen on your car and drive!",
     true,
+    &DriveModeScreen_i,
 };
 MenuWindow::MenuItem SURVEY_MENU_ITEM = {
     "Survey mode",
     "Take the Zen out of the case and test   sources directly!",
     true,
+    &SurveyModeScreen_i,
 };
 MenuWindow::MenuItem FIXED_MENU_ITEM = {
     "Fixed mode",
     "Place the zen at a    fixed location and    upload data over     wifi!",
     false,
+    &FixedModeScreen_i,
 };
 MenuWindow::MenuItem LOG_VIEWER_MENU_ITEM = {
     "Log viewer",
     "View and upload     logs over wifi!",
     false,
+    nullptr,
 };
 MenuWindow::MenuItem SETTINGS_MENU_ITEM = {
     "Settings",
     "Configure your      device!",
     true,
+    &ConfigModeScreen_i,
 };
 MenuWindow::MenuItem MORE_INFO_MENU_ITEM = {
     "Learn more",
     "Explore what you    can do with your     bGeigieZen",
     true,
+    &ZenInfoScreen_i,
 };
 MenuWindow::MenuItem DEBUG_MENU_ITEM = {
     "Debug info",
     "Connected modules, their data and status all in a simple view",
     true,
+    &DebugModeScreen_i,
 };
 MenuWindow::MenuItem ENTER_SIMPLE_MODE_MENU_ITEM = {
     "Simple mode",
@@ -84,31 +91,15 @@ BaseScreen* MenuWindow::handle_input(Controller& controller, const worker_map_t&
     menu_index %= ADVANCED_MENU_ITEMS;
     force_next_render();
   }
+
   if (button3->is_fresh() && button3->get_data().shortPress) {
     menu_open = false;
     return nullptr;
   }
 
   if (button2->is_fresh() && button2->get_data().shortPress && advanced_menu[menu_index].enabled) {
-    // TODO: return selected screen
     selected_screen_index = menu_index;
-    switch (menu_index) {
-      case 0:
-        return &DriveModeScreen_i;
-      case 1:
-        return &SurveyModeScreen_i;
-      case 2:
-        return &FixedModeScreen_i;
-      case 3:
-        return nullptr; //TODO
-      case 4:
-        return &ConfigModeScreen_i;
-      case 5:
-        return &ZenInfoScreen_i;
-      case 6:
-        return &DebugModeScreen_i;
-    }
-    return nullptr;
+    return advanced_menu[menu_index].screen;
   }
 
   return nullptr;

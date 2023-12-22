@@ -135,7 +135,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
       }
     }
 
-    if (workers.any_updates() || handlers.any_updates() || (millis() - _last_render > 1000)) {
+    if (workers.any_updates() || handlers.any_updates() || (millis() - _last_render > LCD_REFRESH_RATE)) {
       M5.Lcd.startWrite();
       M5.Lcd.setRotation(3);
       if (_menu->is_open()) {
