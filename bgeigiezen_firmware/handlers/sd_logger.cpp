@@ -23,8 +23,8 @@ bool SdLogger::activate(bool) {
     return false;
   }
   char header_l2[100];
-  // e.g. # format=1.2.3-drives
-  sprintf(header_l2, "%s%d.%d.%d-%s", LOG_HEADER_LINE2, MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION, get_dir());
+  // e.g. # format=1.2.3-zen/drives
+  sprintf(header_l2, "%s%d.%d.%d-zen%s", LOG_HEADER_LINE2, MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION, get_dir());
   bool success = SDInterface::i().log_println(_logging_to, LOG_HEADER_LINE1)
       && SDInterface::i().log_println(_logging_to, header_l2)
       && SDInterface::i().log_println(_logging_to, LOG_HEADER_LINE3);

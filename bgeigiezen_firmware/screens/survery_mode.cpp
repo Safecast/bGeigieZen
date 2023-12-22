@@ -9,6 +9,9 @@
 SurveyModeScreen SurveyModeScreen_i;
 
 SurveyModeScreen::SurveyModeScreen() : BaseScreen("Survey", true), _logging_available(false), _currently_logging(false) {
+  required_tube = true;
+  required_gps = true;
+  required_sd = true;
 }
 
 BaseScreen* SurveyModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
@@ -90,10 +93,10 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
 }
 
 const __FlashStringHelper* SurveyModeScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) const {
-  if (_logging_start && _logging_start + 2000 > millis()) {
+  if (_logging_start && _logging_start + STATUS_MESSAGE_DURATION > millis()) {
     return F(" STARTED LOGGING, stay safe! ");
   }
-  if (_logging_stop && _logging_stop + 2000 > millis()) {
+  if (_logging_stop && _logging_stop + STATUS_MESSAGE_DURATION > millis()) {
     return F(" COMPLETED LOGGING SURVEY ");
   }
   return BaseScreen::get_status_message(workers, handlers);
