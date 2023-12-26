@@ -8,15 +8,16 @@
  * Data collection
  */
 struct DataLine {
-  bool valid;
-  char log_string[100];
+  bool valid = false;
+  char log_string[100] = "";
 
-  uint16_t cpm;
-  char timestamp[20];
-  double longitude;
-  double latitude;
-  double altitude;
-  bool in_fixed_range;
+  uint16_t cpm = 0;
+  char timestamp[20] = "";
+  double latitude = 0;
+  double longitude = 0;
+  double altitude = 0;
+  double distance = 0;
+  bool in_fixed_range = false;
 };
 
 /**
@@ -34,6 +35,8 @@ class LogAggregator : public ProcessWorker<DataLine> {
 
  private:
   LocalStorage& _settings;
+  double _last_latitude;
+  double _last_longitude;
 };
 
 #endif //WORKERS_LOG_AGGREGATOR_H

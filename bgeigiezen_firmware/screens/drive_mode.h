@@ -21,6 +21,7 @@ class DriveModeScreen : public BaseScreen {
   bool _currently_logging;
   uint32_t _logging_start;
   uint32_t _logging_stop;
+  double _distance_start;
 };
 
 extern DriveModeScreen DriveModeScreen_i;

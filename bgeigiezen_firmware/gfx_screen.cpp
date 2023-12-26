@@ -30,7 +30,6 @@ void GFXScreen::initialize() {
   M5.BtnA.set(10, 230, 90, 50);
   M5.BtnB.set(115, 230, 90, 50);
   M5.BtnC.set(220, 230, 90, 50);
-#else
 #endif
 
   _screen = &BootScreen_i;
