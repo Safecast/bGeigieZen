@@ -15,8 +15,33 @@
 #include "gps_connector.h"
 #include "debugger.h"
 
+#define NNE 22.5
+#define ENE (NNE + 45)
+#define ESE (ENE + 45)
+#define SSE (ESE + 45)
+#define SSW (SSE + 45)
+#define WSW (SSW + 45)
+#define WNW (WSW + 45)
+#define NNW (WNW + 45)
 
-GpsConnector::GpsConnector(uint8_t gps_serial_num, SFE_UBLOX_GNSS& gnss) : Worker<GnssData>(900), gnss(gnss), ss(gps_serial_num), tried_38400_at(0), tried_9600_at(0), _init_at(0) {
+GpsConnector::GpsConnector(SFE_UBLOX_GNSS& gnss) : Worker<GnssData>({
+                                                       .location_valid=false,
+                                                       .date_valid=false,
+                                                       .time_valid=false,
+                                                       .latitude=0,
+                                                       .longitude=0,
+                                                       .altitudeMSL=0,
+                                                       .heading_degree=0,
+                                                       .heading=GnssData::UNKNOWN,
+                                                       .satsInView=0,
+                                                       .pdop=0,
+                                                       .year=0,
+                                                       .month=0,
+                                                       .day=0,
+                                                       .hour=0,
+                                                       .minute=0,
+                                                       .second=0,
+                                                   }), _gnss(gnss), ss(GPS_SERIAL_NUM), tried_38400_at(0), tried_9600_at(0), _init_at(0) {
 }
 /**
  * @return true if initialized GNSS library, false if no connection with module.
@@ -32,9 +57,9 @@ bool GpsConnector::activate(bool retry) {
   if (tried_38400_at == 0 && (millis() - _init_at > 500)) { // Wait for device to completely startup
     tried_38400_at = millis();
     ss.updateBaudRate(38400);
-    if (gnss.begin(ss, 500)) {
+    if (_gnss.begin(ss, 500)) {
       DEBUG_PRINTLN("GNSS: connected at 38400 baud");
-      gnss.setSerialRate(38400);
+      _gnss.setSerialRate(38400);
     }
     else {
       return false;
@@ -43,9 +68,9 @@ bool GpsConnector::activate(bool retry) {
   else if (tried_9600_at == 0 && tried_38400_at > 0 && (millis() - tried_38400_at > 500)) {
     tried_9600_at = millis();
     ss.updateBaudRate(9600);
-    if (gnss.begin(ss, 500)) {
+    if (_gnss.begin(ss, 500)) {
       DEBUG_PRINTLN("GNSS: connected at 9600 baud, switching to 38400");
-      gnss.setSerialRate(38400);
+      _gnss.setSerialRate(38400);
       ss.updateBaudRate(38400);
     }
     else {
@@ -57,21 +82,19 @@ bool GpsConnector::activate(bool retry) {
   }
 
   // Confirm that we actually have a connection
-  DEBUG_PRINTF("GNSS: u-blox protocol version %02d.%02d\n",
-                gnss.getProtocolVersionHigh(),
-                gnss.getProtocolVersionLow());
+  DEBUG_PRINTF("GNSS: u-blox protocol version %02d.%02d\n", _gnss.getProtocolVersionHigh(), _gnss.getProtocolVersionLow());
 
   // Send UBX, disable NMEA-0183 messages that we are ignoring anyway.
-  gnss.setPortOutput(COM_PORT_UART1, COM_TYPE_UBX);
+  _gnss.setPortOutput(COM_PORT_UART1, COM_TYPE_UBX);
 
   // Set Auto on NAV-PVT for non-blocking access
   // getPVT() will return true if a new navigation solution is available
-  gnss.setAutoPVT(true); // Tell the GNSS to send the solution as it is computed (1 second)
+  _gnss.setAutoPVT(true); // Tell the GNSS to send the solution as it is computed (1 second)
 
- // Mark the fix items invalid to start
-  data.location_valid = false;
-  data.date_valid = false;
-  data.time_valid = false;
+  // Enable AssistNow Autonomous data collection.
+  if (_gnss.setAopCfg(1)) {
+    DEBUG_PRINTLN("GNSS: Enabled GPS AssistNow");
+  }
 
   return true;
 }
@@ -83,52 +106,75 @@ int8_t GpsConnector::produce_data() {
   // "LLH" is longitude, latitude, height.
   // getPVT() returns UTC date and time.
   // Do not use GNSS time, see u-blox spec section 9.
-  if (gnss.getPVT()) {
-    // DEBUG_PRINTF("[%d] gnss.getPVT() is true.\n", millis());
+  if (_gnss.getPVT()) {
+    // DEBUG_PRINTF("[%d] _gnss.getPVT() is true.\n", millis());
 
-    if (gnss.getGnssFixOk()) {
-      // DEBUG_PRINTF("[%d] gnss.getGnssFixOk() is true.\n", millis());
-      data.pdop = gnss.getPDOP() * 1e-2; // Position Dilution of Precision
-      data.latitude = gnss.getLatitude() * 1e-7;
-      data.longitude = gnss.getLongitude() * 1e-7;
-      data.altitudeMSL = gnss.getAltitudeMSL() * 1e-3; // Above MSL (not ellipsoid)
-      data.location_valid = true;
-      data.satsInView = gnss.getSIV(); // Satellites In View
+    data.satsInView = _gnss.getSIV(); // Satellites In View
+
+    if (_gnss.getFixType() == 2 || _gnss.getFixType() == 3) {
+      // DEBUG_PRINTF("[%d] fix type is 2D or 3D.\n", millis());
+      data.pdop = _gnss.getPDOP() * 1e-2; // Position Dilution of Precision
+      data.latitude = _gnss.getLatitude() * 1e-7;
+      data.longitude = _gnss.getLongitude() * 1e-7;
+      data.heading_degree = _gnss.getHeading() * 1e-5;
+      if (data.heading_degree >= NNW || data.heading_degree < NNE) {
+        data.heading = GnssData::NORTH;
+      }
+      if (data.heading_degree >= NNE || data.heading_degree < ENE) {
+        data.heading = GnssData::NORTHEAST;
+      }
+      if (data.heading_degree >= ENE || data.heading_degree < ESE) {
+        data.heading = GnssData::EAST;
+      }
+      if (data.heading_degree >= ESE || data.heading_degree < SSE) {
+        data.heading = GnssData::SOUTHEAST;
+      }
+      if (data.heading_degree >= SSE || data.heading_degree < SSW) {
+        data.heading = GnssData::SOUTH;
+      }
+      if (data.heading_degree >= SSW || data.heading_degree < WSW) {
+        data.heading = GnssData::SOUTHWEST;
+      }
+      if (data.heading_degree >= WSW || data.heading_degree < WNW) {
+        data.heading = GnssData::WEST;
+      }
+      if (data.heading_degree >= WNW || data.heading_degree < NNW) {
+        data.heading = GnssData::NORTHWEST;
+      }
+      data.altitudeMSL = _gnss.getFixType() == 3 ? _gnss.getAltitudeMSL() * 1e-3 : 0; // Above MSL (not ellipsoid)
+      data.location_valid = _gnss.getGnssFixOk();
       location_timer.restart();
       ret_status = e_worker_data_read;
       // DEBUG: Compare PDOP from NAV-PVT and HDOP from NAV-DOP
       // DEBUG_PRINTF("[%d] GnssFixOk (type = %d).\n"
       //               "  SATS: %d; PDOP: %d; HDOP: %d\n",
-      //               millis(), gnss.getFixType(),
-      //               data.satsInView, gnss.getPDOP(), data.hdop);
+      //               millis(), _gnss.getFixType(),
+      //               data.satsInView, _gnss.getPDOP(), data.hdop);
     }
 
-    if (gnss.getDateValid()) {
-//      DEBUG_PRINTF("[%lu] gnss.getDateValid() is true.\n", millis());
-      data.year = gnss.getYear();
-      data.month = gnss.getMonth();
-      data.day = gnss.getDay();
+    if (_gnss.getDateValid()) {
+//      DEBUG_PRINTF("[%lu] _gnss.getDateValid() is true.\n", millis());
+      data.year = _gnss.getYear();
+      data.month = _gnss.getMonth();
+      data.day = _gnss.getDay();
       data.date_valid = true;
       date_timer.restart();
       ret_status = e_worker_data_read;
     }
 
-    if (gnss.getTimeValid()) {
-//      DEBUG_PRINTF("[%lu] gnss.getTimeValid() is true.\n", millis());
-      data.hour = gnss.getHour();
-      data.minute = gnss.getMinute();
-      data.second = gnss.getSecond();
+    if (_gnss.getTimeValid()) {
+//      DEBUG_PRINTF("[%lu] _gnss.getTimeValid() is true.\n", millis());
+      data.hour = _gnss.getHour();
+      data.minute = _gnss.getMinute();
+      data.second = _gnss.getSecond();
       data.time_valid = true;
       time_timer.restart();
       ret_status = e_worker_data_read;
     }
-
-    gnss.flushPVT();
   }
 
   // Check expiry
   if (location_timer.isExpired()) {
-    data.satsInView = 0;
     data.location_valid = false;
   }
   if (time_timer.isExpired()) {
