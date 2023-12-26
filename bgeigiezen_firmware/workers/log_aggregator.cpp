@@ -1,7 +1,8 @@
 #include "log_aggregator.h"
+#include "battery_indicator.h"
+#include "debugger.h"
 #include "gm_sensor.h"
 #include "gps_connector.h"
-#include "battery_indicator.h"
 #include "identifiers.h"
 
 #define D2R (PI / 180.0)
@@ -47,7 +48,9 @@ double haversine_km(double lat1, double long1, double lat2, double long2) {
   return 6367 * c;
 }
 
-LogAggregator::LogAggregator(LocalStorage& settings) : ProcessWorker<DataLine>(5000), _settings(settings) {}
+LogAggregator::LogAggregator(LocalStorage& settings) : ProcessWorker<DataLine>(5000), _settings(settings) {
+
+}
 
 
 int8_t LogAggregator::produce_data(const WorkerMap& workers) {
@@ -72,7 +75,15 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
     NS = data.latitude < 0 ? 'S' : 'N';
     longitude = dd_to_dm(data.longitude < 0 ? data.longitude * -1 : data.longitude);
     WE = data.longitude < 0 ? 'W' : 'E';
-    data.in_fixed_range = haversine_km(gps_data.latitude, gps_data.longitude, _settings.get_fixed_latitude(), _settings.get_fixed_longitude()) < FIXED_LOCATION_RANGE_KM;
+    data.in_fixed_range = haversine_km(data.latitude, data.longitude, _settings.get_fixed_latitude(), _settings.get_fixed_longitude()) < FIXED_LOCATION_RANGE_KM;
+
+    if ((_last_latitude < 0 || _last_latitude > 0) && (_last_longitude < 0 || _last_longitude > 0)) {
+      double plus_distance = haversine_km(data.latitude, data.longitude, _last_latitude, _last_longitude);
+      data.distance += plus_distance;
+//      DEBUG_PRINTF("Distance %f = haversine_km(%f, %f, %f, %f)\n", plus_distance, data.latitude, data.longitude, _last_latitude, _last_longitude);
+    }
+    _last_latitude = data.latitude;
+    _last_longitude = data.longitude;
   }
 
   sprintf(
