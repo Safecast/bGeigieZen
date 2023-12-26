@@ -55,9 +55,6 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
   const auto& gps_data = workers.worker<GpsConnector>(k_worker_gps_connector)->get_data();
   const auto& battery_data = workers.worker<BatteryIndicator>(k_worker_battery_indicator)->get_data();
 
-  if (gps_data.valid()) {
-    data.in_fixed_range = haversine_km(gps_data.latitude, gps_data.longitude, _settings.get_fixed_latitude(), _settings.get_fixed_longitude()) < FIXED_LOCATION_RANGE_KM;
-  }
   data.cpm = gm_sensor_data.cpm_comp;
   data.latitude = gps_data.latitude;
   data.longitude = gps_data.longitude;
@@ -65,14 +62,22 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
 
   // Create log line (for logging and sending over bluetooth
 
-  double latitude = dd_to_dm(data.latitude < 0 ? data.latitude * -1 : data.latitude);
-  char NS = data.latitude < 0 ? 'S' : 'N';
-  double longitude = dd_to_dm(data.longitude < 0 ? data.longitude * -1 : data.longitude);
-  char WE = data.longitude < 0 ? 'W' : 'E';
+  double latitude = 0;
+  char NS = 'N';
+  double longitude = 0;
+  char WE = 'E';
+
+  if (gps_data.valid()) {
+    latitude = dd_to_dm(data.latitude < 0 ? data.latitude * -1 : data.latitude);
+    NS = data.latitude < 0 ? 'S' : 'N';
+    longitude = dd_to_dm(data.longitude < 0 ? data.longitude * -1 : data.longitude);
+    WE = data.longitude < 0 ? 'W' : 'E';
+    data.in_fixed_range = haversine_km(gps_data.latitude, gps_data.longitude, _settings.get_fixed_latitude(), _settings.get_fixed_longitude()) < FIXED_LOCATION_RANGE_KM;
+  }
 
   sprintf(
       data.timestamp,
-      "%02d-%02d-%02dT%02d:%02d:%02dZ",
+      "%04d-%02d-%02dT%02d:%02d:%02dZ",
       gps_data.year, gps_data.month, gps_data.day, gps_data.hour, gps_data.minute, gps_data.second);
 
   sprintf(

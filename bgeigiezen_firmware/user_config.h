@@ -35,10 +35,6 @@ constexpr int GEIGER_PULSE_GPIO = 2;
 
 // - GNSS
 constexpr int GPS_SERIAL_NUM = 2;
-constexpr uint32_t GPS_BAUD_RATE = 38400;
-constexpr uint16_t GPS_INVALID_YEAR = 2000;
-constexpr uint16_t GPS_PDOP_THRESHOLD = 500;  // Exact value TBD
-constexpr uint8_t GPS_SATS_THRESHOLD = 4;  // strictly necessary is 4, but more is better
 constexpr uint32_t GPS_FIX_AGE_LIMIT = 4500; // ms before we decide the fix is too old.
 
 // - LCD display

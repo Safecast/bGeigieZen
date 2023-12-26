@@ -89,6 +89,35 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     const auto heading_width = M5.Lcd.drawString("Heading  :", 0, 165, 1); // Prints after ush value
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
     printFloatFont(0.0, 1, 0 + distance_width, 157, 1); // Prints after ush value
+    switch (gps->get_data().heading) {
+      case GnssData::UNKNOWN:
+        M5.Lcd.drawString("Unknown", 0 + heading_width, 165, 1);
+        break;
+      case GnssData::NORTH:
+        M5.Lcd.drawString("North", 0 + heading_width, 165, 1);
+        break;
+      case GnssData::NORTHEAST:
+        M5.Lcd.drawString("Northeast", 0 + heading_width, 165, 1);
+        break;
+      case GnssData::EAST:
+        M5.Lcd.drawString("East", 0 + heading_width, 165, 1);
+        break;
+      case GnssData::SOUTHEAST:
+        M5.Lcd.drawString("Southeast", 0 + heading_width, 165, 1);
+        break;
+      case GnssData::SOUTH:
+        M5.Lcd.drawString("South", 0 + heading_width, 165, 1);
+        break;
+      case GnssData::SOUTHWEST:
+        M5.Lcd.drawString("Southwest", 0 + heading_width, 165, 1);
+        break;
+      case GnssData::WEST:
+        M5.Lcd.drawString("West", 0 + heading_width, 165, 1);
+        break;
+      case GnssData::NORTHWEST:
+        M5.Lcd.drawString("Northwest", 0 + heading_width, 165, 1);
+        break;
+    }
     M5.Lcd.drawString("Somewhere", 0 + heading_width, 165, 1); // Prints after ush value
 
     // Print location data
