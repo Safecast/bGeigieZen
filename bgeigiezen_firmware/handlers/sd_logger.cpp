@@ -3,10 +3,10 @@
 #include "utils/sd_wrapper.h"
 #include "workers/rtc_connector.h"
 
-// e.g. /drives/latest.txt
-#define TEMP_LOG_NAME_F "%s/latest.txt"
-// e.g. /drives/2023-11-20_1230.txt
-#define DATED_LOG_NAME_F "%s/%04d-%02d-%02d_%02d%02d.txt"
+// e.g. /drives/latest.log
+#define TEMP_LOG_NAME_F "%s/latest.log"
+// e.g. /drives/2023-11-20_1230.log
+#define DATED_LOG_NAME_F "%s/%04d-%02d-%02d_%02d%02d.log"
 
 
 SdLogger::SdLogger(LocalStorage& config, const LogType log_type) : Handler(), _config(config), _log_type(log_type), _logging_to(""), _is_temp(true), _total(0) {
