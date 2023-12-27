@@ -16,7 +16,6 @@
 #define SD_CONFIG_FIELD_SENSOR_SHIELD "sensor_shield"
 #define SD_CONFIG_FIELD_SENSOR_MODE "sensor_mode"
 #define SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD "access_point_password"
-#define SD_CONFIG_FIELD_CLICK_SOUND_LEVEL "click_sound_level"
 #define SD_CONFIG_FIELD_ALARM_THRESHOLD "alarm_threshold"
 #define SD_CONFIG_FIELD_WIFI_SSID "wifi_ssid"
 #define SD_CONFIG_FIELD_WIFI_PASSWORD "wifi_password"
@@ -38,7 +37,6 @@ constexpr char sd_config_sensor_type_f[] = SD_CONFIG_FIELD_SENSOR_TYPE"=%d";
 constexpr char sd_config_sensor_shield_f[] = SD_CONFIG_FIELD_SENSOR_SHIELD"=%d";
 constexpr char sd_config_sensor_mode_f[] = SD_CONFIG_FIELD_SENSOR_MODE"=%d";
 constexpr char sd_config_access_point_password_f[] = SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD"=%s";
-constexpr char sd_config_click_sound_level_f[] = SD_CONFIG_FIELD_CLICK_SOUND_LEVEL"=%hhu";
 constexpr char sd_config_alarm_threshold_f[] = SD_CONFIG_FIELD_ALARM_THRESHOLD"=%d";
 constexpr char sd_config_wifi_ssid_f[] = SD_CONFIG_FIELD_WIFI_SSID"=%s";
 constexpr char sd_config_wifi_password_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD"=%s";
@@ -141,12 +139,12 @@ SDInterface::SdStatus SDInterface::has_safezen_content(uint16_t device_id) {
     return _status = e_sd_config_status_config_no_content;
   }
 
-  uint32_t file_device_id = 0;
+  _device_id = 0;
 
   while (setup_file.available()) {
     String line = setup_file.readStringUntil('\n');
     if (line.startsWith(SD_CONFIG_FIELD_DEVICE_ID)) {
-      sscanf(line.c_str(), sd_config_device_id_f, &file_device_id);
+      sscanf(line.c_str(), sd_config_device_id_f, &_device_id);
       break;
     }
   }
@@ -154,9 +152,9 @@ SDInterface::SdStatus SDInterface::has_safezen_content(uint16_t device_id) {
   // close the setup file
   setup_file.close();
 
-  if (file_device_id == 0) {
+  if (_device_id == 0) {
     _status = e_sd_config_status_config_no_content;
-  } else if (device_id && file_device_id != device_id) {
+  } else if (device_id && _device_id != device_id) {
     _status = e_sd_config_status_config_different_id;
   } else {
     _status = e_sd_config_status_ok;
@@ -203,9 +201,7 @@ bool SDInterface::read_safezen_file_to_settings(LocalStorage& settings) {
 
 bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   // Device settings
-  uint32_t device_id = 0;
   char access_point_password[CONFIG_VAL_MAX] = "";
-  uint8_t click_sound_level = 0;
   uint32_t alarm_threshold = 0;
 
   // Connection settings
@@ -224,52 +220,47 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
       continue;
     }
     else if (line.startsWith(SD_CONFIG_FIELD_DEVICE_ID)) {
-      if (sscanf(line.c_str(), sd_config_device_id_f, &device_id)) {
-        settings.set_device_id(device_id, true);
+      if (sscanf(line.c_str(), sd_config_device_id_f, &_device_id)) {
+        settings.set_device_id(_device_id, true);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_API_KEY)) {
-      if (device_id && sscanf(line.c_str(), sd_config_api_key_f, api_key)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_api_key_f, api_key)) {
         settings.set_api_key(api_key, true);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD)) {
-      if (device_id && sscanf(line.c_str(), sd_config_access_point_password_f, access_point_password)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_access_point_password_f, access_point_password)) {
         settings.set_ap_password(access_point_password, true);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_WIFI_SSID)) {
-      if (device_id && sscanf(line.c_str(), sd_config_wifi_ssid_f, wifi_ssid)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_wifi_ssid_f, wifi_ssid)) {
         settings.set_wifi_ssid(wifi_ssid, true);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_WIFI_PASSWORD)) {
-      if (device_id && sscanf(line.c_str(), sd_config_wifi_password_f, wifi_password)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_wifi_password_f, wifi_password)) {
         settings.set_wifi_password(wifi_password, true);
       }
     }
-    else if (line.startsWith(SD_CONFIG_FIELD_CLICK_SOUND_LEVEL)) {
-      if (device_id && sscanf(line.c_str(), sd_config_click_sound_level_f, &click_sound_level)) {
-        settings.set_click_sound_level(click_sound_level, true);
-      }
-    }
     else if (line.startsWith(SD_CONFIG_FIELD_ALARM_THRESHOLD)) {
-      if (device_id && sscanf(line.c_str(), sd_config_alarm_threshold_f, &alarm_threshold)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_alarm_threshold_f, &alarm_threshold)) {
         settings.set_alarm_threshold(alarm_threshold, true);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_FIXED_LATITUDE)) {
-      if (device_id && sscanf(line.c_str(), sd_config_fixed_latitude_f, &fixed_latitude)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_fixed_latitude_f, &fixed_latitude)) {
         settings.set_fixed_latitude(fixed_latitude, true);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_FIXED_LONGITUDE)) {
-      if (device_id && sscanf(line.c_str(), sd_config_fixed_longitude_f, &fixed_longitude)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_fixed_longitude_f, &fixed_longitude)) {
         settings.set_fixed_longitude(fixed_longitude, true);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_FIXED_RANGE)) {
-      if (device_id && sscanf(line.c_str(), sd_config_fixed_range_f, &fixed_range)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_fixed_range_f, &fixed_range)) {
         settings.set_fixed_range(fixed_range, true);
       }
     } else {
@@ -281,13 +272,13 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
 
   _last_read = millis();
 
-  if (device_id) {
+  if (_device_id == settings.get_device_id()) {
     DEBUG_PRINTLN("Successfully loaded settings from SD config into memory");
     _status = e_sd_config_status_ok;
   } else {
     _status = e_sd_config_status_no_config_file;
   }
-  return !!device_id;
+  return !!_device_id;
 }
 
 bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings, bool full) {
@@ -322,8 +313,6 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
   safecast_txt.printf(sd_config_wifi_ssid_f, settings.get_wifi_ssid());
   safecast_txt.println();
   safecast_txt.printf(sd_config_wifi_password_f, settings.get_wifi_password());
-  safecast_txt.println();
-  safecast_txt.printf(sd_config_click_sound_level_f, settings.get_click_sound_level());
   safecast_txt.println();
   safecast_txt.printf(sd_config_alarm_threshold_f, settings.get_alarm_threshold());
   safecast_txt.println();

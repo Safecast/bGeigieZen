@@ -122,6 +122,7 @@ class SDInterface {
 
 
   SdStatus _status;
+  uint32_t _device_id;
   uint32_t _last_read;
   uint32_t _last_write;
   uint32_t _last_try;

@@ -30,7 +30,6 @@ void GFXScreen::initialize() {
   M5.BtnA.set(10, 230, 90, 50);
   M5.BtnB.set(115, 230, 90, 50);
   M5.BtnC.set(220, 230, 90, 50);
-#else
 #endif
 
   _screen = &BootScreen_i;
@@ -183,18 +182,12 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
 
         // Status icon: GPS
         const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
-        uint8_t satellites = 0;  // temp for satellites to display
         if (!gps->active()) {
           M5.Lcd.setTextColor(_screen->has_required_gps() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, TFT_BLACK);
           M5.Lcd.printf("GPS ");
         } else {
-          if (gps->get_data().location_valid) {
-            satellites = gps->get_data().satsInView;
-            M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, TFT_BLACK);
-          } else {
-            M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
-          }
-          M5.Lcd.printf("GPS%d ", satellites);
+          M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_ACTIVITY : LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
+          M5.Lcd.printf("GPS%d ", gps->get_data().satsInView);
         }
 
         // Status icon: SD
