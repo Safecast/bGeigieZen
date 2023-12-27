@@ -11,7 +11,7 @@
 
 DriveModeScreen DriveModeScreen_i;
 
-DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _logging_available(false), _currently_logging(false), _logging_start(0), _logging_stop(0) {
+DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _logging_available(false), _currently_logging(false), _logging_start(0), _logging_stop(0), _distance_start(0) {
   required_tube = true;
   required_gps = true;
   required_sd = true;
@@ -38,6 +38,7 @@ BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_m
 
 void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   const auto& controller_data = workers.worker<Controller>(k_worker_device_state)->get_data();
+  const auto& log_aggregator = workers.worker<LogAggregator>(k_worker_log_aggregator);
   _logging_available = controller_data.local_available && controller_data.sd_card_status == SDInterface::e_sd_config_status_ok;
 
   bool currently_logging = handlers.handler<SdLogger>(k_handler_drive_logger)->active();
@@ -46,6 +47,7 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     _logging_start = 0;
   } else if (!_currently_logging && currently_logging) {
     _logging_start = millis();
+    _distance_start = log_aggregator->get_data().distance;
     _logging_stop = 0;
   }
   _currently_logging = currently_logging;
@@ -88,8 +90,36 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     const auto distance_width = M5.Lcd.drawString("Distance :", 0, 157, 1); // Prints after ush value
     const auto heading_width = M5.Lcd.drawString("Heading  :", 0, 165, 1); // Prints after ush value
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    printFloatFont(0.0, 1, 0 + distance_width, 157, 1); // Prints after ush value
-    M5.Lcd.drawString("Somewhere", 0 + heading_width, 165, 1); // Prints after ush value
+    printFloatFont(log_aggregator->get_data().distance - _distance_start, 1, 0 + distance_width, 157, 1); // Prints after ush value
+    switch (gps->get_data().heading) {
+      case GnssData::UNKNOWN:
+        M5.Lcd.drawString("Unknown", 0 + heading_width, 165, 1);
+        break;
+      case GnssData::NORTH:
+        M5.Lcd.drawString("North", 0 + heading_width, 165, 1);
+        break;
+      case GnssData::NORTHEAST:
+        M5.Lcd.drawString("Northeast", 0 + heading_width, 165, 1);
+        break;
+      case GnssData::EAST:
+        M5.Lcd.drawString("East", 0 + heading_width, 165, 1);
+        break;
+      case GnssData::SOUTHEAST:
+        M5.Lcd.drawString("Southeast", 0 + heading_width, 165, 1);
+        break;
+      case GnssData::SOUTH:
+        M5.Lcd.drawString("South", 0 + heading_width, 165, 1);
+        break;
+      case GnssData::SOUTHWEST:
+        M5.Lcd.drawString("Southwest", 0 + heading_width, 165, 1);
+        break;
+      case GnssData::WEST:
+        M5.Lcd.drawString("West", 0 + heading_width, 165, 1);
+        break;
+      case GnssData::NORTHWEST:
+        M5.Lcd.drawString("Northwest", 0 + heading_width, 165, 1);
+        break;
+    }
 
     // Print location data
     M5.Lcd.setCursor(170, 150);
@@ -118,6 +148,8 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 void DriveModeScreen::leave_screen(Controller& controller) {
   // close logging to file
   controller.set_handler_active(k_handler_drive_logger, false);
+  _logging_start = 0;
+  _logging_stop = 0;
 }
 
 const __FlashStringHelper* DriveModeScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) const {

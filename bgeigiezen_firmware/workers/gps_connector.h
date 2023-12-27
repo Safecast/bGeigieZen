@@ -23,7 +23,7 @@
 // Uncomment the next line (or add SFE_UBLOX_DISABLE_AUTO_NMEA as a compiler directive) to reduce the amount of program memory used by the library
 #define SFE_UBLOX_DISABLE_AUTO_NMEA // Uncommenting this line will disable auto-NMEA support to save memory
 #include <SparkFun_u-blox_GNSS_Arduino_Library.h>
-#include <u-blox_structs.h>  // structs internal to SparkFun library
+#include <u-blox_structs.h> // structs internal to SparkFun library
 
 struct GnssData {
   // When true, the item related to each Boolean is valid and updated in the
@@ -39,10 +39,24 @@ struct GnssData {
     return location_valid && date_valid && time_valid;
   }
 
+  enum Heading {
+    UNKNOWN,
+    NORTH,
+    NORTHEAST,
+    EAST,
+    SOUTHEAST,
+    SOUTH,
+    SOUTHWEST,
+    WEST,
+    NORTHWEST,
+  };
+
   // Position
   double latitude;  // Longitude: deg
   double longitude; // Longitude: deg
   double altitudeMSL;  // above mean sea level in meters
+  double heading_degree; // in degrees
+  Heading heading;
 
   // Confidence
   uint8_t satsInView;  // satellites used to calculate fix
@@ -64,7 +78,7 @@ struct GnssData {
 class GpsConnector : public Worker<GnssData> {
  public:
 
-  explicit GpsConnector(uint8_t gps_serial_num, SFE_UBLOX_GNSS& gnss);
+  explicit GpsConnector(SFE_UBLOX_GNSS& _gnss);
 
   virtual ~GpsConnector() = default;
 
@@ -78,7 +92,7 @@ class GpsConnector : public Worker<GnssData> {
    * each call only succeeds once until the next fix update.
    * Use pdop and satsInView to determine acceptability.
   */
-  SFE_UBLOX_GNSS& gnss;
+  SFE_UBLOX_GNSS& _gnss;
   HardwareSerial ss;
   uint32_t tried_38400_at;
   uint32_t tried_9600_at;
