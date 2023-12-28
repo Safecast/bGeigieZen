@@ -146,7 +146,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
       if (_screen->has_status_bar()) {
         // Render message if available on top of bar
         if (_screen->get_error_message(workers, handlers)) {
-          M5.Lcd.setTextColor(LCD_COLOR_BACKGROUND, LCD_COLOR_ERROR);
+          M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_ERROR);
           auto text_width = M5.Lcd.drawString(_screen->get_error_message(workers, handlers), 0, 220, 2);
           M5.Lcd.fillRect(text_width, 200, 320 - text_width, 20, LCD_COLOR_BACKGROUND);
         } else if (_screen->get_status_message(workers, handlers)) {
