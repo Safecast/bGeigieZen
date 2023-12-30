@@ -4,33 +4,20 @@
 #include "identifiers.h"
 
 #define RETRY_TIMEOUT 10000
-#define HOME_LOCATION_PRECISION_KM 0.4
 
 // subtracting 1 seconds so data is sent more often than not.
-#define SEND_FREQUENCY(last_send, sec, slack) (last_send == 0 || (millis() - last_send) > ((sec * 1000) - slack))
+#define SEND_FREQUENCY(last_send, sec) (last_send == 0 || (millis() - last_send) > ((sec * 1000) - 500))
 
-ApiConnector::ApiConnector(LocalStorage& config) :
-    Handler(),
-    _config(config),
-    _last_success_send(0),
-    _current_default_response(e_api_reporter_idle) {
+ApiConnector::ApiConnector(LocalStorage& config) : Handler(), _config(config), _last_post(0){
 }
 
-bool ApiConnector::time_to_send(unsigned offset) const {
-  switch (e_api_send_frequency_1_min) {
-    case e_api_send_frequency_5_sec:
-      return SEND_FREQUENCY(_last_success_send, 5, offset);
-    case e_api_send_frequency_1_min:
-      return SEND_FREQUENCY(_last_success_send, 60, offset);
-    case e_api_send_frequency_5_min:
-    default:  // Default 5 min frequency
-      return SEND_FREQUENCY(_last_success_send, 5 * 60, offset);
-  }
+bool ApiConnector::time_to_send() const {
+  return SEND_FREQUENCY(_last_post, API_SEND_SECONDS_DELAY);
 }
 
 bool ApiConnector::activate(bool retry) {
   static uint32_t last_try = 0;
-  if (WiFiConnectionWrapper::wifi_connected()) {
+  if (WiFiWrapper_i.wifi_connected()) {
     return true;
   }
   if (retry && millis() - last_try < RETRY_TIMEOUT) {
@@ -38,46 +25,45 @@ bool ApiConnector::activate(bool retry) {
   }
   last_try = millis();
 
-  WiFiConnectionWrapper::connect_wifi(_config.get_wifi_ssid(), _config.get_wifi_password());
+  WiFiWrapper_i.connect_wifi(_config.get_wifi_ssid(), _config.get_wifi_password(), !retry);
 
   return WiFi.isConnected();
 }
 
 void ApiConnector::deactivate() {
-  _current_default_response = e_api_reporter_idle;
-  WiFiConnectionWrapper::disconnect_wifi();
+  WiFiWrapper_i.disconnect_wifi();
 }
 
 int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
-  const auto& data_worker = workers.worker<LogAggregator>(k_worker_log_aggregator);
-
-  if (!data_worker || !data_worker->is_fresh()) {
-    // No fresh data
-    return _current_default_response;
+  if (!_config.get_fixed_device_id()) {
+    // Cant even send anything, because there is an invalid id
+    return e_api_reporter_idle;
   }
-
   if (!time_to_send()) {
-    if (time_to_send(6000)) {
-      // almost time to send, start wifi if not connected yet
-      activate(true);
-    }
-    return _current_default_response;
+    return e_api_reporter_idle;
   }
 
-  const auto& line = data_worker->get_data();
+  const auto& log_aggregator = workers.worker<LogAggregator>(k_worker_log_aggregator);
+  const auto& log_data = log_aggregator->get_data();
 
-  if (line.valid && line.in_fixed_range) {
-    const unsigned long time_at_send = millis();
-    _current_default_response = send_reading(line);
-
-    if (_current_default_response == e_api_reporter_send_success) {
-      _last_success_send = time_at_send;
-    }
+  if (!log_aggregator->is_fresh()) {
+    // No fresh data
+    return e_api_reporter_idle;
   }
-  return _current_default_response;
+  if (!log_data.valid()) {
+    // data not valid (either gm or gps)
+    return e_api_reporter_idle;
+  }
+  if (FIXED_MODE_FORCE_LOCATION && !log_data.in_fixed_range) {
+    // Not in fixed range
+    return e_api_reporter_idle;
+  }
+
+  return send_reading(log_data);
 }
 
 ApiConnector::ApiHandlerStatus ApiConnector::send_reading(const DataLine& data) {
+  const unsigned long time_at_send = millis();
 
   if (!WiFi.isConnected() && !activate(true)) {
     DEBUG_PRINTLN("Unable to send, lost connection");
@@ -111,20 +97,16 @@ ApiConnector::ApiHandlerStatus ApiConnector::send_reading(const DataLine& data) 
   http.addHeader("Content-Type", HEADER_API_CONTENT_TYPE);
   http.addHeader("Content-Length", content_length);
 
-  // TODO: perhaps api send in separate thread
-
   int httpResponseCode = http.POST(payload);
 
   String response = http.getString();
   DEBUG_PRINTF("POST complete, status %d\r\nrepsonse: \r\n\r\n%s\r\n\r\n", httpResponseCode, response.c_str());
   http.end();  //Free resources
 
-//  if (_config.get_send_frequency() != e_api_send_frequency_5_sec) {
-    // Disconnect from wifi between readings (not needed when sending every 5 seconds)
-//    WiFiConnectionWrapper::disconnect_wifi();
-//  }
-
   // TODO: Check response measurement ID
+
+  WiFiWrapper_i.update_active();
+  _last_post = time_at_send;
 
   switch (httpResponseCode) {
     case 200 ... 204:
@@ -153,7 +135,7 @@ bool ApiConnector::reading_to_json(const DataLine& line, char* out) {
       "\"longitude\":%.5f,"
       "\"latitude\":%.5f}\n",
       line.timestamp,
-      _config.get_device_id(),
+      _config.get_fixed_device_id(),
       line.cpm,
       _config.get_fixed_longitude(),
       _config.get_fixed_latitude()

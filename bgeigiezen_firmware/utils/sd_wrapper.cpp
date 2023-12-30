@@ -43,7 +43,7 @@ constexpr char sd_config_wifi_password_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD"=%s";
 constexpr char sd_config_api_key_f[] = SD_CONFIG_FIELD_API_KEY"=%s";
 constexpr char sd_config_fixed_latitude_f[] = SD_CONFIG_FIELD_FIXED_LATITUDE"=%lf";
 constexpr char sd_config_fixed_longitude_f[] = SD_CONFIG_FIELD_FIXED_LONGITUDE"=%lf";
-constexpr char sd_config_fixed_range_f[] = SD_CONFIG_FIELD_FIXED_RANGE"=%hu";
+constexpr char sd_config_fixed_range_f[] = SD_CONFIG_FIELD_FIXED_RANGE"=%f";
 
 
 SDInterface::SDInterface() : _status(SdStatus::e_sd_config_status_not_ready), _last_read(0), _last_write(0), _last_try(0) {
@@ -221,46 +221,73 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
     }
     else if (line.startsWith(SD_CONFIG_FIELD_DEVICE_ID)) {
       if (sscanf(line.c_str(), sd_config_device_id_f, &_device_id)) {
+        DEBUG_PRINT("Loaded from SD ");
+        DEBUG_PRINTF(sd_config_device_id_f, _device_id);
+        DEBUG_PRINTLN();
         settings.set_device_id(_device_id, true);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_API_KEY)) {
       if (_device_id && sscanf(line.c_str(), sd_config_api_key_f, api_key)) {
+        DEBUG_PRINT("Loaded from SD ");
+        DEBUG_PRINTF(sd_config_api_key_f, api_key);
+        DEBUG_PRINTLN();
         settings.set_api_key(api_key, true);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD)) {
       if (_device_id && sscanf(line.c_str(), sd_config_access_point_password_f, access_point_password)) {
+        DEBUG_PRINT("Loaded from SD ");
+        DEBUG_PRINTF(sd_config_access_point_password_f, access_point_password);
+        DEBUG_PRINTLN();
         settings.set_ap_password(access_point_password, true);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_WIFI_SSID)) {
       if (_device_id && sscanf(line.c_str(), sd_config_wifi_ssid_f, wifi_ssid)) {
+        DEBUG_PRINT("Loaded from SD ");
+        DEBUG_PRINTF(sd_config_wifi_ssid_f, wifi_ssid);
+        DEBUG_PRINTLN();
         settings.set_wifi_ssid(wifi_ssid, true);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_WIFI_PASSWORD)) {
       if (_device_id && sscanf(line.c_str(), sd_config_wifi_password_f, wifi_password)) {
+        DEBUG_PRINT("Loaded from SD ");
+        DEBUG_PRINTF(sd_config_wifi_password_f, wifi_password);
+        DEBUG_PRINTLN();
         settings.set_wifi_password(wifi_password, true);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_ALARM_THRESHOLD)) {
       if (_device_id && sscanf(line.c_str(), sd_config_alarm_threshold_f, &alarm_threshold)) {
+        DEBUG_PRINT("Loaded from SD ");
+        DEBUG_PRINTF(sd_config_alarm_threshold_f, alarm_threshold);
+        DEBUG_PRINTLN();
         settings.set_alarm_threshold(alarm_threshold, true);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_FIXED_LATITUDE)) {
       if (_device_id && sscanf(line.c_str(), sd_config_fixed_latitude_f, &fixed_latitude)) {
+        DEBUG_PRINT("Loaded from SD ");
+        DEBUG_PRINTF(sd_config_fixed_latitude_f, fixed_latitude);
+        DEBUG_PRINTLN();
         settings.set_fixed_latitude(fixed_latitude, true);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_FIXED_LONGITUDE)) {
       if (_device_id && sscanf(line.c_str(), sd_config_fixed_longitude_f, &fixed_longitude)) {
+        DEBUG_PRINT("Loaded from SD ");
+        DEBUG_PRINTF(sd_config_fixed_longitude_f, fixed_longitude);
+        DEBUG_PRINTLN();
         settings.set_fixed_longitude(fixed_longitude, true);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_FIXED_RANGE)) {
       if (_device_id && sscanf(line.c_str(), sd_config_fixed_range_f, &fixed_range)) {
+        DEBUG_PRINT("Loaded from SD ");
+        DEBUG_PRINTF(sd_config_fixed_range_f, fixed_range);
+        DEBUG_PRINTLN();
         settings.set_fixed_range(fixed_range, true);
       }
     } else {

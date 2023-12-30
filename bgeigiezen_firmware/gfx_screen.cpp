@@ -10,6 +10,7 @@
 #include "identifiers.h"
 #include "screens/boot_screen.h"
 #include "screens/default_entry_screen.h"
+#include "utils/wifi_connection.h"
 #include "workers/battery_indicator.h"
 #include "workers/gm_sensor.h"
 #include "workers/rtc_connector.h"
@@ -198,8 +199,12 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         }
         M5.Lcd.print("SD ");
 
-        // Status icon: WiFi
-        M5.Lcd.setTextColor(_screen->has_required_wifi() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
+        // Status icon: Wi-Fi
+        if (WiFiWrapper_i.wifi_connected()) {
+          M5.Lcd.setTextColor(WiFiWrapper_i.was_active() ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        } else {
+          M5.Lcd.setTextColor(_screen->has_required_wifi() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
+        }
         M5.Lcd.print("WF ");
 
         // Status icon: Bluetooth

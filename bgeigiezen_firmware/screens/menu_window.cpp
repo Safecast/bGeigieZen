@@ -26,7 +26,7 @@ MenuWindow::MenuItem SURVEY_MENU_ITEM = {
 MenuWindow::MenuItem FIXED_MENU_ITEM = {
     "Fixed mode",
     "Place the zen at a    fixed location and    upload data over     wifi!",
-    false,
+    true,
     &FixedModeScreen_i,
 };
 MenuWindow::MenuItem LOG_VIEWER_MENU_ITEM = {

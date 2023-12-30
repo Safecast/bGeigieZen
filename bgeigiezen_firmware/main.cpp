@@ -52,6 +52,7 @@
 #include "controller.h"
 #include "debugger.h"
 #include "gfx_screen.h"
+#include "handlers/api_connector.h"
 #include "handlers/sd_logger.h"
 #include "identifiers.h"
 #include "workers/battery_indicator.h"
@@ -81,6 +82,7 @@ LogAggregator log_aggregator(settings);
 SdLogger journal_logger(settings, SdLogger::journal);
 SdLogger drive_logger(settings, SdLogger::drive);
 SdLogger survey_logger(settings, SdLogger::survey);
+ApiConnector api_connector(settings);
 
 // Supervisors
 GFXScreen gfx_screen(settings, controller);
@@ -120,6 +122,7 @@ void setup() {
   controller.register_handler(k_handler_journal_logger, journal_logger);
   controller.register_handler(k_handler_drive_logger, drive_logger);
   controller.register_handler(k_handler_survey_logger, survey_logger);
+  controller.register_handler(k_handler_api_reporter, api_connector);
 
   DEBUG_PRINTLN("Register supervisors...");
   controller.register_supervisor(gfx_screen);

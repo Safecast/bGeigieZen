@@ -64,6 +64,10 @@ int8_t RtcConnector::produce_data(const worker_map_t& workers) {
     data.month = dateStruct.month;
     data.year = dateStruct.year;
 
+    if (gps_data.time_valid && gps_data.date_valid && (gps_data.day != data.day || gps_data.hour != data.hour)) {
+      set_from_gps(gps_data);
+    }
+
     ret_status = e_worker_data_read;
   } else {
     // Unable to validate data, check gps

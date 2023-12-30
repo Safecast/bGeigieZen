@@ -1,15 +1,21 @@
 #ifndef WORKERS_LOG_AGGREGATOR_H
 #define WORKERS_LOG_AGGREGATOR_H
 
-#include "handlers/local_storage.h"
+#include "local_storage.h"
+#include "user_config.h"
 #include <Handler.hpp>
 
 /**
  * Data collection
  */
 struct DataLine {
-  bool valid = false;
-  char log_string[100] = "";
+  bool gps_valid = false;
+  bool gm_valid = false;
+  char log_string[LINE_BUFFER_SIZE] = "";
+
+  bool valid() const {
+    return gps_valid && gm_valid;
+  }
 
   uint16_t cpm = 0;
   char timestamp[20] = "";

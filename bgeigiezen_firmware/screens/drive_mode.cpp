@@ -11,7 +11,7 @@
 
 DriveModeScreen DriveModeScreen_i;
 
-DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _logging_available(false), _currently_logging(false), _logging_start(0), _logging_stop(0), _distance_start(0) {
+DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _logging_available(false), _currently_logging(false), _distance_start(0) {
   required_tube = true;
   required_gps = true;
   required_sd = true;
@@ -43,12 +43,10 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 
   bool currently_logging = handlers.handler<SdLogger>(k_handler_drive_logger)->active();
   if (_currently_logging && !currently_logging) {
-    _logging_stop = millis();
-    _logging_start = 0;
+    set_status_message(F(" COMPLETED LOGGING DRIVE "));
   } else if (!_currently_logging && currently_logging) {
-    _logging_start = millis();
+    set_status_message(F(" STARTED LOGGING, safe travels! "));
     _distance_start = log_aggregator->get_data().distance;
-    _logging_stop = 0;
   }
   _currently_logging = currently_logging;
 
@@ -73,14 +71,15 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
     auto cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 0, 100, 7);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-    M5.Lcd.drawString(" CPM        ", 0 + cpm_width, 105, 4); // Prints after cpm value
-    M5.Lcd.drawString("        ", 0 + cpm_width, 105 - 26, 4); // Prints blanks after cpm value, above CPM text
+    M5.Lcd.fillRect(cpm_width, 52, 320 - cpm_width, 22, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
+    cpm_width += M5.Lcd.drawString(" CPM", cpm_width, 105, 4); // Prints after cpm value
+    M5.Lcd.fillRect(cpm_width, 74, 320 - cpm_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CPM text
 
     // Display uSv/h
     M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
     auto ush_width = printFloatFont(gm_sensor->get_data().uSv, 4, 0, 140, 4);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-    M5.Lcd.drawString(" uSv/h", 0 + ush_width, 140, 4); // Prints after ush value
+    M5.Lcd.drawString(" uSv/h   ", 0 + ush_width, 140, 4); // Prints after ush value
   }
 
   // Display GPS data always, change colour if not fresh
@@ -148,16 +147,4 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 void DriveModeScreen::leave_screen(Controller& controller) {
   // close logging to file
   controller.set_handler_active(k_handler_drive_logger, false);
-  _logging_start = 0;
-  _logging_stop = 0;
-}
-
-const __FlashStringHelper* DriveModeScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) const {
-  if (_logging_start && _logging_start + STATUS_MESSAGE_DURATION > millis()) {
-    return F(" STARTED LOGGING, safe travels! ");
-  }
-  if (_logging_stop && _logging_stop + STATUS_MESSAGE_DURATION > millis()) {
-    return F(" COMPLETED LOGGING DRIVE ");
-  }
-  return BaseScreen::get_status_message(workers, handlers);
 }
