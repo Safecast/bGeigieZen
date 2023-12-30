@@ -93,11 +93,12 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
 
   sprintf(
       data.log_string,
-      "$%s,%04d,%s,%u,%u,%u,%c,%0.4f,%c,%0.4f,%c,%.1f,%c,%d,%.1f",
+      "$%s,%04d,%s,%u,%u,%u,%c,%0.4f,%c,%0.4f,%c,%.1f,%c,%d,%d",
       DEVICE_HEADER, _settings.get_device_id(),
       data.timestamp,
       gm_sensor_data.cpm_comp, gm_sensor_data.cp5s, gm_sensor_data.total, gm_sensor_data.valid ? 'A' : 'V',
-      latitude, NS, longitude, WE, data.altitude, gps_data.valid() ? 'A' : 'V', gps_data.satsInView, gps_data.pdop);
+      latitude, NS, longitude, WE, data.altitude, gps_data.valid() ? 'A' : 'V', gps_data.satsInView,
+      static_cast<int>(100 * gps_data.pdop));  // DOP logged as integer, displayed as float 
 
   size_t len = 0;
   len = strlen(data.log_string);
