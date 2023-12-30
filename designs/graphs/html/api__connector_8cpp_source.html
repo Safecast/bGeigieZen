@@ -60,19 +60,19 @@ $(function() {
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_api_connector.html#abc35b6946aaa4ea60a97154beefa638b">   12</a></span><a class="code hl_function" href="class_api_connector.html#abc35b6946aaa4ea60a97154beefa638b">ApiConnector::ApiConnector</a>(<a class="code hl_class" href="class_local_storage.html">LocalStorage</a>&amp; config) :</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    Handler(),</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    _config(config),</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    _last_success_send(0),</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    _last_post(0),</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    _current_default_response(e_api_reporter_idle) {</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>}</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_api_connector.html#af62308ca3c907717f3217491b7a6612c">   19</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="class_api_connector.html#af62308ca3c907717f3217491b7a6612c">ApiConnector::time_to_send</a>(<span class="keywordtype">unsigned</span> offset)<span class="keyword"> const </span>{</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keywordflow">switch</span> (<a class="code hl_enumvalue" href="class_api_connector.html#ac9c3a14b1645b5a60031ef9d6e39adc4aeeb7d9827cf810be5f209638a7e56c33">e_api_send_frequency_1_min</a>) {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_api_connector.html#ac9c3a14b1645b5a60031ef9d6e39adc4ae695d59916bd6aa20cbd36b3e9e43486">e_api_send_frequency_5_sec</a>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>      <span class="keywordflow">return</span> <a class="code hl_define" href="api__connector_8cpp.html#a6f0fba88f0240d897c0d29cecd95d525">SEND_FREQUENCY</a>(_last_success_send, 5, offset);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>      <span class="keywordflow">return</span> <a class="code hl_define" href="api__connector_8cpp.html#a6f0fba88f0240d897c0d29cecd95d525">SEND_FREQUENCY</a>(_last_post, 5, offset);</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_api_connector.html#ac9c3a14b1645b5a60031ef9d6e39adc4aeeb7d9827cf810be5f209638a7e56c33">e_api_send_frequency_1_min</a>:</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>      <span class="keywordflow">return</span> <a class="code hl_define" href="api__connector_8cpp.html#a6f0fba88f0240d897c0d29cecd95d525">SEND_FREQUENCY</a>(_last_success_send, 60, offset);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>      <span class="keywordflow">return</span> <a class="code hl_define" href="api__connector_8cpp.html#a6f0fba88f0240d897c0d29cecd95d525">SEND_FREQUENCY</a>(_last_post, 60, offset);</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_api_connector.html#ac9c3a14b1645b5a60031ef9d6e39adc4a55fc1e5ea7d88d8095033d37c67d52a4">e_api_send_frequency_5_min</a>:</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">default</span>:  <span class="comment">// Default 5 min frequency</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>      <span class="keywordflow">return</span> <a class="code hl_define" href="api__connector_8cpp.html#a6f0fba88f0240d897c0d29cecd95d525">SEND_FREQUENCY</a>(_last_success_send, 5 * 60, offset);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>      <span class="keywordflow">return</span> <a class="code hl_define" href="api__connector_8cpp.html#a6f0fba88f0240d897c0d29cecd95d525">SEND_FREQUENCY</a>(_last_post, 5 * 60, offset);</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  }</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
@@ -119,7 +119,7 @@ $(function() {
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    _current_default_response = send_reading(line);</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordflow">if</span> (_current_default_response == <a class="code hl_enumvalue" href="class_api_connector.html#aa01a2d79292ffd453d566d12f6dd3717a5c6cf8f03d275050a7373e360dff0909">e_api_reporter_send_success</a>) {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>      _last_success_send = time_at_send;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>      _last_post = time_at_send;</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  }</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  <span class="keywordflow">return</span> _current_default_response;</div>

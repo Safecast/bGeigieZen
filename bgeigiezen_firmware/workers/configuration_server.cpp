@@ -18,15 +18,15 @@ ConfigWebServer::ConfigWebServer(LocalStorage& config)
 }
 
 bool ConfigWebServer::activate(bool) {
-  if(WiFiConnectionWrapper::wifi_connected() || WiFiConnectionWrapper::ap_server_up()) {
+  if(WiFiWrapper_i.wifi_connected() || WiFiWrapper_i.ap_server_up()) {
     // Set DNS hostname for easy access
     char hostname[16];
     sprintf(hostname, ACCESS_POINT_SSID, _config.get_device_id());
-    WiFiConnectionWrapper::set_hostname(hostname, true);
+    WiFiWrapper_i.set_hostname(hostname, true);
 
     // Start config server
     _server.begin(SERVER_WIFI_PORT);
-    HttpPages::internet_access = WiFiConnectionWrapper::wifi_connected();
+    HttpPages::internet_access = WiFiWrapper_i.wifi_connected();
     return true;
   }
   return false;

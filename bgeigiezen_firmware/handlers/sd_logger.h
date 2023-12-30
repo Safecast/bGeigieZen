@@ -3,7 +3,7 @@
 
 #include <Handler.hpp>
 
-#include "local_storage.h"
+#include "workers/local_storage.h"
 #include "user_config.h"
 #include "workers/log_aggregator.h"
 

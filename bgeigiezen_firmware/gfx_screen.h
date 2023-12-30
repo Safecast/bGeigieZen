@@ -1,7 +1,7 @@
 #ifndef BGEIGIEZEN_GFX_SCREEN_H_
 #define BGEIGIEZEN_GFX_SCREEN_H_
 
-#include "handlers/local_storage.h"
+#include "workers/local_storage.h"
 #include "screens/menu_window.h"
 #include <Arduino.h>
 #include <Supervisor.hpp>
@@ -12,21 +12,6 @@
  */
 class GFXScreen : public Supervisor {
 public:
-
-  enum ScreenType {
-    e_screen_splash,
-    e_screen_init_no_sd_no_data, // Warning screen: must have sd card for initial setup
-    e_screen_init_empty_sd_no_data, // Warning screen: must have SAFEZEN.txt for initial setup (could be invalid SAFEZEN.txt)
-    e_screen_init_empty_sd_mem_data, // Press to init new sd card (write SAFEZEN.txt)
-    e_screen_init_no_sd_mem_data, // Can continue in no-sd mode
-    e_screen_init_zen_sd_no_data, // Press to start Zen (read from SAFEZEN.txt, show device id), is first-time startup (new user)
-    e_screen_drive_mode,
-    e_screen_survey_mode,
-    e_screen_fixed_mode,
-    e_screen_upload_drive,
-    e_screen_config_mode,
-  };
-
   explicit GFXScreen(LocalStorage& settings, Controller& controller);
   virtual ~GFXScreen() = default;
 

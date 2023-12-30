@@ -22,6 +22,7 @@ class LocalStorage : public ProcessWorker<bool> {
 
   // Getters and setters
   virtual uint16_t get_device_id() const final;
+  virtual uint32_t get_fixed_device_id() const final;
   virtual const char* get_ap_password() const final;
   virtual uint16_t get_alarm_threshold() const final;
   virtual const char* get_wifi_ssid() const final;
@@ -29,7 +30,7 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual const char* get_api_key() const final;
   virtual double get_fixed_longitude() const final;
   virtual double get_fixed_latitude() const final;
-  virtual uint16_t get_fixed_range() const final;
+  virtual float get_fixed_range() const final;
   virtual double get_last_longitude() const final;
   virtual double get_last_latitude() const final;
 
@@ -43,7 +44,7 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual void set_fixed_latitude(double fixed_latitude, bool force);
   virtual void set_last_longitude(double last_longitude, bool force);
   virtual void set_last_latitude(double last_latitude, bool force);
-  virtual void set_fixed_range(uint16_t fixed_range, bool force);
+  virtual void set_fixed_range(float fixed_range, bool force);
 
  protected:
   virtual bool clear();
@@ -69,7 +70,7 @@ class LocalStorage : public ProcessWorker<bool> {
   // Location settings
   double _fixed_longitude;
   double _fixed_latitude;
-  uint16_t _fixed_range;
+  float _fixed_range;
 
   double _last_longitude;
   double _last_latitude;

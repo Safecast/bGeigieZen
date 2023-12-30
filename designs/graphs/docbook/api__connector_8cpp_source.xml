@@ -16,19 +16,19 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_api__connector_8cpp_source_1l00012"/><link linkend="_class_api_connector_1abc35b6946aaa4ea60a97154beefa638b">00012</link> <link linkend="_class_api_connector_1abc35b6946aaa4ea60a97154beefa638b">ApiConnector::ApiConnector</link>(<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;config)&#32;:
 <anchor xml:id="_api__connector_8cpp_source_1l00013"/>00013 &#32;&#32;&#32;&#32;Handler(),
 <anchor xml:id="_api__connector_8cpp_source_1l00014"/>00014 &#32;&#32;&#32;&#32;_config(config),
-<anchor xml:id="_api__connector_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;_last_success_send(0),
+<anchor xml:id="_api__connector_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;_last_post(0),
 <anchor xml:id="_api__connector_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;_current_default_response(e_api_reporter_idle)&#32;{
 <anchor xml:id="_api__connector_8cpp_source_1l00017"/>00017 }
 <anchor xml:id="_api__connector_8cpp_source_1l00018"/>00018 
 <anchor xml:id="_api__connector_8cpp_source_1l00019"/><link linkend="_class_api_connector_1af62308ca3c907717f3217491b7a6612c">00019</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_api_connector_1af62308ca3c907717f3217491b7a6612c">ApiConnector::time_to_send</link>(<emphasis role="keywordtype">unsigned</emphasis>&#32;offset)<emphasis role="keyword">&#32;const&#32;</emphasis>{
 <anchor xml:id="_api__connector_8cpp_source_1l00020"/>00020 &#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(<link linkend="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4aeeb7d9827cf810be5f209638a7e56c33">e_api_send_frequency_1_min</link>)&#32;{
 <anchor xml:id="_api__connector_8cpp_source_1l00021"/>00021 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4ae695d59916bd6aa20cbd36b3e9e43486">e_api_send_frequency_5_sec</link>:
-<anchor xml:id="_api__connector_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_api__connector_8cpp_1a6f0fba88f0240d897c0d29cecd95d525">SEND_FREQUENCY</link>(_last_success_send,&#32;5,&#32;offset);
+<anchor xml:id="_api__connector_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_api__connector_8cpp_1a6f0fba88f0240d897c0d29cecd95d525">SEND_FREQUENCY</link>(_last_post,&#32;5,&#32;offset);
 <anchor xml:id="_api__connector_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4aeeb7d9827cf810be5f209638a7e56c33">e_api_send_frequency_1_min</link>:
-<anchor xml:id="_api__connector_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_api__connector_8cpp_1a6f0fba88f0240d897c0d29cecd95d525">SEND_FREQUENCY</link>(_last_success_send,&#32;60,&#32;offset);
+<anchor xml:id="_api__connector_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_api__connector_8cpp_1a6f0fba88f0240d897c0d29cecd95d525">SEND_FREQUENCY</link>(_last_post,&#32;60,&#32;offset);
 <anchor xml:id="_api__connector_8cpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;<link linkend="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4a55fc1e5ea7d88d8095033d37c67d52a4">e_api_send_frequency_5_min</link>:
 <anchor xml:id="_api__connector_8cpp_source_1l00026"/>00026 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:&#32;&#32;<emphasis role="comment">//&#32;Default&#32;5&#32;min&#32;frequency</emphasis>
-<anchor xml:id="_api__connector_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_api__connector_8cpp_1a6f0fba88f0240d897c0d29cecd95d525">SEND_FREQUENCY</link>(_last_success_send,&#32;5&#32;*&#32;60,&#32;offset);
+<anchor xml:id="_api__connector_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_api__connector_8cpp_1a6f0fba88f0240d897c0d29cecd95d525">SEND_FREQUENCY</link>(_last_post,&#32;5&#32;*&#32;60,&#32;offset);
 <anchor xml:id="_api__connector_8cpp_source_1l00028"/>00028 &#32;&#32;}
 <anchor xml:id="_api__connector_8cpp_source_1l00029"/>00029 }
 <anchor xml:id="_api__connector_8cpp_source_1l00030"/>00030 
@@ -75,7 +75,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_api__connector_8cpp_source_1l00071"/>00071 &#32;&#32;&#32;&#32;_current_default_response&#32;=&#32;send_reading(line);
 <anchor xml:id="_api__connector_8cpp_source_1l00072"/>00072 
 <anchor xml:id="_api__connector_8cpp_source_1l00073"/>00073 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_current_default_response&#32;==&#32;<link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a5c6cf8f03d275050a7373e360dff0909">e_api_reporter_send_success</link>)&#32;{
-<anchor xml:id="_api__connector_8cpp_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;_last_success_send&#32;=&#32;time_at_send;
+<anchor xml:id="_api__connector_8cpp_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;_last_post&#32;=&#32;time_at_send;
 <anchor xml:id="_api__connector_8cpp_source_1l00075"/>00075 &#32;&#32;&#32;&#32;}
 <anchor xml:id="_api__connector_8cpp_source_1l00076"/>00076 &#32;&#32;}
 <anchor xml:id="_api__connector_8cpp_source_1l00077"/>00077 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_current_default_response;

@@ -15,6 +15,8 @@ class FixedModeScreen : public BaseScreen {
   void render(const worker_map_t& workers, const handler_map_t& handlers, bool force) override;
 
  private:
+  uint32_t _total_posted;
+  uint32_t _last_sent;
 };
 
 extern FixedModeScreen FixedModeScreen_i;

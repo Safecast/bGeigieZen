@@ -50,37 +50,37 @@ constexpr uint32_t STATUS_MESSAGE_DURATION = 5000;  // 5s
 // - SD card
 constexpr uint8_t SD_CS_PIN = 4;  // GPIO 4
 
-// - URL for the QR code, the device number should be added at the end
-constexpr char QR_CODE_URL_BASE[] = "http://tt.safecast.org/id/geigiecast:";
-constexpr uint8_t QR_CODE_DEV_ID_NDIGITS = 4;
-
-// - HEADER string for the log file
-constexpr char LOG_HEADER_LINE1[] = "# NEW LOG";
-constexpr char LOG_HEADER_LINE2[] = "# format=";
-constexpr char LOG_HEADER_LINE3[] = "# deadtime=off";
-
 // - Setup
 constexpr char SETUP_FILENAME[] = "/SAFEZEN.txt";
 constexpr char TEST_FILENAME[] = "/.zen";
+constexpr float SETUP_DEFAULT_USH_DIVIDER = 334.0;
+constexpr float SETUP_DEFAULT_BQM2_FACTOR = 37.0;
+constexpr uint32_t SETUP_DEFAULT_ALERT_LEVEL = 100;
+
+// - Logging
 constexpr char JOURNAL_LOG_DIRECTORY[] = "/journals";
 constexpr char DRIVE_LOG_DIRECTORY[] = "/drives";
 constexpr char SURVEY_LOG_DIRECTORY[] = "/surveys";
-constexpr uint8_t MIN_LOG_LINES_FOR_KEEP = 2;
-constexpr uint8_t SETUP_FILE_PARSE_BUFFER_SIZE = 102;
-constexpr uint32_t SETUP_DEFAULT_DEVICE_ID = 0;
-constexpr uint8_t SETUP_USERNAME_MAXLEN = 15;
-constexpr float SETUP_DEFAULT_USH_DIVIDER = 334.0;
-constexpr float SETUP_DEFAULT_BQM2_FACTOR = 37.0;
-constexpr uint32_t SETUP_DEFAULT_SENSOR_HEIGHT = 100;
-constexpr uint8_t SETUP_DEFAULT_CPM_WINDOW = 60;
-constexpr uint32_t SETUP_DEFAULT_ALERT_LEVEL = 100;
-constexpr char SETUP_DEFAULT_COUNTRY_CODE[4] = "JPN";
-constexpr uint8_t SETUP_DEFAULT_TIMEZONE = 9;
-
-// - Logging
+constexpr char LOG_HEADER_LINE1[] = "# NEW LOG";
+constexpr char LOG_HEADER_LINE2[] = "# format=";
+constexpr char LOG_HEADER_LINE3[] = "# deadtime=off";
 constexpr char DEVICE_HEADER[] = "BNRDD";
-constexpr uint8_t LOG_BUFFER_SIZE = 100;
+constexpr uint8_t LINE_BUFFER_SIZE = 100;
 constexpr uint8_t LOG_FILENAME_SIZE = 100;
+constexpr uint8_t MIN_LOG_LINES_FOR_KEEP = 2;
+
+#ifndef LOG_SECONDS_DELAY
+constexpr uint8_t LOG_SECONDS_DELAY = 5; // Logs every 5 seconds
+#endif
+#ifndef API_SEND_SECONDS_DELAY
+constexpr uint16_t API_SEND_SECONDS_DELAY = 300; // Logs every 5 minutes
+#endif
+#ifndef FIXED_MODE_FORCE_LOCATION
+#define FIXED_MODE_FORCE_LOCATION true
+#endif
+
+constexpr char FIXED_MODE_GRAFANA_URL[] = "https://tt.safecast.org/id/geigiecast:%d";
+
 
 // Access point settings
 constexpr char ACCESS_POINT_SSID[8] = "bgeigie"; // With device id"

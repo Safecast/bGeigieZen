@@ -32,11 +32,9 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
   _logging_available = controller_data.local_available && controller_data.sd_card_status == SDInterface::e_sd_config_status_ok;
   bool currently_logging = handlers.handler<SdLogger>(k_handler_survey_logger)->active();
   if (_currently_logging && !currently_logging) {
-    _logging_stop = millis();
-    _logging_start = 0;
+    set_status_message(F(" STARTED LOGGING, stay safe! "));
   } else if (!_currently_logging && currently_logging) {
-    _logging_start = millis();
-    _logging_stop = 0;
+    set_status_message(F(" COMPLETED LOGGING SURVEY "));
   }
   _currently_logging = currently_logging;
 
@@ -60,44 +58,36 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
 
     // Display uSv/h
     auto ush_width = printFloatFont(gm_sensor->get_data().uSv_5sec, 3, 0, 100, 7);
-    M5.Lcd.drawString(" uSv/h        ", 0 + ush_width, 105, 4); // Prints after ush value
-    M5.Lcd.drawString("        ", 0 + ush_width, 105 - 26, 4); // Prints blanks after cpm value, above CPM text
+    M5.Lcd.drawString(" uSv/h        ", ush_width, 105, 4); // Prints after ush value
+    M5.Lcd.drawString("        ", ush_width, 105 - 26, 4); // Prints blanks after cpm value, above CPM text
 
     // Display CPM
     auto cpm_width = printIntFont(gm_sensor->get_data().cp5s, 0, 140, 4);
-    M5.Lcd.drawString(" CP5S", 0 + cpm_width, 140, 4); // Prints after cp5s value
+    M5.Lcd.drawString(" CP5S  ", cpm_width, 140, 4); // Prints after cp5s value
   }
 
 
   if (gps->is_fresh() || force) {
-    // change colour if not fresh
-    M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-
-    M5.Lcd.setCursor(0, 150);
-    gps->get_data().satsInView < 2 ? (M5.Lcd.setTextColor(TFT_RED, TFT_BLACK))
-                                   : M5.Lcd.setTextColor(TFT_GREEN, TFT_BLACK);
-    M5.Lcd.print("Satellites :");
-    M5.Lcd.print(gps->get_data().satsInView, 5);
-    M5.Lcd.setTextColor(WHITE, BLACK);
-    M5.Lcd.println();
+    // Print location data
+    M5.Lcd.setCursor(170, 150);
+    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("Latitude   :");
-    M5.Lcd.print(gps->get_data().latitude, 6);
-    M5.Lcd.println();
+    M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+    M5.Lcd.printf("%.6f  ", gps->get_data().latitude);
+    M5.Lcd.setCursor(170, 159);
+    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("Longitude  :");
-    M5.Lcd.print(gps->get_data().longitude, 6);
-    M5.Lcd.println();
+    M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+    M5.Lcd.printf("%.6f  ", gps->get_data().longitude);
+    M5.Lcd.setCursor(170, 168);
+    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("Altitude   :");
-    M5.Lcd.print(gps->get_data().altitudeMSL, 2);
-    M5.Lcd.println();
+    M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+    M5.Lcd.printf("%.2f  ", gps->get_data().altitudeMSL);
+    M5.Lcd.setCursor(170, 177);
+    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+    M5.Lcd.print("DOP        :");
+    M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+    M5.Lcd.printf("%.2f  ", gps->get_data().pdop);
   }
-}
-
-const __FlashStringHelper* SurveyModeScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) const {
-  if (_logging_start && _logging_start + STATUS_MESSAGE_DURATION > millis()) {
-    return F(" STARTED LOGGING, stay safe! ");
-  }
-  if (_logging_stop && _logging_stop + STATUS_MESSAGE_DURATION > millis()) {
-    return F(" COMPLETED LOGGING SURVEY ");
-  }
-  return BaseScreen::get_status_message(workers, handlers);
 }

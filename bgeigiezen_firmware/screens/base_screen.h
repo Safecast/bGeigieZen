@@ -13,8 +13,9 @@
 #define STATUS_ERROR_GEIGER F(" NO GEIGER TUBE CONNECTED ");
 #define STATUS_ERROR_GPS F(" NO GPS MODULE CONNECTED ");
 #define STATUS_ERROR_SD F(" NO SD CARD INSERTED ");
-#define STATUS_ERROR_WIFI_CREDENTIALS F(" NO WI-FI CREDENTIALS CONFIGURED ");
-#define STATUS_ERROR_WIFI_CONNECTION F(" UNABLE TO CONNECT TO WI-FI ");
+#define STATUS_ERROR_WIFI_NO_SSID_AVAIL F(" CONFIGURED SSID NOT AVAILABLE ");
+#define STATUS_ERROR_WIFI_CONNECT_FAILED F(" WIFI CONNECTION FAILED ");
+#define STATUS_ERROR_WIFI_CONNECTION_LOST F(" WIFI CONNECTION LOST ");
 
 
 
@@ -101,6 +102,8 @@ class BaseScreen {
   int printFloatFont(float val, int prec, int x, int y, int font) const;
   int printIntFont(unsigned long val, int x, int y, int font) const;
 
+  void set_status_message(const __FlashStringHelper* message);
+
   // required modules for status bar
   bool required_gps;
   bool required_sd;
@@ -114,6 +117,8 @@ class BaseScreen {
   char _title[20];
   bool _status_bar;
   bool _force_render;
+  uint32_t _status_message_time;
+  const __FlashStringHelper* _message;
 };
 
 #endif //BGEIGIEZEN_BASE_SCREEN_H_

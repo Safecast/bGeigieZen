@@ -6,7 +6,7 @@
 
 #include <Handler.hpp>
 
-#include "local_storage.h"
+#include "workers/local_storage.h"
 #include "user_config.h"
 #include "utils/wifi_connection.h"
 #include "workers/log_aggregator.h"
@@ -31,12 +31,6 @@ class ApiConnector : public Handler {
     e_api_reporter_error_server_rejected_post_5xx,
   };
 
-  enum SendFrequency {
-    e_api_send_frequency_5_sec,
-    e_api_send_frequency_1_min,
-    e_api_send_frequency_5_min,
-  };
-
   explicit ApiConnector(LocalStorage& config);
   virtual ~ApiConnector() = default;
 
@@ -47,7 +41,7 @@ class ApiConnector : public Handler {
    * @param offset: additional ms offset (default 1 sec to overlap measurements better)
    * @return true if time to send
    */
-  bool time_to_send(unsigned offset = 1000) const;
+  bool time_to_send() const;
 
   /**
    * Initialize the connection
@@ -75,8 +69,7 @@ class ApiConnector : public Handler {
   ApiHandlerStatus send_reading(const DataLine& reading);
 
   LocalStorage& _config;
-  uint32_t _last_success_send;
-  ApiHandlerStatus _current_default_response;
+  uint32_t _last_post;
 };
 
 #endif //BGEIGIEZEN_APICONNECTOR_H_
