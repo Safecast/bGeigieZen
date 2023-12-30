@@ -7,7 +7,7 @@
 #include <Worker.hpp>
 #include <Supervisor.hpp>
 
-#include "handlers/local_storage.h"
+#include "local_storage.h"
 #include "utils/wifi_connection.h"
 
 enum ServerStatus {

@@ -6,7 +6,7 @@
 #include <Handler.hpp>
 
 #include "utils/bluetooth_settings.h"
-#include "local_storage.h"
+#include "workers/local_storage.h"
 #include "workers/log_aggregator.h"
 
 /**

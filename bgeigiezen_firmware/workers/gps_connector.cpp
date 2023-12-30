@@ -15,6 +15,13 @@
 #include "gps_connector.h"
 #include "debugger.h"
 
+#define GPS_INVALID_YEAR 2000
+#define GPS_INVALID_MONTH 1
+#define GPS_INVALID_DAY 1
+#define GPS_INVALID_HOUR 0
+#define GPS_INVALID_MINUTE 0
+#define GPS_INVALID_SECOND 0
+
 #define NNE 22.5
 #define ENE (NNE + 45)
 #define ESE (ENE + 45)
@@ -179,9 +186,15 @@ int8_t GpsConnector::produce_data() {
   }
   if (time_timer.isExpired()) {
     data.time_valid = false;
+    data.hour = GPS_INVALID_HOUR;
+    data.minute = GPS_INVALID_MINUTE;
+    data.second = GPS_INVALID_SECOND;
   }
   if (date_timer.isExpired()) {
     data.date_valid = false;
+    data.year = GPS_INVALID_YEAR;
+    data.month = GPS_INVALID_MONTH;
+    data.day = GPS_INVALID_DAY;
   }
 
   return ret_status;

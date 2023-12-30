@@ -5,32 +5,50 @@
 #include "wifi_connection.h"
 #include "debugger.h"
 
-bool WiFiConnectionWrapper::connect_wifi(const char* ssid, const char* password) {
-  if(!ssid) {
-    DEBUG_PRINTLN("WiFi connector: No SSID to connect to!");
-    return false;
-  }
-  DEBUG_PRINTLN("WiFi connector: Trying to connect to wifi...");
+WiFiWrapper WiFiWrapper_i;
+
+bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool first_time) {
   switch(WiFi.status()) {
     case WL_CONNECTED:
       return true;
+    case WL_CONNECT_FAILED:
+      if (first_time) {
+        DEBUG_PRINTLN("WiFi connector: Trying to reconnect to wifi...");
+        WiFi.reconnect();
+        delay(100);
+        update_active();
+        return wifi_connected();
+      }
+      return false;
+    case WL_DISCONNECTED:
+      DEBUG_PRINTLN("WiFi connector: Trying to reconnect to wifi...");
+      WiFi.reconnect();
+      delay(100);
+      update_active();
+      return wifi_connected();
     default:
+      DEBUG_PRINTLN("WiFi connector: Trying to connect to wifi...");
       password ? WiFi.begin(ssid, password) : WiFi.begin(ssid);
       delay(100);
-      return WiFi.isConnected();
+      update_active();
+      return wifi_connected();
   }
 }
 
-void WiFiConnectionWrapper::disconnect_wifi() {
+void WiFiWrapper::disconnect_wifi() {
   WiFi.disconnect(true, true);
   WiFi.mode(WIFI_MODE_NULL);
 }
 
-bool WiFiConnectionWrapper::wifi_connected() {
+bool WiFiWrapper::wifi_connected() {
   return WiFi.isConnected();
 }
 
-bool WiFiConnectionWrapper::start_ap_server(const char* host_ssid, const char* password) {
+uint8_t WiFiWrapper::status() {
+  return WiFi.status();
+}
+
+bool WiFiWrapper::start_ap_server(const char* host_ssid, const char* password) {
   set_hostname(host_ssid, true);
   WiFi.softAP(host_ssid, password);
   WiFi.softAPsetHostname(host_ssid);
@@ -46,20 +64,30 @@ bool WiFiConnectionWrapper::start_ap_server(const char* host_ssid, const char* p
   return true;
 }
 
-void WiFiConnectionWrapper::stop_ap_server() {
+void WiFiWrapper::stop_ap_server() {
   WiFi.softAPdisconnect(true);
   delay(20);
 }
 
-bool WiFiConnectionWrapper::ap_server_up() {
+bool WiFiWrapper::ap_server_up() {
   return (WiFi.getMode() & WIFI_MODE_AP) != 0;
 }
 
-void WiFiConnectionWrapper::set_hostname(const char* hostname, bool ap_mode) {
+void WiFiWrapper::set_hostname(const char* hostname, bool ap_mode) {
   WiFi.setHostname(hostname);
   if (ap_mode) {
     if(MDNS.begin(hostname)) {
       MDNS.addService("http", "tcp", 80);
     }
   }
+}
+
+void WiFiWrapper::update_active() {
+  if (wifi_connected()) {
+    WiFiWrapper::_last_activity = millis();
+  }
+}
+
+bool WiFiWrapper::was_active() {
+  return WiFiWrapper::_last_activity && (WiFiWrapper::_last_activity + 500) > millis();
 }

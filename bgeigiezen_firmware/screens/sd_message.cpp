@@ -3,7 +3,7 @@
 #include "default_entry_screen.h"
 #include "drive_mode.h"
 #include "first_time_startup.h"
-#include "handlers/local_storage.h"
+#include "workers/local_storage.h"
 #include "identifiers.h"
 #include "menu_window.h"
 #include "utils/device_utils.h"

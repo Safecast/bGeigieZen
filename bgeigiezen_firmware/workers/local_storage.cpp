@@ -2,7 +2,6 @@
 #include "debugger.h"
 #include "identifiers.h"
 #include "controller.h"
-#include "api_connector.h"
 #include "workers/gps_connector.h"
 
 const char* memory_name = "data";
@@ -31,7 +30,7 @@ LocalStorage::LocalStorage() :
     _api_key(""),
     _fixed_longitude(0),
     _fixed_latitude(0),
-    _fixed_range(0),
+    _fixed_range(0.5),
     _last_longitude(0),
     _last_latitude(0) {
 }
@@ -46,7 +45,7 @@ void LocalStorage::reset_defaults() {
     set_api_key(D_APIKEY, true);
     set_fixed_longitude(0, true);
     set_fixed_latitude(0, true);
-    set_fixed_range(0, true);
+    set_fixed_range(0.5, true);
     set_last_longitude(0, true);
     set_last_latitude(0, true);
   }
@@ -54,6 +53,10 @@ void LocalStorage::reset_defaults() {
 
 uint16_t LocalStorage::get_device_id() const {
   return _device_id;
+}
+
+uint32_t LocalStorage::get_fixed_device_id() const {
+  return _device_id >= 5000 && _device_id < 6000 ? 60000 + _device_id : 0;
 }
 
 const char* LocalStorage::get_ap_password() const {
@@ -84,7 +87,7 @@ double LocalStorage::get_fixed_latitude() const {
   return _fixed_latitude;
 }
 
-uint16_t LocalStorage::get_fixed_range() const {
+float LocalStorage::get_fixed_range() const {
   return _fixed_range;
 }
 
@@ -186,10 +189,10 @@ void LocalStorage::set_fixed_latitude(double fixed_latitude, bool force) {
   }
 }
 
-void LocalStorage::set_fixed_range(uint16_t fixed_range, bool force) {
+void LocalStorage::set_fixed_range(float fixed_range, bool force) {
   if(_memory.begin(memory_name)) {
     _fixed_range = fixed_range;
-    _memory.putUInt(key_fixed_range, fixed_range);
+    _memory.putFloat(key_fixed_range, fixed_range);
     _memory.end();
   } else {
     DEBUG_PRINTLN("unable to save new value for key_fixed_range");
@@ -228,6 +231,7 @@ bool LocalStorage::clear() {
 bool LocalStorage::activate(bool) {
   _memory.begin(memory_name, true);
   _device_id = _memory.getUShort(key_device_id, D_DEVICE_ID);
+  _alarm_threshold = _memory.getUInt(key_alarm_threshold, 100);
   if(_memory.getString(key_ap_password, _ap_password, CONFIG_VAL_MAX) == 0) {
     strcpy(_ap_password, D_ACCESS_POINT_PASSWORD);
   }
@@ -242,7 +246,7 @@ bool LocalStorage::activate(bool) {
   }
   _fixed_longitude = _memory.getDouble(key_fixed_longitude, 0);
   _fixed_latitude = _memory.getDouble(key_fixed_latitude, 0);
-  _fixed_range = _memory.getUInt(key_fixed_range, 0);
+  _fixed_range = _memory.getFloat(key_fixed_range, 0.5);
   _last_longitude = _memory.getDouble(key_last_longitude, 0);
   _last_latitude = _memory.getDouble(key_last_latitude, 0);
   _memory.end();

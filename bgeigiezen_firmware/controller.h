@@ -1,7 +1,7 @@
 #ifndef BGEIGIEZEN_CONTROLLER_H_
 #define BGEIGIEZEN_CONTROLLER_H_
 
-#include "handlers/local_storage.h"
+#include "workers/local_storage.h"
 #include "utils/sd_wrapper.h"
 #include <Aggregator.hpp>
 #include <Handler.hpp>

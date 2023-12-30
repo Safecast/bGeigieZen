@@ -1,8 +1,11 @@
 #include "base_screen.h"
 #include "identifiers.h"
 #include "user_config.h"
+#include "utils/wifi_connection.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
+
+#include <WiFi.h>
 
 #define BUTTON_TEXT_MAX_LENGTH 14
 
@@ -132,14 +135,27 @@ const __FlashStringHelper* BaseScreen::get_error_message(const worker_map_t& wor
   if (required_sd && !SDInterface::i().can_write_logs()) {
     return STATUS_ERROR_SD;
   }
-  if (required_wifi) {
-    // TODO something for fixed mode
-    return STATUS_ERROR_WIFI_CREDENTIALS;
+  if (required_wifi && WiFiWrapper_i.status() == WL_NO_SSID_AVAIL) {
+    return STATUS_ERROR_WIFI_NO_SSID_AVAIL;
+  }
+  if (required_wifi && WiFiWrapper_i.status() == WL_CONNECT_FAILED) {
+    return STATUS_ERROR_WIFI_CONNECT_FAILED;
+  }
+  if (required_wifi && WiFiWrapper_i.status() == WL_CONNECTION_LOST) {
+    return STATUS_ERROR_WIFI_CONNECTION_LOST;
   }
 
   return nullptr;
 }
 
 const __FlashStringHelper* BaseScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) const {
+  if (_message && _status_message_time && _status_message_time + STATUS_MESSAGE_DURATION > millis()) {
+    return _message;
+  }
   return nullptr;
+}
+
+void BaseScreen::set_status_message(const __FlashStringHelper* message) {
+  _message = message;
+  _status_message_time = millis();
 }
