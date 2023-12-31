@@ -83,7 +83,7 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   }
 
   // Display GPS data always, change colour if not fresh
-  if (gps->is_fresh() || force) {
+  if (gps->is_fresh()  || force) {
     // Print drive data
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     const auto distance_width = M5.Lcd.drawString("Distance :", 0, 157, 1); // Prints after ush value

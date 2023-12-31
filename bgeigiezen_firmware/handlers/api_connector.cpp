@@ -40,11 +40,9 @@ void ApiConnector::deactivate() {
 
 int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
   auto testing_mode = workers.worker<ZenButton>(k_worker_button_1);
-  if (testing_mode->is_fresh() && testing_mode->get_data().longPress) {
-    _testing_mode = true;
-  }
-  if (testing_mode->is_fresh() && testing_mode->get_data().shortPress) {
-    _testing_mode = false;
+  if (testing_mode->is_fresh()) {
+    _testing_mode = testing_mode->get_data().longPress;
+    return e_api_reporter_idle; // Return for now to apply changes first
   }
 
   if (!_config.get_fixed_device_id()) {

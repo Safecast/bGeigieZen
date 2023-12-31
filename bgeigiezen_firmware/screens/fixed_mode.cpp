@@ -46,9 +46,10 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     set_status_message(F(" UPLOADED DATA TO API! "));
   }
 
+  auto testing_button = workers.worker<ZenButton>(k_worker_button_1);
 
   // Display GPS data always, change colour if not fresh
-  if (log_aggregator->is_fresh() || force) {
+  if (testing_button->is_fresh() || log_aggregator->is_fresh() || force) {
     // Print drive data
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
 
