@@ -55,6 +55,11 @@ class Controller : public Aggregator, public Worker<DeviceState> {
   bool write_sd_config();
 
   /**
+   * Set fixed mode testing
+   */
+  void set_fixed_testing(bool enable);
+
+  /**
    * Reset memory settings and restart system
    */
   void reset_all();

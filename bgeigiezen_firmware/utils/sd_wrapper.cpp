@@ -212,7 +212,7 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   // Location settings
   double fixed_latitude = 0;
   double fixed_longitude = 0;
-  uint16_t fixed_range = 0;
+  float fixed_range = 0;
 
   while (file.available()) {
     String line = file.readStringUntil('\n');
@@ -285,10 +285,11 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
     }
     else if (line.startsWith(SD_CONFIG_FIELD_FIXED_RANGE)) {
       if (_device_id && sscanf(line.c_str(), sd_config_fixed_range_f, &fixed_range)) {
-        DEBUG_PRINT("Loaded from SD ");
+//        DEBUG_PRINT("Loaded from SD ");
+        DEBUG_PRINT("Currently disabled setting ");
         DEBUG_PRINTF(sd_config_fixed_range_f, fixed_range);
         DEBUG_PRINTLN();
-        settings.set_fixed_range(fixed_range, true);
+//        settings.set_fixed_range(fixed_range, true);
       }
     } else {
       DEBUG_PRINTF("Read (currently) unsupported SAFEZEN line: %s \n", line.c_str());
