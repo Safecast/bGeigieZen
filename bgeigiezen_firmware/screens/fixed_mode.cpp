@@ -55,14 +55,16 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 
     if (api_connector->testing_mode()) {
       // Print fixed setting data
+      drawButton1("Stop test");
       M5.Lcd.setCursor(0, 150);
       M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
       M5.Lcd.print("Testing        :Yes       ");
       M5.Lcd.setCursor(0, 159);
-      M5.Lcd.print("Using gps      :Yes       ");
+      M5.Lcd.print("Using GPS      :Yes       ");
       M5.Lcd.setCursor(0, 168);
       M5.Lcd.print("Free to move   :Yes       ");
     } else {
+      drawButton1(""); // hidden test button
 
       // Print fixed setting data
       M5.Lcd.setCursor(0, 150);
@@ -74,9 +76,12 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
       M5.Lcd.printf("%.6f  ", settings->get_fixed_longitude());
       M5.Lcd.setCursor(0, 168);
       M5.Lcd.print("In fixed range :");
-      M5.Lcd.setTextColor(log_aggregator->get_data().in_fixed_range ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+      M5.Lcd.setTextColor(log_aggregator->get_data().in_fixed_range ? LCD_COLOR_DEFAULT : LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
       M5.Lcd.printf(log_aggregator->get_data().in_fixed_range ? "Yes      " : "No       ");
     }
+
+    M5.Lcd.setCursor(0, 177);
+    M5.Lcd.printf("total uploads  :%d", api_connector->get_post_count());
 
     // Print location data
     M5.Lcd.setCursor(170, 150);

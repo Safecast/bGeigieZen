@@ -35,6 +35,7 @@ class ApiConnector : public Handler {
   virtual ~ApiConnector() = default;
 
   bool testing_mode() const;
+  uint32_t get_post_count() const;
 
  protected:
 
@@ -71,6 +72,7 @@ class ApiConnector : public Handler {
   ApiHandlerStatus send_reading(const DataLine& reading);
 
   LocalStorage& _config;
+  uint32_t _post_count;
   uint32_t _last_post;
   bool _testing_mode;
 };

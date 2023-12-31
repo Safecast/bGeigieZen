@@ -9,7 +9,7 @@
 // subtracting 1 seconds so data is sent more often than not.
 #define SEND_FREQUENCY(last_send, sec) (last_send == 0 || (millis() - last_send) > ((sec * 1000) - 500))
 
-ApiConnector::ApiConnector(LocalStorage& config) : Handler(), _config(config), _last_post(0), _testing_mode(false) {
+ApiConnector::ApiConnector(LocalStorage& config) : Handler(), _config(config), _post_count(0), _last_post(0), _testing_mode(false) {
 }
 
 bool ApiConnector::time_to_send(bool alert) const {
@@ -124,6 +124,7 @@ ApiConnector::ApiHandlerStatus ApiConnector::send_reading(const DataLine& data) 
 
   switch (httpResponseCode) {
     case 200 ... 204:
+      ++_post_count;
       return e_api_reporter_send_success;
     case 400:
       return e_api_reporter_error_server_rejected_post_400;
@@ -159,4 +160,8 @@ bool ApiConnector::reading_to_json(const DataLine& line, char* out) {
 
 bool ApiConnector::testing_mode() const {
   return _testing_mode;
+}
+
+uint32_t ApiConnector::get_post_count() const {
+  return _post_count;
 }
