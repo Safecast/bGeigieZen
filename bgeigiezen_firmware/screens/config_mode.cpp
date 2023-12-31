@@ -54,7 +54,6 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
   M5.Lcd.printf("api_key:          %s      \n", config.get_api_key());
   M5.Lcd.printf("fixed_longitude:  %0.6f      \n", config.get_fixed_longitude());
   M5.Lcd.printf("fixed_latitude:   %0.6f      \n", config.get_fixed_latitude());
-  M5.Lcd.printf("fixed_range:      %0.1f      \n", config.get_fixed_range());
 }
 
 void ConfigModeScreen::enter_screen(Controller& controller) {
