@@ -68,16 +68,10 @@ constexpr char DEVICE_HEADER[] = "BNRDD";
 constexpr uint8_t LINE_BUFFER_SIZE = 100;
 constexpr uint8_t LOG_FILENAME_SIZE = 100;
 constexpr uint8_t MIN_LOG_LINES_FOR_KEEP = 2;
-
-#ifndef LOG_SECONDS_DELAY
 constexpr uint8_t LOG_SECONDS_DELAY = 5; // Logs every 5 seconds
-#endif
-#ifndef API_SEND_SECONDS_DELAY
-constexpr uint16_t API_SEND_SECONDS_DELAY = 300; // Logs every 5 minutes
-#endif
-#ifndef FIXED_MODE_FORCE_LOCATION
-#define FIXED_MODE_FORCE_LOCATION true
-#endif
+constexpr uint16_t API_SEND_SECONDS_DELAY = 300; // Logs every 5 minutes default
+constexpr uint16_t API_SEND_SECONDS_DELAY_ALERT = 60; // Logs every 1 minute when alerted
+constexpr uint16_t API_SEND_SECONDS_DELAY_TESTING = 5; // Logs every 5 seconds in testing
 
 constexpr char FIXED_MODE_GRAFANA_URL[] = "https://tt.safecast.org/id/geigiecast:%d";
 

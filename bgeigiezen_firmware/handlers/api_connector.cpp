@@ -2,17 +2,21 @@
 #include "api_connector.h"
 #include "debugger.h"
 #include "identifiers.h"
+#include "workers/zen_button.h"
 
 #define RETRY_TIMEOUT 10000
 
 // subtracting 1 seconds so data is sent more often than not.
 #define SEND_FREQUENCY(last_send, sec) (last_send == 0 || (millis() - last_send) > ((sec * 1000) - 500))
 
-ApiConnector::ApiConnector(LocalStorage& config) : Handler(), _config(config), _last_post(0){
+ApiConnector::ApiConnector(LocalStorage& config) : Handler(), _config(config), _last_post(0), _testing_mode(false) {
 }
 
-bool ApiConnector::time_to_send() const {
-  return SEND_FREQUENCY(_last_post, API_SEND_SECONDS_DELAY);
+bool ApiConnector::time_to_send(bool alert) const {
+  if (_testing_mode) {
+    return SEND_FREQUENCY(_last_post, API_SEND_SECONDS_DELAY_TESTING);
+  }
+  return SEND_FREQUENCY(_last_post, alert ? API_SEND_SECONDS_DELAY_ALERT : API_SEND_SECONDS_DELAY);
 }
 
 bool ApiConnector::activate(bool retry) {
@@ -35,11 +39,16 @@ void ApiConnector::deactivate() {
 }
 
 int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
+  auto testing_mode = workers.worker<ZenButton>(k_worker_button_1);
+  if (testing_mode->is_fresh() && testing_mode->get_data().longPress) {
+    _testing_mode = true;
+  }
+  if (testing_mode->is_fresh() && testing_mode->get_data().shortPress) {
+    _testing_mode = false;
+  }
+
   if (!_config.get_fixed_device_id()) {
     // Cant even send anything, because there is an invalid id
-    return e_api_reporter_idle;
-  }
-  if (!time_to_send()) {
     return e_api_reporter_idle;
   }
 
@@ -50,16 +59,23 @@ int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
     // No fresh data
     return e_api_reporter_idle;
   }
+
   if (!log_data.valid()) {
     // data not valid (either gm or gps)
     return e_api_reporter_idle;
   }
-  if (FIXED_MODE_FORCE_LOCATION && !log_data.in_fixed_range) {
-    // Not in fixed range
+
+  if (!time_to_send(log_data.cpm > _config.get_alarm_threshold())) {
+    // Not time to send yet
     return e_api_reporter_idle;
   }
+  
+  if (_testing_mode || log_data.in_fixed_range) {
+    return send_reading(log_data);
+  }
 
-  return send_reading(log_data);
+  // Not in fixed range or not testing, so not sending
+  return e_api_reporter_idle;
 }
 
 ApiConnector::ApiHandlerStatus ApiConnector::send_reading(const DataLine& data) {
@@ -100,7 +116,7 @@ ApiConnector::ApiHandlerStatus ApiConnector::send_reading(const DataLine& data) 
   int httpResponseCode = http.POST(payload);
 
   String response = http.getString();
-  DEBUG_PRINTF("POST complete, status %d\r\nrepsonse: \r\n\r\n%s\r\n\r\n", httpResponseCode, response.c_str());
+  DEBUG_PRINTF("POST complete, status %d\nrepsonse: \n%s\n\n", httpResponseCode, response.c_str());
   http.end();  //Free resources
 
   // TODO: Check response measurement ID
@@ -143,3 +159,6 @@ bool ApiConnector::reading_to_json(const DataLine& line, char* out) {
   return result > 0;
 }
 
+bool ApiConnector::testing_mode() const {
+  return _testing_mode;
+}
