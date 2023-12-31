@@ -6,7 +6,7 @@
 #include "identifiers.h"
 
 #define D2R (PI / 180.0)
-#define FIXED_LOCATION_RANGE_KM 0.6
+#define FIXED_LOCATION_RANGE_KM 1.0
 #define LOG_SECOND_TO_TIMEOUT(sec) ((sec * 1000) - 100)
 
 /**

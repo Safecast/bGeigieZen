@@ -34,6 +34,8 @@ class ApiConnector : public Handler {
   explicit ApiConnector(LocalStorage& config);
   virtual ~ApiConnector() = default;
 
+  bool testing_mode() const;
+
  protected:
 
   /**
@@ -41,7 +43,7 @@ class ApiConnector : public Handler {
    * @param offset: additional ms offset (default 1 sec to overlap measurements better)
    * @return true if time to send
    */
-  bool time_to_send() const;
+  bool time_to_send(bool alert) const;
 
   /**
    * Initialize the connection
@@ -70,6 +72,7 @@ class ApiConnector : public Handler {
 
   LocalStorage& _config;
   uint32_t _last_post;
+  bool _testing_mode;
 };
 
 #endif //BGEIGIEZEN_APICONNECTOR_H_

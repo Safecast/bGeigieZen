@@ -246,7 +246,7 @@ bool LocalStorage::activate(bool) {
   }
   _fixed_longitude = _memory.getDouble(key_fixed_longitude, 0);
   _fixed_latitude = _memory.getDouble(key_fixed_latitude, 0);
-  _fixed_range = _memory.getFloat(key_fixed_range, 0.5);
+  _fixed_range = _memory.getFloat(key_fixed_range, 1.0);
   _last_longitude = _memory.getDouble(key_last_longitude, 0);
   _last_latitude = _memory.getDouble(key_last_latitude, 0);
   _memory.end();

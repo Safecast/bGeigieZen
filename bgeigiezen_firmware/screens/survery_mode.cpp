@@ -83,11 +83,11 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("Altitude   :");
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.printf("%.2f  ", gps->get_data().altitudeMSL);
+    M5.Lcd.printf("%.2f    ", gps->get_data().altitudeMSL);
     M5.Lcd.setCursor(170, 177);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("DOP        :");
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.printf("%.2f  ", gps->get_data().pdop);
+    M5.Lcd.printf("%.2f    ", gps->get_data().pdop);
   }
 }
