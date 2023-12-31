@@ -33,7 +33,7 @@ struct DataLine {
  */
 class LogAggregator : public ProcessWorker<DataLine> {
  public:
-  LogAggregator(LocalStorage& settings);
+  explicit LogAggregator(LocalStorage& settings);
 
  protected:
 
