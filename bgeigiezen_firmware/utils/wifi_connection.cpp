@@ -27,7 +27,7 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
       update_active();
       return wifi_connected();
     default:
-      DEBUG_PRINTLN("WiFi connector: Trying to connect to wifi...");
+      DEBUG_PRINTF("WiFi connector: Trying to connect to wifi (%s:%s)...", ssid, password);
       password ? WiFi.begin(ssid, password) : WiFi.begin(ssid);
       delay(100);
       update_active();
