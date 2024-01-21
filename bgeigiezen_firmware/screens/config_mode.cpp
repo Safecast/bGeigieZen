@@ -49,6 +49,7 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
   M5.Lcd.printf("device_id:        %d      \n", config.get_device_id());
   M5.Lcd.printf("ap_password:      %s      \n", config.get_ap_password());
   M5.Lcd.printf("alarm_threshold:  %d      \n", config.get_alarm_threshold());
+  M5.Lcd.printf("manual_logging:   %s      \n", config.get_manual_logging() ? "Enabled" : "Disabled");
   M5.Lcd.printf("wifi_ssid:        %s      \n", config.get_wifi_ssid());
   M5.Lcd.printf("wifi_password:    %s      \n", config.get_wifi_password());
   M5.Lcd.printf("api_key:          %s      \n", config.get_api_key());

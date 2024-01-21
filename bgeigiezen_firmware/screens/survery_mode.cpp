@@ -32,9 +32,9 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
   _logging_available = controller_data.local_available && controller_data.sd_card_status == SDInterface::e_sd_config_status_ok;
   bool currently_logging = handlers.handler<SdLogger>(k_handler_survey_logger)->active();
   if (_currently_logging && !currently_logging) {
-    set_status_message(F(" STARTED LOGGING, stay safe! "));
-  } else if (!_currently_logging && currently_logging) {
     set_status_message(F(" COMPLETED LOGGING SURVEY "));
+  } else if (!_currently_logging && currently_logging) {
+    set_status_message(F(" STARTED LOGGING, stay safe! "));
   }
   _currently_logging = currently_logging;
 
@@ -54,16 +54,17 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
 
 
   if (gm_sensor->is_fresh() || force) {
+    // Display values
     M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-
-    // Display uSv/h
     auto ush_width = printFloatFont(gm_sensor->get_data().uSv_5sec, 3, 0, 100, 7);
-    M5.Lcd.drawString(" uSv/h        ", ush_width, 105, 4); // Prints after ush value
-    M5.Lcd.drawString("        ", ush_width, 105 - 26, 4); // Prints blanks after cpm value, above CPM text
-
-    // Display CPM
     auto cpm_width = printIntFont(gm_sensor->get_data().cp5s, 0, 140, 4);
-    M5.Lcd.drawString(" CP5S  ", cpm_width, 140, 4); // Prints after cp5s value
+
+    // Display unit text with cleanup (CPM uSv/h)
+    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+    M5.Lcd.fillRect(ush_width, 52, 320 - ush_width, 22, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
+    ush_width += M5.Lcd.drawString(" uSv/h", ush_width, 105, 4); // Prints after cpm value
+    M5.Lcd.fillRect(ush_width, 74, 320 - ush_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CPM text
+    M5.Lcd.drawString(" CP5S   ", 0 + cpm_width, 140, 4); // Prints after ush value
   }
 
 
@@ -73,21 +74,33 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("Latitude   :");
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.printf("%.6f  ", gps->get_data().latitude);
+    M5.Lcd.printf("%0.6f  ", gps->get_data().latitude);
     M5.Lcd.setCursor(170, 159);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("Longitude  :");
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.printf("%.6f  ", gps->get_data().longitude);
+    M5.Lcd.printf("%0.6f  ", gps->get_data().longitude);
     M5.Lcd.setCursor(170, 168);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("Altitude   :");
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.printf("%.2f    ", gps->get_data().altitudeMSL);
+    M5.Lcd.printf("%0.2f    ", gps->get_data().altitudeMSL);
     M5.Lcd.setCursor(170, 177);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("DOP        :");
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.printf("%.2f    ", gps->get_data().pdop);
+    M5.Lcd.printf("%0.2f    ", gps->get_data().pdop);
   }
+}
+
+void SurveyModeScreen::enter_screen(Controller& controller) {
+  if (!controller.get_settings().get_manual_logging()) {
+    // Automatically start logging
+    controller.set_handler_active(k_handler_survey_logger, true);
+  }
+}
+
+void SurveyModeScreen::leave_screen(Controller& controller) {
+  // close logging to file
+  controller.set_handler_active(k_handler_survey_logger, false);
 }

@@ -13,6 +13,7 @@ constexpr char const* key_wifi_ssid = "wifi_ssid";
 constexpr char const* key_wifi_password = "wifi_password";
 constexpr char const* key_api_key = "api_key";
 constexpr char const* key_alarm_threshold = "alarm_threshold";
+constexpr char const* key_manual_logging = "manual_logging";
 constexpr char const* key_fixed_range = "fixed_range";
 constexpr char const* key_fixed_longitude = "fixed_longitude";
 constexpr char const* key_fixed_latitude = "fixed_latitude";
@@ -25,6 +26,7 @@ LocalStorage::LocalStorage() :
     _device_id(0),
     _ap_password(""),
     _alarm_threshold(0),
+    _manual_logging(false),
     _wifi_ssid(""),
     _wifi_password(""),
     _api_key(""),
@@ -40,6 +42,7 @@ void LocalStorage::reset_defaults() {
     set_device_id(D_DEVICE_ID, true);
     set_ap_password(D_ACCESS_POINT_PASSWORD, true);
     set_alarm_threshold(100, true);
+    set_manual_logging(false, true);
     set_wifi_ssid(D_WIFI_SSID, true);
     set_wifi_password(D_WIFI_PASSWORD, true);
     set_api_key(D_APIKEY, true);
@@ -65,6 +68,10 @@ const char* LocalStorage::get_ap_password() const {
 
 uint16_t LocalStorage::get_alarm_threshold() const {
   return _alarm_threshold;
+}
+
+bool LocalStorage::get_manual_logging() const {
+  return _manual_logging;
 }
 
 const char* LocalStorage::get_wifi_ssid() const {
@@ -127,6 +134,16 @@ void LocalStorage::set_alarm_threshold(uint16_t alarm_threshold, bool force) {
   if(_memory.begin(memory_name)) {
     _alarm_threshold = alarm_threshold;
     _memory.putUInt(key_alarm_threshold, alarm_threshold);
+    _memory.end();
+  } else {
+    DEBUG_PRINTLN("unable to save new value for ap_password");
+  }
+}
+
+void LocalStorage::set_manual_logging(bool manual_logging, bool force) {
+  if(_memory.begin(memory_name)) {
+    _manual_logging = manual_logging;
+    _memory.putUInt(key_manual_logging, manual_logging);
     _memory.end();
   } else {
     DEBUG_PRINTLN("unable to save new value for ap_password");
@@ -232,6 +249,7 @@ bool LocalStorage::activate(bool) {
   _memory.begin(memory_name, true);
   _device_id = _memory.getUShort(key_device_id, D_DEVICE_ID);
   _alarm_threshold = _memory.getUInt(key_alarm_threshold, 100);
+  _manual_logging = _memory.getBool(key_manual_logging, false);
   if(_memory.getString(key_ap_password, _ap_password, CONFIG_VAL_MAX) == 0) {
     strcpy(_ap_password, D_ACCESS_POINT_PASSWORD);
   }

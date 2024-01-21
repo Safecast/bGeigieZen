@@ -64,6 +64,14 @@
 #include "workers/zen_button.h"
 
 SFE_UBLOX_GNSS gnss;
+const int32_t ublox_fix0 = 0;
+const int32_t ublox_fix1 = 0;
+const int32_t ublox_fix2 = 0;
+const int32_t ublox_fix3 = 0;
+const int32_t ublox_fix4 = 0;
+const int32_t ublox_fix5 = 0;
+const int32_t ublox_fix6 = 0;
+const int32_t ublox_fix7 = 0;
 
 LocalStorage settings;
 Controller controller(settings);
@@ -87,18 +95,12 @@ ApiConnector api_connector(settings);
 // Supervisors
 GFXScreen gfx_screen(settings, controller);
 
-// M5 update thread
-TaskHandle_t Task1;
-void M5_update_loop(void*) {
-  while(1) {
-    // Temp not in use
-    delay(5);
-  }
-}
 
 void setup() {
   DEBUG_BEGIN();
   DEBUG_PRINTLN("MAIN SETUP DEBUG ENABLED");
+  DEBUG_PRINTF("Here are 8 zeroes: %d %d %d %d %d %d %d %d\n",
+               ublox_fix0, ublox_fix1, ublox_fix2, ublox_fix3, ublox_fix4, ublox_fix5, ublox_fix6, ublox_fix7);
   /// Hardware configurations
   Wire.begin();
   M5.begin();
@@ -129,10 +131,12 @@ void setup() {
 
   controller.start_default_workers();
 
-//  xTaskCreatePinnedToCore(M5_update_loop, "M5Update", 10000, nullptr, 0, &Task1, 0);
 }
 
 void loop() {
+  if (gps.active()) {
+    gnss.checkUblox();
+  }
   M5.update();
   controller.run();
 }

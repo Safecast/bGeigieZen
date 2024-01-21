@@ -67,18 +67,16 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 
 
   if (gm_sensor->is_fresh() || force) {
-    // Display CPM
+    // Display values
     M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
     auto cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 0, 100, 7);
+    auto ush_width = printFloatFont(gm_sensor->get_data().uSv, 4, 0, 140, 4);
+
+    // Display unit text with cleanup (CPM uSv/h)
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.fillRect(cpm_width, 52, 320 - cpm_width, 22, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
     cpm_width += M5.Lcd.drawString(" CPM", cpm_width, 105, 4); // Prints after cpm value
     M5.Lcd.fillRect(cpm_width, 74, 320 - cpm_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CPM text
-
-    // Display uSv/h
-    M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    auto ush_width = printFloatFont(gm_sensor->get_data().uSv, 4, 0, 140, 4);
-    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.drawString(" uSv/h   ", 0 + ush_width, 140, 4); // Prints after ush value
   }
 
@@ -125,22 +123,29 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("Latitude   :");
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.printf("%.6f  ", gps->get_data().latitude);
+    M5.Lcd.printf("%0.6f  ", gps->get_data().latitude);
     M5.Lcd.setCursor(170, 159);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("Longitude  :");
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.printf("%.6f  ", gps->get_data().longitude);
+    M5.Lcd.printf("%0.6f  ", gps->get_data().longitude);
     M5.Lcd.setCursor(170, 168);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("Altitude   :");
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.printf("%.2f    ", gps->get_data().altitudeMSL);
+    M5.Lcd.printf("%0.2f    ", gps->get_data().altitudeMSL);
     M5.Lcd.setCursor(170, 177);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("DOP        :");
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.printf("%.2f    ", gps->get_data().pdop);
+    M5.Lcd.printf("%0.2f    ", gps->get_data().pdop);
+  }
+}
+
+void DriveModeScreen::enter_screen(Controller& controller) {
+  if (!controller.get_settings().get_manual_logging()) {
+    // Automatically start logging
+    controller.set_handler_active(k_handler_drive_logger, true);
   }
 }
 
