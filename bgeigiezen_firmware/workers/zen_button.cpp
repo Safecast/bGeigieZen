@@ -15,8 +15,8 @@ bool ZenButton::activate(bool retry) {
 
 int8_t ZenButton::produce_data() {
   data.currentlyPressed = _m5_button.isPressed();
-  data.longPress = _m5_button.wasReleasefor(0) && _m5_button.wasReleasefor(2400);
-  data.shortPress = _m5_button.wasReleasefor(0) && !data.longPress;
+  data.longPress = _m5_button.wasReleasefor(2) && _m5_button.wasReleasefor(2400);
+  data.shortPress = _m5_button.wasReleasefor(2) && !data.longPress;
   if (data.longPress || data.shortPress) {
 //    DEBUG_PRINTLN("Button pressed");
     return e_worker_data_read;

@@ -108,6 +108,8 @@ bool GpsConnector::activate(bool retry) {
 
 int8_t GpsConnector::produce_data() {
   auto ret_status = e_worker_idle;
+  int i = 0;
+
 
   // getPVT returns true if there is a fresh navigation solution available.
   // "LLH" is longitude, latitude, height.

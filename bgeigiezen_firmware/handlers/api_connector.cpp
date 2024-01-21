@@ -114,7 +114,7 @@ ApiConnector::ApiHandlerStatus ApiConnector::send_reading(const DataLine& data) 
   int httpResponseCode = http.POST(payload);
 
   String response = http.getString();
-  DEBUG_PRINTF("POST complete, status %d\nresponse: \n%s\n\n", httpResponseCode, response.c_str());
+  DEBUG_PRINTF("POST complete, response (%d):\n%s\n\n", httpResponseCode, response.c_str());
   http.end();  //Free resources
 
   // TODO: Check response measurement ID
@@ -147,8 +147,8 @@ bool ApiConnector::reading_to_json(const DataLine& line, char* out) {
       "\"device_id\":%d,"
       "\"value\":%d,"
       "\"unit\":\"cpm\","
-      "\"latitude\":%.5f,"
-      "\"longitude\":%.5f}\n",
+      "\"latitude\":%0.6f,"
+      "\"longitude\":%0.6f}\n",
       line.timestamp,
       _config.get_fixed_device_id(),
       line.cpm,

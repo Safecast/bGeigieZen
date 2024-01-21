@@ -101,3 +101,6 @@ void Controller::reset_all() {
 void Controller::set_fixed_testing(bool enable) {
 
 }
+const LocalStorage& Controller::get_settings() const {
+  return _settings;
+}
