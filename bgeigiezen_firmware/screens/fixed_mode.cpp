@@ -33,13 +33,17 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 
 
   if (gm_sensor->is_fresh() || force) {
-    // Display CPM
+    // Display values
     M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    auto cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 0, 110, 7);
+    auto cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 0, 100, 7);
+    auto ush_width = printFloatFont(gm_sensor->get_data().uSv, 4, 0, 140, 4);
+
+    // Display unit text with cleanup (CPM uSv/h)
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-    M5.Lcd.fillRect(cpm_width, 62, 220 - cpm_width, 22, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
-    cpm_width += M5.Lcd.drawString(" CPM", cpm_width, 115, 4);                 // Prints after cpm value
-    M5.Lcd.fillRect(cpm_width, 84, 220 - cpm_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CPM text
+    M5.Lcd.fillRect(cpm_width, 52, 220 - cpm_width, 22, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
+    cpm_width += M5.Lcd.drawString(" CPM", cpm_width, 105, 4); // Prints after cpm value
+    M5.Lcd.fillRect(cpm_width, 74, 220 - cpm_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CPM text
+    M5.Lcd.drawString(" uSv/h   ", 0 + ush_width, 140, 4); // Prints after ush value
   }
 
   if (api_connector->get_status() == ApiConnector::e_api_reporter_send_success) {
@@ -70,10 +74,10 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
       M5.Lcd.setCursor(0, 150);
       M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
       M5.Lcd.print("Home latitude  :");
-      M5.Lcd.printf("%.6f  ", settings->get_fixed_latitude());
+      M5.Lcd.printf("%0.6f  ", settings->get_fixed_latitude());
       M5.Lcd.setCursor(0, 159);
       M5.Lcd.print("Home longitude :");
-      M5.Lcd.printf("%.6f  ", settings->get_fixed_longitude());
+      M5.Lcd.printf("%0.6f  ", settings->get_fixed_longitude());
       M5.Lcd.setCursor(0, 168);
       M5.Lcd.print("In fixed range :");
       M5.Lcd.setTextColor(log_aggregator->get_data().in_fixed_range ? LCD_COLOR_DEFAULT : LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
@@ -88,23 +92,23 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("Latitude   :");
     M5.Lcd.setTextColor(log_aggregator->get_data().gps_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.printf("%.6f  ", log_aggregator->get_data().latitude);
+    M5.Lcd.printf("%0.6f  ", log_aggregator->get_data().latitude);
     M5.Lcd.setCursor(170, 159);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("Longitude  :");
     M5.Lcd.setTextColor(log_aggregator->get_data().gps_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.printf("%.6f  ", log_aggregator->get_data().longitude);
+    M5.Lcd.printf("%0.6f  ", log_aggregator->get_data().longitude);
     M5.Lcd.setCursor(170, 168);
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("Altitude   :");
     M5.Lcd.setTextColor(log_aggregator->get_data().gps_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.printf("%.2f    ", log_aggregator->get_data().altitude);
+    M5.Lcd.printf("%0.2f    ", log_aggregator->get_data().altitude);
   }
 
   if (force) {
     // Display QR on the side
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-    char qr_url[60];
+    char qr_url[130];
     const auto& config = workers.worker<LocalStorage>(k_worker_local_storage);
     sprintf(qr_url, FIXED_MODE_GRAFANA_URL, config->get_fixed_device_id());
     M5.Lcd.qrcode(qr_url, 220, 40, 90);

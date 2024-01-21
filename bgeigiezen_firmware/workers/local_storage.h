@@ -25,6 +25,7 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual uint32_t get_fixed_device_id() const final;
   virtual const char* get_ap_password() const final;
   virtual uint16_t get_alarm_threshold() const final;
+  virtual bool get_manual_logging() const final;
   virtual const char* get_wifi_ssid() const final;
   virtual const char* get_wifi_password() const final;
   virtual const char* get_api_key() const final;
@@ -37,6 +38,7 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual void set_device_id(uint16_t device_id, bool force);
   virtual void set_ap_password(const char* ap_password, bool force);
   virtual void set_alarm_threshold(uint16_t alarm_threshold, bool force);
+  virtual void set_manual_logging(bool manual_logging, bool force);
   virtual void set_wifi_ssid(const char* wifi_ssid, bool force);
   virtual void set_wifi_password(const char* wifi_password, bool force);
   virtual void set_api_key(const char* api_key, bool force);
@@ -60,6 +62,7 @@ class LocalStorage : public ProcessWorker<bool> {
   // Device settings
   uint16_t _device_id;
   uint16_t _alarm_threshold;
+  bool _manual_logging;
   char _ap_password[CONFIG_VAL_MAX];
 
   // Connection settings

@@ -64,6 +64,8 @@ class Controller : public Aggregator, public Worker<DeviceState> {
    */
   void reset_all();
 
+  const LocalStorage& get_settings() const;
+
  private:
   /**
    * As a worker, the controller will notify of any state changes

@@ -17,6 +17,7 @@
 #define SD_CONFIG_FIELD_SENSOR_MODE "sensor_mode"
 #define SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD "access_point_password"
 #define SD_CONFIG_FIELD_ALARM_THRESHOLD "alarm_threshold"
+#define SD_CONFIG_FIELD_MANUAL_LOGGING "manual_logging"
 #define SD_CONFIG_FIELD_WIFI_SSID "wifi_ssid"
 #define SD_CONFIG_FIELD_WIFI_PASSWORD "wifi_password"
 #define SD_CONFIG_FIELD_API_KEY "api_key"
@@ -39,6 +40,7 @@ constexpr char sd_config_sensor_mode_f[] = SD_CONFIG_FIELD_SENSOR_MODE"=%d";
 constexpr char sd_config_access_point_password_f[] = SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD"=%[^\t\r\n]";
 constexpr char sd_config_access_point_password_write_f[] = SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD"=%s";
 constexpr char sd_config_alarm_threshold_f[] = SD_CONFIG_FIELD_ALARM_THRESHOLD"=%d";
+constexpr char sd_config_manual_logging_f[] = SD_CONFIG_FIELD_MANUAL_LOGGING"=%hhu";
 constexpr char sd_config_wifi_ssid_f[] = SD_CONFIG_FIELD_WIFI_SSID"=%[^\t\r\n]";
 constexpr char sd_config_wifi_ssid_write_f[] = SD_CONFIG_FIELD_WIFI_SSID"=%s";
 constexpr char sd_config_wifi_password_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD"=%[^\t\r\n]";
@@ -206,6 +208,7 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   // Device settings
   char access_point_password[CONFIG_VAL_MAX] = "";
   uint32_t alarm_threshold = 0;
+  uint8_t manual_logging = false;
 
   // Connection settings
   char wifi_ssid[CONFIG_VAL_MAX] = "";
@@ -264,6 +267,12 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
       if (_device_id && sscanf(line.c_str(), sd_config_alarm_threshold_f, &alarm_threshold)) {
         settings.set_alarm_threshold(alarm_threshold, true);
         DEBUG_PRINTF("Loaded from SD: alarm_threshold=%d\n", alarm_threshold);
+      }
+    }
+    else if (line.startsWith(SD_CONFIG_FIELD_MANUAL_LOGGING)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_manual_logging_f, &manual_logging)) {
+        settings.set_manual_logging(!!manual_logging, true);
+        DEBUG_PRINTF("Loaded from SD: manual_logging=%d\n", !!manual_logging);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_FIXED_LATITUDE)) {

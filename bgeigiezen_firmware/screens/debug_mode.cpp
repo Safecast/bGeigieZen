@@ -62,7 +62,7 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     M5.Lcd.printf("GPS %s\n"
                   " location: %s                \n"
                   "  lat, long, altitude (MSL), HDOP:\n"
-                  "  %.5f, %.5f, %.2f, %.1f \n"
+                  "  %0.6f, %0.6f, %0.2f, %.1f \n"
                   " satellites: %d in view   \n"
                   " date: %04d-%02d-%02d %s     \n"
                   " time: %02d:%02d:%02d %s     \n",
