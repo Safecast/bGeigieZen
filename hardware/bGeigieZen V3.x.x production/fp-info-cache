@@ -1,4 +1,4 @@
-22746614302120998
+22959031052407297
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -311,6 +311,13 @@ Battery
 Battery_Panasonic_CR2025-V1AK_Vertical_CircularHoles
 Panasonic CR-2025/V1AK battery,
 battery CR-2025 coin cell vertical
+0
+2
+2
+Battery
+Battery_Panasonic_CR2032-HFN_Horizontal_CircularHoles
+Panasonic CR-2032/HFN battery, https://industrial.panasonic.com/cdbs/www-data/pdf2/AAA4000/AAA4000D166.PDF
+battery CR-2032 coin cell
 0
 2
 2
@@ -1288,6 +1295,13 @@ SPST Tactile Switch
 4
 2
 Button_Switch_SMD
+SW_Push_1TS009xxxx-xxxx-xxxx_6x6x5mm
+tactile push button, 6x6mm, height=5mm, 12V 50mA, https://datasheet.lcsc.com/lcsc/1811151231_HYP--Hongyuan-Precision-1TS009A-1800-5000-CT_C319409.pdf
+tact sw push 6mm silicone rubber
+0
+2
+2
+Button_Switch_SMD
 SW_Push_SPST_NO_Alps_SKRK
 http://www.alps.com/prod/info/E/HTML/Tact/SurfaceMount/SKRK/SKRKAHE020.html
 SMD SMT button
@@ -1665,13 +1679,6 @@ switch DPDT
 0
 6
 6
-Button_Switch_THT
-SW_CuK_OS102011MA1QN1_SPDT_Angled
-CuK miniature slide switch, OS series, SPDT, right angle, http://www.ckswitches.com/media/1428/os.pdf
-switch SPDT
-0
-5
-3
 Button_Switch_THT
 SW_DIP_SPSTx01_Piano_10.8x4.1mm_W7.62mm_P2.54mm
 1x-dip-switch SPST , Piano, row spacing 7.62 mm (300 mils), body size 10.8x4.1mm
@@ -2261,7 +2268,14 @@ tactile switch Omron B3F right angle through hole
 4
 2
 Button_Switch_THT
-SW_Slide_1P2T_CK_OS102011MS2Q
+SW_Slide_SPDT_Angled_CK_OS102011MA1Q
+CuK miniature slide switch, OS series, SPDT, right angle, http://www.ckswitches.com/media/1428/os.pdf
+switch SPDT
+0
+5
+3
+Button_Switch_THT
+SW_Slide_SPDT_Straight_CK_OS102011MS2Q
 CuK miniature slide switch, OS series, SPDT, https://www.ckswitches.com/media/1428/os.pdf
 switch SPDT
 0
@@ -6370,9 +6384,44 @@ capacitor tantalum
 2
 2
 Connector
-Banana_Cliff_FCR7350x_S16N-PC_Horizontal
-Cliff single 4mm shrouded banana panel socket, through-hole, horizontal, https://www.cliffuk.co.uk/products/testleads/sockets/S16NPC.pdf
-cliff 4mm socket jack banana
+Banana_Cliff_FCR7350B_S16N-PC_Horizontal
+Cliff single 4mm shrouded banana panel socket, through-hole, horizontal, black, https://www.cliffuk.co.uk/products/testleads/sockets/S16NPC.pdf
+cliff 4mm socket jack banana black
+0
+1
+1
+Connector
+Banana_Cliff_FCR7350G_S16N-PC_Horizontal
+Cliff single 4mm shrouded banana panel socket, through-hole, horizontal, green, https://www.cliffuk.co.uk/products/testleads/sockets/S16NPC.pdf
+cliff 4mm socket jack banana green
+0
+1
+1
+Connector
+Banana_Cliff_FCR7350L_S16N-PC_Horizontal
+Cliff single 4mm shrouded banana panel socket, through-hole, horizontal, blue, https://www.cliffuk.co.uk/products/testleads/sockets/S16NPC.pdf
+cliff 4mm socket jack banana blue
+0
+1
+1
+Connector
+Banana_Cliff_FCR7350N_S16N-PC_Horizontal
+Cliff single 4mm shrouded banana panel socket, through-hole, horizontal, brown, https://www.cliffuk.co.uk/products/testleads/sockets/S16NPC.pdf
+cliff 4mm socket jack banana brown
+0
+1
+1
+Connector
+Banana_Cliff_FCR7350R_S16N-PC_Horizontal
+Cliff single 4mm shrouded banana panel socket, through-hole, horizontal, red, https://www.cliffuk.co.uk/products/testleads/sockets/S16NPC.pdf
+cliff 4mm socket jack banana red
+0
+1
+1
+Connector
+Banana_Cliff_FCR7350Y_S16N-PC_Horizontal
+Cliff single 4mm shrouded banana panel socket, through-hole, horizontal, yellow, https://www.cliffuk.co.uk/products/testleads/sockets/S16NPC.pdf
+cliff 4mm socket jack banana yellow
 0
 1
 1
@@ -46452,16 +46501,23 @@ conn samtec card-edge socket high-speed
 20
 18
 Connector_Samtec_HSEC8
-Samtec_HSEC8-109-01-X-DV-A_2x09_P0.8mm_Pol04_Socket_AlignmentPins
-0.8 mm Highspeed card edge card connector socket for 1.57mm PCBs, vertical, alignment pins (source: https://suddendocs.samtec.com/prints/hsec8-1xxx-xx-xx-dv-x-xx-footprint.pdf)
-conn samtec card-edge socket high-speed
+Samtec_HSEC8-109-X-X-DV-BL_2x09_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x9 contacts (with board lock option)
+conn samtec card-edge high-speed
 0
 18
 18
 Connector_Samtec_HSEC8
-Samtec_HSEC8-109-01-X-DV_2x09_P0.8mm_Pol04_Socket
-0.8 mm Highspeed card edge card connector socket for 1.57mm PCBs, vertical (source: https://suddendocs.samtec.com/prints/hsec8-1xxx-xx-xx-dv-x-xx-footprint.pdf)
-conn samtec card-edge socket high-speed
+Samtec_HSEC8-109-X-X-DV_2x09_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x9 contacts
+conn samtec card-edge high-speed
+0
+18
+18
+Connector_Samtec_HSEC8
+Samtec_HSEC8-109-X-X-DV_2x09_P0.8mm_Wing_Edge
+Highspeed card edge for PCB's with 2x9 contacts (with horizontal Edge.Cuts ends)
+conn samtec card-edge high-speed
 0
 18
 18
@@ -46515,6 +46571,27 @@ conn samtec card-edge socket high-speed
 20
 20
 Connector_Samtec_HSEC8
+Samtec_HSEC8-110-X-X-DV-BL_2x10_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x10 contacts (with board lock option)
+conn samtec card-edge high-speed
+0
+20
+20
+Connector_Samtec_HSEC8
+Samtec_HSEC8-110-X-X-DV_2x10_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x10 contacts
+conn samtec card-edge high-speed
+0
+20
+20
+Connector_Samtec_HSEC8
+Samtec_HSEC8-110-X-X-DV_2x10_P0.8mm_Wing_Edge
+Highspeed card edge for PCB's with 2x10 contacts (with horizontal Edge.Cuts ends)
+conn samtec card-edge high-speed
+0
+20
+20
+Connector_Samtec_HSEC8
 Samtec_HSEC8-113-01-X-DV-A-BL_2x13_P0.8mm_Pol06_Socket_WeldTabs_BoardLocks
 0.8 mm Highspeed card edge card connector socket for 1.57mm PCBs, vertical, alignment pins, weld tabs, board locks (source: https://suddendocs.samtec.com/prints/hsec8-1xxx-xx-xx-dv-x-xx-footprint.pdf)
 conn samtec card-edge socket high-speed
@@ -46539,6 +46616,27 @@ Connector_Samtec_HSEC8
 Samtec_HSEC8-113-01-X-DV_2x13_P0.8mm_Pol06_Socket
 0.8 mm Highspeed card edge card connector socket for 1.57mm PCBs, vertical (source: https://suddendocs.samtec.com/prints/hsec8-1xxx-xx-xx-dv-x-xx-footprint.pdf)
 conn samtec card-edge socket high-speed
+0
+26
+26
+Connector_Samtec_HSEC8
+Samtec_HSEC8-113-X-X-DV-BL_2x13_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x13 contacts (with board lock option)
+conn samtec card-edge high-speed
+0
+26
+26
+Connector_Samtec_HSEC8
+Samtec_HSEC8-113-X-X-DV_2x13_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x13 contacts
+conn samtec card-edge high-speed
+0
+26
+26
+Connector_Samtec_HSEC8
+Samtec_HSEC8-113-X-X-DV_2x13_P0.8mm_Wing_Edge
+Highspeed card edge for PCB's with 2x13 contacts (with horizontal Edge.Cuts ends)
+conn samtec card-edge high-speed
 0
 26
 26
@@ -46592,6 +46690,27 @@ conn samtec card-edge socket high-speed
 40
 40
 Connector_Samtec_HSEC8
+Samtec_HSEC8-120-X-X-DV-BL_2x20_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x20 contacts (with board lock option)
+conn samtec card-edge high-speed
+0
+40
+40
+Connector_Samtec_HSEC8
+Samtec_HSEC8-120-X-X-DV_2x20_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x20 contacts
+conn samtec card-edge high-speed
+0
+40
+40
+Connector_Samtec_HSEC8
+Samtec_HSEC8-120-X-X-DV_2x20_P0.8mm_Wing_Edge
+Highspeed card edge for PCB's with 2x20 contacts (with horizontal Edge.Cuts ends)
+conn samtec card-edge high-speed
+0
+40
+40
+Connector_Samtec_HSEC8
 Samtec_HSEC8-125-01-X-DV-A-BL_2x25_P0.8mm_Pol06_Socket_WeldTabs_BoardLocks
 0.8 mm Highspeed card edge card connector socket for 1.57mm PCBs, vertical, alignment pins, weld tabs, board locks (source: https://suddendocs.samtec.com/prints/hsec8-1xxx-xx-xx-dv-x-xx-footprint.pdf)
 conn samtec card-edge socket high-speed
@@ -46616,6 +46735,27 @@ Connector_Samtec_HSEC8
 Samtec_HSEC8-125-01-X-DV_2x25_P0.8mm_Pol06_Socket
 0.8 mm Highspeed card edge card connector socket for 1.57mm PCBs, vertical (source: https://suddendocs.samtec.com/prints/hsec8-1xxx-xx-xx-dv-x-xx-footprint.pdf)
 conn samtec card-edge socket high-speed
+0
+50
+50
+Connector_Samtec_HSEC8
+Samtec_HSEC8-125-X-X-DV-BL_2x25_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x25 contacts (with board lock option)
+conn samtec card-edge high-speed
+0
+50
+50
+Connector_Samtec_HSEC8
+Samtec_HSEC8-125-X-X-DV_2x25_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x25 contacts
+conn samtec card-edge high-speed
+0
+50
+50
+Connector_Samtec_HSEC8
+Samtec_HSEC8-125-X-X-DV_2x25_P0.8mm_Wing_Edge
+Highspeed card edge for PCB's with 2x25 contacts (with horizontal Edge.Cuts ends)
+conn samtec card-edge high-speed
 0
 50
 50
@@ -46669,6 +46809,27 @@ conn samtec card-edge socket high-speed
 60
 60
 Connector_Samtec_HSEC8
+Samtec_HSEC8-130-X-X-DV-BL_2x30_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x30 contacts (with board lock option)
+conn samtec card-edge high-speed
+0
+60
+60
+Connector_Samtec_HSEC8
+Samtec_HSEC8-130-X-X-DV_2x30_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x30 contacts
+conn samtec card-edge high-speed
+0
+60
+60
+Connector_Samtec_HSEC8
+Samtec_HSEC8-130-X-X-DV_2x30_P0.8mm_Wing_Edge
+Highspeed card edge for PCB's with 2x30 contacts (with horizontal Edge.Cuts ends)
+conn samtec card-edge high-speed
+0
+60
+60
+Connector_Samtec_HSEC8
 Samtec_HSEC8-137-01-X-DV-A-BL_2x37_P0.8mm_Pol21_Socket_WeldTabs_BoardLocks
 0.8 mm Highspeed card edge card connector socket for 1.57mm PCBs, vertical, alignment pins, weld tabs, board locks (source: https://suddendocs.samtec.com/prints/hsec8-1xxx-xx-xx-dv-x-xx-footprint.pdf)
 conn samtec card-edge socket high-speed
@@ -46693,6 +46854,27 @@ Connector_Samtec_HSEC8
 Samtec_HSEC8-137-01-X-DV_2x37_P0.8mm_Pol21_Socket
 0.8 mm Highspeed card edge card connector socket for 1.57mm PCBs, vertical (source: https://suddendocs.samtec.com/prints/hsec8-1xxx-xx-xx-dv-x-xx-footprint.pdf)
 conn samtec card-edge socket high-speed
+0
+74
+74
+Connector_Samtec_HSEC8
+Samtec_HSEC8-137-X-X-DV-BL_2x37_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x37 contacts (with board lock option)
+conn samtec card-edge high-speed
+0
+74
+74
+Connector_Samtec_HSEC8
+Samtec_HSEC8-137-X-X-DV_2x37_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x37 contacts
+conn samtec card-edge high-speed
+0
+74
+74
+Connector_Samtec_HSEC8
+Samtec_HSEC8-137-X-X-DV_2x37_P0.8mm_Wing_Edge
+Highspeed card edge for PCB's with 2x37 contacts (with horizontal Edge.Cuts ends)
+conn samtec card-edge high-speed
 0
 74
 74
@@ -46746,6 +46928,27 @@ conn samtec card-edge socket high-speed
 80
 80
 Connector_Samtec_HSEC8
+Samtec_HSEC8-140-X-X-DV-BL_2x40_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x40 contacts (with board lock option)
+conn samtec card-edge high-speed
+0
+80
+80
+Connector_Samtec_HSEC8
+Samtec_HSEC8-140-X-X-DV_2x40_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x40 contacts
+conn samtec card-edge high-speed
+0
+80
+80
+Connector_Samtec_HSEC8
+Samtec_HSEC8-140-X-X-DV_2x40_P0.8mm_Wing_Edge
+Highspeed card edge for PCB's with 2x40 contacts (with horizontal Edge.Cuts ends)
+conn samtec card-edge high-speed
+0
+80
+80
+Connector_Samtec_HSEC8
 Samtec_HSEC8-149-01-X-DV-A-BL_2x49_P0.8mm_Pol27_Socket_WeldTabs_BoardLocks
 0.8 mm Highspeed card edge card connector socket for 1.57mm PCBs, vertical, alignment pins, weld tabs, board locks (source: https://suddendocs.samtec.com/prints/hsec8-1xxx-xx-xx-dv-x-xx-footprint.pdf)
 conn samtec card-edge socket high-speed
@@ -46770,6 +46973,27 @@ Connector_Samtec_HSEC8
 Samtec_HSEC8-149-01-X-DV_2x49_P0.8mm_Pol27_Socket
 0.8 mm Highspeed card edge card connector socket for 1.57mm PCBs, vertical (source: https://suddendocs.samtec.com/prints/hsec8-1xxx-xx-xx-dv-x-xx-footprint.pdf)
 conn samtec card-edge socket high-speed
+0
+98
+98
+Connector_Samtec_HSEC8
+Samtec_HSEC8-149-X-X-DV-BL_2x49_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x49 contacts (with board lock option)
+conn samtec card-edge high-speed
+0
+98
+98
+Connector_Samtec_HSEC8
+Samtec_HSEC8-149-X-X-DV_2x49_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x49 contacts
+conn samtec card-edge high-speed
+0
+98
+98
+Connector_Samtec_HSEC8
+Samtec_HSEC8-149-X-X-DV_2x49_P0.8mm_Wing_Edge
+Highspeed card edge for PCB's with 2x49 contacts (with horizontal Edge.Cuts ends)
+conn samtec card-edge high-speed
 0
 98
 98
@@ -46823,6 +47047,27 @@ conn samtec card-edge socket high-speed
 100
 100
 Connector_Samtec_HSEC8
+Samtec_HSEC8-150-X-X-DV-BL_2x50_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x50 contacts (with board lock option)
+conn samtec card-edge high-speed
+0
+100
+100
+Connector_Samtec_HSEC8
+Samtec_HSEC8-150-X-X-DV_2x50_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x50 contacts
+conn samtec card-edge high-speed
+0
+100
+100
+Connector_Samtec_HSEC8
+Samtec_HSEC8-150-X-X-DV_2x50_P0.8mm_Wing_Edge
+Highspeed card edge for PCB's with 2x50 contacts (with horizontal Edge.Cuts ends)
+conn samtec card-edge high-speed
+0
+100
+100
+Connector_Samtec_HSEC8
 Samtec_HSEC8-160-01-X-DV-A-BL_2x60_P0.8mm_Pol32_Socket_WeldTabs_BoardLocks
 0.8 mm Highspeed card edge card connector socket for 1.57mm PCBs, vertical, alignment pins, weld tabs, board locks (source: https://suddendocs.samtec.com/prints/hsec8-1xxx-xx-xx-dv-x-xx-footprint.pdf)
 conn samtec card-edge socket high-speed
@@ -46868,6 +47113,27 @@ Connector_Samtec_HSEC8
 Samtec_HSEC8-160-03-X-DV_2x60_P0.8mm_Pol32_Socket
 0.8 mm Highspeed card edge card connector socket for 2.36mm PCBs, vertical (source: https://suddendocs.samtec.com/prints/hsec8-1xxx-xx-xx-dv-x-xx-footprint.pdf)
 conn samtec card-edge socket high-speed
+0
+120
+120
+Connector_Samtec_HSEC8
+Samtec_HSEC8-160-X-X-DV-BL_2x60_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x60 contacts (with board lock option)
+conn samtec card-edge high-speed
+0
+120
+120
+Connector_Samtec_HSEC8
+Samtec_HSEC8-160-X-X-DV_2x60_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x60 contacts
+conn samtec card-edge high-speed
+0
+120
+120
+Connector_Samtec_HSEC8
+Samtec_HSEC8-160-X-X-DV_2x60_P0.8mm_Wing_Edge
+Highspeed card edge for PCB's with 2x60 contacts (with horizontal Edge.Cuts ends)
+conn samtec card-edge high-speed
 0
 120
 120
@@ -46921,6 +47187,27 @@ conn samtec card-edge socket high-speed
 140
 140
 Connector_Samtec_HSEC8
+Samtec_HSEC8-170-X-X-DV-BL_2x70_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x70 contacts (with board lock option)
+conn samtec card-edge high-speed
+0
+140
+140
+Connector_Samtec_HSEC8
+Samtec_HSEC8-170-X-X-DV_2x70_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x70 contacts
+conn samtec card-edge high-speed
+0
+140
+140
+Connector_Samtec_HSEC8
+Samtec_HSEC8-170-X-X-DV_2x70_P0.8mm_Wing_Edge
+Highspeed card edge for PCB's with 2x70 contacts (with horizontal Edge.Cuts ends)
+conn samtec card-edge high-speed
+0
+140
+140
+Connector_Samtec_HSEC8
 Samtec_HSEC8-180-01-X-DV-A-BL_2x80_P0.8mm_Pol32_Socket_WeldTabs_BoardLocks
 0.8 mm Highspeed card edge card connector socket for 1.57mm PCBs, vertical, alignment pins, weld tabs, board locks (source: https://suddendocs.samtec.com/prints/hsec8-1xxx-xx-xx-dv-x-xx-footprint.pdf)
 conn samtec card-edge socket high-speed
@@ -46966,6 +47253,27 @@ Connector_Samtec_HSEC8
 Samtec_HSEC8-180-03-X-DV_2x80_P0.8mm_Pol32_Socket
 0.8 mm Highspeed card edge card connector socket for 2.36mm PCBs, vertical (source: https://suddendocs.samtec.com/prints/hsec8-1xxx-xx-xx-dv-x-xx-footprint.pdf)
 conn samtec card-edge socket high-speed
+0
+160
+160
+Connector_Samtec_HSEC8
+Samtec_HSEC8-180-X-X-DV-BL_2x80_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x80 contacts (with board lock option)
+conn samtec card-edge high-speed
+0
+160
+160
+Connector_Samtec_HSEC8
+Samtec_HSEC8-180-X-X-DV_2x80_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x80 contacts
+conn samtec card-edge high-speed
+0
+160
+160
+Connector_Samtec_HSEC8
+Samtec_HSEC8-180-X-X-DV_2x80_P0.8mm_Wing_Edge
+Highspeed card edge for PCB's with 2x80 contacts (with horizontal Edge.Cuts ends)
+conn samtec card-edge high-speed
 0
 160
 160
@@ -47019,6 +47327,27 @@ conn samtec card-edge socket high-speed
 180
 180
 Connector_Samtec_HSEC8
+Samtec_HSEC8-190-X-X-DV-BL_2x90_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x90 contacts (with board lock option)
+conn samtec card-edge high-speed
+0
+180
+180
+Connector_Samtec_HSEC8
+Samtec_HSEC8-190-X-X-DV_2x90_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x90 contacts
+conn samtec card-edge high-speed
+0
+180
+180
+Connector_Samtec_HSEC8
+Samtec_HSEC8-190-X-X-DV_2x90_P0.8mm_Wing_Edge
+Highspeed card edge for PCB's with 2x90 contacts (with horizontal Edge.Cuts ends)
+conn samtec card-edge high-speed
+0
+180
+180
+Connector_Samtec_HSEC8
 Samtec_HSEC8-1100-01-X-DV-A-BL_2x100_P0.8mm_Pol32_Socket_WeldTabs_BoardLocks
 0.8 mm Highspeed card edge card connector socket for 1.57mm PCBs, vertical, alignment pins, weld tabs, board locks (source: https://suddendocs.samtec.com/prints/hsec8-1xxx-xx-xx-dv-x-xx-footprint.pdf)
 conn samtec card-edge socket high-speed
@@ -47064,6 +47393,27 @@ Connector_Samtec_HSEC8
 Samtec_HSEC8-1100-03-X-DV_2x100_P0.8mm_Pol32_Socket
 0.8 mm Highspeed card edge card connector socket for 2.36mm PCBs, vertical (source: https://suddendocs.samtec.com/prints/hsec8-1xxx-xx-xx-dv-x-xx-footprint.pdf)
 conn samtec card-edge socket high-speed
+0
+200
+200
+Connector_Samtec_HSEC8
+Samtec_HSEC8-1100-X-X-DV-BL_2x100_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x100 contacts (with board lock option)
+conn samtec card-edge high-speed
+0
+200
+200
+Connector_Samtec_HSEC8
+Samtec_HSEC8-1100-X-X-DV_2x100_P0.8mm_Edge
+Highspeed card edge for PCB's with 2x100 contacts
+conn samtec card-edge high-speed
+0
+200
+200
+Connector_Samtec_HSEC8
+Samtec_HSEC8-1100-X-X-DV_2x100_P0.8mm_Wing_Edge
+Highspeed card edge for PCB's with 2x100 contacts (with horizontal Edge.Cuts ends)
+conn samtec card-edge high-speed
 0
 200
 200
@@ -51009,23 +51359,51 @@ Hahn ACDC-Converter THT
 4
 4
 Converter_ACDC
-Converter_ACDC_HiLink_HLK-5Mxx
-ACDC-Converter, 10W, HiLink, HLK-5Mxx, (http://h.hlktech.com/download/ACDC%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%975W%E7%B3%BB%E5%88%97/1/%E6%B5%B7%E5%87%8C%E7%A7%915W%E7%B3%BB%E5%88%97%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%97%E8%A7%84%E6%A0%BC%E4%B9%A6V2.8.pdf)
-ACDC-Converter 5W THT HiLink board mount module
+Converter_ACDC_Hi-Link_HLK-2Mxx
+ACDC-Converter, 2W, Hi-Link, HLK-2Mxx, THT (Script generated with StandardBox.py) (https://h.hlktech.com/download/ACDC%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%972W%E7%B3%BB%E5%88%97/1/%E6%B5%B7%E5%87%8C%E7%A7%912W%E7%B3%BB%E5%88%97%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%97%E8%AF%B4%E6%98%8E%E4%B9%A6V2.6.pdf)
+ACDC-Converter 2W THT Hi-Link board mount module
 0
 4
 4
 Converter_ACDC
-Converter_ACDC_HiLink_HLK-10Mxx
-ACDC-Converter, 10W, HiLink, HLK-10Mxx, THT, http://h.hlktech.com/download/ACDC%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%9710W%E7%B3%BB%E5%88%97/1/%E6%B5%B7%E5%87%8C%E7%A7%9110W%E7%B3%BB%E5%88%97%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%97%E8%A7%84%E6%A0%BC%E4%B9%A6V1.8.pdf
-ACDC-Converter 10W THT HiLink board mount module
+Converter_ACDC_Hi-Link_HLK-5Mxx
+ACDC-Converter, 5W, Hi-Link, HLK-5Mxx, THT (Script generated with StandardBox.py) (https://h.hlktech.com/download/ACDC%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%975W%E7%B3%BB%E5%88%97/1/%E6%B5%B7%E5%87%8C%E7%A7%915W%E7%B3%BB%E5%88%97%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%97%E8%A7%84%E6%A0%BC%E4%B9%A6V2.8.pdf)
+ACDC-Converter 5W THT Hi-Link board mount module
 0
 4
 4
 Converter_ACDC
-Converter_ACDC_HiLink_HLK-PMxx
-ACDC-Converter, 3W, HiLink, HLK-PMxx, THT, http://www.hlktech.net/product_detail.php?ProId=54
-ACDC-Converter 3W THT HiLink board mount module
+Converter_ACDC_Hi-Link_HLK-10Mxx
+ACDC-Converter, 10W, Hi-Link, HLK-10Mxx, THT (Script generated with StandardBox.py) (https://h.hlktech.com/download/ACDC%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%9710W%E7%B3%BB%E5%88%97/1/%E6%B5%B7%E5%87%8C%E7%A7%9110W%E7%B3%BB%E5%88%97%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%97%E8%A7%84%E6%A0%BC%E4%B9%A6V1.8.pdf)
+ACDC-Converter 10W THT Hi-Link board mount module
+0
+4
+4
+Converter_ACDC
+Converter_ACDC_Hi-Link_HLK-12MxxA
+ACDC-Converter, 12W, Hi-Link, HLK-12MxxA, THT (Script generated with StandardBox.py) (https://h.hlktech.com/download/ACDC%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%9712W%E7%B3%BB%E5%88%97/1/12W%E7%B3%BB%E5%88%97%E8%A7%84%E6%A0%BC%E4%B9%A6.pdf)
+ACDC-Converter 12W THT Hi-Link board mount module
+0
+4
+4
+Converter_ACDC
+Converter_ACDC_Hi-Link_HLK-20Mxx
+ACDC-Converter, 20W, Hi-Link, HLK-20Mxx, THT (Script generated with StandardBox.py) (https://h.hlktech.com/download/ACDC%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%9720W%E7%B3%BB%E5%88%97/1/%E6%B5%B7%E5%87%8C%E7%A7%9120W%E7%B3%BB%E5%88%97%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%97%E8%A7%84%E6%A0%BC%E4%B9%A6V1.6.pdf)
+ACDC-Converter 20W THT Hi-Link board mount module
+0
+4
+4
+Converter_ACDC
+Converter_ACDC_Hi-Link_HLK-30Mxx
+ACDC-Converter, 30W, Hi-Link, HLK-30Mxx, HLK-30MxxC, THT (Script generated with StandardBox.py) (https://h.hlktech.com/download/ACDC%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%9730W%E7%B3%BB%E5%88%97/1/%E6%B5%B7%E5%87%8C%E7%A7%9130W%E7%B3%BB%E5%88%97%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%97%E8%A7%84%E6%A0%BC%E4%B9%A6V1.6.pdf)
+ACDC-Converter 30W THT Hi-Link board mount module
+0
+4
+4
+Converter_ACDC
+Converter_ACDC_Hi-Link_HLK-PMxx
+ACDC-Converter, 3W, Hi-Link, HLK-PMxx, THT (Script generated with StandardBox.py) (https://h.hlktech.com/download/ACDC%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%973W%E7%B3%BB%E5%88%97/1/%E6%B5%B7%E5%87%8C%E7%A7%913W%E7%B3%BB%E5%88%97%E7%94%B5%E6%BA%90%E6%A8%A1%E5%9D%97%E8%A7%84%E6%A0%BC%E4%B9%A6V2.8.pdf)
+ACDC-Converter 3W THT Hi-Link board mount module
 0
 4
 4
@@ -51082,6 +51460,20 @@ Converter_ACDC
 Converter_ACDC_MeanWell_IRM-60-xx_THT
 ACDC-Converter, 50-60W, Meanwell, IRM-60, THT https://www.meanwellusa.com/productPdf.aspx?i=687
 switching power supply
+0
+4
+4
+Converter_ACDC
+Converter_ACDC_MeanWell_MFM-10-xx_THT
+AC/DC board mount open frame power converter, input 80 ~ 264 VAC, 10W output, https://www.meanwellusa.com/upload/pdf/MFM-10/MFM-10-spec.pdf
+AC/DC power converter
+0
+4
+4
+Converter_ACDC
+Converter_ACDC_MeanWell_MFM-15-xx_THT
+AC/DC board mount open frame power converter, input 80 ~ 264 VAC, 15W output, https://www.meanwell.com/Upload/PDF/MFM-15/MFM-15-SPEC.PDF
+AC/DC power converter
 0
 4
 4
@@ -54669,6 +55061,13 @@ NHD-C0220BiZ LCD
 0
 10
 10
+Display
+NHD-C0220BiZ-FSRGB
+NHD-C0220BiZ-FSRGB LCD https://newhavendisplay.com/content/specs/NHD-C0220BiZ-FSRGB-FBW-3VM.pdf
+NHD-C0220BiZ-FSRGB 2 x 20 character LCD RGB backlight
+0
+12
+12
 Display
 NHD-C12832A1Z-FSRGB
 128x32 LCD with RGB backlight https://www.newhavendisplay.com/specs/NHD-C12832A1Z-FSRGB-FBW-3V.pdf
@@ -65653,6 +66052,13 @@ Fiber Optic Transmitter and Receiver
 6
 6
 OptoDevice
+Broadcom_APDS-9160-003
+Broadcom DFN, 8 Pin (https://docs.broadcom.com/docs/APDS-9160-003-DS)
+proximity sensor avago
+0
+8
+8
+OptoDevice
 Broadcom_APDS-9301
 ambient light sensor, i2c interface, 6-pin chipled package, https://docs.broadcom.com/docs/AV02-2315EN
 ambient light sensor chipled
@@ -66746,7 +67152,7 @@ BGA 54 0.8
 54
 Package_BGA
 Analog_BGA-28_4.0x6.25mm_Layout4x7_P0.8mm_Ball0.45mm_Pad0.4
-Analog BGA-28 4.0mm x 6.25mm package, pitch 0.4mm pad, based on https://www.analog.com/media/en/technical-documentation/data-sheets/8063fa.pdf
+Analog BGA-28, 0.4mm pad, 4.0x6.25mm, 28 Ball, 4x7 Layout, 0.8mm Pitch, https://www.analog.com/media/en/technical-documentation/data-sheets/8063fa.pdf
 BGA 28 0.8
 0
 28
@@ -66758,6 +67164,13 @@ BGA 49 0.8
 0
 49
 49
+Package_BGA
+Analog_BGA-77_9.0x15.0mm_Layout7x11_P1.27mm_Ball0.63mm
+Analog Devices BGA-77, 0.63mm pad, 9x15mm, 77 Ball, 7x11 Layout, 1.27mm Pitch, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/ltc-legacy-bga/05081964_B_bga77.pdf
+BGA 77 1.27 LTC Dwg 05-08-1964 Rev. B
+0
+77
+77
 Package_BGA
 Analog_BGA-209_9.5x16mm_Layout11x19_P0.8mm_Ball0.5mm_Pad0.4mm
 Analog BGA-209 (Reference LTC DWG#05-08-1561 Rev B), 9.5x16.0mm, 209 Ball, 11x19 Layout, 0.8mm Pitch, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/ltc-legacy-bga/05081561_bga209.pdf
@@ -66907,7 +67320,7 @@ Altera UBGA U169 BGA-169
 169
 Package_BGA
 BGA-200_10.0x14.5mm_Layout12x22_P0.80x0.65mm
-BGA-200, 14.5x10.0mm, 200 Ball, 12x22 Layout, 0.8x0.65mm Pitch, http://www.issi.com/WW/pdf/43-46LQ32256A-AL.pdf
+BGA-200, 10.0x14.5mm, 200 Ball, 12x22 Layout, 0.8x0.65mm Pitch, http://www.issi.com/WW/pdf/43-46LQ32256A-AL.pdf
 BGA 200 0.8x0.65
 0
 200
@@ -66984,7 +67397,7 @@ BGA 529 0.8 529-ball FBGA
 529
 Package_BGA
 BGA-624_21.0x21.0mm_Layout25x25_P0.8mm
-BGA-624, 25x25 grid, 21x21mm package, pitch 0.8mm; https://www.nxp.com/docs/en/package-information/SOT1529-1.pdf
+BGA-624, 21.0x21.0mm, 624 Ball, 25x25 Layout, 0.8mm Pitch, https://www.nxp.com/docs/en/package-information/SOT1529-1.pdf
 BGA 624 0.8
 0
 624
@@ -67032,6 +67445,13 @@ BGA-1295
 1295
 1295
 Package_BGA
+EPC_BGA-4_0.9x0.9mm_Layout2x2_P0.45mm
+EPC BGA-4, 0.9x09mm, Pitch 0.4mm, https://epc-co.com/epc/Portals/0/epc/documents/datasheets/EPC2035_datasheet.pdf
+EPC BGA-4
+0
+8
+4
+Package_BGA
 FB-BGA-484_23.0x23.0mm_Layout22x22_P1.0mm
 Xilinx FB-484, https://www.xilinx.com/support/documentation/user_guides/ug1099-bga-device-design-rules.pdf
 FB-BGA-484
@@ -67061,14 +67481,14 @@ BGA 292 0.8
 292
 Package_BGA
 LFBGA-100_10x10mm_Layout10x10_P0.8mm
-LFBGA-100, 10x10 raster, 10x10mm package, pitch 0.8mm; see section 6.3 of http://www.st.com/resource/en/datasheet/stm32f103tb.pdf
+LFBGA-100, 10.0x10.0mm, 100 Ball, 10x10 Layout, 0.8mm Pitch, http://www.st.com/resource/en/datasheet/stm32f103tb.pdf#page=87
 BGA 100 0.8
 0
 100
 100
 Package_BGA
 LFBGA-144_10x10mm_Layout12x12_P0.8mm
-LFBGA-144, 12x12 raster, 10x10mm package, pitch 0.8mm; see section 6.1 of http://www.st.com/resource/en/datasheet/stm32f103ze.pdf
+LFBGA-144, 10.0x10.0mm, 144 Ball, 12x12 Layout, 0.8mm Pitch, http://www.st.com/resource/en/datasheet/stm32f103ze.pdf#page=114
 BGA 144 0.8
 0
 144
@@ -67102,6 +67522,13 @@ BGA 484 0.8 484-ball LFBGA
 484
 484
 Package_BGA
+Lattice_caBGA-381_17.0x17.0mm_Layout20x20_P0.8mm_Ball0.4mm_Pad0.4mm
+Lattice caBGA-381, ECP5 FPGAs, 17.0x17.0mm, 381 Ball, 20x20 Layout, 0.8mm Pitch, http://www.latticesemi.com/view_document?document_id=213
+BGA 381 0.8
+0
+381
+381
+Package_BGA
 Lattice_caBGA-381_17.0x17.0mm_Layout20x20_P0.8mm_Ball0.4mm_Pad0.4mm_NSMD
 Lattice caBGA-381 footprint for ECP5 FPGAs, based on http://www.latticesemi.com/view_document?document_id=213
 BGA 381 0.8
@@ -67110,7 +67537,7 @@ BGA 381 0.8
 381
 Package_BGA
 Lattice_caBGA-381_17.0x17.0mm_Layout20x20_P0.8mm_Ball0.4mm_Pad0.6mm_SMD
-Lattice caBGA-381 footprint for ECP5 FPGAs, based on http://www.latticesemi.com/view_document?document_id=213
+Lattice caBGA-381, ECP5 FPGAs, 17.0x17.0mm, 381 Ball, 20x20 Layout, 0.8mm Pitch, http://www.latticesemi.com/view_document?document_id=213
 BGA 381 0.8
 0
 381
@@ -67173,49 +67600,49 @@ BGA 196 0.75
 196
 Package_BGA
 Micron_FBGA-78_7.5x10.6mm_Layout9x13_P0.8mm
-FBGA-78, 10.6x7.5mm, 78 Ball, 9x13 Layout, 0.8mm Pitch, https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=24
+FBGA-78, 7.5x10.6mm, 78 Ball, 9x13 Layout, 0.8mm Pitch, https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=24
 BGA 78 0.8
 0
 78
 78
 Package_BGA
 Micron_FBGA-78_8x10.5mm_Layout9x13_P0.8mm
-FBGA-78, 10.5x8.0mm, 78 Ball, 9x13 Layout, 0.8mm Pitch, https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=25
+FBGA-78, 8.0x10.5mm, 78 Ball, 9x13 Layout, 0.8mm Pitch, https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=25
 BGA 78 0.8
 0
 78
 78
 Package_BGA
 Micron_FBGA-78_9x10.5mm_Layout9x13_P0.8mm
-FBGA-78, 10.5x9.0mm, 78 Ball, 9x13 Layout, 0.8mm Pitch, https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=23
+FBGA-78, 9.0x10.5mm, 78 Ball, 9x13 Layout, 0.8mm Pitch, https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=23
 BGA 78 0.8
 0
 78
 78
 Package_BGA
 Micron_FBGA-96_7.5x13.5mm_Layout9x16_P0.8mm
-FBGA-96, 13.5x7.5mm, 96 Ball, 9x16 Layout, 0.8mm Pitch, https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=27
+FBGA-96, 7.5x13.5mm, 96 Ball, 9x16 Layout, 0.8mm Pitch, https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=27
 BGA 96 0.8
 0
 96
 96
 Package_BGA
 Micron_FBGA-96_8x14mm_Layout9x16_P0.8mm
-FBGA-96, 14.0x8.0mm, 96 Ball, 9x16 Layout, 0.8mm Pitch, https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=28
+FBGA-96, 8.0x14.0mm, 96 Ball, 9x16 Layout, 0.8mm Pitch, https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=28
 BGA 96 0.8
 0
 96
 96
 Package_BGA
 Micron_FBGA-96_9x14mm_Layout9x16_P0.8mm
-FBGA-96, 14.0x9.0mm, 96 Ball, 9x16 Layout, 0.8mm Pitch, https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=26
+FBGA-96, 9.0x14.0mm, 96 Ball, 9x16 Layout, 0.8mm Pitch, https://www.micron.com/-/media/client/global/documents/products/data-sheet/dram/ddr3/4gb_ddr3l.pdf#page=26
 BGA 96 0.8
 0
 96
 96
 Package_BGA
 NXP_VFBGA-42_2.6x3mm_Layout6x7_P0.4mm_Ball0.25mm_Pad0.24mm
-NXP VFBGA-42, 3.0x2.6mm, 42 Ball, 6x7 Layout, 0.4mm Pitch, https://www.nxp.com/docs/en/package-information/SOT1963-1.pdf
+NXP VFBGA-42, 2.6x3.0mm, 42 Ball, 6x7 Layout, 0.4mm Pitch, https://www.nxp.com/docs/en/package-information/SOT1963-1.pdf
 BGA 42 0.4
 0
 42
@@ -67298,12 +67725,26 @@ BGA 36 0.5
 36
 36
 Package_BGA
+TFBGA-49_3x3mm_Layout7x7_P0.4mm
+TFBGA-49, NSMD, 3.0x3.0mm, 49 Ball, 7x7 Layout, 0.4mm Pitch, https://www.efinixinc.com/docs/trion-packaging-ug-v4.9.pdf
+BGA 49 0.4 49-ball FBGA
+0
+49
+49
+Package_BGA
 TFBGA-64_5x5mm_Layout8x8_P0.5mm
-TFBGA-64, 8x8 raster, 5x5mm package, pitch 0.5mm; see section 6.3 of http://www.st.com/resource/en/datasheet/stm32f100v8.pdf
+TFBGA-64, 5.0x5.0mm, 64 Ball, 8x8 Layout, 0.5mm Pitch, http://www.st.com/resource/en/datasheet/stm32f100v8.pdf#page=83
 BGA 64 0.5
 0
 64
 64
+Package_BGA
+TFBGA-81_5x5mm_Layout8x8_P0.5mm
+TFBGA-81, NSMD, 5.0x5.0mm, 81 Ball, 9x9 Layout, 0.5mm Pitch, https://www.efinixinc.com/docs/trion-packaging-ug-v4.9.pdf
+BGA 81 0.5 81-ball FBGA
+0
+81
+81
 Package_BGA
 TFBGA-100_5.5x5.5mm_Layout10x10_P0.5mm
 TFBGA-100, NSMD, 5.5x5.5mm, 100 Ball, 10x10 Layout, 0.5mm Pitch, https://www.efinixinc.com/docs/titanium-packaging-ug-v5.2.pdf
@@ -67313,7 +67754,7 @@ BGA 100 0.5 100-ball FBGA
 100
 Package_BGA
 TFBGA-100_8x8mm_Layout10x10_P0.8mm
-TFBGA-100, 10x10 raster, 8x8mm package, pitch 0.8mm; see section 6.2 of http://www.st.com/resource/en/datasheet/stm32f746zg.pdf
+TFBGA-100, 8.0x8.0mm, 100 Ball, 10x10 Layout, 0.8mm Pitch, http://www.st.com/resource/en/datasheet/stm32f746zg.pdf#page=199
 BGA 100 0.8
 0
 100
@@ -67327,14 +67768,21 @@ TFBGA-100
 100
 Package_BGA
 TFBGA-121_10x10mm_Layout11x11_P0.8mm
-TFBGA-121, 11x11 raster, 10x10mm package, pitch 0.8mm; http://ww1.microchip.com/downloads/en/PackagingSpec/00000049BQ.pdf#p495
+TFBGA-121, 10.0x10.0mm, 121 Ball, 11x11 Layout, 0.8mm Pitch, http://ww1.microchip.com/downloads/en/PackagingSpec/00000049BQ.pdf#p495
 BGA 121 0.8
 0
 121
 121
 Package_BGA
+TFBGA-169_9x9mm_Layout13x13_P0.65mm
+TFBGA-169, NSMD, 9.0x9.0mm, 169 Ball, 13x13 Layout, 0.65mm Pitch, https://www.efinixinc.com/docs/trion-packaging-ug-v4.9.pdf
+BGA 169 0.65 169-ball FBGA
+0
+169
+169
+Package_BGA
 TFBGA-216_13x13mm_Layout15x15_P0.8mm
-TFBGA-216, 15x15 raster, 13x13mm package, pitch 0.8mm; see section 6.8 of http://www.st.com/resource/en/datasheet/stm32f746zg.pdf
+TFBGA-216, 13.0x13.0mm, 216 Ball, 15x15 Layout, 0.8mm Pitch, http://www.st.com/resource/en/datasheet/stm32f746zg.pdf#page=219
 BGA 216 0.8
 0
 216
@@ -67347,8 +67795,15 @@ BGA 225 0.65 225-ball FBGA
 225
 225
 Package_BGA
+TFBGA-256_13x13mm_Layout16x16_P0.8mm
+TFBGA-256, NSMD, 13.0x13.0mm, 256 Ball, 16x16 Layout, 0.8mm Pitch, https://www.efinixinc.com/docs/trion-packaging-ug-v4.9.pdf
+BGA 256 0.8 256-ball FBGA
+0
+256
+256
+Package_BGA
 TFBGA-265_14x14mm_Layout17x17_P0.8mm
-TFBGA-265, 17x17 raster, 14x14mm package, pitch 0.8mm; see section 7.8 of http://www.st.com/resource/en/datasheet/DM00387108.pdf
+TFBGA-265, 14.0x14.0mm, 265 Ball, 17x17 Layout, 0.8mm Pitch, http://www.st.com/resource/en/datasheet/DM00387108.pdf#page=223
 BGA 265 0.8
 0
 265
@@ -67361,12 +67816,26 @@ BGA 289 0.5
 289
 289
 Package_BGA
+TFBGA-324_12x12mm_Layout18x18_P0.8mm
+TFBGA-324, NSMD, 12.0x12.0mm, 324 Ball, 18x18 Layout, 0.65mm Pitch, https://www.efinixinc.com/docs/trion-packaging-ug-v4.9.pdf
+BGA 324 0.65 324-ball FBGA
+0
+324
+324
+Package_BGA
 TFBGA-361_13x13mm_Layout19x19_P0.65mm
 TFBGA-361, NSMD, 13.0x13.0mm, 361 Ball, 19x19 Layout, 0.65mm Pitch, https://www.efinixinc.com/docs/titanium-packaging-ug-v5.2.pdf
 BGA 361 0.65 361-ball FBGA
 0
 361
 361
+Package_BGA
+TFBGA-576_16x16mm_Layout24x24_P0.65mm
+TFBGA-576, NSMD, 16.0x16.0mm, 576 Ball, 24x24 Layout, 0.65mm Pitch, https://www.efinixinc.com/docs/trion-packaging-ug-v4.9.pdf
+BGA 576 0.65 576-ball FBGA
+0
+576
+576
 Package_BGA
 Texas_BGA-289_15.0x15.0mm_Layout17x17_P0.8mm_Ball0.5mm_Pad0.4mm
 Texas Instruments BGA-289, 0.4mm pad, 15x15mm, 289 Ball, 17x17 Layout, 0.8mm Pitch, https://www.ti.com/lit/ml/mpbg777/mpbg777.pdf
@@ -67432,7 +67901,7 @@ Texas Instruments DSBGA BGA YZP R-XBGA-N8
 8
 Package_BGA
 Texas_DSBGA-8_0.705x1.468mm_Layout2x4_P0.4mm
-Texas Instruments, DSBGA, area grid, YBJ0008 pad definition, 1.468x0.705mm, 8 Ball, 2x4 Layout, 0.4mm Pitch, https://www.ti.com/lit/gpn/ina234
+Texas Instruments, DSBGA, area grid, NSMD, YBJ0008 pad definition, 0.705x1.468mm, 8 Ball, 2x4 Layout, 0.4mm Pitch, https://www.ti.com/lit/gpn/ina234
 BGA 8 0.4
 0
 8
@@ -67446,7 +67915,7 @@ Texas Instruments DSBGA BGA YZP R-XBGA-N8
 8
 Package_BGA
 Texas_DSBGA-8_1.5195x1.5195mm_Layout3x3_P0.5mm
-Texas Instruments, DSBGA, 1.5195x1.5195x0.600mm, 8 ball 3x3 area grid, YZR pad definition (http://www.ti.com/lit/ml/mxbg270/mxbg270.pdf)
+Texas Instruments, DSBGA, area grid, YZR pad definition, 1.5195x1.5195mm, 8 Ball, 3x3 Layout, 0.5mm Pitch, http://www.ti.com/lit/ml/mxbg270/mxbg270.pdf
 BGA 8 0.5
 0
 8
@@ -67481,22 +67950,22 @@ BGA 16 0.5
 16
 Package_BGA
 Texas_DSBGA-28_1.9x3.0mm_Layout4x7_P0.4mm
-Texas Instruments, DSBGA, 3.0x1.9x0.625mm, 28 ball 7x4 area grid, NSMD pad definition (http://www.ti.com/lit/ds/symlink/bq51050b.pdf, http://www.ti.com/lit/an/snva009ag/snva009ag.pdf)
+Texas Instruments, DSBGA, area grid, 1.9x3.0mm, 28 Ball, 4x7 Layout, 0.4mm Pitch, http://www.ti.com/lit/ds/symlink/bq51050b.pdf, http://www.ti.com/lit/an/snva009ag/snva009ag.pdf
 BGA 28 0.4
 0
 28
 28
 Package_BGA
 Texas_DSBGA-49_3.33x3.488mm_Layout7x7_P0.4mm
-Texas Instruments, DSBGA, 3.33x3.488x0.625mm, 49 ball 7x7 area grid, NSMD pad definition (http://www.ti.com/lit/ds/symlink/msp430f2234.pdf, http://www.ti.com/lit/an/snva009ag/snva009ag.pdf)
-texas dsbga 49
+Texas Instruments, DSBGA, area grid, 3.33x3.488mm, 49 Ball, 7x7 Layout, 0.4mm Pitch, http://www.ti.com/lit/ds/symlink/msp430f2234.pdf, http://www.ti.com/lit/an/snva009ag/snva009ag.pdf
+BGA 49 0.4
 0
 49
 49
 Package_BGA
 Texas_DSBGA-64_3.415x3.535mm_Layout8x8_P0.4mm
-Texas Instruments, DSBGA, 3.415x3.535x0.625mm, 64 ball 8x8 area grid, NSMD pad definition (http://www.ti.com/lit/ds/slas718g/slas718g.pdf, http://www.ti.com/lit/an/snva009ag/snva009ag.pdf)
-texas dsbga 64
+Texas Instruments, DSBGA, area grid, 3.415x3.535mm, 64 Ball, 8x8 Layout, 0.4mm Pitch, http://www.ti.com/lit/ds/slas718g/slas718g.pdf, http://www.ti.com/lit/an/snva009ag/snva009ag.pdf
+BGA 64 0.4
 0
 64
 64
@@ -67523,21 +67992,21 @@ BGA 113 0.5
 113
 Package_BGA
 UCBGA-36_2.5x2.5mm_Layout6x6_P0.4mm
-UCBGA-36, 6x6 raster, 2.5x2.5mm package, pitch 0.4mm; https://www.latticesemi.com/view_document?document_id=213
+UCBGA-36, 2.5x2.5mm, 36 Ball, 6x6 Layout, 0.4mm Pitch, https://www.latticesemi.com/view_document?document_id=213
 BGA 36 0.4
 0
 36
 36
 Package_BGA
 UCBGA-49_3x3mm_Layout7x7_P0.4mm
-UCBGA-49, 7x7 raster, 3x3mm package, pitch 0.4mm; https://www.latticesemi.com/view_document?document_id=213
+UCBGA-49, 3x3mm, 49 Ball, 7x7 Layout, 0.4mm Pitch, https://www.latticesemi.com/view_document?document_id=213
 BGA 49 0.4
 0
 49
 49
 Package_BGA
 UCBGA-81_4x4mm_Layout9x9_P0.4mm
-UCBGA-81, 9x9 raster, 4x4mm package, pitch 0.4mm; https://www.latticesemi.com/view_document?document_id=213
+UCBGA-81, 4x4mm, 81 Ball, 9x9 Layout, 0.4mm Pitch, https://www.latticesemi.com/view_document?document_id=213
 BGA 81 0.4
 0
 81
@@ -67558,21 +68027,21 @@ UFBGA-32
 32
 Package_BGA
 UFBGA-64_5x5mm_Layout8x8_P0.5mm
-UFBGA-64, 8x8 raster, 5x5mm package, pitch 0.5mm; see section 7.1 of http://www.st.com/resource/en/datasheet/stm32f051t8.pdf
+UFBGA-64, 5.0x5.0mm, 64 Ball, 8x8 Layout, 0.5mm Pitch, http://www.st.com/resource/en/datasheet/stm32f051t8.pdf#page=91
 BGA 64 0.5
 0
 64
 64
 Package_BGA
 UFBGA-100_7x7mm_Layout12x12_P0.5mm
-UFBGA-100, 12x12 raster, 7x7mm package, pitch 0.5mm; see section 7.1 of http://www.st.com/resource/en/datasheet/stm32f103tb.pdf
+UFBGA-100, 7.0x7.0mm, 100 Ball, 12x12 Layout, 0.5mm Pitch, http://www.st.com/resource/en/datasheet/stm32f103tb.pdf#page=93
 BGA 100 0.5
 0
 100
 100
 Package_BGA
 UFBGA-132_7x7mm_Layout12x12_P0.5mm
-UFBGA-132, 12x12 raster, 7x7mm package, pitch 0.5mm; see section 7.4 of http://www.st.com/resource/en/datasheet/stm32l152zc.pdf
+UFBGA-132, 7.0x7.0mm, 132 Ball, 12x12 Layout, 0.5mm Pitch, http://www.st.com/resource/en/datasheet/stm32l152zc.pdf#page=123
 BGA 132 0.5
 0
 132
@@ -67586,28 +68055,28 @@ ufbga bga small-pitch
 132
 Package_BGA
 UFBGA-144_7x7mm_Layout12x12_P0.5mm
-UFBGA-144, 12x12 raster, 7x7mm package, pitch 0.5mm; see section 7.4 of http://www.st.com/resource/en/datasheet/stm32f446ze.pdf
+UFBGA-144, 7.0x7.0mm, 144 Ball, 12x12 Layout, 0.5mm Pitch, http://www.st.com/resource/en/datasheet/stm32f446ze.pdf#page=186
 BGA 144 0.5
 0
 144
 144
 Package_BGA
 UFBGA-144_10x10mm_Layout12x12_P0.8mm
-UFBGA-144, 12x12 raster, 10x10mm package, pitch 0.8mm; see section 7.5 of http://www.st.com/resource/en/datasheet/stm32f446ze.pdf
+UFBGA-144, 10.0x10.0mm, 144 Ball, 12x12 Layout, 0.8mm Pitch, http://www.st.com/resource/en/datasheet/stm32f446ze.pdf#page=189
 BGA 144 0.8
 0
 144
 144
 Package_BGA
 UFBGA-169_7x7mm_Layout13x13_P0.5mm
-UFBGA-169, 13x13 raster, 7x7mm package, pitch 0.5mm; see section 7.6 of http://www.st.com/resource/en/datasheet/stm32f429ng.pdf
+UFBGA-169, 7.0x7.0mm, 169 Ball, 13x13 Layout, 0.5mm Pitch, http://www.st.com/resource/en/datasheet/stm32f429ng.pdf#page=218
 BGA 169 0.5
 0
 169
 169
 Package_BGA
 UFBGA-201_10x10mm_Layout15x15_P0.65mm
-UFBGA-201, 15x15 raster, 10x10mm package, pitch 0.65mm; see section 7.6 of http://www.st.com/resource/en/datasheet/stm32f207vg.pdf
+UFBGA-201, 10.0x10.0mm, 201 Ball, 15x15 Layout, 0.65mm Pitch, http://www.st.com/resource/en/datasheet/stm32f207vg.pdf#page=166
 BGA 201 0.65
 0
 201
@@ -67634,6 +68103,13 @@ VFBGA-100
 100
 100
 Package_BGA
+WLP-4_0.73x0.73mm_Layout2x2_P0.35mm_Ball0.22mm_Pad0.2mm
+WLP-4, 0.728x0.728mm, 4 Ball, 2x2 Layout, 0.35mm Pitch, https://datasheets.maximintegrated.com/en/ds/MAX40200.pdf
+BGA 4 0.35
+0
+4
+4
+Package_BGA
 WLP-4_0.73x0.73mm_Layout2x2_P0.35mm_Ball0.22mm_Pad0.2mm_NSMD
 WLP-4, 2x2 raster, 0.73x0.73mm package, pitch 0.35mm; https://datasheets.maximintegrated.com/en/ds/MAX40200.pdf
 BGA 4 0.35
@@ -67656,14 +68132,14 @@ WLP-4
 4
 Package_BGA
 WLP-9_1.448x1.468mm_Layout3x3_P0.4mm_Ball0.27mm_Pad0.25mm
-WLP-9, 1.448x1.468mm, 9 Ball, 3x3 Layout, 0.4mm Pitch, https://pdfserv.maximintegrated.com/package_dwgs/21-100168.PDF
+WLP-9, 1.468x1.448mm, 9 Ball, 3x3 Layout, 0.4mm Pitch, https://pdfserv.maximintegrated.com/package_dwgs/21-100168.PDF
 BGA 9 0.4
 0
 9
 9
 Package_BGA
 XBGA-121_10x10mm_Layout11x11_P0.8mm
-XBGA-121, 11x11 raster, 10x10mm package, pitch 0.6mm; http://ww1.microchip.com/downloads/en/DeviceDoc/39969b.pdf
+XBGA-121, 10.0x10.0mm, 121 Ball, 11x11 Layout, 0.8mm Pitch, http://ww1.microchip.com/downloads/en/DeviceDoc/39969b.pdf
 BGA 121 0.8
 0
 121
@@ -67691,280 +68167,280 @@ XFBGA-121
 121
 Package_BGA
 Xilinx_CLG225
-Zynq-7000 BGA, 15x15 grid, 13x13mm package, 0.8mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=77, NSMD pad definition Appendix A
+Zynq-7000 BGA, NSMD pad definition Appendix A, 13x13mm, 225 Ball, 15x15 Layout, 0.8mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=77
 BGA 225 0.8 CLG225
 0
 225
 225
 Package_BGA
 Xilinx_CLG400
-Zynq-7000 BGA, 20x20 grid, 17x17mm package, 0.8mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=78, NSMD pad definition Appendix A
+Zynq-7000 BGA, NSMD pad definition Appendix A, 17x17mm, 400 Ball, 20x20 Layout, 0.8mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=78
 BGA 400 0.8 CLG400 CL400
 0
 400
 400
 Package_BGA
 Xilinx_CLG484_CLG485
-Zynq-7000 BGA, 22x22 grid, 19x19mm package, 0.8mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=79, NSMD pad definition Appendix A
+Zynq-7000 BGA, NSMD pad definition Appendix A, 19x19mm, 484 Ball, 22x22 Layout, 0.8mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=79
 BGA 484 0.8 CLG484 CL484 CLG485 CL485
 0
 484
 484
 Package_BGA
 Xilinx_CPG236
-Artix-7 BGA, 19x19 grid, 10x10mm package, 0.5mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=266, NSMD pad definition Appendix A
+Artix-7 BGA, NSMD pad definition Appendix A, 10x10mm, 238 Ball, 19x19 Layout, 0.5mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=266
 BGA 238 0.5 CP236 CPG236
 0
 238
 238
 Package_BGA
 Xilinx_CPG238
-Artix-7 BGA, 19x19 grid, 10x10mm package, 0.5mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=267, NSMD pad definition Appendix A
+Artix-7 BGA, NSMD pad definition Appendix A, 10x10mm, 238 Ball, 19x19 Layout, 0.5mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=267
 BGA 238 0.5 CPG238
 0
 238
 238
 Package_BGA
 Xilinx_CPGA196
-Spartan-7 BGA, 14x14 grid, 8x8mm package, 0.5mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=260, NSMD pad definition Appendix A
+Spartan-7 BGA, NSMD pad definition Appendix A, 8x8mm, 196 Ball, 14x14 Layout, 0.5mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=260
 BGA 196 0.5 CPGA196
 0
 196
 196
 Package_BGA
 Xilinx_CSG324
-Artix-7 BGA, 18x18 grid, 15x15mm package, 0.8mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=268, NSMD pad definition Appendix A
+Artix-7 BGA, NSMD pad definition Appendix A, 15x15mm, 324 Ball, 18x18 Layout, 0.8mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=268
 BGA 324 0.8 CS324 CSG324
 0
 324
 324
 Package_BGA
 Xilinx_CSG325
-Artix-7 BGA, 18x18 grid, 15x15mm package, 0.8mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=268, NSMD pad definition Appendix A
+Artix-7 BGA, NSMD pad definition Appendix A, 15x15mm, 324 Ball, 18x18 Layout, 0.8mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=268
 BGA 324 0.8 CS325 CSG235
 0
 324
 324
 Package_BGA
 Xilinx_CSGA225
-Spartan-7 BGA, 15x15 grid, 13x13mm package, 0.8mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=262, NSMD pad definition Appendix A
+Spartan-7 BGA, NSMD pad definition Appendix A, 13x13mm, 225 Ball, 15x15 Layout, 0.8mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=262
 BGA 225 0.8 CSGA225
 0
 225
 225
 Package_BGA
 Xilinx_CSGA324
-Spartan-7 BGA, 18x18 grid, 15x15mm package, 0.8mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=263, NSMD pad definition Appendix A
+Spartan-7 BGA, NSMD pad definition Appendix A, 15x15mm, 324 Ball, 18x18 Layout, 0.8mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=263
 BGA 324 0.8 CSGA324
 0
 324
 324
 Package_BGA
 Xilinx_FBG484
-Artix-7, Kintex-7 and Zynq-7000 BGA, 22x22 grid, 23x23mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=271, ttps://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=281, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=82, NSMD pad definition Appendix A
+Artix-7, Kintex-7 and Zynq-7000 BGA, NSMD pad definition Appendix A, 23x23mm, 484 Ball, 22x22 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=271, ttps://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=281, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=82
 BGA 484 1 FB484 FBG484 FBV484
 0
 484
 484
 Package_BGA
 Xilinx_FBG676
-Artix-7, Kintex-7 and Zynq-7000 BGA, 26x26 grid, 27x27mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=273, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=284, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=84, NSMD pad definition Appendix A
+Artix-7, Kintex-7 and Zynq-7000 BGA, NSMD pad definition Appendix A, 27x27mm, 676 Ball, 26x26 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=273, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=284, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=84
 BGA 676 1 FB676 FBG676 FBV676
 0
 676
 676
 Package_BGA
 Xilinx_FBG900
-Kintex-7 BGA, 30x30 grid, 31x31mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=289, NSMD pad definition Appendix A
+Kintex-7 BGA, NSMD pad definition Appendix A, 31x31mm, 900 Ball, 30x30 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=289
 BGA 900 1 FB900 FBG900 FBV900
 0
 900
 900
 Package_BGA
 Xilinx_FFG676
-Kintex-7 and Zynq-7000 BGA, 26x26 grid, 27x27mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=292, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=88, NSMD pad definition Appendix A
+Kintex-7 and Zynq-7000 BGA, NSMD pad definition Appendix A, 27x27mm, 676 Ball, 26x26 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=292, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=88
 BGA 676 1 FF676 FFG676 FFV676
 0
 676
 676
 Package_BGA
 Xilinx_FFG900_FFG901
-Kintex-7 and Zynq-7000 BGA, 30x30 grid, 31x31mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=294, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=90, NSMD pad definition Appendix A
+Kintex-7 and Zynq-7000 BGA, NSMD pad definition Appendix A, 31x31mm, 900 Ball, 30x30 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=294, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=90
 BGA 900 1 FF900 FFG900 FFV900 FF901 FFG901 FFV901
 0
 900
 900
 Package_BGA
 Xilinx_FFG1156
-Artix-7, Kintex-7 and Zynq-7000 BGA, 34x34 grid, 35x35mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=277, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=296, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=91, NSMD pad definition Appendix A
+Artix-7, Kintex-7 and Zynq-7000 BGA, NSMD pad definition Appendix A, 35x35mm, 1156 Ball, 34x34 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=277, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=296, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=91
 BGA 1156 1 FF1156 FFG1156 FFV1156
 0
 1156
 1156
 Package_BGA
 Xilinx_FFG1157_FFG1158
-Virtex-7 BGA, 34x34 grid, 35x35mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=299, NSMD pad definition Appendix A
+Virtex-7 BGA, NSMD pad definition Appendix A, 35x35mm, 1156 Ball, 34x34 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=299
 BGA 1156 1 FF1157 FFG1157 FFV1157 FF1158 FFG1158 FFV1158
 0
 1156
 1156
 Package_BGA
 Xilinx_FFG1761
-Virtex-7 BGA, 42x42 grid, 42.5x42.5mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=300, NSMD pad definition Appendix A
+Virtex-7 BGA, NSMD pad definition Appendix A, 42.5x42.5mm, 1760 Ball, 42x42 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=300
 BGA 1760 1 FF1761 FFG1761
 0
 1760
 1760
 Package_BGA
 Xilinx_FFG1926_FFG1927_FFG1928_FFG1930
-Virtex-7 BGA, 44x44 grid, 45x45mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=303, NSMD pad definition Appendix A
+Virtex-7 BGA, NSMD pad definition Appendix A, 45x45mm, 1924 Ball, 44x44 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=303
 BGA 1924 1 FF1926 FFG1926 FF1927 FFG1927 FFV1927 FF1928 FFG1928 FF1930 FFG1930
 0
 1924
 1924
 Package_BGA
 Xilinx_FFV1761
-Virtex-7 BGA, 42x42 grid, 42.5x42.5mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=301, NSMD pad definition Appendix A
+Virtex-7 BGA, NSMD pad definition Appendix A, 42.5x42.5mm, 1760 Ball, 42x42 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=301
 BGA 1760 1 FFV1761
 0
 1760
 1760
 Package_BGA
 Xilinx_FGG484
-Artix-7 BGA, 22x22 grid, 23x23mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=275, NSMD pad definition Appendix A
+Artix-7 BGA, NSMD pad definition Appendix A, 23x23mm, 484 Ball, 22x22 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=275
 BGA 484 1 FG484 FGG484
 0
 484
 484
 Package_BGA
 Xilinx_FGG676
-Artix-7 BGA, 26x26 grid, 27x27mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=276, NSMD pad definition Appendix A
+Artix-7 BGA, NSMD pad definition Appendix A, 27x27mm, 676 Ball, 26x26 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=276
 BGA 676 1 FG676 FGG676
 0
 676
 676
 Package_BGA
 Xilinx_FGGA484
-Spartan-7 BGA, 22x22 grid, 23x23mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=264, NSMD pad definition Appendix A
+Spartan-7 BGA, NSMD pad definition Appendix A, 23x23mm, 484 Ball, 22x22 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=264
 BGA 484 1 FGGA484
 0
 484
 484
 Package_BGA
 Xilinx_FGGA676
-Spartan-7 BGA, 26x26 grid, 27x27mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=265, NSMD pad definition Appendix A
+Spartan-7 BGA, NSMD pad definition Appendix A, 27x27mm, 676 Ball, 26x26 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=265
 BGA 676 1 FGGA676
 0
 676
 676
 Package_BGA
 Xilinx_FHG1761
-Virtex-7 BGA, 42x42 grid, 45x45mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=302, NSMD pad definition Appendix A
+Virtex-7 BGA, NSMD pad definition Appendix A, 45x45mm, 1760 Ball, 42x42 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=302
 BGA 1760 1 FH1761 FHG1761
 0
 1760
 1760
 Package_BGA
 Xilinx_FLG1925_FLG1926_FLG1928_FLG1930
-Virtex-7 BGA, 44x44 grid, 45x45mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=304, NSMD pad definition Appendix A
+Virtex-7 BGA, NSMD pad definition Appendix A, 45x45mm, 1924 Ball, 44x44 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=304
 BGA 1924 1 FL1925 FLG1925 FL1926 FLG1926 FL1928 FLG1928 FL1930 FLG1930
 0
 1924
 1924
 Package_BGA
 Xilinx_FTG256
-Artix-7 BGA, 16x16 grid, 17x17mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=269, NSMD pad definition Appendix A
+Artix-7 BGA, NSMD pad definition Appendix A, 17x17mm, 256 Ball, 16x16 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=269
 BGA 256 1 FT256 FTG256
 0
 256
 256
 Package_BGA
 Xilinx_FTGB196
-Spartan-7 BGA, 14x14 grid, 15x15mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=261, NSMD pad definition Appendix A
+Spartan-7 BGA, NSMD pad definition Appendix A, 15x15mm, 196 Ball, 14x14 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=261
 BGA 196 1 FTGB196
 0
 196
 196
 Package_BGA
 Xilinx_RB484
-Artix-7 and Zynq-7000 BGA, 22x22 grid, 23x23mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=278, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=92, NSMD pad definition Appendix A
+Artix-7 and Zynq-7000 BGA, NSMD pad definition Appendix A, 23x23mm, 484 Ball, 22x22 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=278, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=92
 BGA 484 1 RB484
 0
 484
 484
 Package_BGA
 Xilinx_RB676
-Artix-7 BGA, 26x26 grid, 27x27mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=280, NSMD pad definition Appendix A
+Artix-7 BGA, NSMD pad definition Appendix A, 27x27mm, 676 Ball, 26x26 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=280
 BGA 676 1 RB676
 0
 676
 676
 Package_BGA
 Xilinx_RF676
-Kintex-7 BGA, 26x26 grid, 27x27mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=297, NSMD pad definition Appendix A
+Kintex-7 BGA, NSMD pad definition Appendix A, 27x27mm, 676 Ball, 26x26 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=297
 BGA 676 1 RF676
 0
 676
 676
 Package_BGA
 Xilinx_RF900
-Kintex-7 and Zynq-7000 BGA, 30x30 grid, 31x31mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=298, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=94, NSMD pad definition Appendix A
+Kintex-7 and Zynq-7000 BGA, NSMD pad definition Appendix A, 31x31mm, 900 Ball, 30x30 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=298, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=94
 BGA 900 1 RF900
 0
 900
 900
 Package_BGA
 Xilinx_RF1156
-Zynq-7000 BGA, 34x34 grid, 35x35mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=95, NSMD pad definition Appendix A
+Zynq-7000 BGA, NSMD pad definition Appendix A, 35x35mm, 1156 Ball, 34x34 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=95
 BGA 1156 1 RF1156
 0
 1156
 1156
 Package_BGA
 Xilinx_RF1157_RF1158
-Virtex-7 BGA, 34x34 grid, 35x35mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=305, NSMD pad definition Appendix A
+Virtex-7 BGA, NSMD pad definition Appendix A, 35x35mm, 1156 Ball, 34x34 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=305
 BGA 1156 1 RF1157 RF1158
 0
 1156
 1156
 Package_BGA
 Xilinx_RF1761
-Virtex-7 BGA, 42x42 grid, 42.5x42.5mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=306, NSMD pad definition Appendix A
+Virtex-7 BGA, NSMD pad definition Appendix A, 42.5x42.5mm, 1760 Ball, 42x42 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=306
 BGA 1760 1 RF1761
 0
 1760
 1760
 Package_BGA
 Xilinx_RF1930
-Virtex-7 BGA, 44x44 grid, 45x45mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=307, NSMD pad definition Appendix A
+Virtex-7 BGA, NSMD pad definition Appendix A, 45x45mm, 1924 Ball, 44x44 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=307
 BGA 1924 1 RF1930
 0
 1924
 1924
 Package_BGA
 Xilinx_RFG676
-Zynq-7000 BGA, 26x26 grid, 27x27mm package, 1mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=93, NSMD pad definition Appendix A
+Zynq-7000 BGA, NSMD pad definition Appendix A, 27x27mm, 676 Ball, 26x26 Layout, 1mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=93
 BGA 676 1 RF676 RFG676
 0
 676
 676
 Package_BGA
 Xilinx_RS484
-Artix-7 BGA, 22x22 grid, 19x19mm package, 0.8mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=279, NSMD pad definition Appendix A
+Artix-7 BGA, NSMD pad definition Appendix A, 19x19mm, 484 Ball, 22x22 Layout, 0.8mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=279
 BGA 484 0.8 RS484
 0
 484
 484
 Package_BGA
 Xilinx_SBG484
-Artix-7 BGA, 22x22 grid, 19x19mm package, 0.8mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=270, NSMD pad definition Appendix A
+Artix-7 BGA, NSMD pad definition Appendix A, 19x19mm, 484 Ball, 22x22 Layout, 0.8mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug475_7Series_Pkg_Pinout.pdf#page=270
 BGA 484 0.8 SB484 SBG484 SBV484
 0
 484
 484
 Package_BGA
 Xilinx_SBG485
-Zynq-7000 BGA, 22x22 grid, 19x19mm package, 0.8mm pitch; https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=80, NSMD pad definition Appendix A
+Zynq-7000 BGA, NSMD pad definition Appendix A, 19x19mm, 484 Ball, 22x22 Layout, 0.8mm Pitch, https://www.xilinx.com/support/documentation/user_guides/ug865-Zynq-7000-Pkg-Pinout.pdf#page=80
 BGA 484 0.8 SBG485 SBV485
 0
 484
@@ -68025,6 +68501,13 @@ CSP 64 0.4 64-ball WLCSP
 0
 64
 64
+Package_CSP
+Efinix_WLCSP-80_4.4567x3.5569mm_Layout10x8_P0.4mm
+WLCSP-80, NSMD pad definition Page 54, 4.4567x3.5569mm, 80 Ball, 10x8 Layout, 0.4mm Pitch, https://www.efinixinc.com/docs/trion-packaging-ug-v4.9.pdf
+CSP 80 0.4 80-ball WLCSP
+0
+80
+80
 Package_CSP
 LFCSP-6-1EP_2x2mm_P0.65mm_EP1x1.6mm
 LFCSP, 6 Pin (https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/lfcspcp/cp_6_3.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
@@ -68419,7 +68902,7 @@ LFCSP-WD NoLead
 11
 Package_CSP
 Maxim_WLCSP-35_3.0x2.17mm_Layout7x5_P0.4mm_Ball0.27mm_Pad0.25mm
-WLCSP-35, 2.168x2.998mm, 35 Ball, 7x5 Layout, 0.4mm Pitch, https://pdfserv.maximintegrated.com/package_dwgs/21-100489.PDF
+WLCSP-35, 2.998x2.168mm, 35 Ball, 7x5 Layout, 0.4mm Pitch, https://pdfserv.maximintegrated.com/package_dwgs/21-100489.PDF
 CSP 35 0.4
 0
 35
@@ -68468,22 +68951,22 @@ CSP 25 0.4
 25
 Package_CSP
 ST_WLCSP-25_Die425
-WLCSP-25, 5x5 raster, 2.097x2.493mm package, pitch 0.4mm; see section 7.6 of http://www.st.com/resource/en/datasheet/stm32l031f6.pdf
-BGA 25 0.4
+WLCSP-25, 2.097x2.493mm, 25 Ball, 5x5 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32l031f6.pdf#page=112
+CSP 25 0.4
 0
 25
 25
 Package_CSP
 ST_WLCSP-25_Die444
-WLCSP-25, 5x5 raster, 2.423x2.325mm package, pitch 0.4mm; see section 7.5 of http://www.st.com/resource/en/datasheet/stm32f031k6.pdf
-BGA 25 0.4
+WLCSP-25, 2.423x2.325mm, 25 Ball, 5x5 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f031k6.pdf#page=93
+CSP 25 0.4
 0
 25
 25
 Package_CSP
 ST_WLCSP-25_Die457
-WLCSP-25, 5x5 raster, 2.133x2.070mm package, pitch 0.4mm; see section 7.3 of http://www.st.com/resource/en/datasheet/stm32l011k3.pdf
-BGA 25 0.4
+WLCSP-25, 2.133x2.07mm, 25 Ball, 5x5 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32l011k3.pdf#page=100
+CSP 25 0.4
 0
 25
 25
@@ -68496,29 +68979,29 @@ CSP 36 0.4
 36
 Package_CSP
 ST_WLCSP-36_Die417
-WLCSP-36, 6x6 raster, 2.61x2.88mm package, pitch 0.4mm; see section 7.4 of http://www.st.com/resource/en/datasheet/stm32l052t8.pdf
-BGA 36 0.4
+WLCSP-36, 2.61x2.88mm, 36 Ball, 6x6 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32l052t8.pdf#page=123
+CSP 36 0.4
 0
 36
 36
 Package_CSP
 ST_WLCSP-36_Die440
-WLCSP-36, 6x6 raster, 2.605x2.703mm package, pitch 0.4mm; see section 7.5 of http://www.st.com/resource/en/datasheet/stm32f051t8.pdf
-BGA 36 0.4
+WLCSP-36, 2.605x2.703mm, 36 Ball, 6x6 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f051t8.pdf#page=103
+CSP 36 0.4
 0
 36
 36
 Package_CSP
 ST_WLCSP-36_Die445
-WLCSP-36, 6x6 raster, 2.605x2.703mm package, pitch 0.4mm; see section 7.3 of http://www.st.com/resource/en/datasheet/stm32f042k6.pdf
-BGA 36 0.4
+WLCSP-36, 2.605x2.703mm, 36 Ball, 6x6 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f042k6.pdf#page=96
+CSP 36 0.4
 0
 36
 36
 Package_CSP
 ST_WLCSP-36_Die458
-WLCSP-36, 6x6 raster, 2.553x2.579mm package, pitch 0.4mm; see section 7.1 of http://www.st.com/resource/en/datasheet/stm32f410t8.pdf
-BGA 36 0.4
+WLCSP-36, 2.553x2.579mm, 36 Ball, 6x6 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f410t8.pdf#page=119
+CSP 36 0.4
 0
 36
 36
@@ -68538,57 +69021,57 @@ CSP 49 0.4
 49
 Package_CSP
 ST_WLCSP-49_Die423
-WLCSP-49, 7x7 raster, 2.965x2.965mm package, pitch 0.4mm; see section 7.1 of http://www.st.com/resource/en/datasheet/stm32f401vc.pdf
-BGA 49 0.4
+WLCSP-49, 2.965x2.965mm, 49 Ball, 7x7 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f401vc.pdf#page=115
+CSP 49 0.4
 0
 49
 49
 Package_CSP
 ST_WLCSP-49_Die431
-WLCSP-49, 7x7 raster, 2.999x3.185mm package, pitch 0.4mm; see section 7.1 of http://www.st.com/resource/en/datasheet/stm32f411vc.pdf
-BGA 49 0.4
+WLCSP-49, 2.999x3.185mm, 49 Ball, 7x7 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f411vc.pdf#page=124
+CSP 49 0.4
 0
 49
 49
 Package_CSP
 ST_WLCSP-49_Die433
-WLCSP-49, 7x7 raster, 3.029x3.029mm package, pitch 0.4mm; see section 7.1.1 of http://www.st.com/resource/en/datasheet/stm32f401ce.pdf
-BGA 49 0.4
+WLCSP-49, 3.029x3.029mm, 49 Ball, 7x7 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f401ce.pdf#page=116
+CSP 49 0.4
 0
 49
 49
 Package_CSP
 ST_WLCSP-49_Die435
-WLCSP-49, 7x7 raster, 3.141x3.127mm package, pitch 0.4mm; see section 7.6 of http://www.st.com/resource/en/datasheet/DM00257211.pdf
-BGA 49 0.4
+WLCSP-49, 3.141x3.127mm, 49 Ball, 7x7 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/DM00257211.pdf#page=191
+CSP 49 0.4
 0
 49
 49
 Package_CSP
 ST_WLCSP-49_Die438
-WLCSP-49, 7x7 raster, 3.89x3.74mm package, pitch 0.5mm; see section 7.5 of http://www.st.com/resource/en/datasheet/stm32f303r8.pdf
-BGA 49 0.5
+WLCSP-49, 3.89x3.74mm, 49 Ball, 7x7 Layout, 0.5mm Pitch, http://www.st.com/resource/en/datasheet/stm32f303r8.pdf#page=112
+CSP 49 0.5
 0
 49
 49
 Package_CSP
 ST_WLCSP-49_Die439
-WLCSP-49, 7x7 raster, 3.417x3.151mm package, pitch 0.4mm; see section 7.1 of http://www.st.com/resource/en/datasheet/stm32f301r8.pdf
-BGA 49 0.4
+WLCSP-49, 3.417x3.151mm, 49 Ball, 7x7 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f301r8.pdf#page=117
+CSP 49 0.4
 0
 49
 49
 Package_CSP
 ST_WLCSP-49_Die447
-WLCSP-49, 7x7 raster, 3.294x3.258mm package, pitch 0.4mm; see section 7.6 of http://www.st.com/resource/en/datasheet/stm32l072kz.pdf
-BGA 49 0.4
+WLCSP-49, 3.294x3.258mm, 49 Ball, 7x7 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32l072kz.pdf#page=134
+CSP 49 0.4
 0
 49
 49
 Package_CSP
 ST_WLCSP-49_Die448
-WLCSP-49, 7x7 raster, 3.277x3.109mm package, pitch 0.4mm; see section 7.4 of http://www.st.com/resource/en/datasheet/stm32f071v8.pdf
-BGA 49 0.4
+WLCSP-49, 3.277x3.109mm, 49 Ball, 7x7 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f071v8.pdf#page=106
+CSP 49 0.4
 0
 49
 49
@@ -68608,8 +69091,8 @@ CSP 56 0.4
 56
 Package_CSP
 ST_WLCSP-63_Die427
-WLCSP-63, 7x9 raster, 3.228x4.164mm package, pitch 0.4mm; see section 7.6 of http://www.st.com/resource/en/datasheet/stm32l151cc.pdf
-BGA 63 0.4
+WLCSP-63, 3.228x4.164mm, 63 Ball, 7x9 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32l151cc.pdf#page=125
+CSP 63 0.4
 0
 63
 63
@@ -68622,64 +69105,64 @@ CSP 64 0.4
 64
 Package_CSP
 ST_WLCSP-64_Die414
-WLCSP-64, 8x8 raster, 4.466x4.395mm package, pitch 0.5mm; see section 6.3 of http://www.st.com/resource/en/datasheet/stm32f103ze.pdf
-BGA 64 0.5
+WLCSP-64, 4.466x4.395mm, 64 Ball, 8x8 Layout, 0.5mm Pitch, http://www.st.com/resource/en/datasheet/stm32f103ze.pdf#page=120
+CSP 64 0.5
 0
 64
 64
 Package_CSP
 ST_WLCSP-64_Die427
-WLCSP-64, 8x8 raster, 4.539x4.911mm package, pitch 0.4mm; see section 7.5 of http://www.st.com/resource/en/datasheet/stm32l152zc.pdf
-BGA 64 0.4
+WLCSP-64, 4.539x4.911mm, 64 Ball, 8x8 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32l152zc.pdf#page=126
+CSP 64 0.4
 0
 64
 64
 Package_CSP
 ST_WLCSP-64_Die435
-WLCSP-64, 8x8 raster, 3.141x3.127mm package, pitch 0.35mm; see section 7.5 of http://www.st.com/resource/en/datasheet/DM00257211.pdf
-BGA 64 0.35
+WLCSP-64, 3.141x3.127mm, 64 Ball, 8x8 Layout, 0.35mm Pitch, http://www.st.com/resource/en/datasheet/DM00257211.pdf#page=188
+CSP 64 0.35
 0
 64
 64
 Package_CSP
 ST_WLCSP-64_Die436
-WLCSP-64, 8x8 raster, 4.539x4.911mm package, pitch 0.4mm; see section 7.5 of http://www.st.com/resource/en/datasheet/stm32l152zd.pdf
-BGA 64 0.4
+WLCSP-64, 4.539x4.911mm, 64 Ball, 8x8 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32l152zd.pdf#page=143
+CSP 64 0.4
 0
 64
 64
 Package_CSP
 ST_WLCSP-64_Die441
-WLCSP-64, 8x8 raster, 3.623x3.651mm package, pitch 0.4mm; see section 7.1 of http://www.st.com/resource/en/datasheet/DM00213872.pdf
-BGA 64 0.4
+WLCSP-64, 3.623x3.651mm, 64 Ball, 8x8 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/DM00213872.pdf#page=167
+CSP 64 0.4
 0
 64
 64
 Package_CSP
 ST_WLCSP-64_Die442
-WLCSP-64, 8x8 raster, 3.347x3.585mm package, pitch 0.4mm; see section 7.4 of http://www.st.com/resource/en/datasheet/stm32f091vb.pdf
-BGA 64 0.4
+WLCSP-64, 3.347x3.585mm, 64 Ball, 8x8 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f091vb.pdf#page=109
+CSP 64 0.4
 0
 64
 64
 Package_CSP
 ST_WLCSP-64_Die462
-WLCSP-64, 8x8 raster, 3.357x3.657mm package, pitch 0.4mm; see section 7.5 of http://www.st.com/resource/en/datasheet/DM00340475.pdf
-BGA 64 0.4
+WLCSP-64, 3.357x3.657mm, 64 Ball, 8x8 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/DM00340475.pdf#page=189
+CSP 64 0.4
 0
 64
 64
 Package_CSP
 ST_WLCSP-66_Die411
-WLCSP-66, 9x9 raster, 3.639x3.971mm package, pitch 0.4mm; see section 7.2 of http://www.st.com/resource/en/datasheet/stm32f207vg.pdf
-BGA 66 0.4
+WLCSP-66, 3.639x3.971mm, 66 Ball, 9x9 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f207vg.pdf#page=154
+CSP 66 0.4
 0
 66
 66
 Package_CSP
 ST_WLCSP-66_Die432
-WLCSP-66, 8x9 raster, 3.767x4.229mm package, pitch 0.4mm; see section 7.2 of http://www.st.com/resource/en/datasheet/stm32f378vc.pdf
-BGA 66 0.4
+WLCSP-66, 3.767x4.229mm, 66 Ball, 8x9 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f378vc.pdf#page=114
+CSP 66 0.4
 0
 66
 66
@@ -68692,8 +69175,8 @@ CSP 72 0.35
 72
 Package_CSP
 ST_WLCSP-72_Die415
-WLCSP-72, 9x9 raster, 4.4084x3.7594mm package, pitch 0.4mm; see section 7.5 of http://www.st.com/resource/en/datasheet/stm32l476me.pdf
-BGA 72 0.4
+WLCSP-72, 4.4084x3.7594mm, 72 Ball, 9x9 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32l476me.pdf#page=255
+CSP 72 0.4
 0
 72
 72
@@ -68720,22 +69203,22 @@ CSP 81 0.4
 81
 Package_CSP
 ST_WLCSP-81_Die415
-WLCSP-81, 9x9 raster, 4.4084x3.7594mm package, pitch 0.4mm; see section 7.4 of http://www.st.com/resource/en/datasheet/stm32l476me.pdf
-BGA 81 0.4
+WLCSP-81, 4.4084x3.7594mm, 81 Ball, 9x9 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32l476me.pdf#page=252
+CSP 81 0.4
 0
 81
 81
 Package_CSP
 ST_WLCSP-81_Die421
-WLCSP-81, 9x9 raster, 3.693x3.815mm package, pitch 0.4mm; see section 7.6 of http://www.st.com/resource/en/datasheet/stm32f446ze.pdf
-BGA 81 0.4
+WLCSP-81, 3.693x3.815mm, 81 Ball, 9x9 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f446ze.pdf#page=192
+CSP 81 0.4
 0
 81
 81
 Package_CSP
 ST_WLCSP-81_Die463
-WLCSP-81, 9x9 raster, 4.039x3.951mm package, pitch 0.4mm; see section 7.1 of http://www.st.com/resource/en/datasheet/DM00282249.pdf
-BGA 81 0.4
+WLCSP-81, 4.039x3.951mm, 81 Ball, 9x9 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/DM00282249.pdf#page=175
+CSP 81 0.4
 0
 81
 81
@@ -68748,8 +69231,8 @@ CSP 90 0.4
 90
 Package_CSP
 ST_WLCSP-90_Die413
-WLCSP-90, 10x9 raster, 4.223x3.969mm package, pitch 0.4mm; see section 6.1 of http://www.st.com/resource/en/datasheet/stm32f405og.pdf
-BGA 90 0.4
+WLCSP-90, 4.223x3.969mm, 90 Ball, 10x9 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f405og.pdf#page=164
+CSP 90 0.4
 0
 90
 90
@@ -68769,36 +69252,36 @@ CSP 100 0.4
 100
 Package_CSP
 ST_WLCSP-100_Die422
-WLCSP-100, 10x10 raster, 4.201x4.663mm package, pitch 0.4mm; see section 7.4 of http://www.st.com/resource/en/datasheet/stm32f302vc.pdf
-BGA 100 0.4
+WLCSP-100, 4.201x4.663mm, 100 Ball, 10x10 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f302vc.pdf#page=133
+CSP 100 0.4
 0
 100
 100
 Package_CSP
 ST_WLCSP-100_Die446
-WLCSP-100, 10x10 raster, 4.775x5.041mm package, pitch 0.4mm; see section 7.5 of http://www.st.com/resource/en/datasheet/stm32f303zd.pdf
-BGA 100 0.4
+WLCSP-100, 4.775x5.041mm, 100 Ball, 10x10 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f303zd.pdf#page=162
+CSP 100 0.4
 0
 100
 100
 Package_CSP
 ST_WLCSP-100_Die452
-WLCSP-100, 10x10 raster, 4.201x4.663mm package, pitch 0.4mm; see section 7.7 of http://www.st.com/resource/en/datasheet/DM00330506.pdf
-BGA 100 0.4
+WLCSP-100, 4.201x4.663mm, 100 Ball, 10x10 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/DM00330506.pdf#page=218
+CSP 100 0.4
 0
 100
 100
 Package_CSP
 ST_WLCSP-100_Die461
-WLCSP-100, 10x10 raster, 4.618x4.142mm package, pitch 0.4mm; see section 7.5 of http://www.st.com/resource/en/datasheet/DM00284211.pdf
-BGA 100 0.4
+WLCSP-100, 4.618x4.142mm, 100 Ball, 10x10 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/DM00284211.pdf#page=259
+CSP 100 0.4
 0
 100
 100
 Package_CSP
 ST_WLCSP-104_Die437
-WLCSP-104, 9x12 raster, 4.095x5.094mm package, pitch 0.4mm; see section 7.5 of http://www.st.com/resource/en/datasheet/stm32l152ze.pdf
-BGA 104 0.4
+WLCSP-104, 4.095x5.094mm, 104 Ball, 9x12 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32l152ze.pdf#page=127
+CSP 104 0.4
 0
 104
 104
@@ -68825,22 +69308,22 @@ CSP 132 0.35
 132
 Package_CSP
 ST_WLCSP-143_Die419
-WLCSP-143, 11x13 raster, 4.521x5.547mm package, pitch 0.4mm; see section 7.2 of http://www.st.com/resource/en/datasheet/stm32f429ng.pdf
-BGA 143 0.4
+WLCSP-143, 4.521x5.547mm, 143 Ball, 11x13 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f429ng.pdf#page=203
+CSP 143 0.4
 0
 143
 143
 Package_CSP
 ST_WLCSP-143_Die449
-WLCSP-143, 11x13 raster, 4.539x5.849mm package, pitch 0.4mm; see section 6.3 of http://www.st.com/resource/en/datasheet/stm32f746zg.pdf
-BGA 143 0.4
+WLCSP-143, 4.539x5.849mm, 143 Ball, 11x13 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f746zg.pdf#page=202
+CSP 143 0.4
 0
 143
 143
 Package_CSP
 ST_WLCSP-144_Die470
-WLCSP-144, 12x12 raster, 5.24x5.24mm package, pitch 0.4mm; see section 7.4 of http://www.st.com/resource/en/datasheet/DM00366448.pdf
-BGA 144 0.4
+WLCSP-144, 5.24x5.24mm, 144 Ball, 12x12 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/DM00366448.pdf#page=295
+CSP 144 0.4
 0
 144
 144
@@ -68860,18 +69343,25 @@ CSP 156 0.35
 156
 Package_CSP
 ST_WLCSP-168_Die434
-WLCSP-168, 12x14 raster, 4.891x5.692mm package, pitch 0.4mm; see section 6.3 of http://www.st.com/resource/en/datasheet/stm32f469ni.pdf
-BGA 168 0.4
+WLCSP-168, 4.891x5.692mm, 168 Ball, 12x14 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/stm32f469ni.pdf#page=198
+CSP 168 0.4
 0
 168
 168
 Package_CSP
 ST_WLCSP-180_Die451
-WLCSP-180, 13x14 raster, 5.537x6.095mm package, pitch 0.4mm; see section 6.6 of http://www.st.com/resource/en/datasheet/DM00273119.pdf
-BGA 180 0.4
+WLCSP-180, 5.537x6.095mm, 180 Ball, 13x14 Layout, 0.4mm Pitch, http://www.st.com/resource/en/datasheet/DM00273119.pdf#page=240
+CSP 180 0.4
 0
 180
 180
+Package_CSP
+ST_WLCSP-208_5.8x5.6mm_P0.35_Stagger
+ST WLCSP-208, ST die ID 476, 5.8x5.6mm, 208 Ball, X-staggered 26x16 Layout, 0.35mm Pitch, https://www.st.com/resource/en/datasheet/stm32u5f9bj.pdf
+CSP 208 0.35
+0
+208
+208
 Package_CSP
 ST_WLCSP-208_5.38x5.47mm_P0.35mm_Stagger
 ST WLCSP-208, ST die ID 481, 5.38x5.47mm, 208 Ball, X-staggered 26x16 Layout, 0.35mm Pitch, https://www.st.com/resource/en/datasheet/stm32u5a5aj.pdf
@@ -68909,7 +69399,7 @@ WLCSP WLCSP-8 XFBGA XFBGA-8  CSP BGA Chip-Scale Glass-Top
 8
 Package_CSP
 WLCSP-8_1.551x2.284mm_P0.5mm
-WLCSP-8, 2.284x1.551mm, 8 Ball, 2x4 Layout, 0.5mm Pitch, https://www.adestotech.com/wp-content/uploads/AT25SL321_112.pdf#page=75
+WLCSP-8, 1.551x2.284mm, 8 Ball, 2x4 Layout, 0.5mm Pitch, https://www.adestotech.com/wp-content/uploads/AT25SL321_112.pdf#page=75
 CSP 8 0.5
 0
 8
@@ -68923,7 +69413,7 @@ BMM150 WLCSP
 12
 Package_CSP
 WLCSP-12_1.403x1.555mm_P0.4mm_Stagger
-WLCSP-12, 6x4 raster staggered array, 1.403x1.555mm package, pitch 0.4mm; http://ww1.microchip.com/downloads/en/devicedoc/atmel-8235-8-bit-avr-microcontroller-attiny20_datasheet.pdf#page=208
+WLCSP-12, staggered array, 1.403x1.555mm, 12 Ball, 6x4 Layout, 0.2x0.346333mm Pitch, http://ww1.microchip.com/downloads/en/devicedoc/atmel-8235-8-bit-avr-microcontroller-attiny20_datasheet.pdf#page=208
 CSP 12 0.2x0.346333
 0
 12
@@ -68937,7 +69427,7 @@ CSP 16 0.35
 16
 Package_CSP
 WLCSP-16_2.225x2.17mm_P0.5mm
-WLCSP-16 2.225x2.17mm, 2.17x2.225mm, 16 Ball, 4x4 Layout, 0.5mm Pitch, https://ww1.microchip.com/downloads/en/DeviceDoc/16B_WLCSP_CS_C04-06036c.pdf
+WLCSP-16 2.225x2.17mm, 2.225x2.17mm, 16 Ball, 4x4 Layout, 0.5mm Pitch, https://ww1.microchip.com/downloads/en/DeviceDoc/16B_WLCSP_CS_C04-06036c.pdf
 CSP 16 0.5
 0
 16
@@ -69217,14 +69707,14 @@ DFN 0.45
 9
 Package_DFN_QFN
 DFN-8-1EP_3x3mm_P0.5mm_EP1.65x2.38mm
-DFN, 8 Pin (https://www.analog.com/media/en/technical-documentation/data-sheets/4320fb.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+DFN, 8 Pin (https://www.analog.com/media/en/technical-documentation/data-sheets/4320fb.pdf#page=10), generated with kicad-footprint-generator ipc_noLead_generator.py
 DFN NoLead
 0
 10
 9
 Package_DFN_QFN
 DFN-8-1EP_3x3mm_P0.5mm_EP1.65x2.38mm_ThermalVias
-DFN, 8 Pin (https://www.analog.com/media/en/technical-documentation/data-sheets/4320fb.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+DFN, 8 Pin (https://www.analog.com/media/en/technical-documentation/data-sheets/4320fb.pdf#page=10), generated with kicad-footprint-generator ipc_noLead_generator.py
 DFN NoLead
 0
 20
@@ -69796,6 +70286,13 @@ MLPQ- 0.65
 0
 21
 17
+Package_DFN_QFN
+Maxim_FC2QFN-14_2.5x2.5mm_P0.5mm
+14-FC2QFN, 14/12 Pin, https://pdfserv.maximintegrated.com/land_patterns/90-100127.PDF
+FC2QFN NoLead
+0
+12
+12
 Package_DFN_QFN
 Maxim_TDFN-6-1EP_3x3mm_P0.95mm_EP1.5x2.3mm
 Maxim  TDFN, 6 Pin (https://www.analog.com/media/en/technical-documentation/data-sheets/MAX4460-MAX4462.pdf#page=19, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/tdfn-ep/21-0137.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
@@ -71023,14 +71520,14 @@ QFN 0.65
 45
 Package_DFN_QFN
 QFN-48-1EP_5x5mm_P0.35mm_EP3.7x3.7mm
-QFN, 48 Pin (https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf#page=38), generated with kicad-footprint-generator ipc_noLead_generator.py
+QFN, 48 Pin (https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf#page=47), generated with kicad-footprint-generator ipc_noLead_generator.py
 QFN NoLead
 0
 58
 49
 Package_DFN_QFN
 QFN-48-1EP_5x5mm_P0.35mm_EP3.7x3.7mm_ThermalVias
-QFN, 48 Pin (https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf#page=38), generated with kicad-footprint-generator ipc_noLead_generator.py
+QFN, 48 Pin (https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf#page=47), generated with kicad-footprint-generator ipc_noLead_generator.py
 QFN NoLead
 0
 75
@@ -72443,6 +72940,13 @@ ti rwh0032a
 94
 33
 Package_DFN_QFN
+Texas_RWU0007A_VQFN-7_2x2mm_P0.5mm
+Texas  RWU0007A VQFN, 2x2mm, 7 Pin (https://www.ti.com/lit/ds/symlink/tps61022.pdf)
+Texas VQFN NoLead
+0
+13
+7
+Package_DFN_QFN
 Texas_S-PDSO-N10_EP1.2x2mm
 DFN, 10 Pin (http://www.ti.com/lit/ds/symlink/tps7a91.pdf#page=30), generated with kicad-footprint-generator ipc_noLead_generator.py
 DFN NoLead
@@ -72738,14 +73242,14 @@ UQFN NoLead
 49
 Package_DFN_QFN
 UQFN-48-1EP_6x6mm_P0.4mm_EP4.62x4.62mm
-UQFN, 48 Pin (https://github.com/KiCad/kicad-symbols/pull/1189#issuecomment-449506354), generated with kicad-footprint-generator ipc_noLead_generator.py
+UQFN, 48 Pin (https://gitlab.com/kicad/libraries/kicad-symbols/-/merge_requests/1189#note_423250741), generated with kicad-footprint-generator ipc_noLead_generator.py
 UQFN NoLead
 0
 53
 49
 Package_DFN_QFN
 UQFN-48-1EP_6x6mm_P0.4mm_EP4.62x4.62mm_ThermalVias
-UQFN, 48 Pin (https://github.com/KiCad/kicad-symbols/pull/1189#issuecomment-449506354), generated with kicad-footprint-generator ipc_noLead_generator.py
+UQFN, 48 Pin (https://gitlab.com/kicad/libraries/kicad-symbols/-/merge_requests/1189#note_423250741), generated with kicad-footprint-generator ipc_noLead_generator.py
 UQFN NoLead
 0
 75
@@ -73275,6 +73779,230 @@ WQFN NoLead
 0
 82
 43
+Package_DIP
+CERDIP-8_W7.62mm_SideBrazed
+8-lead through-hole mounted CERDIP, JEDEC MS-015-AA package, row spacing 7.62mm (300 mils), SideBrazed, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed
+0
+8
+8
+Package_DIP
+CERDIP-8_W7.62mm_SideBrazed_LongPads
+8-lead through-hole mounted CERDIP, JEDEC MS-015-AA package, row spacing 7.62mm (300 mils), SideBrazed, LongPads, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed LongPads
+0
+8
+8
+Package_DIP
+CERDIP-8_W7.62mm_SideBrazed_LongPads_Socket
+8-lead through-hole mounted CERDIP, JEDEC MS-015-AA package, row spacing 7.62mm (300 mils), SideBrazed, LongPads, Socket, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed LongPads Socket
+0
+8
+8
+Package_DIP
+CERDIP-8_W7.62mm_SideBrazed_Socket
+8-lead through-hole mounted CERDIP, JEDEC MS-015-AA package, row spacing 7.62mm (300 mils), SideBrazed, Socket, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed Socket
+0
+8
+8
+Package_DIP
+CERDIP-14_W7.62mm_SideBrazed
+14-lead through-hole mounted CERDIP, JEDEC MS-015-AB package, row spacing 7.62mm (300 mils), SideBrazed, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed
+0
+14
+14
+Package_DIP
+CERDIP-14_W7.62mm_SideBrazed_LongPads
+14-lead through-hole mounted CERDIP, JEDEC MS-015-AB package, row spacing 7.62mm (300 mils), SideBrazed, LongPads, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed LongPads
+0
+14
+14
+Package_DIP
+CERDIP-14_W7.62mm_SideBrazed_LongPads_Socket
+14-lead through-hole mounted CERDIP, JEDEC MS-015-AB package, row spacing 7.62mm (300 mils), SideBrazed, LongPads, Socket, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed LongPads Socket
+0
+14
+14
+Package_DIP
+CERDIP-14_W7.62mm_SideBrazed_Socket
+14-lead through-hole mounted CERDIP, JEDEC MS-015-AB package, row spacing 7.62mm (300 mils), SideBrazed, Socket, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed Socket
+0
+14
+14
+Package_DIP
+CERDIP-16_W7.62mm_SideBrazed
+16-lead through-hole mounted CERDIP, JEDEC MS-015-AC package, row spacing 7.62mm (300 mils), SideBrazed, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed
+0
+16
+16
+Package_DIP
+CERDIP-16_W7.62mm_SideBrazed_LongPads
+16-lead through-hole mounted CERDIP, JEDEC MS-015-AC package, row spacing 7.62mm (300 mils), SideBrazed, LongPads, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed LongPads
+0
+16
+16
+Package_DIP
+CERDIP-16_W7.62mm_SideBrazed_LongPads_Socket
+16-lead through-hole mounted CERDIP, JEDEC MS-015-AC package, row spacing 7.62mm (300 mils), SideBrazed, LongPads, Socket, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed LongPads Socket
+0
+16
+16
+Package_DIP
+CERDIP-16_W7.62mm_SideBrazed_Socket
+16-lead through-hole mounted CERDIP, JEDEC MS-015-AC package, row spacing 7.62mm (300 mils), SideBrazed, Socket, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed Socket
+0
+16
+16
+Package_DIP
+CERDIP-18_W7.62mm_SideBrazed
+18-lead through-hole mounted CERDIP, JEDEC MS-015-AD package, row spacing 7.62mm (300 mils), SideBrazed, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed
+0
+18
+18
+Package_DIP
+CERDIP-18_W7.62mm_SideBrazed_LongPads
+18-lead through-hole mounted CERDIP, JEDEC MS-015-AD package, row spacing 7.62mm (300 mils), SideBrazed, LongPads, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed LongPads
+0
+18
+18
+Package_DIP
+CERDIP-18_W7.62mm_SideBrazed_LongPads_Socket
+18-lead through-hole mounted CERDIP, JEDEC MS-015-AD package, row spacing 7.62mm (300 mils), SideBrazed, LongPads, Socket, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed LongPads Socket
+0
+18
+18
+Package_DIP
+CERDIP-18_W7.62mm_SideBrazed_Socket
+18-lead through-hole mounted CERDIP, JEDEC MS-015-AD package, row spacing 7.62mm (300 mils), SideBrazed, Socket, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed Socket
+0
+18
+18
+Package_DIP
+CERDIP-20_W7.62mm_SideBrazed
+20-lead through-hole mounted CERDIP, JEDEC MS-015-AE package, row spacing 7.62mm (300 mils), SideBrazed, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed
+0
+20
+20
+Package_DIP
+CERDIP-20_W7.62mm_SideBrazed_LongPads
+20-lead through-hole mounted CERDIP, JEDEC MS-015-AE package, row spacing 7.62mm (300 mils), SideBrazed, LongPads, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed LongPads
+0
+20
+20
+Package_DIP
+CERDIP-20_W7.62mm_SideBrazed_LongPads_Socket
+20-lead through-hole mounted CERDIP, JEDEC MS-015-AE package, row spacing 7.62mm (300 mils), SideBrazed, LongPads, Socket, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed LongPads Socket
+0
+20
+20
+Package_DIP
+CERDIP-20_W7.62mm_SideBrazed_Socket
+20-lead through-hole mounted CERDIP, JEDEC MS-015-AE package, row spacing 7.62mm (300 mils), SideBrazed, Socket, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed Socket
+0
+20
+20
+Package_DIP
+CERDIP-22_W7.62mm_SideBrazed
+22-lead through-hole mounted CERDIP, JEDEC MS-015-AF package, row spacing 7.62mm (300 mils), SideBrazed, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed
+0
+22
+22
+Package_DIP
+CERDIP-22_W7.62mm_SideBrazed_LongPads
+22-lead through-hole mounted CERDIP, JEDEC MS-015-AF package, row spacing 7.62mm (300 mils), SideBrazed, LongPads, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed LongPads
+0
+22
+22
+Package_DIP
+CERDIP-22_W7.62mm_SideBrazed_LongPads_Socket
+22-lead through-hole mounted CERDIP, JEDEC MS-015-AF package, row spacing 7.62mm (300 mils), SideBrazed, LongPads, Socket, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed LongPads Socket
+0
+22
+22
+Package_DIP
+CERDIP-22_W7.62mm_SideBrazed_Socket
+22-lead through-hole mounted CERDIP, JEDEC MS-015-AF package, row spacing 7.62mm (300 mils), SideBrazed, Socket, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed Socket
+0
+22
+22
+Package_DIP
+CERDIP-24_W7.62mm_SideBrazed
+24-lead through-hole mounted CERDIP, JEDEC MS-015-AG package, row spacing 7.62mm (300 mils), SideBrazed, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed
+0
+24
+24
+Package_DIP
+CERDIP-24_W7.62mm_SideBrazed_LongPads
+24-lead through-hole mounted CERDIP, JEDEC MS-015-AG package, row spacing 7.62mm (300 mils), SideBrazed, LongPads, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed LongPads
+0
+24
+24
+Package_DIP
+CERDIP-24_W7.62mm_SideBrazed_LongPads_Socket
+24-lead through-hole mounted CERDIP, JEDEC MS-015-AG package, row spacing 7.62mm (300 mils), SideBrazed, LongPads, Socket, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed LongPads Socket
+0
+24
+24
+Package_DIP
+CERDIP-24_W7.62mm_SideBrazed_Socket
+24-lead through-hole mounted CERDIP, JEDEC MS-015-AG package, row spacing 7.62mm (300 mils), SideBrazed, Socket, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed Socket
+0
+24
+24
+Package_DIP
+CERDIP-28_W7.62mm_SideBrazed
+28-lead through-hole mounted CERDIP, JEDEC MS-015-AH package, row spacing 7.62mm (300 mils), SideBrazed, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed
+0
+28
+28
+Package_DIP
+CERDIP-28_W7.62mm_SideBrazed_LongPads
+28-lead through-hole mounted CERDIP, JEDEC MS-015-AH package, row spacing 7.62mm (300 mils), SideBrazed, LongPads, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed LongPads
+0
+28
+28
+Package_DIP
+CERDIP-28_W7.62mm_SideBrazed_LongPads_Socket
+28-lead through-hole mounted CERDIP, JEDEC MS-015-AH package, row spacing 7.62mm (300 mils), SideBrazed, LongPads, Socket, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed LongPads Socket
+0
+28
+28
+Package_DIP
+CERDIP-28_W7.62mm_SideBrazed_Socket
+28-lead through-hole mounted CERDIP, JEDEC MS-015-AH package, row spacing 7.62mm (300 mils), SideBrazed, Socket, https://www.jedec.org/system/files/docs/Ms-015a.pdf
+THT DIP DIL CERDIP ceramic 2.54mm 7.62mm 300mil SideBrazed Socket
+0
+28
+28
 Package_DIP
 DIP-4_W7.62mm
 4-lead though-hole mounted DIP package, row spacing 7.62 mm (300 mils)
@@ -75131,6 +75859,13 @@ DirectFET ST MOSFET Infineon
 7
 3
 Package_LCC
+Analog_LCC-8_5x5mm_P1.27mm
+LCC, ceramic leaded chip carrier, 8 pins, surface mount, Analog Devices LS8, 5x5mm, height 1.45mm, https://www.analog.com/media/en/technical-documentation/data-sheets/ltc6655-6655ln.pdf
+lcc smt
+0
+8
+8
+Package_LCC
 PLCC-20
 PLCC, 20 pins, surface mount
 plcc smt
@@ -75517,7 +76252,7 @@ Texas MicroSiP NoLead
 11
 Package_LGA
 VLGA-4_2x2.5mm_P1.65mm
-VLGA, 4 Pin (https://ww1.microchip.com/downloads/en/DeviceDoc/DSC60XX-Ultra-Small-Ultra-Low-Power-MEMS-Oscillator-DS20005625C.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+VLGA, 4 Pin (https://ww1.microchip.com/downloads/en/DeviceDoc/DSC60XX-Ultra-Small-Ultra-Low-Power-MEMS-Oscillator-DS20005625C.pdf#page=15), generated with kicad-footprint-generator ipc_noLead_generator.py
 VLGA NoLead
 0
 4
@@ -75972,7 +76707,7 @@ TQFP QFP
 49
 Package_QFP
 TQFP-48_7x7mm_P0.5mm
-TQFP, 48 Pin (https://www.jedec.org/system/files/docs/MS-026D.pdf var ABC), generated with kicad-footprint-generator ipc_gullwing_generator.py
+TQFP, 48 Pin (http://ww1.microchip.com/downloads/en/DeviceDoc/48L_TQFP_7x7x1_0mm_PT_C04-00300d.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
 TQFP QFP
 0
 48
@@ -77253,7 +77988,7 @@ SOIC SO
 4
 Package_SO
 SOIC-4_4.55x3.7mm_P2.54mm
-SOIC, 6 Pin (https://toshiba.semicon-storage.com/info/docget.jsp?did=11791&prodName=TLP185), generated with kicad-footprint-generator ipc_gullwing_generator.py
+SOIC, 4 Pin (https://toshiba.semicon-storage.com/info/docget.jsp?did=11791&prodName=TLP185), generated with kicad-footprint-generator ipc_gullwing_generator.py
 SOIC SO
 0
 4
@@ -78708,6 +79443,13 @@ PowerDI 0.65
 6
 6
 Package_SON
+EPSON_CE-USON-10_USON-10_3.2x2.5mm_P0.7mm
+EPSON 2.5x3.7mm, https://www.microcrystal.com/fileadmin/Media/Products/RTC/Datasheet/RV-1805-C3.pdf
+RTC
+0
+10
+10
+Package_SON
 Fairchild_DualPower33-6_3x3mm
 Fairchild Power33 MOSFET package, 3x3mm (see https://www.fairchildsemi.com/datasheets/FD/FDMC8032L.pdf)
 mosfet
@@ -78841,6 +79583,13 @@ SON NoLead
 13
 9
 Package_SON
+ST_PowerFLAT-6L_5x6mm_P1.27mm
+Thermally-enhanced 5x6mm 6-pin package, https://www.st.com/resource/en/datasheet/stl40dn3llh5.pdf
+PowerFLAT5x6
+0
+10
+6
+Package_SON
 Texas_DPY0002A_0.6x1mm_P0.65mm
 X1SON 2 pin 0.6x1mm 0.375mm height package, https://www.ti.com/lit/ml/mpss034c/mpss034c.pdf, https://www.ti.com/lit/ds/symlink/tpd6e05u06.pdf
 X1SON
@@ -78954,10 +79703,17 @@ Texas_S-PVSON-N10_ThermalVias
 11
 Package_SON
 Texas_S-PWSON-N8_EP1.2x2mm
-WSON, 8 Pin, TI DRG, (http://www.ti.com/lit/ds/symlink/lp2951.pdf#page=27), generated with kicad-footprint-generator ipc_noLead_generator.py
+WSON, 8 Pin (http://www.ti.com/lit/ds/symlink/lp2951.pdf#page=27), generated with kicad-footprint-generator ipc_noLead_generator.py
 WSON NoLead
 0
 11
+9
+Package_SON
+Texas_S-PWSON-N8_EP1.2x2mm_ThermalVias
+WSON, 8 Pin (http://www.ti.com/lit/ds/symlink/lp2951.pdf#page=27), generated with kicad-footprint-generator ipc_noLead_generator.py
+WSON NoLead
+0
+18
 9
 Package_SON
 Texas_S-PWSON-N10
@@ -79017,14 +79773,14 @@ USON-20 2x4mm Pitch 0.4mm
 20
 Package_SON
 VSON-8-1EP_3x3mm_P0.65mm_EP1.65x2.4mm
-VSON, 8 Pin (https://www.ti.com/lit/pdf/qfnd619), generated with kicad-footprint-generator ipc_noLead_generator.py
+VSON, 8 Pin (https://www.ti.com/lit/ds/symlink/tlv767-q1.pdf#page=31), generated with kicad-footprint-generator ipc_noLead_generator.py
 VSON NoLead
 0
 10
 9
 Package_SON
 VSON-8-1EP_3x3mm_P0.65mm_EP1.65x2.4mm_ThermalVias
-VSON, 8 Pin (https://www.ti.com/lit/pdf/qfnd619), generated with kicad-footprint-generator ipc_noLead_generator.py
+VSON, 8 Pin (https://www.ti.com/lit/ds/symlink/tlv767-q1.pdf#page=31), generated with kicad-footprint-generator ipc_noLead_generator.py
 VSON NoLead
 0
 16
@@ -79199,14 +79955,14 @@ WSON NoLead
 9
 Package_SON
 WSON-8-1EP_4x4mm_P0.8mm_EP2.6x3mm
-WSON, 8 Pin (https://www.ti.com/lit/ds/symlink/lp2951-n.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+WSON, 8 Pin (https://www.ti.com/lit/ds/symlink/lp2951-n.pdf#page=43), generated with kicad-footprint-generator ipc_noLead_generator.py
 WSON NoLead
 0
 13
 9
 Package_SON
 WSON-8-1EP_4x4mm_P0.8mm_EP2.6x3mm_ThermalVias
-WSON, 8 Pin (https://www.ti.com/lit/ds/symlink/lp2951-n.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+WSON, 8 Pin (https://www.ti.com/lit/ds/symlink/lp2951-n.pdf#page=43), generated with kicad-footprint-generator ipc_noLead_generator.py
 WSON NoLead
 0
 17
@@ -83076,6 +83832,13 @@ quectel GPS GNSS
 12
 12
 RF_GPS
+Quectel_L96
+Quectel L96 GPS GLONASS Galileo BeiDou Module, internal chip antenna, https://static6.arrow.com/aropdfconversion/50213b4bc5cb920911b62909a5ca765b1c5ab3d1/quectel_l96_hardware_design_v1.2.pdf
+Quectel GPS GNSS
+0
+31
+31
+RF_GPS
 SIM28ML
 https://simcom.ee/documents/SIM28ML/SIM28ML_Hardware%20Design_V1.01.pdf
 SIM28ML GPS
@@ -83522,6 +84285,20 @@ https://www.espressif.com/sites/default/files/documentation/0c-esp-wroom-02_data
 ESP WROOM-02 espressif esp8266ex
 0
 19
+19
+RF_Module
+ESP32-C3-WROOM-02
+RF Module, ESP32-C3 WROOM-02, Wi-Fi and Bluetooth, BLE, onboard antenna, https://www.espressif.com/sites/default/files/documentation/esp32-c3-wroom-02_datasheet_en.pdf
+ESP32-C3 WROOM-02 espressif
+0
+40
+19
+RF_Module
+ESP32-C3-WROOM-02U
+RF Module, ESP32-C3 WROOM-02 , Wi-Fi and Bluetooth, BLE, external antenna, https://www.espressif.com/sites/default/files/documentation/esp32-c3-wroom-02_datasheet_en.pdf
+ESP32-C3 WROOM-02 espressif
+0
+40
 19
 RF_Module
 ESP32-S2-MINI-1
@@ -83972,13 +84749,6 @@ Relay 1-Form-C Schrack-RYII RM3.2mm SPDT
 5
 5
 Relay_THT
-Relay_1P1T_NO_10x24x18.8mm_Panasonic_ADW11xxxxW_THT
-Panasonic Relay SPST 10mm 24mm, https://www.panasonic-electric-works.com/pew/es/downloads/ds_dw_hl_en.pdf
-Panasonic Relay SPST
-0
-4
-4
-Relay_THT
 Relay_3PST_COTO_3650
 Low thermal EMF 3PST-NO reed relay, 150V 0.25A, similar to 3660 but with independent shield, https://cotorelay.com/wp-content/uploads/2014/09/3600_series_reed_relay_datasheet.pdf
 reed relay low thermal emf
@@ -84146,6 +84916,13 @@ Relay DPST Schrack-RT2 RM5mm 16A 250V AC Relay
 0
 6
 6
+Relay_THT
+Relay_NCR_HHG1D-1
+NCR solid state relay 1A, 2A, 3A, 4A, https://ncr.hk/uploads/Relays/Solid_State_Relays/HHG1D-1.pdf
+ssr
+0
+4
+4
 Relay_THT
 Relay_SPDT_Finder_32.21-x000
 Finder 32.21-x000 Relay, SPDT, https://gfinder.findernet.com/assets/Series/355/S32EN.pdf
@@ -84392,6 +85169,20 @@ Omron Relay SPST High Capacity
 6
 4
 Relay_THT
+Relay_SPST_Omron_G5NB
+PCB Power Relay, SPST-NO, 7A (250 VAC), 5A (30 VDC), 20.5x7.2x15.3mm max
+Omron G5NB Relay SPST-NO
+0
+4
+4
+Relay_THT
+Relay_SPST_Panasonic_ADW11
+Panasonic power relay, SPST, latching, 10x24mm, 18.8mm height, https://api.pim.na.industrial.panasonic.com/file_stream/main/fileversion/270
+Panasonic Relay SPST
+0
+4
+4
+Relay_THT
 Relay_SPST_Panasonic_ALFG_FormA
 Panasonic Relay SPST, https://www3.panasonic.biz/ac/e_download/control/relay/power/catalog/mech_eng_lfg.pdf
 Panasonic Relay SPST
@@ -84549,6 +85340,13 @@ Relay_THT
 Relay_SPST_TE_PCN-1xxD3MHZ
 https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F1461491%7FG2%7Fpdf%7FEnglish%7FENG_CD_1461491_G2.pdf%7F3-1461491-0
 SPST relay slim
+0
+4
+4
+Relay_THT
+Relay_SPST_Zettler-AZSR131
+American Zettler RELAY EV CHRG SOLAR SPST 35A 12V, https://zettlerelectronics.com/products/AZSR131.pdf
+SPST
 0
 4
 4
@@ -85954,8 +86752,8 @@ Sensortech MiCS MEMS sensor
 10
 Sensor
 Winson_GM-402B_5x5mm_P1.27mm
-Winson GM-402B, 8 Pin (https://www.winsen-sensor.com/d/files/me2/mems--gm-402b--manual-v1_1.pdf)
-Winson
+Winson GM-402B QFN, 8 Pin (https://www.winsen-sensor.com/d/files/me2/mems--gm-402b--manual-v1_1.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py
+Winson QFN NoLead
 0
 8
 8
@@ -87562,6 +88360,13 @@ terminal block bornier6
 0
 6
 6
+TerminalBlock
+TerminalBlock_bornier-8_P5.08mm
+simple 8pin terminal block, pitch 5.08mm, revamped version of bornier8
+terminal block bornier8
+0
+8
+8
 TerminalBlock_4Ucon
 TerminalBlock_4Ucon_1x02_P3.50mm_Horizontal
 Terminal Block 4Ucon ItemNo. 19963, 2 pins, pitch 3.5mm, size 7.7x7mm^2, drill diamater 1.2mm, pad diameter 2.4mm, see http://www.4uconnector.com/online/object/4udrawing/19963.pdf, script-generated using https://github.com/pointhi/kicad-footprint-generator/scripts/TerminalBlock_4Ucon
@@ -92266,6 +93071,20 @@ transformer flyback
 0
 14
 14
+Transformer_THT
+Transformer_Zeming_ZMCT103C
+Qingxian Zeming Langxi Electronic ZMCT103C current transformer 1000:1, https://5krorwxhmqqirik.leadongcdn.com/ZMCT103C+specification-aidirBqoKomRilSjpimnokp.pdf
+current transformer ZMCT
+0
+2
+2
+Transformer_THT
+Transformer_Zeming_ZMPT101K
+Qingxian Zeming Langxi Electronic ZMPT101K voltage transformer 1000:1000 2mA:2mA, https://5krorwxhmqqirik.leadongcdn.com/ZMPT101K+specification-aidikBqoKomRilSkopqmikp.pdf
+voltage transformer ZMPT
+0
+4
+4
 Transistor_Power
 GaN_Systems_GaNPX-3_5x6.6mm_Drain2.93x0.6mm
 GaN Systems GaNPX GS66502B Package, https://gansystems.com/wp-content/uploads/2020/04/GS66502B-DS-Rev-200402.pdf
