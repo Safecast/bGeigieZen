@@ -50,6 +50,7 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     set_status_message(F(" UPLOADED DATA TO API! "));
   }
 
+
   auto testing_button = workers.worker<ZenButton>(k_worker_button_1);
 
   // Display GPS data always, change colour if not fresh
@@ -85,6 +86,7 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     }
 
     M5.Lcd.setCursor(0, 177);
+    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.printf("total uploads  :%d", api_connector->get_post_count());
 
     // Print location data
