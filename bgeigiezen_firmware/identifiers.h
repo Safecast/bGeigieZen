@@ -8,6 +8,7 @@ enum DataWorkers {
   k_worker_button_1 = 0,
   k_worker_button_2,
   k_worker_button_3,
+  k_worker_screen_touch, // On M5Core black this is the same as button 1
   k_worker_gm_sensor,
   k_worker_battery_indicator,
   k_worker_gps_connector,
