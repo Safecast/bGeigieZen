@@ -20,6 +20,7 @@ void Controller::start_default_workers() {
   set_worker_active(k_worker_button_3, true);
   set_worker_active(k_worker_button_2, true);
   set_worker_active(k_worker_button_1, true);
+  set_worker_active(k_worker_screen_touch, true);
   set_worker_active(k_worker_local_storage, true);
   set_worker_active(k_worker_rtc_connector, true);
   set_worker_active(k_worker_battery_indicator, true);

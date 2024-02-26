@@ -61,7 +61,7 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
 
     // Display unit text with cleanup (CPM uSv/h)
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-    M5.Lcd.fillRect(ush_width, 52, 320 - ush_width, 22, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
+    M5.Lcd.fillRect(ush_width, 52, 320 - ush_width, 27, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
     ush_width += M5.Lcd.drawString(" uSv/h", ush_width, 105, 4); // Prints after cpm value
     M5.Lcd.fillRect(ush_width, 74, 320 - ush_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CPM text
     M5.Lcd.drawString(" CP5S   ", 0 + cpm_width, 140, 4); // Prints after ush value

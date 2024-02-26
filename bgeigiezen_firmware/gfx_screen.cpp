@@ -14,15 +14,33 @@
 #include "workers/battery_indicator.h"
 #include "workers/gm_sensor.h"
 #include "workers/rtc_connector.h"
+#include "workers/zen_button.h"
 
+#define SCREENSAVER_ENABLED_DEFAULT true
+#define SCREENSAVER_TEXT "SAFECAST"
+#define SCREENSAVER_TEXT_LENGTH (strlen(SCREENSAVER_TEXT) * 6)
 static constexpr uint8_t LEVEL_BRIGHT = 35;  // max brightness = 36
 static constexpr uint8_t LEVEL_DIMMED = 10;
 static constexpr uint8_t LEVEL_BLANKED = 0;
-static constexpr uint32_t DELAY_DIMMING_DEFAULT = 2 * 60 * 1000;  // ms before dimming screen
-static constexpr uint32_t DELAY_BLANKING_DEFAULT = 3 * 60 * 1000;  // ms before blanking screen
+static constexpr uint32_t DELAY_DIMMING_DEFAULT = 30 * 1000;  // 30 seconds (before dimming screen)
+static constexpr uint32_t DELAY_BLANKING_DEFAULT = 10 * 60 * 1000;  // 10 minutes (before blanking/saving screen)
 
 
-GFXScreen::GFXScreen(LocalStorage& settings, Controller& controller) : Supervisor(), _controller(controller), _settings(settings), _last_render(0), _screen(nullptr), _menu(&MenuWindow_i) {
+GFXScreen::GFXScreen(LocalStorage& settings, Controller& controller)
+    : Supervisor(),
+      _saver(&M5.Lcd),
+      _controller(controller),
+      _settings(settings),
+      _last_render(0),
+      _last_interaction(0),
+      _saver_enabled(SCREENSAVER_ENABLED_DEFAULT),
+      _saver_x(140),
+      _saver_y(115),
+      _saver_x_direction(1),
+      _saver_y_direction(1),
+      _screen_status(e_screen_status_on),
+      _screen(nullptr),
+      _menu(&MenuWindow_i) {
 }
 
 void GFXScreen::initialize() {
@@ -33,15 +51,29 @@ void GFXScreen::initialize() {
   M5.BtnC.set(220, 230, 90, 50);
 #endif
 
+  _saver.createSprite(4 + SCREENSAVER_TEXT_LENGTH, 12);
+  _saver.fillScreen(LCD_COLOR_BACKGROUND);
+  _saver.drawString(SCREENSAVER_TEXT, 2, 2, 1);
   _screen = &BootScreen_i;
   _screen->enter_screen(_controller);
+  set_screen_status(e_screen_status_on);
   clear();
 }
 
-void GFXScreen::off() {
-  // Clear the graphics screen
-  M5.Lcd.clear();
-  setBrightness(LEVEL_BLANKED);
+void GFXScreen::set_screen_status(ScreenStatus status) {
+  _screen_status = status;
+  switch (_screen_status) {
+    case e_screen_status_on:
+      setBrightness(LEVEL_BRIGHT);
+      break;
+    case e_screen_status_dim:
+      setBrightness(LEVEL_DIMMED);
+      break;
+    case e_screen_status_off:
+      M5.Lcd.clear();
+      setBrightness(_saver_enabled ? LEVEL_DIMMED : LEVEL_BLANKED);
+      break;
+  }
 }
 
 //setup brightness by Rob Oudendijk 2023-03-13
@@ -80,7 +112,7 @@ void GFXScreen::setBrightness(uint8_t lvl, bool overdrive) {
 
 #elif M5_BASIC
   // M5Stack Basic uses LCD Brightness (0: Off - 255:Full)
-  int v = lvl * 25;
+  int v = lvl == LEVEL_DIMMED ? 1 : lvl * 25;
   M5.Lcd.setBrightness(v);
 #endif
 }
@@ -95,7 +127,6 @@ void GFXScreen::clear() {
   if (_screen) {
     _screen->force_next_render();
   }
-  setBrightness(LEVEL_BRIGHT);
   M5.Lcd.endWrite();
 
 }
@@ -103,8 +134,51 @@ void GFXScreen::clear() {
 void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& handlers) {
   if (_screen) {
 
+    // Keep track of screen interaction / wake up
+    const auto button1 = workers.worker<ZenButton>(k_worker_button_1);
+    const auto button2 = workers.worker<ZenButton>(k_worker_button_2);
+    const auto button3 = workers.worker<ZenButton>(k_worker_button_3);
+    const auto screen_touch = workers.worker<ZenButton>(k_worker_screen_touch);
+
+    if (button1->is_fresh() || button2->is_fresh() || button3->is_fresh() || screen_touch->is_fresh()) {
+      _last_interaction = millis();
+    }
+
+    // Will be set false when returning from wake up
+    bool handle_input = true;
+
+    switch (_screen_status) {
+      case e_screen_status_on:
+        if (millis() - _last_interaction > DELAY_DIMMING_DEFAULT) {
+          set_screen_status(e_screen_status_dim);
+        }
+        break;
+      case e_screen_status_dim:
+        if (millis() - _last_interaction > DELAY_BLANKING_DEFAULT) {
+          clear();
+          set_screen_status(e_screen_status_off);
+        }
+        if (millis() - _last_interaction < DELAY_DIMMING_DEFAULT) {
+          set_screen_status(e_screen_status_on);
+        }
+        break;
+      case e_screen_status_off:
+        if (millis() - _last_interaction < DELAY_DIMMING_DEFAULT) {
+          set_screen_status(e_screen_status_on);
+          clear();
+          _screen->force_next_render();
+          _menu->force_next_render();
+          handle_input = false;
+        }
+        break;
+    }
+
+    if (_screen_status == e_screen_status_off) {
+      return render_screensaver();
+    }
+
     BaseScreen* new_screen = nullptr;
-    if (workers.any_updates()) {
+    if (handle_input && workers.any_updates()) {
       if (_menu->is_open()) {
         new_screen = _menu->handle_input(_controller, workers);
         if (new_screen || !_menu->is_open()) {
@@ -238,6 +312,21 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
     }
   }
 
-
-
 }
+
+  void GFXScreen::render_screensaver() {
+    if (_saver_enabled && millis() - _last_render > 75) {
+      M5.Lcd.setRotation(3);
+      if (_saver_x + _saver_x_direction < -2 || _saver_x + _saver_x_direction > 318 - SCREENSAVER_TEXT_LENGTH) {
+        _saver_x_direction *= -1;
+      }
+      if (_saver_y + _saver_y_direction < -2 || _saver_y + _saver_y_direction > 230) {
+        _saver_y_direction *= -1;
+      }
+      _saver_x += _saver_x_direction;
+      _saver_y += _saver_y_direction;
+      _saver.pushSprite(_saver_x, _saver_y, TFT_TRANSPARENT);
+      M5.Lcd.setRotation(1);
+      _last_render = millis();
+    }
+  }

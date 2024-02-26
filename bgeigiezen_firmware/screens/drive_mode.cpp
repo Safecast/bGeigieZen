@@ -74,7 +74,7 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 
     // Display unit text with cleanup (CPM uSv/h)
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-    M5.Lcd.fillRect(cpm_width, 52, 320 - cpm_width, 22, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
+    M5.Lcd.fillRect(cpm_width, 52, 320 - cpm_width, 27, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
     cpm_width += M5.Lcd.drawString(" CPM", cpm_width, 105, 4); // Prints after cpm value
     M5.Lcd.fillRect(cpm_width, 74, 320 - cpm_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CPM text
     M5.Lcd.drawString(" uSv/h   ", 0 + ush_width, 140, 4); // Prints after ush value
