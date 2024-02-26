@@ -25,8 +25,6 @@ class ZenButton : public Worker<ButtonState> {
 
   virtual ~ZenButton();
 
-  bool activate(bool retry) override;
-
   int8_t produce_data() override;
 
  private:

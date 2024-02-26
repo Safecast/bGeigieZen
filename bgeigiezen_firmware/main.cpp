@@ -60,8 +60,9 @@
 #include "workers/gps_connector.h"
 #include "workers/log_aggregator.h"
 #include "workers/rtc_connector.h"
-#include "workers/shake_detector.h"
 #include "workers/zen_button.h"
+#include "workers/shake_detector.h"
+
 
 SFE_UBLOX_GNSS gnss;
 const int32_t ublox_fix0 = 0;
@@ -76,6 +77,8 @@ const int32_t ublox_fix7 = 0;
 LocalStorage settings;
 Controller controller(settings);
 
+
+// Workers
 ZenButton zen_A(M5.BtnA);
 ZenButton zen_B(M5.BtnB);
 ZenButton zen_C(M5.BtnC);
@@ -85,6 +88,14 @@ BatteryIndicator battery_indicator;
 RtcConnector rtc;
 ShakeDetector shake_detector;
 LogAggregator log_aggregator(settings);
+
+#ifdef M5_CORE2
+Button screen_area(0, 0, 320, 200, true, "Screen");
+#else
+// Map screen touch to a button for code reading purposes
+Button screen_area(0, false, 0);
+#endif //M5_CORE2
+ZenButton screen_touch(screen_area);
 
 // Data handlers
 SdLogger journal_logger(settings, SdLogger::journal);
@@ -116,6 +127,7 @@ void setup() {
   controller.register_worker(k_worker_button_3, zen_A);
   controller.register_worker(k_worker_button_2, zen_B);
   controller.register_worker(k_worker_button_1, zen_C);
+  controller.register_worker(k_worker_screen_touch, screen_touch);
   controller.register_worker(k_worker_log_aggregator, log_aggregator);
   controller.register_worker(k_worker_device_state, controller);
   controller.register_worker(k_worker_local_storage, settings);
@@ -137,6 +149,10 @@ void loop() {
   if (gps.active()) {
     gnss.checkUblox();
   }
+#ifdef M5_CORE2
+  screen_area.read();
+#endif
+
   M5.update();
   controller.run();
 }
