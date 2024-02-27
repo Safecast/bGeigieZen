@@ -3,4 +3,4 @@ Webiste for more information [website of bGeigieZen](https://bgeigiezen.safecast
 This repo is for development of the bGeigieZen.
 Specs can be found at [https://github.com/Safecast/bGeigieZen/wiki/Specification](https://github.com/Safecast/bGeigieZen/wiki/Specification)
 
-![alt text](https://bgeigiezen.safecast.jp/wp-content/uploads/2023/07/bGeigieZenFull01-576x1024.jpg)
+![alt text](https://bgeigiezen.safecast.jp/wp-content/uploads/2024/02/S5180020-1.jpg)
