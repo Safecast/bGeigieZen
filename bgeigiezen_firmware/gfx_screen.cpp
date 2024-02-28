@@ -17,7 +17,7 @@
 #include "workers/zen_button.h"
 
 #define SCREENSAVER_ENABLED_DEFAULT true
-#define SCREENSAVER_TEXT "SAFECAST"
+#define SCREENSAVER_TEXT VERSION_STRING
 #define SCREENSAVER_TEXT_LENGTH (strlen(SCREENSAVER_TEXT) * 6)
 static constexpr uint8_t LEVEL_BRIGHT = 36;  // max brightness = 36
 static constexpr uint8_t LEVEL_DIMMED = 15;
