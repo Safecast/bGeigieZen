@@ -90,14 +90,17 @@ BaseScreen* MenuWindow::handle_input(Controller& controller, const worker_map_t&
     menu_index++;
     menu_index %= ADVANCED_MENU_ITEMS;
     force_next_render();
-  }
-
-  if (button3->is_fresh() && button3->get_data().shortPress) {
-    menu_open = false;
     return nullptr;
   }
 
-  if (button2->is_fresh() && button2->get_data().shortPress && advanced_menu[menu_index].enabled) {
+  if (button2->is_fresh() && button2->get_data().shortPress) {
+    menu_index = menu_index + ADVANCED_MENU_ITEMS - 1;
+    menu_index %= ADVANCED_MENU_ITEMS;
+    force_next_render();
+    return nullptr;
+  }
+
+  if (button3->is_fresh() && button3->get_data().shortPress && advanced_menu[menu_index].enabled) {
     selected_screen_index = menu_index;
     return advanced_menu[menu_index].screen;
   }
@@ -111,21 +114,21 @@ void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handle
   }
 
   // Draw buttons
-  drawButton1("Next");
-  drawButton2("Enter", advanced_menu[menu_index].enabled ? e_button_default : e_button_disabled);
-  drawButton3("Close", e_button_active);
+  drawButton1("Down");
+  drawButton2("Up");
+  drawButton3("Enter", advanced_menu[menu_index].enabled ? e_button_active : e_button_disabled);
 
   // Draw menu overlay border
-  M5.Lcd.drawRoundRect(10, 20, 300, 170, 4, LCD_COLOR_STALE_INCOMPLETE);
+  M5.Lcd.drawRoundRect(10, 20, 300, 170, 4, advanced_menu[menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
   // Visually connect button to overlay
 #ifdef M5_CORE2
   M5.Lcd.fillRect(220, 12, 90, 12, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawLine(220, 12, 220, 20, LCD_COLOR_STALE_INCOMPLETE);
-  M5.Lcd.drawLine(309, 12, 309, 23, LCD_COLOR_STALE_INCOMPLETE);
+  M5.Lcd.drawLine(220, 12, 220, 20, advanced_menu[menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
+  M5.Lcd.drawLine(309, 12, 309, 23, advanced_menu[menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
 #elif M5_BASIC
   M5.Lcd.fillRect(210, 12, 90, 12, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawLine(210, 12, 210, 20, LCD_COLOR_STALE_INCOMPLETE);
-  M5.Lcd.drawLine(299, 12, 299, 20, LCD_COLOR_STALE_INCOMPLETE);
+  M5.Lcd.drawLine(210, 12, 210, 20, advanced_menu[menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
+  M5.Lcd.drawLine(299, 12, 299, 20, advanced_menu[menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
 #endif
   // Draw tooltip block
   M5.Lcd.fillRoundRect(161, 26, 142, 158, 4, LCD_COLOR_BACKGROUND);
