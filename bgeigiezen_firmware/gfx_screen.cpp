@@ -16,11 +16,11 @@
 #include "workers/rtc_connector.h"
 #include "workers/zen_button.h"
 
-#define SCREENSAVER_ENABLED_DEFAULT true
+#define SCREENSAVER_ENABLED_DEFAULT false
 #define SCREENSAVER_TEXT VERSION_STRING
 #define SCREENSAVER_TEXT_LENGTH (strlen(SCREENSAVER_TEXT) * 6)
-static constexpr uint8_t LEVEL_BRIGHT = 36;  // max brightness = 36
-static constexpr uint8_t LEVEL_DIMMED = 15;
+static constexpr uint8_t LEVEL_BRIGHT = 80;  // max brightness = 100
+static constexpr uint8_t LEVEL_DIMMED = 30;
 static constexpr uint8_t LEVEL_BLANKED = 0;
 static constexpr uint32_t DELAY_DIMMING_DEFAULT = 59 * 1000;  // 59 seconds (before dimming screen)
 static constexpr uint32_t DELAY_BLANKING_DEFAULT = 10 * 60 * 1000;  // 10 minutes (before blanking/saving screen)
@@ -79,36 +79,16 @@ void GFXScreen::set_screen_status(ScreenStatus status) {
 //setup brightness by Rob Oudendijk 2023-03-13
 void GFXScreen::setBrightness(uint8_t lvl, bool overdrive) {
 #ifdef M5_CORE2
-  // The backlight brightness is in steps of 25 in AXP192.cpp
-  // calculation in SetDCVoltage: ( (voltage - 700) / 25 )
-  // 2325 is the minimum "I can just about see a glow in a dark room" level of brightness.
-  // 2800 is the value set by the AXP library as "standard" bright backlight.
-  int v = lvl * 25 + 2300;
 
-  // Clamp to safe values.
-  if (v < 2300) v = 2300;
-  if (overdrive) {
-    if (v > 3200) v = 3200; // maximum of 3.2 volts, 3200 (uint8_t lvl  = 36) absolute max!
-  }
-  else {
-    if (v > 2800) v = 2800; // maximum of 2.8 volts, 2800 (uint8_t lvl  = 20)
-  }
-
-  // Minimum brightness means turn off the LCD backlight.
-  if (v == 2300) {
-    // LED set to minimum brightness? Turn off.
-
+  if (lvl == LEVEL_BLANKED) {
+    // Turn off screen
     M5.Axp.SetDCDC3(false);
-    return;
-  }
-  else {
-    // Ensure backlight is on. (magic name = DCDC3)
+  } else {
+    // Make sure screen is turned on
     M5.Axp.SetDCDC3(true);
+    // Set brightness
+    M5.Axp.ScreenBreath(lvl);
   }
-
-  // Set the LCD backlight voltage. (magic number = 2)
-
-  M5.Axp.SetDCVoltage(2, v);
 
 #elif M5_BASIC
   // M5Stack Basic uses LCD Brightness (0: Off - 255:Full)
