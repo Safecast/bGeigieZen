@@ -186,7 +186,7 @@ bool SDInterface::read_safezen_file_to_settings(LocalStorage& settings) {
     sscanf(first_line.c_str(), sd_config_version_f, version);
   } else {
     // No version line read, expect latest version
-    strcpy(version, VERSION_STRING);
+    strcpy(version, VERSION_NUMBER);
     // Reopen settings, because first line was (probably) some configuration
     safecast_txt.close();
     safecast_txt = SD.open(SETUP_FILENAME, FILE_READ);
@@ -196,7 +196,7 @@ bool SDInterface::read_safezen_file_to_settings(LocalStorage& settings) {
   }
 
   // Add earlier / non-compatible versions here too
-  if (strcmp(version, VERSION_STRING) == 0) {
+  if (strcmp(version, VERSION_NUMBER) == 0) {
     return read_safezen_file_latest(settings, safecast_txt);
   }
 
@@ -332,7 +332,7 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
 
   DEBUG_PRINTLN("Writing SAFEZEN file");
 
-  safecast_txt.printf(sd_config_version_f, VERSION_STRING);
+  safecast_txt.printf(sd_config_version_f, VERSION_NUMBER);
   safecast_txt.println();
   safecast_txt.printf(sd_config_device_id_f, settings.get_device_id());
   safecast_txt.println();
