@@ -14,7 +14,8 @@
 
 /*** VERSION ***/
 // Version defined in platformio.ini in [env] build flags
-#define VERSION_STRING "bGiegieZen" STR(MAJOR_VERSION) "." STR(MINOR_VERSION) "." STR(PATCH_VERSION)
+#define VERSION_NUMBER STR(MAJOR_VERSION) "." STR(MINOR_VERSION) "." STR(PATCH_VERSION)
+#define VERSION_STRING "bGiegieZen" VERSION_NUMBER
 
 /***************/
 
@@ -90,7 +91,7 @@ constexpr uint32_t SERVER_WIFI_PORT = 80;
 #define API_HOST "tt.safecast.org"
 #define API_MEASUREMENTS_ENDPOINT "http://" API_HOST "/measurements.json"
 #define HEADER_API_CONTENT_TYPE "application/json"
-#define HEADER_API_USER_AGENT "bGeigieZen/" VERSION_STRING
+#define HEADER_API_USER_AGENT "bGeigieZen/" VERSION_NUMBER
 
 /** Access point settings **/
 #define ACCESS_POINT_SSID       "bgeigiezen-%d" // With device id
