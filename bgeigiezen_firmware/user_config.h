@@ -14,7 +14,7 @@
 
 /*** VERSION ***/
 // Version defined in platformio.ini in [env] build flags
-#define VERSION_STRING "bGiegieZen" STR(MAJOR_VERSION) "." STR(MINOR_VERSION) "." STR(PATCH_VERSION)
+#define VERSION_STRING "bGiegieZen " STR(MAJOR_VERSION) "." STR(MINOR_VERSION) "." STR(PATCH_VERSION)
 
 /***************/
 
