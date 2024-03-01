@@ -27,7 +27,7 @@ class GFXScreen : public Supervisor {
   void set_screen_status(ScreenStatus status);
   void clear();
 
-  void setBrightness(uint8_t lvl, bool overdrive = false);
+  void setBrightness(uint8_t lvl);
   void render_screensaver();
 
   TFT_eSprite _saver;
@@ -35,7 +35,6 @@ class GFXScreen : public Supervisor {
   LocalStorage& _settings;
   unsigned long _last_render;
   uint32_t _last_interaction;
-  bool _saver_enabled;
   int16_t _saver_x;
   int16_t _saver_y;
   int8_t _saver_x_direction;

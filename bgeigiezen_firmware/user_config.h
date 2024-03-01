@@ -15,7 +15,7 @@
 /*** VERSION ***/
 // Version defined in platformio.ini in [env] build flags
 #define VERSION_NUMBER STR(MAJOR_VERSION) "." STR(MINOR_VERSION) "." STR(PATCH_VERSION)
-#define VERSION_STRING "bGiegieZen" VERSION_NUMBER
+#define VERSION_STRING "bGeigieZen " VERSION_NUMBER
 
 /***************/
 
@@ -76,10 +76,13 @@ constexpr uint16_t API_SEND_SECONDS_DELAY_TESTING = 5; // Posts every 5 seconds 
 
 constexpr char FIXED_MODE_GRAFANA_URL[] = "https://grafana.safecast.cc/d/DFSxrOLWk/safecast-device-details?from=now-24h&to=now&refresh=5m&var-device_urn=geigiecast:%d";
 
-
 // Access point settings
 constexpr char ACCESS_POINT_SSID[] = "bgeigiezen%d"; // With device id
 constexpr uint32_t SERVER_WIFI_PORT = 80;
+
+// Other
+constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
+
 
 /**************/
 
@@ -100,11 +103,21 @@ constexpr uint32_t SERVER_WIFI_PORT = 80;
 #define ACCESS_POINT_NMASK      {255, 255, 255, 0}
 
 /** Default configurations **/
-#define D_DEVICE_ID             0
-#define D_ACCESS_POINT_PASSWORD "safecast"
-#define D_WIFI_SSID             "your wifi ssid"
-#define D_WIFI_PASSWORD         "yourwifipassword"
-#define D_APIKEY                ""
-#define D_USE_DEV_SERVER        true
+#define D_DEVICE_ID 0
+#define D_AP_PASSWORD "safecast"
+#define D_ALARM_THRESHOLD 100
+#define D_MANUAL_LOGGING false
+#define D_SCREEN_DIM_TIMEOUT 60
+#define D_SCREEN_OFF_TIMEOUT 600
+#define D_ANIMATED_SCREENSAVER true
+#define D_WIFI_SSID "your wifi ssid"
+#define D_WIFI_PASSWORD "your wifi password"
+#define D_API_KEY ""
+#define D_FIXED_LONGITUDE 0
+#define D_FIXED_LATITUDE 0
+#define D_FIXED_RANGE 0.5
+#define D_LAST_LONGITUDE 0
+#define D_LAST_LATITUDE 0
+
 
 #endif
