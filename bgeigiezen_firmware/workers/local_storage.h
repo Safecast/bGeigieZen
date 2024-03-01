@@ -26,6 +26,9 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual const char* get_ap_password() const final;
   virtual uint16_t get_alarm_threshold() const final;
   virtual bool get_manual_logging() const final;
+  virtual uint16_t get_screen_dim_timeout() const final;
+  virtual uint16_t get_screen_off_timeout() const final;
+  virtual bool get_animated_screensaver() const final;
   virtual const char* get_wifi_ssid() const final;
   virtual const char* get_wifi_password() const final;
   virtual const char* get_api_key() const final;
@@ -39,6 +42,9 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual void set_ap_password(const char* ap_password, bool force);
   virtual void set_alarm_threshold(uint16_t alarm_threshold, bool force);
   virtual void set_manual_logging(bool manual_logging, bool force);
+  virtual void set_screen_dim_timeout(uint16_t screen_dim_timeout, bool force);
+  virtual void set_screen_off_timeout(uint16_t screen_off_timeout, bool force);
+  virtual void set_animated_screensaver(bool animated_screensaver, bool force);
   virtual void set_wifi_ssid(const char* wifi_ssid, bool force);
   virtual void set_wifi_password(const char* wifi_password, bool force);
   virtual void set_api_key(const char* api_key, bool force);
@@ -63,6 +69,9 @@ class LocalStorage : public ProcessWorker<bool> {
   uint16_t _device_id;
   uint16_t _alarm_threshold;
   bool _manual_logging;
+  uint16_t _screen_dim_timeout; // in seconds
+  uint16_t _screen_off_timeout; // in seconds
+  bool _animated_screensaver;
   char _ap_password[CONFIG_VAL_MAX];
 
   // Connection settings

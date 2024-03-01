@@ -16,14 +16,11 @@
 #include "workers/rtc_connector.h"
 #include "workers/zen_button.h"
 
-#define SCREENSAVER_ENABLED_DEFAULT false
-#define SCREENSAVER_TEXT VERSION_STRING
 #define SCREENSAVER_TEXT_LENGTH (strlen(SCREENSAVER_TEXT) * 6)
+#define TIMEOUT_PASSED(timeout, last_interaction) (timeout && (millis() - last_interaction) > (timeout * 1000))
 static constexpr uint8_t LEVEL_BRIGHT = 80;  // max brightness = 100
-static constexpr uint8_t LEVEL_DIMMED = 30;
-static constexpr uint8_t LEVEL_BLANKED = 0;
-static constexpr uint32_t DELAY_DIMMING_DEFAULT = 59 * 1000;  // 59 seconds (before dimming screen)
-static constexpr uint32_t DELAY_BLANKING_DEFAULT = 10 * 60 * 1000;  // 10 minutes (before blanking/saving screen)
+static constexpr uint8_t LEVEL_DIMMED = 20;
+static constexpr uint8_t LEVEL_BLANKED = 10;
 
 
 GFXScreen::GFXScreen(LocalStorage& settings, Controller& controller)
@@ -33,7 +30,6 @@ GFXScreen::GFXScreen(LocalStorage& settings, Controller& controller)
       _settings(settings),
       _last_render(0),
       _last_interaction(0),
-      _saver_enabled(SCREENSAVER_ENABLED_DEFAULT),
       _saver_x(140),
       _saver_y(115),
       _saver_x_direction(1),
@@ -51,7 +47,7 @@ void GFXScreen::initialize() {
   M5.BtnC.set(220, 230, 90, 50);
 #endif
 
-  _saver.createSprite(4 + SCREENSAVER_TEXT_LENGTH, 12);
+  _saver.createSprite(static_cast<int16_t>(4 + SCREENSAVER_TEXT_LENGTH), 12);
   _saver.fillScreen(LCD_COLOR_BACKGROUND);
   _saver.drawString(SCREENSAVER_TEXT, 2, 2, 1);
   _screen = &BootScreen_i;
@@ -70,31 +66,35 @@ void GFXScreen::set_screen_status(ScreenStatus status) {
       setBrightness(LEVEL_DIMMED);
       break;
     case e_screen_status_off:
-      M5.Lcd.clear();
-      setBrightness(_saver_enabled ? LEVEL_DIMMED : LEVEL_BLANKED);
+      clear();
+      setBrightness(LEVEL_BLANKED);
       break;
   }
 }
 
 //setup brightness by Rob Oudendijk 2023-03-13
-void GFXScreen::setBrightness(uint8_t lvl, bool overdrive) {
-#ifdef M5_CORE2
+void GFXScreen::setBrightness(uint8_t lvl) {
 
-  if (lvl == LEVEL_BLANKED) {
+  if (lvl == LEVEL_BLANKED && !_settings.get_animated_screensaver()) {
     // Turn off screen
+#ifdef M5_CORE2
     M5.Axp.SetDCDC3(false);
+#elif M5_BASIC
+    M5.Lcd.setBrightness(0);
+#endif
   } else {
+#ifdef M5_CORE2
     // Make sure screen is turned on
     M5.Axp.SetDCDC3(true);
     // Set brightness
     M5.Axp.ScreenBreath(lvl);
-  }
-
 #elif M5_BASIC
-  // M5Stack Basic uses LCD Brightness (0: Off - 255:Full)
-  int v = lvl == LEVEL_DIMMED ? 1 : lvl * 25;
-  M5.Lcd.setBrightness(v);
+    if (lvl == LEVEL_BRIGHT)
+      M5.Lcd.setBrightness(200);
+    if (lvl == LEVEL_DIMMED)
+      M5.Lcd.setBrightness(1);
 #endif
+  }
 }
 
 void GFXScreen::clear() {
@@ -106,6 +106,9 @@ void GFXScreen::clear() {
   M5.Lcd.setTextFont(1);
   if (_screen) {
     _screen->force_next_render();
+  }
+  if (_menu) {
+    _menu->force_next_render();
   }
   M5.Lcd.endWrite();
 
@@ -129,25 +132,25 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
 
     switch (_screen_status) {
       case e_screen_status_on:
-        if (millis() - _last_interaction > DELAY_DIMMING_DEFAULT) {
+        if (TIMEOUT_PASSED(_settings.get_screen_dim_timeout(), _last_interaction)) {
           set_screen_status(e_screen_status_dim);
+        }
+        else if (TIMEOUT_PASSED(_settings.get_screen_off_timeout(), _last_interaction)) {
+          set_screen_status(e_screen_status_off);
         }
         break;
       case e_screen_status_dim:
-        if (millis() - _last_interaction > DELAY_BLANKING_DEFAULT) {
-          clear();
-          set_screen_status(e_screen_status_off);
-        }
-        if (millis() - _last_interaction < DELAY_DIMMING_DEFAULT) {
+        if (millis() - _last_interaction < LCD_REFRESH_RATE) {
           set_screen_status(e_screen_status_on);
+        }
+        else if (TIMEOUT_PASSED(_settings.get_screen_off_timeout(), _last_interaction)) {
+          set_screen_status(e_screen_status_off);
         }
         break;
       case e_screen_status_off:
-        if (millis() - _last_interaction < DELAY_DIMMING_DEFAULT) {
-          set_screen_status(e_screen_status_on);
+        if (millis() - _last_interaction < LCD_REFRESH_RATE) {
           clear();
-          _screen->force_next_render();
-          _menu->force_next_render();
+          set_screen_status(e_screen_status_on);
           handle_input = false;
         }
         break;
@@ -295,7 +298,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
 }
 
   void GFXScreen::render_screensaver() {
-    if (_saver_enabled && millis() - _last_render > 75) {
+    if (_settings.get_animated_screensaver() && millis() - _last_render > 75) {
       M5.Lcd.setRotation(3);
       if (_saver_x + _saver_x_direction < -2 || _saver_x + _saver_x_direction > 318 - SCREENSAVER_TEXT_LENGTH) {
         _saver_x_direction *= -1;

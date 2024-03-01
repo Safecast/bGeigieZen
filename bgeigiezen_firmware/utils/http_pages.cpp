@@ -32,7 +32,7 @@ const char* base_page_format_begin =
     "<!DOCTYPE html>"
     "<html lang='en'><head>"
     "<meta name='viewport' content='width=device-width, initial-scale=1.0'>"
-    "<title>%s | bGeigieCast %d</title>"
+    "<title>%s | bGeigieZen %d</title>"
     "%s"
     "%s"
     "<style>"
@@ -47,7 +47,7 @@ const char* base_page_format_begin =
     "<div id='layout'>"
     "<div id='header'>"
     "<div class='pure-menu pure-menu-horizontal'>"
-    "<a href='/' class='pure-menu-heading'>bGeigieCast %d</a>"
+    "<a href='/' class='pure-menu-heading'>bGeigieZen %d</a>"
     "<ul class='pure-menu-list'>"
     "<li class='pure-menu-item pure-menu-has-children pure-menu-allow-hover'>"
     "<a href='#' id='menuLink1' class='pure-menu-link'><i class='fa fa-cog'></i>Configure</a>"
@@ -57,7 +57,7 @@ const char* base_page_format_begin =
     "<li class='pure-menu-item'><a href='/location' class='pure-menu-link'><i class='fa fa-map-marker-alt'></i>Location</a></li>"
     "</ul></li>"
     "<li class='pure-menu-item'><a href='/update' class='pure-menu-link'><i class='fa fa-download'></i>Update firmware</a></li>"
-    "<li class='pure-menu-item'><a target='_blank' href='https://github.com/Safecast/bGeigieCast/' class='pure-menu-link'><i class='fab fa-github'></i>Github</a></li>"
+    "<li class='pure-menu-item'><a target='_blank' href='https://github.com/Safecast/bGeigieZen/' class='pure-menu-link'><i class='fab fa-github'></i>Github</a></li>"
     "</ul>"
     "</div>"
     "</div>"
@@ -75,8 +75,8 @@ const char* HttpPages::get_home_page(uint32_t device_id) {
   return render_full_page(
       device_id,
       TITLE_HOME,
-      "<h1>Manage your bGeigieCast</h1>"
-      "<p class='pure-form-message'>bGeigieCast version %s</p>"
+      "<h1>Manage your bGeigieZen</h1>"
+      "<p class='pure-form-message'>bGeigieZen version %s</p>"
       "<p>"
       "<ul>"
       "<li><a href='/device'>Configure your device</a></li>"
@@ -84,10 +84,10 @@ const char* HttpPages::get_home_page(uint32_t device_id) {
       "<li><a href='/location'>Configure your location for fixed mode</a></li>"
       "<li><a href='/update'>Update the firmware</a></li>"
       "</ul>"
-      "More information about configurations in the <a href='https://github.com/Safecast/bGeigieCast/wiki/User-manual#available-settings' target='_blank'>User manual</a>. "
+      "More information about configurations in the <a href='https://github.com/Safecast/bGeigieZen/wiki/User-manual#available-settings' target='_blank'>User manual</a>. "
       "Or view your device on <a href='https://grafana.safecast.cc/d/RphzozyGk/safecast-geigiecast-drive?orgId=1&var-device_urn=geigiecast:6%d&from=now-7d&to=now' target='_blank'>Grafana</a>."
       "</p>",
-      VERSION_STRING,
+      VERSION_NUMBER,
       device_id
   );
 }
