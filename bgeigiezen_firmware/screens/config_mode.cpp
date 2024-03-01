@@ -46,15 +46,18 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
   // Temp print out device settings on screen
   const auto& config = *workers.worker<LocalStorage>(k_worker_local_storage);
   M5.Lcd.setCursor(0, 78, 1);
-  M5.Lcd.printf("device_id:        %d      \n", config.get_device_id());
-  M5.Lcd.printf("ap_password:      %s      \n", config.get_ap_password());
-  M5.Lcd.printf("alarm_threshold:  %d      \n", config.get_alarm_threshold());
-  M5.Lcd.printf("manual_logging:   %s      \n", config.get_manual_logging() ? "Enabled" : "Disabled");
-  M5.Lcd.printf("wifi_ssid:        %s      \n", config.get_wifi_ssid());
-  M5.Lcd.printf("wifi_password:    %s      \n", config.get_wifi_password());
-  M5.Lcd.printf("api_key:          %s      \n", config.get_api_key());
-  M5.Lcd.printf("fixed_longitude:  %0.6f      \n", config.get_fixed_longitude());
-  M5.Lcd.printf("fixed_latitude:   %0.6f      \n", config.get_fixed_latitude());
+  M5.Lcd.printf("device id:        %d      \n", config.get_device_id());
+  M5.Lcd.printf("ap password:      %s      \n", config.get_ap_password());
+  M5.Lcd.printf("alarm threshold:  %d      \n", config.get_alarm_threshold());
+  M5.Lcd.printf("manual logging:   %s      \n", config.get_manual_logging() ? "Enabled" : "Disabled");
+  M5.Lcd.printf("dim timeout:      %d seconds     \n", config.get_screen_dim_timeout());
+  M5.Lcd.printf("off timeout:      %d seconds     \n", config.get_screen_off_timeout());
+  M5.Lcd.printf("screensaver:      %s      \n", config.get_animated_screensaver() ? "Enabled" : "Disabled");
+  M5.Lcd.printf("wifi ssid:        %s      \n", config.get_wifi_ssid());
+  M5.Lcd.printf("wifi password:    %s      \n", config.get_wifi_password());
+  M5.Lcd.printf("api key:          %s      \n", config.get_api_key());
+  M5.Lcd.printf("fixed longitude:  %0.6f      \n", config.get_fixed_longitude());
+  M5.Lcd.printf("fixed latitude:   %0.6f      \n", config.get_fixed_latitude());
 }
 
 void ConfigModeScreen::enter_screen(Controller& controller) {

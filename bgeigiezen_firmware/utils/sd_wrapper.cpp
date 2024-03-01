@@ -18,6 +18,9 @@
 #define SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD "access_point_password"
 #define SD_CONFIG_FIELD_ALARM_THRESHOLD "alarm_threshold"
 #define SD_CONFIG_FIELD_MANUAL_LOGGING "manual_logging"
+#define SD_CONFIG_FIELD_SCREEN_DIM_TIMEOUT "screen_dim_timeout"
+#define SD_CONFIG_FIELD_SCREEN_OFF_TIMEOUT "screen_off_timeout"
+#define SD_CONFIG_FIELD_ANIMATED_SCREENSAVER "animated_screensaver"
 #define SD_CONFIG_FIELD_WIFI_SSID "wifi_ssid"
 #define SD_CONFIG_FIELD_WIFI_PASSWORD "wifi_password"
 #define SD_CONFIG_FIELD_API_KEY "api_key"
@@ -41,6 +44,9 @@ constexpr char sd_config_access_point_password_f[] = SD_CONFIG_FIELD_ACCESS_POIN
 constexpr char sd_config_access_point_password_write_f[] = SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD"=%s";
 constexpr char sd_config_alarm_threshold_f[] = SD_CONFIG_FIELD_ALARM_THRESHOLD"=%d";
 constexpr char sd_config_manual_logging_f[] = SD_CONFIG_FIELD_MANUAL_LOGGING"=%hhu";
+constexpr char sd_config_screen_dim_timeout_f[] = SD_CONFIG_FIELD_SCREEN_DIM_TIMEOUT"=%du";
+constexpr char sd_config_screen_off_timeout_f[] = SD_CONFIG_FIELD_SCREEN_OFF_TIMEOUT"=%du";
+constexpr char sd_config_animated_screensaver_f[] = SD_CONFIG_FIELD_ANIMATED_SCREENSAVER"=%hhu";
 constexpr char sd_config_wifi_ssid_f[] = SD_CONFIG_FIELD_WIFI_SSID"=%[^\t\r\n]";
 constexpr char sd_config_wifi_ssid_write_f[] = SD_CONFIG_FIELD_WIFI_SSID"=%s";
 constexpr char sd_config_wifi_password_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD"=%[^\t\r\n]";
@@ -209,6 +215,9 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   char access_point_password[CONFIG_VAL_MAX] = "";
   uint32_t alarm_threshold = 0;
   uint8_t manual_logging = false;
+  uint32_t screen_dim_timeout = 0;
+  uint32_t screen_off_timeout = 0;
+  uint8_t animated_screensaver = true;
 
   // Connection settings
   char wifi_ssid[CONFIG_VAL_MAX] = "";
@@ -272,6 +281,24 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
     else if (line.startsWith(SD_CONFIG_FIELD_MANUAL_LOGGING)) {
       if (_device_id && sscanf(line.c_str(), sd_config_manual_logging_f, &manual_logging)) {
         settings.set_manual_logging(!!manual_logging, true);
+        DEBUG_PRINTF("Loaded from SD: manual_logging=%d\n", !!manual_logging);
+      }
+    }
+    else if (line.startsWith(SD_CONFIG_FIELD_SCREEN_DIM_TIMEOUT)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_screen_dim_timeout_f, &screen_dim_timeout)) {
+        settings.set_screen_dim_timeout(screen_dim_timeout, true);
+        DEBUG_PRINTF("Loaded from SD: manual_logging=%d\n", !!manual_logging);
+      }
+    }
+    else if (line.startsWith(SD_CONFIG_FIELD_SCREEN_OFF_TIMEOUT)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_screen_off_timeout_f, &screen_off_timeout)) {
+        settings.set_screen_off_timeout(screen_off_timeout, true);
+        DEBUG_PRINTF("Loaded from SD: manual_logging=%d\n", !!manual_logging);
+      }
+    }
+    else if (line.startsWith(SD_CONFIG_FIELD_ANIMATED_SCREENSAVER)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_animated_screensaver_f, &animated_screensaver)) {
+        settings.set_animated_screensaver(!!animated_screensaver, true);
         DEBUG_PRINTF("Loaded from SD: manual_logging=%d\n", !!manual_logging);
       }
     }

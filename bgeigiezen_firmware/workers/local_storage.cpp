@@ -14,6 +14,9 @@ constexpr char const* key_wifi_password = "wifi_password";
 constexpr char const* key_api_key = "api_key";
 constexpr char const* key_alarm_threshold = "alarm_threshold";
 constexpr char const* key_manual_logging = "manual_logging";
+constexpr char const* key_screen_dim_timeout = "dim_timeout";
+constexpr char const* key_screen_off_timeout = "off_timeout";
+constexpr char const* key_animated_screensaver = "ani_screensaver";
 constexpr char const* key_fixed_range = "fixed_range";
 constexpr char const* key_fixed_longitude = "fixed_longitude";
 constexpr char const* key_fixed_latitude = "fixed_latitude";
@@ -27,6 +30,9 @@ LocalStorage::LocalStorage() :
     _ap_password(""),
     _alarm_threshold(0),
     _manual_logging(false),
+    _screen_dim_timeout(60),
+    _screen_off_timeout(600),
+    _animated_screensaver(true),
     _wifi_ssid(""),
     _wifi_password(""),
     _api_key(""),
@@ -40,17 +46,20 @@ LocalStorage::LocalStorage() :
 void LocalStorage::reset_defaults() {
   if(clear()) {
     set_device_id(D_DEVICE_ID, true);
-    set_ap_password(D_ACCESS_POINT_PASSWORD, true);
-    set_alarm_threshold(100, true);
-    set_manual_logging(false, true);
+    set_ap_password(D_AP_PASSWORD, true);
+    set_alarm_threshold(D_ALARM_THRESHOLD, true);
+    set_manual_logging(D_MANUAL_LOGGING, true);
+    set_screen_dim_timeout(D_SCREEN_DIM_TIMEOUT, true);
+    set_screen_off_timeout(D_SCREEN_OFF_TIMEOUT, true);
+    set_animated_screensaver(D_ANIMATED_SCREENSAVER, true);
     set_wifi_ssid(D_WIFI_SSID, true);
     set_wifi_password(D_WIFI_PASSWORD, true);
-    set_api_key(D_APIKEY, true);
-    set_fixed_longitude(0, true);
-    set_fixed_latitude(0, true);
-    set_fixed_range(0.5, true);
-    set_last_longitude(0, true);
-    set_last_latitude(0, true);
+    set_api_key(D_API_KEY, true);
+    set_fixed_longitude(D_FIXED_LONGITUDE, true);
+    set_fixed_latitude(D_FIXED_LATITUDE, true);
+    set_fixed_range(D_FIXED_RANGE, true);
+    set_last_longitude(D_LAST_LONGITUDE, true);
+    set_last_latitude(D_LAST_LATITUDE, true);
   }
 }
 
@@ -72,6 +81,18 @@ uint16_t LocalStorage::get_alarm_threshold() const {
 
 bool LocalStorage::get_manual_logging() const {
   return _manual_logging;
+}
+
+uint16_t LocalStorage::get_screen_dim_timeout() const {
+  return _screen_dim_timeout;
+}
+
+uint16_t LocalStorage::get_screen_off_timeout() const {
+  return _screen_off_timeout;
+}
+
+bool LocalStorage::get_animated_screensaver() const {
+  return _animated_screensaver;
 }
 
 const char* LocalStorage::get_wifi_ssid() const {
@@ -150,6 +171,36 @@ void LocalStorage::set_manual_logging(bool manual_logging, bool force) {
   }
 }
 
+void LocalStorage::set_screen_dim_timeout(uint16_t screen_dim_timeout, bool force) {
+  if(_memory.begin(memory_name)) {
+    _screen_dim_timeout = screen_dim_timeout;
+    _memory.putUInt(key_screen_dim_timeout, screen_dim_timeout);
+    _memory.end();
+  } else {
+    DEBUG_PRINTLN("unable to save new value for screen_dim_timeout");
+  }
+}
+
+void LocalStorage::set_screen_off_timeout(uint16_t screen_off_timeout, bool force) {
+  if(_memory.begin(memory_name)) {
+    _screen_off_timeout = screen_off_timeout;
+    _memory.putUInt(key_screen_off_timeout, screen_off_timeout);
+    _memory.end();
+  } else {
+    DEBUG_PRINTLN("unable to save new value for screen_off_timeout");
+  }
+}
+
+void LocalStorage::set_animated_screensaver(bool animated_screensaver, bool force) {
+  if(_memory.begin(memory_name)) {
+    _animated_screensaver = animated_screensaver;
+    _memory.putBool(key_animated_screensaver, animated_screensaver);
+    _memory.end();
+  } else {
+    DEBUG_PRINTLN("unable to save new value for animated_screensaver");
+  }
+}
+
 void LocalStorage::set_wifi_ssid(const char* wifi_ssid, bool force) {
   if(force || (wifi_ssid != nullptr && strlen(wifi_ssid) < CONFIG_VAL_MAX)) {
     if(_memory.begin(memory_name)) {
@@ -186,10 +237,10 @@ void LocalStorage::set_api_key(const char* api_key, bool force) {
   }
 }
 
-void LocalStorage::set_fixed_longitude(double fixed_longtitude, bool force) {
+void LocalStorage::set_fixed_longitude(double fixed_longitude, bool force) {
   if(_memory.begin(memory_name)) {
-    _fixed_longitude = fixed_longtitude;
-    _memory.putDouble(key_fixed_longitude, fixed_longtitude);
+    _fixed_longitude = fixed_longitude;
+    _memory.putDouble(key_fixed_longitude, fixed_longitude);
     _memory.end();
   } else {
     DEBUG_PRINTLN("unable to save new value for key_fixed_longitude");
@@ -248,10 +299,13 @@ bool LocalStorage::clear() {
 bool LocalStorage::activate(bool) {
   _memory.begin(memory_name, true);
   _device_id = _memory.getUShort(key_device_id, D_DEVICE_ID);
-  _alarm_threshold = _memory.getUInt(key_alarm_threshold, 100);
-  _manual_logging = _memory.getBool(key_manual_logging, false);
+  _alarm_threshold = _memory.getUInt(key_alarm_threshold, D_ALARM_THRESHOLD);
+  _manual_logging = _memory.getBool(key_manual_logging, D_MANUAL_LOGGING);
+  _screen_dim_timeout = _memory.getUInt(key_screen_dim_timeout, D_SCREEN_DIM_TIMEOUT);
+  _screen_off_timeout = _memory.getUInt(key_screen_off_timeout, D_SCREEN_OFF_TIMEOUT);
+  _animated_screensaver = _memory.getBool(key_animated_screensaver, D_ANIMATED_SCREENSAVER);
   if(_memory.getString(key_ap_password, _ap_password, CONFIG_VAL_MAX) == 0) {
-    strcpy(_ap_password, D_ACCESS_POINT_PASSWORD);
+    strcpy(_ap_password, D_AP_PASSWORD);
   }
   if(_memory.getString(key_wifi_ssid, _wifi_ssid, CONFIG_VAL_MAX) == 0) {
     strcpy(_wifi_ssid, D_WIFI_SSID);
@@ -260,13 +314,13 @@ bool LocalStorage::activate(bool) {
     strcpy(_wifi_password, D_WIFI_PASSWORD);
   }
   if(_memory.getString(key_api_key, _api_key, CONFIG_VAL_MAX) == 0) {
-    strcpy(_api_key, D_APIKEY);
+    strcpy(_api_key, D_API_KEY);
   }
-  _fixed_longitude = _memory.getDouble(key_fixed_longitude, 0);
-  _fixed_latitude = _memory.getDouble(key_fixed_latitude, 0);
-  _fixed_range = _memory.getFloat(key_fixed_range, 1.0);
-  _last_longitude = _memory.getDouble(key_last_longitude, 0);
-  _last_latitude = _memory.getDouble(key_last_latitude, 0);
+  _fixed_longitude = _memory.getDouble(key_fixed_longitude, D_FIXED_LONGITUDE);
+  _fixed_latitude = _memory.getDouble(key_fixed_latitude, D_FIXED_LATITUDE);
+  _fixed_range = _memory.getFloat(key_fixed_range, D_FIXED_RANGE);
+  _last_longitude = _memory.getDouble(key_last_longitude, D_LAST_LONGITUDE);
+  _last_latitude = _memory.getDouble(key_last_latitude, D_LAST_LATITUDE);
   _memory.end();
   return true;
 }
