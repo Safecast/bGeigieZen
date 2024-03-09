@@ -96,7 +96,6 @@ bool Controller::write_sd_config() {
 
 void Controller::reset_all() {
   _settings.reset_defaults();
-  DeviceUtils::shutdown(true);
 }
 
 void Controller::set_fixed_testing(bool enable) {

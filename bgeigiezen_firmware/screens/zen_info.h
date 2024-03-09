@@ -19,8 +19,10 @@ class ZenInfoScreen : public BaseScreen {
     e_zen_info_page_qr,
   };
 
+  void render_page_main(const worker_map_t& workers, const handler_map_t& handlers);
+  void render_page_qr(const worker_map_t& workers, const handler_map_t& handlers);
 
-  ZenInfoPage page;
+  ZenInfoPage _page;
 
 };
 
