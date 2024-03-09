@@ -56,24 +56,15 @@
 #include "handlers/sd_logger.h"
 #include "identifiers.h"
 #include "workers/battery_indicator.h"
+#include "workers/configuration_server.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
 #include "workers/log_aggregator.h"
 #include "workers/rtc_connector.h"
-#include "workers/zen_button.h"
 #include "workers/shake_detector.h"
+#include "workers/zen_button.h"
 
-
-SFE_UBLOX_GNSS gnss;
-const int32_t ublox_fix0 = 0;
-const int32_t ublox_fix1 = 0;
-const int32_t ublox_fix2 = 0;
-const int32_t ublox_fix3 = 0;
-const int32_t ublox_fix4 = 0;
-const int32_t ublox_fix5 = 0;
-const int32_t ublox_fix6 = 0;
-const int32_t ublox_fix7 = 0;
-
+TeenyUbloxConnect gnss;
 LocalStorage settings;
 Controller controller(settings);
 
@@ -88,6 +79,7 @@ BatteryIndicator battery_indicator;
 RtcConnector rtc;
 ShakeDetector shake_detector;
 LogAggregator log_aggregator(settings);
+ConfigWebServer config_server(settings);
 
 #ifdef M5_CORE2
 Button screen_area(0, 0, 320, 200, true, "Screen");
@@ -110,8 +102,6 @@ GFXScreen gfx_screen(settings, controller);
 void setup() {
   DEBUG_BEGIN();
   DEBUG_PRINTLN("MAIN SETUP DEBUG ENABLED");
-  DEBUG_PRINTF("Here are 8 zeroes: %d %d %d %d %d %d %d %d\n",
-               ublox_fix0, ublox_fix1, ublox_fix2, ublox_fix3, ublox_fix4, ublox_fix5, ublox_fix6, ublox_fix7);
   /// Hardware configurations
   Wire.begin();
   M5.begin();
@@ -131,6 +121,7 @@ void setup() {
   controller.register_worker(k_worker_log_aggregator, log_aggregator);
   controller.register_worker(k_worker_device_state, controller);
   controller.register_worker(k_worker_local_storage, settings);
+  controller.register_worker(k_worker_config_server, config_server);
 
   DEBUG_PRINTLN("Register handlers...");
   controller.register_handler(k_handler_journal_logger, journal_logger);

@@ -17,6 +17,7 @@ enum DataWorkers {
   k_worker_shake_detector,
   k_worker_device_state,
   k_worker_local_storage,
+  k_worker_config_server,
 };
 
 /**
