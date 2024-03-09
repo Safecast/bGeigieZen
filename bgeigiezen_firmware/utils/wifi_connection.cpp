@@ -7,6 +7,11 @@
 
 WiFiWrapper WiFiWrapper_i;
 
+
+WiFiWrapper::WiFiWrapper(): _last_activity(0), _hostname("") {
+}
+
+
 bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool first_time) {
   switch(WiFi.status()) {
     case WL_CONNECTED:
@@ -48,8 +53,9 @@ uint8_t WiFiWrapper::status() {
   return WiFi.status();
 }
 
-bool WiFiWrapper::start_ap_server(const char* host_ssid, const char* password) {
-  set_hostname(host_ssid, true);
+bool WiFiWrapper::start_ap_server(uint16_t device_id, const char* password) {
+  char host_ssid[20];
+  sprintf(host_ssid, ACCESS_POINT_SSID, device_id);
   WiFi.softAP(host_ssid, password);
   WiFi.softAPsetHostname(host_ssid);
   delay(100);
@@ -65,8 +71,10 @@ bool WiFiWrapper::start_ap_server(const char* host_ssid, const char* password) {
 }
 
 void WiFiWrapper::stop_ap_server() {
-  WiFi.softAPdisconnect(true);
-  delay(20);
+  if (ap_server_up()) {
+    WiFi.softAPdisconnect(true);
+    delay(20);
+  }
 }
 
 bool WiFiWrapper::ap_server_up() {
@@ -74,12 +82,17 @@ bool WiFiWrapper::ap_server_up() {
 }
 
 void WiFiWrapper::set_hostname(const char* hostname, bool ap_mode) {
+  strcpy(_hostname, hostname);
   WiFi.setHostname(hostname);
   if (ap_mode) {
     if(MDNS.begin(hostname)) {
       MDNS.addService("http", "tcp", 80);
     }
   }
+}
+
+const char* WiFiWrapper::get_hostname() const {
+  return _hostname;
 }
 
 void WiFiWrapper::update_active() {

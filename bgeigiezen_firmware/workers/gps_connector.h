@@ -16,14 +16,8 @@
 #include <Worker.hpp>
 #include <user_config.h>
 
-// Sparkfun Electronics library v2 (original is deprecated, V3 is for devices newer than M8)
-// Apply these two definitions here instead of altering the files in libdeps
-// Uncomment the next line (or add SFE_UBLOX_REDUCED_PROG_MEM as a compiler directive) to reduce the amount of program memory used by the library
-#define SFE_UBLOX_REDUCED_PROG_MEM // Uncommenting this line will delete the minor debug messages to save memory
-// Uncomment the next line (or add SFE_UBLOX_DISABLE_AUTO_NMEA as a compiler directive) to reduce the amount of program memory used by the library
-#define SFE_UBLOX_DISABLE_AUTO_NMEA // Uncommenting this line will disable auto-NMEA support to save memory
-#include <SparkFun_u-blox_GNSS_Arduino_Library.h>
-#include <u-blox_structs.h> // structs internal to SparkFun library
+#include <TeenyUbloxConnect.h>
+
 
 struct GnssData {
   // When true, the item related to each Boolean is valid and updated in the
@@ -78,7 +72,7 @@ struct GnssData {
 class GpsConnector : public Worker<GnssData> {
  public:
 
-  explicit GpsConnector(SFE_UBLOX_GNSS& _gnss);
+  explicit GpsConnector(TeenyUbloxConnect& _gnss);
 
   virtual ~GpsConnector() = default;
 
@@ -92,7 +86,7 @@ class GpsConnector : public Worker<GnssData> {
    * each call only succeeds once until the next fix update.
    * Use pdop and satsInView to determine acceptability.
   */
-  SFE_UBLOX_GNSS& _gnss;
+  TeenyUbloxConnect& _gnss;
   HardwareSerial ss;
   uint32_t tried_38400_at;
   uint32_t tried_9600_at;
