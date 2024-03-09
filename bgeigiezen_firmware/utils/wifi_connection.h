@@ -3,6 +3,7 @@
 
 class WiFiWrapper {
  public:
+  WiFiWrapper();
   /**
    * Connect to wifi endpoint
    * @param ssid
@@ -32,7 +33,7 @@ class WiFiWrapper {
    * Start access point server
    * @return true if up
    */
-  bool start_ap_server(const char* host_ssid, const char* password);
+  bool start_ap_server(uint16_t device_id, const char* password);
 
   /**
    * Stop access point server
@@ -49,11 +50,13 @@ class WiFiWrapper {
    * Set wifi hostname
    */
   void set_hostname(const char* hostname, bool ap_mode);
+  const char* get_hostname() const;
 
   void update_active();
   bool was_active();
 
  private:
+  char _hostname[20];
   uint32_t _last_activity;
 };
 

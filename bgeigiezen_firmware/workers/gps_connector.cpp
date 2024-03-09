@@ -31,7 +31,7 @@
 #define WNW (WSW + 45)
 #define NNW (WNW + 45)
 
-GpsConnector::GpsConnector(SFE_UBLOX_GNSS& gnss) : Worker<GnssData>({
+GpsConnector::GpsConnector(TeenyUbloxConnect& gnss) : Worker<GnssData>({
                                                        .location_valid=false,
                                                        .date_valid=false,
                                                        .time_valid=false,
@@ -61,9 +61,10 @@ bool GpsConnector::activate(bool retry) {
     ss.begin(38400);
     _init_at = millis();
   }
-  if (tried_38400_at == 0 && (millis() - _init_at > 500)) { // Wait for device to completely startup
+  if (tried_38400_at == 0 && (millis() - _init_at > 1000)) { // Wait for device to completely startup
     tried_38400_at = millis();
     ss.updateBaudRate(38400);
+    DEBUG_PRINTLN("GNSS: Try at 38400 baud");
     if (_gnss.begin(ss, 500)) {
       DEBUG_PRINTLN("GNSS: connected at 38400 baud");
       _gnss.setSerialRate(38400);
@@ -72,9 +73,10 @@ bool GpsConnector::activate(bool retry) {
       return false;
     }
   }
-  else if (tried_9600_at == 0 && tried_38400_at > 0 && (millis() - tried_38400_at > 500)) {
+  else if (tried_9600_at == 0 && tried_38400_at > 0 && (millis() - tried_38400_at > 1200)) {
     tried_9600_at = millis();
     ss.updateBaudRate(9600);
+    DEBUG_PRINTLN("GNSS: Try at 9600 baud");
     if (_gnss.begin(ss, 500)) {
       DEBUG_PRINTLN("GNSS: connected at 9600 baud, switching to 38400");
       _gnss.setSerialRate(38400);
@@ -97,11 +99,6 @@ bool GpsConnector::activate(bool retry) {
   // Set Auto on NAV-PVT for non-blocking access
   // getPVT() will return true if a new navigation solution is available
   _gnss.setAutoPVT(true); // Tell the GNSS to send the solution as it is computed (1 second)
-
-  // Enable AssistNow Autonomous data collection.
-  if (_gnss.setAopCfg(1)) {
-    DEBUG_PRINTLN("GNSS: Enabled GPS AssistNow");
-  }
 
   return true;
 }
