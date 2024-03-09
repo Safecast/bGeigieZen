@@ -20,7 +20,7 @@ ConfigWebServer::ConfigWebServer(LocalStorage& config)
 bool ConfigWebServer::activate(bool) {
   if(WiFiWrapper_i.wifi_connected() || WiFiWrapper_i.ap_server_up()) {
     // Set DNS hostname for easy access
-    char hostname[16];
+    char hostname[20];
     sprintf(hostname, ACCESS_POINT_SSID, _config.get_device_id());
     WiFiWrapper_i.set_hostname(hostname, true);
 

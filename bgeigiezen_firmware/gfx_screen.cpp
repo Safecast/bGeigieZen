@@ -76,7 +76,7 @@ void GFXScreen::set_screen_status(ScreenStatus status) {
 void GFXScreen::setBrightness(uint8_t lvl) {
 
   if (lvl == LEVEL_BLANKED && !_settings.get_animated_screensaver()) {
-    // Turn off screen
+    // Turn screen off
 #ifdef M5_CORE2
     M5.Axp.SetDCDC3(false);
 #elif M5_BASIC
@@ -91,7 +91,7 @@ void GFXScreen::setBrightness(uint8_t lvl) {
 #elif M5_BASIC
     if (lvl == LEVEL_BRIGHT)
       M5.Lcd.setBrightness(200);
-    if (lvl == LEVEL_DIMMED)
+    if (lvl == LEVEL_DIMMED || lvl == LEVEL_BLANKED)
       M5.Lcd.setBrightness(1);
 #endif
   }
