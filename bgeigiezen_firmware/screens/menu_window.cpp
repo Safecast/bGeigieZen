@@ -69,7 +69,6 @@ MenuWindow MenuWindow_i;
 MenuWindow::MenuWindow() : BaseScreen("Menu", true),
                            menu_open(false),
                            menu_index(0),
-                           selected_screen_index(0),
                            advanced_menu{
                                DRIVE_MENU_ITEM,
                                SURVEY_MENU_ITEM,
@@ -101,7 +100,6 @@ BaseScreen* MenuWindow::handle_input(Controller& controller, const worker_map_t&
   }
 
   if (button3->is_fresh() && button3->get_data().shortPress && advanced_menu[menu_index].enabled) {
-    selected_screen_index = menu_index;
     return advanced_menu[menu_index].screen;
   }
 
@@ -181,7 +179,6 @@ bool MenuWindow::is_open() const {
 
 void MenuWindow::enter_screen(Controller& controller) {
   menu_open = true;
-  menu_index = selected_screen_index;
   force_next_render();
 }
 

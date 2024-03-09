@@ -16,6 +16,7 @@ class MenuWindow : public BaseScreen {
     bool enabled;
     BaseScreen* screen;
   };
+
   explicit MenuWindow();
 
   BaseScreen* handle_input(Controller& controller, const worker_map_t& workers) override;
@@ -32,8 +33,6 @@ class MenuWindow : public BaseScreen {
 
   bool menu_open;
   uint8_t menu_index;
-  uint8_t selected_screen_index;
-  uint8_t max_index; // Set on enter menu
   MenuItem advanced_menu[ADVANCED_MENU_ITEMS];
 };
 
