@@ -50,7 +50,7 @@ void ConfigWebServer::add_urls() {
   // Home
   _server.on("/", HTTP_GET, [this]() {
     _server.sendHeader("Connection", "close");
-    _server.send(200, "text/html", HttpPages::get_home_page(_config.get_device_id()));
+    _server.send(200, "text/html", HttpPages::get_home_page(_config));
   });
 
   // Configure Device
@@ -58,7 +58,7 @@ void ConfigWebServer::add_urls() {
     _server.sendHeader("Connection", "close");
     _server.send(200, "text/html", HttpPages::get_config_device_page(
         _server.hasArg("success"),
-        _config.get_device_id()
+        _config
     ));
   });
 
@@ -67,7 +67,7 @@ void ConfigWebServer::add_urls() {
     _server.sendHeader("Connection", "close");
     _server.send(200, "text/html", HttpPages::get_config_connection_page(
         _server.hasArg("success"),
-        _config.get_device_id()
+        _config
     ));
   });
 
@@ -77,7 +77,7 @@ void ConfigWebServer::add_urls() {
     _server.sendHeader("Connection", "close");
     _server.send(200, "text/html", HttpPages::get_config_location_page(
         _server.hasArg("success"),
-        _config.get_device_id()
+        _config
     ));
 
     _server.sendHeader("Connection", "close");
@@ -110,6 +110,37 @@ void ConfigWebServer::handle_save() {
 //  if(_server.hasArg(...)) {
 //    _config.set...(_server.arg(...).c_str(), ...);
 //  }
+
+  if(_server.hasArg(FORM_NAME_ALERT_THRESHOLD)) {
+    _config.set_alarm_threshold(clamp<uint16_t>(_server.arg(FORM_NAME_ALERT_THRESHOLD).toInt(), 0, 34464), false);
+  }
+  if(_server.hasArg(FORM_NAME_SCREEN_DIM_TIMEOUT)) {
+    _config.set_screen_dim_timeout(clamp<uint16_t>(_server.arg(FORM_NAME_SCREEN_DIM_TIMEOUT).toInt(), 0, 34464), false);
+  }
+  if(_server.hasArg(FORM_NAME_SCREEN_OFF_TIMEOUT)) {
+    _config.set_screen_off_timeout(clamp<uint16_t>(_server.arg(FORM_NAME_SCREEN_OFF_TIMEOUT).toInt(), 0, 34464), false);
+  }
+  if(_server.hasArg(FORM_NAME_ANIMATED_SCREENSAVER)) {
+    _config.set_animated_screensaver(_server.arg(FORM_NAME_ANIMATED_SCREENSAVER).toInt(), false);
+  }
+  if(_server.hasArg(FORM_NAME_AP_LOGIN)) {
+    _config.set_ap_password(_server.arg(FORM_NAME_AP_LOGIN).c_str(), false);
+  }
+  if(_server.hasArg(FORM_NAME_WIFI_SSID)) {
+    _config.set_wifi_ssid(_server.arg(FORM_NAME_WIFI_SSID).c_str(), false);
+  }
+  if(_server.hasArg(FORM_NAME_WIFI_PASS)) {
+    _config.set_wifi_password(_server.arg(FORM_NAME_WIFI_PASS).c_str(), false);
+  }
+  if(_server.hasArg(FORM_NAME_API_KEY)) {
+    _config.set_api_key(_server.arg(FORM_NAME_API_KEY).c_str(), false);
+  }
+  if(_server.hasArg(FORM_NAME_LOC_FIXED_LAT)) {
+    _config.set_fixed_latitude(clamp<double>(_server.arg(FORM_NAME_LOC_FIXED_LAT).toDouble(), -90.0, 90.0), false);
+  }
+  if(_server.hasArg(FORM_NAME_LOC_FIXED_LON)) {
+    _config.set_fixed_longitude(clamp<double>(_server.arg(FORM_NAME_LOC_FIXED_LON).toDouble(), -180.0, 180.0), false);
+  }
 
   _server.sendHeader("Location", _server.arg("next") + "?success=true");
   _server.send(302, "text/html");
