@@ -61,16 +61,18 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
 
 void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
 
-  if (!force) {
-    return;
-  }
-
   if (_options_menu) {
+    if (!force) {
+      return;
+    }
     return render_options_menu();
   }
 
   switch (_page) {
     case e_config_page_main:
+      if (!force) {
+        return;
+      }
       return render_page_main(workers, handlers);
     case e_config_page_ap:
       return render_page_ap(workers, handlers);
