@@ -19,9 +19,9 @@ class ConfigModeScreen : public BaseScreen {
     e_config_page_main,
     e_config_page_ap,
     e_config_page_wifi,
-    e_config_page_reset,
     e_config_page_load_sd_config,
     e_config_page_save_config_to_sd,
+    e_config_page_reset,
     e_config_page_MAX,
   };
 

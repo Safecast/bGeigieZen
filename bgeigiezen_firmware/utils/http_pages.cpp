@@ -67,9 +67,13 @@ const char* base_page_format_end =
     "</div>"
     "</body></html>";
 
-const char* HttpPages::get_home_page(uint32_t device_id) {
+const char* HttpPages::get_home_page(const LocalStorage& settings) {
+
+  char grafana_url[130];
+  sprintf(grafana_url, FIXED_MODE_GRAFANA_URL, settings.get_fixed_device_id());
+
   return render_full_page(
-      device_id,
+      settings.get_device_id(),
       TITLE_HOME,
       "<h1>Manage your bGeigieZen</h1>"
       "<p class='pure-form-message'>bGeigieZen version %s</p>"
@@ -81,71 +85,157 @@ const char* HttpPages::get_home_page(uint32_t device_id) {
       "<li><a href='/update'>Update the firmware</a></li>"
       "</ul>"
       "More information about configurations in the <a href='https://github.com/Safecast/bGeigieZen/wiki/User-manual#available-settings' target='_blank'>User manual</a>. "
-      "Or view your device on <a href='https://grafana.safecast.cc/d/RphzozyGk/safecast-geigiecast-drive?orgId=1&var-device_urn=geigiecast:6%d&from=now-7d&to=now' target='_blank'>Grafana</a>."
+      "Or view your device on <a href='%s' target='_blank'>Grafana</a>."
       "</p>",
       VERSION_NUMBER,
-      device_id
+      grafana_url
   );
 }
 
 const char* HttpPages::get_config_device_page(
     bool display_success,
-    uint32_t device_id
+    const LocalStorage& settings
 ) {
   return render_full_page(
-      device_id,
+      settings.get_device_id(),
       TITLE_CONF_DEVICE,
       "<form class='pure-form pure-form-stacked' action='/save?next=/device' method='POST'>"
       "<fieldset>"
       "<legend><a href='/'>Home</a> / Device settings</legend>"
+
+      // Alarm threshold
+      "<label for='" FORM_NAME_ALERT_THRESHOLD "'>CPM Alert threshold</label>"
+      "<input required type='number' min='0' max='34464' name='" FORM_NAME_ALERT_THRESHOLD "' id='" FORM_NAME_ALERT_THRESHOLD "' value='%u' step='1'>"
+      "<span class='pure-form-message'>When in fixed mode and CPM is above configured value, it will upload data more frequently</span>"
+
+      // Screen dim timeout
+      "<label for='" FORM_NAME_SCREEN_DIM_TIMEOUT "'>Screen dims after... (in seconds)</label>"
+      "<input required type='number' min='0' max='34464' name='" FORM_NAME_SCREEN_DIM_TIMEOUT "' id='" FORM_NAME_SCREEN_DIM_TIMEOUT "' value='%u' step='1'>"
+      "<span class='pure-form-message'>Set to 0 to disable screen dimming</span>"
+
+      // Screen off timeout
+      "<label for='" FORM_NAME_SCREEN_OFF_TIMEOUT "'>Screen turns off after... (in seconds)</label>"
+      "<input required type='number' min='0' max='34464' name='" FORM_NAME_SCREEN_OFF_TIMEOUT "' id='" FORM_NAME_SCREEN_OFF_TIMEOUT "' value='%u' step='1'>"
+      "<span class='pure-form-message'>Set to 0 to disable turning the screen turning off</span>"
+
+      // Animated screensaver
+      "<label>Screen when off</label>"
+      "<label for='" FORM_NAME_ANIMATED_SCREENSAVER "0' class='pure-radio'>"
+      "<input id='" FORM_NAME_ANIMATED_SCREENSAVER "0' type='radio' name='" FORM_NAME_ANIMATED_SCREENSAVER "' value='0' %s>Screen is completely off"
+      "</label>"
+      "<label for='" FORM_NAME_ANIMATED_SCREENSAVER "1' class='pure-radio'>"
+      "<input id='" FORM_NAME_ANIMATED_SCREENSAVER "1' type='radio' name='" FORM_NAME_ANIMATED_SCREENSAVER "' value='1' %s>Animated screensaver"
+      "</label>"
+
+      "<span class='pure-form-message'></span>"
 
       "<br>"
       "<button type='submit' class='pure-button pure-button-primary'>Save</button>"
       "</fieldset>"
       "</form>"
       "%s", // Success message
+      settings.get_alarm_threshold(),
+      settings.get_screen_dim_timeout(),
+      settings.get_screen_off_timeout(),
+      settings.get_animated_screensaver() ? "" : "checked",
+      settings.get_animated_screensaver() ? "checked" : "",
       display_success ? success_message : ""
   );
 }
 
 const char* HttpPages::get_config_location_page(
     bool display_success,
-    uint32_t device_id
+    const LocalStorage& settings
 ) {
   return render_full_page(
-      device_id,
+      settings.get_device_id(),
       TITLE_CONF_LOCATION,
       "<form class='pure-form pure-form-stacked' action='/save?next=/location' method='POST'>"
       "<fieldset>"
       "<legend><a href='/'>Home</a> / Location settings</legend>"
+
+
+      // Home latitude
+      "<label for='" FORM_NAME_LOC_FIXED_LAT "'>Fixed mode latitude</label>"
+      "<input type='number' min='-90.0000' max='90.0000' name='" FORM_NAME_LOC_FIXED_LAT "' id='" FORM_NAME_LOC_FIXED_LAT "' value='%.5f' step='0.00001'>"
+
+      // Home longitude
+      "<label for='" FORM_NAME_LOC_FIXED_LON "'>Fixed mode longitude</label>"
+      "<input type='number' min='-180.0000' max='180.0000' name='" FORM_NAME_LOC_FIXED_LON "' id='" FORM_NAME_LOC_FIXED_LON "' value='%.5f' step='0.00001'>"
+
+      // Set last known location
+      "<span class='pure-form-message'>"
+      "Last known location (<a href='#' onclick=\""
+      "document.getElementById('" FORM_NAME_LOC_FIXED_LAT "').value = document.getElementById('l_la').innerHTML;"
+      "document.getElementById('" FORM_NAME_LOC_FIXED_LON "').value = document.getElementById('l_lo').innerHTML;"
+      "return false;"
+      "\">apply</a>):<br>"
+      "Latitude: <span id='l_la'>%.5f</span><br>"
+      "Longitude: <span id='l_lo'>%.5f</span><br>"
+      "</span>"
+
 
       "<br>"
       "<button type='submit' class='pure-button pure-button-primary'>Save</button>"
       "</fieldset>"
       "</form>"
       "%s", // Success message
+      settings.get_fixed_latitude(),
+      settings.get_fixed_longitude(),
+      settings.get_last_latitude(),
+      settings.get_last_longitude(),
       display_success ? success_message : ""
   );
 }
 
 const char* HttpPages::get_config_connection_page(
     bool display_success,
-    uint32_t device_id
+    const LocalStorage& settings
 ) {
   char ssid[20];
-  sprintf(ssid, ACCESS_POINT_SSID, device_id);
+  sprintf(ssid, ACCESS_POINT_SSID, settings.get_device_id());
   return render_full_page(
-      device_id,
+      settings.get_device_id(),
       TITLE_CONF_CONNECTION,
       "<form class='pure-form pure-form-stacked' action='/save?next=/connection' method='POST'>"
       "<fieldset>"
       "<legend><a href='/'>Home</a> / Connection settings</legend>"
+
+      // Zen direct access point password
+      "<label for='" FORM_NAME_AP_LOGIN "'>bGeigieZen password</label>"
+      "<input type='text' name='" FORM_NAME_AP_LOGIN "' id='" FORM_NAME_AP_LOGIN "' value='%s' required>"
+      "<span class='pure-form-message'>"
+      "The password for the wifi access point when starting the bGeigieZen configuration server. "
+      "The network name of your bGeigieZen will be: bgeigiezen-%d"
+      "</span>"
+
+      // WiFi ssid
+      "<label for='" FORM_NAME_WIFI_SSID "'>WiFi network name</label>"
+      "<input type='text' name='" FORM_NAME_WIFI_SSID "' id='" FORM_NAME_WIFI_SSID "' value='%s'>"
+      "<span class='pure-form-message'>Your local WiFi network name</span>"
+
+      // WiFi password
+      "<label for='" FORM_NAME_WIFI_PASS "'>WiFi password</label>"
+      "<input type='text' name='" FORM_NAME_WIFI_PASS "' id='" FORM_NAME_WIFI_PASS "' value='%s'>"
+      "<span class='pure-form-message'>Your local WiFi network password</span>"
+
+      // Api key
+      "<label for='" FORM_NAME_API_KEY "'>API key</label>"
+      "<input type='text' name='" FORM_NAME_API_KEY "' id='" FORM_NAME_API_KEY "' value='%s'>"
+      "<span class='pure-form-message'>"
+      "Get your API key from <a target='_blank' href='https://api.safecast.org'>api.safecast.org</a>, Login -> Dashboard -> Retrieve your API key.<br>"
+      "</span>"
 
       "<br>"
       "<button type='submit' class='pure-button pure-button-primary'>Save</button>"
       "</fieldset>"
       "</form>"
       "%s",
+      settings.get_ap_password(),
+      settings.get_device_id(),
+      settings.get_wifi_ssid(),
+      settings.get_wifi_password(),
+      settings.get_api_key(),
       display_success ? success_message : ""
   );
 }
