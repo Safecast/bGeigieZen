@@ -84,7 +84,7 @@ LogAggregator log_aggregator(settings);
 ConfigWebServer config_server(settings);
 
 #ifdef M5_CORE2
-Button screen_area(0, 0, 320, 200, true, "Screen");
+Button screen_area(0, 25, 320, 200, true, "Screen");
 #else
 // Map screen touch to a button for code reading purposes
 Button screen_area(0, false, 0);
