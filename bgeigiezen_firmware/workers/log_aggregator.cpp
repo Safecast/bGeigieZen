@@ -101,9 +101,9 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
     double latitude = dd_to_dm(data.latitude < 0 ? data.latitude * -1 : data.latitude);
     double longitude = dd_to_dm(data.longitude < 0 ? data.longitude * -1 : data.longitude);
     latitude_dm = static_cast<uint32_t>(latitude);
-    latitude_s = static_cast<uint32_t>((latitude - latitude_dm) * 10e4);
+    latitude_s = static_cast<uint32_t>((latitude - latitude_dm) * 1e4);
     longitude_dm = static_cast<uint32_t>(longitude);
-    longitude_s = static_cast<uint32_t>((longitude - longitude_dm) * 10e4);
+    longitude_s = static_cast<uint32_t>((longitude - longitude_dm) * 1e4);
   }
 
   sprintf(
