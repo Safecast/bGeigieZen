@@ -1,13 +1,13 @@
 (kicad_sch
-	(version 20231120)
+	(version 20240101)
 	(generator "eeschema")
 	(generator_version "8.99")
 	(uuid "c2e3a215-6a49-419d-95d1-595f35b17280")
 	(paper "A4")
 	(title_block
-		(title "bGeigieZen V4.0.1")
-		(date "2024-02-27")
-		(rev "V4.0.1")
+		(title "bGeigieZen V4.0.3")
+		(date "2024-03-25")
+		(rev "V4.0.3")
 		(company "GitHub link at https://github.com/Safecast/bGeigieZen")
 	)
 	(lib_symbols
@@ -2157,6 +2157,12 @@
 		(uuid "72002415-809f-45fa-88ba-93a564002c1c")
 	)
 	(junction
+		(at 113.03 66.04)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "737733c1-784e-4613-ae58-9a669bbd14bd")
+	)
+	(junction
 		(at 130.81 81.28)
 		(diameter 0.3048)
 		(color 0 0 0 0)
@@ -2187,22 +2193,16 @@
 		(uuid "d3d7e298-1d39-4294-a3ab-c84cc0dc5e5a")
 	)
 	(junction
-		(at 166.37 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "dad4c92a-7e65-4a49-857f-0cadb812338e")
-	)
-	(junction
-		(at 129.54 135.89)
+		(at 135.89 125.73)
 		(diameter 0.3048)
 		(color 0 0 0 0)
 		(uuid "df32840e-2912-4088-b54c-9a85f64c0265")
 	)
 	(junction
-		(at 166.37 88.9)
+		(at 107.95 85.09)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "e2ef9de7-686a-4162-944f-14ae5d93cb4c")
+		(uuid "e765848b-2363-42e9-a82a-8c9df98d9627")
 	)
 	(junction
 		(at 173.99 95.25)
@@ -2234,7 +2234,7 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 96.52) (xy 133.35 96.52)
+			(xy 127 96.52) (xy 133.35 96.52)
 		)
 		(stroke
 			(width 0)
@@ -2244,13 +2244,23 @@
 	)
 	(wire
 		(pts
-			(xy 120.65 130.81) (xy 120.65 96.52)
+			(xy 127 120.65) (xy 127 96.52)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "050ac437-ad13-4cd1-8835-be4076365f3b")
+	)
+	(wire
+		(pts
+			(xy 104.14 74.93) (xy 104.14 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0656051e-bdad-4f3f-ab11-ddb0a5f8e3ec")
 	)
 	(wire
 		(pts
@@ -2264,7 +2274,7 @@
 	)
 	(wire
 		(pts
-			(xy 186.69 82.55) (xy 166.37 82.55)
+			(xy 186.69 82.55) (xy 172.72 82.55)
 		)
 		(stroke
 			(width 0)
@@ -2294,7 +2304,7 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 135.89) (xy 129.54 140.97)
+			(xy 135.89 125.73) (xy 135.89 130.81)
 		)
 		(stroke
 			(width 0)
@@ -2304,13 +2314,23 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 135.89) (xy 166.37 135.89)
+			(xy 135.89 125.73) (xy 172.72 125.73)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
 		(uuid "1babef0c-511a-43e4-b970-35d4fc6e64bf")
+	)
+	(wire
+		(pts
+			(xy 113.03 66.04) (xy 151.765 66.04)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "227ee83e-4d9d-473c-8a3d-7e4d3950f3f6")
 	)
 	(wire
 		(pts
@@ -2324,7 +2344,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 111.76) (xy 152.4 111.76)
+			(xy 151.765 111.76) (xy 146.05 111.76)
 		)
 		(stroke
 			(width 0)
@@ -2351,16 +2371,6 @@
 			(type solid)
 		)
 		(uuid "2a299d90-6edd-455c-a2d8-33b9a9b6f018")
-	)
-	(wire
-		(pts
-			(xy 165.1 92.71) (xy 171.45 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2c95a8d6-f734-411d-b6e7-a820abc5da2c")
 	)
 	(wire
 		(pts
@@ -2394,7 +2404,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 129.54) (xy 121.92 129.54)
+			(xy 170.18 119.38) (xy 128.27 119.38)
 		)
 		(stroke
 			(width 0)
@@ -2414,7 +2424,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 135.89) (xy 119.38 81.28)
+			(xy 125.73 125.73) (xy 125.73 81.28)
 		)
 		(stroke
 			(width 0)
@@ -2424,7 +2434,7 @@
 	)
 	(wire
 		(pts
-			(xy 123.19 128.27) (xy 157.48 128.27)
+			(xy 129.54 118.11) (xy 163.83 118.11)
 		)
 		(stroke
 			(width 0)
@@ -2434,7 +2444,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 93.98) (xy 133.35 93.98)
+			(xy 128.27 93.98) (xy 133.35 93.98)
 		)
 		(stroke
 			(width 0)
@@ -2454,6 +2464,16 @@
 	)
 	(wire
 		(pts
+			(xy 107.95 85.09) (xy 113.03 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "48c14087-32cd-4587-b9c3-8551d251c70e")
+	)
+	(wire
+		(pts
 			(xy 184.15 74.93) (xy 184.15 68.58)
 		)
 		(stroke
@@ -2464,7 +2484,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 135.89) (xy 129.54 135.89)
+			(xy 125.73 125.73) (xy 135.89 125.73)
 		)
 		(stroke
 			(width 0)
@@ -2494,7 +2514,7 @@
 	)
 	(wire
 		(pts
-			(xy 123.19 128.27) (xy 123.19 99.06)
+			(xy 129.54 118.11) (xy 129.54 99.06)
 		)
 		(stroke
 			(width 0)
@@ -2504,33 +2524,13 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 88.9) (xy 166.37 135.89)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "5de92fec-2c75-4e60-ae03-cd5efa231959")
-	)
-	(wire
-		(pts
-			(xy 157.48 66.04) (xy 185.42 66.04)
+			(xy 163.83 66.04) (xy 185.42 66.04)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
 		(uuid "5e701a4c-1e89-42b3-87e3-7df40a18d42a")
-	)
-	(wire
-		(pts
-			(xy 152.4 114.3) (xy 152.4 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6c3d5cfb-ddde-41e4-9e4f-6363d81c2e32")
 	)
 	(wire
 		(pts
@@ -2544,13 +2544,23 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 81.28) (xy 130.81 81.28)
+			(xy 125.73 81.28) (xy 130.81 81.28)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
 		(uuid "6e7fcd28-e45e-4a13-b7ac-a15d21fc9778")
+	)
+	(wire
+		(pts
+			(xy 104.14 82.55) (xy 104.14 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6ec7b85f-36a4-4849-8842-4b97c2acff61")
 	)
 	(wire
 		(pts
@@ -2561,6 +2571,16 @@
 			(type default)
 		)
 		(uuid "74e10aec-fb02-4c8c-83ac-b8419e73ec7a")
+	)
+	(wire
+		(pts
+			(xy 104.14 85.09) (xy 107.95 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7a7d826e-9e05-4c83-bbca-e45ed664163d")
 	)
 	(wire
 		(pts
@@ -2584,7 +2604,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 80.01) (xy 163.83 129.54)
+			(xy 170.18 80.01) (xy 170.18 119.38)
 		)
 		(stroke
 			(width 0)
@@ -2644,13 +2664,23 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 66.04) (xy 157.48 128.27)
+			(xy 163.83 66.04) (xy 163.83 118.11)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
 		(uuid "9821de30-95e0-491b-92d5-d60e34db0263")
+	)
+	(wire
+		(pts
+			(xy 172.72 82.55) (xy 172.72 125.73)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "a2cb66e4-d191-4fac-9304-dbbdac2fc419")
 	)
 	(wire
 		(pts
@@ -2661,6 +2691,26 @@
 			(type default)
 		)
 		(uuid "a90a5e7e-e29e-4f99-990d-ae8bc2769232")
+	)
+	(wire
+		(pts
+			(xy 113.03 82.55) (xy 113.03 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b104477f-7dbf-426a-9e1d-3009a3801936")
+	)
+	(wire
+		(pts
+			(xy 151.765 66.04) (xy 151.765 111.76)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "b9baae39-ef0f-4189-b92d-ec60125d4fba")
 	)
 	(wire
 		(pts
@@ -2694,7 +2744,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 129.54) (xy 121.92 93.98)
+			(xy 128.27 119.38) (xy 128.27 93.98)
 		)
 		(stroke
 			(width 0)
@@ -2734,7 +2784,7 @@
 	)
 	(wire
 		(pts
-			(xy 123.19 99.06) (xy 133.35 99.06)
+			(xy 129.54 99.06) (xy 133.35 99.06)
 		)
 		(stroke
 			(width 0)
@@ -2774,17 +2824,17 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 82.55) (xy 166.37 88.9)
+			(xy 113.03 66.04) (xy 113.03 74.93)
 		)
 		(stroke
 			(width 0)
-			(type default)
+			(type solid)
 		)
-		(uuid "dbbb4f9a-b260-40b2-8290-f067a73d033f")
+		(uuid "d6f28aff-300e-4c65-86c7-19ba74d86f41")
 	)
 	(wire
 		(pts
-			(xy 166.37 74.93) (xy 166.37 82.55)
+			(xy 166.37 74.93) (xy 166.37 88.9)
 		)
 		(stroke
 			(width 0)
@@ -2804,7 +2854,7 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 80.01) (xy 163.83 80.01)
+			(xy 189.23 80.01) (xy 170.18 80.01)
 		)
 		(stroke
 			(width 0)
@@ -2814,13 +2864,33 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 130.81) (xy 120.65 130.81)
+			(xy 146.05 106.68) (xy 153.035 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ebe93c4e-8714-439a-9170-0a719d318248")
+	)
+	(wire
+		(pts
+			(xy 171.45 120.65) (xy 127 120.65)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "f01a72b4-5b0c-4e53-9a71-99ed677bfb5a")
+	)
+	(wire
+		(pts
+			(xy 104.14 66.04) (xy 113.03 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f4773021-28c8-4454-bd57-26dfe1dd57aa")
 	)
 	(wire
 		(pts
@@ -2834,7 +2904,7 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 92.71) (xy 165.1 130.81)
+			(xy 171.45 92.71) (xy 171.45 120.65)
 		)
 		(stroke
 			(width 0)
@@ -2874,6 +2944,17 @@
 			(justify left bottom)
 		)
 		(uuid "6393964d-5a3e-41bd-b6ba-4a5a778e0738")
+	)
+	(label "GIO34"
+		(at 146.05 106.68 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6fc0f3c4-28ec-4e52-afa4-f6c1187abcbc")
 	)
 	(label "GIO2 on Core and GIO32 on Core-2"
 		(at 133.35 99.06 180)
@@ -3169,7 +3250,7 @@
 			(uuid "d307ebd0-2750-4e2f-b6c2-fd9f387a5c1c")
 		)
 		(instances
-			(project "bGeigieZen V4.x.x beta"
+			(project "bGeigieZen V4.x.x draft"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
 					(reference "J1")
 					(unit 1)
@@ -3179,7 +3260,7 @@
 	)
 	(symbol
 		(lib_id "bGeigieRaku-V2-rescue:BATTERY-akizuki-M5_board-rescue")
-		(at 152.4 118.11 0)
+		(at 113.03 78.74 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3187,7 +3268,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005d536219")
 		(property "Reference" "BT1"
-			(at 145.7452 126.2634 0)
+			(at 114.3 73.66 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -3196,7 +3277,7 @@
 			)
 		)
 		(property "Value" " 3.7 V Lipo"
-			(at 143.8402 128.9812 0)
+			(at 114.3 76.2 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -3205,7 +3286,7 @@
 			)
 		)
 		(property "Footprint" "Library:BATTERY_18650-HOLDER"
-			(at 152.4 117.983 0)
+			(at 113.03 78.613 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -3214,7 +3295,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 152.4 117.983 0)
+			(at 113.03 78.613 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -3222,7 +3303,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 152.4 118.11 0)
+			(at 113.03 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3237,7 +3318,7 @@
 			(uuid "49fd9e37-092e-4f43-a5e2-eb791319be18")
 		)
 		(instances
-			(project "bGeigieZen V4.x.x beta"
+			(project "bGeigieZen V4.x.x draft"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
 					(reference "BT1")
 					(unit 1)
@@ -3318,7 +3399,7 @@
 			(uuid "b71b4c37-35ab-40c5-9498-687d2ac5d313")
 		)
 		(instances
-			(project "bGeigieZen V4.x.x beta"
+			(project "bGeigieZen V4.x.x draft"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
 					(reference "J3")
 					(unit 1)
@@ -3390,7 +3471,7 @@
 			(uuid "9c93b6c1-501c-42ba-8244-4f71cf961ce5")
 		)
 		(instances
-			(project "bGeigieZen V4.x.x beta"
+			(project "bGeigieZen V4.x.x draft"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
 					(reference "J2")
 					(unit 1)
@@ -3400,7 +3481,7 @@
 	)
 	(symbol
 		(lib_id "bGeigieRaku-V2-rescue:GND-bGeigieNano_V1.1.5")
-		(at 129.54 143.51 0)
+		(at 135.89 133.35 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3408,7 +3489,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005d54c12a")
 		(property "Reference" "#GND01"
-			(at 129.54 143.51 0)
+			(at 135.89 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3417,7 +3498,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 129.54 146.5834 0)
+			(at 135.89 136.4234 0)
 			(effects
 				(font
 					(size 1.4986 1.4986)
@@ -3425,7 +3506,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 129.54 143.51 0)
+			(at 135.89 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3434,7 +3515,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 129.54 143.51 0)
+			(at 135.89 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3443,7 +3524,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 129.54 143.51 0)
+			(at 135.89 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3455,7 +3536,7 @@
 			(uuid "4a893919-ce4b-44c9-a5c7-c680302068b3")
 		)
 		(instances
-			(project "bGeigieZen V4.x.x beta"
+			(project "bGeigieZen V4.x.x draft"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
 					(reference "#GND01")
 					(unit 1)
@@ -3522,7 +3603,7 @@
 			(uuid "e6b0ed7c-1b5a-4132-9881-a5919c834b6e")
 		)
 		(instances
-			(project "bGeigieZen V4.x.x beta"
+			(project "bGeigieZen V4.x.x draft"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
 					(reference "H4")
 					(unit 1)
@@ -3589,7 +3670,7 @@
 			(uuid "5adea723-fdf9-464d-8a72-1edafdc9d915")
 		)
 		(instances
-			(project "bGeigieZen V4.x.x beta"
+			(project "bGeigieZen V4.x.x draft"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
 					(reference "H6")
 					(unit 1)
@@ -3661,9 +3742,77 @@
 			(uuid "93fff23d-d39c-4ea4-a90d-104242714863")
 		)
 		(instances
-			(project "bGeigieZen V4.x.x beta"
+			(project "bGeigieZen V4.x.x draft"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
 					(reference "J4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "bGeigieRaku-V2-rescue:BATTERY-akizuki-M5_board-rescue")
+		(at 104.14 78.74 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7b3d9d88-7fae-4925-9eae-e4a622dc09d6")
+		(property "Reference" "BT2"
+			(at 91.44 71.12 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" " 3.7 V Lipo"
+			(at 88.9 76.2 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Library:BATTERY_18650-HOLDER"
+			(at 104.14 78.613 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 104.14 78.613 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 104.14 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c64e534e-4c80-4db7-a959-0572dddd74f9")
+		)
+		(pin "2"
+			(uuid "135ea6ee-f543-4b40-9f90-971a069709ed")
+		)
+		(instances
+			(project "bGeigieZen V4.x.x draft"
+				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
+					(reference "BT2")
 					(unit 1)
 				)
 			)
@@ -3726,9 +3875,74 @@
 			(uuid "759b1a55-294e-410b-9a7a-1887fe40748d")
 		)
 		(instances
-			(project "bGeigieZen V4.x.x beta"
+			(project "bGeigieZen V4.x.x draft"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
 					(reference "#GND0102")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "bGeigieRaku-V2-rescue:GND-bGeigieNano_V1.1.5")
+		(at 107.95 87.63 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b499dd28-d66b-4add-a133-d4e7c62bb619")
+		(property "Reference" "#GND02"
+			(at 107.95 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 107.95 90.7034 0)
+			(effects
+				(font
+					(size 1.4986 1.4986)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 107.95 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 107.95 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 107.95 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2151bec8-abe6-4d31-addc-23d0b483c140")
+		)
+		(instances
+			(project "bGeigieZen V4.x.x draft"
+				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
+					(reference "#GND02")
 					(unit 1)
 				)
 			)
@@ -3844,7 +4058,7 @@
 			(uuid "c941c3cb-de7f-4c76-afa8-f26afd4dbc48")
 		)
 		(instances
-			(project "bGeigieZen V4.x.x beta"
+			(project "bGeigieZen V4.x.x draft"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
 					(reference "J6")
 					(unit 1)
@@ -3914,74 +4128,9 @@
 			(uuid "381e338c-ce9e-49db-81fc-7f98d559d06b")
 		)
 		(instances
-			(project "bGeigieZen V4.x.x beta"
+			(project "bGeigieZen V4.x.x draft"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
 					(reference "J5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "bGeigieRaku-V2-rescue:GND-bGeigieNano_V1.1.5")
-		(at 152.4 124.46 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e6a03f5e-61ff-4b7e-ba81-c0ff852b3880")
-		(property "Reference" "#GND02"
-			(at 152.4 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 152.4 127.5334 0)
-			(effects
-				(font
-					(size 1.4986 1.4986)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 152.4 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 152.4 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 152.4 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "dd78e61b-e8b5-41fd-adc3-d67bf0fe8a49")
-		)
-		(instances
-			(project "bGeigieZen V4.x.x beta"
-				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
-					(reference "#GND02")
 					(unit 1)
 				)
 			)
