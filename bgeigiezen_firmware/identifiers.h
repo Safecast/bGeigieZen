@@ -12,6 +12,7 @@ enum DataWorkers {
   k_worker_gm_sensor,
   k_worker_battery_indicator,
   k_worker_gps_connector,
+  k_worker_navsat_collector,
   k_worker_rtc_connector,
   k_worker_log_aggregator,
   k_worker_shake_detector,

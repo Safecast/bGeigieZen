@@ -25,6 +25,13 @@ class ConfigModeScreen : public BaseScreen {
     e_config_page_MAX,
   };
 
+
+  struct SettingsPageMenu {
+    const __FlashStringHelper* title;
+    const __FlashStringHelper* description;
+  };
+
+
   void render_options_menu();
   void render_page_main(const worker_map_t& workers, const handler_map_t& handlers);
   void render_page_ap(const worker_map_t& workers, const handler_map_t& handlers);
@@ -33,6 +40,7 @@ class ConfigModeScreen : public BaseScreen {
   bool _options_menu;
   uint8_t _menu_index;
   ConfigModePage _page;
+  SettingsPageMenu _settings_menu_content[ConfigModeScreen::e_config_page_MAX];
 };
 
 extern ConfigModeScreen ConfigModeScreen_i;

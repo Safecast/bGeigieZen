@@ -8,9 +8,23 @@
 #include "workers/zen_button.h"
 #include <WiFi.h>
 
+
+
+
 ConfigModeScreen ConfigModeScreen_i;
 
-ConfigModeScreen::ConfigModeScreen() : BaseScreen("Settings", true) {
+ConfigModeScreen::ConfigModeScreen() : BaseScreen("Settings", true),
+                                       _options_menu(false),
+                                       _menu_index(e_config_page_main),
+                                       _page(e_config_page_main),
+                                       _settings_menu_content{
+                                           {.title=F("Current settings "), .description=F("<description>")},
+                                           {.title=F("Start Access Point "), .description=F("<description>")},
+                                           {.title=F("Start on local "), .description=F("<description>")},
+                                           {.title=F("Load from SD "), .description=F("<description>")},
+                                           {.title=F("Save to SD "), .description=F("<description>")},
+                                           {.title=F("Reset device "), .description=F("<description>")},
+                                       } {
 }
 
 BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
@@ -93,7 +107,7 @@ void ConfigModeScreen::render_options_menu() {
   M5.Lcd.drawLine(160, 33, 160, 177, LCD_COLOR_STALE_INCOMPLETE);
 
   for (int i = 0; i < e_config_page_MAX; ++i) {
-    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+    M5.Lcd.setTextColor((i == _menu_index ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_DEFAULT), LCD_COLOR_BACKGROUND);
     M5.Lcd.drawLine(16, 48 + (i * 16), 159, 48 + (i * 16), (i == _menu_index ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_BACKGROUND));
     M5.Lcd.setCursor(16, 40 + (i * 16), 2);
     if (i == _menu_index) {
@@ -102,35 +116,15 @@ void ConfigModeScreen::render_options_menu() {
     else {
       M5.Lcd.print("  ");
     }
-    switch (i) {
-      case e_config_page_main:
-        M5.Lcd.print("Current settings ");
-        break;
-      case e_config_page_ap:
-        M5.Lcd.print("Start Access Point ");
-        break;
-      case e_config_page_wifi:
-        M5.Lcd.print("Start on local ");
-        break;
-      case e_config_page_load_sd_config:
-        M5.Lcd.print("Load config from SD ");
-        break;
-      case e_config_page_save_config_to_sd:
-        M5.Lcd.print("Save config to SD ");
-        break;
-      case e_config_page_reset:
-        M5.Lcd.print("Reset device ");
-        break;
-      default:
-        break;
-    }
+    M5.Lcd.print(_settings_menu_content[i].title);
   }
 
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.setCursor(170, 30);
-  M5.Lcd.print("title option");
-  M5.Lcd.println(_menu_index);
+  M5.Lcd.print(_settings_menu_content[_menu_index].title);
+
   M5.Lcd.setCursor(170, 60);
+  M5.Lcd.print(_settings_menu_content[_menu_index].description);
 
   M5.Lcd.setCursor(0, 0, 1);
 }
@@ -190,8 +184,11 @@ void ConfigModeScreen::render_page_wifi(const worker_map_t& workers, const handl
 }
 
 void ConfigModeScreen::enter_screen(Controller& controller) {
-  DEBUG_PRINTF("enter_screen config %d\n", _page);
   switch (_page) {
+    case e_config_page_main:
+      // In case when entering from main menu, always set config menu index correctly
+      _menu_index = e_config_page_main;
+      break;
     case e_config_page_ap:
       WiFiWrapper_i.start_ap_server(controller.get_settings().get_device_id(), controller.get_settings().get_ap_password());
       controller.set_worker_active(k_worker_config_server, true);
@@ -200,13 +197,30 @@ void ConfigModeScreen::enter_screen(Controller& controller) {
       WiFiWrapper_i.connect_wifi(controller.get_settings().get_wifi_ssid(), controller.get_settings().get_wifi_password());
       controller.set_worker_active(k_worker_config_server, true);
       break;
+    case e_config_page_load_sd_config:
+      if (controller.load_sd_config()) {
+        set_status_message(F(" SD CONFIG LOADED, settings have been updated! "));
+      } else {
+        set_status_message(F(" LOAD CONFIG FAILED, no config or SD-card! "));
+      }
+      _page = e_config_page_main; // Back on main page
+      _options_menu = true; // Re-enter menu
+      break;
+    case e_config_page_save_config_to_sd:
+      if (controller.write_sd_config()) {
+        set_status_message(F(" CONFIG SAVED, settings have been saved to SD! "));
+      } else {
+        set_status_message(F(" WRITE CONFIG FAILED, no SD-card! "));
+      }
+      _page = e_config_page_main; // Back on main page
+      _options_menu = true; // Re-enter menu
+      break;
     default:
       break;
   }
 }
 
 void ConfigModeScreen::leave_screen(Controller& controller) {
-  DEBUG_PRINTF("leave_screen config %d\n", _page);
   switch (_page) {
     case e_config_page_ap:
       WiFiWrapper_i.stop_ap_server();

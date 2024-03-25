@@ -2,14 +2,15 @@
 #include "config_mode.h"
 #include "controller.h"
 #include "debug_mode.h"
-#include "debugger.h"
 #include "drive_mode.h"
 #include "fixed_mode.h"
 #include "identifiers.h"
+#include "satellite_view.h"
 #include "survey_mode.h"
 #include "user_config.h"
 #include "workers/zen_button.h"
 #include "zen_info.h"
+
 
 MenuWindow::MenuItem DRIVE_MENU_ITEM = {
     "Drive mode",
@@ -47,6 +48,12 @@ MenuWindow::MenuItem MORE_INFO_MENU_ITEM = {
     true,
     &ZenInfoScreen_i,
 };
+MenuWindow::MenuItem NAVSAT_MENU_ITEM = {
+    "Satellites",
+    "A 2d constellation map for viewing satellites",
+    true,
+    &SatelliteViewScreen_i,
+};
 MenuWindow::MenuItem DEBUG_MENU_ITEM = {
     "Debug info",
     "Connected modules, their data and status all in a simple view",
@@ -76,6 +83,7 @@ MenuWindow::MenuWindow() : BaseScreen("Menu", true),
                                LOG_VIEWER_MENU_ITEM,
                                SETTINGS_MENU_ITEM,
                                MORE_INFO_MENU_ITEM,
+                               NAVSAT_MENU_ITEM,
                                DEBUG_MENU_ITEM} {
 }
 
