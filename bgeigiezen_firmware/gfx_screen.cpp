@@ -19,7 +19,7 @@
 #define SCREENSAVER_TEXT_LENGTH (strlen(SCREENSAVER_TEXT) * 6)
 #define TIMEOUT_PASSED(timeout, last_interaction) (timeout && (millis() - last_interaction) > (timeout * 1000))
 static constexpr uint8_t LEVEL_BRIGHT = 80;  // max brightness = 100
-static constexpr uint8_t LEVEL_DIMMED = 20;
+static constexpr uint8_t LEVEL_DIMMED = 25;
 static constexpr uint8_t LEVEL_BLANKED = 10;
 
 
@@ -67,7 +67,11 @@ void GFXScreen::set_screen_status(ScreenStatus status) {
       break;
     case e_screen_status_off:
       clear();
-      setBrightness(LEVEL_BLANKED);
+      if (_settings.get_animated_screensaver()) {
+        setBrightness(LEVEL_DIMMED);
+      } else {
+        setBrightness(LEVEL_BLANKED);
+      }
       break;
   }
 }
@@ -75,7 +79,7 @@ void GFXScreen::set_screen_status(ScreenStatus status) {
 //setup brightness by Rob Oudendijk 2023-03-13
 void GFXScreen::setBrightness(uint8_t lvl) {
 
-  if (lvl == LEVEL_BLANKED && !_settings.get_animated_screensaver()) {
+  if (lvl == LEVEL_BLANKED) {
     // Turn screen off
 #ifdef M5_CORE2
     M5.Axp.SetDCDC3(false);
@@ -123,7 +127,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
     const auto button3 = workers.worker<ZenButton>(k_worker_button_3);
     const auto screen_touch = workers.worker<ZenButton>(k_worker_screen_touch);
 
-    if (button1->is_fresh() || button2->is_fresh() || button3->is_fresh() || screen_touch->is_fresh()) {
+    if (button1->is_fresh() || button2->is_fresh() || button3->is_fresh() || screen_touch->get_data().currentlyPressed) {
       _last_interaction = millis();
     }
 
