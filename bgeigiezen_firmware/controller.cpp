@@ -5,11 +5,12 @@
 
 #include "utils/device_utils.h"
 
-Controller::Controller(LocalStorage& settings)
+Controller::Controller(LocalStorage& settings, TeenyUbloxConnect& gnss)
     : Aggregator(),
       Worker<DeviceState>({false, false, SDInterface::SdStatus::e_sd_config_status_not_ready, DeviceState::Mode::e_mode_not_set}, 1000),
       _initialized(false),
-      _settings(settings) {
+      _settings(settings),
+      _gnss(gnss) {
 }
 
 void Controller::initialize() {
@@ -92,6 +93,11 @@ bool Controller::load_sd_config() {
 
 bool Controller::write_sd_config() {
   return SDInterface::i().write_safezen_file_from_settings(_settings);
+}
+
+bool Controller::gps_cold_start() {
+  _gnss.coldStart();
+  return true; // how to check? no idea
 }
 
 void Controller::reset_all() {

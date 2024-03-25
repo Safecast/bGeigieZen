@@ -59,6 +59,7 @@
 #include "workers/configuration_server.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
+#include "workers/navsat_collector.h"
 #include "workers/log_aggregator.h"
 #include "workers/rtc_connector.h"
 #include "workers/shake_detector.h"
@@ -66,7 +67,7 @@
 
 TeenyUbloxConnect gnss;
 LocalStorage settings;
-Controller controller(settings);
+Controller controller(settings, gnss);
 
 
 // Workers
@@ -74,6 +75,7 @@ ZenButton zen_A(M5.BtnA);
 ZenButton zen_B(M5.BtnB);
 ZenButton zen_C(M5.BtnC);
 GpsConnector gps(gnss);
+NavsatCollector navsat(gnss);
 GeigerCounter gm_sensor;
 BatteryIndicator battery_indicator;
 RtcConnector rtc;
@@ -110,6 +112,7 @@ void setup() {
 
   DEBUG_PRINTLN("Register workers...");
   controller.register_worker(k_worker_gps_connector, gps);
+  controller.register_worker(k_worker_navsat_collector, navsat);
   controller.register_worker(k_worker_gm_sensor, gm_sensor);
   controller.register_worker(k_worker_shake_detector, shake_detector);
   controller.register_worker(k_worker_battery_indicator, battery_indicator);

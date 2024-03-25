@@ -1,10 +1,12 @@
 #ifndef BGEIGIEZEN_CONTROLLER_H_
 #define BGEIGIEZEN_CONTROLLER_H_
 
-#include "workers/local_storage.h"
-#include "utils/sd_wrapper.h"
+#include <Arduino.h>
 #include <Aggregator.hpp>
 #include <Handler.hpp>
+#include <TeenyUbloxConnect.h>
+#include "utils/sd_wrapper.h"
+#include "workers/local_storage.h"
 
 struct DeviceState {
   enum Mode {
@@ -26,7 +28,7 @@ struct DeviceState {
  */
 class Controller : public Aggregator, public Worker<DeviceState> {
  public:
-  Controller(LocalStorage& settings);
+  Controller(LocalStorage& settings, TeenyUbloxConnect& gnss);
   virtual ~Controller() = default;
 
   /**
@@ -55,6 +57,11 @@ class Controller : public Aggregator, public Worker<DeviceState> {
   bool write_sd_config();
 
   /**
+   * Writes device settings onto SD
+   */
+  bool gps_cold_start();
+
+  /**
    * Set fixed mode testing
    */
   void set_fixed_testing(bool enable);
@@ -80,6 +87,7 @@ class Controller : public Aggregator, public Worker<DeviceState> {
 
   bool _initialized;
   LocalStorage& _settings;
+  TeenyUbloxConnect& _gnss;
 
 };
 
