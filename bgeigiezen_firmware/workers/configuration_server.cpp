@@ -123,6 +123,18 @@ void ConfigWebServer::handle_save() {
   if(_server.hasArg(FORM_NAME_ANIMATED_SCREENSAVER)) {
     _config.set_animated_screensaver(_server.arg(FORM_NAME_ANIMATED_SCREENSAVER).toInt(), false);
   }
+  if(_server.hasArg(FORM_NAME_CPM_USVH)) {
+    _config.set_cpm_usvh(_server.arg(FORM_NAME_CPM_USVH).toInt(), false);
+  }
+  if(_server.hasArg(FORM_NAME_MANUAL_LOGGING)) {
+    _config.set_manual_logging(_server.arg(FORM_NAME_MANUAL_LOGGING).toInt(), false);
+  }
+  if(_server.hasArg(FORM_NAME_ENABLE_JOURNAL)) {
+    _config.set_enable_journal(_server.arg(FORM_NAME_ENABLE_JOURNAL).toInt(), false);
+  }
+  if(_server.hasArg(FORM_NAME_LOG_VOID)) {
+    _config.set_log_void(_server.arg(FORM_NAME_LOG_VOID).toInt(), false);
+  }
   if(_server.hasArg(FORM_NAME_AP_LOGIN)) {
     _config.set_ap_password(_server.arg(FORM_NAME_AP_LOGIN).c_str(), false);
   }

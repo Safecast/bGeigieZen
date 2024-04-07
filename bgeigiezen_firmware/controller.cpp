@@ -76,7 +76,9 @@ int8_t Controller::produce_data() {
 
   if (_status == e_worker_data_read && _settings.get_device_id() && data.sd_card_status == SDInterface::e_sd_config_status_ok) {
     // start journal logger (if not active yet)
-    set_handler_active(k_handler_journal_logger, true);
+    if (_settings.get_enable_journal()) {
+      set_handler_active(k_handler_journal_logger, true);
+    }
   }
 
   return _status;
