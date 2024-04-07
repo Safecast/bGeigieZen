@@ -126,8 +126,48 @@ const char* HttpPages::get_config_device_page(
       "<label for='" FORM_NAME_ANIMATED_SCREENSAVER "1' class='pure-radio'>"
       "<input id='" FORM_NAME_ANIMATED_SCREENSAVER "1' type='radio' name='" FORM_NAME_ANIMATED_SCREENSAVER "' value='1' %s>Animated screensaver"
       "</label>"
+      "<br>"
 
-      "<span class='pure-form-message'></span>"
+      // Screen unit
+      "<label>Big radiation value on display</label>"
+      "<label for='" FORM_NAME_CPM_USVH "0' class='pure-radio'>"
+      "<input id='" FORM_NAME_CPM_USVH "0' type='radio' name='" FORM_NAME_CPM_USVH "' value='0' %s>Value in uSv/h (micro Sievert per hour)"
+      "</label>"
+      "<label for='" FORM_NAME_CPM_USVH "1' class='pure-radio'>"
+      "<input id='" FORM_NAME_CPM_USVH "1' type='radio' name='" FORM_NAME_CPM_USVH "' value='1' %s>Value in CPM (Clicks Per Minute)"
+      "</label>"
+      "<br>"
+
+      // Manual logging
+      "<h3>Logging options</h3>"
+      "<label for='" FORM_NAME_MANUAL_LOGGING "0' class='pure-radio'>"
+      "<input id='" FORM_NAME_MANUAL_LOGGING "0' type='radio' name='" FORM_NAME_MANUAL_LOGGING "' value='0' %s>Start logging when entering screen"
+      "</label>"
+      "<label for='" FORM_NAME_MANUAL_LOGGING "1' class='pure-radio'>"
+      "<input id='" FORM_NAME_MANUAL_LOGGING "1' type='radio' name='" FORM_NAME_MANUAL_LOGGING "' value='1' %s>Manually start logging (button)"
+      "</label>"
+      "<span class='pure-form-message'>This is for drive and survey mode</span>"
+
+      "<br>"
+
+      // Journal logging
+      "<label for='" FORM_NAME_ENABLE_JOURNAL "1' class='pure-radio'>"
+      "<input id='" FORM_NAME_ENABLE_JOURNAL "1' type='radio' name='" FORM_NAME_ENABLE_JOURNAL "' value='1' %s>Create journal logs"
+      "</label>"
+      "<label for='" FORM_NAME_ENABLE_JOURNAL "0' class='pure-radio'>"
+      "<input id='" FORM_NAME_ENABLE_JOURNAL "0' type='radio' name='" FORM_NAME_ENABLE_JOURNAL "' value='0' %s>Don't create journal logs"
+      "</label>"
+      "<span class='pure-form-message'>The journal log will contain all data lines regardless of which screen you're on</span>"
+
+      "<br>"
+
+      // Log void lines
+      "<label for='" FORM_NAME_LOG_VOID "0' class='pure-radio'>"
+      "<input id='" FORM_NAME_LOG_VOID "0' type='radio' name='" FORM_NAME_LOG_VOID "' value='0' %s>Don't add invalid lines to log files (no GPS or incomplete GM values)"
+      "</label>"
+      "<label for='" FORM_NAME_LOG_VOID "1' class='pure-radio'>"
+      "<input id='" FORM_NAME_LOG_VOID "1' type='radio' name='" FORM_NAME_LOG_VOID "' value='1' %s>Include invalid lines to log"
+      "</label>"
 
       "<br>"
       "<button type='submit' class='pure-button pure-button-primary'>Save</button>"
@@ -139,6 +179,14 @@ const char* HttpPages::get_config_device_page(
       settings.get_screen_off_timeout(),
       settings.get_animated_screensaver() ? "" : "checked",
       settings.get_animated_screensaver() ? "checked" : "",
+      settings.get_cpm_usvh() ? "" : "checked",
+      settings.get_cpm_usvh() ? "checked" : "",
+      settings.get_manual_logging() ? "" : "checked",
+      settings.get_manual_logging() ? "checked" : "",
+      settings.get_enable_journal() ? "checked" : "",
+      settings.get_enable_journal() ? "" : "checked",
+      settings.get_log_void() ? "" : "checked",
+      settings.get_log_void() ? "checked" : "",
       display_success ? success_message : ""
   );
 }

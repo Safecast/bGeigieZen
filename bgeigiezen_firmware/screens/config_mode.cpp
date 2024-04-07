@@ -178,9 +178,9 @@ void ConfigModeScreen::render_page_wifi(const worker_map_t& workers, const handl
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.printf("Config through local network, connect to\n");
   M5.Lcd.printf("Network:     %s\n", settings->get_wifi_ssid());
-  M5.Lcd.printf("Connected:   %s\n", WiFiWrapper_i.wifi_connected() ? "Yes" : "Not yet...");
+  M5.Lcd.printf("Connected:   %s\n", WiFiWrapper_i.wifi_connected() ? "Yes       " : "Not yet...");
 
-  M5.Lcd.printf("IP:          %s       \n", WiFiWrapper_i.wifi_connected() ? WiFi.localIP().toString().c_str() : "Waiting for connection... ");
+  M5.Lcd.printf("IP:          %s            \n", WiFiWrapper_i.wifi_connected() ? WiFi.localIP().toString().c_str() : "Waiting for connection... ");
 }
 
 void ConfigModeScreen::enter_screen(Controller& controller) {

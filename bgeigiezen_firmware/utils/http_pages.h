@@ -4,7 +4,7 @@
 #include <WebServer.h>
 #include <workers/local_storage.h>
 
-#define TRANSMISSION_SIZE 4098
+#define TRANSMISSION_SIZE 6000
 
 #define PURE_CSS_SIZE 3929
 #define FAVICON_SIZE 696
@@ -13,6 +13,10 @@
 
 // Device setting form names
 #define FORM_NAME_ALERT_THRESHOLD "d_al"
+#define FORM_NAME_CPM_USVH "d_cu"
+#define FORM_NAME_MANUAL_LOGGING "d_ml"
+#define FORM_NAME_ENABLE_JOURNAL "d_ej"
+#define FORM_NAME_LOG_VOID "d_lv"
 #define FORM_NAME_SCREEN_DIM_TIMEOUT "d_dt"
 #define FORM_NAME_SCREEN_OFF_TIMEOUT "d_ot"
 #define FORM_NAME_ANIMATED_SCREENSAVER "d_as"

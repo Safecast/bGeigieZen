@@ -83,6 +83,7 @@ void GFXScreen::setBrightness(uint8_t lvl) {
     // Turn screen off
 #ifdef M5_CORE2
     M5.Axp.SetDCDC3(false);
+    M5.Axp.ScreenBreath(0);
 #elif M5_BASIC
     M5.Lcd.setBrightness(0);
 #endif

@@ -68,13 +68,16 @@ int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
       }
     }
 
-    if (SDInterface::i().log_println(_logging_to, log_data->get_data().log_string)) {
-      // Line written to SD card log file
-      _total++;
-      return e_handler_data_handled;
-    } else {
-      // Something went wrong writing to the sd card log file
-      return e_handler_error;
+    if ((log_data->get_data().gps_valid && log_data->get_data().gm_valid) || settings->get_log_void()) {
+      // Line is valid OR we are logging void lines
+      if (SDInterface::i().log_println(_logging_to, log_data->get_data().log_string)) {
+        // Line written to SD card log file
+        _total++;
+        return e_handler_data_handled;
+      } else {
+        // Something went wrong writing to the sd card log file
+        return e_handler_error;
+      }
     }
   }
 

@@ -13,7 +13,10 @@ constexpr char const* key_wifi_ssid = "wifi_ssid";
 constexpr char const* key_wifi_password = "wifi_password";
 constexpr char const* key_api_key = "api_key";
 constexpr char const* key_alarm_threshold = "alarm_threshold";
+constexpr char const* key_cpm_usvh = "cpm_usvh";
 constexpr char const* key_manual_logging = "manual_logging";
+constexpr char const* key_enable_journal = "enable_journal";
+constexpr char const* key_log_void = "log_void";
 constexpr char const* key_screen_dim_timeout = "dim_timeout";
 constexpr char const* key_screen_off_timeout = "off_timeout";
 constexpr char const* key_animated_screensaver = "ani_screensaver";
@@ -29,7 +32,10 @@ LocalStorage::LocalStorage() :
     _device_id(0),
     _ap_password(""),
     _alarm_threshold(0),
+    _cpm_usvh(false),
     _manual_logging(false),
+    _enable_journal(true),
+    _log_void(false),
     _screen_dim_timeout(60),
     _screen_off_timeout(600),
     _animated_screensaver(true),
@@ -48,7 +54,10 @@ void LocalStorage::reset_defaults() {
     set_device_id(D_DEVICE_ID, true);
     set_ap_password(D_AP_PASSWORD, true);
     set_alarm_threshold(D_ALARM_THRESHOLD, true);
+    set_cpm_usvh(D_CPM_USVH, true);
     set_manual_logging(D_MANUAL_LOGGING, true);
+    set_enable_journal(D_ENABLE_JOURNAL, true);
+    set_log_void(D_LOG_VOID, true);
     set_screen_dim_timeout(D_SCREEN_DIM_TIMEOUT, true);
     set_screen_off_timeout(D_SCREEN_OFF_TIMEOUT, true);
     set_animated_screensaver(D_ANIMATED_SCREENSAVER, true);
@@ -79,8 +88,20 @@ uint16_t LocalStorage::get_alarm_threshold() const {
   return _alarm_threshold;
 }
 
+bool LocalStorage::get_cpm_usvh() const {
+  return _cpm_usvh;
+}
+
 bool LocalStorage::get_manual_logging() const {
   return _manual_logging;
+}
+
+bool LocalStorage::get_enable_journal() const {
+  return _enable_journal;
+}
+
+bool LocalStorage::get_log_void() const {
+  return _log_void;
 }
 
 uint16_t LocalStorage::get_screen_dim_timeout() const {
@@ -161,13 +182,43 @@ void LocalStorage::set_alarm_threshold(uint16_t alarm_threshold, bool force) {
   }
 }
 
+void LocalStorage::set_cpm_usvh(bool cpm_usvh, bool force) {
+  if(_memory.begin(memory_name)) {
+    _cpm_usvh = cpm_usvh;
+    _memory.putBool(key_cpm_usvh, cpm_usvh);
+    _memory.end();
+  } else {
+    DEBUG_PRINTLN("unable to save new value for cpm_usvh");
+  }
+}
+
 void LocalStorage::set_manual_logging(bool manual_logging, bool force) {
   if(_memory.begin(memory_name)) {
     _manual_logging = manual_logging;
-    _memory.putUInt(key_manual_logging, manual_logging);
+    _memory.putBool(key_manual_logging, manual_logging);
     _memory.end();
   } else {
-    DEBUG_PRINTLN("unable to save new value for ap_password");
+    DEBUG_PRINTLN("unable to save new value for manual_logging");
+  }
+}
+
+void LocalStorage::set_enable_journal(bool enable_journal, bool force) {
+  if(_memory.begin(memory_name)) {
+    _enable_journal = enable_journal;
+    _memory.putBool(key_enable_journal, enable_journal);
+    _memory.end();
+  } else {
+    DEBUG_PRINTLN("unable to save new value for enable_journal");
+  }
+}
+
+void LocalStorage::set_log_void(bool log_void, bool force) {
+  if(_memory.begin(memory_name)) {
+    _log_void = log_void;
+    _memory.putBool(key_log_void, log_void);
+    _memory.end();
+  } else {
+    DEBUG_PRINTLN("unable to save new value for log_void");
   }
 }
 
@@ -300,7 +351,10 @@ bool LocalStorage::activate(bool) {
   _memory.begin(memory_name, true);
   _device_id = _memory.getUShort(key_device_id, D_DEVICE_ID);
   _alarm_threshold = _memory.getUInt(key_alarm_threshold, D_ALARM_THRESHOLD);
+  _cpm_usvh = _memory.getBool(key_cpm_usvh, D_CPM_USVH);
   _manual_logging = _memory.getBool(key_manual_logging, D_MANUAL_LOGGING);
+  _enable_journal = _memory.getBool(key_enable_journal, D_ENABLE_JOURNAL);
+  _log_void = _memory.getBool(key_log_void, D_LOG_VOID);
   _screen_dim_timeout = _memory.getUInt(key_screen_dim_timeout, D_SCREEN_DIM_TIMEOUT);
   _screen_off_timeout = _memory.getUInt(key_screen_off_timeout, D_SCREEN_OFF_TIMEOUT);
   _animated_screensaver = _memory.getBool(key_animated_screensaver, D_ANIMATED_SCREENSAVER);
