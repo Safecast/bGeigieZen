@@ -17,7 +17,10 @@
 #define SD_CONFIG_FIELD_SENSOR_MODE "sensor_mode"
 #define SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD "access_point_password"
 #define SD_CONFIG_FIELD_ALARM_THRESHOLD "alarm_threshold"
+#define SD_CONFIG_FIELD_CPM_USVH "display_cpm"
 #define SD_CONFIG_FIELD_MANUAL_LOGGING "manual_logging"
+#define SD_CONFIG_FIELD_ENABLE_JOURNAL "enable_journal"
+#define SD_CONFIG_FIELD_LOG_VOID "log_void"
 #define SD_CONFIG_FIELD_SCREEN_DIM_TIMEOUT "screen_dim_timeout"
 #define SD_CONFIG_FIELD_SCREEN_OFF_TIMEOUT "screen_off_timeout"
 #define SD_CONFIG_FIELD_ANIMATED_SCREENSAVER "animated_screensaver"
@@ -43,7 +46,10 @@ constexpr char sd_config_sensor_mode_f[] = SD_CONFIG_FIELD_SENSOR_MODE"=%d";
 constexpr char sd_config_access_point_password_f[] = SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD"=%[^\t\r\n]";
 constexpr char sd_config_access_point_password_write_f[] = SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD"=%s";
 constexpr char sd_config_alarm_threshold_f[] = SD_CONFIG_FIELD_ALARM_THRESHOLD"=%d";
+constexpr char sd_config_cpm_usvh_f[] = SD_CONFIG_FIELD_CPM_USVH"=%hhu";
 constexpr char sd_config_manual_logging_f[] = SD_CONFIG_FIELD_MANUAL_LOGGING"=%hhu";
+constexpr char sd_config_enable_journal_f[] = SD_CONFIG_FIELD_ENABLE_JOURNAL"=%hhu";
+constexpr char sd_config_log_void_f[] = SD_CONFIG_FIELD_LOG_VOID"=%hhu";
 constexpr char sd_config_screen_dim_timeout_f[] = SD_CONFIG_FIELD_SCREEN_DIM_TIMEOUT"=%du";
 constexpr char sd_config_screen_off_timeout_f[] = SD_CONFIG_FIELD_SCREEN_OFF_TIMEOUT"=%du";
 constexpr char sd_config_animated_screensaver_f[] = SD_CONFIG_FIELD_ANIMATED_SCREENSAVER"=%hhu";
@@ -214,7 +220,10 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   // Device settings
   char access_point_password[CONFIG_VAL_MAX] = "";
   uint32_t alarm_threshold = 0;
+  uint8_t cpm_usvh = false;
   uint8_t manual_logging = false;
+  uint8_t enable_journal = true;
+  uint8_t log_void = false;
   uint32_t screen_dim_timeout = 0;
   uint32_t screen_off_timeout = 0;
   uint8_t animated_screensaver = true;
@@ -278,10 +287,28 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
         DEBUG_PRINTF("Loaded from SD: alarm_threshold=%d\n", alarm_threshold);
       }
     }
+    else if (line.startsWith(SD_CONFIG_FIELD_CPM_USVH)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_cpm_usvh_f, &cpm_usvh)) {
+        settings.set_cpm_usvh(!!cpm_usvh, true);
+        DEBUG_PRINTF("Loaded from SD: display_cpm=%d\n", !!cpm_usvh);
+      }
+    }
     else if (line.startsWith(SD_CONFIG_FIELD_MANUAL_LOGGING)) {
       if (_device_id && sscanf(line.c_str(), sd_config_manual_logging_f, &manual_logging)) {
         settings.set_manual_logging(!!manual_logging, true);
         DEBUG_PRINTF("Loaded from SD: manual_logging=%d\n", !!manual_logging);
+      }
+    }
+    else if (line.startsWith(SD_CONFIG_FIELD_ENABLE_JOURNAL)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_enable_journal_f, &enable_journal)) {
+        settings.set_enable_journal(!!enable_journal, true);
+        DEBUG_PRINTF("Loaded from SD: enable_journal=%d\n", !!enable_journal);
+      }
+    }
+    else if (line.startsWith(SD_CONFIG_FIELD_LOG_VOID)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_log_void_f, &log_void)) {
+        settings.set_log_void(!!log_void, true);
+        DEBUG_PRINTF("Loaded from SD: log_void=%d\n", !!log_void);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_SCREEN_DIM_TIMEOUT)) {
@@ -373,6 +400,14 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
   safecast_txt.println();
   safecast_txt.printf(sd_config_alarm_threshold_f, settings.get_alarm_threshold());
   safecast_txt.println();
+  safecast_txt.printf(sd_config_cpm_usvh_f, settings.get_cpm_usvh());
+  safecast_txt.println();
+  safecast_txt.printf(sd_config_manual_logging_f, settings.get_manual_logging());
+  safecast_txt.println();
+  safecast_txt.printf(sd_config_enable_journal_f, settings.get_enable_journal());
+  safecast_txt.println();
+  safecast_txt.printf(sd_config_log_void_f, settings.get_log_void());
+  safecast_txt.println();
   safecast_txt.printf(sd_config_fixed_latitude_f, settings.get_fixed_latitude());
   safecast_txt.println();
   safecast_txt.printf(sd_config_fixed_longitude_f, settings.get_fixed_longitude());
@@ -406,7 +441,7 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
   safecast_txt.close();
 
   File written_safecast_txt = SD.open(SETUP_FILENAME, FILE_READ);
-  if (safecast_txt) {
+  if (written_safecast_txt) {
     _status = e_sd_config_status_ok;
     DEBUG_PRINTF("Finished writing SAFEZEN file:\n%s\n", written_safecast_txt.readString().c_str());
   }

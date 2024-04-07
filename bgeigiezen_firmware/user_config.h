@@ -106,7 +106,10 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #define D_DEVICE_ID 0
 #define D_AP_PASSWORD "safecast"
 #define D_ALARM_THRESHOLD 100
+#define D_CPM_USVH false
 #define D_MANUAL_LOGGING false
+#define D_ENABLE_JOURNAL true
+#define D_LOG_VOID false
 #define D_SCREEN_DIM_TIMEOUT 60
 #define D_SCREEN_OFF_TIMEOUT 600
 #define D_ANIMATED_SCREENSAVER true
