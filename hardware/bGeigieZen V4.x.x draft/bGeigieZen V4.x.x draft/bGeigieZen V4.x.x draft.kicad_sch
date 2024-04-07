@@ -199,6 +199,125 @@
 				)
 			)
 		)
+		(symbol "Connector:Conn_01x01_Pin"
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x01_Pin"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x01, script generated"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x01_Pin_1_1"
+				(polyline
+					(pts
+						(xy 1.27 0) (xy 0.8636 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 0.8636 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Connector:Conn_01x02_Male_1"
 			(pin_names
 				(offset 1.016) hide)
@@ -2145,6 +2264,12 @@
 		)
 	)
 	(junction
+		(at 104.14 66.04)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3cb7ce78-f57c-47bf-b928-ad2c8786a02d")
+	)
+	(junction
 		(at 186.69 82.55)
 		(diameter 0.3048)
 		(color 0 0 0 0)
@@ -2384,6 +2509,16 @@
 	)
 	(wire
 		(pts
+			(xy 71.12 99.06) (xy 78.74 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "33b1d295-da1c-45ec-a5aa-098a99f658c9")
+	)
+	(wire
+		(pts
 			(xy 146.05 96.52) (xy 173.99 96.52)
 		)
 		(stroke
@@ -2491,6 +2626,16 @@
 			(type solid)
 		)
 		(uuid "4b2f815d-1195-413a-8bbe-20aa53e33a08")
+	)
+	(wire
+		(pts
+			(xy 104.14 66.04) (xy 113.03 66.04)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "4b326adf-363e-4d5c-a875-51195cf516b9")
 	)
 	(wire
 		(pts
@@ -2714,6 +2859,16 @@
 	)
 	(wire
 		(pts
+			(xy 76.2 74.93) (xy 76.2 77.47)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "bbaf69cd-748c-4098-89c9-7586562904ab")
+	)
+	(wire
+		(pts
 			(xy 130.81 76.2) (xy 133.35 76.2)
 		)
 		(stroke
@@ -2751,6 +2906,16 @@
 			(type solid)
 		)
 		(uuid "c077809b-f50e-4add-9f29-49304bcb21cd")
+	)
+	(wire
+		(pts
+			(xy 71.12 66.04) (xy 104.14 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c209dd15-49e1-4728-a62b-ac1ccb330a16")
 	)
 	(wire
 		(pts
@@ -2794,6 +2959,16 @@
 	)
 	(wire
 		(pts
+			(xy 78.74 99.06) (xy 78.74 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cc4fadfb-63b5-445c-9302-33a81fbc86a2")
+	)
+	(wire
+		(pts
 			(xy 171.45 92.71) (xy 184.15 92.71)
 		)
 		(stroke
@@ -2831,6 +3006,16 @@
 			(type solid)
 		)
 		(uuid "d6f28aff-300e-4c65-86c7-19ba74d86f41")
+	)
+	(wire
+		(pts
+			(xy 76.2 77.47) (xy 80.01 77.47)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "e1aaebd1-5c90-4d82-9f06-b616df848a93")
 	)
 	(wire
 		(pts
@@ -2884,16 +3069,6 @@
 	)
 	(wire
 		(pts
-			(xy 104.14 66.04) (xy 113.03 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f4773021-28c8-4454-bd57-26dfe1dd57aa")
-	)
-	(wire
-		(pts
 			(xy 186.69 63.5) (xy 189.23 63.5)
 		)
 		(stroke
@@ -2901,6 +3076,16 @@
 			(type solid)
 		)
 		(uuid "f544cf9e-15a3-4c49-af1f-2714de6ba896")
+	)
+	(wire
+		(pts
+			(xy 71.12 74.93) (xy 76.2 74.93)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "fa2826e0-9192-4d10-80a9-dce499b85b9e")
 	)
 	(wire
 		(pts
@@ -3545,6 +3730,135 @@
 		)
 	)
 	(symbol
+		(lib_id "bGeigieRaku-V2-rescue:GND-bGeigieNano_V1.1.5")
+		(at 80.01 80.01 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1121daba-bec2-4875-8826-e169bd6da290")
+		(property "Reference" "#GND03"
+			(at 80.01 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 84.455 78.0034 0)
+			(effects
+				(font
+					(size 1.4986 1.4986)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 80.01 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 80.01 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 80.01 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "954b37b9-630e-450d-8dac-c473f433772d")
+		)
+		(instances
+			(project "bGeigieZen V4.x.x draft"
+				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
+					(reference "#GND03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 66.04 99.06 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1d3975c5-b67a-4864-9f86-9915a1b3edb0")
+		(property "Reference" "J8"
+			(at 69.85 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "QI input GND"
+			(at 59.69 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
+			(at 66.04 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 66.04 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 66.04 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "715d6426-3c30-4bb8-9c90-02338e990069")
+		)
+		(instances
+			(project "bGeigieZen V4.x.x draft"
+				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
+					(reference "J8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Mechanical:MountingHole_Pad")
 		(at 222.885 136.525 0)
 		(unit 1)
@@ -3606,6 +3920,135 @@
 			(project "bGeigieZen V4.x.x draft"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
 					(reference "H4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "bGeigieRaku-V2-rescue:GND-bGeigieNano_V1.1.5")
+		(at 78.74 104.14 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "33aedf09-dfa0-4964-ac3e-ebe8fbe91950")
+		(property "Reference" "#GND04"
+			(at 78.74 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 83.185 102.1334 0)
+			(effects
+				(font
+					(size 1.4986 1.4986)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 78.74 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 78.74 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 78.74 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "04366c81-bb9f-4985-9d0f-38bdb3eb7a0f")
+		)
+		(instances
+			(project "bGeigieZen V4.x.x draft"
+				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
+					(reference "#GND04")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 66.04 66.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "34e88df3-4f8a-4319-b216-22e5eae75f04")
+		(property "Reference" "J9"
+			(at 69.85 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "QI battery out"
+			(at 58.42 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
+			(at 66.04 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 66.04 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 66.04 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9306902f-4243-4507-8ccf-cd3bf1b0b166")
+		)
+		(instances
+			(project "bGeigieZen V4.x.x draft"
+				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
+					(reference "J9")
 					(unit 1)
 				)
 			)
@@ -3819,6 +4262,70 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 66.04 74.93 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "80e2103d-95e8-49e8-a1ed-9d101954ded5")
+		(property "Reference" "J7"
+			(at 69.85 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "QI GND out"
+			(at 58.42 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
+			(at 66.04 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 66.04 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 66.04 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "03c5e3be-76fe-4330-b676-176ab5691864")
+		)
+		(instances
+			(project "bGeigieZen V4.x.x draft"
+				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
+					(reference "J7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "bGeigieRaku-V2-rescue:GND-bGeigieNano_V1.1.5")
 		(at 184.15 102.87 0)
 		(unit 1)
@@ -3878,6 +4385,70 @@
 			(project "bGeigieZen V4.x.x draft"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
 					(reference "#GND0102")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x01_Pin")
+		(at 66.04 91.44 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9d38be0d-554c-4e60-8c13-48513772836d")
+		(property "Reference" "J11"
+			(at 69.85 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "QI input +5V"
+			(at 58.42 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
+			(at 66.04 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 66.04 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated"
+			(at 66.04 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1bfedd09-07c4-4261-b987-197a5f3acaa6")
+		)
+		(instances
+			(project "bGeigieZen V4.x.x draft"
+				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
+					(reference "J11")
 					(unit 1)
 				)
 			)

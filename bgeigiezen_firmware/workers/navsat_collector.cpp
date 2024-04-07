@@ -12,15 +12,15 @@ NavsatCollector::NavsatCollector(TeenyUbloxConnect& gnss) : Worker<NavsatData>({
  * @return true if auto NAVSAT has been set, only if GPS module is already initialized.
 */
 bool NavsatCollector::activate(bool retry) {
-  if (!retry && _gnss.getProtocolVersion()) {
-    _gnss.setAutoNAVSAT(true);
+  if (!retry && _gnss.pollUART1Port()) {
+    _gnss.setAutoNAVSATRate(10);
     return true;
   }
   return false;
 }
 
 void NavsatCollector::deactivate() {
-  _gnss.setAutoNAVSAT(false);
+  _gnss.setAutoNAVSATRate(0);
 }
 
 int8_t NavsatCollector::produce_data() {
