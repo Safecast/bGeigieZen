@@ -8,7 +8,6 @@
 
 struct NavsatData {
   bool available;
-  ubloxPacket_t navsat_packet;
   ubloxNAVSATInfo_t navsat_info;
 
 };
