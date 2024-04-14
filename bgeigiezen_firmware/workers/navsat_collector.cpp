@@ -3,7 +3,6 @@
 
 NavsatCollector::NavsatCollector(TeenyUbloxConnect& gnss) : Worker<NavsatData>({
                                                                 .available=false,
-                                                                .navsat_packet=ubloxPacket_t(),
                                                                 .navsat_info=ubloxNAVSATInfo_t(),
                                                             }), _gnss(gnss) {
 }
@@ -27,9 +26,8 @@ int8_t NavsatCollector::produce_data() {
   // Collect NAVSAT Packet
 
   if (_gnss.getNAVSAT()) {
-    _gnss.getNAVSATPacket(data.navsat_packet);
     _gnss.getNAVSATInfo(data.navsat_info);
-    data.available = data.navsat_packet.validPacket;
+    data.available = data.navsat_info.validPacket;
 
     return e_worker_data_read;
   }
