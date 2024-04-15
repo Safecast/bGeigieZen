@@ -67,7 +67,7 @@ bool GpsConnector::activate(bool retry) {
     DEBUG_PRINTLN("GNSS: Try at 38400 baud");
     if (_gnss.begin(ss, 500)) {
       DEBUG_PRINTLN("GNSS: connected at 38400 baud");
-      _gnss.setSerialRate(38400);
+      // _gnss.setSerialRate(38400); // redundant
     }
     else {
       return false;
@@ -80,6 +80,7 @@ bool GpsConnector::activate(bool retry) {
     if (_gnss.begin(ss, 500)) {
       DEBUG_PRINTLN("GNSS: connected at 9600 baud, switching to 38400");
       _gnss.setSerialRate(38400);
+      delay(100); // recovery time for gnss module baud rate change
       ss.updateBaudRate(38400);
     }
     else {

@@ -51,11 +51,13 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
     uint32_t satColor;
     int16_t  satRingRadius = 10;
     uint32_t satRingColor;
+    int16_t  satAzimuth;
+    int8_t   satElevation;
     char _dispStr[4];
     
     // draw main circles, one at 0deg, and one at 45deg elevation
     M5.Lcd.drawCircle(mapCenterX, mapCenterY, mapRadius, WHITE);
-    M5.Lcd.drawCircle(mapCenterX, mapCenterY, 60, WHITE);
+    M5.Lcd.drawCircle(mapCenterX, mapCenterY, (mapRadius >> 1) + 1, WHITE);
 
     // draw lines at 0, 45, 90, 135 etc degrees azimuth
     for (int16_t i = 0; i <= 7; i++) {
@@ -85,16 +87,15 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
       // draw the positions of the sats
       for(int16_t i = navsat_info.numSvsEphValid -1; i >= 0; i--) {
 
-        //if(navsat_info.svSortList[i].elev < 0) {
-        //  continue;
-        //}
-
         // Sat position
         numSats ++;
-        xCoord = round(-sin(radians(navsat_info.svSortList[i].azim + 180 + compAngle)) *
-                       map(navsat_info.svSortList[i].elev, 0, 90, mapSatRadius, 1));
-        yCoord = round(cos(radians(navsat_info.svSortList[i].azim + 180 + compAngle)) *
-                       map(navsat_info.svSortList[i].elev, 0, 90, mapSatRadius, 1));
+        satAzimuth = navsat_info.svSortList[i].azim;
+        satElevation = navsat_info.svSortList[i].elev;
+        if(satElevation < 0) satElevation = 0;
+        xCoord = round(-sin(radians(satAzimuth + 180 + compAngle)) *
+                       map(satElevation, 0, 90, mapSatRadius, 1));
+        yCoord = round(cos(radians(satAzimuth + 180 + compAngle)) *
+                       map(satElevation, 0, 90, mapSatRadius, 1));
 
         // Sat ring color based on SNR
         if(navsat_info.svSortList[i].cno >= 35) {
