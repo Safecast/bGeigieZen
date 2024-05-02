@@ -151,7 +151,7 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
         sprintf(_dispStr, "%c%02d",
                 navsat_info.svSortList[i].gnssIdType,
                 navsat_info.svSortList[i].svId);
-        M5.Lcd.drawString(_dispStr, xCoord + mapCenterX - 8, yCoord + mapCenterY + 4, 1);
+        M5.Lcd.drawString(_dispStr, xCoord + mapCenterX - 8, yCoord + mapCenterY + 5, 1);
 
       }
     }
