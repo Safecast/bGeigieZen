@@ -3,13 +3,11 @@
 #include "identifiers.h"
 #include "menu_window.h"
 #include "user_config.h"
+#include "utils/device_utils.h"
 #include "utils/wifi_connection.h"
 #include "workers/local_storage.h"
 #include "workers/zen_button.h"
 #include <WiFi.h>
-
-
-
 
 ConfigModeScreen ConfigModeScreen_i;
 
@@ -65,6 +63,26 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
       M5.Lcd.clear();
       force_next_render();
     }
+    if (button2->is_fresh() && button2->get_data().shortPress) {
+      // screen specific action
+      switch (_page) {
+        case e_config_page_reset:
+          controller.reset_all();
+          // Temp clear and post reset message to screen
+          M5.Lcd.clear(LCD_COLOR_BACKGROUND);
+          M5.Lcd.setRotation(3);
+          M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+          M5.Lcd.setCursor(17, 78, 4);
+          M5.Lcd.printf("DEVICE MEMORY RESET\n");
+          M5.Lcd.setCursor(100, 120, 2);
+          M5.Lcd.printf("Restarting device...\n");
+          delay(1000);
+          DeviceUtils::shutdown(true);
+          break;
+        default:
+          break;
+      }
+    }
     if (button3->is_fresh() && button3->get_data().shortPress) {
       return &MenuWindow_i;
     }
@@ -92,6 +110,8 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
       return render_page_ap(workers, handlers);
     case e_config_page_wifi:
       return render_page_wifi(workers, handlers);
+    case e_config_page_reset:
+      return render_reset_device(workers, handlers);
     default:
       return;
   }
@@ -137,7 +157,7 @@ void ConfigModeScreen::render_page_main(const worker_map_t& workers, const handl
 
   // Temp print out device settings on screen
   const auto& config = *workers.worker<LocalStorage>(k_worker_local_storage);
-  M5.Lcd.setCursor(0, 78, 1);
+  M5.Lcd.setCursor(0, 50, 1);
   M5.Lcd.printf("device id:        %d      \n", config.get_device_id());
   M5.Lcd.printf("ap password:      %s      \n", config.get_ap_password());
   M5.Lcd.printf("alarm threshold:  %d      \n", config.get_alarm_threshold());
@@ -181,6 +201,16 @@ void ConfigModeScreen::render_page_wifi(const worker_map_t& workers, const handl
   M5.Lcd.printf("Connected:   %s\n", WiFiWrapper_i.wifi_connected() ? "Yes       " : "Not yet...");
 
   M5.Lcd.printf("IP:          %s            \n", WiFiWrapper_i.wifi_connected() ? WiFi.localIP().toString().c_str() : "Waiting for connection... ");
+}
+
+void ConfigModeScreen::render_reset_device(const worker_map_t& workers, const handler_map_t& handlers) {
+  drawButton1("Options");
+  drawButton2("RESET");
+  drawButton3("Menu");
+
+  M5.Lcd.setCursor(0, 78, 1);
+  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  M5.Lcd.printf("Press RESET to confirm clearing all local storage\n");
 }
 
 void ConfigModeScreen::enter_screen(Controller& controller) {

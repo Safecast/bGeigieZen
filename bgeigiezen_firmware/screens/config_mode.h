@@ -36,6 +36,7 @@ class ConfigModeScreen : public BaseScreen {
   void render_page_main(const worker_map_t& workers, const handler_map_t& handlers);
   void render_page_ap(const worker_map_t& workers, const handler_map_t& handlers);
   void render_page_wifi(const worker_map_t& workers, const handler_map_t& handlers);
+  void render_reset_device(const worker_map_t& workers, const handler_map_t& handlers);
 
   bool _options_menu;
   uint8_t _menu_index;

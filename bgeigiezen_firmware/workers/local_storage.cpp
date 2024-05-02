@@ -69,6 +69,7 @@ void LocalStorage::reset_defaults() {
     set_fixed_range(D_FIXED_RANGE, true);
     set_last_longitude(D_LAST_LONGITUDE, true);
     set_last_latitude(D_LAST_LATITUDE, true);
+    DEBUG_PRINTLN("Local Storage: Set defaults for all settings");
   }
 }
 
@@ -342,8 +343,10 @@ bool LocalStorage::clear() {
   if(_memory.begin(memory_name)) {
     _memory.clear();
     _memory.end();
+    DEBUG_PRINTLN("Local Storage: Cleared local memory...");
     return true;
   }
+  DEBUG_PRINTLN("Local Storage: Unable to clear local memory...");
   return false;
 }
 
