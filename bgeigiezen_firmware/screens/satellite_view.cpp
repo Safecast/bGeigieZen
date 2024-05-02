@@ -41,6 +41,11 @@ BaseScreen* SatelliteViewScreen::handle_input(Controller& controller, const work
   if (gps->active() && navsat->get_active_state() == NavsatCollector::e_state_inactive) {
     // reconnect navsat worker once gps worker is connected
     controller.set_worker_active(k_worker_navsat_collector, true);
+    if (navsat->active()) {
+      set_status_message(F("Nav-sat connected, this can take a few seconds"));
+    } else {
+      set_status_message(F("Nav-sat was unable to connect"));
+    }
   }
   return nullptr;
 }
