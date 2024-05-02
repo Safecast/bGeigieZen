@@ -67,7 +67,7 @@ bool GpsConnector::activate(bool retry) {
     DEBUG_PRINTLN("GNSS: Try at 38400 baud");
     if (_gnss.begin(ss, 500)) {
       DEBUG_PRINTLN("GNSS: connected at 38400 baud");
-      // _gnss.setSerialRate(38400); // redundant
+       _gnss.setSerialRate(38400); // redundant
     }
     else {
       return false;
@@ -102,6 +102,12 @@ bool GpsConnector::activate(bool retry) {
   _gnss.setAutoPVT(true); // Tell the GNSS to send the solution as it is computed (1 second)
 
   return true;
+}
+
+void GpsConnector::deactivate() {
+  tried_9600_at = 0;
+  tried_38400_at = 0;
+  ss.end(true);
 }
 
 int8_t GpsConnector::produce_data() {

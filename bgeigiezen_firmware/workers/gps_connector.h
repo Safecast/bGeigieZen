@@ -80,6 +80,9 @@ class GpsConnector : public Worker<GnssData> {
 
   int8_t produce_data() override;
 
+ protected:
+  void deactivate() override;
+
  private:
   /* u-blox UBX protocol query PVT gets position, velocity & time in one call.
    * The call returns false if no new fix has been received. In other words,
