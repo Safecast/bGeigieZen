@@ -29,9 +29,10 @@ BaseScreen* SatelliteViewScreen::handle_input(Controller& controller, const work
   }
   const auto restart_button = workers.worker<ZenButton>(k_worker_button_2);
   if (restart_button->is_fresh() && restart_button->get_data().shortPress) {
-    controller.set_worker_active(k_worker_gps_connector, false);
     controller.set_worker_active(k_worker_navsat_collector, false);
+    controller.set_worker_active(k_worker_gps_connector, false);
     controller.set_worker_active(k_worker_gps_connector, true);
+    force_next_render();
   }
   const auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
   if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
@@ -60,12 +61,7 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
   drawButton2("Reconnect");
   drawButton3("Menu");
 
-  if (force) {
-
-  }
-
   if (force || (navsat && navsat->is_fresh())) {
-    // Draw constellation map
 
     int16_t  compAngle = 0;
     int16_t  mapRadius = 90;
@@ -75,9 +71,9 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
     uint8_t  numSats = 0;
     int16_t  xCoord;
     int16_t  yCoord;
-    int16_t  satRadius = 8;
+    int16_t  satRadius = 10;
     uint32_t satColor;
-    int16_t  satRingRadius = 10;
+    int16_t  satRingRadius = 12;
     uint32_t satRingColor;
     int16_t  satAzimuth;
     int8_t   satElevation;
@@ -86,6 +82,7 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
     // Clear screen (later sprite support?)
     M5.Lcd.fillRect(mapCenterX - mapRadius, mapCenterY - mapRadius, mapRadius * 2, mapRadius * 2, LCD_COLOR_BACKGROUND);
 
+    // Draw constellation map
     // draw main circles, one at 0deg, and one at 45deg elevation
     M5.Lcd.drawCircle(mapCenterX, mapCenterY, mapRadius, LCD_COLOR_DEFAULT);
     M5.Lcd.drawCircle(mapCenterX, mapCenterY, (mapRadius >> 1) + 1, LCD_COLOR_DEFAULT);
@@ -147,6 +144,14 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
           satColor = COLOR_SAT_UNKNOWN;
         }
         M5.Lcd.fillCircle(xCoord + mapCenterX, yCoord + mapCenterY, satRadius, satColor);
+
+
+        // Sat label
+        M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, satColor);
+        sprintf(_dispStr, "%c%02d",
+                navsat_info.svSortList[i].gnssIdType,
+                navsat_info.svSortList[i].svId);
+        M5.Lcd.drawString(_dispStr, xCoord + mapCenterX - 8, yCoord + mapCenterY + 4, 1);
 
       }
     }
