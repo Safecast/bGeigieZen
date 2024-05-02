@@ -25,6 +25,7 @@ constexpr char const* key_fixed_longitude = "fixed_longitude";
 constexpr char const* key_fixed_latitude = "fixed_latitude";
 constexpr char const* key_last_longitude = "last_longitude";
 constexpr char const* key_last_latitude = "last_latitude";
+constexpr char const* key_last_mode = "last_mode";
 
 LocalStorage::LocalStorage() :
     ProcessWorker<bool>(),
@@ -46,7 +47,8 @@ LocalStorage::LocalStorage() :
     _fixed_latitude(0),
     _fixed_range(0.5),
     _last_longitude(0),
-    _last_latitude(0) {
+    _last_latitude(0),
+    _last_mode(e_operational_mode_drive) {
 }
 
 void LocalStorage::reset_defaults() {
@@ -69,6 +71,7 @@ void LocalStorage::reset_defaults() {
     set_fixed_range(D_FIXED_RANGE, true);
     set_last_longitude(D_LAST_LONGITUDE, true);
     set_last_latitude(D_LAST_LATITUDE, true);
+    set_last_mode(e_operational_mode_drive, true);
     DEBUG_PRINTLN("Local Storage: Set defaults for all settings");
   }
 }
@@ -147,6 +150,10 @@ double LocalStorage::get_last_longitude() const {
 
 double LocalStorage::get_last_latitude() const {
   return _last_latitude;
+}
+
+LocalStorage::OperationalMode LocalStorage::get_last_mode() const {
+  return _last_mode;
 }
 
 void LocalStorage::set_device_id(uint16_t device_id, bool force) {
@@ -339,6 +346,16 @@ void LocalStorage::set_last_latitude(double last_latitude, bool force) {
   }
 }
 
+void LocalStorage::set_last_mode(LocalStorage::OperationalMode last_mode, bool force){
+  if(_memory.begin(memory_name)) {
+    _last_mode = last_mode;
+    _memory.putUShort(key_last_mode, last_mode);
+    _memory.end();
+  } else {
+    DEBUG_PRINTLN("unable to save new value for key_last_mode");
+  }
+}
+
 bool LocalStorage::clear() {
   if(_memory.begin(memory_name)) {
     _memory.clear();
@@ -378,6 +395,7 @@ bool LocalStorage::activate(bool) {
   _fixed_range = _memory.getFloat(key_fixed_range, D_FIXED_RANGE);
   _last_longitude = _memory.getDouble(key_last_longitude, D_LAST_LONGITUDE);
   _last_latitude = _memory.getDouble(key_last_latitude, D_LAST_LATITUDE);
+  _last_mode = static_cast<OperationalMode>(_memory.getUShort(key_last_mode, e_operational_mode_drive));
   _memory.end();
   return true;
 }

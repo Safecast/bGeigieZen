@@ -10,6 +10,10 @@
 #include "identifiers.h"
 #include "screens/boot_screen.h"
 #include "screens/default_entry_screen.h"
+#include "screens/drive_mode.h"
+#include "screens/fixed_mode.h"
+#include "screens/satellite_view.h"
+#include "screens/survey_mode.h"
 #include "utils/wifi_connection.h"
 #include "workers/battery_indicator.h"
 #include "workers/gm_sensor.h"
@@ -194,6 +198,22 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         _screen = new_screen;
         clear();
         _screen->enter_screen(_controller);
+
+        // Check if operational mode and save
+
+        if (new_screen == &DriveModeScreen_i) {
+          _settings.set_last_mode(LocalStorage::e_operational_mode_drive, false);
+        }
+        if (new_screen == &SurveyModeScreen_i) {
+          _settings.set_last_mode(LocalStorage::e_operational_mode_survey, false);
+        }
+        if (new_screen == &FixedModeScreen_i) {
+          _settings.set_last_mode(LocalStorage::e_operational_mode_fixed, false);
+        }
+        if (new_screen == &SatelliteViewScreen_i) {
+          _settings.set_last_mode(LocalStorage::e_operational_mode_satellite, false);
+        }
+
       }
     }
 
