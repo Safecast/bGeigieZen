@@ -12,12 +12,10 @@ struct GeigerData {
   uint32_t cpm_comp = 0;  // cpm_raw compensated for medcom deadtime
   uint32_t cpm_comp_peak = 0;  // highest cpm_comp recorded
   uint32_t total = 0;  // Total since initialization
-  float uSv = 0.0;  // cpm_comp converted to uSv/h
-  float Bqm2 = 0.0;  // cpm_comp converted to Bq/m²
-  float uSv_sec = 0.0;  // cps converted to uSv/h
-  float Bqm2_sec = 0.0;  // cps converted to Bq/m²
-  float uSv_5sec = 0.0;  // cp5s converted to uSv/h
-  float Bqm2_5sec = 0.0;  // cp5s converted to Bq/m²
+  float uSvh = 0.0;  // uSv/h based on the last minute (using cpm_comp)
+  float Bqm2 = 0.0;  // Bq/m² based on the last minute (using cpm_comp)
+  float uSvh_5sec = 0.0;  // uSv/h based on the last 5 sec (using cp5s)
+  float Bqm2_5sec = 0.0;  // Bq/m² based on the last 5 sec (using cp5s)
   bool alert = false;  // cpm_comp > alert level
 };
 

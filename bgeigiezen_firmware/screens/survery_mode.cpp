@@ -60,7 +60,7 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
       // Display CPM big, usvh small
       M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
       auto cpm_width = printIntFont(gm_sensor->get_data().cp5s, 0, 100, 7);
-      auto ush_width = printFloatFont(gm_sensor->get_data().uSv_5sec, 4, 0, 140, 4);
+      auto ush_width = printFloatFont(gm_sensor->get_data().uSvh_5sec, 4, 0, 140, 4);
 
       // Display unit text with cleanup (CPM uSv/h)
       M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
@@ -70,7 +70,7 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
       M5.Lcd.drawString(" uSv/h   ", 0 + ush_width, 140, 4); // Prints after ush value
     } else {
       M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-      auto ush_width = printFloatFont(gm_sensor->get_data().uSv_5sec, 3, 0, 100, 7);
+      auto ush_width = printFloatFont(gm_sensor->get_data().uSvh_5sec, 3, 0, 100, 7);
       auto cpm_width = printIntFont(gm_sensor->get_data().cp5s, 0, 140, 4);
 
       // Display unit text with cleanup (CPM uSv/h)
