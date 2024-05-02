@@ -2,19 +2,18 @@
 #include "api_connector.h"
 #include "debugger.h"
 #include "identifiers.h"
-#include "workers/zen_button.h"
 
 #define RETRY_TIMEOUT 10000
 
 // subtracting 1 seconds so data is sent more often than not.
 #define SEND_FREQUENCY(last_send, sec) (last_send == 0 || (millis() - last_send) > ((sec * 1000) - 500))
 
-ApiConnector::ApiConnector(LocalStorage& config) : Handler(), _config(config), _post_count(0), _last_post(0), _testing_mode(false) {
+ApiConnector::ApiConnector(LocalStorage& config) : Handler(), _config(config), _post_count(0), _last_post(0) {
 }
 
-bool ApiConnector::time_to_send(bool alert) const {
-  if (_testing_mode) {
-    return SEND_FREQUENCY(_last_post, API_SEND_SECONDS_DELAY_TESTING);
+bool ApiConnector::time_to_send(bool in_fixed_range, bool alert) const {
+  if (in_fixed_range) {
+    return SEND_FREQUENCY(_last_post, API_SEND_SECONDS_DELAY_ROAMING);
   }
   return SEND_FREQUENCY(_last_post, alert ? API_SEND_SECONDS_DELAY_ALERT : API_SEND_SECONDS_DELAY);
 }
@@ -39,12 +38,6 @@ void ApiConnector::deactivate() {
 }
 
 int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
-  auto testing_mode = workers.worker<ZenButton>(k_worker_button_1);
-  if (testing_mode->is_fresh()) {
-    _testing_mode = testing_mode->get_data().longPress;
-    return e_api_reporter_idle; // Return for now to apply changes first
-  }
-
   if (!_config.get_fixed_device_id()) {
     // Cant even send anything, because there is an invalid id
     return e_api_reporter_idle;
@@ -63,12 +56,12 @@ int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
     return e_api_reporter_idle;
   }
 
-  if (!time_to_send(log_data.cpm > _config.get_alarm_threshold())) {
+  if (!time_to_send(log_data.in_fixed_range, log_data.cpm > _config.get_alarm_threshold())) {
     // Not time to send yet
     return e_api_reporter_idle;
   }
   
-  if (_testing_mode || log_data.in_fixed_range) {
+  if (log_data.in_fixed_range) {
     return send_reading(log_data);
   }
 
@@ -152,14 +145,10 @@ bool ApiConnector::reading_to_json(const DataLine& line, char* out) {
       line.timestamp,
       _config.get_fixed_device_id(),
       line.cpm,
-      _testing_mode ? line.latitude : _config.get_fixed_latitude(),
-      _testing_mode ? line.longitude : _config.get_fixed_longitude()
+      line.in_fixed_range ? _config.get_fixed_latitude() : line.latitude,
+      line.in_fixed_range ? _config.get_fixed_longitude() : line.longitude
   );
   return result > 0;
-}
-
-bool ApiConnector::testing_mode() const {
-  return _testing_mode;
 }
 
 uint32_t ApiConnector::get_post_count() const {

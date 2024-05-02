@@ -70,9 +70,9 @@ constexpr uint8_t LINE_BUFFER_SIZE = 100;
 constexpr uint8_t LOG_FILENAME_SIZE = 100;
 constexpr uint8_t MIN_LOG_LINES_FOR_KEEP = 2;
 constexpr uint8_t LOG_SECONDS_DELAY = 5; // Logs every 5 seconds
-constexpr uint16_t API_SEND_SECONDS_DELAY = 300; // Posts every 5 minutes default
-constexpr uint16_t API_SEND_SECONDS_DELAY_ALERT = 60; // Posts every 1 minute when alerted
-constexpr uint16_t API_SEND_SECONDS_DELAY_TESTING = 5; // Posts every 5 seconds in testing
+constexpr uint16_t API_SEND_SECONDS_DELAY = 60; // Posts every 5 minutes default
+constexpr uint16_t API_SEND_SECONDS_DELAY_ALERT = 5; // Posts every 1 minute when alerted
+constexpr uint16_t API_SEND_SECONDS_DELAY_ROAMING = 5; // Posts every 5 seconds in testing
 
 constexpr char FIXED_MODE_GRAFANA_URL[] = "https://grafana.safecast.cc/d/DFSxrOLWk/safecast-device-details?from=now-24h&to=now&refresh=5m&var-device_urn=geigiecast:%d";
 

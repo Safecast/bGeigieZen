@@ -84,7 +84,11 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
   char WE = 'E';
 
   if (gps_data.valid()) {
-    data.in_fixed_range = haversine_km(data.latitude, data.longitude, _settings.get_fixed_latitude(), _settings.get_fixed_longitude()) < FIXED_LOCATION_RANGE_KM;
+    if (_settings.get_fixed_latitude() != 0 && _settings.get_fixed_longitude() != 0 && _settings.get_fixed_range() > 0) {
+      data.in_fixed_range = haversine_km(data.latitude, data.longitude, _settings.get_fixed_latitude(), _settings.get_fixed_longitude()) < _settings.get_fixed_range();
+    } else {
+      data.in_fixed_range = false;
+    }
 
     if ((_last_latitude < 0 || _last_latitude > 0) && (_last_longitude < 0 || _last_longitude > 0)) {
       double plus_distance = haversine_km(data.latitude, data.longitude, _last_latitude, _last_longitude);
