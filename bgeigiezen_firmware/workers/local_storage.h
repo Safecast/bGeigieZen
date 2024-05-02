@@ -12,6 +12,13 @@
  */
 class LocalStorage : public ProcessWorker<bool> {
  public:
+  enum OperationalMode {
+    e_operational_mode_drive = 0,
+    e_operational_mode_survey,
+    e_operational_mode_fixed,
+    e_operational_mode_satellite,
+  };
+
   LocalStorage();
   virtual ~LocalStorage() = default;
 
@@ -40,6 +47,7 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual float get_fixed_range() const final;
   virtual double get_last_longitude() const final;
   virtual double get_last_latitude() const final;
+  virtual OperationalMode get_last_mode() const final;
 
   virtual void set_device_id(uint16_t device_id, bool force);
   virtual void set_ap_password(const char* ap_password, bool force);
@@ -56,9 +64,10 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual void set_api_key(const char* api_key, bool force);
   virtual void set_fixed_longitude(double fixed_longitude, bool force);
   virtual void set_fixed_latitude(double fixed_latitude, bool force);
+  virtual void set_fixed_range(float fixed_range, bool force);
   virtual void set_last_longitude(double last_longitude, bool force);
   virtual void set_last_latitude(double last_latitude, bool force);
-  virtual void set_fixed_range(float fixed_range, bool force);
+  virtual void set_last_mode(OperationalMode last_mode, bool force);
 
  protected:
   virtual bool clear();
@@ -93,8 +102,12 @@ class LocalStorage : public ProcessWorker<bool> {
   double _fixed_latitude;
   float _fixed_range;
 
+
+  // internal tracking
+  OperationalMode _last_mode;
   double _last_longitude;
   double _last_latitude;
+
 };
 
 #endif //BGEIGIEZEN_ESP_CONFIG_H_
