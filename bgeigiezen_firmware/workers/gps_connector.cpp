@@ -100,6 +100,7 @@ bool GpsConnector::activate(bool retry) {
   // Set Auto on NAV-PVT for non-blocking access
   // getPVT() will return true if a new navigation solution is available
   _gnss.setAutoPVT(true); // Tell the GNSS to send the solution as it is computed (1 second)
+  _gnss.setAutoNAVSAT(false); // Disable navsat by default (navsat worker handles this)
 
   return true;
 }
