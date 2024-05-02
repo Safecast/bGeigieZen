@@ -200,7 +200,6 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         _screen->enter_screen(_controller);
 
         // Check if operational mode and save
-
         if (new_screen == &DriveModeScreen_i) {
           _settings.set_last_mode(LocalStorage::e_operational_mode_drive, false);
         }
