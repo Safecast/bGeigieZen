@@ -60,14 +60,11 @@ int8_t GeigerCounter::produce_data() {
     }
 
     // micro-Sieverts per hour conversion
-    data.uSv = static_cast<float>(data.cpm_comp) * _ush_factor;
+    data.uSvh = static_cast<float>(data.cpm_comp) * _ush_factor;
     data.Bqm2 = static_cast<float>(data.cpm_comp) * _bqm2_factor;
 
-    data.uSv_sec = static_cast<float>(data.cps) * _ush_factor * GEIGER_AVERAGING_N_BINS;
-    data.Bqm2_sec = static_cast<float>(data.cps) * _bqm2_factor * GEIGER_AVERAGING_N_BINS;
-
-    data.uSv_5sec = static_cast<float>(data.cp5s) * _ush_factor * (static_cast<float>(GEIGER_AVERAGING_N_BINS) / 12);
-    data.Bqm2_5sec = static_cast<float>(data.cp5s) * _bqm2_factor * (static_cast<float>(GEIGER_AVERAGING_N_BINS) / 12);
+    data.uSvh_5sec = static_cast<float>(data.cp5s * 12) * _ush_factor;
+    data.Bqm2_5sec = static_cast<float>(data.cp5s * 12) * _bqm2_factor;
 
     data.alert = data.cpm_comp > _cpm_alert_level;
   }
