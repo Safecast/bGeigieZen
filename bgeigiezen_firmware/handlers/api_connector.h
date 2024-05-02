@@ -34,17 +34,17 @@ class ApiConnector : public Handler {
   explicit ApiConnector(LocalStorage& config);
   virtual ~ApiConnector() = default;
 
-  bool testing_mode() const;
   uint32_t get_post_count() const;
 
  protected:
 
   /**
    * Check if enough time has passed to send the latest reading to api
-   * @param offset: additional ms offset (default 1 sec to overlap measurements better)
+   * @param in_fixed_range: If within configured range, a different send frequency is used
+   * @param alert: If alerted, a different send frequency is used
    * @return true if time to send
    */
-  bool time_to_send(bool alert) const;
+  bool time_to_send(bool in_fixed_range, bool alert) const;
 
   /**
    * Initialize the connection
@@ -74,7 +74,6 @@ class ApiConnector : public Handler {
   LocalStorage& _config;
   uint32_t _post_count;
   uint32_t _last_post;
-  bool _testing_mode;
 };
 
 #endif //BGEIGIEZEN_APICONNECTOR_H_

@@ -25,8 +25,8 @@ MenuWindow::MenuItem SURVEY_MENU_ITEM = {
     &SurveyModeScreen_i,
 };
 MenuWindow::MenuItem FIXED_MENU_ITEM = {
-    "Fixed mode",
-    "Place the zen at a    fixed location and    upload data over     wifi!",
+    "Real-time mode",
+    "Place the zen at a    fixed location or    take it with you and    upload data real-   time over wifi!",
     true,
     &FixedModeScreen_i,
 };
