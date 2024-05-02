@@ -19,7 +19,7 @@ bool NavsatCollector::activate(bool retry) {
 }
 
 void NavsatCollector::deactivate() {
-  _gnss.setAutoNAVSATRate(0);
+  _gnss.setAutoNAVSAT(false);
 }
 
 int8_t NavsatCollector::produce_data() {
