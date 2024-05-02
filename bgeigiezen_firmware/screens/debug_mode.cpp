@@ -48,10 +48,10 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
                   gm_sensor->get_data().cpm_raw,
                   gm_sensor->get_data().cpm_comp,
                   gm_sensor->get_data().alert ? "A" : " ",
-                  gm_sensor->get_data().uSv,
+                  gm_sensor->get_data().uSvh,
                   gm_sensor->get_data().Bqm2,
                   gm_sensor->get_data().cp5s,
-                  gm_sensor->get_data().uSv_5sec,
+                  gm_sensor->get_data().uSvh_5sec,
                   gm_sensor->get_data().Bqm2_5sec);
   }
   else {
