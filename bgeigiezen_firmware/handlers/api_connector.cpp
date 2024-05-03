@@ -60,13 +60,8 @@ int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
     // Not time to send yet
     return e_api_reporter_idle;
   }
-  
-  if (log_data.in_fixed_range) {
-    return send_reading(log_data);
-  }
 
-  // Not in fixed range or not testing, so not sending
-  return e_api_reporter_idle;
+  return send_reading(log_data);
 }
 
 ApiConnector::ApiHandlerStatus ApiConnector::send_reading(const DataLine& data) {
