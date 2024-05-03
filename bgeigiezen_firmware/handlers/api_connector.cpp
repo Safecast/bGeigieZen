@@ -13,9 +13,9 @@ ApiConnector::ApiConnector(LocalStorage& config) : Handler(), _config(config), _
 
 bool ApiConnector::time_to_send(bool in_fixed_range, bool alert) const {
   if (in_fixed_range) {
-    return SEND_FREQUENCY(_last_post, API_SEND_SECONDS_DELAY_ROAMING);
+    return SEND_FREQUENCY(_last_post, alert ? API_SEND_SECONDS_DELAY_ALERT : API_SEND_SECONDS_DELAY);
   }
-  return SEND_FREQUENCY(_last_post, alert ? API_SEND_SECONDS_DELAY_ALERT : API_SEND_SECONDS_DELAY);
+  return SEND_FREQUENCY(_last_post, API_SEND_SECONDS_DELAY_ROAMING);
 }
 
 bool ApiConnector::activate(bool retry) {
