@@ -13,8 +13,11 @@ ApiConnector::ApiConnector(LocalStorage& config) : Handler(), _config(config), _
 
 bool ApiConnector::time_to_send(bool in_fixed_range, bool alert) const {
   if (in_fixed_range) {
-    return SEND_FREQUENCY(_last_post, alert ? API_SEND_SECONDS_DELAY_ALERT : API_SEND_SECONDS_DELAY);
+    static uint32_t _sent_time = alert ? API_SEND_SECONDS_DELAY_ROAMING : API_SEND_SECONDS_DELAY;
+
+    return SEND_FREQUENCY(_last_post, alert ? API_SEND_SECONDS_DELAY_ROAMING : API_SEND_SECONDS_DELAY);
   }
+
   return SEND_FREQUENCY(_last_post, API_SEND_SECONDS_DELAY_ROAMING);
 }
 
@@ -80,7 +83,7 @@ ApiConnector::ApiHandlerStatus ApiConnector::send_reading(const DataLine& data) 
   //Specify destination for HTTP request
   if (!http.begin(url)) {
     DEBUG_PRINTLN("Unable to begin url connection");
-    http.end();  //Free resources
+    http.end(); //Free resources
     return e_api_reporter_error_remote_not_available;
   }
 
@@ -103,7 +106,7 @@ ApiConnector::ApiHandlerStatus ApiConnector::send_reading(const DataLine& data) 
 
   String response = http.getString();
   DEBUG_PRINTF("POST complete, response (%d):\n%s\n\n", httpResponseCode, response.c_str());
-  http.end();  //Free resources
+  http.end(); //Free resources
 
   // TODO: Check response measurement ID
 
@@ -125,7 +128,6 @@ ApiConnector::ApiHandlerStatus ApiConnector::send_reading(const DataLine& data) 
     default:
       return e_api_reporter_error_remote_not_available;
   }
-
 }
 
 bool ApiConnector::reading_to_json(const DataLine& line, char* out) {
@@ -141,8 +143,7 @@ bool ApiConnector::reading_to_json(const DataLine& line, char* out) {
       _config.get_fixed_device_id(),
       line.cpm,
       line.in_fixed_range ? _config.get_fixed_latitude() : line.latitude,
-      line.in_fixed_range ? _config.get_fixed_longitude() : line.longitude
-  );
+      line.in_fixed_range ? _config.get_fixed_longitude() : line.longitude);
   return result > 0;
 }
 
