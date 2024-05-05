@@ -6,18 +6,15 @@
 #define RETRY_TIMEOUT 10000
 
 // subtracting 1 seconds so data is sent more often than not.
-#define SEND_FREQUENCY(last_send, sec) (last_send == 0 || (millis() - last_send) > ((sec * 1000) - 500))
+#define SEND_FREQUENCY(last_send, sec) ((last_send) == 0 || (millis() - (last_send)) > (((sec) * 1000) - 500))
 
 ApiConnector::ApiConnector(LocalStorage& config) : Handler(), _config(config), _post_count(0), _last_post(0) {
 }
 
 bool ApiConnector::time_to_send(bool in_fixed_range, bool alert) const {
   if (in_fixed_range) {
-    static uint32_t _sent_time = alert ? API_SEND_SECONDS_DELAY_ROAMING : API_SEND_SECONDS_DELAY;
-
-    return SEND_FREQUENCY(_last_post, alert ? API_SEND_SECONDS_DELAY_ROAMING : API_SEND_SECONDS_DELAY);
+    return SEND_FREQUENCY(_last_post, alert ? API_SEND_SECONDS_DELAY_ALERT : API_SEND_SECONDS_DELAY);
   }
-
   return SEND_FREQUENCY(_last_post, API_SEND_SECONDS_DELAY_ROAMING);
 }
 
@@ -52,6 +49,10 @@ int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
   if (!log_aggregator->is_fresh()) {
     // No fresh data
     return e_api_reporter_idle;
+  }
+
+  if (time_to_send(true, false)) {
+    _last_post = millis();
   }
 
   if (!log_data.valid()) {
