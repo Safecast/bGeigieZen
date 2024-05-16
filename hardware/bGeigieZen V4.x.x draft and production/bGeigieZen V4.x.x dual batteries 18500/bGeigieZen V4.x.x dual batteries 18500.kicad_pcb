@@ -1082,7 +1082,7 @@
 		(descr "Through hole straight socket strip, 1x06, 2.54mm pitch, single row (from Kicad 4.0.7), script generated")
 		(tags "Through hole socket strip THT 1x06 2.54mm single row")
 		(property "Reference" "J3"
-			(at 0 -2.77 0)
+			(at 0 -2.77 90)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "c8bf2ee7-e668-4124-a586-d926cbddc5b0")
@@ -1409,6 +1409,7 @@
 			(at 5.1736 -0.158 0)
 			(unlocked yes)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "0793982f-7ab1-422c-b988-ef1215789cf9")
 			(effects
 				(font
@@ -1519,18 +1520,6 @@
 		(at 189.3782 115.5428 -90)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
-		(property "Reference" "J5"
-			(at 0 -2.33 90)
-			(unlocked yes)
-			(layer "F.SilkS")
-			(uuid "49ae603d-7b6a-4faa-98e4-06b3e66802d8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
 		(property "Value" "Extra support header"
 			(at -1.0408 5.9394 90)
 			(unlocked yes)
@@ -1579,6 +1568,18 @@
 				(font
 					(size 1.5 1.5)
 					(thickness 0.3)
+				)
+			)
+		)
+		(property "Reference" "J5"
+			(at 0 -2.33 90)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "49ae603d-7b6a-4faa-98e4-06b3e66802d8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2082,7 +2083,7 @@
 		(descr "Through hole straight pin header, 1x03, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x03 2.54mm single row")
 		(property "Reference" "J2"
-			(at -2.7904 2.916 0)
+			(at 0.3556 8.0264 90)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "34d34767-d00f-4a25-b823-236c86916ee3")
@@ -2094,16 +2095,15 @@
 			)
 		)
 		(property "Value" "Geiger IRover"
-			(at 3.4036 2.794 90)
+			(at 2.794 3.048 90)
 			(unlocked yes)
-			(layer "B.SilkS")
+			(layer "F.SilkS")
 			(uuid "9c31cd3f-267f-47ef-ba04-8cf56db9a667")
 			(effects
 				(font
 					(size 1 1)
 					(thickness 0.15)
 				)
-				(justify mirror)
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
@@ -2367,6 +2367,7 @@
 			(at -0.29 -4.518 0)
 			(unlocked yes)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "d2b682e9-f546-47d6-9684-2562ce5ff386")
 			(effects
 				(font
@@ -3210,6 +3211,20 @@
 				(justify mirror)
 			)
 		)
+		(property "Field5" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "85a25569-7577-4cf9-8d17-bed1479de18b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
 		(property ki_fp_filters "RAD-0.2")
 		(path "/00000000-0000-0000-0000-00005d536219")
 		(sheetname "Root")
@@ -3804,6 +3819,140 @@
 			)
 		)
 	)
+	(footprint "bGeigieRaku_M5_1015:18650 map"
+		(layer "B.Cu")
+		(uuid "7869a3a4-b630-42a3-a3c2-b03def0f765d")
+		(at 95.7072 103.0228)
+		(property "Reference" "G***"
+			(at 0 0 0)
+			(layer "B.SilkS")
+			(hide yes)
+			(uuid "10d0ea07-98b5-494d-bdbe-49cb53bb1dcf")
+			(effects
+				(font
+					(size 1.524 1.524)
+					(thickness 0.3)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Value" "LOGO"
+			(at 0.75 0 0)
+			(layer "B.SilkS")
+			(hide yes)
+			(uuid "54cd37b4-8400-4a1b-acc0-14901350a355")
+			(effects
+				(font
+					(size 1.524 1.524)
+					(thickness 0.3)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Footprint" "bGeigieRaku_M5_1015:18650 map"
+			(at 0 0 0)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "ee70cbcd-3842-40bf-8b89-27cc8ae1a2b3")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "ac15f46b-8e3e-4cab-b3d4-bb7ca2b09f61")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "e52d2334-f95d-49d5-a3d0-05fe20d85d69")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(attr through_hole)
+		(fp_rect
+			(start 2.2225 -18.415)
+			(end -2.2225 -16.51)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill solid)
+			(layer "B.SilkS")
+			(uuid "935accab-442d-4d79-a022-cee6b46f597a")
+		)
+		(fp_rect
+			(start 4.1275 -16.51)
+			(end -4.1275 8.255)
+			(stroke
+				(width 0.5)
+				(type solid)
+			)
+			(fill none)
+			(layer "B.SilkS")
+			(uuid "c936d426-9ad7-4da4-9b2c-55c7f2156812")
+		)
+		(fp_text user "Protected 18500"
+			(at 0.762 -12.192 90)
+			(unlocked yes)
+			(layer "B.SilkS")
+			(uuid "14c9d30c-7d05-4fe5-8d69-7b344c317729")
+			(effects
+				(font
+					(size 1.3 1.3)
+					(thickness 0.25)
+					(bold yes)
+				)
+				(justify left bottom mirror)
+			)
+		)
+		(fp_text user "+"
+			(at -2.032 -15.875 180)
+			(unlocked yes)
+			(layer "B.SilkS")
+			(uuid "b364a9da-63f6-4fc0-95e3-f58eeb7529d8")
+			(effects
+				(font
+					(size 3 3)
+					(thickness 0.5)
+					(bold yes)
+				)
+				(justify left bottom mirror)
+			)
+		)
+		(fp_text user "-"
+			(at -2.032 5.08 180)
+			(unlocked yes)
+			(layer "B.SilkS")
+			(uuid "e4913efb-7dc1-472f-a4bf-bd829c4be30d")
+			(effects
+				(font
+					(size 3 3)
+					(thickness 0.5)
+				)
+				(justify left bottom mirror)
+			)
+		)
+	)
 	(footprint "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical"
 		(layer "B.Cu")
 		(uuid "a0f649eb-5c83-47aa-9afd-e92e091b800f")
@@ -3811,7 +3960,7 @@
 		(descr "JST PH series connector, B2B-PH-K (http://www.jst-mfg.com/product/pdf/eng/ePH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST PH side entry")
 		(property "Reference" "J6"
-			(at 1 2.9 -90)
+			(at 1 2.9 270)
 			(layer "B.SilkS")
 			(uuid "894e7d38-c9d8-4732-9a99-3207da7d9dbb")
 			(effects
@@ -3822,8 +3971,8 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "LiPo charger"
-			(at -7.8044 1.1684 -90)
+		(property "Value" "Charger"
+			(at 1.1364 -5.4356 270)
 			(layer "B.SilkS")
 			(uuid "33165b05-000a-4081-969c-b042f3087d71")
 			(effects
@@ -4275,6 +4424,140 @@
 			)
 			(rotate
 				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "bGeigieRaku_M5_1015:18650 map"
+		(layer "B.Cu")
+		(uuid "ccb7a26a-a6cb-44a8-a869-3090041636fc")
+		(at 202.4888 103.1736)
+		(property "Reference" "G***"
+			(at 0 0 0)
+			(layer "B.SilkS")
+			(hide yes)
+			(uuid "7f8a5c55-b53b-48ea-9555-ca36a47bde8f")
+			(effects
+				(font
+					(size 1.524 1.524)
+					(thickness 0.3)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Value" "LOGO"
+			(at 0.75 0 0)
+			(layer "B.SilkS")
+			(hide yes)
+			(uuid "d345cb1c-b66e-4874-a6dd-7c5afe1f086f")
+			(effects
+				(font
+					(size 1.524 1.524)
+					(thickness 0.3)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Footprint" "bGeigieRaku_M5_1015:18650 map"
+			(at 0 0 0)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "f45cc48c-4daf-4288-ba29-befd74a87f4f")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "d58ebbf5-9d2f-443d-b805-ce57ea53856b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "363ceb51-bef6-4eff-b14d-9f7f218aef33")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(attr through_hole)
+		(fp_rect
+			(start 2.2225 -18.415)
+			(end -2.2225 -16.51)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill solid)
+			(layer "B.SilkS")
+			(uuid "4045a011-7c38-4544-836a-8449666abc66")
+		)
+		(fp_rect
+			(start 4.1275 -16.51)
+			(end -4.1275 8.255)
+			(stroke
+				(width 0.5)
+				(type solid)
+			)
+			(fill none)
+			(layer "B.SilkS")
+			(uuid "ae3ff5dc-6451-4cc8-b7df-0647ab0ffd51")
+		)
+		(fp_text user "+"
+			(at -2.032 -15.875 180)
+			(unlocked yes)
+			(layer "B.SilkS")
+			(uuid "60a10570-ef09-47b6-be2e-860248fcd6d7")
+			(effects
+				(font
+					(size 3 3)
+					(thickness 0.5)
+					(bold yes)
+				)
+				(justify left bottom mirror)
+			)
+		)
+		(fp_text user "Protected 18500"
+			(at 0.762 -12.192 90)
+			(unlocked yes)
+			(layer "B.SilkS")
+			(uuid "8ea5f9c0-934a-48dd-8c19-db182d62b17d")
+			(effects
+				(font
+					(size 1.3 1.3)
+					(thickness 0.25)
+					(bold yes)
+				)
+				(justify left bottom mirror)
+			)
+		)
+		(fp_text user "-"
+			(at -2.032 5.08 180)
+			(unlocked yes)
+			(layer "B.SilkS")
+			(uuid "d38ba65c-0523-4545-bdbc-986d99e21e95")
+			(effects
+				(font
+					(size 3 3)
+					(thickness 0.5)
+				)
+				(justify left bottom mirror)
 			)
 		)
 	)
@@ -21631,7 +21914,7 @@
 		(uuid "ffe16422-7227-458a-a39d-3d40345c8ce5")
 	)
 	(gr_text "Safepulse"
-		(at 177.8508 98.7032 0)
+		(at 176.7332 115.264 0)
 		(layer "B.SilkS")
 		(uuid "2a9382ca-5fad-43e5-bd50-93c56614734f")
 		(effects
@@ -21641,6 +21924,32 @@
 				(bold yes)
 			)
 			(justify mirror)
+		)
+	)
+	(gr_text "+"
+		(at 189.992 88.3908 0)
+		(layer "B.SilkS")
+		(uuid "7015cde3-ea31-4a95-ac9b-59636c40a2e9")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "-"
+		(at 191.9224 91.134 90)
+		(layer "B.SilkS")
+		(uuid "9d0ce4af-dae3-4316-9c64-63c7dfe443ee")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
+			)
+			(justify left bottom)
 		)
 	)
 	(gr_text "bGeigieZen\nV4.0.4 Production"
@@ -21656,7 +21965,7 @@
 		)
 	)
 	(gr_text "GROVE"
-		(at 108.698495 71.375741 180)
+		(at 109.22 70.3568 180)
 		(layer "F.SilkS")
 		(uuid "03d99fa9-7eb5-4d4f-901c-cfc920a1d217")
 		(effects
@@ -21667,7 +21976,7 @@
 		)
 	)
 	(gr_text "USB"
-		(at 126.834095 71.375741 180)
+		(at 127.3556 70.3568 180)
 		(layer "F.SilkS")
 		(uuid "3363bc1c-c85e-46eb-bc1d-0eb3d5a4039b")
 		(effects
@@ -21690,7 +21999,7 @@
 		)
 	)
 	(gr_text "ON/OFF"
-		(at 143.039295 71.375741 180)
+		(at 143.5608 70.3568 180)
 		(layer "F.SilkS")
 		(uuid "4ae85e4a-54ae-4ea9-aedc-521854a49ef7")
 		(effects
@@ -21701,7 +22010,7 @@
 		)
 	)
 	(gr_text "GPS"
-		(at 212.1916 94.7408 90)
+		(at 207.5688 93.8772 90)
 		(layer "F.SilkS")
 		(uuid "d95ba7fa-73dd-4cf1-beae-5462cfbbe003")
 		(effects
@@ -21709,6 +22018,17 @@
 				(size 1.5 1.5)
 				(thickness 0.3)
 				(bold yes)
+			)
+		)
+	)
+	(gr_text "M5StackCore"
+		(at 150.7236 114.7052 90)
+		(layer "F.SilkS")
+		(uuid "df10c5e9-4825-4b57-8c0e-1732db235746")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
 			)
 		)
 	)
@@ -25093,7 +25413,8 @@
 			"4ae85e4a-54ae-4ea9-aedc-521854a49ef7" "6b7fb1cc-771a-4372-b011-836f1bb89712"
 			"8b8cbcc8-2fab-4017-82d7-9e2b0dd87d55" "a75cb25c-2c64-4c04-8a83-3b9bffff5c72"
 			"c40d36bb-2efa-4bc3-859b-223faaa66f3e" "d82f0a3a-d0a1-4eae-a8ba-218c1bd5869c"
-			"f686f314-e4c1-4c2d-a83a-58da96d3edf9" "fae1c1af-89ba-4c18-88bc-46f514e9bd6f"
+			"df10c5e9-4825-4b57-8c0e-1732db235746" "f686f314-e4c1-4c2d-a83a-58da96d3edf9"
+			"fae1c1af-89ba-4c18-88bc-46f514e9bd6f"
 		)
 	)
 	(group ""
