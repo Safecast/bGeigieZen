@@ -107,7 +107,15 @@ void setup() {
   /// Hardware configurations
   Wire.begin();
   M5.begin();
+  M5.Axp.SetCHGCurrent(AXP192::kCHG_100mA);
+  Serial.print("First charging setup at ");
+  Serial.println( M5.Axp.GetBatChargeCurrent());
 
+  M5.Axp.SetBusPowerMode(0);
+  M5.Axp.SetCHGCurrent(AXP192::kCHG_1320mA);
+  Serial.print("Second charging setup at ");
+  Serial.println( M5.Axp.GetBatChargeCurrent());
+  
   /// Software configurations
 
   DEBUG_PRINTLN("Register workers...");
