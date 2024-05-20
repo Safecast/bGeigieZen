@@ -11,6 +11,159 @@
 		(company "GitHub link at https://github.com/Safecast/bGeigieZen")
 	)
 	(lib_symbols
+		(symbol "Connector:Conn_01x02_Male"
+			(pin_names hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "Conn_01x02_Male"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x02_Male_1_1"
+				(rectangle
+					(start 0.8636 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start 0.8636 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy 0.8636 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -2.54) (xy 0.8636 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 5.08 0 180)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Connector:Conn_01x02_Male_1"
 			(pin_names
 				(offset 1.016) hide)
@@ -1957,6 +2110,12 @@
 		)
 	)
 	(junction
+		(at 113.03 83.82)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4e7b017f-83fd-48f3-adbc-41c9d8f191e7")
+	)
+	(junction
 		(at 186.69 82.55)
 		(diameter 0.3048)
 		(color 0 0 0 0)
@@ -1991,6 +2150,12 @@
 		(diameter 0.3048)
 		(color 0 0 0 0)
 		(uuid "b96fe6ac-3535-4455-ab88-ed77f5e46d6e")
+	)
+	(junction
+		(at 113.03 66.04)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ba803790-6a98-4133-89a8-1c3718a38aaa")
 	)
 	(junction
 		(at 187.96 68.58)
@@ -2099,6 +2264,16 @@
 			(type solid)
 		)
 		(uuid "1babef0c-511a-43e4-b970-35d4fc6e64bf")
+	)
+	(wire
+		(pts
+			(xy 105.41 67.31) (xy 105.41 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2227d4b9-1740-4560-b343-d97f2906c3e4")
 	)
 	(wire
 		(pts
@@ -2262,6 +2437,16 @@
 	)
 	(wire
 		(pts
+			(xy 105.41 83.82) (xy 113.03 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "51b846e3-4c0f-4b92-82a7-4d524efee0cb")
+	)
+	(wire
+		(pts
 			(xy 187.96 53.975) (xy 187.96 68.58)
 		)
 		(stroke
@@ -2392,6 +2577,26 @@
 	)
 	(wire
 		(pts
+			(xy 113.03 64.77) (xy 113.03 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "985724b4-ced6-4c76-ba5f-752ef060331e")
+	)
+	(wire
+		(pts
+			(xy 113.03 83.82) (xy 113.03 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9da611ee-f9ac-4159-a995-74ddd77a9b24")
+	)
+	(wire
+		(pts
 			(xy 172.72 82.55) (xy 172.72 125.73)
 		)
 		(stroke
@@ -2412,7 +2617,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 82.55) (xy 113.03 85.09)
+			(xy 113.03 82.55) (xy 113.03 83.82)
 		)
 		(stroke
 			(width 0)
@@ -2599,6 +2804,16 @@
 			(type solid)
 		)
 		(uuid "f544cf9e-15a3-4c49-af1f-2714de6ba896")
+	)
+	(wire
+		(pts
+			(xy 105.41 64.77) (xy 113.03 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f57cb684-20eb-415e-a8aa-dc4b8912da04")
 	)
 	(label "SDA"
 		(at 146.05 96.52 0)
@@ -3252,6 +3467,76 @@
 			(project "bGeigieZen V4.x.x draft"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
 					(reference "H4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x02_Male")
+		(at 100.33 67.31 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3697d0eb-699e-49e1-af61-d283d688c970")
+		(property "Reference" "J6"
+			(at 91.44 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "QI GND"
+			(at 99.06 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical"
+			(at 100.33 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 100.33 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 100.33 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fd65128b-8efe-479d-ab55-417f66abd2a8")
+		)
+		(pin "2"
+			(uuid "76e7c889-d821-4275-aeae-1a0af55997c2")
+		)
+		(instances
+			(project "bGeigieZen V4.x.x single 18650"
+				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
+					(reference "J6")
 					(unit 1)
 				)
 			)
