@@ -59,8 +59,8 @@
 #include "workers/configuration_server.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
-#include "workers/navsat_collector.h"
 #include "workers/log_aggregator.h"
+#include "workers/navsat_collector.h"
 #include "workers/rtc_connector.h"
 #include "workers/shake_detector.h"
 #include "workers/zen_button.h"
@@ -68,7 +68,6 @@
 TeenyUbloxConnect gnss;
 LocalStorage settings;
 Controller controller(settings, gnss);
-
 
 // Workers
 ZenButton zen_A(M5.BtnA);
@@ -100,7 +99,6 @@ ApiConnector api_connector(settings);
 // Supervisors
 GFXScreen gfx_screen(settings, controller);
 
-
 void setup() {
   DEBUG_BEGIN();
   DEBUG_PRINTLN("MAIN SETUP DEBUG ENABLED");
@@ -108,7 +106,9 @@ void setup() {
   Wire.begin();
   M5.begin();
 
-  
+  //Set power charging to 1 Amp
+  Write1Byte(AXP2101_ICC_CHARGER_SETTING_REG, 16);
+
   /// Software configurations
 
   DEBUG_PRINTLN("Register workers...");
@@ -137,7 +137,6 @@ void setup() {
   controller.register_supervisor(gfx_screen);
 
   controller.start_default_workers();
-
 }
 
 void loop() {
