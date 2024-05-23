@@ -1875,6 +1875,172 @@
 				)
 			)
 		)
+		(symbol "Switch:SW_SPDT"
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW1"
+				(at 0 7.239 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "SW_SPDT"
+				(at 0 4.9276 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Footprint" "bGeigieNanoKit V1.1r5a:EG1206"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.digikey.jp/product-detail/ja/e-switch/EG1206/EG1916-ND/251333"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Switch, single pole double throw"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "switch single-pole double-throw spdt ON-ON"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_SPDT_0_0"
+				(circle
+					(center -2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 -2.54)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_SPDT_0_1"
+				(polyline
+					(pts
+						(xy -1.524 0.254) (xy 1.651 2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 2.54)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_SPDT_1_1"
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "bGeigieRaku-V2-rescue:BATTERY-akizuki-M5_board-rescue"
 			(pin_names hide)
 			(exclude_from_sim no)
@@ -2511,7 +2677,7 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 66.04) (xy 151.765 66.04)
+			(xy 113.03 66.04) (xy 115.57 66.04)
 		)
 		(stroke
 			(width 0)
@@ -2891,16 +3057,6 @@
 	)
 	(wire
 		(pts
-			(xy 151.765 66.04) (xy 151.765 111.76)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "b9baae39-ef0f-4189-b92d-ec60125d4fba")
-	)
-	(wire
-		(pts
 			(xy 130.81 76.2) (xy 133.35 76.2)
 		)
 		(stroke
@@ -3021,6 +3177,16 @@
 	)
 	(wire
 		(pts
+			(xy 151.765 63.5) (xy 151.765 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d3bfdfff-56bc-4461-9771-338a48b7581c")
+	)
+	(wire
+		(pts
 			(xy 60.96 95.25) (xy 60.96 91.44)
 		)
 		(stroke
@@ -3028,6 +3194,16 @@
 			(type default)
 		)
 		(uuid "d9c438fe-0190-4aaf-bc51-7c8a5b12ab0a")
+	)
+	(wire
+		(pts
+			(xy 125.73 63.5) (xy 151.765 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dc8d971b-8689-482d-b98f-3d4604c79dea")
 	)
 	(wire
 		(pts
@@ -4263,6 +4439,76 @@
 			(project "bGeigieZen V4.x.x single 18650"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
 					(reference "#GND03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_SPDT")
+		(at 120.65 66.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e34c517a-3960-4282-bcbb-cf5255ad94b1")
+		(property "Reference" "SW1"
+			(at 120.65 58.801 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_SPDT"
+			(at 120.65 61.1124 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "bGeigieRaku_M5_1015:EG1206"
+			(at 120.65 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.digikey.jp/product-detail/ja/e-switch/EG1206/EG1916-ND/251333"
+			(at 120.65 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 120.65 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b8819730-16a0-4c8c-8a49-c35e1fcaed84")
+		)
+		(pin "2"
+			(uuid "c55a4cb4-17bc-4edf-ade2-43931afbbad3")
+		)
+		(pin "3"
+			(uuid "f08cbdc1-6e26-4c7f-b326-88c4b357e933")
+		)
+		(instances
+			(project "bGeigieZen V4.x.x single 18650"
+				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
+					(reference "SW1")
 					(unit 1)
 				)
 			)
