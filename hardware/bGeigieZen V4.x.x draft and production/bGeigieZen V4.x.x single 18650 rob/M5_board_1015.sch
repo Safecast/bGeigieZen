@@ -1,0 +1,357 @@
+EESchema Schematic File Version 5
+LIBS:M5_board-cache
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date "sam. 04 avril 2015"
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector_Generic:Conn_02x15_Odd_Even J1
+U 1 1 5D532C3E
+P 5450 3700
+F 0 "J1" H 5500 4617 50  0000 C CNN
+F 1 "M5 2x15 pin" H 5500 4526 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x15_P2.54mm_Vertical" H 5450 3700 50  0001 C CNN
+F 3 "~" H 5450 3700 50  0001 C CNN
+	1    5450 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J3
+U 1 1 5D536D8E
+P 7650 3150
+F 0 "J3" H 7450 2950 50  0000 L CNN
+F 1 "GPS" H 7400 3050 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Horizontal" H 7650 3150 50  0001 C CNN
+F 3 "~" H 7650 3150 50  0001 C CNN
+	1    7650 3150
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3800 3400 3800 3250
+Wire Wire Line
+	3800 3000 4350 3000
+Wire Wire Line
+	3800 4600 4600 4600
+Wire Wire Line
+	4950 4600 4950 3200
+Wire Wire Line
+	4950 3200 5250 3200
+Wire Wire Line
+	7450 3250 7350 3250
+Wire Wire Line
+	6900 3250 6900 4950
+Wire Wire Line
+	6900 4950 5350 4950
+Wire Wire Line
+	3800 4950 3800 4600
+Connection ~ 3800 4600
+Wire Wire Line
+	4750 2900 4750 2600
+Wire Wire Line
+	4750 2600 6050 2600
+Wire Wire Line
+	6050 2600 6050 4400
+Wire Wire Line
+	6050 4400 5750 4400
+Wire Wire Line
+	5750 3500 6550 3500
+Wire Wire Line
+	6550 3500 6550 2950
+Wire Wire Line
+	6550 2950 7250 2950
+Wire Wire Line
+	7450 3050 6650 3050
+Wire Wire Line
+	6650 3050 6650 3700
+Wire Wire Line
+	6650 3700 5750 3700
+Wire Wire Line
+	7450 3150 6750 3150
+Wire Wire Line
+	6750 3150 6750 4700
+Wire Wire Line
+	6750 4700 5050 4700
+Wire Wire Line
+	5050 4700 5050 3700
+Wire Wire Line
+	5050 3700 5250 3700
+$Comp
+L Connector:Conn_01x03_Male J2
+U 1 1 5D53B5AE
+P 7650 2650
+F 0 "J2" H 7550 2450 50  0000 R CNN
+F 1 "Irover" H 7550 2650 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Horizontal" H 7650 2650 50  0001 C CNN
+F 3 "~" H 7650 2650 50  0001 C CNN
+	1    7650 2650
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7250 2950 7250 2550
+Wire Wire Line
+	7250 2550 7450 2550
+Connection ~ 7250 2950
+Wire Wire Line
+	7250 2950 7450 2950
+Wire Wire Line
+	7350 3250 7350 2750
+Wire Wire Line
+	7350 2750 7450 2750
+Connection ~ 7350 3250
+Wire Wire Line
+	7350 3250 6900 3250
+Wire Wire Line
+	7450 2650 6450 2650
+Wire Wire Line
+	6450 2650 6450 4600
+Wire Wire Line
+	6450 4600 5150 4600
+Wire Wire Line
+	5150 4600 5150 3900
+Wire Wire Line
+	5150 3900 5250 3900
+$Comp
+L akizuki:R R1
+U 1 1 5D543C3C
+P 4600 3450
+F 0 "R1" H 4648 3504 60  0000 L CNN
+F 1 "9k" H 4648 3397 60  0000 L CNN
+F 2 "bgeigienanokit_v1.0r5bGeigieNanoKit V1.0r5a:R1210" V 4595 3415 60  0001 C CNN
+F 3 "" V 4595 3415 60  0000 C CNN
+	1    4600 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L akizuki:R R2
+U 1 1 5D545549
+P 4600 4000
+F 0 "R2" H 4648 4054 60  0000 L CNN
+F 1 "1K" H 4648 3947 60  0000 L CNN
+F 2 "bgeigienanokit_v1.0r5bGeigieNanoKit V1.0r5a:R2010" V 4595 3965 60  0001 C CNN
+F 3 "" V 4595 3965 60  0000 C CNN
+	1    4600 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3800 3250 4600 3250
+Wire Wire Line
+	4600 3250 4600 3300
+Connection ~ 3800 3250
+Wire Wire Line
+	3800 3250 3800 3000
+Wire Wire Line
+	4600 3600 4600 3700
+Wire Wire Line
+	4600 4150 4600 4600
+Connection ~ 4600 4600
+Wire Wire Line
+	4600 4600 4950 4600
+Wire Wire Line
+	4600 3700 4900 3700
+Wire Wire Line
+	4900 3700 4900 2750
+Wire Wire Line
+	4900 2750 5950 2750
+Wire Wire Line
+	5950 2750 5950 3000
+Wire Wire Line
+	5950 3000 5750 3000
+Connection ~ 4600 3700
+Wire Wire Line
+	4600 3700 4600 3850
+Connection ~ 6300 1550
+Wire Wire Line
+	5500 1550 5400 1550
+Wire Wire Line
+	6100 1550 6300 1550
+Wire Wire Line
+	6300 1550 6500 1550
+Wire Wire Line
+	6300 1650 6300 1550
+Wire Wire Line
+	7100 1150 7100 1350
+$Comp
+L bGeigieNano_V1.1.5:LED-BLUE0603 COUNT1
+U 1 1 5D547919
+P 7100 950
+F 0 "COUNT1" V 7240 770 59  0000 L BNN
+F 1 "BLUE" V 7325 770 59  0000 L BNN
+F 2 "bGeigieNano V1.1.5:LED3MM" H 7100 950 50  0001 C CNN
+F 3 "" H 7100 950 50  0001 C CNN
+	1    7100 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L bGeigieNano_V1.1.5-cache:bGeigieNano_V1.1.5-eagle-import_R-US_0207_10 R3
+U 1 1 5D54791A
+P 5700 1550
+F 0 "R3" H 5550 1609 59  0000 L BNN
+F 1 "4k7" H 5550 1420 59  0000 L BNN
+F 2 "bGeigieNano V1.1.5:0207_10" H 5700 1550 50  0001 C CNN
+F 3 "" H 5700 1550 50  0001 C CNN
+	1    5700 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L bGeigieNano_V1.1.5-cache:bGeigieNano_V1.1.5-eagle-import_R-US_0207_10 R5
+U 1 1 5D54791B
+P 6700 1550
+F 0 "R5" H 6550 1609 59  0000 L BNN
+F 1 "100k" H 6550 1420 59  0000 L BNN
+F 2 "bGeigieNano V1.1.5:0207_10" H 6700 1550 50  0001 C CNN
+F 3 "" H 6700 1550 50  0001 C CNN
+	1    6700 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L bGeigieNano_V1.1.5-cache:bGeigieNano_V1.1.5-eagle-import_C-EU025-024X044 C1
+U 1 1 5D54791E
+P 6300 1750
+F 0 "C1" H 6360 1765 59  0000 L BNN
+F 1 "100n" H 6360 1565 59  0000 L BNN
+F 2 "bGeigieNano V1.1.5:C025-024X044" H 6300 1750 50  0001 C CNN
+F 3 "" H 6300 1750 50  0001 C CNN
+	1    6300 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L transistors:2SC1815 T1
+U 1 1 5D54791F
+P 7000 1550
+F 0 "T1" H 7200 1550 59  0000 L BNN
+F 1 "2SC1815" H 7200 1450 59  0000 L BNN
+F 2 "bGeigieNano V1.1.5:TO92-ECB" H 7000 1550 50  0001 C CNN
+F 3 "" H 7000 1550 50  0001 C CNN
+	1    7000 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L bGeigieNano_V1.1.5-cache:bGeigieNano_V1.1.5-eagle-import_R-US_0207_10 R4
+U 1 1 5D54791C
+P 7650 1000
+F 0 "R4" H 7500 1059 59  0000 L BNN
+F 1 " 47" H 7500 870 59  0000 L BNN
+F 2 "bGeigieNano V1.1.5:0207_10" H 7650 1000 50  0001 C CNN
+F 3 "" H 7650 1000 50  0001 C CNN
+	1    7650 1000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L bGeigieNano_V1.1.5:GND #GND02
+U 1 1 5D549A81
+P 6300 2300
+F 0 "#GND02" H 6300 2300 50  0001 C CNN
+F 1 "GND" H 6300 2179 59  0000 C CNN
+F 2 "" H 6300 2300 50  0001 C CNN
+F 3 "" H 6300 2300 50  0001 C CNN
+	1    6300 2300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6300 1950 6300 2200
+$Comp
+L bGeigieNano_V1.1.5:GND #GND03
+U 1 1 5D54A2AC
+P 7100 2300
+F 0 "#GND03" H 7100 2300 50  0001 C CNN
+F 1 "GND" H 7100 2179 59  0000 C CNN
+F 2 "" H 7100 2300 50  0001 C CNN
+F 3 "" H 7100 2300 50  0001 C CNN
+	1    7100 2300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7100 1750 7100 2200
+Wire Wire Line
+	5400 1550 5400 2500
+Wire Wire Line
+	5400 2500 6450 2500
+Wire Wire Line
+	6450 2500 6450 2650
+Connection ~ 6450 2650
+$Comp
+L bGeigieNano_V1.1.5:GND #GND01
+U 1 1 5D54C12A
+P 5350 5250
+F 0 "#GND01" H 5350 5250 50  0001 C CNN
+F 1 "GND" H 5350 5129 59  0000 C CNN
+F 2 "" H 5350 5250 50  0001 C CNN
+F 3 "" H 5350 5250 50  0001 C CNN
+	1    5350 5250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5350 5150 5350 4950
+Connection ~ 5350 4950
+Wire Wire Line
+	5350 4950 3800 4950
+$Comp
+L bGeigieNano_V1.1.5-cache:bGeigieNano_V1.1.5-eagle-import_1N4148DO35-7 D1
+U 1 1 5D54791D
+P 6000 1550
+F 0 "D1" H 6100 1569 59  0000 L BNN
+F 1 "1N4148" H 6100 1459 59  0001 L BNN
+F 2 "bGeigieNano V1.1.5:DO35-7" H 6000 1550 50  0001 C CNN
+F 3 "" H 6000 1550 50  0001 C CNN
+F 4 "1N4148" H 5800 1350 59  0001 L BNN "D1"
+	1    6000 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7100 650  7650 650 
+Wire Wire Line
+	7650 650  7650 800 
+Wire Wire Line
+	7100 650  7100 850 
+Wire Wire Line
+	7650 2450 7250 2450
+Wire Wire Line
+	7250 2450 7250 2550
+Wire Wire Line
+	7650 1200 7650 2450
+Connection ~ 7250 2550
+Text Label 5750 3500 0    50   ~ 0
+3.3V
+Text Label 5750 3700 0    50   ~ 0
+RX2
+Text Label 5150 3700 0    50   ~ 0
+TX2
+Text Label 5100 3900 0    50   ~ 0
+GIO2
+Text Label 5750 3000 0    50   ~ 0
+AD1
+$Comp
+L Switch:SW_SPDT SW1
+U 1 1 5D53823E
+P 4550 3000
+F 0 "SW1" H 4550 3285 50  0000 C CNN
+F 1 "SW_SPDT" H 4550 3194 50  0000 C CNN
+F 2 "bGeigieNanoKit V1.1r5a:EG1206" H 4550 3000 50  0001 C CNN
+F 3 "~" H 4550 3000 50  0001 C CNN
+	1    4550 3000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3800 4600 3800 3700
+$Comp
+L akizuki:BATTERY BT1
+U 1 1 5D536219
+P 3800 3550
+F 0 "BT1" H 3888 3604 60  0000 L CNN
+F 1 " 3.7 V Lipo" H 3888 3497 60  0000 L CNN
+F 2 "" H 3800 3555 60  0001 C CNN
+F 3 "" H 3800 3555 60  0000 C CNN
+	1    3800 3550
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC
