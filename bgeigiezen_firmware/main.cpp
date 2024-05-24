@@ -84,6 +84,9 @@ ConfigWebServer config_server(settings);
 
 #ifdef M5_CORE2
 Button screen_area(0, 25, 320, 200, true, "Screen");
+/*** POWER-ON HACK */
+uint8_t pwron_sts = 0;
+
 #else
 // Map screen touch to a button for code reading purposes
 Button screen_area(0, false, 0);
@@ -109,6 +112,29 @@ void setup() {
   //Set power charging to 1 Amp
   Write1Byte(AXP2101_ICC_CHARGER_SETTING_REG, 16);
 
+  /*** POWER-ON HACK
+   * Strategy: Take advantage of the battery backed up RTC
+   * to drive AXP2101 IRQ low (active) such that when VBAT
+   * is applied, the IRQ will cause the system to power up.
+   * The first time VBAT is applied, the user may have to 
+   * press the side button, but thereafter the IRQ hack 
+   * should work.
+   * For now, some exploratory work.
+   * 
+  ***/
+
+#define AXP2101_PWRON_STS_REG 0x20
+
+
+  // 0x20 PWRON Status[1] is IRQ PIN Pull-down as POWERON Source
+  pwron_sts = Read8bit(AXP2101_PWRON_STS_REG);
+  DEBUG_PRINTF("PWRON Status reg = %x\n", pwron_sts);
+
+  // Set up the RTC IRQ 
+  // M5.Rtc.SetAlarmIRQ(1);
+  M5.Rtc.clearIRQ();
+  M5.Rtc.disableIRQ();
+  
   /// Software configurations
 
   DEBUG_PRINTLN("Register workers...");

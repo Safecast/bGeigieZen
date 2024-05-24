@@ -7,6 +7,9 @@
 #include "sd_message.h"
 #include "user_config.h"
 
+/*** POWER-ON HACK */
+extern uint8_t pwron_sts;
+
 BootScreen BootScreen_i;
 
 BootScreen::BootScreen() : BaseScreen("Boot", false), _entered_at(0) {
@@ -40,6 +43,12 @@ void BootScreen::render(const worker_map_t& workers, const handler_map_t& handle
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.drawString("Some splash screen device details.", 5, 100, 2);
   M5.Lcd.drawString(VERSION_STRING, 5, 120, 2);
+
+  /*** POWER-ON HACK */
+  char pwron_message[60] = "";
+  sprintf(pwron_message, "PWRON Status reg = %x", pwron_sts);
+  M5.Lcd.drawString(pwron_message, 5, 140, 2);
+
   // Display safecast copyright
   M5.Lcd.setTextFont(1);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
