@@ -106,9 +106,6 @@ void setup() {
   Wire.begin();
   M5.begin();
 
-  //Set power charging to 1 Amp
-  Write1Byte(AXP2101_ICC_CHARGER_SETTING_REG, 16);
-
   /// Software configurations
 
   DEBUG_PRINTLN("Register workers...");
