@@ -18,7 +18,7 @@ bool BatteryIndicator::activate(bool retry) {
   uint8_t val = Read8bit(0x03);
   uint8_t reg27 = 0;
   if (val == 0x4A) {
-    uint8_t reg27 = Read8bit(0x27);
+    reg27 = Read8bit(0x27);
     reg27 = reg27 & ~0b00001100; // bits[3:2] = 00 OFFLEVEL configuration = 4s 
     Write1Byte(0x27, reg27);
 
