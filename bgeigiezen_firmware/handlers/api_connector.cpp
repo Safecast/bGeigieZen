@@ -41,7 +41,7 @@ void ApiConnector::deactivate() {
 int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
   if (!_config.get_fixed_device_id()) {
     // Cant even send anything, because there is an invalid id
-    return e_api_reporter_idle;
+    return e_handler_idle;
   }
 
   const auto& log_aggregator = workers.worker<LogAggregator>(k_worker_log_aggregator);
@@ -49,17 +49,17 @@ int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
 
   if (!log_aggregator->is_fresh()) {
     // No fresh data
-    return e_api_reporter_idle;
+    return e_handler_idle;
   }
 
   if (!log_data.valid()) {
     // data not valid (either gm or gps)
-    return e_api_reporter_idle;
+    return e_handler_idle;
   }
 
   if (!time_to_send(log_data.in_fixed_range, log_data.cpm > _config.get_alarm_threshold())) {
     // Not time to send yet
-    return e_api_reporter_idle;
+    return e_handler_idle;
   }
 
   if (!WiFi.isConnected() && !activate(true)) {
@@ -71,8 +71,8 @@ int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
     return e_api_reporter_error_to_json;
   }
 
-  DEBUG_PRINTLN("Starting task to send data...");
-  return (ApiHandlerStatus) start_task("api_send", 2048 * 4, 3);
+  DEBUG_PRINTLN("Starting task to send data to API...");
+  return start_task("api_send", 2048 * 4, 3);
 }
 
 bool ApiConnector::reading_to_json(const DataLine& line, char* out) {
@@ -82,11 +82,13 @@ bool ApiConnector::reading_to_json(const DataLine& line, char* out) {
       "\"device_id\":%d,"
       "\"value\":%d,"
       "\"unit\":\"cpm\","
+      "\"height\":%0.6f,"
       "\"latitude\":%0.6f,"
       "\"longitude\":%0.6f}\n",
       line.timestamp,
       _config.get_fixed_device_id(),
       line.cpm,
+      line.in_fixed_range ? 0 : line.latitude,  // TODO: fixed location altitude
       line.in_fixed_range ? _config.get_fixed_latitude() : line.latitude,
       line.in_fixed_range ? _config.get_fixed_longitude() : line.longitude);
   return result > 0;
