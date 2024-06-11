@@ -14,20 +14,34 @@
  */
 class BluetoothReporter : public Handler {
  public:
-  typedef enum Status {
-    e_handler_idle = -1,
-    e_handler_clients_available,
-    e_handler_no_clients,
+  typedef enum BluetoothStatus {
+    e_bluetooth_client_sent,
+    e_bluetooth_no_clients,
   } Status;
 
   explicit BluetoothReporter(LocalStorage& config);
   virtual ~BluetoothReporter() = default;
 
+  uint32_t client_count() const;
+
  protected:
   bool activate(bool retry) override;
   void deactivate() override;
   int8_t handle_produced_work(const worker_map_t& workers) override;
+
+  int8_t handle_async() override;
+
  private:
+
+  class BTCallbacks : public BLEServerCallbacks {
+    void onConnect(BLEServer* pServer) {
+      pServer->startAdvertising(); // restart advertising
+    };
+
+    void onDisconnect(BLEServer* pServer) {
+      pServer->startAdvertising(); // restart advertising
+    }
+  };
 
   bool send(const DataLine& reading) const;
 
@@ -35,11 +49,13 @@ class BluetoothReporter : public Handler {
   void create_ble_device_service(BLEServer* pServer);
   void create_ble_data_service(BLEServer* pServer);
 
-  LocalStorage& config;
+  LocalStorage& _config;
   BLEServer* _pServer;
-  BLECharacteristic* pDataRXCharacteristic;
+  BLECharacteristic* _pDataRXCharacteristic;
+  BTCallbacks _btCallbacks;
 
-  uint8_t addr[BLE_DATA_ADDR_SIZE] = BLE_DATA_ADDR;
+  char _log_string[LINE_BUFFER_SIZE] = "";
+  uint8_t _addr[BLE_DATA_ADDR_SIZE] = BLE_DATA_ADDR;
 };
 
 #endif //BGEIGIEZEN_BLUETOOTH_CONNECTOR_H_

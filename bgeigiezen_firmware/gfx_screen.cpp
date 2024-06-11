@@ -7,6 +7,7 @@
 #include "controller.h"
 #include "debugger.h"
 #include "gfx_screen.h"
+#include "handlers/bluetooth_reporter.h"
 #include "identifiers.h"
 #include "screens/boot_screen.h"
 #include "screens/default_entry_screen.h"
@@ -289,7 +290,12 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         M5.Lcd.print("WF ");
 
         // Status icon: Bluetooth
-        M5.Lcd.setTextColor(_screen->has_required_ble() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
+        const auto& bt_reporter = handlers.handler<BluetoothReporter>(k_handler_bluetooth_reporter);
+        if (bt_reporter->active()) {
+          M5.Lcd.setTextColor(bt_reporter->client_count() > 0 ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        } else {
+          M5.Lcd.setTextColor(_screen->has_required_ble() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
+        }
         M5.Lcd.print("BT ");
 
         // Device
