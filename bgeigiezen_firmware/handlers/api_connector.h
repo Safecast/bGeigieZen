@@ -68,7 +68,7 @@ class ApiConnector : public Handler {
  private:
 
   LocalStorage& _config;
-  volatile char _payload[200];
+  char _payload[200];
   uint32_t _post_count;
   uint32_t _last_post;
 };
