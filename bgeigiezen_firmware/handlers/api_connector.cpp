@@ -67,7 +67,7 @@ int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
     return e_api_reporter_error_not_connected;
   }
 
-  if (!reading_to_json(log_data, _payload)) {
+  if (!reading_to_json(log_data,_payload)) {
     return e_api_reporter_error_to_json;
   }
 
