@@ -60,8 +60,12 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     }
   }
 
+  if (api_connector->get_status() == ApiConnector::e_api_reporter_send_in_progress) {
+    set_status_message(F(" SENDING... "));
+  }
+
   if (api_connector->get_status() == ApiConnector::e_api_reporter_send_success) {
-    set_status_message(F(" UPLOADED DATA TO API! "));
+    set_status_message(F(" SENT DATA TO API! "));
   }
 
 

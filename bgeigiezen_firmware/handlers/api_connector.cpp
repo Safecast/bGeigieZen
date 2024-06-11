@@ -8,7 +8,7 @@
 // subtracting 1 seconds so data is sent more often than not.
 #define SEND_FREQUENCY(last_send, sec) ((last_send) == 0 || (millis() - (last_send)) > (((sec) * 1000) - 500))
 
-ApiConnector::ApiConnector(LocalStorage& config) : Handler(), _config(config), _post_count(0), _last_post(0) {
+ApiConnector::ApiConnector(LocalStorage& config) : Handler(), _config(config), _payload(""), _post_count(0), _last_post(0) {
 }
 
 bool ApiConnector::time_to_send(bool in_fixed_range, bool alert) const {
@@ -34,6 +34,7 @@ bool ApiConnector::activate(bool retry) {
 }
 
 void ApiConnector::deactivate() {
+  kill_task();
   WiFiWrapper_i.disconnect_wifi();
 }
 
@@ -51,10 +52,6 @@ int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
     return e_api_reporter_idle;
   }
 
-  if (time_to_send(true, false)) {
-    _last_post = millis();
-  }
-
   if (!log_data.valid()) {
     // data not valid (either gm or gps)
     return e_api_reporter_idle;
@@ -65,17 +62,42 @@ int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
     return e_api_reporter_idle;
   }
 
-  return send_reading(log_data);
-}
-
-ApiConnector::ApiHandlerStatus ApiConnector::send_reading(const DataLine& data) {
-  const unsigned long time_at_send = millis();
-
   if (!WiFi.isConnected() && !activate(true)) {
     DEBUG_PRINTLN("Unable to send, lost connection");
     return e_api_reporter_error_not_connected;
   }
 
+  if (!reading_to_json(log_data, _payload)) {
+    return e_api_reporter_error_to_json;
+  }
+
+  DEBUG_PRINTLN("Starting task to send data...");
+  return (ApiHandlerStatus) start_task("api_send", 2048 * 4, 3);
+}
+
+bool ApiConnector::reading_to_json(const DataLine& line, char* out) {
+  auto result = sprintf(
+      out,
+      "{\"captured_at\":\"%s\","
+      "\"device_id\":%d,"
+      "\"value\":%d,"
+      "\"unit\":\"cpm\","
+      "\"latitude\":%0.6f,"
+      "\"longitude\":%0.6f}\n",
+      line.timestamp,
+      _config.get_fixed_device_id(),
+      line.cpm,
+      line.in_fixed_range ? _config.get_fixed_latitude() : line.latitude,
+      line.in_fixed_range ? _config.get_fixed_longitude() : line.longitude);
+  return result > 0;
+}
+
+uint32_t ApiConnector::get_post_count() const {
+  return _post_count;
+}
+
+int8_t ApiConnector::handle_async() {
+  const unsigned long time_at_send = millis();
   HTTPClient http;
 
   char url[100];
@@ -88,22 +110,16 @@ ApiConnector::ApiHandlerStatus ApiConnector::send_reading(const DataLine& data) 
     return e_api_reporter_error_remote_not_available;
   }
 
-  char payload[200];
-
-  if (!reading_to_json(data, payload)) {
-    return e_api_reporter_error_to_json;
-  }
-
   char content_length[5];
 
-  sprintf(content_length, "%d", strlen(payload));
+  sprintf(content_length, "%d", strlen(_payload));
 
   http.setUserAgent(HEADER_API_USER_AGENT);
   http.addHeader("Host", API_HOST);
   http.addHeader("Content-Type", HEADER_API_CONTENT_TYPE);
   http.addHeader("Content-Length", content_length);
 
-  int httpResponseCode = http.POST(payload);
+  int httpResponseCode = http.POST(_payload);
 
   String response = http.getString();
   DEBUG_PRINTF("POST complete, response (%d):\n%s\n\n", httpResponseCode, response.c_str());
@@ -129,25 +145,4 @@ ApiConnector::ApiHandlerStatus ApiConnector::send_reading(const DataLine& data) 
     default:
       return e_api_reporter_error_remote_not_available;
   }
-}
-
-bool ApiConnector::reading_to_json(const DataLine& line, char* out) {
-  auto result = sprintf(
-      out,
-      "{\"captured_at\":\"%s\","
-      "\"device_id\":%d,"
-      "\"value\":%d,"
-      "\"unit\":\"cpm\","
-      "\"latitude\":%0.6f,"
-      "\"longitude\":%0.6f}\n",
-      line.timestamp,
-      _config.get_fixed_device_id(),
-      line.cpm,
-      line.in_fixed_range ? _config.get_fixed_latitude() : line.latitude,
-      line.in_fixed_range ? _config.get_fixed_longitude() : line.longitude);
-  return result > 0;
-}
-
-uint32_t ApiConnector::get_post_count() const {
-  return _post_count;
 }
