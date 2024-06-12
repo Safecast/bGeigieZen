@@ -1529,7 +1529,7 @@
 	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "843938c4-a7e7-423b-b2c5-0840a6d80acb")
-		(at 157.7848 105.8152 180)
+		(at 155.1432 105.0532 180)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "J5"
@@ -2368,6 +2368,80 @@
 			(rotate
 				(xyz 0 0 0)
 			)
+		)
+	)
+	(footprint ""
+		(layer "F.Cu")
+		(uuid "ab4eae76-7d1a-4979-8b3b-a40fe275d207")
+		(at 185.7756 94.1312 180)
+		(property "Reference" ""
+			(at 0 0 360)
+			(layer "F.SilkS")
+			(uuid "638942d0-afce-46df-b492-4dfd4bf062d2")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" ""
+			(at 0 0 360)
+			(layer "F.Fab")
+			(uuid "46cdb898-7408-47b4-955b-fa56535913fe")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 360)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b5b87e1c-4593-4c46-9d67-9da9df017a04")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 360)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "70d01c89-d04f-4670-8b72-64043c2f654b")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 360)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "78061814-f4a1-48d2-873f-65a3af8b34e7")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "3" thru_hole oval
+			(at 0 0 270)
+			(size 1.7 1.7)
+			(drill 1)
+			(layers "*.Cu" "*.Mask")
+			(remove_unused_layers no)
+			(net 1 "GND")
+			(pinfunction "Pin_3")
+			(pintype "passive")
+			(uuid "60c6bc89-25f8-41e6-b9b0-69afd30a129b")
 		)
 	)
 	(footprint "MountingHole:MountingHole_3.2mm_M3"
@@ -4303,8 +4377,8 @@
 		)
 	)
 	(gr_line
-		(start 153.6192 104.4408)
-		(end 153.6192 90.7812)
+		(start 152.9588 104.6186)
+		(end 152.9588 90.959)
 		(stroke
 			(width 0.2)
 			(type default)
@@ -4313,9 +4387,9 @@
 		(uuid "16589174-4883-488a-a310-3bf6c969f2e0")
 	)
 	(gr_arc
-		(start 191.7672 87.7812)
-		(mid 193.88852 88.65988)
-		(end 194.7672 90.7812)
+		(start 191.1068 87.959)
+		(mid 193.22812 88.83768)
+		(end 194.1068 90.959)
 		(stroke
 			(width 0.2)
 			(type default)
@@ -4324,9 +4398,9 @@
 		(uuid "1a3b2ad6-e32d-4da1-8853-b6ab0127027c")
 	)
 	(gr_arc
-		(start 194.7672 104.4408)
-		(mid 193.88852 106.56212)
-		(end 191.7672 107.4408)
+		(start 194.1068 104.6186)
+		(mid 193.22812 106.73992)
+		(end 191.1068 107.6186)
 		(stroke
 			(width 0.2)
 			(type default)
@@ -4335,9 +4409,9 @@
 		(uuid "238354a2-e4f2-449c-8ff5-80816443489e")
 	)
 	(gr_arc
-		(start 156.6192 107.4408)
-		(mid 154.49788 106.56212)
-		(end 153.6192 104.4408)
+		(start 155.9588 107.6186)
+		(mid 153.83748 106.73992)
+		(end 152.9588 104.6186)
 		(stroke
 			(width 0.2)
 			(type default)
@@ -4346,8 +4420,8 @@
 		(uuid "26ff2ced-6396-4ded-a81f-8680827d846b")
 	)
 	(gr_line
-		(start 194.7672 90.7812)
-		(end 194.7672 104.4408)
+		(start 194.1068 90.959)
+		(end 194.1068 104.6186)
 		(stroke
 			(width 0.2)
 			(type default)
@@ -4356,8 +4430,8 @@
 		(uuid "49ac0fb7-d048-42be-819d-be7a804dd479")
 	)
 	(gr_line
-		(start 191.7672 107.4408)
-		(end 156.6192 107.4408)
+		(start 191.1068 107.6186)
+		(end 155.9588 107.6186)
 		(stroke
 			(width 0.2)
 			(type default)
@@ -4366,8 +4440,8 @@
 		(uuid "90b63bb7-2192-4388-a59e-9fe57a81764a")
 	)
 	(gr_line
-		(start 156.6192 87.7812)
-		(end 191.7672 87.7812)
+		(start 155.9588 87.959)
+		(end 191.1068 87.959)
 		(stroke
 			(width 0.2)
 			(type default)
@@ -4376,9 +4450,9 @@
 		(uuid "b1d42241-f50c-4ca7-b9c9-0c58e1577583")
 	)
 	(gr_arc
-		(start 153.6192 90.7812)
-		(mid 154.49788 88.65988)
-		(end 156.6192 87.7812)
+		(start 152.9588 90.959)
+		(mid 153.83748 88.83768)
+		(end 155.9588 87.959)
 		(stroke
 			(width 0.2)
 			(type default)
@@ -16336,7 +16410,7 @@
 		)
 	)
 	(gr_text "Safepulse"
-		(at 176.3268 89.9148 0)
+		(at 175.6664 90.0926 0)
 		(layer "B.SilkS")
 		(uuid "fd799f7b-5ed7-4f63-901a-f4dc64e1af37")
 		(effects
