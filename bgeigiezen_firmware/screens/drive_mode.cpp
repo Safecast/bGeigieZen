@@ -162,9 +162,11 @@ void DriveModeScreen::enter_screen(Controller& controller) {
     // Automatically start logging
     controller.set_handler_active(k_handler_drive_logger, true);
   }
+  controller.set_handler_active(k_handler_bluetooth_reporter, true);
 }
 
 void DriveModeScreen::leave_screen(Controller& controller) {
   // close logging to file
   controller.set_handler_active(k_handler_drive_logger, false);
+  controller.set_handler_active(k_handler_bluetooth_reporter, false);
 }
