@@ -60,7 +60,7 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     }
   }
 
-  if (api_connector->get_status() == ApiConnector::e_api_reporter_send_in_progress) {
+  if (api_connector->get_status() == ApiConnector::e_handler_processing) {
     set_status_message(F(" SENDING... "));
   }
 

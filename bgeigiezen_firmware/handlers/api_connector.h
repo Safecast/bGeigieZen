@@ -20,9 +20,7 @@ class ApiConnector : public Handler {
    * Collection of statuses for the api data handling, default is idle.
    */
   enum ApiHandlerStatus {
-    e_api_reporter_idle = -1,
     e_api_reporter_send_success,
-    e_api_reporter_send_in_progress,
     e_api_reporter_error_to_json,
     e_api_reporter_error_not_connected,
     e_api_reporter_error_remote_not_available,
