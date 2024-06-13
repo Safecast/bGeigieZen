@@ -70,7 +70,7 @@ constexpr uint8_t LINE_BUFFER_SIZE = 100;
 constexpr uint8_t LOG_FILENAME_SIZE = 100;
 constexpr uint8_t MIN_LOG_LINES_FOR_KEEP = 2;
 constexpr uint8_t LOG_SECONDS_DELAY = 5; // Logs every 5 seconds
-constexpr uint16_t API_SEND_SECONDS_DELAY = 60; // Posts every 1 minute by default
+constexpr uint16_t API_SEND_SECONDS_DELAY = 300; // Posts every 5 minute by default
 constexpr uint16_t API_SEND_SECONDS_DELAY_ALERT = 5; // Posts every 5 seconds when alerted
 constexpr uint16_t API_SEND_SECONDS_DELAY_ROAMING = 5; // Posts every 5 seconds when roaming
 
