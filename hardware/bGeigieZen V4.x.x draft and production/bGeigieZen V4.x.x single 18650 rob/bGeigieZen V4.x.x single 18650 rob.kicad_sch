@@ -6,7 +6,7 @@
 	(paper "A4")
 	(title_block
 		(title "bGeigieZen V4.0.5 rNFW")
-		(date "2024-06-07")
+		(date "2024-06-17")
 		(rev "V4.0.5 NFW")
 		(company "GitHub link at https://github.com/Safecast/bGeigieZen")
 		(comment 1 "Not For Whimps version")
@@ -2436,28 +2436,10 @@
 		(uuid "8412992d-8754-44de-9e08-115cec1a3eff")
 	)
 	(junction
-		(at 186.69 63.5)
-		(diameter 0.3048)
-		(color 0 0 0 0)
-		(uuid "911bdcbe-493f-4e21-a506-7cbc636e2c17")
-	)
-	(junction
-		(at 185.42 66.04)
-		(diameter 0.3048)
-		(color 0 0 0 0)
-		(uuid "9f8381e9-3077-4453-a480-a01ad9c1a940")
-	)
-	(junction
 		(at 184.15 74.93)
 		(diameter 0.3048)
 		(color 0 0 0 0)
 		(uuid "b96fe6ac-3535-4455-ab88-ed77f5e46d6e")
-	)
-	(junction
-		(at 187.96 68.58)
-		(diameter 0.3048)
-		(color 0 0 0 0)
-		(uuid "d3d7e298-1d39-4294-a3ab-c84cc0dc5e5a")
 	)
 	(junction
 		(at 135.89 125.73)
@@ -2639,16 +2621,6 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 66.04) (xy 185.42 66.04)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "2f5a5727-514c-4d99-b626-4752545f11f1")
-	)
-	(wire
-		(pts
 			(xy 93.98 86.36) (xy 93.98 88.9)
 		)
 		(stroke
@@ -2729,7 +2701,7 @@
 	)
 	(wire
 		(pts
-			(xy 186.69 82.55) (xy 186.69 63.5)
+			(xy 186.69 59.055) (xy 186.69 82.55)
 		)
 		(stroke
 			(width 0)
@@ -3039,16 +3011,6 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 68.58) (xy 189.23 68.58)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "c4076730-6b9f-4187-899b-5749db05bf90")
-	)
-	(wire
-		(pts
 			(xy 129.54 99.06) (xy 133.35 99.06)
 		)
 		(stroke
@@ -3076,16 +3038,6 @@
 			(type solid)
 		)
 		(uuid "d33d4a5b-a2ca-48a6-95c3-1e87c02a693c")
-	)
-	(wire
-		(pts
-			(xy 186.69 63.5) (xy 186.69 59.055)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "d3655daf-4db3-4c3e-a576-d9c9527d58c5")
 	)
 	(wire
 		(pts
@@ -3156,16 +3108,6 @@
 			(type default)
 		)
 		(uuid "f01a72b4-5b0c-4e53-9a71-99ed677bfb5a")
-	)
-	(wire
-		(pts
-			(xy 186.69 63.5) (xy 189.23 63.5)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "f544cf9e-15a3-4c49-af1f-2714de6ba896")
 	)
 	(label "SDA"
 		(at 146.05 96.52 0)
@@ -3615,78 +3557,6 @@
 			(project "bGeigieZen V4.x.x draft"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
 					(reference "J3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Conn_01x03_Male")
-		(at 194.31 66.04 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "00000000-0000-0000-0000-00005d53b5ae")
-		(property "Reference" "J2"
-			(at 196.85 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "Geiger IRover"
-			(at 196.85 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 194.31 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 194.31 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 194.31 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ab3fffe3-38f3-4b8b-b4ea-69489d1c5712")
-		)
-		(pin "2"
-			(uuid "067af4a7-62ab-4e07-8bbb-0ad56b6a8104")
-		)
-		(pin "3"
-			(uuid "9c93b6c1-501c-42ba-8244-4f71cf961ce5")
-		)
-		(instances
-			(project "bGeigieZen V4.x.x draft"
-				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
-					(reference "J2")
 					(unit 1)
 				)
 			)
