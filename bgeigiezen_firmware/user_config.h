@@ -17,6 +17,11 @@
 #define VERSION_NUMBER STR(MAJOR_VERSION) "." STR(MINOR_VERSION) "." STR(PATCH_VERSION)
 #define VERSION_STRING "bGeigieZen " VERSION_NUMBER
 
+/*** COPYRIGHT ***/
+// Copyright year for screens
+#define COPYRIGHT_YEAR 2024
+#define COPYRIGHT_YEAR_STRING STR(COPYRIGHT_YEAR)
+
 /***************/
 
 /*** CONFIG ***/
