@@ -147,7 +147,7 @@ void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& h
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.drawString("SAFECAST", 230, 215, 1);
   M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawString("2023", 285, 215, 1);
+  M5.Lcd.drawString(COPYRIGHT_YEAR_STRING, 285, 215, 1);
 }
 
 void SdMessageScreen::enter_screen(Controller& controller) {
