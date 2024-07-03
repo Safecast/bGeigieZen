@@ -59,7 +59,8 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   }
 
   if (gps->active()) {
-    M5.Lcd.printf("GPS %s\n"
+    M5.Lcd.printf("GPS %s"
+                  " UBX %02d.%02d\n"
                   " location: %s                \n"
                   "  lat, long, altitude (MSL), HDOP:\n"
                   "  %0.6f, %0.6f, %0.2f, %.1f \n"
@@ -67,6 +68,8 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
                   " date: %04d-%02d-%02d %s     \n"
                   " time: %02d:%02d:%02d %s     \n",
                   gps->get_data().valid() ? "(valid)        " : "(incomplete...)",
+                  gps->get_data().protocolVersionHigh,
+                  gps->get_data().protocolVersionLow,
                   gps->get_data().location_valid ? "             " : "(unavailable)",
                   gps->get_data().latitude,
                   gps->get_data().longitude,
