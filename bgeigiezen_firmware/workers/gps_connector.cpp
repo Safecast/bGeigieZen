@@ -48,6 +48,8 @@ GpsConnector::GpsConnector(TeenyUbloxConnect& gnss) : Worker<GnssData>({
                                                        .hour=0,
                                                        .minute=0,
                                                        .second=0,
+                                                       .protocolVersionHigh=0,
+                                                       .protocolVersionLow=0
                                                    }), _gnss(gnss), ss(GPS_SERIAL_NUM), tried_38400_at(0), tried_9600_at(0), _init_at(0) {
 }
 /**
@@ -91,7 +93,10 @@ bool GpsConnector::activate(bool retry) {
   }
 
   // Confirm that we actually have a connection
-  DEBUG_PRINTF("GNSS: u-blox protocol version %02d.%02d\n", _gnss.getProtocolVersionHigh(), _gnss.getProtocolVersionLow());
+  data.protocolVersionHigh = _gnss.getProtocolVersionHigh();
+  data.protocolVersionLow = _gnss.getProtocolVersionLow();
+  DEBUG_PRINTF("GNSS: u-blox protocol version %02d.%02d\n",
+              data.protocolVersionHigh, data.protocolVersionLow);
 
   // Send UBX, disable NMEA-0183 messages that we are ignoring anyway.
   _gnss.setPortOutput(COM_PORT_UART1, COM_TYPE_UBX);
