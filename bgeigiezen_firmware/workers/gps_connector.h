@@ -64,6 +64,10 @@ struct GnssData {
   uint8_t minute;
   uint8_t second;
 
+  // Debug info
+  uint8_t protocolVersionHigh;
+  uint8_t protocolVersionLow;
+
 };
 
 /**
