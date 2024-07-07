@@ -72,7 +72,7 @@ void LocalStorage::reset_defaults() {
     set_last_longitude(D_LAST_LONGITUDE, true);
     set_last_latitude(D_LAST_LATITUDE, true);
     set_last_mode(e_operational_mode_drive, true);
-    DEBUG_PRINTLN("Local Storage: Set defaults for all settings");
+    ZEN_LOGD("Local Storage: Set defaults for all settings\n");
   }
 }
 
@@ -163,7 +163,7 @@ void LocalStorage::set_device_id(uint16_t device_id, bool force) {
       _memory.putUShort(key_device_id, _device_id);
       _memory.end();
     } else {
-      DEBUG_PRINTLN("unable to save new value for device_id");
+      ZEN_LOGD("unable to save new value for device_id\n");
     }
   }
 }
@@ -175,7 +175,7 @@ void LocalStorage::set_ap_password(const char* ap_password, bool force) {
       _memory.putString(key_ap_password, _ap_password);
       _memory.end();
     } else {
-      DEBUG_PRINTLN("unable to save new value for ap_password");
+      ZEN_LOGD("unable to save new value for ap_password\n");
     }
   }
 }
@@ -186,7 +186,7 @@ void LocalStorage::set_alarm_threshold(uint16_t alarm_threshold, bool force) {
     _memory.putUInt(key_alarm_threshold, alarm_threshold);
     _memory.end();
   } else {
-    DEBUG_PRINTLN("unable to save new value for ap_password");
+    ZEN_LOGD("unable to save new value for ap_password\n");
   }
 }
 
@@ -196,7 +196,7 @@ void LocalStorage::set_cpm_usvh(bool cpm_usvh, bool force) {
     _memory.putBool(key_cpm_usvh, cpm_usvh);
     _memory.end();
   } else {
-    DEBUG_PRINTLN("unable to save new value for cpm_usvh");
+    ZEN_LOGD("unable to save new value for cpm_usvh\n");
   }
 }
 
@@ -206,7 +206,7 @@ void LocalStorage::set_manual_logging(bool manual_logging, bool force) {
     _memory.putBool(key_manual_logging, manual_logging);
     _memory.end();
   } else {
-    DEBUG_PRINTLN("unable to save new value for manual_logging");
+    ZEN_LOGD("unable to save new value for manual_logging\n");
   }
 }
 
@@ -216,7 +216,7 @@ void LocalStorage::set_enable_journal(bool enable_journal, bool force) {
     _memory.putBool(key_enable_journal, enable_journal);
     _memory.end();
   } else {
-    DEBUG_PRINTLN("unable to save new value for enable_journal");
+    ZEN_LOGD("unable to save new value for enable_journal\n");
   }
 }
 
@@ -226,7 +226,7 @@ void LocalStorage::set_log_void(bool log_void, bool force) {
     _memory.putBool(key_log_void, log_void);
     _memory.end();
   } else {
-    DEBUG_PRINTLN("unable to save new value for log_void");
+    ZEN_LOGD("unable to save new value for log_void\n");
   }
 }
 
@@ -236,7 +236,7 @@ void LocalStorage::set_screen_dim_timeout(uint16_t screen_dim_timeout, bool forc
     _memory.putUInt(key_screen_dim_timeout, screen_dim_timeout);
     _memory.end();
   } else {
-    DEBUG_PRINTLN("unable to save new value for screen_dim_timeout");
+    ZEN_LOGD("unable to save new value for screen_dim_timeout\n");
   }
 }
 
@@ -246,7 +246,7 @@ void LocalStorage::set_screen_off_timeout(uint16_t screen_off_timeout, bool forc
     _memory.putUInt(key_screen_off_timeout, screen_off_timeout);
     _memory.end();
   } else {
-    DEBUG_PRINTLN("unable to save new value for screen_off_timeout");
+    ZEN_LOGD("unable to save new value for screen_off_timeout\n");
   }
 }
 
@@ -256,7 +256,7 @@ void LocalStorage::set_animated_screensaver(bool animated_screensaver, bool forc
     _memory.putBool(key_animated_screensaver, animated_screensaver);
     _memory.end();
   } else {
-    DEBUG_PRINTLN("unable to save new value for animated_screensaver");
+    ZEN_LOGD("unable to save new value for animated_screensaver\n");
   }
 }
 
@@ -267,7 +267,7 @@ void LocalStorage::set_wifi_ssid(const char* wifi_ssid, bool force) {
       _memory.putString(key_wifi_ssid, _wifi_ssid);
       _memory.end();
     } else {
-      DEBUG_PRINTLN("unable to save new value for wifi_ssid");
+      ZEN_LOGD("unable to save new value for wifi_ssid\n");
     }
   }
 }
@@ -279,7 +279,7 @@ void LocalStorage::set_wifi_password(const char* wifi_password, bool force) {
       _memory.putString(key_wifi_password, _wifi_password);
       _memory.end();
     } else {
-      DEBUG_PRINTLN("unable to save new value for wifi_password");
+      ZEN_LOGD("unable to save new value for wifi_password\n");
     }
   }
 }
@@ -291,7 +291,7 @@ void LocalStorage::set_api_key(const char* api_key, bool force) {
       _memory.putString(key_api_key, _api_key);
       _memory.end();
     } else {
-      DEBUG_PRINTLN("unable to save new value for api_key");
+      ZEN_LOGD("unable to save new value for api_key\n");
     }
   }
 }
@@ -302,7 +302,7 @@ void LocalStorage::set_fixed_longitude(double fixed_longitude, bool force) {
     _memory.putDouble(key_fixed_longitude, fixed_longitude);
     _memory.end();
   } else {
-    DEBUG_PRINTLN("unable to save new value for key_fixed_longitude");
+    ZEN_LOGD("unable to save new value for key_fixed_longitude\n");
   }
 }
 
@@ -312,7 +312,7 @@ void LocalStorage::set_fixed_latitude(double fixed_latitude, bool force) {
     _memory.putDouble(key_fixed_latitude, fixed_latitude);
     _memory.end();
   } else {
-    DEBUG_PRINTLN("unable to save new value for key_fixed_latitude");
+    ZEN_LOGD("unable to save new value for key_fixed_latitude\n");
   }
 }
 
@@ -322,7 +322,7 @@ void LocalStorage::set_fixed_range(float fixed_range, bool force) {
     _memory.putFloat(key_fixed_range, fixed_range);
     _memory.end();
   } else {
-    DEBUG_PRINTLN("unable to save new value for key_fixed_range");
+    ZEN_LOGD("unable to save new value for key_fixed_range\n");
   }
 }
 
@@ -332,7 +332,7 @@ void LocalStorage::set_last_longitude(double last_longitude, bool force) {
     _memory.putDouble(key_last_longitude, last_longitude);
     _memory.end();
   } else {
-    DEBUG_PRINTLN("unable to save new value for key_last_longitude");
+    ZEN_LOGD("unable to save new value for key_last_longitude\n");
   }
 }
 
@@ -342,7 +342,7 @@ void LocalStorage::set_last_latitude(double last_latitude, bool force) {
     _memory.putDouble(key_last_latitude, last_latitude);
     _memory.end();
   } else {
-    DEBUG_PRINTLN("unable to save new value for key_last_latitude");
+    ZEN_LOGD("unable to save new value for key_last_latitude\n");
   }
 }
 
@@ -352,7 +352,7 @@ void LocalStorage::set_last_mode(LocalStorage::OperationalMode last_mode, bool f
     _memory.putUShort(key_last_mode, last_mode);
     _memory.end();
   } else {
-    DEBUG_PRINTLN("unable to save new value for key_last_mode");
+    ZEN_LOGD("unable to save new value for key_last_mode\n");
   }
 }
 
@@ -360,10 +360,10 @@ bool LocalStorage::clear() {
   if(_memory.begin(memory_name)) {
     _memory.clear();
     _memory.end();
-    DEBUG_PRINTLN("Local Storage: Cleared local memory...");
+    ZEN_LOGD("Local Storage: Cleared local memory...\n");
     return true;
   }
-  DEBUG_PRINTLN("Local Storage: Unable to clear local memory...");
+  ZEN_LOGD("Local Storage: Unable to clear local memory...\n");
   return false;
 }
 

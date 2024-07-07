@@ -5,7 +5,6 @@
 #endif
 
 #include "controller.h"
-#include "debugger.h"
 #include "gfx_screen.h"
 #include "handlers/bluetooth_reporter.h"
 #include "identifiers.h"
@@ -176,7 +175,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         new_screen = _menu->handle_input(_controller, workers);
         if (new_screen || !_menu->is_open()) {
           // Closed menu
-          DEBUG_PRINTLN("Menu closed");
+          ZEN_LOGD("Menu closed\n");
           _menu->leave_screen(_controller);
           clear();
         }
@@ -184,7 +183,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         new_screen = _screen->handle_input(_controller, workers);
         if (new_screen == _menu) {
           // opened menu, not a new screen
-          DEBUG_PRINTLN("Menu opened");
+          ZEN_LOGD("Menu opened\n");
           clear();
           _menu->enter_screen(_controller);
           new_screen = nullptr;
@@ -194,7 +193,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         }
       }
       if (new_screen && new_screen != _screen) {
-        DEBUG_PRINTF("New screen entered: %s\n", new_screen->get_title());
+        ZEN_LOGD("New screen entered: %s\n", new_screen->get_title());
         _screen->leave_screen(_controller);
         _screen = new_screen;
         clear();

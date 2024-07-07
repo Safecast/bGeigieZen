@@ -1,6 +1,5 @@
 #include "controller.h"
 #include "identifiers.h"
-#include "debugger.h"
 #include "utils/sd_wrapper.h"
 
 #include "utils/device_utils.h"

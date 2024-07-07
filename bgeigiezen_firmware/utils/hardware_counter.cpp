@@ -105,7 +105,7 @@ uint32_t HardwareCounter::_get_count_reset() {
   // get the value of the hardware counter
   esp_err_t ret = pcnt_get_counter_value(_unit, &count);
   if (ret != ESP_OK) {
-    DEBUG_PRINTLN("A problem occurred in the hardware counter");
+    ZEN_LOGD("A problem occurred in the hardware counter\n");
   }
 
   // compute the total value taking into account the wrap-arounds

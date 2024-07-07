@@ -18,7 +18,7 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
       return true;
     case WL_CONNECT_FAILED:
       if (first_time) {
-        DEBUG_PRINTLN("WiFi connector: Trying to reconnect to wifi...");
+        ZEN_LOGD("WiFi connector: Trying to reconnect to wifi...\n");
         WiFi.reconnect();
         delay(100);
         update_active();
@@ -26,13 +26,13 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
       }
       return false;
     case WL_DISCONNECTED:
-      DEBUG_PRINTLN("WiFi connector: Trying to reconnect to wifi...");
+      ZEN_LOGD("WiFi connector: Trying to reconnect to wifi...\n");
       WiFi.reconnect();
       delay(100);
       update_active();
       return wifi_connected();
     default:
-      DEBUG_PRINTF("WiFi connector: Trying to connect to wifi (%s:%s)...\n", ssid, password);
+      ZEN_LOGD("WiFi connector: Trying to connect to wifi (%s:%s)...\n", ssid, password);
       password ? WiFi.begin(ssid, password) : WiFi.begin(ssid);
       delay(100);
       update_active();
@@ -66,7 +66,7 @@ bool WiFiWrapper::start_ap_server(uint16_t device_id, const char* password) {
 
   delay(100);
 
-  DEBUG_PRINTF("Access point is up at: %s -> %s\n", host_ssid, WiFi.softAPIP().toString().c_str());
+  ZEN_LOGD("Access point is up at: %s -> %s\n", host_ssid, WiFi.softAPIP().toString().c_str());
   return true;
 }
 

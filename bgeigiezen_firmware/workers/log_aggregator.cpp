@@ -93,7 +93,7 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
     if ((_last_latitude < 0 || _last_latitude > 0) && (_last_longitude < 0 || _last_longitude > 0)) {
       double plus_distance = haversine_km(data.latitude, data.longitude, _last_latitude, _last_longitude);
       data.distance += plus_distance;
-      //      DEBUG_PRINTF("Distance %f = haversine_km(%f, %f, %f, %f)\n", plus_distance, data.latitude, data.longitude, _last_latitude, _last_longitude);
+      //      ZEN_LOGD("Distance %f = haversine_km(%f, %f, %f, %f)\n", plus_distance, data.latitude, data.longitude, _last_latitude, _last_longitude);
     }
     _last_latitude = data.latitude;
     _last_longitude = data.longitude;
