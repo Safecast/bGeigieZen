@@ -13,10 +13,10 @@ class DeviceUtils {
  public:
   static void shutdown(bool reboot = false) {
     if (reboot) {
-      DEBUG_PRINTLN("\n Reboot system...\n");
+      ZEN_LOGD("\n Reboot system...\n\n");
       ESP.restart();
     } else {
-      DEBUG_PRINTLN("\n Shutdown system...\n");
+      ZEN_LOGD("\n Shutdown system...\n\n");
 #ifdef M5_CORE2
       M5.shutdown();
 #elif M5_BASIC

@@ -49,9 +49,7 @@ RtcConnector::RtcConnector() : ProcessWorker<RtcData>({.year=0, .month=0, .day=0
 bool RtcConnector::activate(bool retry) {
 
 #ifdef M5_CORE2
-  DEBUG_PRINTLN("Activating RTC Connector, SDA, SCL");
-  DEBUG_PRINT(BM8563_I2C_SDA);
-  DEBUG_PRINTLN(BM8563_I2C_SCL);
+  ZEN_LOGD("Activating RTC Connector, SDA %d, SCL %d\n", BM8563_I2C_SDA, BM8563_I2C_SCL);
   Wire1.begin(BM8563_I2C_SDA, BM8563_I2C_SCL);
   rtc.begin();
   data.low_voltage = rtc.getVoltLow();

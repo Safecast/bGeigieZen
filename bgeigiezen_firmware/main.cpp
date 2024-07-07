@@ -102,15 +102,14 @@ ApiConnector api_connector(settings);
 GFXScreen gfx_screen(settings, controller);
 
 void setup() {
-  DEBUG_BEGIN();
-  DEBUG_PRINTLN("MAIN SETUP DEBUG ENABLED");
+  ZEN_LOGD("MAIN SETUP DEBUG ENABLED\n");
   /// Hardware configurations
   Wire.begin();
   M5.begin();
 
   /// Software configurations
 
-  DEBUG_PRINTLN("Register workers...");
+  ZEN_LOGD("Register workers...\n");
   controller.register_worker(k_worker_gps_connector, gps);
   controller.register_worker(k_worker_navsat_collector, navsat);
   controller.register_worker(k_worker_gm_sensor, gm_sensor);
@@ -126,14 +125,14 @@ void setup() {
   controller.register_worker(k_worker_local_storage, settings);
   controller.register_worker(k_worker_config_server, config_server);
 
-  DEBUG_PRINTLN("Register handlers...");
+  ZEN_LOGD("Register handlers...\n");
   controller.register_handler(k_handler_journal_logger, journal_logger);
   controller.register_handler(k_handler_drive_logger, drive_logger);
   controller.register_handler(k_handler_survey_logger, survey_logger);
   controller.register_handler(k_handler_bluetooth_reporter, bt_connector);
   controller.register_handler(k_handler_api_reporter, api_connector);
 
-  DEBUG_PRINTLN("Register supervisors...");
+  ZEN_LOGD("Register supervisors...\n");
   controller.register_supervisor(gfx_screen);
 
   controller.start_default_workers();

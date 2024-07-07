@@ -4,34 +4,40 @@
 #include <Arduino.h>
 #include "user_config.h"
 
+
 #ifdef UNIT_TEST
 #undef ENABLE_DEBUG
 #endif
 
-#if ENABLE_DEBUG
 
-#ifndef DEBUG_STREAM
-#define DEBUG_STREAM Serial
-#endif
+/**
+   ESP_LOGE - error (lowest)
 
-#ifndef DEBUG_BAUD
-#define DEBUG_BAUD 115200
-#endif
+   ESP_LOGW - warning
 
-#define DEBUG_BEGIN() DEBUG_STREAM.begin(DEBUG_BAUD)
-#define DEBUG_PRINT(val) DEBUG_STREAM.print(val)    
-#define DEBUG_PRINTLN(val) DEBUG_STREAM.println(val)
-#define DEBUG_PRINTF(format, ...) DEBUG_STREAM.printf(format, ##__VA_ARGS__)
-#define DEBUG_FLUSH() DEBUG_STREAM.flush()
+   ESP_LOGI - info
 
-#else
+   ESP_LOGD - debug
 
-#define DEBUG_BEGIN() NULL
-#define DEBUG_PRINT(val) NULL
-#define DEBUG_PRINTLN(val) NULL
-#define DEBUG_PRINTF(format, ...) NULL
-#define DEBUG_FLUSH() NULL
+   ESP_LOGV - verbose (highest)
+ */
 
-#endif
+/// Output log with source info.
+#define ZEN_LOG_FORMAT(letter, format) "[%6u][" #letter "]: " format, millis()
+
+/// Output Error log with source info.
+#define ZEN_LOGE(format, ...) ESP_LOGE(ESP_LOG_ERROR  , ZEN_LOG_FORMAT("E", format), ##__VA_ARGS__)
+
+/// Output Warn log with source info.
+#define ZEN_LOGW(format, ...) ESP_LOGW(ESP_LOG_WARN   , ZEN_LOG_FORMAT("W", format), ##__VA_ARGS__)
+
+/// Output Info log with source info.
+#define ZEN_LOGI(format, ...) ESP_LOGI(ESP_LOG_INFO   , ZEN_LOG_FORMAT("I", format), ##__VA_ARGS__)
+
+/// Output Debug log with source info.
+#define ZEN_LOGD(format, ...) ESP_LOGD(ESP_LOG_DEBUG  , ZEN_LOG_FORMAT("D", format), ##__VA_ARGS__)
+
+/// Output Verbose log with source info.
+#define ZEN_LOGV(format, ...) ESP_LOGV(ESP_LOG_VERBOSE, ZEN_LOG_FORMAT("V", format), ##__VA_ARGS__)
 
 #endif // BGEIGIEZEN_DEBUGGER_H_

@@ -45,7 +45,7 @@ bool BluetoothReporter::activate(bool) {
 
   _pServer->setCallbacks(&_btCallbacks); //set the callback functions to restart advertising
 
-  DEBUG_PRINTF("Bluetooth initialized, device: %s", deviceName);
+  ZEN_LOGD("Bluetooth initialized, device: %s", deviceName);
   return BLEDevice::getInitialized();
 }
 
@@ -70,7 +70,7 @@ int8_t BluetoothReporter::handle_produced_work(const worker_map_t& workers) {
   const auto& reading = logData->get_data();
   strcpy(_log_string, reading.log_string);
 
-  //  DEBUG_PRINTLN("Starting task to send data over BT...");
+  //  ZEN_LOGD("Starting task to send data over BT...\n");
   return start_task("bt_send", 2048 * 2);
 }
 
