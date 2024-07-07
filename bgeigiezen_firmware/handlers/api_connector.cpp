@@ -63,7 +63,7 @@ int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
   }
 
   if (!WiFi.isConnected() && !activate(true)) {
-    DEBUG_PRINTLN("Unable to send, lost connection");
+    ZEN_LOGD("Unable to send, lost connection\n");
     return e_api_reporter_error_not_connected;
   }
 
@@ -71,7 +71,7 @@ int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
     return e_api_reporter_error_to_json;
   }
 
-  DEBUG_PRINTLN("Starting task to send data to API...");
+  ZEN_LOGD("Starting task to send data to API...\n");
   return start_task("api_send", 2048 * 4, 3);
 }
 
@@ -107,24 +107,21 @@ int8_t ApiConnector::handle_async() {
 
   //Specify destination for HTTP request
   if (!http.begin(url)) {
-    DEBUG_PRINTLN("Unable to begin url connection");
+    ZEN_LOGD("Unable to begin url connection\n");
     http.end(); //Free resources
     return e_api_reporter_error_remote_not_available;
   }
 
-  char content_length[5];
-
-  sprintf(content_length, "%d", strlen(_payload));
-
   http.setUserAgent(HEADER_API_USER_AGENT);
   http.addHeader("Host", API_HOST);
   http.addHeader("Content-Type", HEADER_API_CONTENT_TYPE);
-  http.addHeader("Content-Length", content_length);
 
-  int httpResponseCode = http.POST(_payload);
+  http.setTimeout(4000);
+
+  int httpResponseCode = http.POST((uint8_t *) _payload, strlen(_payload));
 
   String response = http.getString();
-  DEBUG_PRINTF("POST complete, response (%d):\n%s\n\n", httpResponseCode, response.c_str());
+  ZEN_LOGD("POST complete, response (%d):\n%s\n\n", httpResponseCode, response.c_str());
   http.end(); //Free resources
 
   // TODO: Check response measurement ID

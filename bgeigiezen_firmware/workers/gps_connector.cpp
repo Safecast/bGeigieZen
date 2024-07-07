@@ -64,9 +64,9 @@ bool GpsConnector::activate(bool retry) {
   if (tried_38400_at == 0 && (millis() - _init_at > 1000)) { // Wait for device to completely startup
     tried_38400_at = millis();
     ss.updateBaudRate(38400);
-    DEBUG_PRINTLN("GNSS: Try at 38400 baud");
+    ZEN_LOGD("GNSS: Try at 38400 baud\n");
     if (_gnss.begin(ss, 500)) {
-      DEBUG_PRINTLN("GNSS: connected at 38400 baud"); // no need to set module to 38.4
+      ZEN_LOGD("GNSS: connected at 38400 baud\n"); // no need to set module to 38.4
     }
     else {
       return false;
@@ -75,9 +75,9 @@ bool GpsConnector::activate(bool retry) {
   else if (tried_9600_at == 0 && tried_38400_at > 0 && (millis() - tried_38400_at > 1200)) {
     tried_9600_at = millis();
     ss.updateBaudRate(9600);
-    DEBUG_PRINTLN("GNSS: Try at 9600 baud");
+    ZEN_LOGD("GNSS: Try at 9600 baud\n");
     if (_gnss.begin(ss, 500)) {
-      DEBUG_PRINTLN("GNSS: connected at 9600 baud, switching to 38400");
+      ZEN_LOGD("GNSS: connected at 9600 baud, switching to 38400\n");
       _gnss.setSerialRate(38400);
       delay(100); // recovery time for gnss module baud rate change
       ss.updateBaudRate(38400);
@@ -91,7 +91,7 @@ bool GpsConnector::activate(bool retry) {
   }
 
   // Confirm that we actually have a connection
-  DEBUG_PRINTF("GNSS: u-blox protocol version %02d.%02d\n", _gnss.getProtocolVersionHigh(), _gnss.getProtocolVersionLow());
+  ZEN_LOGD("GNSS: u-blox protocol version %02d.%02d\n", _gnss.getProtocolVersionHigh(), _gnss.getProtocolVersionLow());
 
   // Send UBX, disable NMEA-0183 messages that we are ignoring anyway.
   _gnss.setPortOutput(COM_PORT_UART1, COM_TYPE_UBX);
@@ -107,7 +107,7 @@ bool GpsConnector::activate(bool retry) {
 void GpsConnector::deactivate() {
   tried_9600_at = 0;
   tried_38400_at = 0;
-  ss.end(true);
+  ss.end();
 }
 
 int8_t GpsConnector::produce_data() {
@@ -120,12 +120,12 @@ int8_t GpsConnector::produce_data() {
   // getPVT() returns UTC date and time.
   // Do not use GNSS time, see u-blox spec section 9.
   if (_gnss.getPVT()) {
-    // DEBUG_PRINTF("[%d] _gnss.getPVT() is true.\n", millis());
+    // ZEN_LOGD("[%d] _gnss.getPVT() is true.\n", millis());
 
     data.satsInView = _gnss.getSIV(); // Satellites In View
 
     if (_gnss.getFixType() == 2 || _gnss.getFixType() == 3) {
-      // DEBUG_PRINTF("[%d] fix type is 2D or 3D.\n", millis());
+      // ZEN_LOGD("[%d] fix type is 2D or 3D.\n", millis());
       data.pdop = _gnss.getPDOP() * 1e-2; // Position Dilution of Precision
       data.latitude = _gnss.getLatitude() * 1e-7;
       data.longitude = _gnss.getLongitude() * 1e-7;
@@ -159,14 +159,14 @@ int8_t GpsConnector::produce_data() {
       location_timer.restart();
       ret_status = e_worker_data_read;
       // DEBUG: Compare PDOP from NAV-PVT and HDOP from NAV-DOP
-      // DEBUG_PRINTF("[%d] GnssFixOk (type = %d).\n"
+      // ZEN_LOGD("[%d] GnssFixOk (type = %d).\n"
       //               "  SATS: %d; PDOP: %d; HDOP: %d\n",
       //               millis(), _gnss.getFixType(),
       //               data.satsInView, _gnss.getPDOP(), data.hdop);
     }
 
     if (_gnss.getDateValid()) {
-//      DEBUG_PRINTF("[%lu] _gnss.getDateValid() is true.\n", millis());
+//      ZEN_LOGD("[%lu] _gnss.getDateValid() is true.\n", millis());
       data.year = _gnss.getYear();
       data.month = _gnss.getMonth();
       data.day = _gnss.getDay();
@@ -176,7 +176,7 @@ int8_t GpsConnector::produce_data() {
     }
 
     if (_gnss.getTimeValid()) {
-//      DEBUG_PRINTF("[%lu] _gnss.getTimeValid() is true.\n", millis());
+//      ZEN_LOGD("[%lu] _gnss.getTimeValid() is true.\n", millis());
       data.hour = _gnss.getHour();
       data.minute = _gnss.getMinute();
       data.second = _gnss.getSecond();

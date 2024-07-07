@@ -118,20 +118,20 @@ bool SDInterface::log_println(const char* log_name, const char* data) {
     return false;
   }
   if (!SD.exists(log_name)) {
-    DEBUG_PRINTF("Unable to log to non-existent file \"%s\".\n", log_name);
+    ZEN_LOGD("Unable to log to non-existent file \"%s\".\n", log_name);
     return false;
   }
   // open the setup file in append mode to add lines
   auto log_file = SD.open(log_name, FILE_APPEND);
   if (!log_file) {
     end();
-    DEBUG_PRINTF("Unable to open log file \"%s\".\n", log_name);
+    ZEN_LOGD("Unable to open log file \"%s\".\n", log_name);
     return false;
   }
 
   log_file.println(data);
 
-//  DEBUG_PRINTF("Logged '%s' to '%s'.\n", data, log_name);
+//  ZEN_LOGD("Logged '%s' to '%s'.\n", data, log_name);
 
   log_file.close();
   _last_write = millis();
@@ -180,7 +180,7 @@ SDInterface::SdStatus SDInterface::has_safezen_content(uint16_t device_id) {
 }
 
 bool SDInterface::read_safezen_file_to_settings(LocalStorage& settings) {
-  DEBUG_PRINTLN("read_safezen_file_to_settings");
+  ZEN_LOGD("read_safezen_file_to_settings\n");
   if (!ready()) {
     return false;
   }
@@ -246,109 +246,109 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
     else if (line.startsWith(SD_CONFIG_FIELD_DEVICE_ID)) {
       if (sscanf(line.c_str(), sd_config_device_id_f, &_device_id)) {
         settings.set_device_id(_device_id, true);
-        DEBUG_PRINTF("Loaded from SD: device_id=%d\n", _device_id);
+        ZEN_LOGD("Loaded from SD: device_id=%d\n", _device_id);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_API_KEY)) {
       if (_device_id && line.length() - strlen(SD_CONFIG_FIELD_API_KEY) < CONFIG_VAL_MAX && sscanf(line.c_str(), sd_config_api_key_f, api_key)) {
         settings.set_api_key(api_key, true);
-        DEBUG_PRINTF("Loaded from SD: api_key=%s\n", api_key);
+        ZEN_LOGD("Loaded from SD: api_key=%s\n", api_key);
       } else {
-        DEBUG_PRINTLN("Unable to load api_key");
+        ZEN_LOGD("Unable to load api_key\n");
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD)) {
       if (_device_id && line.length() - strlen(SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD) < CONFIG_VAL_MAX && sscanf(line.c_str(), sd_config_access_point_password_f, access_point_password)) {
         settings.set_ap_password(access_point_password, true);
-        DEBUG_PRINTF("Loaded from SD: access_point_password=%s\n", access_point_password);
+        ZEN_LOGD("Loaded from SD: access_point_password=%s\n", access_point_password);
       } else {
-        DEBUG_PRINTLN("Unable to load access_point_password");
+        ZEN_LOGD("Unable to load access_point_password\n");
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_WIFI_SSID)) {
       if (_device_id && line.length() - strlen(SD_CONFIG_FIELD_WIFI_SSID) < CONFIG_VAL_MAX && sscanf(line.c_str(), sd_config_wifi_ssid_f, wifi_ssid)) {
         settings.set_wifi_ssid(wifi_ssid, true);
-        DEBUG_PRINTF("Loaded from SD: wifi_ssid=%s\n", wifi_ssid);
+        ZEN_LOGD("Loaded from SD: wifi_ssid=%s\n", wifi_ssid);
       } else {
-        DEBUG_PRINTLN("Unable to load wifi_ssid");
+        ZEN_LOGD("Unable to load wifi_ssid\n");
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_WIFI_PASSWORD)) {
       if (_device_id && line.length() - strlen(SD_CONFIG_FIELD_WIFI_PASSWORD) < CONFIG_VAL_MAX && sscanf(line.c_str(), sd_config_wifi_password_f, wifi_password)) {
         settings.set_wifi_password(wifi_password, true);
-        DEBUG_PRINTF("Loaded from SD: wifi_password=%s\n", wifi_password);
+        ZEN_LOGD("Loaded from SD: wifi_password=%s\n", wifi_password);
       } else {
-        DEBUG_PRINTLN("Unable to load wifi_password");
+        ZEN_LOGD("Unable to load wifi_password\n");
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_ALARM_THRESHOLD)) {
       if (_device_id && sscanf(line.c_str(), sd_config_alarm_threshold_f, &alarm_threshold)) {
         settings.set_alarm_threshold(alarm_threshold, true);
-        DEBUG_PRINTF("Loaded from SD: alarm_threshold=%d\n", alarm_threshold);
+        ZEN_LOGD("Loaded from SD: alarm_threshold=%d\n", alarm_threshold);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_CPM_USVH)) {
       if (_device_id && sscanf(line.c_str(), sd_config_cpm_usvh_f, &cpm_usvh)) {
         settings.set_cpm_usvh(!!cpm_usvh, true);
-        DEBUG_PRINTF("Loaded from SD: display_cpm=%d\n", !!cpm_usvh);
+        ZEN_LOGD("Loaded from SD: display_cpm=%d\n", !!cpm_usvh);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_MANUAL_LOGGING)) {
       if (_device_id && sscanf(line.c_str(), sd_config_manual_logging_f, &manual_logging)) {
         settings.set_manual_logging(!!manual_logging, true);
-        DEBUG_PRINTF("Loaded from SD: manual_logging=%d\n", !!manual_logging);
+        ZEN_LOGD("Loaded from SD: manual_logging=%d\n", !!manual_logging);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_ENABLE_JOURNAL)) {
       if (_device_id && sscanf(line.c_str(), sd_config_enable_journal_f, &enable_journal)) {
         settings.set_enable_journal(!!enable_journal, true);
-        DEBUG_PRINTF("Loaded from SD: enable_journal=%d\n", !!enable_journal);
+        ZEN_LOGD("Loaded from SD: enable_journal=%d\n", !!enable_journal);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_LOG_VOID)) {
       if (_device_id && sscanf(line.c_str(), sd_config_log_void_f, &log_void)) {
         settings.set_log_void(!!log_void, true);
-        DEBUG_PRINTF("Loaded from SD: log_void=%d\n", !!log_void);
+        ZEN_LOGD("Loaded from SD: log_void=%d\n", !!log_void);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_SCREEN_DIM_TIMEOUT)) {
       if (_device_id && sscanf(line.c_str(), sd_config_screen_dim_timeout_f, &screen_dim_timeout)) {
         settings.set_screen_dim_timeout(screen_dim_timeout, true);
-        DEBUG_PRINTF("Loaded from SD: manual_logging=%d\n", !!manual_logging);
+        ZEN_LOGD("Loaded from SD: manual_logging=%d\n", !!manual_logging);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_SCREEN_OFF_TIMEOUT)) {
       if (_device_id && sscanf(line.c_str(), sd_config_screen_off_timeout_f, &screen_off_timeout)) {
         settings.set_screen_off_timeout(screen_off_timeout, true);
-        DEBUG_PRINTF("Loaded from SD: manual_logging=%d\n", !!manual_logging);
+        ZEN_LOGD("Loaded from SD: manual_logging=%d\n", !!manual_logging);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_ANIMATED_SCREENSAVER)) {
       if (_device_id && sscanf(line.c_str(), sd_config_animated_screensaver_f, &animated_screensaver)) {
         settings.set_animated_screensaver(!!animated_screensaver, true);
-        DEBUG_PRINTF("Loaded from SD: manual_logging=%d\n", !!manual_logging);
+        ZEN_LOGD("Loaded from SD: manual_logging=%d\n", !!manual_logging);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_FIXED_LATITUDE)) {
       if (_device_id && sscanf(line.c_str(), sd_config_fixed_latitude_f, &fixed_latitude)) {
         settings.set_fixed_latitude(fixed_latitude, true);
-        DEBUG_PRINTF("Loaded from SD: fixed_latitude=%0.6f\n", fixed_latitude);
+        ZEN_LOGD("Loaded from SD: fixed_latitude=%0.6f\n", fixed_latitude);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_FIXED_LONGITUDE)) {
       if (_device_id && sscanf(line.c_str(), sd_config_fixed_longitude_f, &fixed_longitude)) {
         settings.set_fixed_longitude(fixed_longitude, true);
-        DEBUG_PRINTF("Loaded from SD: fixed_longitude=%0.6f\n", fixed_longitude);
+        ZEN_LOGD("Loaded from SD: fixed_longitude=%0.6f\n", fixed_longitude);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_FIXED_RANGE)) {
       if (_device_id && sscanf(line.c_str(), sd_config_fixed_range_f, &fixed_range)) {
 //        settings.set_fixed_range(fixed_range, true);
-//        DEBUG_PRINTF("Loaded from SD: fixed_range=%0.1f\n", fixed_longitude);
-        DEBUG_PRINTF("Currently disabled setting: fixed_range=%0.1f\n", fixed_longitude);
+//        ZEN_LOGD("Loaded from SD: fixed_range=%0.1f\n", fixed_longitude);
+        ZEN_LOGD("Currently disabled setting: fixed_range=%0.1f\n", fixed_longitude);
       }
     } else {
-      DEBUG_PRINTF("Read (currently) unsupported SAFEZEN line: %s \n", line.c_str());
+      ZEN_LOGD("Read (currently) unsupported SAFEZEN line: %s \n", line.c_str());
     }
   }
 
@@ -357,7 +357,7 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   _last_read = millis();
 
   if (_device_id == settings.get_device_id()) {
-    DEBUG_PRINTLN("Successfully loaded settings from SD config into memory");
+    ZEN_LOGD("Successfully loaded settings from SD config into memory\n");
     _status = e_sd_config_status_ok;
   } else {
     _status = e_sd_config_status_no_config_file;
@@ -384,7 +384,7 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
     return false;
   }
 
-  DEBUG_PRINTLN("Writing SAFEZEN file");
+  ZEN_LOGD("Writing SAFEZEN file\n");
 
   safecast_txt.printf(sd_config_version_f, VERSION_NUMBER);
   safecast_txt.println();
@@ -443,7 +443,7 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
   File written_safecast_txt = SD.open(SETUP_FILENAME, FILE_READ);
   if (written_safecast_txt) {
     _status = e_sd_config_status_ok;
-    DEBUG_PRINTF("Finished writing SAFEZEN file:\n%s\n", written_safecast_txt.readString().c_str());
+    ZEN_LOGD("Finished writing SAFEZEN file:\n%s\n", written_safecast_txt.readString().c_str());
   }
 
   return true;
