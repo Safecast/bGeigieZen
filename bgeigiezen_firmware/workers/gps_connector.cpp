@@ -112,7 +112,7 @@ bool GpsConnector::activate(bool retry) {
 void GpsConnector::deactivate() {
   tried_9600_at = 0;
   tried_38400_at = 0;
-  ss.end(true);
+  ss.end();
 }
 
 int8_t GpsConnector::produce_data() {

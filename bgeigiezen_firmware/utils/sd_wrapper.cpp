@@ -16,7 +16,7 @@
 #define SD_CONFIG_FIELD_SENSOR_SHIELD "sensor_shield"
 #define SD_CONFIG_FIELD_SENSOR_MODE "sensor_mode"
 #define SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD "access_point_password"
-#define SD_CONFIG_FIELD_ALARM_THRESHOLD "alarm_threshold"
+#define SD_CONFIG_FIELD_ALARM_THRESHOLD "alert_threshold"
 #define SD_CONFIG_FIELD_CPM_USVH "display_cpm"
 #define SD_CONFIG_FIELD_MANUAL_LOGGING "manual_logging"
 #define SD_CONFIG_FIELD_ENABLE_JOURNAL "enable_journal"
@@ -30,6 +30,7 @@
 #define SD_CONFIG_FIELD_FIXED_LATITUDE "fixed_latitude"
 #define SD_CONFIG_FIELD_FIXED_LONGITUDE "fixed_longitude"
 #define SD_CONFIG_FIELD_FIXED_RANGE "fixed_range"
+#define SD_CONFIG_FIELD_DOP_MAX "dop_max"
 
 constexpr char sd_config_version_f[] = SD_CONFIG_FIELD_VERSION"=%s";
 constexpr char sd_config_device_id_f[] = SD_CONFIG_FIELD_DEVICE_ID"=%u";
@@ -45,7 +46,7 @@ constexpr char sd_config_sensor_shield_f[] = SD_CONFIG_FIELD_SENSOR_SHIELD"=%d";
 constexpr char sd_config_sensor_mode_f[] = SD_CONFIG_FIELD_SENSOR_MODE"=%d";
 constexpr char sd_config_access_point_password_f[] = SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD"=%[^\t\r\n]";
 constexpr char sd_config_access_point_password_write_f[] = SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD"=%s";
-constexpr char sd_config_alarm_threshold_f[] = SD_CONFIG_FIELD_ALARM_THRESHOLD"=%d";
+constexpr char sd_config_alert_threshold_f[] = SD_CONFIG_FIELD_ALARM_THRESHOLD"=%d";
 constexpr char sd_config_cpm_usvh_f[] = SD_CONFIG_FIELD_CPM_USVH"=%hhu";
 constexpr char sd_config_manual_logging_f[] = SD_CONFIG_FIELD_MANUAL_LOGGING"=%hhu";
 constexpr char sd_config_enable_journal_f[] = SD_CONFIG_FIELD_ENABLE_JOURNAL"=%hhu";
@@ -61,6 +62,7 @@ constexpr char sd_config_api_key_f[] = SD_CONFIG_FIELD_API_KEY"=%s";
 constexpr char sd_config_fixed_latitude_f[] = SD_CONFIG_FIELD_FIXED_LATITUDE"=%lf";
 constexpr char sd_config_fixed_longitude_f[] = SD_CONFIG_FIELD_FIXED_LONGITUDE"=%lf";
 constexpr char sd_config_fixed_range_f[] = SD_CONFIG_FIELD_FIXED_RANGE"=%f";
+constexpr char sd_config_dop_max_f[] = SD_CONFIG_FIELD_DOP_MAX "=%hu";
 
 
 SDInterface::SDInterface() : _status(SdStatus::e_sd_config_status_not_ready), _last_read(0), _last_write(0), _last_try(0) {
@@ -219,7 +221,7 @@ bool SDInterface::read_safezen_file_to_settings(LocalStorage& settings) {
 bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   // Device settings
   char access_point_password[CONFIG_VAL_MAX] = "";
-  uint32_t alarm_threshold = 0;
+  uint32_t alert_threshold = 0;
   uint8_t cpm_usvh = false;
   uint8_t manual_logging = false;
   uint8_t enable_journal = true;
@@ -237,6 +239,7 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   double fixed_latitude = 0;
   double fixed_longitude = 0;
   float fixed_range = 0;
+  uint16_t max_dop = 0;
 
   while (file.available()) {
     String line = file.readStringUntil('\n');
@@ -282,9 +285,9 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_ALARM_THRESHOLD)) {
-      if (_device_id && sscanf(line.c_str(), sd_config_alarm_threshold_f, &alarm_threshold)) {
-        settings.set_alarm_threshold(alarm_threshold, true);
-        DEBUG_PRINTF("Loaded from SD: alarm_threshold=%d\n", alarm_threshold);
+      if (_device_id && sscanf(line.c_str(), sd_config_alert_threshold_f, &alert_threshold)) {
+        settings.set_alert_threshold(alert_threshold, true);
+        DEBUG_PRINTF("Loaded from SD: alert_threshold=%d\n", alert_threshold);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_CPM_USVH)) {
@@ -343,9 +346,14 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
     }
     else if (line.startsWith(SD_CONFIG_FIELD_FIXED_RANGE)) {
       if (_device_id && sscanf(line.c_str(), sd_config_fixed_range_f, &fixed_range)) {
-//        settings.set_fixed_range(fixed_range, true);
-//        DEBUG_PRINTF("Loaded from SD: fixed_range=%0.1f\n", fixed_longitude);
-        DEBUG_PRINTF("Currently disabled setting: fixed_range=%0.1f\n", fixed_longitude);
+        settings.set_fixed_range(fixed_range, true);
+        DEBUG_PRINTF("Loaded from SD: fixed_range=%0.1f\n", fixed_longitude);
+      }
+    }
+    else if (line.startsWith(SD_CONFIG_FIELD_DOP_MAX)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_dop_max_f, &max_dop)) {
+        settings.set_dop_max(max_dop, true);
+        DEBUG_PRINTF("Loaded from SD: max_dop=%u\n", max_dop);
       }
     } else {
       DEBUG_PRINTF("Read (currently) unsupported SAFEZEN line: %s \n", line.c_str());
@@ -398,7 +406,7 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
   safecast_txt.println();
   safecast_txt.printf(sd_config_wifi_password_write_f, settings.get_wifi_password());
   safecast_txt.println();
-  safecast_txt.printf(sd_config_alarm_threshold_f, settings.get_alarm_threshold());
+  safecast_txt.printf(sd_config_alert_threshold_f, settings.get_alert_threshold());
   safecast_txt.println();
   safecast_txt.printf(sd_config_cpm_usvh_f, settings.get_cpm_usvh());
   safecast_txt.println();
@@ -413,6 +421,8 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
   safecast_txt.printf(sd_config_fixed_longitude_f, settings.get_fixed_longitude());
   safecast_txt.println();
   safecast_txt.printf(sd_config_fixed_range_f, settings.get_fixed_range());
+  safecast_txt.println();
+  safecast_txt.printf(sd_config_dop_max_f, settings.get_dop_max());
   safecast_txt.println();
 
   if (full) {

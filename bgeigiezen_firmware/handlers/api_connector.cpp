@@ -57,7 +57,7 @@ int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
     return e_handler_idle;
   }
 
-  if (!time_to_send(log_data.in_fixed_range, log_data.cpm > _config.get_alarm_threshold())) {
+  if (!time_to_send(log_data.in_fixed_range, log_data.cpm > _config.get_alert_threshold())) {
     // Not time to send yet
     return e_handler_idle;
   }

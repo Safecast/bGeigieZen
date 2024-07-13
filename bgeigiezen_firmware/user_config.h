@@ -111,6 +111,7 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #define D_MANUAL_LOGGING false
 #define D_ENABLE_JOURNAL true
 #define D_LOG_VOID false
+#define D_DOP_MAX 500
 #define D_SCREEN_DIM_TIMEOUT 60
 #define D_SCREEN_OFF_TIMEOUT 600
 #define D_ANIMATED_SCREENSAVER true
