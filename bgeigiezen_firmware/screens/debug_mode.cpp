@@ -14,14 +14,6 @@ DebugModeScreen DebugModeScreen_i;
 DebugModeScreen::DebugModeScreen() : BaseScreen("Debug", true) {
 }
 
-BaseScreen* DebugModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
-  auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
-  if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
-    return &MenuWindow_i;
-  }
-  return nullptr;
-}
-
 void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   ///
   // Display something
@@ -108,4 +100,12 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   M5.Lcd.printf("Logging data\n"
                 " Log string: %s\n",
                 log_aggregator->get_data().log_string);
+}
+
+BaseScreen* DebugModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
+  auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
+  if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
+    return &MenuWindow_i;
+  }
+  return nullptr;
 }

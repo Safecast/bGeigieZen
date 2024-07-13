@@ -112,7 +112,7 @@ void ConfigWebServer::handle_save() {
 //  }
 
   if(_server.hasArg(FORM_NAME_ALERT_THRESHOLD)) {
-    _config.set_alarm_threshold(clamp<uint16_t>(_server.arg(FORM_NAME_ALERT_THRESHOLD).toInt(), 0, 34464), false);
+    _config.set_alert_threshold(clamp<uint16_t>(_server.arg(FORM_NAME_ALERT_THRESHOLD).toInt(), 0, 34464), false);
   }
   if(_server.hasArg(FORM_NAME_SCREEN_DIM_TIMEOUT)) {
     _config.set_screen_dim_timeout(clamp<uint16_t>(_server.arg(FORM_NAME_SCREEN_DIM_TIMEOUT).toInt(), 0, 34464), false);
@@ -152,6 +152,12 @@ void ConfigWebServer::handle_save() {
   }
   if(_server.hasArg(FORM_NAME_LOC_FIXED_LON)) {
     _config.set_fixed_longitude(clamp<double>(_server.arg(FORM_NAME_LOC_FIXED_LON).toDouble(), -180.0, 180.0), false);
+  }
+  if(_server.hasArg(FORM_NAME_FIXED_RANGE)) {
+    _config.set_fixed_range(clamp<float>(_server.arg(FORM_NAME_FIXED_RANGE).toFloat(), 0, 5.0), false);
+  }
+  if(_server.hasArg(FORM_NAME_DOP_MAX)) {
+    _config.set_dop_max(clamp<uint16_t>(_server.arg(FORM_NAME_DOP_MAX).toInt(), 0, 5000), false);
   }
 
   _server.sendHeader("Location", _server.arg("next") + "?success=true");

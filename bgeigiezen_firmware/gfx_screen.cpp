@@ -172,9 +172,9 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
 
     BaseScreen* new_screen = nullptr;
     if (handle_input && workers.any_updates()) {
-      if (_menu->is_open()) {
+      if (_menu->menu_open()) {
         new_screen = _menu->handle_input(_controller, workers);
-        if (new_screen || !_menu->is_open()) {
+        if (new_screen || !_menu->menu_open()) {
           // Closed menu
           DEBUG_PRINTLN("Menu closed");
           _menu->leave_screen(_controller);
@@ -220,13 +220,14 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
     if (workers.any_updates() || handlers.any_updates() || (millis() - _last_render > LCD_REFRESH_RATE)) {
       M5.Lcd.startWrite();
       M5.Lcd.setRotation(3);
-      if (_menu->is_open()) {
+      if (_menu->menu_open()) {
         _menu->do_render(workers, handlers);
       } else {
         _screen->do_render(workers, handlers);
       }
 
       if (_screen->has_status_bar()) {
+        M5.Lcd.setTextFont(1);
         // Render message if available on top of bar
         if (_screen->get_error_message(workers, handlers)) {
           M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_ERROR);
