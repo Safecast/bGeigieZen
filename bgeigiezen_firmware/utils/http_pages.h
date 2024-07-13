@@ -30,6 +30,8 @@
 // Location setting form names
 #define FORM_NAME_LOC_FIXED_LAT "l_ha"
 #define FORM_NAME_LOC_FIXED_LON "l_ho"
+#define FORM_NAME_FIXED_RANGE "l_fr"
+#define FORM_NAME_DOP_MAX "l_dm"
 
 
 class HttpPages {

@@ -3,18 +3,10 @@
 
 #include "base_screen.h"
 
-class ConfigModeScreen : public BaseScreen {
+
+class ConfigModeScreen : public BaseScreenWithMenu {
  public:
-  explicit ConfigModeScreen();
 
-  virtual BaseScreen* handle_input(Controller& controller, const worker_map_t& workers) override;
-  virtual void enter_screen(Controller& controller) override;
-  virtual void leave_screen(Controller& controller) override;
-
- protected:
-  void render(const worker_map_t& workers, const handler_map_t& handlers, bool force) override;
-
- private:
   enum ConfigModePage {
     e_config_page_main,
     e_config_page_ap,
@@ -22,26 +14,33 @@ class ConfigModeScreen : public BaseScreen {
     e_config_page_load_sd_config,
     e_config_page_save_config_to_sd,
     e_config_page_reset,
-    e_config_page_MAX,
+    e_config_MENU_MAX,
   };
 
+  explicit ConfigModeScreen();
 
-  struct SettingsPageMenu {
-    const __FlashStringHelper* title;
-    const __FlashStringHelper* description;
-  };
+  BaseScreen* handle_input(Controller& controller, const worker_map_t& workers) override;
+  void enter_screen(Controller& controller) override;
+  void leave_screen(Controller& controller) override;
 
+ protected:
+  void render(const worker_map_t& workers, const handler_map_t& handlers, bool force) override;
 
-  void render_options_menu();
+ private:
+
   void render_page_main(const worker_map_t& workers, const handler_map_t& handlers);
   void render_page_ap(const worker_map_t& workers, const handler_map_t& handlers);
   void render_page_wifi(const worker_map_t& workers, const handler_map_t& handlers);
   void render_reset_device(const worker_map_t& workers, const handler_map_t& handlers);
 
-  bool _options_menu;
-  uint8_t _menu_index;
-  ConfigModePage _page;
-  SettingsPageMenu _settings_menu_content[ConfigModeScreen::e_config_page_MAX];
+  enum MainPageInfoSection {
+    e_config_section_device,
+    e_config_section_location,
+    e_config_section_connection,
+    e_config_section_MAX,
+  };
+
+  uint8_t _main_page_info_section;
 };
 
 extern ConfigModeScreen ConfigModeScreen_i;
