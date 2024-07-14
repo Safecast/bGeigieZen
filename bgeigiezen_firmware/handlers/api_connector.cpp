@@ -8,7 +8,7 @@
 // subtracting 1 seconds so data is sent more often than not.
 #define SEND_FREQUENCY(last_send, sec) ((last_send) == 0 || (millis() - (last_send)) > (((sec) * 1000) - 500))
 
-ApiConnector::ApiConnector(LocalStorage& config) : Handler(), _config(config), _payload(""), _post_count(0), _last_post(0) {
+ApiConnector::ApiConnector(LocalStorage& config) : Handler(), _http_client(), _config(config), _payload(""), _post_count(0), _last_post(0) {
 }
 
 bool ApiConnector::time_to_send(bool in_fixed_range, bool alert) const {
@@ -84,7 +84,7 @@ bool ApiConnector::reading_to_json(const DataLine& line, char* out) {
       "\"unit\":\"cpm\","
       "\"height\":%0.6f,"
       "\"latitude\":%0.6f,"
-      "\"longitude\":%0.6f}\n",
+      "\"longitude\":%0.6f}",
       line.timestamp,
       _config.get_fixed_device_id(),
       line.cpm,
@@ -100,15 +100,14 @@ uint32_t ApiConnector::get_post_count() const {
 
 int8_t ApiConnector::handle_async() {
   const unsigned long time_at_send = millis();
-  HTTPClient http;
 
   char url[100];
   sprintf(url, "%s?api_key=%s&", API_MEASUREMENTS_ENDPOINT, _config.get_api_key());
 
   //Specify destination for HTTP request
-  if (!http.begin(url)) {
+  if (!_http_client.begin(url)) {
     DEBUG_PRINTLN("Unable to begin url connection");
-    http.end(); //Free resources
+    _http_client.end(); //Free resources
     return e_api_reporter_error_remote_not_available;
   }
 
@@ -116,16 +115,16 @@ int8_t ApiConnector::handle_async() {
 
   sprintf(content_length, "%d", strlen(_payload));
 
-  http.setUserAgent(HEADER_API_USER_AGENT);
-  http.addHeader("Host", API_HOST);
-  http.addHeader("Content-Type", HEADER_API_CONTENT_TYPE);
-  http.addHeader("Content-Length", content_length);
+  _http_client.setUserAgent(HEADER_API_USER_AGENT);
+  _http_client.addHeader("Host", API_HOST);
+  _http_client.addHeader("Content-Type", HEADER_API_CONTENT_TYPE);
+  _http_client.addHeader("Content-Length", content_length);
 
-  int httpResponseCode = http.POST(_payload);
+  int httpResponseCode = _http_client.POST(_payload);
 
-  String response = http.getString();
+  String response = _http_client.getString();
   DEBUG_PRINTF("POST complete, response (%d):\n%s\n\n", httpResponseCode, response.c_str());
-  http.end(); //Free resources
+  _http_client.end(); //Free resources
 
   // TODO: Check response measurement ID
 
