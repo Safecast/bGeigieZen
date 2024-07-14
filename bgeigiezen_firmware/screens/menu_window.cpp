@@ -17,7 +17,7 @@ const MenuWindow::MenuItem MAIN_MENU_ITEMS[MAIN_MENU_MAX] = {
     {.title="Drive mode", .tooltip="Put the zen on your car and drive!", .enabled=true, .screen=&DriveModeScreen_i},
     {.title="Survey mode", .tooltip="Take the Zen out of the case and test   sources directly!", .enabled=true, .screen=&SurveyModeScreen_i},
     {.title="Real-time mode", .tooltip="Place the zen at a    fixed location or    take it with you and    upload data real-   time over wifi!", .enabled=true, .screen=&FixedModeScreen_i},
-    {.title="Satellites", .tooltip="A 2d constellation map for viewing satellites", .enabled=true, .screen=&SatelliteViewScreen_i},
+    {.title="Satellites", .tooltip="A 2d constellation   map for viewing and    configuring satellites", .enabled=true, .screen=&SatelliteViewScreen_i},
     {.title="Log viewer", .tooltip="View and upload     logs over wifi!", .enabled=false, .screen=nullptr},
     {.title="Settings", .tooltip="Configure your      device!", .enabled=true, .screen=&ConfigModeScreen_i},
     {.title="About Zen", .tooltip="Explore what you    can do with your     bGeigieZen", .enabled=true, .screen=&ZenInfoScreen_i},

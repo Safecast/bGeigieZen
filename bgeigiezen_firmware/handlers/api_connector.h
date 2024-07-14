@@ -65,6 +65,7 @@ class ApiConnector : public Handler {
 
  private:
 
+  HTTPClient _http_client;
   LocalStorage& _config;
   char _payload[200];
   uint32_t _post_count;

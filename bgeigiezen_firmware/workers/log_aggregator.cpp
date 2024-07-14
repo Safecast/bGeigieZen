@@ -110,7 +110,9 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
     longitude_s = static_cast<uint32_t>((longitude - longitude_dm) * 1e4);
   }
 
-  bool gps_valid = gps_data.valid() && gps_data.pdop * 100 < _settings.get_dop_max();
+
+  bool gps_valid = gps_data.valid();
+  bool dop_valid = gps_valid && gps_data.pdop * 100 < _settings.get_dop_max();
 
   sprintf(
       data.timestamp,
@@ -137,6 +139,7 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
 
   data.gps_valid = gps_data.valid();
   data.gm_valid = gm_sensor_data.valid;
+  data.dop_valid = dop_valid;
 
   return e_worker_data_read;
 }
