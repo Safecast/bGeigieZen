@@ -12,56 +12,89 @@
 #define COLOR_SAT_HEALTHY RED
 #define COLOR_SAT_UNKNOWN BLACK
 
+
+const SatelliteViewScreen::MenuItem SATELLITE_MENU[SatelliteViewScreen::e_satellite_MENU_MAX] = {
+    {.title="Satellites", .tooltip="View satellite constellation map", .enabled=true},
+    {.title="Set default", .tooltip="Configure GPS module to use default satellites", .enabled=false},
+    {.title="Set Americas", .tooltip="Configure GPS module to optimise use of satellites", .enabled=false},
+    {.title="Set Europe/Africa", .tooltip="Configure GPS module to optimise use of satellites", .enabled=false},
+    {.title="Set Asia/Oceania", .tooltip="Configure GPS module to optimise use of satellites", .enabled=false},
+    {.title="Cold start", .tooltip="Send cold start signal to the GPX module", .enabled=true},
+    {.title="Factory reset", .tooltip="Send factory reset signal to the GPS module", .enabled=false},
+};
+
 SatelliteViewScreen SatelliteViewScreen_i;
 
-SatelliteViewScreen::SatelliteViewScreen() : BaseScreen("Satellites", true) {
+SatelliteViewScreen::SatelliteViewScreen() : BaseScreenWithMenu("Satellites", true) {
   required_gps = true;
 }
 
 BaseScreen* SatelliteViewScreen::handle_input(Controller& controller, const worker_map_t& workers) {
-  const auto cold_start_button = workers.worker<ZenButton>(k_worker_button_1);
-  const auto gps = workers.worker<GpsConnector>(k_worker_gps_connector);
-  const auto navsat = workers.worker<NavsatCollector>(k_worker_navsat_collector);
-  if (gps->active() && cold_start_button->is_fresh() && cold_start_button->get_data().shortPress) {
-    controller.gps_cold_start();
-    set_status_message(F(" GPS cold start, this can take a while..."));
-    return nullptr;
-  }
-  const auto restart_button = workers.worker<ZenButton>(k_worker_button_2);
-  if (restart_button->is_fresh() && restart_button->get_data().shortPress) {
-    controller.set_worker_active(k_worker_navsat_collector, false);
-    controller.set_worker_active(k_worker_gps_connector, false);
-    controller.set_worker_active(k_worker_gps_connector, true);
-    force_next_render();
-  }
-  const auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
-  if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
-    return &MenuWindow_i;
-  }
 
-  if (gps->active() && navsat->get_active_state() == NavsatCollector::e_state_inactive) {
-    // reconnect navsat worker once gps worker is connected
-    controller.set_worker_active(k_worker_navsat_collector, true);
-    if (navsat->active()) {
-      set_status_message(F(" Nav-sat connected, this can take a few seconds "));
-    } else {
-      set_status_message(F(" Nav-sat was unable to connect "));
+  if (menu_open()) {
+    return handle_menu_input(controller, workers, SATELLITE_MENU, e_satellite_MENU_MAX);
+  }
+  else {
+    const auto gps = workers.worker<GpsConnector>(k_worker_gps_connector);
+    const auto navsat = workers.worker<NavsatCollector>(k_worker_navsat_collector);
+
+    if (gps->active() && navsat->get_active_state() == NavsatCollector::e_state_inactive) {
+      // reconnect navsat worker once gps worker is connected
+      controller.set_worker_active(k_worker_navsat_collector, true);
+      if (navsat->active()) {
+        set_status_message(F(" Nav-sat connected, this can take a few seconds "));
+      } else {
+        set_status_message(F(" Nav-sat was unable to connect "));
+      }
+    }
+
+    const auto button1 = workers.worker<ZenButton>(k_worker_button_1);
+    const auto button2 = workers.worker<ZenButton>(k_worker_button_2);
+    const auto button3 = workers.worker<ZenButton>(k_worker_button_3);
+    if (button1->is_fresh() && button1->get_data().shortPress) {
+      open_menu(true);
+      M5.Lcd.clear();
+      force_next_render();
+    }
+    if (button2->is_fresh() && button2->get_data().shortPress) {
+      // screen specific action
+      switch (_current_page) {
+        case e_satellite_page_main:
+          controller.set_worker_active(k_worker_navsat_collector, false);
+          controller.set_worker_active(k_worker_gps_connector, false);
+          controller.set_worker_active(k_worker_gps_connector, true);
+          force_next_render();
+          break;
+        default:
+          break;
+      }
+    }
+    if (button3->is_fresh() && button3->get_data().shortPress) {
+      return &MenuWindow_i;
     }
   }
+
   return nullptr;
 }
 
 void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   ///
+
+  if (menu_open()) {
+    if (!force) {
+      return;
+    }
+    return render_menu(SATELLITE_MENU, e_satellite_MENU_MAX);
+  }
+
   const auto gps = workers.worker<GpsConnector>(k_worker_gps_connector);
   const auto navsat = workers.worker<NavsatCollector>(k_worker_navsat_collector);
 
-
-  drawButton1("Cold start", gps->active() ? e_button_default : e_button_disabled);
-  drawButton2("Reconnect");
-  drawButton3("Menu");
-
   if (force || (navsat && navsat->is_fresh())) {
+
+    drawButton1("Options");
+    drawButton2("Reconnect");
+    drawButton3("Menu");
 
     int16_t  compAngle = 0;
     int16_t  mapRadius = 90;
@@ -176,6 +209,14 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
 void SatelliteViewScreen::enter_screen(Controller& controller) {
   // This is done in handle input
 //  controller.set_worker_active(k_worker_navsat_collector, true);
+  switch (_current_page) {
+    case e_satellite_page_cold_start:
+      controller.gps_cold_start();
+      set_status_message(F(" GPS cold start, this can take a while..."));
+      _current_page = e_satellite_page_main; // Back on main page
+      open_menu(false);       // Re-enter menu
+      break;
+  }
 }
 
 void SatelliteViewScreen::leave_screen(Controller& controller) {
