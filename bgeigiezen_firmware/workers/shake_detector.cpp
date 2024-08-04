@@ -1,8 +1,4 @@
-#ifdef M5_CORE2
-#include <M5Core2.h>
-#elif M5_BASIC
-#include <M5Stack.h>
-#endif
+#include <M5Unified.hpp>
 
 #include "shake_detector.h"
 

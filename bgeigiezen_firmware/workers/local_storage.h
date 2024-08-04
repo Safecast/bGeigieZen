@@ -31,7 +31,7 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual uint16_t get_device_id() const final;
   virtual uint32_t get_fixed_device_id() const final;
   virtual const char* get_ap_password() const final;
-  virtual uint16_t get_alarm_threshold() const final;
+  virtual uint16_t get_alert_threshold() const final;
   virtual bool get_cpm_usvh() const final;
   virtual bool get_manual_logging() const final;
   virtual bool get_enable_journal() const final;
@@ -45,13 +45,14 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual double get_fixed_longitude() const final;
   virtual double get_fixed_latitude() const final;
   virtual float get_fixed_range() const final;
+  virtual uint16_t get_dop_max() const final;
   virtual double get_last_longitude() const final;
   virtual double get_last_latitude() const final;
   virtual OperationalMode get_last_mode() const final;
 
   virtual void set_device_id(uint16_t device_id, bool force);
   virtual void set_ap_password(const char* ap_password, bool force);
-  virtual void set_alarm_threshold(uint16_t alarm_threshold, bool force);
+  virtual void set_alert_threshold(uint16_t alert_threshold, bool force);
   virtual void set_cpm_usvh(bool cpm_usvh, bool force);
   virtual void set_manual_logging(bool manual_logging, bool force);
   virtual void set_enable_journal(bool enable_journal, bool force);
@@ -65,6 +66,7 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual void set_fixed_longitude(double fixed_longitude, bool force);
   virtual void set_fixed_latitude(double fixed_latitude, bool force);
   virtual void set_fixed_range(float fixed_range, bool force);
+  virtual void set_dop_max(uint16_t dop_max, bool force);
   virtual void set_last_longitude(double last_longitude, bool force);
   virtual void set_last_latitude(double last_latitude, bool force);
   virtual void set_last_mode(OperationalMode last_mode, bool force);
@@ -82,7 +84,7 @@ class LocalStorage : public ProcessWorker<bool> {
 
   // Device settings
   uint16_t _device_id;
-  uint16_t _alarm_threshold;
+  uint16_t _alert_threshold;
   bool _cpm_usvh; // Main display CPM (true) or uSv/h (false) values
   bool _manual_logging;
   bool _enable_journal;
@@ -101,6 +103,7 @@ class LocalStorage : public ProcessWorker<bool> {
   double _fixed_longitude;
   double _fixed_latitude;
   float _fixed_range;
+  uint16_t _dop_max; // value as DOP * 100
 
 
   // internal tracking

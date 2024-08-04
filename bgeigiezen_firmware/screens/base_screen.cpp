@@ -159,3 +159,127 @@ void BaseScreen::set_status_message(const __FlashStringHelper* message) {
   _message = message;
   _status_message_time = millis();
 }
+
+void BaseScreen::clear_screen_content() {
+  M5.Lcd.fillRect(0, 20, 320, 180, LCD_COLOR_BACKGROUND);
+}
+
+BaseScreen* BaseScreenWithMenu::handle_menu_input(Controller& controller, const worker_map_t& workers, const MenuItem items[], int menu_max) {
+  auto button1 = workers.worker<ZenButton>(k_worker_button_1);
+  auto button2 = workers.worker<ZenButton>(k_worker_button_2);
+  auto button3 = workers.worker<ZenButton>(k_worker_button_3);
+
+  // Button 1 is move index down
+  if (button1->is_fresh() && button1->get_data().shortPress) {
+    ++_menu_index;
+    _menu_index %= menu_max;
+    force_next_render();
+  }
+
+  // Button 2 move index up
+  if (button2->is_fresh() && button2->get_data().shortPress) {
+    _menu_index = _menu_index + menu_max - 1;
+    _menu_index %= menu_max;
+    force_next_render();
+  }
+
+  // Button 3 change view
+  if (button3->is_fresh() && button3->get_data().shortPress && items[_menu_index].enabled) {
+
+
+    if (items[_menu_index].screen) {
+      // Swap screens
+      return items[_menu_index].screen;
+    } else {
+      // Swap pages internally
+      _menu_open = false;
+      M5.Lcd.clear();
+      if (_menu_index != _current_page) {
+        leave_screen(controller);
+        _current_page = _menu_index;
+        enter_screen(controller);
+      }
+      force_next_render();
+    }
+
+  }
+
+  return nullptr;
+}
+
+void BaseScreenWithMenu::render_menu(const MenuItem items[], int menu_max, bool outline, int outline_button) {
+  // Draw buttons
+  drawButton1("Down");
+  drawButton2("Up");
+  drawButton3("Enter", items[_menu_index].enabled ? e_button_active : e_button_disabled);
+
+  if (outline) {
+    // Draw menu overlay border
+    M5.Lcd.drawRoundRect(10, 20, 300, 170, 4, items[_menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
+    if (outline_button == 3) {
+      // Visually connect button to overlay
+#ifdef M5_CORE2
+      M5.Lcd.fillRect(220, 12, 90, 12, LCD_COLOR_BACKGROUND);
+      M5.Lcd.drawLine(220, 12, 220, 20, items[_menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
+      M5.Lcd.drawLine(309, 12, 309, 23, items[_menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
+#elif M5_BASIC
+      M5.Lcd.fillRect(210, 12, 90, 12, LCD_COLOR_BACKGROUND);
+      M5.Lcd.drawLine(210, 12, 210, 20, items[_menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
+      M5.Lcd.drawLine(299, 12, 299, 20, items[_menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
+#endif
+    }
+  }
+
+  // Draw tooltip block
+  M5.Lcd.fillRoundRect(161, 26, 142, 158, 4, LCD_COLOR_BACKGROUND);
+  // Draw separate line between menu and tooltip
+  M5.Lcd.drawLine(160, 33, 160, 177, LCD_COLOR_STALE_INCOMPLETE);
+
+
+  for (int i = 0; i < menu_max; ++i) {
+    M5.Lcd.setTextColor(items[i].enabled ? (i == _menu_index ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_DEFAULT) : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
+    M5.Lcd.drawLine(16, 48 + (i * 16), 159, 48 + (i * 16), (i == _menu_index ? (items[i].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE) : LCD_COLOR_BACKGROUND));
+    M5.Lcd.setCursor(16, 40 + (i * 16), 2);
+    if (i == _menu_index) {
+      M5.Lcd.print("> ");
+    }
+    else {
+      M5.Lcd.print("  ");
+    }
+    M5.Lcd.print(items[i].title);
+    M5.Lcd.print("  ");
+  }
+
+  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  M5.Lcd.setCursor(170, 30);
+  M5.Lcd.println(items[_menu_index].title);
+  size_t tooltip_length = strlen(items[_menu_index].tooltip);
+  uint8_t line = 0;
+  uint8_t current_line_length = 0;
+  M5.Lcd.setCursor(170, 60);
+  for (size_t i = 0; i < tooltip_length; ++i) {
+    if (current_line_length == 0 && items[_menu_index].tooltip[i] == ' ') {
+      continue;
+    }
+    current_line_length += M5.Lcd.drawChar(items[_menu_index].tooltip[i], 170 + current_line_length, 60 + (line * 16), 2);
+    if (current_line_length > 124) {
+      line += 1;
+      current_line_length = 0;
+    }
+  }
+  if (!items[_menu_index].enabled) {
+    M5.Lcd.setTextColor(LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
+    M5.Lcd.drawString("Not yet available", 170, 110 + (line * 16), 2);
+  }
+
+  M5.Lcd.setCursor(0, 0, 1);
+
+}
+
+bool BaseScreenWithMenu::menu_open() const {
+  return _menu_open;
+}
+
+void BaseScreenWithMenu::open_menu(bool open) {
+  _menu_open = open;
+}

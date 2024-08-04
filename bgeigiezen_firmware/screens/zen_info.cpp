@@ -39,6 +39,8 @@ void ZenInfoScreen::render(const worker_map_t& workers, const handler_map_t& han
 }
 
 void ZenInfoScreen::render_page_main(const worker_map_t& workers, const handler_map_t& handlers) {
+  // Temp only display Zen qr code on main page
+  return render_page_qr(workers, handlers);
   drawButton1("Website");
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.drawString("At some point there will be a", 10, 46, 2);
@@ -46,7 +48,7 @@ void ZenInfoScreen::render_page_main(const worker_map_t& workers, const handler_
 }
 
 void ZenInfoScreen::render_page_qr(const worker_map_t& workers, const handler_map_t& handlers) {
-  drawButton1("Back");
+//  drawButton1("Back");
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.drawString("Visit us at", 127, 36, 1);
   M5.Lcd.qrcode("https://bgeigiezen.safecast.jp", 95, 40, 130);

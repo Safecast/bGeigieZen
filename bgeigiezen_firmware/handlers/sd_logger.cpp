@@ -68,7 +68,7 @@ int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
       }
     }
 
-    if ((log_data->get_data().gps_valid && log_data->get_data().gm_valid) || settings->get_log_void()) {
+    if (log_data->get_data().valid() || settings->get_log_void()) {
       // Line is valid OR we are logging void lines
       if (SDInterface::i().log_println(_logging_to, log_data->get_data().log_string)) {
         // Line written to SD card log file

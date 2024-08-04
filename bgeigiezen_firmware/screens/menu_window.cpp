@@ -12,184 +12,40 @@
 #include "zen_info.h"
 
 
-MenuWindow::MenuItem DRIVE_MENU_ITEM = {
-    "Drive mode",
-    "Put the zen on your car and drive!",
-    true,
-    &DriveModeScreen_i,
+
+const MenuWindow::MenuItem MAIN_MENU_ITEMS[MAIN_MENU_MAX] = {
+    {.title="Drive mode", .tooltip="Put the zen on your car and drive!", .enabled=true, .screen=&DriveModeScreen_i},
+    {.title="Survey mode", .tooltip="Take the Zen out of the case and test   sources directly!", .enabled=true, .screen=&SurveyModeScreen_i},
+    {.title="Real-time mode", .tooltip="Place the zen at a    fixed location or    take it with you and    upload data real-   time over wifi!", .enabled=true, .screen=&FixedModeScreen_i},
+    {.title="Satellites", .tooltip="A 2d constellation   map for viewing and    configuring satellites", .enabled=true, .screen=&SatelliteViewScreen_i},
+    {.title="Log viewer", .tooltip="View and upload     logs over wifi!", .enabled=false, .screen=nullptr},
+    {.title="Settings", .tooltip="Configure your      device!", .enabled=true, .screen=&ConfigModeScreen_i},
+    {.title="About Zen", .tooltip="Explore what you    can do with your     bGeigieZen", .enabled=true, .screen=&ZenInfoScreen_i},
+    {.title="Debug info", .tooltip="Connected modules, their data and status all in a simple view", .enabled=true, .screen=&DebugModeScreen_i}
 };
-MenuWindow::MenuItem SURVEY_MENU_ITEM = {
-    "Survey mode",
-    "Take the Zen out of the case and test   sources directly!",
-    true,
-    &SurveyModeScreen_i,
-};
-MenuWindow::MenuItem FIXED_MENU_ITEM = {
-    "Real-time mode",
-    "Place the zen at a    fixed location or    take it with you and    upload data real-   time over wifi!",
-    true,
-    &FixedModeScreen_i,
-};
-MenuWindow::MenuItem LOG_VIEWER_MENU_ITEM = {
-    "Log viewer",
-    "View and upload     logs over wifi!",
-    false,
-    nullptr,
-};
-MenuWindow::MenuItem SETTINGS_MENU_ITEM = {
-    "Settings",
-    "Configure your      device!",
-    true,
-    &ConfigModeScreen_i,
-};
-MenuWindow::MenuItem MORE_INFO_MENU_ITEM = {
-    "Learn more",
-    "Explore what you    can do with your     bGeigieZen",
-    true,
-    &ZenInfoScreen_i,
-};
-MenuWindow::MenuItem NAVSAT_MENU_ITEM = {
-    "Satellites",
-    "A 2d constellation map for viewing satellites",
-    true,
-    &SatelliteViewScreen_i,
-};
-MenuWindow::MenuItem DEBUG_MENU_ITEM = {
-    "Debug info",
-    "Connected modules, their data and status all in a simple view",
-    true,
-    &DebugModeScreen_i,
-};
-MenuWindow::MenuItem ENTER_SIMPLE_MODE_MENU_ITEM = {
-    "Simple mode",
-    "Switch to simple mode!",
-    true,
-};
-MenuWindow::MenuItem ENTER_ADVANCED_MODE_MENU_ITEM = {
-    "Advanced mode",
-    "Switch to advanced mode!",
-    true,
-};
+
 
 MenuWindow MenuWindow_i;
 
-MenuWindow::MenuWindow() : BaseScreen("Menu", true),
-                           menu_open(false),
-                           menu_index(0),
-                           advanced_menu{
-                               DRIVE_MENU_ITEM,
-                               SURVEY_MENU_ITEM,
-                               FIXED_MENU_ITEM,
-                               LOG_VIEWER_MENU_ITEM,
-                               SETTINGS_MENU_ITEM,
-                               MORE_INFO_MENU_ITEM,
-                               NAVSAT_MENU_ITEM,
-                               DEBUG_MENU_ITEM} {
+MenuWindow::MenuWindow() : BaseScreenWithMenu("Menu", true) {
 }
 
 BaseScreen* MenuWindow::handle_input(Controller& controller, const worker_map_t& workers) {
-  const auto button1 = workers.worker<ZenButton>(k_worker_button_1);
-  const auto button2 = workers.worker<ZenButton>(k_worker_button_2);
-  const auto button3 = workers.worker<ZenButton>(k_worker_button_3);
-
-  // Button 1 is move index down
-  if (button1->is_fresh() && button1->get_data().shortPress) {
-    menu_index++;
-    menu_index %= ADVANCED_MENU_ITEMS;
-    force_next_render();
-    return nullptr;
-  }
-
-  if (button2->is_fresh() && button2->get_data().shortPress) {
-    menu_index = menu_index + ADVANCED_MENU_ITEMS - 1;
-    menu_index %= ADVANCED_MENU_ITEMS;
-    force_next_render();
-    return nullptr;
-  }
-
-  if (button3->is_fresh() && button3->get_data().shortPress && advanced_menu[menu_index].enabled) {
-    return advanced_menu[menu_index].screen;
-  }
-
-  return nullptr;
+  return handle_menu_input(controller, workers, MAIN_MENU_ITEMS, MAIN_MENU_MAX);
 }
 
 void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
-  if (!menu_open || !force) {
+  if (!menu_open() || !force) {
     return;
   }
-
-  // Draw buttons
-  drawButton1("Down");
-  drawButton2("Up");
-  drawButton3("Enter", advanced_menu[menu_index].enabled ? e_button_active : e_button_disabled);
-
-  // Draw menu overlay border
-  M5.Lcd.drawRoundRect(10, 20, 300, 170, 4, advanced_menu[menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
-  // Visually connect button to overlay
-#ifdef M5_CORE2
-  M5.Lcd.fillRect(220, 12, 90, 12, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawLine(220, 12, 220, 20, advanced_menu[menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
-  M5.Lcd.drawLine(309, 12, 309, 23, advanced_menu[menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
-#elif M5_BASIC
-  M5.Lcd.fillRect(210, 12, 90, 12, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawLine(210, 12, 210, 20, advanced_menu[menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
-  M5.Lcd.drawLine(299, 12, 299, 20, advanced_menu[menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
-#endif
-  // Draw tooltip block
-  M5.Lcd.fillRoundRect(161, 26, 142, 158, 4, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawLine(160, 33, 160, 177, LCD_COLOR_STALE_INCOMPLETE);
-//  M5.Lcd.drawRoundRect(160, 25, 144, 160, 4, LCD_COLOR_INACTIVE);
-
-
-  for (int i = 0; i < ADVANCED_MENU_ITEMS; ++i) {
-    M5.Lcd.setTextColor(advanced_menu[i].enabled ? (i == menu_index ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_DEFAULT) : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.drawLine(16, 48 + (i * 16), 159, 48 + (i * 16), (i == menu_index ? (advanced_menu[i].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE) : LCD_COLOR_BACKGROUND));
-    M5.Lcd.setCursor(16, 40 + (i * 16), 2);
-    if (i == menu_index) {
-      M5.Lcd.print("> ");
-    }
-    else {
-      M5.Lcd.print("  ");
-    }
-    M5.Lcd.print(advanced_menu[i].title);
-    M5.Lcd.print("  ");
-  }
-
-  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  M5.Lcd.setCursor(170, 30);
-  M5.Lcd.println(advanced_menu[menu_index].title);
-  size_t tooltip_length = strlen(advanced_menu[menu_index].tooltip);
-  uint8_t line = 0;
-  uint8_t current_line_length = 0;
-  M5.Lcd.setCursor(170, 60);
-  for (size_t i = 0; i < tooltip_length; ++i) {
-    if (current_line_length == 0 && advanced_menu[menu_index].tooltip[i] == ' ') {
-      continue;
-    }
-    current_line_length += M5.Lcd.drawChar(advanced_menu[menu_index].tooltip[i], 170 + current_line_length, 60 + (line * 16), 2);
-    if (current_line_length > 124) {
-      line += 1;
-      current_line_length = 0;
-    }
-  }
-  if (!advanced_menu[menu_index].enabled) {
-    M5.Lcd.setTextColor(LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
-    M5.Lcd.drawString("Not available", 170, 110 + (line * 16), 2);
-  }
-
-  M5.Lcd.setCursor(0, 0, 1);
-}
-
-bool MenuWindow::is_open() const {
-  return menu_open;
+  render_menu(MAIN_MENU_ITEMS, MAIN_MENU_MAX, true, 3);
 }
 
 void MenuWindow::enter_screen(Controller& controller) {
-  menu_open = true;
+  open_menu(true);
   force_next_render();
 }
 
 void MenuWindow::leave_screen(Controller& controller) {
-  menu_open = false;
+  open_menu(false);
 }

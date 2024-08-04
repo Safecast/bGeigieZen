@@ -110,6 +110,10 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
     longitude_s = static_cast<uint32_t>((longitude - longitude_dm) * 1e4);
   }
 
+
+  bool gps_valid = gps_data.valid();
+  bool dop_valid = gps_valid && gps_data.pdop * 100 < _settings.get_dop_max();
+
   sprintf(
       data.timestamp,
       "%04d-%02d-%02dT%02d:%02d:%02dZ",
@@ -121,7 +125,7 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
       DEVICE_HEADER, _settings.get_device_id(),
       data.timestamp,
       gm_sensor_data.cpm_comp, gm_sensor_data.cp5s, gm_sensor_data.total, gm_sensor_data.valid ? 'A' : 'V',
-      latitude_dm, latitude_s, NS, longitude_dm, longitude_s, WE, data.altitude, gps_data.valid() ? 'A' : 'V', gps_data.satsInView,
+      latitude_dm, latitude_s, NS, longitude_dm, longitude_s, WE, data.altitude, gps_valid ? 'A' : 'V', gps_data.satsInView,
       static_cast<int>(100 * gps_data.pdop));  // DOP logged as integer, displayed as float 
 
   size_t len = strlen(data.log_string);
@@ -135,6 +139,7 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
 
   data.gps_valid = gps_data.valid();
   data.gm_valid = gm_sensor_data.valid;
+  data.dop_valid = dop_valid;
 
   return e_worker_data_read;
 }

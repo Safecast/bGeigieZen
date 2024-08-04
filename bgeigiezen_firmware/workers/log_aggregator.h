@@ -14,7 +14,7 @@ struct DataLine {
   char log_string[LINE_BUFFER_SIZE] = "";
 
   bool valid() const {
-    return gps_valid && gm_valid;
+    return gps_valid && gm_valid && dop_valid;
   }
 
   uint16_t cpm = 0;
@@ -23,6 +23,7 @@ struct DataLine {
   double longitude = 0;
   double altitude = 0;
   double distance = 0;
+  bool dop_valid = false;
   bool in_fixed_range = false;
 };
 

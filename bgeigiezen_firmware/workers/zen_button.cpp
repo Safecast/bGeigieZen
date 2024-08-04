@@ -4,7 +4,7 @@
 #define SHORT_PRESS_DURATION 10
 #define LONG_PRESS_DURATION 2400
 
-ZenButton::ZenButton(Button& m5_button) : Worker<ButtonState>({false, false, false}),
+ZenButton::ZenButton(m5::Button_Class& m5_button) : Worker<ButtonState>({false, false, false}),
                                           _m5_button(m5_button) {
 }
 

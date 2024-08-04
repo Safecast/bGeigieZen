@@ -41,11 +41,7 @@
  *
  */
 
-#ifdef M5_CORE2
-#include <M5Core2.h>
-#elif M5_BASIC
-#include <M5Stack.h>
-#endif
+#include <M5Unified.hpp>
 
 #include <Arduino.h>
 
@@ -104,7 +100,6 @@ GFXScreen gfx_screen(settings, controller);
 void setup() {
   ZEN_LOGD("MAIN SETUP DEBUG ENABLED\n");
   /// Hardware configurations
-  Wire.begin();
   M5.begin();
 
   /// Software configurations
@@ -147,5 +142,6 @@ void loop() {
 #endif
 
   M5.update();
+
   controller.run();
 }
