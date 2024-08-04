@@ -3,8 +3,20 @@
 
 #include "base_screen.h"
 
-class SatelliteViewScreen : public BaseScreen {
+class SatelliteViewScreen : public BaseScreenWithMenu {
  public:
+
+  enum SatellitePage {
+    e_satellite_page_main,
+    e_satellite_page_set_default_config,
+    e_satellite_page_set_na_config,
+    e_satellite_page_set_eu_config,
+    e_satellite_page_set_asia_config,
+    e_satellite_page_cold_start,
+    e_satellite_page_factory_reset,
+    e_satellite_MENU_MAX,
+  };
+
   explicit SatelliteViewScreen();
 
   BaseScreen* handle_input(Controller& controller, const worker_map_t& workers) override;

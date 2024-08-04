@@ -12,11 +12,12 @@ constexpr char const* key_ap_password = "device_password";
 constexpr char const* key_wifi_ssid = "wifi_ssid";
 constexpr char const* key_wifi_password = "wifi_password";
 constexpr char const* key_api_key = "api_key";
-constexpr char const* key_alarm_threshold = "alarm_threshold";
+constexpr char const* key_alert_threshold = "alarm_threshold";
 constexpr char const* key_cpm_usvh = "cpm_usvh";
 constexpr char const* key_manual_logging = "manual_logging";
 constexpr char const* key_enable_journal = "enable_journal";
 constexpr char const* key_log_void = "log_void";
+constexpr char const* key_dop_max = "dop_max";
 constexpr char const* key_screen_dim_timeout = "dim_timeout";
 constexpr char const* key_screen_off_timeout = "off_timeout";
 constexpr char const* key_animated_screensaver = "ani_screensaver";
@@ -32,7 +33,7 @@ LocalStorage::LocalStorage() :
     _memory(),
     _device_id(0),
     _ap_password(""),
-    _alarm_threshold(0),
+    _alert_threshold(0),
     _cpm_usvh(false),
     _manual_logging(false),
     _enable_journal(true),
@@ -46,6 +47,7 @@ LocalStorage::LocalStorage() :
     _fixed_longitude(0),
     _fixed_latitude(0),
     _fixed_range(0.5),
+    _dop_max(0),
     _last_longitude(0),
     _last_latitude(0),
     _last_mode(e_operational_mode_drive) {
@@ -55,7 +57,7 @@ void LocalStorage::reset_defaults() {
   if(clear()) {
     set_device_id(D_DEVICE_ID, true);
     set_ap_password(D_AP_PASSWORD, true);
-    set_alarm_threshold(D_ALARM_THRESHOLD, true);
+    set_alert_threshold(D_ALARM_THRESHOLD, true);
     set_cpm_usvh(D_CPM_USVH, true);
     set_manual_logging(D_MANUAL_LOGGING, true);
     set_enable_journal(D_ENABLE_JOURNAL, true);
@@ -69,6 +71,7 @@ void LocalStorage::reset_defaults() {
     set_fixed_longitude(D_FIXED_LONGITUDE, true);
     set_fixed_latitude(D_FIXED_LATITUDE, true);
     set_fixed_range(D_FIXED_RANGE, true);
+    set_dop_max(D_DOP_MAX, true);
     set_last_longitude(D_LAST_LONGITUDE, true);
     set_last_latitude(D_LAST_LATITUDE, true);
     set_last_mode(e_operational_mode_drive, true);
@@ -88,8 +91,8 @@ const char* LocalStorage::get_ap_password() const {
   return _ap_password;
 }
 
-uint16_t LocalStorage::get_alarm_threshold() const {
-  return _alarm_threshold;
+uint16_t LocalStorage::get_alert_threshold() const {
+  return _alert_threshold;
 }
 
 bool LocalStorage::get_cpm_usvh() const {
@@ -106,6 +109,10 @@ bool LocalStorage::get_enable_journal() const {
 
 bool LocalStorage::get_log_void() const {
   return _log_void;
+}
+
+uint16_t LocalStorage::get_dop_max() const {
+  return _dop_max;
 }
 
 uint16_t LocalStorage::get_screen_dim_timeout() const {
@@ -157,7 +164,7 @@ LocalStorage::OperationalMode LocalStorage::get_last_mode() const {
 }
 
 void LocalStorage::set_device_id(uint16_t device_id, bool force) {
-  if(force || (device_id != _device_id)) {
+  if((force || (device_id != _device_id)) && device_id > 5000 && device_id < 6000) {
     if(_memory.begin(memory_name)) {
       _device_id = device_id;
       _memory.putUShort(key_device_id, _device_id);
@@ -180,10 +187,10 @@ void LocalStorage::set_ap_password(const char* ap_password, bool force) {
   }
 }
 
-void LocalStorage::set_alarm_threshold(uint16_t alarm_threshold, bool force) {
+void LocalStorage::set_alert_threshold(uint16_t alert_threshold, bool force) {
   if(_memory.begin(memory_name)) {
-    _alarm_threshold = alarm_threshold;
-    _memory.putUInt(key_alarm_threshold, alarm_threshold);
+    _alert_threshold = alert_threshold;
+    _memory.putUInt(key_alert_threshold, alert_threshold);
     _memory.end();
   } else {
     ZEN_LOGD("unable to save new value for ap_password\n");
@@ -227,6 +234,16 @@ void LocalStorage::set_log_void(bool log_void, bool force) {
     _memory.end();
   } else {
     ZEN_LOGD("unable to save new value for log_void\n");
+  }
+}
+
+void LocalStorage::set_dop_max(uint16_t dop_max, bool force) {
+  if(_memory.begin(memory_name)) {
+    _dop_max = dop_max;
+    _memory.putUInt(key_dop_max, dop_max);
+    _memory.end();
+  } else {
+    DEBUG_PRINTLN("unable to save new value for dop_max");
   }
 }
 
@@ -370,7 +387,7 @@ bool LocalStorage::clear() {
 bool LocalStorage::activate(bool) {
   _memory.begin(memory_name, true);
   _device_id = _memory.getUShort(key_device_id, D_DEVICE_ID);
-  _alarm_threshold = _memory.getUInt(key_alarm_threshold, D_ALARM_THRESHOLD);
+  _alert_threshold = _memory.getUInt(key_alert_threshold, D_ALARM_THRESHOLD);
   _cpm_usvh = _memory.getBool(key_cpm_usvh, D_CPM_USVH);
   _manual_logging = _memory.getBool(key_manual_logging, D_MANUAL_LOGGING);
   _enable_journal = _memory.getBool(key_enable_journal, D_ENABLE_JOURNAL);
@@ -393,6 +410,7 @@ bool LocalStorage::activate(bool) {
   _fixed_longitude = _memory.getDouble(key_fixed_longitude, D_FIXED_LONGITUDE);
   _fixed_latitude = _memory.getDouble(key_fixed_latitude, D_FIXED_LATITUDE);
   _fixed_range = _memory.getFloat(key_fixed_range, D_FIXED_RANGE);
+  _dop_max = _memory.getUInt(key_dop_max, D_DOP_MAX);
   _last_longitude = _memory.getDouble(key_last_longitude, D_LAST_LONGITUDE);
   _last_latitude = _memory.getDouble(key_last_latitude, D_LAST_LATITUDE);
   _last_mode = static_cast<OperationalMode>(_memory.getUShort(key_last_mode, e_operational_mode_drive));

@@ -174,7 +174,7 @@ const char* HttpPages::get_config_device_page(
       "</fieldset>"
       "</form>"
       "%s", // Success message
-      settings.get_alarm_threshold(),
+      settings.get_alert_threshold(),
       settings.get_screen_dim_timeout(),
       settings.get_screen_off_timeout(),
       settings.get_animated_screensaver() ? "" : "checked",
@@ -222,6 +222,16 @@ const char* HttpPages::get_config_location_page(
       "Longitude: <span id='l_lo'>%.5f</span><br>"
       "</span>"
 
+      // Fixed range
+      "<label for='" FORM_NAME_FIXED_RANGE "'>Fixed range</label>"
+      "<input type='number' min='0' max='5' name='" FORM_NAME_FIXED_RANGE "' id='" FORM_NAME_FIXED_RANGE "' value='%.1f' step='0.1'>"
+      "<span class='pure-form-message'>Range from fixed location in which measurements will be posted as fixed location (in KM)</span>"
+
+      // Max DOP
+      "<label for='" FORM_NAME_DOP_MAX "'>DOP max</label>"
+      "<input type='number' min='100' max='5000' name='" FORM_NAME_DOP_MAX "' id='" FORM_NAME_DOP_MAX "' value='%u' step='1'>"
+      "<span class='pure-form-message'>Max accepted DOP value for fix to be valid. Above value is configured as *100 (so a value of 500 would mean DOP of 5)</span>"
+
 
       "<br>"
       "<button type='submit' class='pure-button pure-button-primary'>Save</button>"
@@ -232,6 +242,8 @@ const char* HttpPages::get_config_location_page(
       settings.get_fixed_longitude(),
       settings.get_last_latitude(),
       settings.get_last_longitude(),
+      settings.get_fixed_range(),
+      settings.get_dop_max(),
       display_success ? success_message : ""
   );
 }
