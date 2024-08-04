@@ -1,11 +1,7 @@
 #ifndef USER_CONFIG_H_
 #define USER_CONFIG_H_
 
-#ifdef M5_CORE2
-#include <M5Core2.h>
-#elif M5_BASIC
-#include <M5Stack.h>
-#endif
+#include <M5Unified.hpp>
 
 /** System config **/
 #define ENABLE_DEBUG 1
@@ -16,6 +12,11 @@
 // Version defined in platformio.ini in [env] build flags
 #define VERSION_NUMBER STR(MAJOR_VERSION) "." STR(MINOR_VERSION) "." STR(PATCH_VERSION)
 #define VERSION_STRING "bGeigieZen " VERSION_NUMBER
+
+/*** COPYRIGHT ***/
+// Copyright year for screens
+#define COPYRIGHT_YEAR 2024
+#define COPYRIGHT_YEAR_STRING STR(COPYRIGHT_YEAR)
 
 /***************/
 
@@ -70,7 +71,7 @@ constexpr uint8_t LINE_BUFFER_SIZE = 100;
 constexpr uint8_t LOG_FILENAME_SIZE = 100;
 constexpr uint8_t MIN_LOG_LINES_FOR_KEEP = 2;
 constexpr uint8_t LOG_SECONDS_DELAY = 5; // Logs every 5 seconds
-constexpr uint16_t API_SEND_SECONDS_DELAY = 60; // Posts every 1 minute by default
+constexpr uint16_t API_SEND_SECONDS_DELAY = 300; // Posts every 5 minute by default
 constexpr uint16_t API_SEND_SECONDS_DELAY_ALERT = 5; // Posts every 5 seconds when alerted
 constexpr uint16_t API_SEND_SECONDS_DELAY_ROAMING = 5; // Posts every 5 seconds when roaming
 
@@ -106,6 +107,7 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #define D_MANUAL_LOGGING false
 #define D_ENABLE_JOURNAL true
 #define D_LOG_VOID false
+#define D_DOP_MAX 500
 #define D_SCREEN_DIM_TIMEOUT 60
 #define D_SCREEN_OFF_TIMEOUT 600
 #define D_ANIMATED_SCREENSAVER true
@@ -114,7 +116,7 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #define D_API_KEY ""
 #define D_FIXED_LONGITUDE 0
 #define D_FIXED_LATITUDE 0
-#define D_FIXED_RANGE 0.5
+#define D_FIXED_RANGE 0.2
 #define D_LAST_LONGITUDE 0
 #define D_LAST_LATITUDE 0
 

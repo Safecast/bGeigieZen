@@ -9,63 +9,38 @@
 #include "workers/zen_button.h"
 #include <WiFi.h>
 
+const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MENU_MAX] = {
+    {.title="View settings", .tooltip="View current device  settings", .enabled=true},
+    {.title="Start Access Point", .tooltip="Start Wi-Fi access   point, connect with   pc or phone to       configure device", .enabled=true},
+    {.title="Start on local", .tooltip="Connect to local     Wi-Fi, use pc or      phone on local       network to configure    device", .enabled=true},
+    {.title="Load from SD", .tooltip="Read settings file     from the SD-card     and set to device", .enabled=true},
+    {.title="Save to SD", .tooltip="Write current device      settings to the       SD-card config file", .enabled=true},
+    {.title="Reset device", .tooltip="Clear and reset      device, on reboot it      will load initial       settings from SD-card", .enabled=true},
+};
+
+
 ConfigModeScreen ConfigModeScreen_i;
 
-ConfigModeScreen::ConfigModeScreen() : BaseScreen("Settings", true),
-                                       _options_menu(false),
-                                       _menu_index(e_config_page_main),
-                                       _page(e_config_page_main),
-                                       _settings_menu_content{
-                                           {.title=F("Current settings "), .description=F("<description>")},
-                                           {.title=F("Start Access Point "), .description=F("<description>")},
-                                           {.title=F("Start on local "), .description=F("<description>")},
-                                           {.title=F("Load from SD "), .description=F("<description>")},
-                                           {.title=F("Save to SD "), .description=F("<description>")},
-                                           {.title=F("Reset device "), .description=F("<description>")},
-                                       } {
+ConfigModeScreen::ConfigModeScreen() : BaseScreenWithMenu("Settings", true), _main_page_info_section(0) {
 }
 
 BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
-  auto button1 = workers.worker<ZenButton>(k_worker_button_1);
-  auto button2 = workers.worker<ZenButton>(k_worker_button_2);
-  auto button3 = workers.worker<ZenButton>(k_worker_button_3);
 
-  if (_options_menu) {
-    // Button 1 is move index down
-    if (button1->is_fresh() && button1->get_data().shortPress) {
-      ++_menu_index;
-      _menu_index %= e_config_page_MAX;
-      force_next_render();
-    }
-
-    // Button 2 move index up
-    if (button2->is_fresh() && button2->get_data().shortPress) {
-      _menu_index = _menu_index + e_config_page_MAX - 1;
-      _menu_index %= e_config_page_MAX;
-      force_next_render();
-    }
-
-    // Button 3 change view
-    if (button3->is_fresh() && button3->get_data().shortPress) {
-      _options_menu = false;
-      M5.Lcd.clear();
-      if (_menu_index != _page) {
-        leave_screen(controller);
-        _page = static_cast<ConfigModePage>(_menu_index);
-        enter_screen(controller);
-      }
-      force_next_render();
-    }
+  if (menu_open()) {
+    return handle_menu_input(controller, workers, CONFIG_MODE_MENU, e_config_MENU_MAX);
   }
   else {
+    auto button1 = workers.worker<ZenButton>(k_worker_button_1);
+    auto button2 = workers.worker<ZenButton>(k_worker_button_2);
+    auto button3 = workers.worker<ZenButton>(k_worker_button_3);
     if (button1->is_fresh() && button1->get_data().shortPress) {
-      _options_menu = true;
+      open_menu(true);
       M5.Lcd.clear();
       force_next_render();
     }
     if (button2->is_fresh() && button2->get_data().shortPress) {
       // screen specific action
-      switch (_page) {
+      switch (_current_page) {
         case e_config_page_reset:
           controller.reset_all();
           // Temp clear and post reset message to screen
@@ -79,6 +54,9 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
           delay(1000);
           DeviceUtils::shutdown(true);
           break;
+        case e_config_page_main:
+          _main_page_info_section = (_main_page_info_section + 1) % e_config_section_MAX;
+          force_next_render();
         default:
           break;
       }
@@ -93,14 +71,14 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
 
 void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
 
-  if (_options_menu) {
+  if (menu_open()) {
     if (!force) {
       return;
     }
-    return render_options_menu();
+    return render_menu(CONFIG_MODE_MENU, e_config_MENU_MAX);
   }
 
-  switch (_page) {
+  switch (_current_page) {
     case e_config_page_main:
       if (!force) {
         return;
@@ -117,59 +95,46 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
   }
 }
 
-void ConfigModeScreen::render_options_menu() {
-  drawButton1("Down");
-  drawButton2("Up");
-  drawButton3("Enter");
-
-  // Draw tooltip block
-  M5.Lcd.fillRoundRect(161, 26, 142, 158, 4, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawLine(160, 33, 160, 177, LCD_COLOR_STALE_INCOMPLETE);
-
-  for (int i = 0; i < e_config_page_MAX; ++i) {
-    M5.Lcd.setTextColor((i == _menu_index ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_DEFAULT), LCD_COLOR_BACKGROUND);
-    M5.Lcd.drawLine(16, 48 + (i * 16), 159, 48 + (i * 16), (i == _menu_index ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_BACKGROUND));
-    M5.Lcd.setCursor(16, 40 + (i * 16), 2);
-    if (i == _menu_index) {
-      M5.Lcd.print("> ");
-    }
-    else {
-      M5.Lcd.print("  ");
-    }
-    M5.Lcd.print(_settings_menu_content[i].title);
-  }
-
-  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  M5.Lcd.setCursor(170, 30);
-  M5.Lcd.print(_settings_menu_content[_menu_index].title);
-
-  M5.Lcd.setCursor(170, 60);
-  M5.Lcd.print(_settings_menu_content[_menu_index].description);
-
-  M5.Lcd.setCursor(0, 0, 1);
-}
-
 void ConfigModeScreen::render_page_main(const worker_map_t& workers, const handler_map_t& handlers) {
   drawButton1("Options");
+  char button_text[13];
+  sprintf(button_text, "More (%d/%d)", _main_page_info_section + 1, e_config_section_MAX);
+  drawButton2(button_text);
   drawButton3("Menu");
+
+  clear_screen_content();
 
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
 
   // Temp print out device settings on screen
   const auto& config = *workers.worker<LocalStorage>(k_worker_local_storage);
-  M5.Lcd.setCursor(0, 50, 1);
-  M5.Lcd.printf("device id:        %d      \n", config.get_device_id());
-  M5.Lcd.printf("ap password:      %s      \n", config.get_ap_password());
-  M5.Lcd.printf("alarm threshold:  %d      \n", config.get_alarm_threshold());
-  M5.Lcd.printf("manual logging:   %s      \n", config.get_manual_logging() ? "Enabled" : "Disabled");
-  M5.Lcd.printf("dim timeout:      %d seconds     \n", config.get_screen_dim_timeout());
-  M5.Lcd.printf("off timeout:      %d seconds     \n", config.get_screen_off_timeout());
-  M5.Lcd.printf("screensaver:      %s      \n", config.get_animated_screensaver() ? "Enabled" : "Disabled");
-  M5.Lcd.printf("wifi ssid:        %s      \n", config.get_wifi_ssid());
-  M5.Lcd.printf("wifi password:    %s      \n", config.get_wifi_password());
-  M5.Lcd.printf("api key:          %s      \n", config.get_api_key());
-  M5.Lcd.printf("fixed longitude:  %0.6f      \n", config.get_fixed_longitude());
-  M5.Lcd.printf("fixed latitude:   %0.6f      \n", config.get_fixed_latitude());
+  M5.Lcd.setCursor(0, 30, 2);
+
+  if (_main_page_info_section == e_config_section_device) {
+    M5.Lcd.printf("Device settings\n\n");
+    M5.Lcd.printf("Display unit:   %s  \n", config.get_cpm_usvh() ? "CPM" : "uSv/h");
+    M5.Lcd.printf("Alert threshold:   %d  \n", config.get_alert_threshold());
+    M5.Lcd.printf("Logging drive/survey:   %s  \n", config.get_manual_logging() ? "Manual start" : "Automatic");
+    M5.Lcd.printf("Measurements in log file:   %s  \n", config.get_log_void() ? "Valid and invalid" : "Only valid");
+    M5.Lcd.printf("Screen dim after:   %d seconds  \n", config.get_screen_dim_timeout());
+    M5.Lcd.printf("Screen off after:   %d seconds  \n", config.get_screen_off_timeout());
+    M5.Lcd.printf("Screensaver:   %s  \n", config.get_animated_screensaver() ? "Enabled" : "Disabled");
+  }
+  if (_main_page_info_section == e_config_section_location) {
+    M5.Lcd.printf("Location settings\n\n");
+    M5.Lcd.printf("Fixed longitude:   %0.6f  \n", config.get_fixed_longitude());
+    M5.Lcd.printf("Fixed latitude:   %0.6f  \n", config.get_fixed_latitude());
+    M5.Lcd.printf("Fixed range:   %0.2f km  \n", config.get_fixed_range());
+    M5.Lcd.printf("Maximum valid DOP:   %u   \n", config.get_dop_max());
+  }
+  if (_main_page_info_section == e_config_section_connection) {
+    M5.Lcd.printf("Connection settings\n\n");
+    M5.Lcd.printf("AP password:   %s  \n", config.get_ap_password());
+    M5.Lcd.printf("local Wi-Fi ssid:   %s  \n", config.get_wifi_ssid());
+    M5.Lcd.printf("local Wi-Fi password:   %s  \n", config.get_wifi_password());
+    M5.Lcd.printf("API key:   %s  \n", config.get_api_key());
+  }
+
 }
 
 void ConfigModeScreen::render_page_ap(const worker_map_t& workers, const handler_map_t& handlers) {
@@ -185,7 +150,6 @@ void ConfigModeScreen::render_page_ap(const worker_map_t& workers, const handler
   M5.Lcd.printf("Password:    %s\n", settings->get_ap_password());
 
   M5.Lcd.printf("IP:          %s     \n", WiFi.softAPIP().toString().c_str());
-
 }
 
 void ConfigModeScreen::render_page_wifi(const worker_map_t& workers, const handler_map_t& handlers) {
@@ -214,7 +178,7 @@ void ConfigModeScreen::render_reset_device(const worker_map_t& workers, const ha
 }
 
 void ConfigModeScreen::enter_screen(Controller& controller) {
-  switch (_page) {
+  switch (_current_page) {
     case e_config_page_main:
       // In case when entering from main menu, always set config menu index correctly
       _menu_index = e_config_page_main;
@@ -230,20 +194,22 @@ void ConfigModeScreen::enter_screen(Controller& controller) {
     case e_config_page_load_sd_config:
       if (controller.load_sd_config()) {
         set_status_message(F(" SD CONFIG LOADED, settings have been updated! "));
-      } else {
+      }
+      else {
         set_status_message(F(" LOAD CONFIG FAILED, no config or SD-card! "));
       }
-      _page = e_config_page_main; // Back on main page
-      _options_menu = true; // Re-enter menu
+      _current_page = e_config_page_main; // Back on main page
+      open_menu(true);       // Re-enter menu
       break;
     case e_config_page_save_config_to_sd:
       if (controller.write_sd_config()) {
         set_status_message(F(" CONFIG SAVED, settings have been saved to SD! "));
-      } else {
+      }
+      else {
         set_status_message(F(" WRITE CONFIG FAILED, no SD-card! "));
       }
-      _page = e_config_page_main; // Back on main page
-      _options_menu = true; // Re-enter menu
+      _current_page = e_config_page_main; // Back on main page
+      open_menu(true);       // Re-enter menu
       break;
     default:
       break;
@@ -251,7 +217,7 @@ void ConfigModeScreen::enter_screen(Controller& controller) {
 }
 
 void ConfigModeScreen::leave_screen(Controller& controller) {
-  switch (_page) {
+  switch (_current_page) {
     case e_config_page_ap:
       WiFiWrapper_i.stop_ap_server();
       controller.set_worker_active(k_worker_config_server, false);
@@ -265,5 +231,6 @@ void ConfigModeScreen::leave_screen(Controller& controller) {
   }
 
   // Set page to main in case we left through main menu
-  _page = e_config_page_main;
+  _current_page = e_config_page_main;
+  _main_page_info_section = e_config_section_device;
 }

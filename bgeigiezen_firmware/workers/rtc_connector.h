@@ -18,7 +18,6 @@
 */
 
 #ifdef M5_CORE2
-#include <M5Core2.h>
 #include <I2C_BM8563.h>
 #endif
 #include "debugger.h"

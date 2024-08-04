@@ -1,13 +1,11 @@
 #ifndef BGEIGIEZEN_BASE_SCREEN_H_
 #define BGEIGIEZEN_BASE_SCREEN_H_
 
-#ifdef M5_CORE2
-#include <M5Core2.h>
-#elif M5_BASIC
-#include <M5Stack.h>
-#endif
+#include <M5Unified.hpp>
 
 #include "controller.h"
+#include "identifiers.h"
+#include "workers/zen_button.h"
 #include <Supervisor.hpp>
 
 #define STATUS_ERROR_GEIGER F(" NO GEIGER TUBE CONNECTED ");
@@ -102,6 +100,11 @@ class BaseScreen {
   int printFloatFont(float val, int prec, int x, int y, int font) const;
   int printIntFont(unsigned long val, int x, int y, int font) const;
 
+  /**
+   * Clears page content area (NOT the buttons, status message and status bar)
+   */
+  void clear_screen_content();
+
   void set_status_message(const __FlashStringHelper* message);
 
   // required modules for status bar
@@ -120,5 +123,62 @@ class BaseScreen {
   uint32_t _status_message_time;
   const __FlashStringHelper* _message;
 };
+
+
+
+class BaseScreenWithMenu : public BaseScreen {
+ public:
+  /**
+   * True if menu view is open
+   * @return
+   */
+  bool menu_open() const;
+
+  struct MenuItem {
+    const char* title;
+    const char* tooltip;
+    bool enabled;
+    BaseScreen* screen; // Change to
+  };
+
+ protected:
+  BaseScreenWithMenu(const char* title, bool status_bar)
+      : BaseScreen(title, status_bar), _current_page(0), _menu_index(0), _menu_open(false) {
+  }
+
+  /**
+   * Handle input for the menu view (when menu is open)
+   * @param controller
+   * @param workers
+   * @param items: all menu items
+   * @param menu_max: length of menu items
+   * @return
+   */
+  BaseScreen* handle_menu_input(Controller& controller, const worker_map_t& workers, const MenuItem items[], int menu_max);
+
+  /**
+   * Render menu view
+   * @param items: all menu items
+   * @param menu_max: length of menu items
+   * @param outline: if true it will draw an outline around the menu
+   * @param outline_button: visually connect to button (only button 3 supported)
+   */
+  void render_menu(const MenuItem items[], int menu_max, bool outline = true, int outline_button = 0);
+
+  /**
+   * Open or close the menu
+   */
+  void open_menu(bool open);
+
+
+ protected:
+  int _current_page;
+  int _menu_index;
+ private:
+  bool _menu_open;
+};
+
+
+
 
 #endif //BGEIGIEZEN_BASE_SCREEN_H_
