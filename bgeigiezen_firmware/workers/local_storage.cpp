@@ -243,7 +243,7 @@ void LocalStorage::set_dop_max(uint16_t dop_max, bool force) {
     _memory.putUInt(key_dop_max, dop_max);
     _memory.end();
   } else {
-    DEBUG_PRINTLN("unable to save new value for dop_max");
+    ZEN_LOGD("unable to save new value for dop_max\n");
   }
 }
 
