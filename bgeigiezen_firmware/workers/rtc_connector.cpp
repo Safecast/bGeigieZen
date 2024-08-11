@@ -48,6 +48,10 @@ RtcConnector::RtcConnector() : ProcessWorker<RtcData>({.year=0, .month=0, .day=0
 */
 bool RtcConnector::activate(bool retry) {
 
+  if (M5.getBoard() != m5::board_t::board_M5Stack) {
+    M5.Rtc.begin();
+  }
+
 #ifdef M5_CORE2
   ZEN_LOGD("Activating RTC Connector, SDA %d, SCL %d\n", BM8563_I2C_SDA, BM8563_I2C_SCL);
   Wire1.begin(BM8563_I2C_SDA, BM8563_I2C_SCL);

@@ -81,6 +81,8 @@ void GFXScreen::setBrightness(uint8_t lvl) {
 
   if (lvl == LEVEL_BLANKED) {
     // Turn screen off
+    M5.Lcd.setBrightness(0);
+    M5.Power.Axp192.setDCDC3(false);
 #ifdef M5_CORE2
     M5.Axp.SetDCDC3(false);
     M5.Axp.ScreenBreath(0);
@@ -126,9 +128,8 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
     const auto button1 = workers.worker<ZenButton>(k_worker_button_1);
     const auto button2 = workers.worker<ZenButton>(k_worker_button_2);
     const auto button3 = workers.worker<ZenButton>(k_worker_button_3);
-    const auto screen_touch = workers.worker<ZenButton>(k_worker_screen_touch);
 
-    if (button1->is_fresh() || button2->is_fresh() || button3->is_fresh() || screen_touch->get_data().currentlyPressed) {
+    if (button1->is_fresh() || button2->is_fresh() || button3->is_fresh() || (M5.Touch.isEnabled() && M5.Touch.getCount())) {
       _last_interaction = millis();
     }
 
@@ -323,19 +324,19 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
 
 }
 
-  void GFXScreen::render_screensaver() {
-    if (_settings.get_animated_screensaver() && millis() - _last_render > 75) {
-      M5.Lcd.setRotation(3);
-      if (_saver_x + _saver_x_direction < -2 || _saver_x + _saver_x_direction > 318 - SCREENSAVER_TEXT_LENGTH) {
-        _saver_x_direction *= -1;
-      }
-      if (_saver_y + _saver_y_direction < -2 || _saver_y + _saver_y_direction > 230) {
-        _saver_y_direction *= -1;
-      }
-      _saver_x += _saver_x_direction;
-      _saver_y += _saver_y_direction;
-      _saver.pushSprite(_saver_x, _saver_y, TFT_TRANSPARENT);
-      M5.Lcd.setRotation(1);
-      _last_render = millis();
+void GFXScreen::render_screensaver() {
+  if (_settings.get_animated_screensaver() && millis() - _last_render > 75) {
+    M5.Lcd.setRotation(3);
+    if (_saver_x + _saver_x_direction < -2 || _saver_x + _saver_x_direction > 318 - SCREENSAVER_TEXT_LENGTH) {
+      _saver_x_direction *= -1;
     }
+    if (_saver_y + _saver_y_direction < -2 || _saver_y + _saver_y_direction > 230) {
+      _saver_y_direction *= -1;
+    }
+    _saver_x += _saver_x_direction;
+    _saver_y += _saver_y_direction;
+    _saver.pushSprite(_saver_x, _saver_y, TFT_TRANSPARENT);
+    M5.Lcd.setRotation(1);
+    _last_render = millis();
   }
+}

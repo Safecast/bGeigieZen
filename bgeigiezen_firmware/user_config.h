@@ -25,15 +25,13 @@
 constexpr uint8_t GEIGER_AVERAGING_N_BINS = 60;  // 60 x 1 s == 1 min moving average
 constexpr float GEIGER_SENSOR1_CPM_FACTOR = 340.0;
 constexpr uint8_t GEIGER_AVERAGING_PERIOD_S = 1;  // 1 s
-#ifdef M5_CORE2
-constexpr int GEIGER_PULSE_GPIO = 32;
+constexpr int GEIGER_PULSE_GPIO_CORE2 = 32;
+constexpr int GEIGER_PULSE_GPIO_COREBASIC = 2;
+
 // - RTC BM8563 on M5Stack Core2 I2C bus
 constexpr uint8_t BM8563_I2C_SDA = 21;
 constexpr uint8_t BM8563_I2C_SCL = 22;
 constexpr uint8_t RTC_I2C_ADDRESS = 0x51;
-#elif M5_BASIC
-constexpr int GEIGER_PULSE_GPIO = 2;
-#endif
 
 // - GNSS
 constexpr int GPS_SERIAL_NUM = 2;

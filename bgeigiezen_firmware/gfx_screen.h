@@ -1,11 +1,12 @@
 #ifndef BGEIGIEZEN_GFX_SCREEN_H_
 #define BGEIGIEZEN_GFX_SCREEN_H_
 
-#include "screens/menu_window.h"
-#include "workers/local_storage.h"
 #include <Arduino.h>
 #include <Supervisor.hpp>
-#include <screens/base_screen.h>
+
+#include "workers/local_storage.h"
+#include "screens/menu_window.h"
+#include "screens/base_screen.h"
 
 /**
  * M5 Screen renderer
@@ -30,7 +31,7 @@ class GFXScreen : public Supervisor {
   void setBrightness(uint8_t lvl);
   void render_screensaver();
 
-  TFT_eSprite _saver;
+  M5Canvas _saver;
   Controller& _controller;
   LocalStorage& _settings;
   unsigned long _last_render;
