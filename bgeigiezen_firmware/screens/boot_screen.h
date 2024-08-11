@@ -5,9 +5,6 @@
 
 class BootScreen : public BaseScreen {
  public:
-  /**
-   * Singleton
-   */
   explicit BootScreen();
 
   BaseScreen* handle_input(Controller& controller, const worker_map_t& workers) override;

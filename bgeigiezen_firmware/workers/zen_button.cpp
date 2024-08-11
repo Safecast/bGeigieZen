@@ -12,8 +12,8 @@ ZenButton::~ZenButton() {
 }
 
 int8_t ZenButton::produce_data() {
-  data.longPress = data.currentlyPressed && _m5_button.wasReleasefor(LONG_PRESS_DURATION);
-  data.shortPress = data.currentlyPressed && _m5_button.wasReleasefor(SHORT_PRESS_DURATION) && !data.longPress;
+  data.longPress = data.currentlyPressed && _m5_button.wasReleaseFor(LONG_PRESS_DURATION);
+  data.shortPress = data.currentlyPressed && _m5_button.wasReleaseFor(SHORT_PRESS_DURATION) && !data.longPress;
   data.currentlyPressed = _m5_button.pressedFor(SHORT_PRESS_DURATION);
   if (data.longPress || data.shortPress) {
     ZEN_LOGD("Button pressed\n");

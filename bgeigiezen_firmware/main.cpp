@@ -79,14 +79,6 @@ ShakeDetector shake_detector;
 LogAggregator log_aggregator(settings);
 ConfigWebServer config_server(settings);
 
-#ifdef M5_CORE2
-Button screen_area(0, 25, 320, 200, true, "Screen");
-#else
-// Map screen touch to a button for code reading purposes
-Button screen_area(0, false, 0);
-#endif //M5_CORE2
-ZenButton screen_touch(screen_area);
-
 // Data handlers
 SdLogger journal_logger(settings, SdLogger::journal);
 SdLogger drive_logger(settings, SdLogger::drive);
@@ -114,7 +106,6 @@ void setup() {
   controller.register_worker(k_worker_button_3, zen_A);
   controller.register_worker(k_worker_button_2, zen_B);
   controller.register_worker(k_worker_button_1, zen_C);
-  controller.register_worker(k_worker_screen_touch, screen_touch);
   controller.register_worker(k_worker_log_aggregator, log_aggregator);
   controller.register_worker(k_worker_device_state, controller);
   controller.register_worker(k_worker_local_storage, settings);

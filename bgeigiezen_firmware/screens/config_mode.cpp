@@ -1,5 +1,4 @@
 #include "config_mode.h"
-#include "debugger.h"
 #include "identifiers.h"
 #include "menu_window.h"
 #include "user_config.h"

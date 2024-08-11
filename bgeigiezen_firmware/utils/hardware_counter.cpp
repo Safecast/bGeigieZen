@@ -1,5 +1,6 @@
 #include "hardware_counter.h"
 #include "debugger.h"
+#include "user_config.h"
 
 /* Decode what PCNT's unit originated an interrupt
  * and pass this information together with the event type
@@ -23,7 +24,7 @@ HardwareCounter::HardwareCounter() :
     _timer(),
     _count_buffer(),
     _delay_s(GEIGER_AVERAGING_PERIOD_S),
-    _gpio(GEIGER_PULSE_GPIO),
+    _gpio(0),
     _unit(PCNT_UNIT_0),
     _max_value(std::numeric_limits<int16_t>::max()),
     _n_wraparound(0),
@@ -39,9 +40,14 @@ uint32_t HardwareCounter::get_last_count() {
 }
 
 void HardwareCounter::begin() {
+  if (_gpio == 0) {
+    _gpio = M5.getBoard() == m5::board_t::board_M5Stack ? GEIGER_PULSE_GPIO_COREBASIC : GEIGER_PULSE_GPIO_CORE2;
+  }
+
   /* Prepare configuration for the PCNT unit */
   // Careful, in C++ the order of the fields should be the exact one of the
   // definition
+
   pcnt_config_t pcnt_config = {
       // Set PCNT input signal and control GPIOs
       .pulse_gpio_num=_gpio,
