@@ -106,7 +106,15 @@ void setup() {
   DEBUG_PRINTLN("MAIN SETUP DEBUG ENABLED");
   /// Hardware configurations
   Wire.begin();
-  M5.begin();
+  // CANNOT USE DEFAULTS BECAUSE I2C NOT ENABLED
+  // M5.begin();
+  M5.begin(/*bool LCDEnable =*/ true,
+          /* bool SDEnable = */ true,
+          /* bool SerialEnable = */ true,
+          /* bool I2CEnable = */ true, // was defaulted to false
+          /* mbus_mode_t mode = */ kMBusModeOutput,
+          /* bool SpeakerEnable = */ true
+          );
 
   /// Software configurations
 
