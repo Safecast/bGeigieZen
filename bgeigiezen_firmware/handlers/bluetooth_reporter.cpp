@@ -45,7 +45,7 @@ bool BluetoothReporter::activate(bool) {
 
   _pServer->setCallbacks(&_btCallbacks); //set the callback functions to restart advertising
 
-  DEBUG_PRINTF("Bluetooth initialized, device: %s", deviceName);
+  DEBUG_PRINTF("Bluetooth initialized, device: %s\n", deviceName);
   return BLEDevice::getInitialized();
 }
 

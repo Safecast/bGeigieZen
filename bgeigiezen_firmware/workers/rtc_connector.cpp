@@ -49,14 +49,24 @@ RtcConnector::RtcConnector() : ProcessWorker<RtcData>({.year=0, .month=0, .day=0
 bool RtcConnector::activate(bool retry) {
 
 #ifdef M5_CORE2
-  DEBUG_PRINTLN("Activating RTC Connector, SDA, SCL");
+  // DEBUG_PRINTLN("Activating RTC Connector, SDA, SCL");
+  // DEBUG_PRINT(BM8563_I2C_SDA);
+  // DEBUG_PRINTLN(BM8563_I2C_SCL);
+  DEBUG_PRINT("Activating RTC Connector: SDA pin ");
   DEBUG_PRINT(BM8563_I2C_SDA);
+  DEBUG_PRINT(", SCL pin ");
   DEBUG_PRINTLN(BM8563_I2C_SCL);
-  Wire1.begin(BM8563_I2C_SDA, BM8563_I2C_SCL);
+  // Do not need to initialize Wire1, it's the same as what M5 already set up
+  // Wire1.begin(BM8563_I2C_SDA, BM8563_I2C_SCL);
   rtc.begin();
   data.low_voltage = rtc.getVoltLow();
+  DEBUG_PRINTF("RTC: Low Voltage = %x\n", data.low_voltage);
   rtc.getDate(&dateStruct);
   rtc.getTime(&timeStruct);
+  DEBUG_PRINTF("RTC Date: %04d-%02d-%02d\n",
+              dateStruct.year, dateStruct.month, dateStruct.date);
+  DEBUG_PRINTF("RTC Time: %02d:%02d:%02d\n",
+              timeStruct.hours, timeStruct.minutes, timeStruct.seconds);
 #else
 #endif
   // set current day/time
