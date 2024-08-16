@@ -65,6 +65,7 @@
 #include "workers/rtc_connector.h"
 #include "workers/shake_detector.h"
 #include "workers/zen_button.h"
+#include "workers/pwrmon_connector.h"
 
 TeenyUbloxConnect gnss;
 LocalStorage settings;
@@ -82,6 +83,7 @@ RtcConnector rtc;
 ShakeDetector shake_detector;
 LogAggregator log_aggregator(settings);
 ConfigWebServer config_server(settings);
+PwrmonConnector pwrmon_connector;
 
 #ifdef M5_CORE2
 Button screen_area(0, 25, 320, 200, true, "Screen");
@@ -133,6 +135,7 @@ void setup() {
   controller.register_worker(k_worker_device_state, controller);
   controller.register_worker(k_worker_local_storage, settings);
   controller.register_worker(k_worker_config_server, config_server);
+  controller.register_worker(k_worker_pwrmon_connector, config_server);
 
   DEBUG_PRINTLN("Register handlers...");
   controller.register_handler(k_handler_journal_logger, journal_logger);

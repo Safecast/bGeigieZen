@@ -30,6 +30,8 @@ void Controller::start_default_workers() {
   set_worker_active(k_worker_log_aggregator, true);
 //  set_worker_active(k_worker_shake_detector, true);
   set_worker_active(k_worker_device_state, true);
+  DEBUG_PRINTLN("Controller: setting PwrmonConnector active.");
+  set_worker_active(k_worker_pwrmon_connector, true);
 }
 
 void Controller::reset_system() {

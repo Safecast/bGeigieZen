@@ -19,6 +19,7 @@ enum DataWorkers {
   k_worker_device_state,
   k_worker_local_storage,
   k_worker_config_server,
+  k_worker_pwrmon_connector
 };
 
 /**
