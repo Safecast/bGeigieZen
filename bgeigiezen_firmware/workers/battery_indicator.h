@@ -25,7 +25,6 @@ class BatteryIndicator : public Worker<BatteryStatus> {
   int8_t produce_data() override;
 
  private:
-  void ina3221_init(void);
 
 };
 
