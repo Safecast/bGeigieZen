@@ -18,7 +18,9 @@ PwrmonConnector::PwrmonConnector() : ProcessWorker<PwrmonData>({.ibatt=0.0, .vba
  */
 bool PwrmonConnector::activate(bool retry) {
 
+// DEBUG_PRINTLN("PwrmonConnector::activate: entry.");
 #ifdef M5_CORE2
+// DEBUG_PRINTLN("PwrmonConnector::activate: using M5_CORE2.");
   // Initialize reading from INA3221 ammeter IC
   // INA3221 I2C address 0x40
   uint16_t ina_mid = M5.Axp.ina3221.getManufID();
@@ -76,25 +78,25 @@ int8_t PwrmonConnector::produce_data(const worker_map_t& workers) {
 #ifdef M5_CORE2
 
   // Gets battery current in A, compensated with calculated offset voltage.
-  float ina_ibatt = M5.Axp.ina3221.getCurrentCompensated(INA3221_CH1);
-  DEBUG_PRINTF("INA3221: Battery Current (Compensated) = %f\n", ina_ibatt);
+  data.ibatt = M5.Axp.ina3221.getCurrentCompensated(INA3221_CH1);
+  // DEBUG_PRINTF("INA3221: Battery Current (Compensated) = %f\n", ina_ibatt);
   // Gets battery voltage in V.
-  float ina_vbatt = M5.Axp.ina3221.getVoltage(INA3221_CH1);
-  DEBUG_PRINTF("INA3221: Battery Voltage = %f\n", ina_vbatt);
+  data.vbatt = M5.Axp.ina3221.getVoltage(INA3221_CH1);
+  // DEBUG_PRINTF("INA3221: Battery Voltage = %f\n", ina_vbatt);
 
   // Gets 5V boost current in A, compensated with calculated offset voltage.
-  float ina_iboost = M5.Axp.ina3221.getCurrentCompensated(INA3221_CH2);
-  DEBUG_PRINTF("INA3221: 5V Boost Current (Compensated) = %f\n", ina_iboost);
+  data.iboost = M5.Axp.ina3221.getCurrentCompensated(INA3221_CH2);
+  // DEBUG_PRINTF("INA3221: 5V Boost Current (Compensated) = %f\n", ina_iboost);
   // Gets 5V Boost voltage in V.
-  float ina_vboost = M5.Axp.ina3221.getVoltage(INA3221_CH2);
-  DEBUG_PRINTF("INA3221: 5V Boost Voltage = %f\n", ina_vboost);
+  data.vboost = M5.Axp.ina3221.getVoltage(INA3221_CH2);
+  // DEBUG_PRINTF("INA3221: 5V Boost Voltage = %f\n", ina_vboost);
 
   // Gets bus current in A, compensated with calculated offset voltage.
-  float ina_ibus = M5.Axp.ina3221.getCurrentCompensated(INA3221_CH3);
-  DEBUG_PRINTF("INA3221: Bus Current (Compensated) = %f\n", ina_ibus);
+  data.ibus = M5.Axp.ina3221.getCurrentCompensated(INA3221_CH3);
+  // DEBUG_PRINTF("INA3221: Bus Current (Compensated) = %f\n", ina_ibus);
   // Gets bus voltage in V.
-  float ina_vbus = M5.Axp.ina3221.getVoltage(INA3221_CH3);
-  DEBUG_PRINTF("INA3221: Bus Voltage = %f\n", ina_vbus);
+  data.vbus = M5.Axp.ina3221.getVoltage(INA3221_CH3);
+  // DEBUG_PRINTF("INA3221: Bus Voltage = %f\n", ina_vbus);
 
   ret_status = e_worker_data_read;
 

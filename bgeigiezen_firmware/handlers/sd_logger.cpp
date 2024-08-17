@@ -2,6 +2,7 @@
 #include "identifiers.h"
 #include "utils/sd_wrapper.h"
 #include "workers/rtc_connector.h"
+#include "debugger.h"
 
 // e.g. /drives/latest.log
 #define TEMP_LOG_NAME_F "%s/latest.log"
@@ -49,6 +50,8 @@ void SdLogger::deactivate() {
 int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
   const auto& log_data = workers.worker<LogAggregator>(k_worker_log_aggregator);
   const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
+  auto return_status = e_handler_idle;
+
   if (log_data->is_fresh()) {
     if (!SDInterface::i().ready()) {
       DEBUG_PRINTF("Abrupt stop logging '%s', sd card not ready.\n", _logging_to);
@@ -68,10 +71,30 @@ int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
       }
     }
 
+    /** Power Monitor data appended to log line if logging invalid GNSS fix */
+    char logstring[200] = "";
+    auto pwrmon_data = log_data->get_data();
+    snprintf(logstring, 200-1, 
+            "%s,%.4f,%.3f,%.4f,%.3f,%.4f,%.3f,%02d,%s",
+            log_data->get_data().log_string,
+            pwrmon_data.ibatt,
+            pwrmon_data.vbatt,
+            pwrmon_data.iboost,
+            pwrmon_data.vboost,
+            pwrmon_data.ibus,
+            pwrmon_data.vbus,
+            pwrmon_data.percentage,
+            pwrmon_data.isCharging? "C": "D"
+            );
+    logstring[200-1] = '\0';
+
+    DEBUG_PRINTF("SD_Logger: final logstring |%s|\n", logstring);
+    DEBUG_PRINTF("SD_Logger: log void = %s\n", settings->get_log_void()? "Y": "N");
     if (log_data->get_data().valid() || settings->get_log_void()) {
       // Line is valid OR we are logging void lines
-      if (SDInterface::i().log_println(_logging_to, log_data->get_data().log_string)) {
+      if (SDInterface::i().log_println(_logging_to, logstring)) {
         // Line written to SD card log file
+        DEBUG_PRINTLN("SD_Logger: line written.");
         _total++;
         return e_handler_data_handled;
       } else {

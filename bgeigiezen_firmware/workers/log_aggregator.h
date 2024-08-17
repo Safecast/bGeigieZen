@@ -25,6 +25,16 @@ struct DataLine {
   double distance = 0;
   bool dop_valid = false;
   bool in_fixed_range = false;
+
+  // Power monitor
+  float ibatt = 0.0;
+  float vbatt = 0.0;
+  float iboost = 0.0;
+  float vboost = 0.0;
+  float ibus = 0.0;
+  float vbus = 0.0;
+  uint8_t percentage = 0;
+  bool isCharging = false;
 };
 
 /**

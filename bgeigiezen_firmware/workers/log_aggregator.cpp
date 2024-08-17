@@ -3,6 +3,7 @@
 #include "debugger.h"
 #include "gm_sensor.h"
 #include "gps_connector.h"
+#include "pwrmon_connector.h"
 #include "identifiers.h"
 
 #define D2R (PI / 180.0)
@@ -69,6 +70,7 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
   const auto& gm_sensor_data = gm_sensor->get_data();
   const auto& gps_data = workers.worker<GpsConnector>(k_worker_gps_connector)->get_data();
   const auto& battery_data = workers.worker<BatteryIndicator>(k_worker_battery_indicator)->get_data();
+  const auto& pwrmon_data = workers.worker<PwrmonConnector>(k_worker_pwrmon_connector)->get_data();
 
   data.cpm = gm_sensor_data.cpm_comp;
   data.latitude = gps_data.latitude;
@@ -140,6 +142,16 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
   data.gps_valid = gps_data.valid();
   data.gm_valid = gm_sensor_data.valid;
   data.dop_valid = dop_valid;
+
+  data.ibatt = pwrmon_data.ibatt;
+  data.vbatt = pwrmon_data.vbatt;
+  data.iboost = pwrmon_data.iboost;
+  data.vboost = pwrmon_data.vboost;
+  data.ibus = pwrmon_data.ibus;
+  data.vbus = pwrmon_data.vbus;
+  data.percentage = battery_data.percentage;
+  data.isCharging = battery_data.isCharging;
+  DEBUG_PRINTF("Log Aggregator: data.vbus = %f\n", data.vbus);
 
   return e_worker_data_read;
 }
