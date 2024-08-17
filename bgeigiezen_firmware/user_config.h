@@ -67,11 +67,12 @@ constexpr uint32_t SETUP_DEFAULT_ALERT_LEVEL = 100;
 constexpr char JOURNAL_LOG_DIRECTORY[] = "/journals";
 constexpr char DRIVE_LOG_DIRECTORY[] = "/drives";
 constexpr char SURVEY_LOG_DIRECTORY[] = "/surveys";
+constexpr char PWRMON_LOG_DIRECTORY[] = "/pwrmon"; // Battery usage stats
 constexpr char LOG_HEADER_LINE1[] = "# NEW LOG";
 constexpr char LOG_HEADER_LINE2[] = "# format=";
 constexpr char LOG_HEADER_LINE3[] = "# deadtime=off";
 constexpr char DEVICE_HEADER[] = "BNRDD";
-constexpr uint8_t LINE_BUFFER_SIZE = 100;
+constexpr uint8_t LINE_BUFFER_SIZE = 200;  // larger to accommodate power monitor data appended
 constexpr uint8_t LOG_FILENAME_SIZE = 100;
 constexpr uint8_t MIN_LOG_LINES_FOR_KEEP = 2;
 constexpr uint8_t LOG_SECONDS_DELAY = 5; // Logs every 5 seconds

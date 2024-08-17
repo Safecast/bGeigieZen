@@ -135,7 +135,7 @@ void setup() {
   controller.register_worker(k_worker_device_state, controller);
   controller.register_worker(k_worker_local_storage, settings);
   controller.register_worker(k_worker_config_server, config_server);
-  controller.register_worker(k_worker_pwrmon_connector, config_server);
+  controller.register_worker(k_worker_pwrmon_connector, pwrmon_connector);
 
   DEBUG_PRINTLN("Register handlers...");
   controller.register_handler(k_handler_journal_logger, journal_logger);
