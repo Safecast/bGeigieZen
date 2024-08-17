@@ -151,7 +151,7 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
   data.vbus = pwrmon_data.vbus;
   data.percentage = battery_data.percentage;
   data.isCharging = battery_data.isCharging;
-  DEBUG_PRINTF("Log Aggregator: data.vbus = %f\n", data.vbus);
+  // DEBUG_PRINTF("Log Aggregator: data.vbus = %f\n", data.vbus);
 
   return e_worker_data_read;
 }

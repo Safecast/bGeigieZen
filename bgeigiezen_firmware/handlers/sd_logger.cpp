@@ -88,13 +88,13 @@ int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
             );
     logstring[200-1] = '\0';
 
-    DEBUG_PRINTF("SD_Logger: final logstring |%s|\n", logstring);
-    DEBUG_PRINTF("SD_Logger: log void = %s\n", settings->get_log_void()? "Y": "N");
+    // DEBUG_PRINTF("SD_Logger: final logstring |%s|\n", logstring);
+    // DEBUG_PRINTF("SD_Logger: log void = %s\n", settings->get_log_void()? "Y": "N");
     if (log_data->get_data().valid() || settings->get_log_void()) {
       // Line is valid OR we are logging void lines
       if (SDInterface::i().log_println(_logging_to, logstring)) {
         // Line written to SD card log file
-        DEBUG_PRINTLN("SD_Logger: line written.");
+        // DEBUG_PRINTLN("SD_Logger: line written.");
         _total++;
         return e_handler_data_handled;
       } else {
