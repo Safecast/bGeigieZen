@@ -1,26 +1,255 @@
-
-(footprint FUSE_3557-2 (layer F.Cu) (tedit 666F90DE)
-  (descr "")
-  (fp_text reference REF** (at -6.985 -4.445 0) (layer F.SilkS)
-    (effects (font (size 1.0 1.0) (thickness 0.15)))
-  )
-  (fp_text value FUSE_3557-2 (at -3.175 4.445 0) (layer F.Fab)
-    (effects (font (size 1.0 1.0) (thickness 0.15)))
-  )
-  (pad 1_1 thru_hole circle (at -6.735 -1.7) (size 2.4 2.4) (drill 1.6) (layers *.Cu *.Mask) (solder_mask_margin 0.102))
-  (pad 1_2 thru_hole circle (at -6.735 1.7) (size 2.4 2.4) (drill 1.6) (layers *.Cu *.Mask) (solder_mask_margin 0.102))
-  (pad 2_1 thru_hole circle (at 6.735 -1.7) (size 2.4 2.4) (drill 1.6) (layers *.Cu *.Mask) (solder_mask_margin 0.102))
-  (pad 2_2 thru_hole circle (at 6.735 1.7) (size 2.4 2.4) (drill 1.6) (layers *.Cu *.Mask) (solder_mask_margin 0.102))
-  (fp_line (start -9.905 -3.365) (end -9.905 3.365) (layer F.SilkS) (width 0.127))
-  (fp_line (start -9.905 3.365) (end 9.905 3.365) (layer F.SilkS) (width 0.127))
-  (fp_line (start 9.905 3.365) (end 9.905 -3.365) (layer F.SilkS) (width 0.127))
-  (fp_line (start 9.905 -3.365) (end -9.905 -3.365) (layer F.SilkS) (width 0.127))
-  (fp_line (start -10.155 -3.615) (end 10.155 -3.615) (layer F.CrtYd) (width 0.05))
-  (fp_line (start 10.155 -3.615) (end 10.155 3.615) (layer F.CrtYd) (width 0.05))
-  (fp_line (start 10.155 3.615) (end -10.155 3.615) (layer F.CrtYd) (width 0.05))
-  (fp_line (start -10.155 3.615) (end -10.155 -3.615) (layer F.CrtYd) (width 0.05))
-  (fp_line (start -9.905 -3.365) (end -9.905 3.365) (layer F.Fab) (width 0.127))
-  (fp_line (start -9.905 3.365) (end 9.905 3.365) (layer F.Fab) (width 0.127))
-  (fp_line (start 9.905 3.365) (end 9.905 -3.365) (layer F.Fab) (width 0.127))
-  (fp_line (start 9.905 -3.365) (end -9.905 -3.365) (layer F.Fab) (width 0.127))
+(footprint "FUSE_3557-2"
+	(version 20240706)
+	(generator "pcbnew")
+	(generator_version "8.99")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0.0722 4.24 360)
+		(layer "F.SilkS")
+		(uuid "298fd212-5a7f-4c36-9c3a-70e20b90bc46")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "Fuse_Small"
+		(at -3.175 4.445 360)
+		(layer "F.Fab")
+		(uuid "b8675e95-023e-40b1-9d41-27847de87049")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" "bGeigieZen:FUSE_3557-2"
+		(at 0 0 360)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "424de23c-0346-44a5-98d3-5b593cf205bd")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 360)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "58ca7770-0a59-4eeb-803b-b99356bbc303")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 360)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "994f3475-92d7-4b5e-ba4f-03ac26fa6b7f")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start 9.905 3.365)
+		(end 9.905 -3.365)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "ce5f7fdb-ddb4-4d82-a7a0-0796d3172b94")
+	)
+	(fp_line
+		(start 9.905 -3.365)
+		(end -9.905 -3.365)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "7b0adca0-2808-4a61-849a-56cc3f336770")
+	)
+	(fp_line
+		(start -9.905 3.365)
+		(end 9.905 3.365)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "051f6a50-75fe-4a3d-9383-0002a60f2bbe")
+	)
+	(fp_line
+		(start -9.905 -3.365)
+		(end -9.905 3.365)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "b01f68c6-51b2-4cc0-a43d-7f452c7a25d7")
+	)
+	(fp_line
+		(start 10.155 3.615)
+		(end -10.155 3.615)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "33939546-cb65-4f7d-9173-c3fb074d7b18")
+	)
+	(fp_line
+		(start 10.155 -3.615)
+		(end 10.155 3.615)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "8d722939-fb65-4d2b-aa53-e2b97e53542d")
+	)
+	(fp_line
+		(start -10.155 3.615)
+		(end -10.155 -3.615)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "490b2921-4a0a-4a52-a6c4-70496725f113")
+	)
+	(fp_line
+		(start -10.155 -3.615)
+		(end 10.155 -3.615)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "6710df19-e51f-40ac-accb-37a3da02f47d")
+	)
+	(fp_line
+		(start 9.905 3.365)
+		(end 9.905 -3.365)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "8a49759f-b403-4b72-8626-2efdae897398")
+	)
+	(fp_line
+		(start 9.905 -3.365)
+		(end -9.905 -3.365)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "9c4b5464-75cf-47a5-8866-ba6381430b74")
+	)
+	(fp_line
+		(start -9.905 3.365)
+		(end 9.905 3.365)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "e2e5b77a-38fc-4170-bdb1-7d9a0f8628cb")
+	)
+	(fp_line
+		(start -9.905 -3.365)
+		(end -9.905 3.365)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "cbac3bd2-0e90-4075-8f3e-049f2b719720")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 2.75 -1.25 360)
+		(layer "F.Fab")
+		(uuid "8d1fc5a2-1e88-42cd-83c7-d8579045740e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at -7 -1.7 180)
+		(size 2.6 2.6)
+		(drill 1.8)
+		(layers "F&B.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "2fe8c555-d875-4ff5-bd67-85e892cd477c")
+	)
+	(pad "1" thru_hole circle
+		(at -7 1.7 180)
+		(size 2.6 2.6)
+		(drill 1.8)
+		(layers "F&B.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "85d6b43b-fb4f-4974-9947-00a927a1189b")
+	)
+	(pad "2" thru_hole circle
+		(at 7 -1.7 180)
+		(size 2.6 2.6)
+		(drill 1.8)
+		(layers "F&B.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "7ad062d9-e4bd-4689-b5e8-5ec71f9f3e97")
+	)
+	(pad "2" thru_hole circle
+		(at 7 1.7 180)
+		(size 2.6 2.6)
+		(drill 1.8)
+		(layers "F&B.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.102)
+		(uuid "111c27cf-9c7c-4699-9122-eb071a34d032")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/shapes3D/Fuse - mini 10A v005.wrl"
+		(offset
+			(xyz 0 0.5 16.5)
+		)
+		(scale
+			(xyz 0.4 0.4 0.4)
+		)
+		(rotate
+			(xyz -0 -0 -0)
+		)
+	)
+	(model "${KIPRJMOD}/shapes3D/Universal Car Fuse Holder PCB v004.wrl"
+		(offset
+			(xyz -10 4 0)
+		)
+		(scale
+			(xyz 0.4 0.4 0.4)
+		)
+		(rotate
+			(xyz -90 -0 90)
+		)
+	)
 )
