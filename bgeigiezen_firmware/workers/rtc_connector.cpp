@@ -10,7 +10,7 @@
 #include "identifiers.h"
 
 
-DateTimeProvider::DateTimeProvider() : ProcessWorker<RtcData>({.year=0, .month=0, .day=0, .hour=0, .minute=0, .second=0, .valid=false}, 1000), _t_st(), _last_sys_set(0) {
+DateTimeProvider::DateTimeProvider() : ProcessWorker<RtcData>({.valid=false}, 1000), _sys_time{}, _last_sys_set(0) {
 }
 
 /**
@@ -23,11 +23,11 @@ bool DateTimeProvider::activate(bool retry) {
   }
 
   if (M5.Rtc.isEnabled()) {
-    rtc_to_data();
+    rtc_to_system();
   } else {
     M5_LOGD("RTC unit not found");
     // Start with invalid data
-    data_to_system(false);
+    invalidate_sys_time();
   }
 
   return true;
@@ -36,107 +36,118 @@ bool DateTimeProvider::activate(bool retry) {
 int8_t DateTimeProvider::produce_data(const worker_map_t& workers) {
   const auto& gps_data = workers.worker<GpsConnector>(k_worker_gps_connector)->get_data();
   if (gps_data.date_valid && gps_data.time_valid && (_last_sys_set == 0 || _last_sys_set + 1000*60*60*6 < millis())) {
-    gps_to_data(gps_data);
-  } else {
-    system_to_data();
+    gps_to_system(gps_data);
   }
 
+  system_to_data();
   return e_worker_data_read;
 }
 
 void DateTimeProvider::system_to_data() {
   time_t now = time(nullptr);
-  localtime_r(&now, &_t_st);
+  localtime_r(&now, &_sys_time);
 
-  data.year = _t_st.tm_year + 1900;
-  data.month = _t_st.tm_mon + 1;
-  data.day = _t_st.tm_mday;
-  data.hour = _t_st.tm_hour;
-  data.minute = _t_st.tm_min;
-  data.second = _t_st.tm_sec;
+  data.year = _sys_time.tm_year + 1900;
+  data.month = _sys_time.tm_mon + 1;
+  data.day = _sys_time.tm_mday;
+  data.hour = _sys_time.tm_hour;
+  data.minute = _sys_time.tm_min;
+  data.second = _sys_time.tm_sec;
+  data.valid = data.year > 2023 && data.year < 2036;
 }
 
-void DateTimeProvider::gps_to_data(const GnssData& gps_data) {
+void DateTimeProvider::gps_to_system(const GnssData& gps_data) {
   if (gps_data.time_valid && gps_data.date_valid) {
-    data.valid = true;
-    data.year = gps_data.year;
-    data.month = gps_data.month;
-    data.day = gps_data.day;
-    data.hour = gps_data.hour;
-    data.minute = gps_data.minute;
-    data.second = gps_data.second;
-    data_to_system(false);
+    _last_sys_set = millis();
+    tm sys_time{};
+    sys_time.tm_isdst = -1;
+    sys_time.tm_year = gps_data.year - 1900;
+    sys_time.tm_mon  = gps_data.month - 1;
+    sys_time.tm_mday = gps_data.day;
+    sys_time.tm_hour = gps_data.hour;
+    sys_time.tm_min  = gps_data.minute;
+    sys_time.tm_sec  = gps_data.second;
+    save_to_system(sys_time);
+
+    M5_LOGD("Set system time from GPS: %04d-%02d-%02d %02d:%02d:%02d",
+            gps_data.year, gps_data.month, gps_data.day,
+            gps_data.hour, gps_data.minute, gps_data.second);
   }
 }
 
-void DateTimeProvider::rtc_to_data() {
+void DateTimeProvider::rtc_to_system() {
   if (M5.Rtc.isEnabled()) {
     m5::rtc_datetime_t rtc_datetime;
     M5.Rtc.getDateTime(&rtc_datetime);
-    data.year = static_cast<int>(rtc_datetime.date.year);
-    data.month = static_cast<uint8_t>(rtc_datetime.date.month);
-    data.day = static_cast<uint8_t>(rtc_datetime.date.date);
-    data.hour = static_cast<uint8_t>(rtc_datetime.time.hours);
-    data.minute = static_cast<uint8_t>(rtc_datetime.time.minutes);
-    data.second = static_cast<uint8_t>(rtc_datetime.time.seconds);
-    data.valid = data.year > 2023;
-    data_to_system(true);
+    if (rtc_datetime.date.year < 2024 || rtc_datetime.date.year > 2035) {
+      // RTC returned invalid data
+      M5_LOGD("RTC invalid year, reset sys time");
+      return invalidate_sys_time();
+    }
+    tm sys_time{};
+    sys_time.tm_isdst = -1;
+    sys_time.tm_year = static_cast<int>(rtc_datetime.date.year) - 1900;
+    sys_time.tm_mon  = static_cast<uint8_t>(rtc_datetime.date.month) - 1;
+    sys_time.tm_mday = static_cast<uint8_t>(rtc_datetime.date.date);
+    sys_time.tm_hour = static_cast<uint8_t>(rtc_datetime.time.hours);
+    sys_time.tm_min  = static_cast<uint8_t>(rtc_datetime.time.minutes);
+    sys_time.tm_sec  = static_cast<uint8_t>(rtc_datetime.time.seconds);
+
+    M5_LOGD("Set system time from RTC: %04d-%02d-%02d %02d:%02d:%02d",
+            rtc_datetime.date.year, rtc_datetime.date.month, rtc_datetime.date.date,
+            rtc_datetime.time.hours, rtc_datetime.time.minutes, rtc_datetime.time.seconds);
+
+    save_to_system(sys_time);
   }
 }
 
 void DateTimeProvider::system_to_rtc() {
-  if (M5.Rtc.isEnabled() && data.valid) {
+  if (M5.Rtc.isEnabled()) {
     time_t now = time(nullptr);
-    localtime_r(&now, &_t_st);
+    localtime_r(&now, &_sys_time);
 
-    M5.Rtc.setDateTime(&_t_st);
+    M5.Rtc.setDateTime(&_sys_time);
 
     m5::rtc_datetime_t rtc_datetime;
     M5.Rtc.getDateTime(&rtc_datetime);
+    M5_LOGD("Set RTC from system: %04d-%02d-%02d %02d:%02d:%02d",
+            rtc_datetime.date.year, rtc_datetime.date.month, rtc_datetime.date.date,
+            rtc_datetime.time.hours, rtc_datetime.time.minutes, rtc_datetime.time.seconds);
   }
 }
 
-void DateTimeProvider::data_to_system(bool save_rtc) {
+void DateTimeProvider::save_to_system(tm& sys_time) {
   // mktime(3) uses localtime, force UTC
-  if (!data.valid || data.year < 2024 || data.year > 2035) {
-    M5_LOGD("Data not valid, reset to default date");
-    data.valid = false;
-    data.year = 2020;
-    data.month = 1;
-    data.day = 1;
-    data.hour = 0;
-    data.minute = 0;
-    data.second = 0;
-  } else {
-    data.valid = true;
-  }
-  char * device_tz = getenv("TZ");
+  const char* device_tz = getenv("TZ");
   setenv("TZ", "GMT0", 1);
   tzset();
 
-  tm t_st;
-  t_st.tm_isdst = -1;
-  t_st.tm_year = data.year - 1900;
-  t_st.tm_mon  = data.month - 1;
-  t_st.tm_mday = data.day;
-  t_st.tm_hour = data.hour;
-  t_st.tm_min  = data.minute;
-  t_st.tm_sec  = data.second;
-
   timeval now{
-      .tv_sec=mktime(&_t_st),
+      .tv_sec=mktime(&sys_time),
       .tv_usec=0
   };
   settimeofday(&now, nullptr);
 
-  if (device_tz)
-  {
+  if (device_tz) {
     setenv("TZ", device_tz, 1);
     tzset();
   } else {
     unsetenv("TZ");
   }
-  if (save_rtc) {
-    system_to_rtc();
-  }
+
+  system_to_rtc();
+}
+
+void DateTimeProvider::invalidate_sys_time() {
+  M5_LOGD("Set system time invalid: 2020-01-01 00:00:00");
+
+  tm sys_time{};
+  sys_time.tm_isdst = -1;
+  sys_time.tm_year = 2020 - 1900;
+  sys_time.tm_mon  = 0;
+  sys_time.tm_mday = 1;
+  sys_time.tm_hour = 0;
+  sys_time.tm_min  = 0;
+  sys_time.tm_sec  = 0;
+  save_to_system(sys_time);
 }
