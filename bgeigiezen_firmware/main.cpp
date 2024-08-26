@@ -46,7 +46,6 @@
 #include <Arduino.h>
 
 #include "controller.h"
-#include "debugger.h"
 #include "gfx_screen.h"
 #include "handlers/api_connector.h"
 #include "handlers/bluetooth_reporter.h"
@@ -70,11 +69,11 @@ Controller controller(settings, gnss);
 ZenButton zen_A(M5.BtnA);
 ZenButton zen_B(M5.BtnB);
 ZenButton zen_C(M5.BtnC);
-GpsConnector gps(gnss);
+GpsConnector gps(gnss, Serial1);
 NavsatCollector navsat(gnss);
 GeigerCounter gm_sensor;
 BatteryIndicator battery_indicator;
-RtcConnector rtc;
+DateTimeProvider rtc;
 ShakeDetector shake_detector;
 LogAggregator log_aggregator(settings);
 ConfigWebServer config_server(settings);
@@ -90,13 +89,16 @@ ApiConnector api_connector(settings);
 GFXScreen gfx_screen(settings, controller);
 
 void setup() {
-  ZEN_LOGD("MAIN SETUP DEBUG ENABLED\n");
   /// Hardware configurations
   M5.begin();
 
+  M5.Log.setLogLevel(m5::log_target_t::log_target_serial, esp_log_level_t::ESP_LOG_DEBUG);
+
+  M5_LOGD("MAIN SETUP DEBUG ENABLED");
+
   /// Software configurations
 
-  ZEN_LOGD("Register workers...\n");
+  M5_LOGD("Register workers...");
   controller.register_worker(k_worker_gps_connector, gps);
   controller.register_worker(k_worker_navsat_collector, navsat);
   controller.register_worker(k_worker_gm_sensor, gm_sensor);
@@ -111,26 +113,26 @@ void setup() {
   controller.register_worker(k_worker_local_storage, settings);
   controller.register_worker(k_worker_config_server, config_server);
 
-  ZEN_LOGD("Register handlers...\n");
+  M5_LOGD("Register handlers...");
   controller.register_handler(k_handler_journal_logger, journal_logger);
   controller.register_handler(k_handler_drive_logger, drive_logger);
   controller.register_handler(k_handler_survey_logger, survey_logger);
   controller.register_handler(k_handler_bluetooth_reporter, bt_connector);
   controller.register_handler(k_handler_api_reporter, api_connector);
 
-  ZEN_LOGD("Register supervisors...\n");
+  M5_LOGD("Register supervisors...");
   controller.register_supervisor(gfx_screen);
 
+  M5_LOGD("Start default workers...");
   controller.start_default_workers();
+
+  M5_LOGD("Setup complete");
 }
 
 void loop() {
   if (gps.active()) {
     gnss.checkUblox();
   }
-#ifdef M5_CORE2
-  screen_area.read();
-#endif
 
   M5.update();
 

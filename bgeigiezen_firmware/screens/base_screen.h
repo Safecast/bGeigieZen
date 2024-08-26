@@ -2,11 +2,11 @@
 #define BGEIGIEZEN_BASE_SCREEN_H_
 
 #include <M5Unified.hpp>
-
-#include "controller.h"
-#include "identifiers.h"
-#include "workers/zen_button.h"
 #include <Supervisor.hpp>
+
+#include "workers/zen_button.h"
+#include "user_config.h"
+#include "controller.h"
 
 #define STATUS_ERROR_GEIGER F(" NO GEIGER TUBE CONNECTED ");
 #define STATUS_ERROR_GPS F(" NO GPS MODULE CONNECTED ");
@@ -97,8 +97,8 @@ class BaseScreen {
   void drawButton2(const char* text, ButtonState state = e_button_default) const;
   void drawButton3(const char* text, ButtonState state = e_button_default) const;
 
-  int printFloatFont(float val, int prec, int x, int y, int font) const;
-  int printIntFont(unsigned long val, int x, int y, int font) const;
+  static size_t printFloatFont(float val, int prec, int x, int y, const lgfx::IFont* font);
+  static size_t printIntFont(unsigned long val, int x, int y, const lgfx::IFont* font);
 
   /**
    * Clears page content area (NOT the buttons, status message and status bar)
@@ -115,7 +115,7 @@ class BaseScreen {
   bool required_ble;
 
  private:
-  void drawButton(uint16_t x, const char* text, ButtonState state) const;
+  static void drawButton(uint16_t x, const char* text, ButtonState state) ;
 
   char _title[20];
   bool _status_bar;

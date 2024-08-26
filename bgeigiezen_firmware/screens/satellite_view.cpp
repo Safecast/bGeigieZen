@@ -25,7 +25,7 @@ const SatelliteViewScreen::MenuItem SATELLITE_MENU[SatelliteViewScreen::e_satell
 
 SatelliteViewScreen SatelliteViewScreen_i;
 
-SatelliteViewScreen::SatelliteViewScreen() : BaseScreenWithMenu("Satellites", true) {
+SatelliteViewScreen::SatelliteViewScreen() : BaseScreenWithMenu("gps map", true) {
   required_gps = true;
 }
 
@@ -136,7 +136,8 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
         case 4: label = 'S'; break;
         case 6: label = 'W'; break;
       }
-      M5.Lcd.drawChar(xCoord + mapCenterX - 5, yCoord + mapCenterY - 7, label, LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND, 2);
+      // Background and foreground colours swapped due to bug in m5, or something...
+      M5.Lcd.drawChar(xCoord + mapCenterX - 5, yCoord + mapCenterY - 7, label, LCD_COLOR_BACKGROUND, LCD_COLOR_DEFAULT, 2);
     }
 
     if (navsat->get_data().available) {
@@ -184,7 +185,7 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
         sprintf(_dispStr, "%c%02d",
                 navsat_info.svSortList[i].gnssIdType,
                 navsat_info.svSortList[i].svId);
-        M5.Lcd.drawString(_dispStr, xCoord + mapCenterX - 8, yCoord + mapCenterY + 5, 1);
+        M5.Lcd.drawString(_dispStr, xCoord + mapCenterX - 8, yCoord + mapCenterY + 5, &fonts::Font0);
 
       }
     }
@@ -194,15 +195,15 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
     // Legend
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.drawCircle(215, 128 - 9, 5, COLOR_SAT_SIGNAL_STRONG);
-    M5.Lcd.drawString("Strong signal", 225, 128, 2);
+    M5.Lcd.drawString("Strong signal", 225, 128, &fonts::Font2);
     M5.Lcd.drawCircle(215, 144 - 9, 5, COLOR_SAT_SIGNAL_MEDIUM);
-    M5.Lcd.drawString("Medium signal", 225, 144, 2);
+    M5.Lcd.drawString("Medium signal", 225, 144, &fonts::Font2);
     M5.Lcd.drawCircle(215, 160 - 9, 5, COLOR_SAT_SIGNAL_WEAK);
-    M5.Lcd.drawString("Weak signal", 225, 160, 2);
+    M5.Lcd.drawString("Weak signal", 225, 160, &fonts::Font2);
     M5.Lcd.fillCircle(215, 176 - 9, 5, COLOR_SAT_USED_NAV);
-    M5.Lcd.drawString("Used in nav", 225, 176, 2);
+    M5.Lcd.drawString("Used in nav", 225, 176, &fonts::Font2);
     M5.Lcd.fillCircle(215, 192 - 9, 5, COLOR_SAT_HEALTHY);
-    M5.Lcd.drawString("Tracked", 225, 192, 2);
+    M5.Lcd.drawString("Tracked", 225, 192, &fonts::Font2);
   }
 }
 

@@ -1,6 +1,5 @@
 #include <numeric>
 #include "gm_sensor.h"
-#include "debugger.h"
 
 GeigerCounter::GeigerCounter() : Worker<GeigerData>(), pulse_counter() {
   std::fill(_shift_reg.begin(), _shift_reg.end(), 0);
@@ -9,6 +8,7 @@ GeigerCounter::GeigerCounter() : Worker<GeigerData>(), pulse_counter() {
 bool GeigerCounter::activate(bool retry) {
   // Connect to geigier muller sensor module connection
   if (!retry) {
+    M5_LOGD("Start pulse counter...");
     pulse_counter.begin();
   }
 

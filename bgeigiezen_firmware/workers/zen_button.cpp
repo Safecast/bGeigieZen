@@ -1,5 +1,4 @@
 #include "zen_button.h"
-#include "debugger.h"
 
 #define SHORT_PRESS_DURATION 10
 #define LONG_PRESS_DURATION 2400
@@ -16,7 +15,7 @@ int8_t ZenButton::produce_data() {
   data.shortPress = data.currentlyPressed && _m5_button.wasReleaseFor(SHORT_PRESS_DURATION) && !data.longPress;
   data.currentlyPressed = _m5_button.pressedFor(SHORT_PRESS_DURATION);
   if (data.longPress || data.shortPress) {
-    ZEN_LOGD("Button pressed\n");
+    M5_LOGD("Button pressed");
     return e_worker_data_read;
   }
   return e_worker_idle;

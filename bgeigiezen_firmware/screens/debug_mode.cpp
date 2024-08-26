@@ -1,5 +1,4 @@
 #include "debug_mode.h"
-#include "debugger.h"
 #include "identifiers.h"
 #include "menu_window.h"
 #include "workers/battery_indicator.h"
@@ -20,7 +19,7 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   const auto& gm_sensor = workers.worker<GeigerCounter>(k_worker_gm_sensor);
   const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
   const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator);
-  const auto& rtc = workers.worker<RtcConnector>(k_worker_rtc_connector);
+  const auto& rtc = workers.worker<DateTimeProvider>(k_worker_rtc_connector);
   const auto& log_aggregator = workers.worker<LogAggregator>(k_worker_log_aggregator);
 
   drawButton1("");
@@ -85,7 +84,7 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     M5.Lcd.printf("RTC\n"
                   " VoltLow: %s\n"
                   " date: %04d-%02d-%02d time: %02d:%02d:%02d\n",
-                  rtc->get_data().low_voltage ? "Low voltage " : "Voltage good",
+                  rtc->get_data().valid ? "Valid    " : "Invalid ",
                   rtc->get_data().year,
                   rtc->get_data().month,
                   rtc->get_data().day,

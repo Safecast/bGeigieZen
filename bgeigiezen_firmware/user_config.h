@@ -27,6 +27,7 @@ constexpr float GEIGER_SENSOR1_CPM_FACTOR = 340.0;
 constexpr uint8_t GEIGER_AVERAGING_PERIOD_S = 1;  // 1 s
 constexpr int GEIGER_PULSE_GPIO_CORE2 = 32;
 constexpr int GEIGER_PULSE_GPIO_COREBASIC = 2;
+constexpr int GEIGER_PULSE_GPIO_CORES3SE = 2;
 
 // - RTC BM8563 on M5Stack Core2 I2C bus
 constexpr uint8_t BM8563_I2C_SDA = 21;

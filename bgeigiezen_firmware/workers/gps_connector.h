@@ -76,7 +76,7 @@ struct GnssData {
 class GpsConnector : public Worker<GnssData> {
  public:
 
-  explicit GpsConnector(TeenyUbloxConnect& _gnss);
+  explicit GpsConnector(TeenyUbloxConnect& _gnss, HardwareSerial& serial);
 
   virtual ~GpsConnector() = default;
 
@@ -94,9 +94,9 @@ class GpsConnector : public Worker<GnssData> {
    * Use pdop and satsInView to determine acceptability.
   */
   TeenyUbloxConnect& _gnss;
-  HardwareSerial ss;
-  uint32_t tried_38400_at;
-  uint32_t tried_9600_at;
+  HardwareSerial& _serial_conn;
+  uint32_t _tried_38400_at;
+  uint32_t _tried_9600_at;
   uint32_t _init_at;
 
   // Age each item. If the corresponding timer times out, it's stale.

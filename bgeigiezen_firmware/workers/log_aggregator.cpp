@@ -1,6 +1,5 @@
 #include "log_aggregator.h"
 #include "battery_indicator.h"
-#include "debugger.h"
 #include "gm_sensor.h"
 #include "gps_connector.h"
 #include "identifiers.h"
@@ -93,7 +92,7 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
     if ((_last_latitude < 0 || _last_latitude > 0) && (_last_longitude < 0 || _last_longitude > 0)) {
       double plus_distance = haversine_km(data.latitude, data.longitude, _last_latitude, _last_longitude);
       data.distance += plus_distance;
-      //      ZEN_LOGD("Distance %f = haversine_km(%f, %f, %f, %f)\n", plus_distance, data.latitude, data.longitude, _last_latitude, _last_longitude);
+      //      M5_LOGD("Distance %f = haversine_km(%f, %f, %f, %f)", plus_distance, data.latitude, data.longitude, _last_latitude, _last_longitude);
     }
     _last_latitude = data.latitude;
     _last_longitude = data.longitude;

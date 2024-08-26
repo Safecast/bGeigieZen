@@ -1,5 +1,4 @@
 #include "hardware_counter.h"
-#include "debugger.h"
 #include "user_config.h"
 
 /* Decode what PCNT's unit originated an interrupt
@@ -40,8 +39,14 @@ uint32_t HardwareCounter::get_last_count() {
 }
 
 void HardwareCounter::begin() {
-  if (_gpio == 0) {
-    _gpio = M5.getBoard() == m5::board_t::board_M5Stack ? GEIGER_PULSE_GPIO_COREBASIC : GEIGER_PULSE_GPIO_CORE2;
+  if (_gpio == 0 && M5.getBoard() == m5::board_t::board_M5Stack) {
+    _gpio = GEIGER_PULSE_GPIO_COREBASIC;
+  }
+  else if (_gpio == 0 && M5.getBoard() == m5::board_t::board_M5StackCore2) {
+    _gpio = GEIGER_PULSE_GPIO_CORE2;
+  }
+  else if (_gpio == 0 && M5.getBoard() == m5::board_t::board_M5StackCoreS3SE) {
+    _gpio = GEIGER_PULSE_GPIO_CORES3SE;
   }
 
   /* Prepare configuration for the PCNT unit */
@@ -111,7 +116,7 @@ uint32_t HardwareCounter::_get_count_reset() {
   // get the value of the hardware counter
   esp_err_t ret = pcnt_get_counter_value(_unit, &count);
   if (ret != ESP_OK) {
-    ZEN_LOGD("A problem occurred in the hardware counter\n");
+    M5_LOGD("A problem occurred in the hardware counter");
   }
 
   // compute the total value taking into account the wrap-arounds

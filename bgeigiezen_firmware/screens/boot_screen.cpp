@@ -1,6 +1,5 @@
 #include "boot_screen.h"
 #include "controller.h"
-#include "debugger.h"
 #include "default_entry_screen.h"
 #include "first_time_startup.h"
 #include "identifiers.h"
@@ -36,14 +35,14 @@ void BootScreen::render(const worker_map_t& workers, const handler_map_t& handle
   // Display something
   M5.Lcd.setCursor(10, 10);
   M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawString("bGeigie Zen", 90, 50, 4);
+  M5.Lcd.drawString("bGeigie Zen", 90, 50, &fonts::Font4);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawString("Some splash screen device details.", 5, 100, 2);
-  M5.Lcd.drawString(VERSION_STRING, 5, 120, 2);
+  M5.Lcd.drawString("Some splash screen device details.", 5, 100, &fonts::Font2);
+  M5.Lcd.drawString(VERSION_STRING, 5, 120, &fonts::Font2);
   // Display safecast copyright
   M5.Lcd.setTextFont(1);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawString("SAFECAST", 230, 215, 1);
+  M5.Lcd.drawString("SAFECAST", 230, 215, &fonts::Font0);
   M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawString(COPYRIGHT_YEAR_STRING, 285, 215, 1);
+  M5.Lcd.drawString(COPYRIGHT_YEAR_STRING, 285, 215, &fonts::Font0);
 }

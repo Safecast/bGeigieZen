@@ -2,7 +2,6 @@
 #define FIRST_TIME_STARTUP_SCREEN_H
 
 #include "base_screen.h"
-#include "debugger.h"
 
 class FirstTimeStartupScreen : public BaseScreen {
  public:
