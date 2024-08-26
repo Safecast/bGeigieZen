@@ -69,7 +69,7 @@ Controller controller(settings, gnss);
 ZenButton zen_A(M5.BtnA);
 ZenButton zen_B(M5.BtnB);
 ZenButton zen_C(M5.BtnC);
-GpsConnector gps(gnss, Serial1);
+GpsConnector gps(gnss, Serial2);
 NavsatCollector navsat(gnss);
 GeigerCounter gm_sensor;
 BatteryIndicator battery_indicator;
