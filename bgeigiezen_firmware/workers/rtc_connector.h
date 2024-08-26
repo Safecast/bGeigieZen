@@ -50,13 +50,14 @@ class DateTimeProvider : public ProcessWorker<RtcData> {
   // read dt: System -> Data
   void system_to_data();
 
-  // save dt: GPS / RTC -> Data -> System -> RTC
-  void gps_to_data(const GnssData& gps_data);
-  void rtc_to_data();
-  void data_to_system(bool save_rtc);
+  // save dt: GPS / RTC -> System (-> RTC)
+  void gps_to_system(const GnssData& gps_data);
+  void rtc_to_system();
+  void save_to_system(tm& sys_time);
   void system_to_rtc();
+  void invalidate_sys_time();
 
-  tm _t_st;
+  tm _sys_time;
   uint32_t _last_sys_set;
 };
 
