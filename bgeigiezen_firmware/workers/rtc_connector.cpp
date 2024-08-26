@@ -26,6 +26,8 @@ bool DateTimeProvider::activate(bool retry) {
     rtc_to_data();
   } else {
     M5_LOGD("RTC unit not found");
+    // Start with invalid data
+    data_to_system(false);
   }
 
   return true;
@@ -52,8 +54,6 @@ void DateTimeProvider::system_to_data() {
   data.hour = _t_st.tm_hour;
   data.minute = _t_st.tm_min;
   data.second = _t_st.tm_sec;
-  M5_LOGD("System time read, current datetime: %d-%d-%d %d:%d:%d",
-          data.year, data.month, data.day, data.hour, data.minute, data.second);
 }
 
 void DateTimeProvider::gps_to_data(const GnssData& gps_data) {
@@ -65,8 +65,6 @@ void DateTimeProvider::gps_to_data(const GnssData& gps_data) {
     data.hour = gps_data.hour;
     data.minute = gps_data.minute;
     data.second = gps_data.second;
-    M5_LOGD("GPS read, current datetime: %d-%d-%d %d:%d:%d",
-            data.year, data.month, data.day, data.hour, data.minute, data.second);
     data_to_system(false);
   }
 }
@@ -82,8 +80,6 @@ void DateTimeProvider::rtc_to_data() {
     data.minute = static_cast<uint8_t>(rtc_datetime.time.minutes);
     data.second = static_cast<uint8_t>(rtc_datetime.time.seconds);
     data.valid = data.year > 2023;
-    M5_LOGD("RTC unit read: %d-%d-%d %d:%d:%d",
-            data.year, data.month, data.day, data.hour, data.minute, data.second);
     data_to_system(true);
   }
 }
@@ -140,8 +136,6 @@ void DateTimeProvider::data_to_system(bool save_rtc) {
   } else {
     unsetenv("TZ");
   }
-  M5_LOGD("System write, current datetime: %d-%d-%d %d:%d:%d",
-          data.year, data.month, data.day, data.hour, data.minute, data.second);
   if (save_rtc) {
     system_to_rtc();
   }
