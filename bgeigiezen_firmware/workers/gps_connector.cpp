@@ -55,7 +55,6 @@ GpsConnector::GpsConnector(TeenyUbloxConnect& gnss, HardwareSerial& serial) : Wo
  * @return true if initialized GNSS library, false if no connection with module.
 */
 bool GpsConnector::activate(bool retry) {
-
   // From Sparkfun examples/Example12_UseUart
   // Assume that the U-Blox GNSS is running at 9600 baud (the default) or at 38400 baud.
   if (!retry) {
