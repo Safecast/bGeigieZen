@@ -1,13 +1,13 @@
 (kicad_sch
-	(version 20240602)
+	(version 20240716)
 	(generator "eeschema")
 	(generator_version "8.99")
 	(uuid "c2e3a215-6a49-419d-95d1-595f35b17280")
 	(paper "A4")
 	(title_block
-		(title "bGeigieZen V4.0.5 rNFW")
-		(date "2024-06-17")
-		(rev "V4.0.5 NFW")
+		(title "bGeigieZen V4.0.7 NFW")
+		(date "2024-08-14")
+		(rev "V4.0.7 NFW")
 		(company "GitHub link at https://github.com/Safecast/bGeigieZen")
 		(comment 1 "Not For Whimps version")
 	)
@@ -164,6 +164,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Connector:Conn_01x02_Male_1"
 			(pin_names
@@ -316,6 +317,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Connector:Conn_01x03_Male"
 			(pin_names hide)
@@ -508,6 +510,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Connector:Conn_01x06_Male"
 			(pin_names
@@ -824,6 +827,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Connector_Generic:Conn_02x15_Odd_Even"
 			(pin_names hide)
@@ -1774,6 +1778,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:D"
 			(pin_numbers hide)
@@ -1937,6 +1942,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:Fuse_Small"
 			(pin_numbers hide)
@@ -2069,6 +2075,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Mechanical:MountingHole_Pad"
 			(pin_numbers hide)
@@ -2170,6 +2177,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "bGeigieRaku-V2-rescue:BATTERY-akizuki-M5_board-rescue"
 			(pin_names hide)
@@ -2312,6 +2320,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "bGeigieRaku-V2-rescue:GND-bGeigieNano_V1.1.5"
 			(power)
@@ -2403,6 +2412,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 	)
 	(junction
@@ -2501,7 +2511,7 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 87.63) (xy 100.33 88.9)
+			(xy 100.33 86.36) (xy 100.33 88.9)
 		)
 		(stroke
 			(width 0)
@@ -2661,7 +2671,7 @@
 	)
 	(wire
 		(pts
-			(xy 100.33 80.01) (xy 100.33 76.2)
+			(xy 100.33 78.74) (xy 100.33 76.2)
 		)
 		(stroke
 			(width 0)
@@ -3670,7 +3680,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3697d0eb-699e-49e1-af61-d283d688c970")
-		(property "Reference" "QIcharger1"
+		(property "Reference" "QI-charger"
 			(at 114.3 83.82 0)
 			(effects
 				(font
@@ -3725,7 +3735,7 @@
 		(instances
 			(project "bGeigieZen V4.x.x single 18650"
 				(path "/c2e3a215-6a49-419d-95d1-595f35b17280"
-					(reference "QIcharger1")
+					(reference "QI-charger")
 					(unit 1)
 				)
 			)
@@ -3800,7 +3810,7 @@
 	)
 	(symbol
 		(lib_id "Device:D")
-		(at 100.33 83.82 270)
+		(at 100.33 82.55 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3808,7 +3818,7 @@
 		(dnp no)
 		(uuid "5e1d703d-9fb7-439b-bfac-34a7077cafa7")
 		(property "Reference" "D1"
-			(at 102.87 82.5499 90)
+			(at 102.87 81.2799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3817,7 +3827,7 @@
 			)
 		)
 		(property "Value" "Crowbar"
-			(at 97.9131 90.1956 90)
+			(at 97.9131 88.9256 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3826,7 +3836,7 @@
 			)
 		)
 		(property "Footprint" "Diode_THT:D_DO-201_P15.24mm_Horizontal"
-			(at 100.33 83.82 0)
+			(at 100.33 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3835,7 +3845,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 100.33 83.82 0)
+			(at 100.33 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3844,7 +3854,7 @@
 			)
 		)
 		(property "Description" "Diode"
-			(at 100.33 83.82 0)
+			(at 100.33 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3853,7 +3863,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 100.33 83.82 0)
+			(at 100.33 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3862,7 +3872,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 100.33 83.82 0)
+			(at 100.33 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4162,4 +4172,5 @@
 			(page "1")
 		)
 	)
+	(embedded_fonts no)
 )
