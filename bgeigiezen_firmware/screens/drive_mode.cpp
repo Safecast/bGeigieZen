@@ -1,12 +1,10 @@
 #include "drive_mode.h"
-#include "debugger.h"
 #include "handlers/sd_logger.h"
 #include "identifiers.h"
 #include "menu_window.h"
 #include "workers/battery_indicator.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
-#include "workers/rtc_connector.h"
 #include "workers/zen_button.h"
 
 DriveModeScreen DriveModeScreen_i;
@@ -72,26 +70,26 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     if (settings->get_cpm_usvh()) {
       // Display CPM big, usvh small
       M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-      auto cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 0, 100, 7);
-      auto ush_width = printFloatFont(gm_sensor->get_data().uSvh, 4, 0, 140, 4);
+      uint16_t cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 0, 100, &fonts::Font7);
+      uint16_t ush_width = printFloatFont(gm_sensor->get_data().uSvh, 4, 0, 140, &fonts::Font4);
 
       // Display unit text with cleanup (CPM uSv/h)
       M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
       M5.Lcd.fillRect(cpm_width, 52, 320 - cpm_width, 27, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
-      cpm_width += M5.Lcd.drawString(" CPM", cpm_width, 105, 4); // Prints after cpm value
+      cpm_width += M5.Lcd.drawString(" CPM", cpm_width, 105, &fonts::Font4); // Prints after cpm value
       M5.Lcd.fillRect(cpm_width, 74, 320 - cpm_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CPM text
-      M5.Lcd.drawString(" uSv/h   ", 0 + ush_width, 140, 4); // Prints after ush value
+      M5.Lcd.drawString(" uSv/h   ", 0 + ush_width, 140, &fonts::Font4); // Prints after ush value
     } else {
       M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-      auto ush_width = printFloatFont(gm_sensor->get_data().uSvh, 3, 0, 100, 7);
-      auto cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 0, 140, 4);
+      uint16_t ush_width = printFloatFont(gm_sensor->get_data().uSvh, 3, 0, 100, &fonts::Font7);
+      uint16_t cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 0, 140, &fonts::Font4);
 
       // Display unit text with cleanup (CPM uSv/h)
       M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
       M5.Lcd.fillRect(ush_width, 52, 320 - ush_width, 27, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
-      ush_width += M5.Lcd.drawString(" uSv/h", ush_width, 105, 4); // Prints after cpm value
+      ush_width += M5.Lcd.drawString(" uSv/h", ush_width, 105, &fonts::Font4); // Prints after cpm value
       M5.Lcd.fillRect(ush_width, 74, 320 - ush_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CPM text
-      M5.Lcd.drawString(" CPM   ", 0 + cpm_width, 140, 4); // Prints after ush value
+      M5.Lcd.drawString(" CPM   ", 0 + cpm_width, 140, &fonts::Font4); // Prints after ush value
     }
   }
 
@@ -99,37 +97,37 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   if (gps->is_fresh()  || force) {
     // Print drive data
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-    const auto distance_width = M5.Lcd.drawString("Distance :", 0, 157, 1); // Prints after ush value
-    const auto heading_width = M5.Lcd.drawString("Heading  :", 0, 165, 1); // Prints after ush value
+    const uint16_t distance_width = M5.Lcd.drawString("Distance :", 0, 157, &fonts::Font0); // Prints after ush value
+    const uint16_t heading_width = M5.Lcd.drawString("Heading  :", 0, 165, &fonts::Font0); // Prints after ush value
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    printFloatFont(log_aggregator->get_data().distance - _distance_start, 1, 0 + distance_width, 157, 1); // Prints after ush value
+    printFloatFont(log_aggregator->get_data().distance - _distance_start, 1, 0 + distance_width, 157, &fonts::Font0); // Prints after ush value
     switch (gps->get_data().heading) {
       case GnssData::UNKNOWN:
-        M5.Lcd.drawString("Unknown", 0 + heading_width, 165, 1);
+        M5.Lcd.drawString("Unknown", 0 + heading_width, 165, &fonts::Font0);
         break;
       case GnssData::NORTH:
-        M5.Lcd.drawString("North", 0 + heading_width, 165, 1);
+        M5.Lcd.drawString("North", 0 + heading_width, 165, &fonts::Font0);
         break;
       case GnssData::NORTHEAST:
-        M5.Lcd.drawString("Northeast", 0 + heading_width, 165, 1);
+        M5.Lcd.drawString("Northeast", 0 + heading_width, 165, &fonts::Font0);
         break;
       case GnssData::EAST:
-        M5.Lcd.drawString("East", 0 + heading_width, 165, 1);
+        M5.Lcd.drawString("East", 0 + heading_width, 165, &fonts::Font0);
         break;
       case GnssData::SOUTHEAST:
-        M5.Lcd.drawString("Southeast", 0 + heading_width, 165, 1);
+        M5.Lcd.drawString("Southeast", 0 + heading_width, 165, &fonts::Font0);
         break;
       case GnssData::SOUTH:
-        M5.Lcd.drawString("South", 0 + heading_width, 165, 1);
+        M5.Lcd.drawString("South", 0 + heading_width, 165, &fonts::Font0);
         break;
       case GnssData::SOUTHWEST:
-        M5.Lcd.drawString("Southwest", 0 + heading_width, 165, 1);
+        M5.Lcd.drawString("Southwest", 0 + heading_width, 165, &fonts::Font0);
         break;
       case GnssData::WEST:
-        M5.Lcd.drawString("West", 0 + heading_width, 165, 1);
+        M5.Lcd.drawString("West", 0 + heading_width, 165, &fonts::Font0);
         break;
       case GnssData::NORTHWEST:
-        M5.Lcd.drawString("Northwest", 0 + heading_width, 165, 1);
+        M5.Lcd.drawString("Northwest", 0 + heading_width, 165, &fonts::Font0);
         break;
     }
 

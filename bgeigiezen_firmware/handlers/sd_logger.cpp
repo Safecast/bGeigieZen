@@ -31,17 +31,17 @@ bool SdLogger::activate(bool) {
 
   _is_temp = true;
   _total = 0;
-  ZEN_LOGD("Started new log '%s'.\n", _logging_to);
+  M5_LOGD("Started new log '%s'.", _logging_to);
   return success;
 }
 
 void SdLogger::deactivate() {
   if (_total < MIN_LOG_LINES_FOR_KEEP) {
     // Delete
-    ZEN_LOGD("End logging to '%s', deleting file due to insufficient lines (%d).\n", _logging_to, _total);
+    M5_LOGD("End logging to '%s', deleting file due to insufficient lines (%d).", _logging_to, _total);
     SDInterface::i().delete_log(_logging_to);
   } else {
-    ZEN_LOGD("End logging to '%s', total of %d lines logged.\n", _logging_to, _total);
+    M5_LOGD("End logging to '%s', total of %d lines logged.", _logging_to, _total);
   }
   strcpy(_logging_to, "");
 }
@@ -51,19 +51,19 @@ int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
   const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
   if (log_data->is_fresh()) {
     if (!SDInterface::i().ready()) {
-      ZEN_LOGD("Abrupt stop logging '%s', sd card not ready.\n", _logging_to);
+      M5_LOGD("Abrupt stop logging '%s', sd card not ready.", _logging_to);
       return e_handler_error;
     }
     if (_is_temp) {
       // Check RTC for time to rename log file
-      const auto& rtc_data = workers.worker<RtcConnector>(k_worker_rtc_connector)->get_data();
+      const auto& rtc_data = workers.worker<DateTimeProvider>(k_worker_rtc_connector)->get_data();
       if (rtc_data.valid) {
         // Renaming the log file
         char new_name[LOG_FILENAME_SIZE];
         sprintf(new_name, DATED_LOG_NAME_F, get_dir(), rtc_data.year, rtc_data.month, rtc_data.day, rtc_data.hour, rtc_data.minute);
         SDInterface::i().rename_log(_logging_to, new_name);
         strcpy(_logging_to, new_name);
-        ZEN_LOGD("Updated log name to '%s'.\n", _logging_to);
+        M5_LOGD("Updated log name to '%s'.", _logging_to);
         _is_temp = false;
       }
     }

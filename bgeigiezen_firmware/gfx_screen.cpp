@@ -49,7 +49,7 @@ void GFXScreen::initialize() {
 
   _saver.createSprite(static_cast<int16_t>(4 + SCREENSAVER_TEXT_LENGTH), 12);
   _saver.fillScreen(LCD_COLOR_BACKGROUND);
-  _saver.drawString(SCREENSAVER_TEXT, 2, 2, 1);
+  _saver.drawString(SCREENSAVER_TEXT, 2, 2, &fonts::Font0);
   _screen = &BootScreen_i;
   _screen->enter_screen(_controller);
   set_screen_status(e_screen_status_on);
@@ -82,8 +82,8 @@ void GFXScreen::setBrightness(uint8_t lvl) {
   if (lvl == LEVEL_BLANKED) {
     // Turn screen off
     M5.Lcd.setBrightness(0);
-    M5.Power.Axp192.setDCDC3(false);
 #ifdef M5_CORE2
+    M5.Power.Axp192.setDCDC3(false);
     M5.Axp.SetDCDC3(false);
     M5.Axp.ScreenBreath(0);
 #elif M5_BASIC
@@ -172,7 +172,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         new_screen = _menu->handle_input(_controller, workers);
         if (new_screen || !_menu->menu_open()) {
           // Closed menu
-          ZEN_LOGD("Menu closed\n");
+          M5_LOGD("Menu closed");
           _menu->leave_screen(_controller);
           clear();
         }
@@ -180,7 +180,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         new_screen = _screen->handle_input(_controller, workers);
         if (new_screen == _menu) {
           // opened menu, not a new screen
-          ZEN_LOGD("Menu opened\n");
+          M5_LOGD("Menu opened");
           clear();
           _menu->enter_screen(_controller);
           new_screen = nullptr;
@@ -190,7 +190,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         }
       }
       if (new_screen && new_screen != _screen) {
-        ZEN_LOGD("New screen entered: %s\n", new_screen->get_title());
+        M5_LOGD("New screen entered: %s", new_screen->get_title());
         _screen->leave_screen(_controller);
         _screen = new_screen;
         clear();
@@ -223,15 +223,14 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
       }
 
       if (_screen->has_status_bar()) {
-        M5.Lcd.setTextFont(1);
         // Render message if available on top of bar
         if (_screen->get_error_message(workers, handlers)) {
           M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_ERROR);
-          auto text_width = M5.Lcd.drawString(_screen->get_error_message(workers, handlers), 0, 220, 2);
+          uint16_t text_width = M5.Lcd.drawString(_screen->get_error_message(workers, handlers), 0, 220, &fonts::Font2);
           M5.Lcd.fillRect(text_width, 200, 320 - text_width, 20, LCD_COLOR_BACKGROUND);
         } else if (_screen->get_status_message(workers, handlers)) {
           M5.Lcd.setTextColor(LCD_COLOR_BACKGROUND, LCD_COLOR_DEFAULT);
-          auto text_width = M5.Lcd.drawString(_screen->get_status_message(workers, handlers), 0, 220, 2);
+          uint16_t text_width = M5.Lcd.drawString(_screen->get_status_message(workers, handlers), 0, 220, &fonts::Font2);
           M5.Lcd.fillRect(text_width, 200, 320 - text_width, 20, LCD_COLOR_BACKGROUND);
         } else {
           M5.Lcd.fillRect(0, 200, 320, 20, LCD_COLOR_BACKGROUND);
@@ -239,10 +238,11 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
 
         // Render bottom status bar
         M5.Lcd.drawLine(0, 220, 320, 220, TFT_WHITE);
+        M5.Lcd.setFont(&fonts::Font0);
 
         // Screen name
         M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-        M5.Lcd.setCursor(0, 227);
+        M5.Lcd.setCursor(0, 235);
         M5.Lcd.print(_screen->get_title());
         M5.Lcd.print(" ");
 
@@ -298,18 +298,18 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         // Device
         if (_settings.get_device_id() < 10000) {
           // 4-digit device id
-          M5.Lcd.setCursor(186, 227);
+          M5.Lcd.setCursor(186, 235);
           M5.Lcd.setTextColor(_settings.get_device_id() ? LCD_COLOR_DEFAULT : LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
           M5.Lcd.printf("#%04d ", _settings.get_device_id());
         } else {
           // 5-digit device id
-          M5.Lcd.setCursor(180, 227);
+          M5.Lcd.setCursor(180, 235);
           M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
           M5.Lcd.printf("#%5d ", _settings.get_device_id());
         }
 
         // Time HH:MM
-        const auto& rtc = workers.worker<RtcConnector>(k_worker_rtc_connector)->get_data();
+        const auto& rtc = workers.worker<DateTimeProvider>(k_worker_rtc_connector)->get_data();
         M5.Lcd.setTextColor(rtc.valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
         M5.Lcd.printf("%04d/%02d/%02d %02d:%02d", rtc.year, rtc.month, rtc.day, rtc.hour, rtc.minute);
       }

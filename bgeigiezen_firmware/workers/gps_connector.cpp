@@ -13,7 +13,6 @@
 */
 
 #include "gps_connector.h"
-#include "debugger.h"
 
 #define GPS_INVALID_YEAR 2000
 #define GPS_INVALID_MONTH 1
@@ -31,7 +30,7 @@
 #define WNW (WSW + 45)
 #define NNW (WNW + 45)
 
-GpsConnector::GpsConnector(TeenyUbloxConnect& gnss) : Worker<GnssData>({
+GpsConnector::GpsConnector(TeenyUbloxConnect& gnss, HardwareSerial& serial) : Worker<GnssData>({
                                                        .location_valid=false,
                                                        .date_valid=false,
                                                        .time_valid=false,
@@ -50,7 +49,7 @@ GpsConnector::GpsConnector(TeenyUbloxConnect& gnss) : Worker<GnssData>({
                                                        .second=0,
                                                        .protocolVersionHigh=0,
                                                        .protocolVersionLow=0
-                                                   }), _gnss(gnss), ss(GPS_SERIAL_NUM), tried_38400_at(0), tried_9600_at(0), _init_at(0) {
+                                                   }), _gnss(gnss), _serial_conn(serial), _tried_38400_at(0), _tried_9600_at(0), _init_at(0) {
 }
 /**
  * @return true if initialized GNSS library, false if no connection with module.
@@ -60,29 +59,34 @@ bool GpsConnector::activate(bool retry) {
   // From Sparkfun examples/Example12_UseUart
   // Assume that the U-Blox GNSS is running at 9600 baud (the default) or at 38400 baud.
   if (!retry) {
-    ss.begin(38400);
+#ifdef CONFIG_IDF_TARGET_ESP32S3 // Core S3SE fix using the correct serial pins
+    _serial_conn.begin(38400, SERIAL_8N1, RXD2, TXD2);
+#else
+    _serial_conn.begin(38400);
+#endif
+
     _init_at = millis();
   }
-  if (tried_38400_at == 0 && (millis() - _init_at > 1000)) { // Wait for device to completely startup
-    tried_38400_at = millis();
-    ss.updateBaudRate(38400);
-    ZEN_LOGD("GNSS: Try at 38400 baud\n");
-    if (_gnss.begin(ss, 500)) {
-      ZEN_LOGD("GNSS: connected at 38400 baud\n"); // no need to set module to 38.4
+  if (_tried_38400_at == 0 && (millis() - _init_at > 1000)) { // Wait for device to completely startup
+    _tried_38400_at = millis();
+    _serial_conn.updateBaudRate(38400);
+    M5_LOGD("GNSS: Try at 38400 baud");
+    if (_gnss.begin(_serial_conn, 500)) {
+      M5_LOGD("GNSS: connected at 38400 baud"); // no need to set module to 38.4
     }
     else {
       return false;
     }
   }
-  else if (tried_9600_at == 0 && tried_38400_at > 0 && (millis() - tried_38400_at > 1200)) {
-    tried_9600_at = millis();
-    ss.updateBaudRate(9600);
-    ZEN_LOGD("GNSS: Try at 9600 baud\n");
-    if (_gnss.begin(ss, 500)) {
-      ZEN_LOGD("GNSS: connected at 9600 baud, switching to 38400\n");
+  else if (_tried_9600_at == 0 && _tried_38400_at > 0 && (millis() - _tried_38400_at > 1200)) {
+    _tried_9600_at = millis();
+    _serial_conn.updateBaudRate(9600);
+    M5_LOGD("GNSS: Try at 9600 baud");
+    if (_gnss.begin(_serial_conn, 500)) {
+      M5_LOGD("GNSS: connected at 9600 baud, switching to 38400");
       _gnss.setSerialRate(38400);
       delay(100); // recovery time for gnss module baud rate change
-      ss.updateBaudRate(38400);
+      _serial_conn.updateBaudRate(38400);
     }
     else {
       return false;
@@ -95,7 +99,7 @@ bool GpsConnector::activate(bool retry) {
   // Confirm that we actually have a connection
   data.protocolVersionHigh = _gnss.getProtocolVersionHigh();
   data.protocolVersionLow = _gnss.getProtocolVersionLow();
-  ZEN_LOGD("GNSS: u-blox protocol version %02d.%02d\n",
+  M5_LOGD("GNSS: u-blox protocol version %02d.%02d",
               data.protocolVersionHigh, data.protocolVersionLow);
 
   // Send UBX, disable NMEA-0183 messages that we are ignoring anyway.
@@ -110,9 +114,9 @@ bool GpsConnector::activate(bool retry) {
 }
 
 void GpsConnector::deactivate() {
-  tried_9600_at = 0;
-  tried_38400_at = 0;
-  ss.end();
+  _tried_9600_at = 0;
+  _tried_38400_at = 0;
+  _serial_conn.end();
 }
 
 int8_t GpsConnector::produce_data() {
@@ -125,12 +129,12 @@ int8_t GpsConnector::produce_data() {
   // getPVT() returns UTC date and time.
   // Do not use GNSS time, see u-blox spec section 9.
   if (_gnss.getPVT()) {
-    // ZEN_LOGD("[%d] _gnss.getPVT() is true.\n", millis());
+    // M5_LOGD("[%d] _gnss.getPVT() is true.", millis());
 
     data.satsInView = _gnss.getSIV(); // Satellites In View
 
     if (_gnss.getFixType() == 2 || _gnss.getFixType() == 3) {
-      // ZEN_LOGD("[%d] fix type is 2D or 3D.\n", millis());
+      // M5_LOGD("[%d] fix type is 2D or 3D.", millis());
       data.pdop = _gnss.getPDOP() * 1e-2; // Position Dilution of Precision
       data.latitude = _gnss.getLatitude() * 1e-7;
       data.longitude = _gnss.getLongitude() * 1e-7;
@@ -164,14 +168,14 @@ int8_t GpsConnector::produce_data() {
       location_timer.restart();
       ret_status = e_worker_data_read;
       // DEBUG: Compare PDOP from NAV-PVT and HDOP from NAV-DOP
-      // ZEN_LOGD("[%d] GnssFixOk (type = %d).\n"
+      // M5_LOGD("[%d] GnssFixOk (type = %d)."
       //               "  SATS: %d; PDOP: %d; HDOP: %d\n",
       //               millis(), _gnss.getFixType(),
       //               data.satsInView, _gnss.getPDOP(), data.hdop);
     }
 
     if (_gnss.getDateValid()) {
-//      ZEN_LOGD("[%lu] _gnss.getDateValid() is true.\n", millis());
+//      M5_LOGD("[%lu] _gnss.getDateValid() is true.", millis());
       data.year = _gnss.getYear();
       data.month = _gnss.getMonth();
       data.day = _gnss.getDay();
@@ -181,7 +185,7 @@ int8_t GpsConnector::produce_data() {
     }
 
     if (_gnss.getTimeValid()) {
-//      ZEN_LOGD("[%lu] _gnss.getTimeValid() is true.\n", millis());
+//      M5_LOGD("[%lu] _gnss.getTimeValid() is true.", millis());
       data.hour = _gnss.getHour();
       data.minute = _gnss.getMinute();
       data.second = _gnss.getSecond();
