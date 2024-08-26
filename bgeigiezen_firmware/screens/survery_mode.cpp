@@ -59,26 +59,26 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
     if (settings->get_cpm_usvh()) {
       // Display CPM big, usvh small
       M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-      auto cpm_width = printIntFont(gm_sensor->get_data().cp5s, 0, 100, 7);
-      auto ush_width = printFloatFont(gm_sensor->get_data().uSvh_5sec, 4, 0, 140, 4);
+      uint16_t cpm_width = printIntFont(gm_sensor->get_data().cp5s, 0, 100, &fonts::Font7);
+      uint16_t ush_width = printFloatFont(gm_sensor->get_data().uSvh_5sec, 4, 0, 140, &fonts::Font4);
 
       // Display unit text with cleanup (CPM uSv/h)
       M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
       M5.Lcd.fillRect(cpm_width, 52, 320 - cpm_width, 27, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
-      cpm_width += M5.Lcd.drawString(" CP5S", cpm_width, 105, 4); // Prints after cpm value
+      cpm_width += M5.Lcd.drawString(" CP5S", cpm_width, 105, &fonts::Font4); // Prints after cpm value
       M5.Lcd.fillRect(cpm_width, 74, 320 - cpm_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CPM text
-      M5.Lcd.drawString(" uSv/h   ", 0 + ush_width, 140, 4); // Prints after ush value
+      M5.Lcd.drawString(" uSv/h   ", 0 + ush_width, 140, &fonts::Font4); // Prints after ush value
     } else {
       M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-      auto ush_width = printFloatFont(gm_sensor->get_data().uSvh_5sec, 3, 0, 100, 7);
-      auto cpm_width = printIntFont(gm_sensor->get_data().cp5s, 0, 140, 4);
+      uint16_t ush_width = printFloatFont(gm_sensor->get_data().uSvh_5sec, 3, 0, 100, &fonts::Font7);
+      uint16_t cpm_width = printIntFont(gm_sensor->get_data().cp5s, 0, 140, &fonts::Font4);
 
       // Display unit text with cleanup (CPM uSv/h)
       M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
       M5.Lcd.fillRect(ush_width, 52, 320 - ush_width, 27, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
-      ush_width += M5.Lcd.drawString(" uSv/h", ush_width, 105, 4); // Prints after cpm value
+      ush_width += M5.Lcd.drawString(" uSv/h", ush_width, 105, &fonts::Font4); // Prints after cpm value
       M5.Lcd.fillRect(ush_width, 74, 320 - ush_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CPM text
-      M5.Lcd.drawString(" CP5S   ", 0 + cpm_width, 140, 4); // Prints after ush value
+      M5.Lcd.drawString(" CP5S   ", 0 + cpm_width, 140, &fonts::Font4); // Prints after ush value
     }
   }
 

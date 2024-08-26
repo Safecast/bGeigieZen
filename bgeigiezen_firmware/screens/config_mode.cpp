@@ -41,14 +41,14 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
       // screen specific action
       switch (_current_page) {
         case e_config_page_reset:
-          controller.reset_all();
+          controller.reset_settings();
           // Temp clear and post reset message to screen
           M5.Lcd.clear(LCD_COLOR_BACKGROUND);
           M5.Lcd.setRotation(3);
           M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-          M5.Lcd.setCursor(17, 78, 4);
+          M5.Lcd.setCursor(17, 78, &fonts::Font4);
           M5.Lcd.printf("DEVICE MEMORY RESET\n");
-          M5.Lcd.setCursor(100, 120, 2);
+          M5.Lcd.setCursor(100, 120, &fonts::Font2);
           M5.Lcd.printf("Restarting device...\n");
           delay(1000);
           DeviceUtils::shutdown(true);
@@ -107,7 +107,7 @@ void ConfigModeScreen::render_page_main(const worker_map_t& workers, const handl
 
   // Temp print out device settings on screen
   const auto& config = *workers.worker<LocalStorage>(k_worker_local_storage);
-  M5.Lcd.setCursor(0, 30, 2);
+  M5.Lcd.setCursor(0, 30, &fonts::Font2);
 
   if (_main_page_info_section == e_config_section_device) {
     M5.Lcd.printf("Device settings\n\n");
@@ -142,7 +142,7 @@ void ConfigModeScreen::render_page_ap(const worker_map_t& workers, const handler
 
   const auto settings = workers.worker<LocalStorage>(k_worker_local_storage);
 
-  M5.Lcd.setCursor(0, 78, 1);
+  M5.Lcd.setCursor(0, 78, &fonts::Font0);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.printf("Config through Access Point, connect to\n");
   M5.Lcd.printf("SSID:        %s\n", WiFiWrapper_i.get_hostname());
@@ -157,7 +157,7 @@ void ConfigModeScreen::render_page_wifi(const worker_map_t& workers, const handl
 
   const auto settings = workers.worker<LocalStorage>(k_worker_local_storage);
 
-  M5.Lcd.setCursor(0, 78, 1);
+  M5.Lcd.setCursor(0, 78, &fonts::Font0);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.printf("Config through local network, connect to\n");
   M5.Lcd.printf("Network:     %s\n", settings->get_wifi_ssid());
@@ -171,7 +171,7 @@ void ConfigModeScreen::render_reset_device(const worker_map_t& workers, const ha
   drawButton2("RESET");
   drawButton3("Menu");
 
-  M5.Lcd.setCursor(0, 78, 1);
+  M5.Lcd.setCursor(0, 78, &fonts::Font0);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.printf("Press RESET to confirm clearing all local storage\n");
 }

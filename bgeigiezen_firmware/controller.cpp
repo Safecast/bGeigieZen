@@ -30,11 +30,6 @@ void Controller::start_default_workers() {
   set_worker_active(k_worker_device_state, true);
 }
 
-void Controller::reset_system() {
-  _settings.reset_defaults();
-  DeviceUtils::shutdown(true);
-}
-
 int8_t Controller::produce_data() {
   auto _status = e_worker_idle;
 
@@ -100,7 +95,7 @@ bool Controller::gps_cold_start() {
   return true; // how to check? no idea
 }
 
-void Controller::reset_all() {
+void Controller::reset_settings() {
   _settings.reset_defaults();
 }
 

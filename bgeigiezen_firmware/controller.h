@@ -69,7 +69,7 @@ class Controller : public Aggregator, public Worker<DeviceState> {
   /**
    * Reset memory settings and restart system
    */
-  void reset_all();
+  void reset_settings();
 
   const LocalStorage& get_settings() const;
 
@@ -79,11 +79,6 @@ class Controller : public Aggregator, public Worker<DeviceState> {
    * @return
    */
   int8_t produce_data() override;
-
-  /**
-   * Reset and restart the system
-   */
-  void reset_system();
 
   bool _initialized;
   LocalStorage& _settings;

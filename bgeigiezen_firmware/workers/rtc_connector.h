@@ -17,40 +17,29 @@
  * Core2 RTC GPIO pins SDA=21  SCL=22 (bit bashing?)
 */
 
-#ifdef M5_CORE2
-#include <I2C_BM8563.h>
-#endif
-#include "debugger.h"
 #include "gps_connector.h"
 #include <Worker.hpp>
 #include <user_config.h>
 
 struct RtcData {
-  // Date & Time
   uint16_t year;
   uint8_t month;
   uint8_t day;
   uint8_t hour;
   uint8_t minute;
   uint8_t second;
-
-  // RTC VL_SECONDS register (0x02_ bit 7 is VL bit:
-  //   false = clock integrity guaranteed
-  //   true = low power event detected (clock integrity not guaranteed)
-  bool low_voltage;
-  // true if year >= 2023 and low_voltage false (in case init with 2k value)
   bool valid;
 };
 
 /**
  * RTC device worker, produces the current date and time.
  */
-class RtcConnector : public ProcessWorker<RtcData> {
+class DateTimeProvider : public ProcessWorker<RtcData> {
  public:
 
-  explicit RtcConnector();
+  explicit DateTimeProvider();
 
-  virtual ~RtcConnector() = default;
+  virtual ~DateTimeProvider() = default;
 
   bool activate(bool retry) override;
 
@@ -58,18 +47,17 @@ class RtcConnector : public ProcessWorker<RtcData> {
 
  private:
 
-  void set_from_gps(const GnssData& gps_data);
-  void set_unix_data();
+  // read dt: System -> Data
+  void system_to_data();
 
-#ifdef M5_CORE2
-  I2C_BM8563 rtc;
+  // save dt: GPS / RTC -> Data -> System -> RTC
+  void gps_to_data(const GnssData& gps_data);
+  void rtc_to_data();
+  void data_to_system(bool save_rtc);
+  void system_to_rtc();
 
-  I2C_BM8563_DateTypeDef dateStruct;
-  I2C_BM8563_TimeTypeDef timeStruct;
-#endif
-
-  // ESP Internal
-  struct timeval tv;
+  tm _t_st;
+  uint32_t _last_sys_set;
 };
 
 #endif //BGEIGIEZEN_RTC_CONNECTOR_H_

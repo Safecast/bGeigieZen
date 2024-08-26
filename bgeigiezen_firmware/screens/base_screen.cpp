@@ -1,6 +1,5 @@
 #include "base_screen.h"
 #include "identifiers.h"
-#include "user_config.h"
 #include "utils/wifi_connection.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
@@ -21,9 +20,9 @@ BaseScreen::BaseScreen(const char* title, bool status_bar)
   }
 }
 
-void BaseScreen::drawButton(uint16_t x, const char* text, ButtonState state) const {
+void BaseScreen::drawButton(uint16_t x, const char* text, ButtonState state) {
   if (strlen(text) > BUTTON_TEXT_MAX_LENGTH) {
-    // Dont render long button text :(
+    // Don't render long button text :(
     return;
   }
 
@@ -56,35 +55,23 @@ void BaseScreen::drawButton(uint16_t x, const char* text, ButtonState state) con
   if (strlen(text) % 2 != BUTTON_TEXT_MAX_LENGTH % 2) {
     blob[BUTTON_TEXT_MAX_LENGTH - 1] = '\0';
   }
-  M5.Lcd.drawString(blob, (x + 45) - static_cast<uint16_t>(strlen(blob) * 3), 10);
+  M5.Lcd.drawString(blob, (x + 45) - static_cast<uint16_t>(strlen(blob) * 3), 10, &fonts::Font0);
   M5.Lcd.flush();
 }
 
 void BaseScreen::drawButton1(const char* text, ButtonState state) const {
-#ifdef M5_CORE2
   drawButton(10, text, state);
-#elif M5_BASIC
-  drawButton(20, text, state);
-#endif
 }
 
 void BaseScreen::drawButton2(const char* text, ButtonState state) const {
-#ifdef M5_CORE2
   drawButton(115, text, state);
-#elif M5_BASIC
-  drawButton(115, text, state);
-#endif
 }
 
 void BaseScreen::drawButton3(const char* text, ButtonState state) const {
-#ifdef M5_CORE2
   drawButton(220, text, state);
-#elif M5_BASIC
-  drawButton(210, text, state);
-#endif
 }
 
-int BaseScreen::printFloatFont(float val, int prec, int x, int y, int font) const {
+size_t BaseScreen::printFloatFont(float val, int prec, int x, int y, const lgfx::IFont* font) {
   char sz[32] = "";
   char format[32] = "";
   sprintf(format, "%%.%df", prec);
@@ -93,7 +80,7 @@ int BaseScreen::printFloatFont(float val, int prec, int x, int y, int font) cons
 }
 
 // Prints int with fonts
-int BaseScreen::printIntFont(unsigned long val, int x, int y, int font) const {
+size_t BaseScreen::printIntFont(unsigned long val, int x, int y, const lgfx::IFont* font) {
   char sz[32] = "";
   sprintf(sz, "%ld", val);
   return M5.Lcd.drawString((sz), x, y, font);
@@ -218,15 +205,9 @@ void BaseScreenWithMenu::render_menu(const MenuItem items[], int menu_max, bool 
     M5.Lcd.drawRoundRect(10, 20, 300, 170, 4, items[_menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
     if (outline_button == 3) {
       // Visually connect button to overlay
-#ifdef M5_CORE2
       M5.Lcd.fillRect(220, 12, 90, 12, LCD_COLOR_BACKGROUND);
       M5.Lcd.drawLine(220, 12, 220, 20, items[_menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
       M5.Lcd.drawLine(309, 12, 309, 23, items[_menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
-#elif M5_BASIC
-      M5.Lcd.fillRect(210, 12, 90, 12, LCD_COLOR_BACKGROUND);
-      M5.Lcd.drawLine(210, 12, 210, 20, items[_menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
-      M5.Lcd.drawLine(299, 12, 299, 20, items[_menu_index].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE);
-#endif
     }
   }
 
@@ -239,7 +220,7 @@ void BaseScreenWithMenu::render_menu(const MenuItem items[], int menu_max, bool 
   for (int i = 0; i < menu_max; ++i) {
     M5.Lcd.setTextColor(items[i].enabled ? (i == _menu_index ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_DEFAULT) : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
     M5.Lcd.drawLine(16, 48 + (i * 16), 159, 48 + (i * 16), (i == _menu_index ? (items[i].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE) : LCD_COLOR_BACKGROUND));
-    M5.Lcd.setCursor(16, 40 + (i * 16), 2);
+    M5.Lcd.setCursor(16, 56 + (i * 16), &fonts::Font2);
     if (i == _menu_index) {
       M5.Lcd.print("> ");
     }
@@ -251,17 +232,17 @@ void BaseScreenWithMenu::render_menu(const MenuItem items[], int menu_max, bool 
   }
 
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  M5.Lcd.setCursor(170, 30);
+  M5.Lcd.setCursor(170, 46);
   M5.Lcd.println(items[_menu_index].title);
   size_t tooltip_length = strlen(items[_menu_index].tooltip);
   uint8_t line = 0;
   uint8_t current_line_length = 0;
-  M5.Lcd.setCursor(170, 60);
+  M5.Lcd.setCursor(170, 76);
   for (size_t i = 0; i < tooltip_length; ++i) {
     if (current_line_length == 0 && items[_menu_index].tooltip[i] == ' ') {
       continue;
     }
-    current_line_length += M5.Lcd.drawChar(items[_menu_index].tooltip[i], 170 + current_line_length, 60 + (line * 16), 2);
+    current_line_length += M5.Lcd.drawChar(items[_menu_index].tooltip[i], 170 + current_line_length, 76 + (line * 16), 2);
     if (current_line_length > 124) {
       line += 1;
       current_line_length = 0;
@@ -269,10 +250,10 @@ void BaseScreenWithMenu::render_menu(const MenuItem items[], int menu_max, bool 
   }
   if (!items[_menu_index].enabled) {
     M5.Lcd.setTextColor(LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
-    M5.Lcd.drawString("Not yet available", 170, 110 + (line * 16), 2);
+    M5.Lcd.drawString("Not yet available", 170, 110 + (line * 16), &fonts::Font2);
   }
 
-  M5.Lcd.setCursor(0, 0, 1);
+  M5.Lcd.setCursor(0, 0, &fonts::Font0);
 
 }
 

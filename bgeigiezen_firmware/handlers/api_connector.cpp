@@ -1,6 +1,4 @@
-
 #include "api_connector.h"
-#include "debugger.h"
 #include "identifiers.h"
 
 #define RETRY_TIMEOUT 10000
@@ -63,7 +61,7 @@ int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
   }
 
   if (!WiFi.isConnected() && !activate(true)) {
-    ZEN_LOGD("Unable to send, lost connection");
+    M5_LOGD("Unable to send, lost connection");
     return e_api_reporter_error_not_connected;
   }
 
@@ -71,7 +69,7 @@ int8_t ApiConnector::handle_produced_work(const worker_map_t& workers) {
     return e_api_reporter_error_to_json;
   }
 
-  ZEN_LOGD("Starting task to send data to API...");
+  M5_LOGD("Starting task to send data to API...");
   return start_task("api_send", 2048 * 4, 3);
 }
 
@@ -106,7 +104,7 @@ int8_t ApiConnector::handle_async() {
 
   //Specify destination for HTTP request
   if (!_http_client.begin(url)) {
-    ZEN_LOGD("Unable to begin url connection");
+    M5_LOGD("Unable to begin url connection");
     _http_client.end(); //Free resources
     return e_api_reporter_error_remote_not_available;
   }
@@ -123,7 +121,7 @@ int8_t ApiConnector::handle_async() {
   int httpResponseCode = _http_client.POST(_payload);
 
   String response = _http_client.getString();
-  ZEN_LOGD("POST complete, response (%d):\n%s\n\n", httpResponseCode, response.c_str());
+  M5_LOGD("POST complete, response (%d):\n%s\n", httpResponseCode, response.c_str());
   _http_client.end(); //Free resources
 
   // TODO: Check response measurement ID
