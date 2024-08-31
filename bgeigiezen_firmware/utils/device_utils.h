@@ -12,7 +12,9 @@ class DeviceUtils {
       ESP.restart();
     } else {
       M5_LOGD("\n Shutdown system...\n");
-      M5.Power.powerOff();
+      // TODO: fix this for core2, it wont compile when enabled. ESP deep sleep doesnt work either.
+//      M5.Power.powerOff();
+//      ESP.deepSleep(0);
     }
   }
 };
