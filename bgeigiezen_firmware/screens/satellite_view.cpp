@@ -5,12 +5,12 @@
 #include "workers/navsat_collector.h"
 #include "workers/zen_button.h"
 
-#define COLOR_SAT_SIGNAL_STRONG WHITE
-#define COLOR_SAT_SIGNAL_MEDIUM YELLOW
-#define COLOR_SAT_SIGNAL_WEAK ORANGE
-#define COLOR_SAT_USED_NAV BLUE
-#define COLOR_SAT_HEALTHY RED
-#define COLOR_SAT_UNKNOWN BLACK
+#define COLOR_SAT_SIGNAL_STRONG TFT_WHITE
+#define COLOR_SAT_SIGNAL_MEDIUM TFT_YELLOW
+#define COLOR_SAT_SIGNAL_WEAK TFT_ORANGE
+#define COLOR_SAT_USED_NAV TFT_BLUE
+#define COLOR_SAT_HEALTHY TFT_RED
+#define COLOR_SAT_UNKNOWN TFT_BLACK
 
 
 const SatelliteViewScreen::MenuItem SATELLITE_MENU[SatelliteViewScreen::e_satellite_MENU_MAX] = {
@@ -92,10 +92,6 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
 
   if (force || (navsat && navsat->is_fresh())) {
 
-    drawButton1("Options");
-    drawButton2("Reconnect");
-    drawButton3("Menu");
-
     int16_t  compAngle = 0;
     int16_t  mapRadius = 90;
     int16_t  mapSatRadius = 80; // Keep sat graphics inside map
@@ -105,9 +101,9 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
     int16_t  xCoord;
     int16_t  yCoord;
     int16_t  satRadius = 10;
-    uint32_t satColor;
+    int32_t  satColor;
     int16_t  satRingRadius = 12;
-    uint32_t satRingColor;
+    int32_t  satRingColor;
     int16_t  satAzimuth;
     int8_t   satElevation;
     char _dispStr[4];
@@ -136,14 +132,12 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
         case 4: label = 'S'; break;
         case 6: label = 'W'; break;
       }
-      // Background and foreground colours swapped due to bug in m5, or something...
-      M5.Lcd.drawChar(xCoord + mapCenterX - 5, yCoord + mapCenterY - 7, label, LCD_COLOR_BACKGROUND, LCD_COLOR_DEFAULT, 2);
+      M5.Lcd.drawChar(xCoord + mapCenterX - 5, yCoord + mapCenterY - 7, label, LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND, 2);
     }
 
     if (navsat->get_data().available) {
 
       // Set text size for satellite IDs
-      M5.Lcd.setTextSize(1); // font is 6x8
       const auto& navsat_info = navsat->get_data().navsat_info;
 
       // draw the positions of the sats
@@ -192,6 +186,11 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
   }
 
   if (force) {
+    // Buttons
+    drawButton1("Options");
+    drawButton2("Reconnect");
+    drawButton3("Menu");
+
     // Legend
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.drawCircle(215, 128 - 9, 5, COLOR_SAT_SIGNAL_STRONG);
