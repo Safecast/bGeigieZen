@@ -289,7 +289,7 @@ void LocalStorage::set_wifi_ssid(const char* wifi_ssid, bool force) {
 }
 
 void LocalStorage::set_wifi_password(const char* wifi_password, bool force) {
-  if(force || (wifi_password != nullptr && strlen(wifi_password) < CONFIG_VAL_MAX)) {
+  if(force || (wifi_password != nullptr && strlen(wifi_password) < CONFIG_LONG_VAL_MAX)) {
     if(_memory.begin(memory_name)) {
       strcpy(_wifi_password, wifi_password);
       _memory.putString(key_wifi_password, _wifi_password);

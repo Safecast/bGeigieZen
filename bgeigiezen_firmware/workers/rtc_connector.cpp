@@ -10,7 +10,7 @@
 #include "identifiers.h"
 
 
-DateTimeProvider::DateTimeProvider() : ProcessWorker<RtcData>({.valid=false}, 1000), _sys_time{}, _last_sys_set(0) {
+DateTimeProvider::DateTimeProvider() : ProcessWorker<RtcData>({.valid=false, .gps_confirmed=false}, 1000), _sys_time{}, _last_sys_set(0) {
 }
 
 /**
@@ -67,11 +67,14 @@ void DateTimeProvider::gps_to_system(const GnssData& gps_data) {
     sys_time.tm_hour = gps_data.hour;
     sys_time.tm_min  = gps_data.minute;
     sys_time.tm_sec  = gps_data.second;
-    save_to_system(sys_time);
+
+    data.gps_confirmed = true;
 
     M5_LOGD("Set system time from GPS: %04d-%02d-%02d %02d:%02d:%02d",
             gps_data.year, gps_data.month, gps_data.day,
             gps_data.hour, gps_data.minute, gps_data.second);
+
+    save_to_system(sys_time);
   }
 }
 
@@ -79,7 +82,12 @@ void DateTimeProvider::rtc_to_system() {
   if (M5.Rtc.isEnabled()) {
     m5::rtc_datetime_t rtc_datetime;
     M5.Rtc.getDateTime(&rtc_datetime);
-    if (rtc_datetime.date.year < 2024 || rtc_datetime.date.year > 2035) {
+
+    M5_LOGD("Load from RTC: %04d-%02d-%02d %02d:%02d:%02d",
+            rtc_datetime.date.year, rtc_datetime.date.month, rtc_datetime.date.date,
+            rtc_datetime.time.hours, rtc_datetime.time.minutes, rtc_datetime.time.seconds);
+
+    if (M5.Rtc.getVoltLow() || rtc_datetime.date.year < 2024) {
       // RTC returned invalid data
       M5_LOGD("RTC invalid year, reset sys time");
       return invalidate_sys_time();
@@ -92,10 +100,6 @@ void DateTimeProvider::rtc_to_system() {
     sys_time.tm_hour = static_cast<uint8_t>(rtc_datetime.time.hours);
     sys_time.tm_min  = static_cast<uint8_t>(rtc_datetime.time.minutes);
     sys_time.tm_sec  = static_cast<uint8_t>(rtc_datetime.time.seconds);
-
-    M5_LOGD("Set system time from RTC: %04d-%02d-%02d %02d:%02d:%02d",
-            rtc_datetime.date.year, rtc_datetime.date.month, rtc_datetime.date.date,
-            rtc_datetime.time.hours, rtc_datetime.time.minutes, rtc_datetime.time.seconds);
 
     save_to_system(sys_time);
   }

@@ -1,15 +1,15 @@
 #ifndef BGEIGIEZEN_BATTERYINDICATOR_H_
 #define BGEIGIEZEN_BATTERYINDICATOR_H_
 
+#include <M5Unified.hpp>
 #include <Worker.hpp>
-#include <stdint.h>
 
 /**
  * Relevant battery status
  */
 struct BatteryStatus {
-  uint8_t percentage;
-  bool isCharging;
+  int32_t percentage;
+  m5::Power_Class::is_charging_t isCharging;
 };
 
 /**
