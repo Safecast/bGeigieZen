@@ -13,7 +13,8 @@ T clamp(T2 val, T min, T max) {
 ConfigWebServer::ConfigWebServer(LocalStorage& config)
     : Worker<ServerStatus>(k_server_status_offline, 0),
       _server(SERVER_WIFI_PORT),
-      _config(config) {
+      _config(config),
+      _handled_client(false) {
   add_urls();
 }
 
@@ -27,20 +28,21 @@ bool ConfigWebServer::activate(bool) {
     // Start config server
     _server.begin(SERVER_WIFI_PORT);
     HttpPages::internet_access = WiFiWrapper_i.wifi_connected();
+    data = HttpPages::internet_access ? k_server_status_running_wifi : k_server_status_running_access_point;
     return true;
   }
   return false;
 }
 
 void ConfigWebServer::deactivate() {
+  data = k_server_status_offline;
   _server.close();
-  _server.stop();
 }
 
 int8_t ConfigWebServer::produce_data() {
   _server.handleClient();
-  if(data == k_server_status_offline) {
-    data = HttpPages::internet_access ? k_server_status_running_wifi : k_server_status_running_access_point;
+  if (_handled_client) {
+    _handled_client = false;
     return Worker::e_worker_data_read;
   }
   return Worker::e_worker_idle;
@@ -49,60 +51,70 @@ int8_t ConfigWebServer::produce_data() {
 void ConfigWebServer::add_urls() {
   // Home
   _server.on("/", HTTP_GET, [this]() {
+    M5_LOGD("Handle get home");
     _server.sendHeader("Connection", "close");
-    _server.send(200, "text/html", HttpPages::get_home_page(_config));
+    _server.send_P(200, "text/html", HttpPages::get_home_page(_config));
+    _handled_client = true;
   });
 
   // Configure Device
   _server.on("/device", HTTP_GET, [this]() {
+    M5_LOGD("Handle get device settings");
     _server.sendHeader("Connection", "close");
-    _server.send(200, "text/html", HttpPages::get_config_device_page(
+    _server.send_P(200, "text/html", HttpPages::get_config_device_page(
         _server.hasArg("success"),
         _config
     ));
+    _handled_client = true;
   });
 
   // Configure Connection
   _server.on("/connection", HTTP_GET, [this]() {
+    M5_LOGD("Handle get connection settings");
     _server.sendHeader("Connection", "close");
-    _server.send(200, "text/html", HttpPages::get_config_connection_page(
+    _server.send_P(200, "text/html", HttpPages::get_config_connection_page(
         _server.hasArg("success"),
         _config
     ));
+    _handled_client = true;
   });
 
   // Configure Location
   _server.on("/location", HTTP_GET, [this]() {
-
+    M5_LOGD("Handle get location settings");
     _server.sendHeader("Connection", "close");
-    _server.send(200, "text/html", HttpPages::get_config_location_page(
+    _server.send_P(200, "text/html", HttpPages::get_config_location_page(
         _server.hasArg("success"),
         _config
     ));
-
-    _server.sendHeader("Connection", "close");
+    _handled_client = true;
   });
 
   // Save config
   _server.on("/save", HTTP_POST, [this]() {
     handle_save();
+    _handled_client = true;
   });
 
   _server.on("/reboot", [this]() { // Reboot
-    _server.send(200, "text/plain", "OK");
+    M5_LOGD("Handle reboot request");
+    _server.send_P(200, "text/plain", "OK");
     _server.client().flush();
     ESP.restart();
+    _handled_client = true;
   });
 
   // css get
   _server.on("/pure.css", HTTP_GET, [this]() {
     _server.sendHeader("Content-Encoding", "gzip");
     _server.send_P(200, "text/css", reinterpret_cast<const char*>(HttpPages::pure_css), PURE_CSS_SIZE);
+    _handled_client = true;
   });
 
   // css get
   _server.on("/favicon.ico", HTTP_GET, [this]() {
     _server.send_P(200, "image/x-icon", reinterpret_cast<const char*>(HttpPages::favicon), FAVICON_SIZE);
+    _handled_client = true;
   });
 }
 
@@ -110,6 +122,8 @@ void ConfigWebServer::handle_save() {
 //  if(_server.hasArg(...)) {
 //    _config.set...(_server.arg(...).c_str(), ...);
 //  }
+
+  M5_LOGD("Handle post request");
 
   if(_server.hasArg(FORM_NAME_ALERT_THRESHOLD)) {
     _config.set_alert_threshold(clamp<uint16_t>(_server.arg(FORM_NAME_ALERT_THRESHOLD).toInt(), 0, 34464), false);

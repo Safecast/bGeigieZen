@@ -132,7 +132,7 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
         case 4: label = 'S'; break;
         case 6: label = 'W'; break;
       }
-      M5.Lcd.drawChar(xCoord + mapCenterX - 5, yCoord + mapCenterY - 7, label, LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND, 2);
+      M5.Lcd.drawChar(xCoord + mapCenterX - 5, yCoord + mapCenterY - 7, label, LCD_COLOR_BACKGROUND, LCD_COLOR_DEFAULT, 2);
     }
 
     if (navsat->get_data().available) {
@@ -141,10 +141,10 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
       const auto& navsat_info = navsat->get_data().navsat_info;
 
       // draw the positions of the sats
-      for(int16_t i = navsat_info.numSvsEphValid -1; i >= 0; i--) {
+      for(int16_t i = navsat_info.numSvsEphValid -1; i >= 0; --i) {
 
         // Sat position
-        numSats ++;
+        ++numSats;
         satAzimuth = navsat_info.svSortList[i].azim;
         satElevation = navsat_info.svSortList[i].elev;
         if(satElevation < 0) satElevation = 0;
@@ -211,7 +211,7 @@ void SatelliteViewScreen::enter_screen(Controller& controller) {
 //  controller.set_worker_active(k_worker_navsat_collector, true);
   switch (_current_page) {
     case e_satellite_page_cold_start:
-      controller.gps_cold_start();
+      controller.get_gnss().coldStart();
       set_status_message(F(" GPS cold start, this can take a while..."));
       _current_page = e_satellite_page_main; // Back on main page
       open_menu(false);       // Re-enter menu

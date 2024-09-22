@@ -61,6 +61,7 @@ class ConfigWebServer : public Worker<ServerStatus> {
 
   WebServer _server;
   LocalStorage& _config;
+  bool _handled_client;
 };
 
 #endif //BGEIGIEZEN_SERVER_H_

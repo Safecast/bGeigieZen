@@ -6,6 +6,7 @@
 #include <Handler.hpp>
 
 #define CONFIG_VAL_MAX 32
+#define CONFIG_LONG_VAL_MAX 64
 
 /**
  * Configurations for the ESP32, stored in the flash memory
@@ -96,7 +97,7 @@ class LocalStorage : public ProcessWorker<bool> {
 
   // Connection settings
   char _wifi_ssid[CONFIG_VAL_MAX];
-  char _wifi_password[CONFIG_VAL_MAX];
+  char _wifi_password[CONFIG_LONG_VAL_MAX];
   char _api_key[CONFIG_VAL_MAX];
 
   // Location settings

@@ -57,14 +57,9 @@ class Controller : public Aggregator, public Worker<DeviceState> {
   bool write_sd_config();
 
   /**
-   * Writes device settings onto SD
+   * get GNSS instance
    */
-  bool gps_cold_start();
-
-  /**
-   * Set fixed mode testing
-   */
-  void set_fixed_testing(bool enable);
+  TeenyUbloxConnect& get_gnss();
 
   /**
    * Reset memory settings and restart system
