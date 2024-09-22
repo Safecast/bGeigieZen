@@ -107,7 +107,7 @@ void ConfigModeScreen::render_page_main(const worker_map_t& workers, const handl
 
   // Temp print out device settings on screen
   const auto& config = *workers.worker<LocalStorage>(k_worker_local_storage);
-  M5.Lcd.setCursor(0, 30, &fonts::Font2);
+  M5.Lcd.setCursor(0, 40, &fonts::Font2);
 
   if (_main_page_info_section == e_config_section_device) {
     M5.Lcd.printf("Device settings\n\n");
@@ -142,13 +142,13 @@ void ConfigModeScreen::render_page_ap(const worker_map_t& workers, const handler
 
   const auto settings = workers.worker<LocalStorage>(k_worker_local_storage);
 
-  M5.Lcd.setCursor(0, 78, &fonts::Font0);
+  M5.Lcd.setCursor(0, 70, &fonts::Font2);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.printf("Config through Access Point, connect to\n");
-  M5.Lcd.printf("SSID:        %s\n", WiFiWrapper_i.get_hostname());
-  M5.Lcd.printf("Password:    %s\n", settings->get_ap_password());
+  M5.Lcd.printf("SSID:  %s\n", WiFiWrapper_i.get_hostname());
+  M5.Lcd.printf("Password:  %s\n", settings->get_ap_password());
 
-  M5.Lcd.printf("IP:          %s     \n", WiFi.softAPIP().toString().c_str());
+  M5.Lcd.printf("IP:  %s     \n", WiFi.softAPIP().toString().c_str());
 }
 
 void ConfigModeScreen::render_page_wifi(const worker_map_t& workers, const handler_map_t& handlers) {
@@ -157,13 +157,13 @@ void ConfigModeScreen::render_page_wifi(const worker_map_t& workers, const handl
 
   const auto settings = workers.worker<LocalStorage>(k_worker_local_storage);
 
-  M5.Lcd.setCursor(0, 78, &fonts::Font0);
+  M5.Lcd.setCursor(0, 70, &fonts::Font2);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.printf("Config through local network, connect to\n");
-  M5.Lcd.printf("Network:     %s\n", settings->get_wifi_ssid());
-  M5.Lcd.printf("Connected:   %s\n", WiFiWrapper_i.wifi_connected() ? "Yes       " : "Not yet...");
+  M5.Lcd.printf("Network:  %s\n", settings->get_wifi_ssid());
+  M5.Lcd.printf("Connected:  %s\n", WiFiWrapper_i.wifi_connected() ? "Yes          " : "Not yet...");
 
-  M5.Lcd.printf("IP:          %s            \n", WiFiWrapper_i.wifi_connected() ? WiFi.localIP().toString().c_str() : "Waiting for connection... ");
+  M5.Lcd.printf("IP:  %s               \n", WiFiWrapper_i.wifi_connected() ? WiFi.localIP().toString().c_str() : "Waiting for connection... ");
 }
 
 void ConfigModeScreen::render_reset_device(const worker_map_t& workers, const handler_map_t& handlers) {
@@ -171,7 +171,7 @@ void ConfigModeScreen::render_reset_device(const worker_map_t& workers, const ha
   drawButton2("RESET");
   drawButton3("Menu");
 
-  M5.Lcd.setCursor(0, 78, &fonts::Font0);
+  M5.Lcd.setCursor(0, 70, &fonts::Font2);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.printf("Press RESET to confirm clearing all local storage\n");
 }

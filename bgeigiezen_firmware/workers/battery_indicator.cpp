@@ -1,7 +1,5 @@
 #include "battery_indicator.h"
 
-#include <M5Unified.hpp>
-
 BatteryIndicator::BatteryIndicator() : Worker<BatteryStatus>(1000) {
 }
 

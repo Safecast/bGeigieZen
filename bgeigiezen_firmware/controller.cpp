@@ -90,18 +90,14 @@ bool Controller::write_sd_config() {
   return SDInterface::i().write_safezen_file_from_settings(_settings);
 }
 
-bool Controller::gps_cold_start() {
-  _gnss.coldStart();
-  return true; // how to check? no idea
+TeenyUbloxConnect& Controller::get_gnss() {
+  return _gnss;
 }
 
 void Controller::reset_settings() {
   _settings.reset_defaults();
 }
 
-void Controller::set_fixed_testing(bool enable) {
-
-}
 const LocalStorage& Controller::get_settings() const {
   return _settings;
 }

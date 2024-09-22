@@ -29,6 +29,7 @@ struct RtcData {
   uint8_t minute;
   uint8_t second;
   bool valid;
+  bool gps_confirmed;
 };
 
 /**
