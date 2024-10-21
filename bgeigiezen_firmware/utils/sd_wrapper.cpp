@@ -104,6 +104,16 @@ bool SDInterface::begin() {
   return ready();
 }
 
+bool SDInterface::clear_all_logs() {
+  if (!ready()) {
+    return false;
+  }
+  delete_directory(JOURNAL_LOG_DIRECTORY);
+  delete_directory(DRIVE_LOG_DIRECTORY);
+  delete_directory(SURVEY_LOG_DIRECTORY);
+  return true;
+}
+
 bool SDInterface::just_wrote() const {
   return _last_write && (_last_write + 500) > millis();
 }
@@ -501,4 +511,60 @@ bool SDInterface::delete_log(const char* log_name) {
   }
 
   return SD.remove(log_name);
+}
+
+void SDInterface::delete_directory(const char* dirPath) {
+  File dir = SD.open(dirPath);
+  if (!dir) {
+    M5_LOGD("Directory does not exist or could not be opened.");
+    return;
+  }
+
+  if (!dir.isDirectory()) {
+    M5_LOGD("The specified path is not a directory.");
+    dir.close();
+    return;
+  }
+
+  // Iterate through all files in the directory
+  while (true) {
+    File entry = dir.openNextFile();
+    if (!entry) {
+      // No more files in the directory
+      break;
+    }
+
+    // Construct the full path
+    String fullPath = String(dirPath) + "/" + entry.name();
+
+    if (entry.isDirectory()) {
+      // Recursively delete subdirectories
+      M5_LOGD("Recursively deleting directory: %s", fullPath.c_str());
+      delete_directory(fullPath.c_str());
+
+      // Attempt to remove the directory itself after its contents are deleted
+      if (!SD.rmdir(fullPath.c_str())) {
+        M5_LOGD("Failed to remove directory: %s", fullPath.c_str());
+      } else {
+        M5_LOGD("Successfully removed directory: %s", fullPath.c_str());
+      }
+    } else {
+      // Try to delete the file
+      if (!SD.remove(fullPath.c_str())) {
+        M5_LOGD("Failed to delete file: %s", fullPath.c_str());
+      } else {
+        M5_LOGD("Successfully deleted file: %s", fullPath.c_str());
+      }
+    }
+    entry.close();
+  }
+
+  dir.close();
+
+  // Finally, remove the empty directory itself
+  if (SD.rmdir(dirPath)) {
+    M5_LOGD("Directory deleted successfully: %s", dirPath);
+  } else {
+    M5_LOGD("Failed to delete the directory: %s", dirPath);
+  }
 }

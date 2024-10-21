@@ -50,7 +50,12 @@ class Controller : public Aggregator, public Worker<DeviceState> {
    * Writes device settings onto SD
    *
    */
-  bool write_sd_config(bool just_id = false);
+  bool write_sd_config();
+
+  /**
+   * Clears device memory, clears settings on the SD card, clears log files
+   */
+  bool factory_reset();
 
   /**
    * get GNSS instance

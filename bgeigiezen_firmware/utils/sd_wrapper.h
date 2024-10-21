@@ -65,6 +65,12 @@ class SDInterface {
   bool begin();
 
   /**
+   * Delete all log files / directories
+   * @return true if available
+   */
+  bool clear_all_logs();
+
+  /**
    * @return true last write in last 0.5 sec
    */
   bool just_wrote() const;
@@ -119,7 +125,7 @@ class SDInterface {
    */
   bool read_safezen_file_latest(LocalStorage& settings, File& file);
 
-
+  void delete_directory(const char* dirPath);
 
   SdStatus _status;
   uint32_t _device_id;
