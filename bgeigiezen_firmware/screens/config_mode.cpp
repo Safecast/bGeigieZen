@@ -55,14 +55,23 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
           DeviceUtils::shutdown(true);
           break;
         case e_config_page_reset_all:
-          controller.reset_settings();
-          controller.write_sd_config(true);
           M5.Lcd.clear(LCD_COLOR_BACKGROUND);
           M5.Lcd.setRotation(3);
           M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-          M5.Lcd.setCursor(17, 78, &fonts::Font4);
-          M5.Lcd.printf("DEVICE MEMORY AND SD RESET\n");
-          M5.Lcd.setCursor(100, 120, &fonts::Font2);
+          M5.Lcd.setCursor(30, 78, &fonts::Font4);
+          M5.Lcd.printf("RESET IN PROGRESS\n");
+          M5.Lcd.setCursor(5, 120, &fonts::Font2);
+
+          M5.Lcd.printf("Removing all log files, This can take a while...\n");
+          controller.factory_reset();
+          M5.Lcd.clear(LCD_COLOR_BACKGROUND);
+          M5.Lcd.setRotation(3);
+          M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+          M5.Lcd.setCursor(27, 78, &fonts::Font4);
+          M5.Lcd.printf("DEVICE MEMORY AND\n");
+          M5.Lcd.setCursor(27, 110, &fonts::Font4);
+          M5.Lcd.printf("SD HAVE BEEN RESET\n");
+          M5.Lcd.setCursor(70, 160, &fonts::Font2);
           M5.Lcd.printf("Please turn off the device...\n");
           delay(UINT32_MAX); // Sleep for a long time.
           break;
@@ -201,8 +210,9 @@ void ConfigModeScreen::render_reset_device_sd(const worker_map_t& workers, const
   M5.Lcd.setCursor(0, 70, &fonts::Font2);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.printf("Press RESET to confirm clearing all local storage\n\n");
-  M5.Lcd.printf("This will also reset the settings on the SD card\n");
-  M5.Lcd.printf("to just contain device ID %d\n\n", storage->get_device_id());
+  M5.Lcd.printf("This will also clear all log files, and reset the \n");
+  M5.Lcd.printf("settings on the SD-card to only contain your ID\n\n");
+  M5.Lcd.printf("device ID: %d\n\n", storage->get_device_id());
 }
 
 void ConfigModeScreen::enter_screen(Controller& controller) {
