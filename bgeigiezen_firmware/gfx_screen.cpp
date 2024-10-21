@@ -146,7 +146,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         }
         break;
       case e_screen_status_dim:
-        if (millis() - _last_interaction < LCD_REFRESH_RATE) {
+        if (millis() - _last_interaction < (LCD_REFRESH_RATE + 1000)) {
           set_screen_status(e_screen_status_on);
         }
         else if (TIMEOUT_PASSED(_settings.get_screen_off_timeout(), _last_interaction)) {
@@ -154,7 +154,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         }
         break;
       case e_screen_status_off:
-        if (millis() - _last_interaction < LCD_REFRESH_RATE) {
+        if (millis() - _last_interaction < (LCD_REFRESH_RATE + 1000)) {
           clear();
           set_screen_status(e_screen_status_on);
           handle_input = false;
