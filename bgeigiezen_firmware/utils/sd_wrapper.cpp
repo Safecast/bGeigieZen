@@ -371,7 +371,7 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   return !!_device_id;
 }
 
-bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings, bool full) {
+bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings, bool just_id) {
   if (!ready()) {
     return false;
   }
@@ -384,46 +384,52 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
   }
 
   File safecast_txt = SD.open(SETUP_FILENAME, FILE_WRITE);
-  _last_write = millis();
   if (!safecast_txt) {
     end();
     return false;
   }
 
+  _last_write = millis();
+
   M5_LOGD("Writing SAFEZEN file");
 
-  safecast_txt.printf(sd_config_version_f, VERSION_NUMBER);
-  safecast_txt.println();
-  safecast_txt.printf(sd_config_device_id_f, settings.get_device_id());
-  safecast_txt.println();
-  safecast_txt.printf(sd_config_api_key_f, settings.get_api_key());
-  safecast_txt.println();
-  safecast_txt.printf(sd_config_access_point_password_write_f, settings.get_ap_password());
-  safecast_txt.println();
-  safecast_txt.printf(sd_config_wifi_ssid_write_f, settings.get_wifi_ssid());
-  safecast_txt.println();
-  safecast_txt.printf(sd_config_wifi_password_write_f, settings.get_wifi_password());
-  safecast_txt.println();
-  safecast_txt.printf(sd_config_alert_threshold_f, settings.get_alert_threshold());
-  safecast_txt.println();
-  safecast_txt.printf(sd_config_cpm_usvh_f, settings.get_cpm_usvh());
-  safecast_txt.println();
-  safecast_txt.printf(sd_config_manual_logging_f, settings.get_manual_logging());
-  safecast_txt.println();
-  safecast_txt.printf(sd_config_enable_journal_f, settings.get_enable_journal());
-  safecast_txt.println();
-  safecast_txt.printf(sd_config_log_void_f, settings.get_log_void());
-  safecast_txt.println();
-  safecast_txt.printf(sd_config_fixed_latitude_f, settings.get_fixed_latitude());
-  safecast_txt.println();
-  safecast_txt.printf(sd_config_fixed_longitude_f, settings.get_fixed_longitude());
-  safecast_txt.println();
-  safecast_txt.printf(sd_config_fixed_range_f, settings.get_fixed_range());
-  safecast_txt.println();
-  safecast_txt.printf(sd_config_dop_max_f, settings.get_dop_max());
-  safecast_txt.println();
+  if (just_id) {
+    safecast_txt.printf(sd_config_device_id_f, settings.get_device_id());
+    safecast_txt.println();
+  } else {
+    safecast_txt.printf(sd_config_version_f, VERSION_NUMBER);
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_device_id_f, settings.get_device_id());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_api_key_f, settings.get_api_key());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_access_point_password_write_f, settings.get_ap_password());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_wifi_ssid_write_f, settings.get_wifi_ssid());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_wifi_password_write_f, settings.get_wifi_password());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_alert_threshold_f, settings.get_alert_threshold());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_cpm_usvh_f, settings.get_cpm_usvh());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_manual_logging_f, settings.get_manual_logging());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_enable_journal_f, settings.get_enable_journal());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_log_void_f, settings.get_log_void());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_fixed_latitude_f, settings.get_fixed_latitude());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_fixed_longitude_f, settings.get_fixed_longitude());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_fixed_range_f, settings.get_fixed_range());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_dop_max_f, settings.get_dop_max());
+    safecast_txt.println();
+  }
 
-  if (full) {
+//  if (full) {
 //      safecast_txt.printf(sd_config_ush_divider_f, settings.get_ush_divider());
 //      safecast_txt.println();
 //      safecast_txt.printf(sd_config_cpmn_f, settings.get_cpmn());
@@ -444,7 +450,7 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
 //      safecast_txt.println();
 //      safecast_txt.printf(sd_config_sensor_mode_f, settings.get_sensor_mode());
 //      safecast_txt.println();
-  }
+//  }
 
   safecast_txt.close();
 

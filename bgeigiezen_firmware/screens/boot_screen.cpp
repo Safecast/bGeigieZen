@@ -18,8 +18,9 @@ BaseScreen* BootScreen::handle_input(Controller& controller, const worker_map_t&
       return &SdMessageScreen_i;
     } else if (!settings->get_device_id()) {
       return &FirstTimeStartupScreen_i;
+    } else {
+      return &DefaultEntryScreen_i;
     }
-    return &DefaultEntryScreen_i;
   }
   return nullptr;
 }
