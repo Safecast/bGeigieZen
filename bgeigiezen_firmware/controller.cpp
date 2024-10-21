@@ -82,8 +82,15 @@ bool Controller::load_sd_config() {
   return SDInterface::i().read_safezen_file_to_settings(_settings);
 }
 
-bool Controller::write_sd_config(bool just_id) {
-  return SDInterface::i().write_safezen_file_from_settings(_settings, just_id);
+bool Controller::write_sd_config() {
+  return SDInterface::i().write_safezen_file_from_settings(_settings);
+}
+
+bool Controller::factory_reset() {
+  SDInterface::i().clear_all_logs();
+//  SDInterface::i().write_safezen_file_from_settings(_settings, true);
+  reset_settings();
+  return true;
 }
 
 TeenyUbloxConnect& Controller::get_gnss() {
