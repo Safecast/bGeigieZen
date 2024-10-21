@@ -1,11 +1,10 @@
+#include "utils/functions.h"
 #include "log_aggregator.h"
 #include "battery_indicator.h"
 #include "gm_sensor.h"
 #include "gps_connector.h"
 #include "identifiers.h"
 
-#define D2R (PI / 180.0)
-#define FIXED_LOCATION_RANGE_KM 1.0
 #define LOG_SECOND_TO_TIMEOUT(sec) ((sec * 1000) - 100)
 
 /**
@@ -36,21 +35,6 @@ char checksum(const char* s, size_t N) {
   return chk;
 }
 
-/**
- * Calculate distance using haversine formula
- * @param lat1
- * @param long1
- * @param lat2
- * @param long2
- * @return distance in km
- */
-double haversine_km(double lat1, double long1, double lat2, double long2) {
-  double dlong = (long2 - long1) * D2R;
-  double dlat = (lat2 - lat1) * D2R;
-  double a = pow(sin(dlat / 2.0), 2) + cos(lat1 * D2R) * cos(lat2 * D2R) * pow(sin(dlong / 2.0), 2);
-  double c = 2 * atan2(sqrt(a), sqrt(1 - a));
-  return 6367 * c;
-}
 
 LogAggregator::LogAggregator(LocalStorage& settings) : ProcessWorker<DataLine>(LOG_SECOND_TO_TIMEOUT(LOG_SECONDS_DELAY)), _settings(settings) {
 

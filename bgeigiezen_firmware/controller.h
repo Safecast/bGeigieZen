@@ -42,19 +42,15 @@ class Controller : public Aggregator, public Worker<DeviceState> {
   void start_default_workers();
 
   /**
-   * Create dummy settings local and sd card
-   */
-  void create_dummy_settings();
-
-  /**
    * Load SD config into device memory
    */
   bool load_sd_config();
 
   /**
    * Writes device settings onto SD
+   *
    */
-  bool write_sd_config();
+  bool write_sd_config(bool just_id = false);
 
   /**
    * get GNSS instance

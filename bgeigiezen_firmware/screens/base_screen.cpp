@@ -20,6 +20,7 @@ BaseScreen::BaseScreen(const char* title, bool status_bar)
   }
 }
 
+
 void BaseScreen::drawButton(uint16_t x, const char* text, ButtonState state) {
   if (strlen(text) > BUTTON_TEXT_MAX_LENGTH) {
     // Don't render long button text :(

@@ -19,9 +19,6 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
   const auto& button2 = workers.worker<ZenButton>(k_worker_button_2);
   const auto& button3 = workers.worker<ZenButton>(k_worker_button_3);
 
-  if (controller.get_data().sd_card_status == SDInterface::SdStatus::e_sd_config_status_ok) {
-    return &DefaultEntryScreen_i;
-  }
 
   switch (error_type) {
     case k_unknown:
@@ -151,7 +148,7 @@ void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& h
 }
 
 void SdMessageScreen::enter_screen(Controller& controller) {
-  auto sd_status = controller.get_data().sd_card_status;
+  auto sd_status = SDInterface::i().status();
   auto local_available = controller.get_data().local_available;
   switch (sd_status) {
     case SDInterface::e_sd_config_status_not_ready:

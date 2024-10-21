@@ -95,9 +95,13 @@ class GpsConnector : public Worker<GnssData> {
   */
   TeenyUbloxConnect& _gnss;
   HardwareSerial& _serial_conn;
+  uint32_t _tried_115200_at;
   uint32_t _tried_38400_at;
   uint32_t _tried_9600_at;
   uint32_t _init_at;
+
+  double _last_latitude;
+  double _last_longitude;
 
   // Age each item. If the corresponding timer times out, it's stale.
   RBD::Timer location_timer{GPS_FIX_AGE_LIMIT};
