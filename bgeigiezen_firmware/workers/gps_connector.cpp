@@ -12,6 +12,7 @@
  * satellites, regardless of their status in computing a fix.
 */
 
+#include "utils/functions.h"
 #include "gps_connector.h"
 
 #define GPS_INVALID_YEAR 2000
@@ -49,7 +50,7 @@ GpsConnector::GpsConnector(TeenyUbloxConnect& gnss, HardwareSerial& serial) : Wo
                                                        .second=0,
                                                        .protocolVersionHigh=0,
                                                        .protocolVersionLow=0
-                                                   }), _gnss(gnss), _serial_conn(serial), _tried_38400_at(0), _tried_9600_at(0), _init_at(0) {
+                                                   }), _gnss(gnss), _serial_conn(serial), _tried_115200_at(0), _tried_38400_at(0), _tried_9600_at(0), _init_at(0), _last_latitude(0), _last_longitude(0) {
 }
 /**
  * @return true if initialized GNSS library, false if no connection with module.
@@ -66,7 +67,18 @@ bool GpsConnector::activate(bool retry) {
 
     _init_at = millis();
   }
-  if (_tried_38400_at == 0 && (millis() - _init_at > 1000)) { // Wait for device to completely startup
+  if (_tried_115200_at == 0 && (millis() - _init_at > 1000)) { // Wait for device to completely startup
+    _tried_115200_at = millis();
+    _serial_conn.updateBaudRate(115200);
+    M5_LOGD("GNSS: Try at 115200 baud");
+    if (_gnss.begin(_serial_conn, 500)) {
+      M5_LOGD("GNSS: connected at 115200 baud"); // no need to set module to 38.4
+    }
+    else {
+      return false;
+    }
+  }
+  else if (_tried_38400_at == 0 && _tried_115200_at > 0 && (millis() - _tried_115200_at > 1200)) { // Wait for device to completely startup
     _tried_38400_at = millis();
     _serial_conn.updateBaudRate(38400);
     M5_LOGD("GNSS: Try at 38400 baud");
@@ -115,13 +127,12 @@ bool GpsConnector::activate(bool retry) {
 void GpsConnector::deactivate() {
   _tried_9600_at = 0;
   _tried_38400_at = 0;
+  _tried_115200_at = 0;
   _serial_conn.end();
 }
 
 int8_t GpsConnector::produce_data() {
   auto ret_status = e_worker_idle;
-  int i = 0;
-
 
   // getPVT returns true if there is a fresh navigation solution available.
   // "LLH" is longitude, latitude, height.
@@ -135,6 +146,8 @@ int8_t GpsConnector::produce_data() {
     if (_gnss.getFixType() == 2 || _gnss.getFixType() == 3) {
       // M5_LOGD("[%d] fix type is 2D or 3D.", millis());
       data.pdop = _gnss.getPDOP() * 1e-2; // Position Dilution of Precision
+      _last_latitude = data.latitude;
+      _last_longitude = data.longitude;
       data.latitude = _gnss.getLatitude() * 1e-7;
       data.longitude = _gnss.getLongitude() * 1e-7;
       data.heading_degree = _gnss.getHeading() * 1e-5;
@@ -163,7 +176,8 @@ int8_t GpsConnector::produce_data() {
         data.heading = GnssData::NORTHWEST;
       }
       data.altitudeMSL = _gnss.getFixType() == 3 ? _gnss.getAltitudeMSL() * 1e-3 : 0; // Above MSL (not ellipsoid)
-      data.location_valid = _gnss.getGnssFixOk();
+      const auto distance_step = haversine_km(data.latitude, data.longitude, _last_latitude, _last_longitude);
+      data.location_valid = _gnss.getGnssFixOk() && distance_step < 0.5; // Airplanes fly at 255m per second, 500 meter check is good enough
       location_timer.restart();
       ret_status = e_worker_data_read;
       // DEBUG: Compare PDOP from NAV-PVT and HDOP from NAV-DOP

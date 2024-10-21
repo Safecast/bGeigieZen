@@ -77,17 +77,13 @@ int8_t Controller::produce_data() {
   return _status;
 }
 
-void Controller::create_dummy_settings() {
-  _settings.set_device_id(1, true);
-  SDInterface::i().write_safezen_file_from_settings(_settings);
-}
 
 bool Controller::load_sd_config() {
   return SDInterface::i().read_safezen_file_to_settings(_settings);
 }
 
-bool Controller::write_sd_config() {
-  return SDInterface::i().write_safezen_file_from_settings(_settings);
+bool Controller::write_sd_config(bool just_id) {
+  return SDInterface::i().write_safezen_file_from_settings(_settings, just_id);
 }
 
 TeenyUbloxConnect& Controller::get_gnss() {

@@ -14,7 +14,8 @@ const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MEN
     {.title="Start on local", .tooltip="Connect to local     Wi-Fi, use pc or      phone on local       network to configure    device", .enabled=true},
     {.title="Load from SD", .tooltip="Read settings file     from the SD-card     and set to device", .enabled=true},
     {.title="Save to SD", .tooltip="Write current device      settings to the       SD-card config file", .enabled=true},
-    {.title="Reset device", .tooltip="Clear and reset      device, on reboot it      will load initial       settings from SD-card", .enabled=true},
+    {.title="Reset device", .tooltip="Clear and reset      device, on reboot it      will load settings        from SD-card", .enabled=true},
+    {.title="Factory reset", .tooltip="Clear and reset      device and SD-card", .enabled=true},
 };
 
 
@@ -53,6 +54,18 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
           delay(1000);
           DeviceUtils::shutdown(true);
           break;
+        case e_config_page_reset_all:
+          controller.reset_settings();
+          controller.write_sd_config(true);
+          M5.Lcd.clear(LCD_COLOR_BACKGROUND);
+          M5.Lcd.setRotation(3);
+          M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+          M5.Lcd.setCursor(17, 78, &fonts::Font4);
+          M5.Lcd.printf("DEVICE MEMORY AND SD RESET\n");
+          M5.Lcd.setCursor(100, 120, &fonts::Font2);
+          M5.Lcd.printf("Please turn off the device...\n");
+          delay(UINT32_MAX); // Sleep for a long time.
+          break;
         case e_config_page_main:
           _main_page_info_section = (_main_page_info_section + 1) % e_config_section_MAX;
           force_next_render();
@@ -89,6 +102,8 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
       return render_page_wifi(workers, handlers);
     case e_config_page_reset:
       return render_reset_device(workers, handlers);
+    case e_config_page_reset_all:
+      return render_reset_device_sd(workers, handlers);
     default:
       return;
   }
@@ -174,6 +189,20 @@ void ConfigModeScreen::render_reset_device(const worker_map_t& workers, const ha
   M5.Lcd.setCursor(0, 70, &fonts::Font2);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.printf("Press RESET to confirm clearing all local storage\n");
+}
+
+void ConfigModeScreen::render_reset_device_sd(const worker_map_t& workers, const handler_map_t& handlers) {
+  drawButton1("Options");
+  drawButton2("RESET");
+  drawButton3("Menu");
+
+  const auto& storage = workers.worker<LocalStorage>(k_worker_local_storage);
+
+  M5.Lcd.setCursor(0, 70, &fonts::Font2);
+  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  M5.Lcd.printf("Press RESET to confirm clearing all local storage\n\n");
+  M5.Lcd.printf("This will also reset the settings on the SD card\n");
+  M5.Lcd.printf("to just contain device ID %d\n\n", storage->get_device_id());
 }
 
 void ConfigModeScreen::enter_screen(Controller& controller) {
