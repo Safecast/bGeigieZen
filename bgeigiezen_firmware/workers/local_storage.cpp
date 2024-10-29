@@ -163,7 +163,7 @@ LocalStorage::OperationalMode LocalStorage::get_last_mode() const {
 }
 
 void LocalStorage::set_device_id(uint16_t device_id, bool force) {
-  if((force || (device_id != _device_id)) && device_id > 5000 && device_id < 6000) {
+  if((force || (device_id != _device_id)) && device_id >= 5000 && device_id < 6000) {
     if(_memory.begin(memory_name)) {
       _device_id = device_id;
       _memory.putUShort(key_device_id, _device_id);
