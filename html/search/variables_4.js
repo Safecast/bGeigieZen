@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['data_0',['data',['../class_display.html#a6c2a1387cfc7630af1a5a0abbd8c12ef',1,'Display']]],
+  ['date_1',['date',['../class_tiny_g_p_s_plus.html#a83a70812b432d7f51c7c735bfe7be0f0',1,'TinyGPSPlus']]],
+  ['date_5fvalid_2',['date_valid',['../struct_gnss_data.html#a2dfadddc5f94b12baa0cf2ac3ccc1fd8',1,'GnssData']]],
+  ['day_3',['day',['../struct_g_p_s_data.html#a7c9690e05945b95b5ea708b83f4e2482',1,'GPSData::day'],['../struct_gnss_data.html#a6851119d66adbff10f39148a71a51a51',1,'GnssData::day'],['../struct_rtc_data.html#abf6e0ad5c3c6a406493cb2414e746be7',1,'RtcData::day']]],
+  ['debugmodescreen_5fi_4',['debugmodescreen_i',['../debug__mode_8cpp.html#a8545bb653e917dc84a57428b0be1906f',1,'DebugModeScreen_i:&#160;debug_mode.cpp'],['../debug__mode_8h.html#a8545bb653e917dc84a57428b0be1906f',1,'DebugModeScreen_i:&#160;debug_mode.cpp']]],
+  ['defaultentryscreen_5fi_5',['defaultentryscreen_i',['../default__entry__screen_8h.html#ab126f9971ee3b4d579c108bed23f2ae5',1,'DefaultEntryScreen_i:&#160;default_entry_screen.cpp'],['../default__entry__screen_8cpp.html#ab126f9971ee3b4d579c108bed23f2ae5',1,'DefaultEntryScreen_i:&#160;default_entry_screen.cpp']]],
+  ['deg_6',['deg',['../struct_raw_degrees.html#a11831d9220f303bd716d9412af28e84e',1,'RawDegrees']]],
+  ['delay_5fblanking_7',['delay_blanking',['../class_dim_blank_timing.html#a1abd83d615a24fe22432bd0e2c38833f',1,'DimBlankTiming']]],
+  ['delay_5fblanking_5fdefault_8',['DELAY_BLANKING_DEFAULT',['../include_2display_8hpp.html#a3eb042b7ff47676e57938c9f54ef9017',1,'display.hpp']]],
+  ['delay_5fdimming_9',['delay_dimming',['../class_dim_blank_timing.html#a6b9e5622a88d94e403f6bdd128b0710a',1,'DimBlankTiming']]],
+  ['delay_5fdimming_5fdefault_10',['DELAY_DIMMING_DEFAULT',['../include_2display_8hpp.html#a4256977aa9391b88ea98dada6a3c4920',1,'display.hpp']]],
+  ['device_5fheader_11',['device_header',['../src_2config_8hpp.html#a13b51bdb19001339023a073629d0d18e',1,'DEVICE_HEADER:&#160;config.hpp'],['../include_2config_8hpp.html#a13b51bdb19001339023a073629d0d18e',1,'DEVICE_HEADER:&#160;config.hpp'],['../user__config_8h.html#af4522a39d440e3c86985f3c84361a859',1,'DEVICE_HEADER:&#160;user_config.h']]],
+  ['device_5fid_12',['device_id',['../struct_config_data.html#af4aa84fbef118fd20be9a243b4f1668f',1,'ConfigData::device_id'],['../struct_display_data.html#a18f85013bc2db1d5db55d87eded63633',1,'DisplayData::device_id']]],
+  ['device_5fnickname_13',['device_nickname',['../include_2config_8hpp.html#a5f8b2d16c907ca3ebbc69f0f4491ab8a',1,'device_nickname:&#160;config.hpp'],['../src_2config_8hpp.html#a5f8b2d16c907ca3ebbc69f0f4491ab8a',1,'device_nickname:&#160;config.hpp']]],
+  ['device_5fsetup_14',['device_setup',['../class_context.html#a54e51afce0edd534d7f0950ad83986ec',1,'Context']]],
+  ['dimblank_5fchoices_15',['dimblank_choices',['../class_menu_context.html#a5798a4ddffd45379f5919fda24af751a',1,'MenuContext']]],
+  ['dimblank_5fidx_16',['dimblank_idx',['../class_menu_context.html#ab4492e1f41656ecc41b785aa141df85a',1,'MenuContext']]],
+  ['display_17',['display',['../class_context.html#a9921e196f07be3a73b723f68f140b988',1,'Context']]],
+  ['distance_18',['distance',['../struct_data_line.html#a6edb6aeb248a236c836afc2b66fba420',1,'DataLine::distance'],['../struct_g_p_s_data.html#a49b3e39d517d9cbeab2bfe3fe6b17739',1,'GPSData::distance']]],
+  ['dop_5fvalid_19',['dop_valid',['../struct_data_line.html#ac28e64034f471a7ca3dfb7afb5a2f0dc',1,'DataLine']]],
+  ['drive_5flog_5fdirectory_20',['DRIVE_LOG_DIRECTORY',['../user__config_8h.html#a9a0d7b4ec2eb1af45cbacaeab2da6ee2',1,'user_config.h']]],
+  ['drive_5flogger_21',['drive_logger',['../bgeigiezen__firmware_2main_8cpp.html#a948f19e8ec8f4f5e19f2715a0d4525bc',1,'main.cpp']]],
+  ['drivemodescreen_5fi_22',['drivemodescreen_i',['../drive__mode_8cpp.html#a55dd664ce7148bd9ba5556188ca39417',1,'DriveModeScreen_i:&#160;drive_mode.cpp'],['../drive__mode_8h.html#a55dd664ce7148bd9ba5556188ca39417',1,'DriveModeScreen_i:&#160;drive_mode.cpp']]]
+];
