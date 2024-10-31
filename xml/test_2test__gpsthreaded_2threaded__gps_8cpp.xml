@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="test_2test__gpsthreaded_2threaded__gps_8cpp" kind="file" language="C++">
+    <compoundname>threaded_gps.cpp</compoundname>
+    <includes refid="test_2test__gpsthreaded_2threaded__gps_8hpp" local="yes">threaded_gps.hpp</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>TinyGPS.h</label>
+        <link refid="test_2test__gpsthreaded_2_tiny_g_p_s_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>measurements.hpp</label>
+        <link refid="test_2test__gpsthreaded_2measurements_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>patterns.hpp</label>
+        <link refid="test_2test__gpsthreaded_2patterns_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>serial_source.hpp</label>
+        <link refid="test_2test__gpsthreaded_2serial__source_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>archive/test/test_gpsthreaded/threaded_gps.cpp</label>
+        <link refid="test_2test__gpsthreaded_2threaded__gps_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>threaded_gps.hpp</label>
+        <link refid="test_2test__gpsthreaded_2threaded__gps_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cstdint</label>
+      </node>
+      <node id="8">
+        <label>cstdio</label>
+      </node>
+      <node id="12">
+        <label>forward_list</label>
+      </node>
+      <node id="5">
+        <label>mutex</label>
+      </node>
+      <node id="3">
+        <label>pthread.h</label>
+      </node>
+      <node id="10">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="test_2test__gpsthreaded_2threaded__gps_8cpp_1a78b0cbb75597099fd1a7d48fb35bc2d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float get_wgs84_coordinate</definition>
+        <argsstring>(unsigned long val)</argsstring>
+        <name>get_wgs84_coordinate</name>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">unsigned</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">long</ref></type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/threaded_gps.cpp" line="4" column="7" bodyfile="archive/test/test_gpsthreaded/threaded_gps.cpp" bodystart="4" bodyend="10"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="test_2test__gpsthreaded_2threaded__gps_8hpp" kindref="compound">threaded_gps.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>convert<sp/>long<sp/>integer<sp/>from<sp/>TinyGPS<sp/>to<sp/>float<sp/>WGS84<sp/>degrees<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="test_2test__gpsthreaded_2threaded__gps_8cpp_1a78b0cbb75597099fd1a7d48fb35bc2d1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="test_2test__gpsthreaded_2threaded__gps_8cpp_1a78b0cbb75597099fd1a7d48fb35bc2d1" kindref="member">get_wgs84_coordinate</ref>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>val)</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">result</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">result</ref><sp/>=<sp/>val/10000000.0;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">result</ref><sp/>=<sp/>((<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">result</ref>-(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref>)<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">result</ref>)/60.0)*100<sp/>+<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">result</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">result</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_p_s_thread_1aa519d5004c9b13c2ac4308b99324efd9" kindref="member">GPSThread::init</ref>()</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>_parser<sp/>=<sp/><ref refid="class_tiny_g_p_s" kindref="compound">TinyGPS</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>initialize<sp/>status<sp/>flags</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>_ready<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>start<sp/>the<sp/>thread</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">returnValue</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">pthread_create</ref>(&amp;_the_thread,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">NULL</ref>,<sp/>&amp;GPSThread::update_loop,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">returnValue</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>_serial_output-&gt;<ref refid="class_serial_sink_1a3c6298510ef39f03d390a0a0f765ebf8" kindref="member">println</ref>(</highlight><highlight class="stringliteral">&quot;An<sp/>error<sp/>has<sp/>occurred&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_g_p_s_thread_1aef0bf3ae06eff688503cfafe58cfe5f8" kindref="member">GPSThread::prepare_data</ref>(<ref refid="struct_g_p_s_data" kindref="compound">GPSData</ref><sp/>&amp;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">dest</ref>)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_update_mutex.try_lock())</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>cast<sp/>the<sp/>reference</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">dest</ref><sp/>=<sp/>_info;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">dest</ref>.<ref refid="struct_measurement_data_1a25308fdf55e553fc2a59a035c241cd1d" kindref="member">fresh</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>_update_mutex.unlock();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Update<sp/>GPS<sp/>info<sp/>from<sp/>new<sp/>sentence</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GPSThread::fill_info()</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>blocking<sp/>wait</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>_update_mutex.lock();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>GPS<sp/>date</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>_parser.<ref refid="class_tiny_g_p_s_1a20c726ee3a5f1001e8079178521ee576" kindref="member">crack_datetime</ref>(</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&amp;(_info.<ref refid="struct_g_p_s_data_1ad9399fd6e9b5efaffe53770aae93a352" kindref="member">year</ref>),<sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&amp;(_info.<ref refid="struct_g_p_s_data_1aa9c697d9a2f3cf3335931f1261065da7" kindref="member">month</ref>),<sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&amp;(_info.<ref refid="struct_g_p_s_data_1a7c9690e05945b95b5ea708b83f4e2482" kindref="member">day</ref>),<sp/></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&amp;(_info.<ref refid="struct_g_p_s_data_1afcfcb66ea715d9adcde3f05d1ab957e5" kindref="member">hour</ref>),<sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&amp;(_info.<ref refid="struct_g_p_s_data_1a2ef4291a9d5cc447d3a01dde37991fdf" kindref="member">minute</ref>),<sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&amp;(_info.<ref refid="struct_g_p_s_data_1ae742dea61b3abc238661398c96f16eba" kindref="member">second</ref>),<sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&amp;(_info.<ref refid="struct_g_p_s_data_1af0df28c65cca782a2bd75e56a5b13a62" kindref="member">hundredths</ref>),<sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&amp;(_info.<ref refid="struct_g_p_s_data_1a6cd748bce7a1e72c4ffcb1b590e6f899" kindref="member">age</ref>));</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_tiny_g_p_s_1a62ea6768a032ec53ddfcd940aa3969fead66db2cc2ed07021bcd22d2d4344c7d2" kindref="member">TinyGPS::GPS_INVALID_AGE</ref><sp/>==<sp/>_info.<ref refid="struct_g_p_s_data_1a6cd748bce7a1e72c4ffcb1b590e6f899" kindref="member">age</ref>)<sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>_info.<ref refid="struct_g_p_s_data_1ad9399fd6e9b5efaffe53770aae93a352" kindref="member">year</ref><sp/>=<sp/><ref refid="test_2test__gpsthreaded_2threaded__gps_8hpp_1acacba745d4adee75cce649d32509e895" kindref="member">DEFAULT_YEAR</ref>,<sp/>_info.<ref refid="struct_g_p_s_data_1aa9c697d9a2f3cf3335931f1261065da7" kindref="member">month</ref><sp/>=<sp/>0,<sp/>_info.<ref refid="struct_g_p_s_data_1a7c9690e05945b95b5ea708b83f4e2482" kindref="member">day</ref><sp/>=<sp/>0,<sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>_info.<ref refid="struct_g_p_s_data_1afcfcb66ea715d9adcde3f05d1ab957e5" kindref="member">hour</ref><sp/>=<sp/>0,<sp/>_info.<ref refid="struct_g_p_s_data_1a2ef4291a9d5cc447d3a01dde37991fdf" kindref="member">minute</ref><sp/>=<sp/>0,<sp/>_info.<ref refid="struct_g_p_s_data_1ae742dea61b3abc238661398c96f16eba" kindref="member">second</ref><sp/>=<sp/>0,<sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>_info.<ref refid="struct_g_p_s_data_1af0df28c65cca782a2bd75e56a5b13a62" kindref="member">hundredths</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>GPS<sp/>position,<sp/>altitude<sp/>and<sp/>speed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>_parser.<ref refid="class_tiny_g_p_s_1a70ba85cc7d84a915b6b1c379471e862b" kindref="member">get_position</ref>(&amp;(_info.<ref refid="struct_g_p_s_data_1a8db2bb19609fe364948c44d4a90e83d5" kindref="member">x</ref>),<sp/>&amp;(_info.<ref refid="struct_g_p_s_data_1a9095a3768a426997281b236ef0fc2a12" kindref="member">y</ref>),<sp/>&amp;(_info.<ref refid="struct_g_p_s_data_1a6cd748bce7a1e72c4ffcb1b590e6f899" kindref="member">age</ref>));</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>_info.<ref refid="struct_g_p_s_data_1a81aecf4e34a2ae729124447f2211282c" kindref="member">gps_status</ref><sp/>=<sp/>_parser.<ref refid="class_tiny_g_p_s_1aad58e199f367f985a7c5991bd1339f7d" kindref="member">status</ref>();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>_info.<ref refid="struct_g_p_s_data_1a761ee6092fbb668db174ea1ce595b85c" kindref="member">faltitude</ref><sp/>=<sp/>_parser.<ref refid="class_tiny_g_p_s_1a5838cec249cb38628734f84defa24b94" kindref="member">f_altitude</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>_info.<ref refid="struct_g_p_s_data_1a50dc1d84e32c46f5066db723bec0d835" kindref="member">fspeed</ref><sp/>=<sp/>_parser.<ref refid="class_tiny_g_p_s_1a9cfc388eba14bd0d833958970b68763c" kindref="member">f_speed_kmph</ref>();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>_info.<ref refid="struct_g_p_s_data_1aeda136381f6a6e57557376031f913066" kindref="member">nbsat</ref><sp/>=<sp/>_parser.<ref refid="class_tiny_g_p_s_1ae7664d48de81f316ebf40d7c8d37d1b6" kindref="member">satellites</ref>();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>_info.<ref refid="struct_g_p_s_data_1a79c88bf69d2c80d09211cf6de41119e7" kindref="member">precision</ref><sp/>=<sp/>_parser.<ref refid="class_tiny_g_p_s_1aa8777e03607e275ab8d80f37f08f25ff" kindref="member">hdop</ref>();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>_info.<ref refid="struct_g_p_s_data_1abe060ab9b67affe29fd04d93cf5de4eb" kindref="member">NS</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;N&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>_info.<ref refid="struct_g_p_s_data_1a9148de3874ced0b69b5fca4c765526b4" kindref="member">WE</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;E&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_info.<ref refid="struct_g_p_s_data_1a8db2bb19609fe364948c44d4a90e83d5" kindref="member">x</ref><sp/>&lt;<sp/>0)<sp/>{<sp/>_info.<ref refid="struct_g_p_s_data_1abe060ab9b67affe29fd04d93cf5de4eb" kindref="member">NS</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;S&apos;</highlight><highlight class="normal">;<sp/>_info.<ref refid="struct_g_p_s_data_1a8db2bb19609fe364948c44d4a90e83d5" kindref="member">x</ref><sp/>=<sp/>-_info.<ref refid="struct_g_p_s_data_1a8db2bb19609fe364948c44d4a90e83d5" kindref="member">x</ref>;}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_info.<ref refid="struct_g_p_s_data_1a9095a3768a426997281b236ef0fc2a12" kindref="member">y</ref><sp/>&lt;<sp/>0)<sp/>{<sp/>_info.<ref refid="struct_g_p_s_data_1a9148de3874ced0b69b5fca4c765526b4" kindref="member">WE</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;W&apos;</highlight><highlight class="normal">;<sp/>_info.<ref refid="struct_g_p_s_data_1a9095a3768a426997281b236ef0fc2a12" kindref="member">y</ref><sp/>=<sp/>-_info.<ref refid="struct_g_p_s_data_1a9095a3768a426997281b236ef0fc2a12" kindref="member">y</ref>;}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>compute<sp/>distance</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_parser.<ref refid="class_tiny_g_p_s_1aad58e199f367f985a7c5991bd1339f7d" kindref="member">status</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">trigger_dist</ref><sp/>=<sp/>25;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">flat</ref><sp/>=<sp/><ref refid="bgeigie__firmware_2threaded__gps_8cpp_1a78b0cbb75597099fd1a7d48fb35bc2d1" kindref="member">get_wgs84_coordinate</ref>(_info.<ref refid="struct_g_p_s_data_1a8db2bb19609fe364948c44d4a90e83d5" kindref="member">x</ref>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">flon</ref><sp/>=<sp/><ref refid="bgeigie__firmware_2threaded__gps_8cpp_1a78b0cbb75597099fd1a7d48fb35bc2d1" kindref="member">get_wgs84_coordinate</ref>(_info.<ref refid="struct_g_p_s_data_1a9095a3768a426997281b236ef0fc2a12" kindref="member">y</ref>);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_info.<ref refid="struct_g_p_s_data_1a50dc1d84e32c46f5066db723bec0d835" kindref="member">fspeed</ref><sp/>&gt;<sp/>5)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>fpspeed/3.6<sp/>*<sp/>5s<sp/>=<sp/>6.94<sp/>m</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">trigger_dist</ref><sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_info.<ref refid="struct_g_p_s_data_1a50dc1d84e32c46f5066db723bec0d835" kindref="member">fspeed</ref><sp/>&gt;<sp/>10)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">trigger_dist</ref><sp/>=<sp/>10;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_info.<ref refid="struct_g_p_s_data_1a50dc1d84e32c46f5066db723bec0d835" kindref="member">fspeed</ref><sp/>&gt;<sp/>15)</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">trigger_dist</ref><sp/>=<sp/>20;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_gps_fix_first)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_gps_last_lat<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">flat</ref>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_gps_last_lon<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">flon</ref>;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_gps_fix_first<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_info.<ref refid="struct_g_p_s_data_1a49b3e39d517d9cbeab2bfe3fe6b17739" kindref="member">distance</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Distance<sp/>in<sp/>meters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">dist</ref><sp/>=<sp/>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref>)<ref refid="class_tiny_g_p_s_1a5280f59c83069e5113d85d82a1f2b510" kindref="member">TinyGPS::distance_between</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">flat</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">flon</ref>,<sp/>_gps_last_lat,<sp/>_gps_last_lon);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">dist</ref><sp/>&gt;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">trigger_dist</ref>)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_info.<ref refid="struct_g_p_s_data_1a49b3e39d517d9cbeab2bfe3fe6b17739" kindref="member">distance</ref><sp/>+=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">dist</ref>;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_gps_last_lat<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">flat</ref>;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_gps_last_lon<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">flon</ref>;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>_update_mutex.unlock();</highlight></codeline>
+<codeline lineno="114"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*GPSThread::update_loop(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">param</ref>)</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><ref refid="class_g_p_s_thread" kindref="compound">GPSThread</ref><sp/>*<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_thread</ref><sp/>=<sp/>(<ref refid="class_g_p_s_thread" kindref="compound">GPSThread</ref><sp/>*)<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">param</ref>;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Start<sp/>never<sp/>ending<sp/>loop</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(;;)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_thread</ref>-&gt;serial_in().available())</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_thread</ref>-&gt;available())</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_thread</ref>-&gt;<ref refid="class_measurement_1ac0e479fd97b23c32f929602da6987b74" kindref="member">unset_avalaible</ref>();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">c</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_thread</ref>-&gt;serial_in().read();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">c</ref><sp/>==<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">)<sp/><sp/></highlight><highlight class="comment">//<sp/>update<sp/>the<sp/>info<sp/>at<sp/>then<sp/>end<sp/>of<sp/>each<sp/>line</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>this<sp/>function<sp/>is<sp/>blocking</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(waiting<sp/>on<sp/>the<sp/>data<sp/>structure<sp/>to<sp/>be<sp/>available)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_thread</ref>-&gt;fill_info();</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_thread</ref>-&gt;_parser.encode(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">c</ref>)<sp/>||<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">c</ref><sp/>==<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">)<sp/></highlight><highlight class="comment">//<sp/>Did<sp/>a<sp/>new<sp/>valid<sp/>sentence<sp/>come<sp/>in?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_thread</ref>-&gt;set_avalaible();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="archive/test/test_gpsthreaded/threaded_gps.cpp"/>
+  </compounddef>
+</doxygen>

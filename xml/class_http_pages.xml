@@ -1,0 +1,487 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_http_pages" kind="class" language="C++" prot="public">
+    <compoundname>HttpPages</compoundname>
+    <includes refid="http__pages_8h" local="no">http_pages.h</includes>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_http_pages_1a4a7f7da507251011076206062a49e0af" prot="public" static="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t HttpPages::pure_css</definition>
+        <argsstring>[PURE_CSS_SIZE]</argsstring>
+        <name>pure_css</name>
+        <qualifiedname>HttpPages::pure_css</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gzipped pure css library <ulink url="https://purecss.io/">https://purecss.io/</ulink> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="95" column="24" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="347" bodyend="594"/>
+        <referencedby refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="58" endline="155">ConfigWebServer::add_urls</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_http_pages_1a9be2569908780465b83751bc08251a61" prot="public" static="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t HttpPages::favicon</definition>
+        <argsstring>[FAVICON_SIZE]</argsstring>
+        <name>favicon</name>
+        <qualifiedname>HttpPages::favicon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="96" column="24" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="596" bodyend="641"/>
+        <referencedby refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="58" endline="155">ConfigWebServer::add_urls</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_http_pages_1a27971511660fee4a1b5f5f8b7f7e47f4" prot="public" static="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * HttpPages::pure_js</definition>
+        <argsstring></argsstring>
+        <name>pure_js</name>
+        <qualifiedname>HttpPages::pure_js</qualifiedname>
+        <initializer>=
+    &quot;(function (<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">w</ref>,<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">d</ref>){<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">a</ref>=&apos;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">active</ref>&apos;,<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">l</ref>=d.getElementById(&apos;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">layout</ref>&apos;),<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">m</ref>=d.getElementById(&apos;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">menu</ref>&apos;),<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">n</ref>=<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">d&quot;</ref>
+    &quot;.getElementById(&apos;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">menuLink</ref>&apos;),<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">c</ref>=d.getElementById(&apos;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">main</ref>&apos;),<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">tc</ref>=(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>,<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">b</ref>)=&gt;{<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">r</ref>=e.className.split(&quot;
+    &quot;/\\<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">s</ref>+/),<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">p</ref>=r.length;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">let</ref> i=0;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">while</ref> (i &lt; <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">p</ref>){<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">if</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">r</ref>[i]===<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">b</ref>){r.splice(i,1);<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">break</ref>;}i++;}<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">if</ref>(i===<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">p</ref>){r.&quot;
+    &quot;push(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">b</ref>);}e.className=r.join(&apos; &apos;);},<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ta</ref>=(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>)=&gt;{e.preventDefault();<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">tc</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">l</ref>,<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">a</ref>);<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">tc</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">m</ref>,<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">a</ref>);<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">tc</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">n</ref>,<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">a</ref>);};n.o&quot;
+    &quot;nclick=(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>)=&gt;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ta</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>);c.onclick=(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>)=&gt;m.className.indexOf(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">a</ref>)!==-1 &amp;&amp; <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ta</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>);}(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">this</ref>,this.document));&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="97" column="21" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_http_pages_1a9d1744128b715be721740fe9783a3b98" prot="public" static="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool HttpPages::internet_access</definition>
+        <argsstring></argsstring>
+        <name>internet_access</name>
+        <qualifiedname>HttpPages::internet_access</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="99" column="15" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="99" bodyend="-1"/>
+        <referencedby refid="class_config_web_server_1a5fba48f2cf78029036a923eb27bc0674" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="25" endline="41">ConfigWebServer::activate</referencedby>
+        <referencedby refid="class_config_web_server_1a5466445c2a77e40eba794ba0ac2f809f" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="49" endline="56">ConfigWebServer::produce_data</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_http_pages_1ae613d37e907a83967fb14e7f0f2e06d1" prot="private" static="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char HttpPages::transmission_buffer</definition>
+        <argsstring>[TRANSMISSION_SIZE]</argsstring>
+        <name>transmission_buffer</name>
+        <qualifiedname>HttpPages::transmission_buffer</qualifiedname>
+        <initializer>= &quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="104" column="15" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_http_pages_1a737989b229f10049a7e687eb3fba60cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HttpPages::HttpPages</definition>
+        <argsstring>()=delete</argsstring>
+        <name>HttpPages</name>
+        <qualifiedname>HttpPages::HttpPages</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="39" column="3"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_http_pages_1a2029cf0ccea4c0cf9497eb2b0a30f78a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * HttpPages::get_home_page</definition>
+        <argsstring>(const LocalStorage &amp;settings)</argsstring>
+        <name>get_home_page</name>
+        <qualifiedname>HttpPages::get_home_page</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Render the home page <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>device_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>: To display the device id on the page </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>complete page rendered </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="46" column="21" bodyfile="bgeigiezen_firmware/utils/http_pages.cpp" bodystart="69" bodyend="91"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="user__config_8h_1a4e090fd3ea86adaedebc598565d4473b" compoundref="user__config_8h" startline="77">FIXED_MODE_GRAFANA_URL</references>
+        <references refid="class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65" compoundref="local__storage_8cpp" startline="81" endline="83">LocalStorage::get_device_id</references>
+        <references refid="class_local_storage_1ad567a475a216fc14ab359b09b00c25de" compoundref="local__storage_8cpp" startline="85" endline="87">LocalStorage::get_fixed_device_id</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" compoundref="bgeigiezen__firmware_2main_8cpp" startline="65">settings</references>
+        <references refid="http__pages_8cpp_1af3c76173d9113df855c79e06ff1a450d" compoundref="http__pages_8cpp" startline="4">TITLE_HOME</references>
+        <references refid="user__config_8h_1affb1ffbd24de6be88bd8ac877aae1688" compoundref="user__config_8h" startline="13">VERSION_NUMBER</references>
+        <referencedby refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="58" endline="155">ConfigWebServer::add_urls</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * HttpPages::get_config_device_page</definition>
+        <argsstring>(bool display_success, const LocalStorage &amp;settings)</argsstring>
+        <name>get_config_device_page</name>
+        <qualifiedname>HttpPages::get_config_device_page</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>display_success</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Render the configuration page for device settings <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>display_success</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>device_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>led_intensity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>colorblind</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>complete page rendered </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="58" column="21" bodyfile="bgeigiezen_firmware/utils/http_pages.cpp" bodystart="93" bodyend="190"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="http__pages_8h_1ad8c4fff45a5a2de52e574e24cdf12538" compoundref="http__pages_8h" startline="15">FORM_NAME_ALERT_THRESHOLD</references>
+        <references refid="http__pages_8h_1a0675ea7383d4e03c537b8c29cb4476e6" compoundref="http__pages_8h" startline="22">FORM_NAME_ANIMATED_SCREENSAVER</references>
+        <references refid="http__pages_8h_1a86d39a0de4041c963b6e625be363a1ad" compoundref="http__pages_8h" startline="16">FORM_NAME_CPM_USVH</references>
+        <references refid="http__pages_8h_1a86f8f5a04f35476f4a489e8b74db6366" compoundref="http__pages_8h" startline="18">FORM_NAME_ENABLE_JOURNAL</references>
+        <references refid="http__pages_8h_1a601dbed3cd2afa2f9f7cb55ff669923e" compoundref="http__pages_8h" startline="19">FORM_NAME_LOG_VOID</references>
+        <references refid="http__pages_8h_1ada823b1f31aaaee10bc3b846f1434a53" compoundref="http__pages_8h" startline="17">FORM_NAME_MANUAL_LOGGING</references>
+        <references refid="http__pages_8h_1aa407c1d67e39d469202d6ed135bbbdd2" compoundref="http__pages_8h" startline="20">FORM_NAME_SCREEN_DIM_TIMEOUT</references>
+        <references refid="http__pages_8h_1ac6d9c7f4b2aa55af0b004cd15cb02fca" compoundref="http__pages_8h" startline="21">FORM_NAME_SCREEN_OFF_TIMEOUT</references>
+        <references refid="class_local_storage_1a5434f10e036beedc21b5382f9234981a" compoundref="local__storage_8cpp" startline="93" endline="95">LocalStorage::get_alert_threshold</references>
+        <references refid="class_local_storage_1ae0f9229a40a1ef1ffcbc7667f5b3de1b" compoundref="local__storage_8cpp" startline="125" endline="127">LocalStorage::get_animated_screensaver</references>
+        <references refid="class_local_storage_1a79a337d9f87106bc59e28a9f91796588" compoundref="local__storage_8cpp" startline="97" endline="99">LocalStorage::get_cpm_usvh</references>
+        <references refid="class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65" compoundref="local__storage_8cpp" startline="81" endline="83">LocalStorage::get_device_id</references>
+        <references refid="class_local_storage_1aa662366b5f7c3e35dd844dc93886bde1" compoundref="local__storage_8cpp" startline="105" endline="107">LocalStorage::get_enable_journal</references>
+        <references refid="class_local_storage_1adba9d64409a8a882f4cd36b92e01342b" compoundref="local__storage_8cpp" startline="109" endline="111">LocalStorage::get_log_void</references>
+        <references refid="class_local_storage_1a213ff59d5af95ac21edcded1dc8f2143" compoundref="local__storage_8cpp" startline="101" endline="103">LocalStorage::get_manual_logging</references>
+        <references refid="class_local_storage_1affa78ca5f1e87c0c8b608b2ca944e31d" compoundref="local__storage_8cpp" startline="117" endline="119">LocalStorage::get_screen_dim_timeout</references>
+        <references refid="class_local_storage_1a1d68d91675a043e514a0d07cf326a50b" compoundref="local__storage_8cpp" startline="121" endline="123">LocalStorage::get_screen_off_timeout</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" compoundref="bgeigiezen__firmware_2main_8cpp" startline="65">settings</references>
+        <references refid="http__pages_8cpp_1a4ef40f7c55ec7811edfc747518b28da1" compoundref="http__pages_8cpp" startline="9">success_message</references>
+        <references refid="http__pages_8cpp_1a08b001d2c63e64cf2d1ef907f0274442" compoundref="http__pages_8cpp" startline="5">TITLE_CONF_DEVICE</references>
+        <referencedby refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="58" endline="155">ConfigWebServer::add_urls</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_http_pages_1a64735f36d77809ba60b69d33ad6c0003" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * HttpPages::get_config_connection_page</definition>
+        <argsstring>(bool display_success, const LocalStorage &amp;settings)</argsstring>
+        <name>get_config_connection_page</name>
+        <qualifiedname>HttpPages::get_config_connection_page</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>display_success</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Render the configuration page for connection settings <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>display_success</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>device_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>device_password</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wifi_ssid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wifi_password</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>api_key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>use_dev</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>complete page rendered </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="74" column="21" bodyfile="bgeigiezen_firmware/utils/http_pages.cpp" bodystart="249" bodyend="299"/>
+        <references refid="user__config_8h_1a61e55f831ccc0dca94bf0e0f121f2a7c" compoundref="user__config_8h" startline="96">ACCESS_POINT_SSID</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="http__pages_8h_1ae7358aae4052b227beb51c8e36519387" compoundref="http__pages_8h" startline="25">FORM_NAME_AP_LOGIN</references>
+        <references refid="http__pages_8h_1ae05bc8c6aa3fdd1c77743317486bbe25" compoundref="http__pages_8h" startline="28">FORM_NAME_API_KEY</references>
+        <references refid="http__pages_8h_1a1c66dedc46fd01c917f6d9d61867b169" compoundref="http__pages_8h" startline="27">FORM_NAME_WIFI_PASS</references>
+        <references refid="http__pages_8h_1a96d41a86c2cbed3a1a481f9124820640" compoundref="http__pages_8h" startline="26">FORM_NAME_WIFI_SSID</references>
+        <references refid="class_local_storage_1a3cc3942e1b3d46088e4ec092dd9b5034" compoundref="local__storage_8cpp" startline="89" endline="91">LocalStorage::get_ap_password</references>
+        <references refid="class_local_storage_1a119e9cbf7e8edad53786b070ee2cb298" compoundref="local__storage_8cpp" startline="137" endline="139">LocalStorage::get_api_key</references>
+        <references refid="class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65" compoundref="local__storage_8cpp" startline="81" endline="83">LocalStorage::get_device_id</references>
+        <references refid="class_local_storage_1a619ba1c828df4e5c97e7ac77115e72a2" compoundref="local__storage_8cpp" startline="133" endline="135">LocalStorage::get_wifi_password</references>
+        <references refid="class_local_storage_1a8d0807c2fad52121c446d91f85976856" compoundref="local__storage_8cpp" startline="129" endline="131">LocalStorage::get_wifi_ssid</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" compoundref="bgeigiezen__firmware_2main_8cpp" startline="65">settings</references>
+        <references refid="http__pages_8cpp_1a4ef40f7c55ec7811edfc747518b28da1" compoundref="http__pages_8cpp" startline="9">success_message</references>
+        <references refid="http__pages_8cpp_1a848a5bb21c8a65f476bfc167fcd58099" compoundref="http__pages_8cpp" startline="7">TITLE_CONF_CONNECTION</references>
+        <referencedby refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="58" endline="155">ConfigWebServer::add_urls</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_http_pages_1a74d1994442f6781235fa7d76a9c7c36a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * HttpPages::get_config_location_page</definition>
+        <argsstring>(bool display_success, const LocalStorage &amp;settings)</argsstring>
+        <name>get_config_location_page</name>
+        <qualifiedname>HttpPages::get_config_location_page</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>display_success</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Render the configuration page for location settings <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>display_success</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>device_id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>use_home_location</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>home_latitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>home_longitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>last_latitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>last_longitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>complete page rendered </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="90" column="21" bodyfile="bgeigiezen_firmware/utils/http_pages.cpp" bodystart="192" bodyend="247"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="http__pages_8h_1a5ddd7521ad524438ef47933cccc16027" compoundref="http__pages_8h" startline="34">FORM_NAME_DOP_MAX</references>
+        <references refid="http__pages_8h_1a95ce4b4f383e36ec196282a39826f6c5" compoundref="http__pages_8h" startline="33">FORM_NAME_FIXED_RANGE</references>
+        <references refid="http__pages_8h_1a096f276a1b519da8d831533f74ace4b7" compoundref="http__pages_8h" startline="31">FORM_NAME_LOC_FIXED_LAT</references>
+        <references refid="http__pages_8h_1adcc40f6da0a247463f074731e8907d73" compoundref="http__pages_8h" startline="32">FORM_NAME_LOC_FIXED_LON</references>
+        <references refid="class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65" compoundref="local__storage_8cpp" startline="81" endline="83">LocalStorage::get_device_id</references>
+        <references refid="class_local_storage_1a90c32142b83907cfd9acba79c8221c63" compoundref="local__storage_8cpp" startline="113" endline="115">LocalStorage::get_dop_max</references>
+        <references refid="class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca" compoundref="local__storage_8cpp" startline="145" endline="147">LocalStorage::get_fixed_latitude</references>
+        <references refid="class_local_storage_1a2972e2632be5da773cfa65e23be878e5" compoundref="local__storage_8cpp" startline="141" endline="143">LocalStorage::get_fixed_longitude</references>
+        <references refid="class_local_storage_1aac7014bfb52a62f890592c21ed41c968" compoundref="local__storage_8cpp" startline="149" endline="151">LocalStorage::get_fixed_range</references>
+        <references refid="class_local_storage_1a9aa6633c81709db989f2bf3ea1f21521" compoundref="local__storage_8cpp" startline="157" endline="159">LocalStorage::get_last_latitude</references>
+        <references refid="class_local_storage_1a120a3285914a098837bb4d3b8be20d0b" compoundref="local__storage_8cpp" startline="153" endline="155">LocalStorage::get_last_longitude</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" compoundref="bgeigiezen__firmware_2main_8cpp" startline="65">settings</references>
+        <references refid="http__pages_8cpp_1a4ef40f7c55ec7811edfc747518b28da1" compoundref="http__pages_8cpp" startline="9">success_message</references>
+        <references refid="http__pages_8cpp_1aef2bd8f48cdef451a4b19a97bcd43871" compoundref="http__pages_8cpp" startline="6">TITLE_CONF_LOCATION</references>
+        <referencedby refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="58" endline="155">ConfigWebServer::add_urls</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_http_pages_1a4490af93005bb93cc9a9d4b6ef7367b9" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * HttpPages::render_full_page</definition>
+        <argsstring>(uint32_t device_id, const char *page_name, const char *content_format,...)</argsstring>
+        <name>render_full_page</name>
+        <qualifiedname>HttpPages::render_full_page</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>device_id</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>page_name</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>content_format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="103" column="21" bodyfile="bgeigiezen_firmware/utils/http_pages.cpp" bodystart="301" bodyend="327"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>HttpPages</label>
+        <link refid="class_http_pages"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>favicon</edgelabel>
+          <edgelabel>pure_css</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>uint8_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/utils/http_pages.h" line="37" column="1" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="37" bodyend="106"/>
+    <listofallmembers>
+      <member refid="class_http_pages_1a9be2569908780465b83751bc08251a61" prot="public" virt="non-virtual"><scope>HttpPages</scope><name>favicon</name></member>
+      <member refid="class_http_pages_1a64735f36d77809ba60b69d33ad6c0003" prot="public" virt="non-virtual"><scope>HttpPages</scope><name>get_config_connection_page</name></member>
+      <member refid="class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4" prot="public" virt="non-virtual"><scope>HttpPages</scope><name>get_config_device_page</name></member>
+      <member refid="class_http_pages_1a74d1994442f6781235fa7d76a9c7c36a" prot="public" virt="non-virtual"><scope>HttpPages</scope><name>get_config_location_page</name></member>
+      <member refid="class_http_pages_1a2029cf0ccea4c0cf9497eb2b0a30f78a" prot="public" virt="non-virtual"><scope>HttpPages</scope><name>get_home_page</name></member>
+      <member refid="class_http_pages_1a737989b229f10049a7e687eb3fba60cf" prot="public" virt="non-virtual"><scope>HttpPages</scope><name>HttpPages</name></member>
+      <member refid="class_http_pages_1a9d1744128b715be721740fe9783a3b98" prot="public" virt="non-virtual"><scope>HttpPages</scope><name>internet_access</name></member>
+      <member refid="class_http_pages_1a4a7f7da507251011076206062a49e0af" prot="public" virt="non-virtual"><scope>HttpPages</scope><name>pure_css</name></member>
+      <member refid="class_http_pages_1a27971511660fee4a1b5f5f8b7f7e47f4" prot="public" virt="non-virtual"><scope>HttpPages</scope><name>pure_js</name></member>
+      <member refid="class_http_pages_1a4490af93005bb93cc9a9d4b6ef7367b9" prot="private" virt="non-virtual"><scope>HttpPages</scope><name>render_full_page</name></member>
+      <member refid="class_http_pages_1ae613d37e907a83967fb14e7f0f2e06d1" prot="private" virt="non-virtual"><scope>HttpPages</scope><name>transmission_buffer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,785 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" kind="file" language="C++">
+    <compoundname>configuration_server.cpp</compoundname>
+    <includes local="no">Update.h</includes>
+    <includes local="no">ESPmDNS.h</includes>
+    <includes refid="configuration__server_8hpp" local="no">configuration_server.hpp</includes>
+    <includes refid="user__config_8h" local="yes">user_config.h</includes>
+    <includes refid="local__storage_8h" local="yes">local_storage.h</includes>
+    <includes local="yes">debugger.h</includes>
+    <includes refid="http__pages_8h" local="yes">http_pages.h</includes>
+    <includes refid="identifiers_8h" local="yes">identifiers.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>TinyGPS++.h</label>
+        <link refid="include_2_tiny_g_p_s_09_09_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>config.hpp</label>
+        <link refid="include_2config_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>configuration_server.hpp</label>
+        <link refid="configuration__server_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>display.hpp</label>
+        <link refid="include_2display_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>geiger_counter.hpp</label>
+        <link refid="include_2geiger__counter_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>gps.hpp</label>
+        <link refid="include_2gps_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>hardwarecounter.hpp</label>
+        <link refid="include_2hardwarecounter_8hpp"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>menu.hpp</label>
+        <link refid="menu_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>motion.hpp</label>
+        <link refid="motion_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>setup.hpp</label>
+        <link refid="include_2setup_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>wifi_connection.hpp</label>
+        <link refid="wifi__connection_8hpp"/>
+      </node>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/src/configuration_server.cpp</label>
+        <link refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>identifiers.h</label>
+        <link refid="identifiers_8h"/>
+      </node>
+      <node id="31">
+        <label>user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>http_pages.h</label>
+        <link refid="http__pages_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>local_storage.h</label>
+        <link refid="local__storage_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ESPmDNS.h</label>
+      </node>
+      <node id="34">
+        <label>Handler.hpp</label>
+      </node>
+      <node id="16">
+        <label>M5Core2.h</label>
+      </node>
+      <node id="32">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="17">
+        <label>Preferences.h</label>
+      </node>
+      <node id="26">
+        <label>RBD_Timer.h</label>
+      </node>
+      <node id="23">
+        <label>Ticker.h</label>
+      </node>
+      <node id="2">
+        <label>Update.h</label>
+      </node>
+      <node id="9">
+        <label>WProgram.h</label>
+      </node>
+      <node id="6">
+        <label>WebServer.h</label>
+      </node>
+      <node id="5">
+        <label>WiFi.h</label>
+      </node>
+      <node id="20">
+        <label>array</label>
+      </node>
+      <node id="12">
+        <label>cstdint</label>
+      </node>
+      <node id="13">
+        <label>cstdlib</label>
+      </node>
+      <node id="15">
+        <label>cstring</label>
+      </node>
+      <node id="35">
+        <label>debugger.h</label>
+      </node>
+      <node id="24">
+        <label>driver/pcnt.h</label>
+      </node>
+      <node id="22">
+        <label>limits</label>
+      </node>
+      <node id="10">
+        <label>limits.h</label>
+      </node>
+      <node id="25">
+        <label>utility/M5Button.h</label>
+      </node>
+      <node id="28">
+        <label>utility/MPU6886.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1ab28fa84742de00ea3342319de160ff37" prot="public" static="no">
+        <name>RETRY_TIMEOUT</name>
+        <initializer>4000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/configuration_server.cpp" line="10" column="9" bodyfile="archive/bgeigie_firmware_pio/src/configuration_server.cpp" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">typename</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">T</ref></type>
+          </param>
+          <param>
+            <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">typename</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">T2</ref></type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T clamp</definition>
+        <argsstring>(T2 val, T min, T max)</argsstring>
+        <name>clamp</name>
+        <param>
+          <type>T2</type>
+          <declname>val</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/configuration_server.cpp" line="13" column="3" bodyfile="archive/bgeigie_firmware_pio/src/configuration_server.cpp" bodystart="13" bodyend="16"/>
+        <referencedby refid="_rays_01_q_r_01code_8cpp_1a32809989238a4d0d5be0fec2e9ecc6cd" compoundref="_rays_01_q_r_01code_8cpp" startline="39">actionAbout</referencedby>
+        <referencedby refid="class_api_connector_1a27801902e618afb9d835438d66ddec3c" compoundref="api__connector_8cpp" startline="19" endline="32">ApiConnector::activate</referencedby>
+        <referencedby refid="class_bluetooth_reporter_1a365b2431527d3601eca8f9349f73053a" compoundref="bluetooth__reporter_8cpp" startline="13" endline="49">BluetoothReporter::activate</referencedby>
+        <referencedby refid="class_sd_logger_1a03701029b7b1906ff9e910c79d509585" compoundref="sd__logger_8cpp" startline="15" endline="36">SdLogger::activate</referencedby>
+        <referencedby refid="class_geiger_counter_1a20619a3dcabbac2b7595322d283ccb72" compoundref="gm__sensor_8cpp" startline="8" endline="19">GeigerCounter::activate</referencedby>
+        <referencedby refid="class_gps_connector_1ae9c39a62d97e5491bb420cba02df2a98" compoundref="gps__connector_8cpp" startline="58" endline="125">GpsConnector::activate</referencedby>
+        <referencedby refid="class_navsat_collector_1ad94174b1af2175c4c484cd3d8b0e1f2d" compoundref="navsat__collector_8cpp" startline="13" endline="19">NavsatCollector::activate</referencedby>
+        <referencedby refid="class_date_time_provider_1a4d3939b1215f619cc267afcb57d306f9" compoundref="rtc__connector_8cpp" startline="19" endline="34">DateTimeProvider::activate</referencedby>
+        <referencedby refid="class_shake_detector_1a5dc083162379d0ba05a98c4507024d3d" compoundref="shake__detector_8cpp" startline="19" endline="24">ShakeDetector::activate</referencedby>
+        <referencedby refid="class_local_storage_1a5452afc6c29b246572d3e01ee9eb84d8" compoundref="local__storage_8cpp" startline="386" endline="418">LocalStorage::activate</referencedby>
+        <referencedby refid="class_circular_buffer_1ac319f16578a13883bbe0e261efb18264" compoundref="circular__buffer_8h" startline="32" endline="40">CircularBuffer&lt; T, max &gt;::add</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_location_1ae5da08aba335d0515b7a84ce57b80179" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="62" endline="62">TinyGPSLocation::age</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_date_1af8b9c057a28dcb490081fcfde2a0ee11" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="89" endline="89">TinyGPSDate::age</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_time_1ae0aba0cbd875a3e1fe5d7872171e79fc" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="113" endline="113">TinyGPSTime::age</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_decimal_1a041cada3e406205d0878c9819eddbbbb" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="138" endline="138">TinyGPSDecimal::age</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_integer_1aabd55511befbd769155c69e0c1208691" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="158" endline="158">TinyGPSInteger::age</referencedby>
+        <referencedby refid="class_tiny_g_p_s_custom_1af5347ee2785bca9acb5a0f16fcc68ea0" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="208" endline="208">TinyGPSCustom::age</referencedby>
+        <referencedby refid="class_g_p_s_sensor_1a1f2097cc5d1642b86a0fb996d8223382" compoundref="include_2gps_8hpp" startline="56" endline="62">GPSSensor::age_ms</referencedby>
+        <referencedby refid="class_wi_fi_connection_1a81c1171ee44b4fcea512384f9fd1a986" compoundref="archive_2bgeigie__firmware__pio_2src_2wifi__connection_8cpp" startline="58" endline="60">WiFiConnection::ap_server_up</referencedby>
+        <referencedby refid="class_wi_fi_wrapper_1ab5bf49473b1e795db44475daf860d7c8" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="81" endline="83">WiFiWrapper::ap_server_up</referencedby>
+        <referencedby refid="class_base_screen_1a2e28e5b4ef3027c3c4392dfb4a6c3ff8" compoundref="base__screen_8cpp" startline="11" endline="21">BaseScreen::BaseScreen</referencedby>
+        <referencedby refid="class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7" compoundref="hardwarecounter_8cpp" startline="22" endline="68">HardwareCounter::begin</referencedby>
+        <referencedby refid="class_s_d_wrapper_1a3cf0aa59da68a1368b7f7ce0f6714676" compoundref="include_2sd__wrapper_8hpp" startline="27" endline="32">SDWrapper::begin</referencedby>
+        <referencedby refid="class_s_d_interface_1a809a47ce4ef0dc0ea1918552601cbbdd" compoundref="sd__wrapper_8cpp" startline="88" endline="105">SDInterface::begin</referencedby>
+        <referencedby refid="class_tiny_g_p_s_custom_1a3bf972f7e2e7e3f483071630e5ca8355" compoundref="_tiny_g_p_s_09_09_8cpp" startline="471" endline="482">TinyGPSCustom::begin</referencedby>
+        <referencedby refid="class_tiny_g_p_s_plus_1a8c9e9444552ff85a505ffc6933dda03c" compoundref="_tiny_g_p_s_09_09_8cpp" startline="330" endline="335">TinyGPSPlus::cardinal</referencedby>
+        <referencedby refid="class_tiny_g_p_s_1a8aeef91f9559578d0a0fbc7482adcb17" compoundref="bgeigie__firmware_2_tiny_g_p_s_8cpp" startline="404" endline="410">TinyGPS::cardinal</referencedby>
+        <referencedby refid="logger_8cpp_1a77b34e269d2a6500076f032667578f0b" compoundref="logger_8cpp" startline="6" endline="13">checksum</referencedby>
+        <referencedby refid="log__aggregator_8cpp_1a59f30f324b3fc88c68fd16abc2d95d41" compoundref="log__aggregator_8cpp" startline="28" endline="36">checksum</referencedby>
+        <referencedby refid="class_display_1a14242933dd00fc1d50f9ae70d5121d14" compoundref="display_8cpp" startline="43" endline="62">Display::clear</referencedby>
+        <referencedby refid="class_local_storage_1abf645efa025a556a3188b42d5f5590fe" compoundref="local__storage_8cpp" startline="375" endline="384">LocalStorage::clear</referencedby>
+        <referencedby refid="class_base_screen_1a0302e81913f193447bcbd63fc5dc1621" compoundref="base__screen_8cpp" startline="151" endline="153">BaseScreen::clear_screen_content</referencedby>
+        <referencedby refid="struct_config_data_1adb78a42cc714fe0bfdf03d9a1e3d0cc5" compoundref="include_2setup_8hpp" startline="80" endline="80">ConfigData::ConfigData</referencedby>
+        <referencedby refid="class_geiger_counter_1ac068defdfdf364a2009891f736d45b76" compoundref="include_2geiger__counter_8hpp" startline="45" endline="51">GeigerCounter::configure</referencedby>
+        <referencedby refid="class_wi_fi_connection_1a988528922c17cc42773ac5813cdb3b1a" compoundref="archive_2bgeigie__firmware__pio_2src_2wifi__connection_8cpp" startline="9" endline="26">WiFiConnection::connect_wifi</referencedby>
+        <referencedby refid="class_wi_fi_wrapper_1ac2331e7155ee97b89214f721d91cd657" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="16" endline="42">WiFiWrapper::connect_wifi</referencedby>
+        <referencedby refid="display_8cpp_1aa80b8dc616dd7cd22263440802492d75" compoundref="display_8cpp" startline="8" endline="35">core2Brightness</referencedby>
+        <referencedby refid="class_tiny_g_p_s_1a0655fb2ba390b299252c09779f4472fb" compoundref="bgeigie__firmware_2_tiny_g_p_s_8cpp" startline="384" endline="402">TinyGPS::course_to</referencedby>
+        <referencedby refid="class_tiny_g_p_s_plus_1af338c18ccf58a47659be1ffc8259541d" compoundref="_tiny_g_p_s_09_09_8cpp" startline="310" endline="328">TinyGPSPlus::courseTo</referencedby>
+        <referencedby refid="_raku__code_8cpp_1a5830c6644904e95836b94ec740b4d557" compoundref="_raku__code_8cpp" startline="57" endline="68">cpm_gen</referencedby>
+        <referencedby refid="log__aggregator_8cpp_1a2a3c66cbe993c2d69da64f0576581018" compoundref="log__aggregator_8cpp" startline="15" endline="19">dd_to_dm</referencedby>
+        <referencedby refid="class_api_connector_1a2f3ddac28265bde686f1d9e245b991eb" compoundref="api__connector_8cpp" startline="34" endline="37">ApiConnector::deactivate</referencedby>
+        <referencedby refid="class_bluetooth_reporter_1a220046266dc3778677bca52b868e5471" compoundref="bluetooth__reporter_8cpp" startline="51" endline="61">BluetoothReporter::deactivate</referencedby>
+        <referencedby refid="class_sd_logger_1a8e8463c086ad85bd39a99bdbe2207cfa" compoundref="sd__logger_8cpp" startline="38" endline="47">SdLogger::deactivate</referencedby>
+        <referencedby refid="class_s_d_interface_1aabe6178f355242e557c214581eba395f" compoundref="sd__wrapper_8cpp" startline="508" endline="514">SDInterface::delete_log</referencedby>
+        <referencedby refid="class_wi_fi_connection_1adf04b1dcd7e1b6ef05eb748b7e14755f" compoundref="archive_2bgeigie__firmware__pio_2src_2wifi__connection_8cpp" startline="28" endline="31">WiFiConnection::disconnect_wifi</referencedby>
+        <referencedby refid="class_wi_fi_wrapper_1ad3550ed2833397450e1a4c80cb5727cf" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="44" endline="47">WiFiWrapper::disconnect_wifi</referencedby>
+        <referencedby refid="class_tiny_g_p_s_1a5280f59c83069e5113d85d82a1f2b510" compoundref="bgeigie__firmware_2_tiny_g_p_s_8cpp" startline="359" endline="382">TinyGPS::distance_between</referencedby>
+        <referencedby refid="class_tiny_g_p_s_plus_1ace607cf3a6d49628e44eae1232237138" compoundref="_tiny_g_p_s_09_09_8cpp" startline="285" endline="308">TinyGPSPlus::distanceBetween</referencedby>
+        <referencedby refid="class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98" compoundref="base__screen_8cpp" startline="107" endline="110">BaseScreen::do_render</referencedby>
+        <referencedby refid="class_display_1aa64573075ec3f5141cb7906c9cbb4ad1" compoundref="display_8cpp" startline="64" endline="71">Display::draw_base</referencedby>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1a4e1b7f010db6d39b421560b24550fdf1" compoundref="display_8cpp" startline="382" endline="394">Display::draw_menu</referencedby>
+        <referencedby refid="class_display_1a75180c9b967a0126ce3b01a7ce6623b5" compoundref="display_8cpp" startline="73" endline="79">Display::draw_navbar</referencedby>
+        <referencedby refid="class_display_1abe6a389bd196987cdc01967c1657b597" compoundref="display_8cpp" startline="81" endline="87">Display::draw_navbar_label</referencedby>
+        <referencedby refid="class_display_1aadce78ab84e53b437eedf6cc2d941a3a" compoundref="display_8cpp" startline="236" endline="249">Display::draw_qrcode</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="class_base_screen_1abd62ea7f2f318142dde3d81f1a5e46a1" compoundref="base__screen_8cpp" startline="63" endline="65">BaseScreen::drawButton1</referencedby>
+        <referencedby refid="class_base_screen_1af5e00b4efc1ada7bb34cd0361b21397c" compoundref="base__screen_8cpp" startline="67" endline="69">BaseScreen::drawButton2</referencedby>
+        <referencedby refid="class_base_screen_1a13d1abed7e9ef452c950ee1a5af14860" compoundref="base__screen_8cpp" startline="71" endline="73">BaseScreen::drawButton3</referencedby>
+        <referencedby refid="class_tiny_g_p_s_1ab6b2697b2968dc6a020404795f1aa169" compoundref="bgeigie__firmware_2_tiny_g_p_s_8cpp" startline="84" endline="124">TinyGPS::encode</referencedby>
+        <referencedby refid="class_tiny_g_p_s_plus_1ad7b78320b7e4967df17c6a27008a5154" compoundref="_tiny_g_p_s_09_09_8cpp" startline="56" endline="98">TinyGPSPlus::encode</referencedby>
+        <referencedby refid="class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a" compoundref="sd__wrapper_8cpp" startline="121" endline="124">SDInterface::end</referencedby>
+        <referencedby refid="class_state_1a3c1399d4cb6c84dfa4d8ba0ee71e2ce5" compoundref="include_2fsm__state__base_8hpp" startline="24" endline="27">State::enter</referencedby>
+        <referencedby refid="class_state_1a0d945aef6435c50896e9815b17a37e7c" compoundref="src_2fsm__state__base_8hpp" startline="24" endline="27">State::enter</referencedby>
+        <referencedby refid="class_boot_screen_1af19273a9e16613f547b44773b1761fae" compoundref="boot__screen_8cpp" startline="28" endline="30">BootScreen::enter_screen</referencedby>
+        <referencedby refid="class_config_mode_screen_1a63e57a291d31fc8974e1801314b0c75b" compoundref="config__mode_8cpp" startline="218" endline="255">ConfigModeScreen::enter_screen</referencedby>
+        <referencedby refid="class_satellite_view_screen_1aca0938985e81a83c6817a7d9de94df26" compoundref="satellite__view_8cpp" startline="209" endline="220">SatelliteViewScreen::enter_screen</referencedby>
+        <referencedby refid="class_sd_message_screen_1a37d7575e04491ff6fedae89389694248" compoundref="sd__message_8cpp" startline="150" endline="168">SdMessageScreen::enter_screen</referencedby>
+        <referencedby refid="class_state_1ae5e43afacaf6c1a35c07f0d3622f6e86" compoundref="include_2fsm__state__base_8hpp" startline="28" endline="31">State::exit</referencedby>
+        <referencedby refid="class_state_1a795215fb9fb25a27292ea72b1ab989b9" compoundref="src_2fsm__state__base_8hpp" startline="28" endline="31">State::exit</referencedby>
+        <referencedby refid="class_tiny_g_p_s_1a7deea07a7208113c9a37f25cf52d8580" compoundref="bgeigie__firmware_2_tiny_g_p_s_8cpp" startline="430" endline="436">TinyGPS::f_get_position</referencedby>
+        <referencedby refid="class_tiny_g_p_s_1a9cfc388eba14bd0d833958970b68763c" compoundref="bgeigie__firmware_2_tiny_g_p_s_8cpp" startline="483" endline="487">TinyGPS::f_speed_kmph</referencedby>
+        <referencedby refid="class_tiny_g_p_s_1a7c3c51c4df168ef2b1583a86d8deff34" compoundref="bgeigie__firmware_2_tiny_g_p_s_8cpp" startline="471" endline="475">TinyGPS::f_speed_mph</referencedby>
+        <referencedby refid="class_tiny_g_p_s_1a50bf6df367912942e294de13170cb1e0" compoundref="bgeigie__firmware_2_tiny_g_p_s_8cpp" startline="477" endline="481">TinyGPS::f_speed_mps</referencedby>
+        <referencedby refid="class_b_geigie_log_formatter_1a1c9a69c9790a8bc038b157ced1fcdbe3" compoundref="logger_8cpp" startline="23" endline="44">BGeigieLogFormatter::feed</referencedby>
+        <referencedby refid="class_display_1a00504e9ba16dc10557125c9c8dbc6aa8" compoundref="include_2display_8hpp" startline="117" endline="117">Display::feed_battery_level</referencedby>
+        <referencedby refid="class_b_geigie_log_formatter_1a73f74383a11aa5e2d1c7ddafbeb3f708" compoundref="logger_8cpp" startline="46" endline="75">BGeigieLogFormatter::format</referencedby>
+        <referencedby refid="class_geiger_counter_1a3d63626a9b3525e3ba07b82571311fbe" compoundref="include_2geiger__counter_8hpp" startline="34" endline="40">GeigerCounter::GeigerCounter</referencedby>
+        <referencedby refid="class_circular_buffer_1aec4bafc7deeb262f067a93779eba3ae1" compoundref="circular__buffer_8h" startline="20" endline="26">CircularBuffer&lt; T, max &gt;::get</referencedby>
+        <referencedby refid="class_http_pages_1a64735f36d77809ba60b69d33ad6c0003" compoundref="http__pages_8cpp" startline="249" endline="299">HttpPages::get_config_connection_page</referencedby>
+        <referencedby refid="class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4" compoundref="http__pages_8cpp" startline="93" endline="190">HttpPages::get_config_device_page</referencedby>
+        <referencedby refid="class_http_pages_1a74d1994442f6781235fa7d76a9c7c36a" compoundref="http__pages_8cpp" startline="192" endline="247">HttpPages::get_config_location_page</referencedby>
+        <referencedby refid="class_measurement_1aabfa61bb1f0c3098635e6104ad8a95ad" compoundref="bgeigie__firmware_2measurements_8hpp" startline="36" endline="45">Measurement&lt; T &gt;::get_data</referencedby>
+        <referencedby refid="class_tiny_g_p_s_1a08a6109f024623c7b5693c344e77e177" compoundref="bgeigie__firmware_2_tiny_g_p_s_8cpp" startline="422" endline="428">TinyGPS::get_datetime</referencedby>
+        <referencedby refid="class_base_screen_1a34ca21425e8a0306c8b28669b35216e6" compoundref="base__screen_8cpp" startline="116" endline="137">BaseScreen::get_error_message</referencedby>
+        <referencedby refid="class_http_pages_1a2029cf0ccea4c0cf9497eb2b0a30f78a" compoundref="http__pages_8cpp" startline="69" endline="91">HttpPages::get_home_page</referencedby>
+        <referencedby refid="class_tiny_g_p_s_1a70ba85cc7d84a915b6b1c379471e862b" compoundref="bgeigie__firmware_2_tiny_g_p_s_8cpp" startline="413" endline="419">TinyGPS::get_position</referencedby>
+        <referencedby refid="class_base_screen_1ac34eef3f7a364202d2399ce1b234bf04" compoundref="base__screen_8cpp" startline="139" endline="144">BaseScreen::get_status_message</referencedby>
+        <referencedby refid="bgeigie__firmware_2threaded__gps_8cpp_1a78b0cbb75597099fd1a7d48fb35bc2d1" compoundref="bgeigie__firmware_2threaded__gps_8cpp" startline="4" endline="10">get_wgs84_coordinate</referencedby>
+        <referencedby refid="_raku__code_8cpp_1aa95517a37af89111247591819867865c" compoundref="_raku__code_8cpp" startline="105" endline="120">getBatteryLevel</referencedby>
+        <referencedby refid="class_menu_context_1a0a1ab3078ac31ef2189fa43c43bdee7c" compoundref="menu_8cpp" startline="23" endline="31">MenuContext::goto_state</referencedby>
+        <referencedby refid="class_menu_context_1af3449484c482bc70d7d15023e047a84a" compoundref="menu_8cpp" startline="18" endline="21">MenuContext::goto_state</referencedby>
+        <referencedby refid="class_g_p_s_sensor_1a5cfcf8d5d4fc804efc918269cab7ef32" compoundref="include_2gps_8hpp" startline="52" endline="54">GPSSensor::GPSSensor</referencedby>
+        <referencedby refid="class_api_connector_1a8fc0aaa8a9cff66aef93d202a102d9ea" compoundref="api__connector_8cpp" startline="99" endline="147">ApiConnector::handle_async</referencedby>
+        <referencedby refid="class_bluetooth_reporter_1adb994652fab6d38063b786675ede9c35" compoundref="bluetooth__reporter_8cpp" startline="176" endline="195">BluetoothReporter::handle_async</referencedby>
+        <referencedby refid="class_boot_screen_1a1d605b7d6ed086214a7f1a0bcd3d1fe2" compoundref="boot__screen_8cpp" startline="14" endline="26">BootScreen::handle_input</referencedby>
+        <referencedby refid="class_config_mode_screen_1a7fcba3bb1764bd72b76c1f80f1f6a762" compoundref="config__mode_8cpp" startline="27" endline="91">ConfigModeScreen::handle_input</referencedby>
+        <referencedby refid="class_debug_mode_screen_1a74b4a2f357094dcda42fffe968067b28" compoundref="debug__mode_8cpp" startline="104" endline="110">DebugModeScreen::handle_input</referencedby>
+        <referencedby refid="class_default_entry_screen_1a06fd4454eff553465a74d30b02567a0f" compoundref="default__entry__screen_8cpp" startline="13" endline="28">DefaultEntryScreen::handle_input</referencedby>
+        <referencedby refid="class_drive_mode_screen_1a69c70a1c35f362131345ecd652cd4416" compoundref="drive__mode_8cpp" startline="18" endline="35">DriveModeScreen::handle_input</referencedby>
+        <referencedby refid="class_first_time_startup_screen_1a5247fbb47d0d251542376a1199c48684" compoundref="first__time__startup_8cpp" startline="13" endline="23">FirstTimeStartupScreen::handle_input</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1afb1295bc1c4272752239f7ea2ee111a4" compoundref="fixed__mode_8cpp" startline="18" endline="24">FixedModeScreen::handle_input</referencedby>
+        <referencedby refid="class_menu_window_1afe3cdb7f44d6d7a534044abc6b4e1b92" compoundref="menu__window_8cpp" startline="33" endline="35">MenuWindow::handle_input</referencedby>
+        <referencedby refid="class_satellite_view_screen_1a14b2221b6c62c0bf858f9f8816140b96" compoundref="satellite__view_8cpp" startline="32" endline="78">SatelliteViewScreen::handle_input</referencedby>
+        <referencedby refid="class_sd_message_screen_1aa6f1495614e3c8a88dfe30920fcd5b8d" compoundref="sd__message_8cpp" startline="17" endline="76">SdMessageScreen::handle_input</referencedby>
+        <referencedby refid="class_survey_mode_screen_1a2b1210c4b71c7b2da15777f7c8c677d0" compoundref="survery__mode_8cpp" startline="17" endline="28">SurveyModeScreen::handle_input</referencedby>
+        <referencedby refid="class_zen_info_screen_1a786b973c3a31797c902d23dfcb44fe7a" compoundref="zen__info_8cpp" startline="12" endline="23">ZenInfoScreen::handle_input</referencedby>
+        <referencedby refid="class_base_screen_with_menu_1ad5a98a6810c71d60582197b4cec5bb5d" compoundref="base__screen_8cpp" startline="155" endline="196">BaseScreenWithMenu::handle_menu_input</referencedby>
+        <referencedby refid="class_api_connector_1a46089ea3e64a0c222657429e68c5beca" compoundref="api__connector_8cpp" startline="39" endline="74">ApiConnector::handle_produced_work</referencedby>
+        <referencedby refid="class_bluetooth_reporter_1a401eb1211e8bc88e281c5a61415e72af" compoundref="bluetooth__reporter_8cpp" startline="63" endline="74">BluetoothReporter::handle_produced_work</referencedby>
+        <referencedby refid="class_sd_logger_1ab55fb4b592ef94b61f23d408aecd7ee1" compoundref="sd__logger_8cpp" startline="49" endline="86">SdLogger::handle_produced_work</referencedby>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+        <referencedby refid="class_s_d_interface_1ac011e72bed01b65fb3af9cc1242b4f14" compoundref="sd__wrapper_8cpp" startline="151" endline="190">SDInterface::has_safezen_content</referencedby>
+        <referencedby refid="functions_8h_1a9b1d6cb0ae5f9e0e2eb8547c8d1fa038" compoundref="functions_8h" startline="19" endline="25">haversine_km</referencedby>
+        <referencedby refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" compoundref="sd__wrapper_8h" startline="39" endline="42">SDInterface::i</referencedby>
+        <referencedby refid="class_g_p_s_thread_1aa519d5004c9b13c2ac4308b99324efd9" compoundref="bgeigie__firmware_2threaded__gps_8cpp" startline="12" endline="25">GPSThread::init</referencedby>
+        <referencedby refid="class_g_f_x_screen_1a1f5f80dd70f0b3975746457fc3759b74" compoundref="gfx__screen_8cpp" startline="42" endline="57">GFXScreen::initialize</referencedby>
+        <referencedby refid="class_state_startup_1a4f51bf08ed5a31e78ddc0d2e778a8087" compoundref="fsm__state__concrete_8cpp" startline="4" endline="9">StateStartup::instance</referencedby>
+        <referencedby refid="class_state_wait_g_p_s_time_1aa9295818f9d5ab901714999a47050819" compoundref="fsm__state__concrete_8cpp" startline="18" endline="23">StateWaitGPSTime::instance</referencedby>
+        <referencedby refid="class_state_logging_1a4708a1ec561acf6890c4b922f7c41b1d" compoundref="fsm__state__concrete_8cpp" startline="47" endline="52">StateLogging::instance</referencedby>
+        <referencedby refid="_raku__code_8cpp_1a16f92953b2ca301dc2171304ee0b22d4" compoundref="_raku__code_8cpp" startline="86" endline="95">interruptCounterAvailable</referencedby>
+        <referencedby refid="_raku__code_8cpp_1a43a6dd901d72dc55b798f234816fc454" compoundref="_raku__code_8cpp" startline="77" endline="84">interruptCounterReset</referencedby>
+        <referencedby refid="_raku__code_8cpp_1adad4479cb0c1a866bf4214a4acbcd9f1" compoundref="_raku__code_8cpp" startline="385" endline="392">ip5306_get_bits</referencedby>
+        <referencedby refid="_raku__code_8cpp_1a8182dcd177e84e24016f6f4e5c79be03" compoundref="_raku__code_8cpp" startline="366" endline="373">ip5306_get_reg</referencedby>
+        <referencedby refid="_raku__code_8cpp_1aa84e876643ff377c6857c9efdb4086eb" compoundref="_raku__code_8cpp" startline="394" endline="406">ip5306_set_bits</referencedby>
+        <referencedby refid="_raku__code_8cpp_1a8e821d92d3c855ecb9429714fb9e685b" compoundref="_raku__code_8cpp" startline="375" endline="383">ip5306_set_reg</referencedby>
+        <referencedby refid="class_s_d_interface_1afbb88cd8a67481964cd9f887e54898d5" compoundref="sd__wrapper_8cpp" startline="117" endline="119">SDInterface::just_wrote</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_location_1a86c3acea4f317b427eebb667e4d05a49" compoundref="_tiny_g_p_s_09_09_8cpp" startline="361" endline="366">TinyGPSLocation::lat</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_location_1a544e9009a5580b2fd5466821a5e5b782" compoundref="_tiny_g_p_s_09_09_8cpp" startline="368" endline="373">TinyGPSLocation::lng</referencedby>
+        <referencedby refid="class_setup_1aa70fc3ff2c0e8122f9dd60376066352d" compoundref="setup_8cpp" startline="63" endline="271">Setup::load_from_file</referencedby>
+        <referencedby refid="class_s_d_logger_1ae96cd0c7555285c7191193be27c52d42" compoundref="logger_8cpp" startline="120" endline="128">SDLogger::log</referencedby>
+        <referencedby refid="class_s_d_interface_1a77a1a4519025efa2ff17c99f2c3e7d67" compoundref="sd__wrapper_8cpp" startline="126" endline="149">SDInterface::log_println</referencedby>
+        <referencedby refid="class_context_1a78c450b80877fe560a2abe7a541a118c" compoundref="fsm__context_8cpp" startline="10" endline="17">Context::loop</referencedby>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1afe461d27b9c48d5921c00d521181f12f" compoundref="bgeigiezen__firmware_2main_8cpp" startline="132" endline="140">loop</referencedby>
+        <referencedby refid="class_motion_detect_1a66e4b850e0423024661a6f766a40fcea" compoundref="motion_8cpp" startline="26" endline="31">MotionDetect::motionDetected</referencedby>
+        <referencedby refid="class_navsat_collector_1aeaa2bb2eff97171c176346039bc80511" compoundref="navsat__collector_8cpp" startline="4" endline="8">NavsatCollector::NavsatCollector</referencedby>
+        <referencedby refid="class_init_state_1aa9862d3b06712801c7971dfb4f6d7b6f" compoundref="menu_8cpp" startline="39" endline="93">InitState::on_entry</referencedby>
+        <referencedby refid="class_config_state_1a0499ab1fa14a0bcadd22aed8762b8d39" compoundref="menu_8cpp" startline="130" endline="162">ConfigState::on_entry</referencedby>
+        <referencedby refid="class_inactive_state_1ae1a44d6fe70ddb074a71bf82fca37c36" compoundref="menu_8cpp" startline="176" endline="186">InactiveState::on_entry</referencedby>
+        <referencedby refid="class_state_wait_g_p_s_time_1a5afbcebf690e8a8eadc30a7795d9a907" compoundref="fsm__state__concrete_8cpp" startline="35" endline="45">StateWaitGPSTime::on_exit</referencedby>
+        <referencedby refid="class_init_state_1a55d3c6ca4119b23a0ce079116b3be7ac" compoundref="menu_8cpp" startline="95" endline="95">InitState::on_exit</referencedby>
+        <referencedby refid="class_config_state_1a756b421f6964fd7316a748d124ccdd90" compoundref="menu_8cpp" startline="164" endline="169">ConfigState::on_exit</referencedby>
+        <referencedby refid="class_inactive_state_1ab042e2afb4770b3bea596880dee7fe88" compoundref="menu_8cpp" startline="196" endline="196">InactiveState::on_exit</referencedby>
+        <referencedby refid="class_base_screen_with_menu_1a8f6be48185ed453fde17e48f372951b1" compoundref="base__screen_8cpp" startline="265" endline="267">BaseScreenWithMenu::open_menu</referencedby>
+        <referencedby refid="class_tiny_g_p_s_1a06aa00ff48e5eb5362962ef513d4ebcd" compoundref="bgeigie__firmware_2_tiny_g_p_s_8h" startline="48" endline="48">TinyGPS::operator&lt;&lt;</referencedby>
+        <referencedby refid="class_tiny_g_p_s_plus_1a05c12d268eddf254a9846bc34935a73c" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="232" endline="232">TinyGPSPlus::operator&lt;&lt;</referencedby>
+        <referencedby refid="class_tiny_g_p_s_plus_1a06d9bf0c1f0d0963511dc05e2f121121" compoundref="_tiny_g_p_s_09_09_8cpp" startline="115" endline="128">TinyGPSPlus::parseDecimal</referencedby>
+        <referencedby refid="class_tiny_g_p_s_plus_1a00627eaffc625bf366e4c984014fbf29" compoundref="_tiny_g_p_s_09_09_8cpp" startline="132" endline="153">TinyGPSPlus::parseDegrees</referencedby>
+        <referencedby refid="hardwarecounter_8cpp_1a90ea1c07ae1f9c94a7c3ad2139f4ebb6" compoundref="hardwarecounter_8cpp" startline="7" endline="10">pcnt_intr_handler</referencedby>
+        <referencedby refid="class_g_p_s_thread_1aef0bf3ae06eff688503cfafe58cfe5f8" compoundref="bgeigie__firmware_2threaded__gps_8cpp" startline="27" endline="39">GPSThread::prepare_data</referencedby>
+        <referencedby refid="struct_config_data_1afbf78e1817c53c2a8ce593a0462e9067" compoundref="include_2setup_8hpp" startline="96" endline="111">ConfigData::print</referencedby>
+        <referencedby refid="include_2display_8hpp_1a926cd9ce500f615f3624c657c59d7153" compoundref="display_8cpp" startline="500" endline="510">printDate</referencedby>
+        <referencedby refid="include_2display_8hpp_1a257d550e178a981f697d51a2a1695892" compoundref="display_8cpp" startline="441" endline="453">printFloat</referencedby>
+        <referencedby refid="include_2display_8hpp_1a1cd111cb4e208d401902c3ae1eed3b59" compoundref="display_8cpp" startline="455" endline="474">printFloatFont</referencedby>
+        <referencedby refid="class_base_screen_1acfec22b4351b13b4f0c6bd84254198ec" compoundref="base__screen_8cpp" startline="75" endline="81">BaseScreen::printFloatFont</referencedby>
+        <referencedby refid="include_2display_8hpp_1a98b4b70aadeb673bcc1d2d3739a5a814" compoundref="display_8cpp" startline="477" endline="485">printInt</referencedby>
+        <referencedby refid="include_2display_8hpp_1ac3f9cc9b5e5a3d4ede89be90682c1acb" compoundref="display_8cpp" startline="488" endline="497">printIntFont</referencedby>
+        <referencedby refid="class_base_screen_1ae6e6ee7b78413b55d89fd192157ea9db" compoundref="base__screen_8cpp" startline="84" endline="88">BaseScreen::printIntFont</referencedby>
+        <referencedby refid="_raku__code_8cpp_1aa7b1e88e047a341d350f8f531a5d8baa" compoundref="_raku__code_8cpp" startline="417" endline="440">printIP5306Settings</referencedby>
+        <referencedby refid="_raku__code_8cpp_1a897054935ff0409ef57184a4387ccd17" compoundref="_raku__code_8cpp" startline="410" endline="415">printIP5306Stats</referencedby>
+        <referencedby refid="include_2display_8hpp_1ae52b907c706dbf05bd97198c296ec5cc" compoundref="display_8cpp" startline="513" endline="522">printTime</referencedby>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+        <referencedby refid="class_battery_indicator_1a2549ee1d50e87017b4b6067820d9518a" compoundref="battery__indicator_8cpp" startline="11" endline="16">BatteryIndicator::produce_data</referencedby>
+        <referencedby refid="class_geiger_counter_1ad27d8d0865e390e098d762e7a1d3de73" compoundref="gm__sensor_8cpp" startline="21" endline="73">GeigerCounter::produce_data</referencedby>
+        <referencedby refid="class_gps_connector_1a772998cb4be0a4a1f4964e7dfc6962db" compoundref="gps__connector_8cpp" startline="134" endline="229">GpsConnector::produce_data</referencedby>
+        <referencedby refid="class_navsat_collector_1a6a35cc446ad59a57f7fa243aa01b3e5c" compoundref="navsat__collector_8cpp" startline="25" endline="35">NavsatCollector::produce_data</referencedby>
+        <referencedby refid="class_shake_detector_1ab893081444f2674bd8b26c76a445d83b" compoundref="shake__detector_8cpp" startline="26" endline="34">ShakeDetector::produce_data</referencedby>
+        <referencedby refid="class_zen_button_1ac2bffe99f5706bfe1d6def23bdfdb87c" compoundref="zen__button_8cpp" startline="13" endline="22">ZenButton::produce_data</referencedby>
+        <referencedby refid="class_local_storage_1a85c0f20776d31fb74839e777889aadd0" compoundref="local__storage_8cpp" startline="420" endline="429">LocalStorage::produce_data</referencedby>
+        <referencedby refid="class_date_time_provider_1a998e11085139dd50ddf440c701ea3409" compoundref="rtc__connector_8cpp" startline="36" endline="44">DateTimeProvider::produce_data</referencedby>
+        <referencedby refid="class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494" compoundref="log__aggregator_8cpp" startline="44" endline="128">LogAggregator::produce_data</referencedby>
+        <referencedby refid="class_s_d_interface_1a2e3f02d8a0c231ee408f7b4a5d960063" compoundref="sd__wrapper_8cpp" startline="192" endline="227">SDInterface::read_safezen_file_to_settings</referencedby>
+        <referencedby refid="class_api_connector_1ac19687cf6ae2d1d0bcb2e77ee9e8c539" compoundref="api__connector_8cpp" startline="76" endline="93">ApiConnector::reading_to_json</referencedby>
+        <referencedby refid="class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe" compoundref="sd__wrapper_8cpp" startline="69" endline="74">SDInterface::ready</referencedby>
+        <referencedby refid="class_subject_1a91cb4e6bb958acf74de6cf82142215f8" compoundref="bgeigie__firmware_2patterns_8hpp" startline="18" endline="20">Subject::register_observer</referencedby>
+        <referencedby refid="class_s_d_interface_1a9579c7433715db5ea05b8190b8f9ee13" compoundref="sd__wrapper_8cpp" startline="497" endline="506">SDInterface::rename_log</referencedby>
+        <referencedby refid="class_boot_screen_1ae251e91a0e4a84ef9b6739ed928ef3c5" compoundref="boot__screen_8cpp" startline="35" endline="49">BootScreen::render</referencedby>
+        <referencedby refid="class_config_mode_screen_1a5878db5e53f53183144488937f6657e9" compoundref="config__mode_8cpp" startline="93" endline="119">ConfigModeScreen::render</referencedby>
+        <referencedby refid="class_debug_mode_screen_1af5a52170b297c87f33e5eea935f8ca04" compoundref="debug__mode_8cpp" startline="16" endline="102">DebugModeScreen::render</referencedby>
+        <referencedby refid="class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85" compoundref="drive__mode_8cpp" startline="37" endline="156">DriveModeScreen::render</referencedby>
+        <referencedby refid="class_first_time_startup_screen_1a1f5c80b0f1a40f208787e6b27a1b34c7" compoundref="first__time__startup_8cpp" startline="25" endline="39">FirstTimeStartupScreen::render</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af" compoundref="fixed__mode_8cpp" startline="26" endline="128">FixedModeScreen::render</referencedby>
+        <referencedby refid="class_menu_window_1a668a8a350e49de44844d8d06d0032938" compoundref="menu__window_8cpp" startline="37" endline="42">MenuWindow::render</referencedby>
+        <referencedby refid="class_satellite_view_screen_1a480ec31a9de82c4f9e8ee3228d870f65" compoundref="satellite__view_8cpp" startline="80" endline="207">SatelliteViewScreen::render</referencedby>
+        <referencedby refid="class_sd_message_screen_1a2c75124920b18c3d29c65887cbe404c7" compoundref="sd__message_8cpp" startline="78" endline="148">SdMessageScreen::render</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50" compoundref="survery__mode_8cpp" startline="30" endline="109">SurveyModeScreen::render</referencedby>
+        <referencedby refid="class_zen_info_screen_1ac6aeca5cbd35b67bfb60f3c39a26e010" compoundref="zen__info_8cpp" startline="25" endline="39">ZenInfoScreen::render</referencedby>
+        <referencedby refid="class_base_screen_with_menu_1a807060775e90107a1ed93c4720c2ddc0" compoundref="base__screen_8cpp" startline="198" endline="259">BaseScreenWithMenu::render_menu</referencedby>
+        <referencedby refid="class_hardware_counter_1aa7f151e2edd3d718edab3568ffc75dc4" compoundref="hardwarecounter_8cpp" startline="70" endline="82">HardwareCounter::reset</referencedby>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">LocalStorage::reset_defaults</referencedby>
+        <referencedby refid="class_local_storage_1ada3971b867dbd9068048f22cc7e6988d" compoundref="local__storage_8cpp" startline="189" endline="197">LocalStorage::set_alert_threshold</referencedby>
+        <referencedby refid="class_local_storage_1a06b075138b2cc76a1959b98f74f3652e" compoundref="local__storage_8cpp" startline="269" endline="277">LocalStorage::set_animated_screensaver</referencedby>
+        <referencedby refid="class_local_storage_1a22ccb69bc387bdfeea837a8f5f1456e1" compoundref="local__storage_8cpp" startline="177" endline="187">LocalStorage::set_ap_password</referencedby>
+        <referencedby refid="class_local_storage_1a0c0380d90c7cd50702c203c00254cc7a" compoundref="local__storage_8cpp" startline="303" endline="313">LocalStorage::set_api_key</referencedby>
+        <referencedby refid="class_local_storage_1a7dad93ca98e63001a64d86953f80f0ad" compoundref="local__storage_8cpp" startline="199" endline="207">LocalStorage::set_cpm_usvh</referencedby>
+        <referencedby refid="class_local_storage_1a5b975387d77a0d68a0eae66ce9f265df" compoundref="local__storage_8cpp" startline="165" endline="175">LocalStorage::set_device_id</referencedby>
+        <referencedby refid="class_display_1aa655e7414171658b1b51f4c830e09546" compoundref="display_8cpp" startline="525" endline="539">Display::set_dimblank_delays</referencedby>
+        <referencedby refid="class_local_storage_1ac9c1a4f37dfc4be46315634fead4c7ff" compoundref="local__storage_8cpp" startline="239" endline="247">LocalStorage::set_dop_max</referencedby>
+        <referencedby refid="class_local_storage_1a57b94961a1114b683bf4783aa2006bea" compoundref="local__storage_8cpp" startline="219" endline="227">LocalStorage::set_enable_journal</referencedby>
+        <referencedby refid="class_local_storage_1a85feeba95879976c5b32d0e31a1cb0c3" compoundref="local__storage_8cpp" startline="325" endline="333">LocalStorage::set_fixed_latitude</referencedby>
+        <referencedby refid="class_local_storage_1aece6d66d88334ec1d56123af1e30beec" compoundref="local__storage_8cpp" startline="315" endline="323">LocalStorage::set_fixed_longitude</referencedby>
+        <referencedby refid="class_local_storage_1a7ce10010f72eb996f1d6f3fa3315b87d" compoundref="local__storage_8cpp" startline="335" endline="343">LocalStorage::set_fixed_range</referencedby>
+        <referencedby refid="class_wi_fi_connection_1a4458679fcc6f69033124d451ec873bb5" compoundref="archive_2bgeigie__firmware__pio_2src_2wifi__connection_8cpp" startline="62" endline="64">WiFiConnection::set_hostname</referencedby>
+        <referencedby refid="class_wi_fi_wrapper_1aedbee9ee2641c2a5036cbeed9b9045f2" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="85" endline="93">WiFiWrapper::set_hostname</referencedby>
+        <referencedby refid="class_local_storage_1a61222cf72160eb65fe14a84ee43052bb" compoundref="local__storage_8cpp" startline="355" endline="363">LocalStorage::set_last_latitude</referencedby>
+        <referencedby refid="class_local_storage_1a30925c71296c99004645906c9dabfc9d" compoundref="local__storage_8cpp" startline="345" endline="353">LocalStorage::set_last_longitude</referencedby>
+        <referencedby refid="class_local_storage_1a496d17681c046860f06fb4b0b1f77359" compoundref="local__storage_8cpp" startline="365" endline="373">LocalStorage::set_last_mode</referencedby>
+        <referencedby refid="class_local_storage_1aa2262ee533051bc1d4d400f9576aadcc" compoundref="local__storage_8cpp" startline="229" endline="237">LocalStorage::set_log_void</referencedby>
+        <referencedby refid="class_local_storage_1a481852bb1bfc9fd8e4f4ccde87b90fb5" compoundref="local__storage_8cpp" startline="209" endline="217">LocalStorage::set_manual_logging</referencedby>
+        <referencedby refid="class_local_storage_1a246b493b3b4267e66de4e4a347b6d8b9" compoundref="local__storage_8cpp" startline="249" endline="257">LocalStorage::set_screen_dim_timeout</referencedby>
+        <referencedby refid="class_local_storage_1a3586222dbcd1a4c2bef4d14ef23b98c7" compoundref="local__storage_8cpp" startline="259" endline="267">LocalStorage::set_screen_off_timeout</referencedby>
+        <referencedby refid="class_base_screen_1ae483509d86c8f2ca88f5250180aefe1b" compoundref="base__screen_8cpp" startline="146" endline="149">BaseScreen::set_status_message</referencedby>
+        <referencedby refid="class_local_storage_1a36a08d7042318aafd9a89e5e47d16218" compoundref="local__storage_8cpp" startline="291" endline="301">LocalStorage::set_wifi_password</referencedby>
+        <referencedby refid="class_local_storage_1a89834da9be662b2881d56b78bc72035e" compoundref="local__storage_8cpp" startline="279" endline="289">LocalStorage::set_wifi_ssid</referencedby>
+        <referencedby refid="class_motion_detect_1a231122ac7625e220a34f9cee6a23f307" compoundref="motion_8cpp" startline="41" endline="43">MotionDetect::setAccelThreshold</referencedby>
+        <referencedby refid="class_motion_detect_1a63ae13c4e24e9140a1f2f01ce0188649" compoundref="motion_8cpp" startline="53" endline="55">MotionDetect::setGyroThreshold</referencedby>
+        <referencedby refid="class_context_1ad6ab2ba0b337de2f0ff6ae764a4ee18a" compoundref="fsm__context_8cpp" startline="19" endline="67">Context::setup</referencedby>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+        <referencedby refid="class_s_d_interface_1a516ce1d47ca0a80250dca3c3d3d44e5c" compoundref="sd__wrapper_8cpp" startline="476" endline="495">SDInterface::setup_log</referencedby>
+        <referencedby refid="class_display_1aa7b36908fb46ec9bf36366c8d9119f30" compoundref="display_8cpp" startline="426" endline="439">Display::showBatteryLevel</referencedby>
+        <referencedby refid="class_display_1a0b6dd251c800397e9b9522483eb9c233" compoundref="display_8cpp" startline="417" endline="424">Display::showDeviceId</referencedby>
+        <referencedby refid="class_device_utils_1af32ea5953b8187c07a39ff8b2247a216" compoundref="device__utils_8h" startline="9" endline="19">DeviceUtils::shutdown</referencedby>
+        <referencedby refid="class_s_d_logger_1af2514db995481908f4821ff13c76635b" compoundref="logger_8cpp" startline="77" endline="118">SDLogger::start</referencedby>
+        <referencedby refid="class_wi_fi_connection_1a9c74f99f9d6d47dcafba4d0e8e677304" compoundref="archive_2bgeigie__firmware__pio_2src_2wifi__connection_8cpp" startline="37" endline="51">WiFiConnection::start_ap_server</referencedby>
+        <referencedby refid="class_wi_fi_wrapper_1a512f805886a687ffa3bd8137a385467a" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="57" endline="72">WiFiWrapper::start_ap_server</referencedby>
+        <referencedby refid="class_controller_1a772a3f581d1741f01044e1c581139924" compoundref="controller_8cpp" startline="19" endline="31">Controller::start_default_workers</referencedby>
+        <referencedby refid="class_tiny_g_p_s_1a12cb37c1f14fd784558932a1bc572bbb" compoundref="bgeigie__firmware_2_tiny_g_p_s_8cpp" startline="127" endline="132">TinyGPS::stats</referencedby>
+        <referencedby refid="class_wi_fi_wrapper_1aa58f85290d8055a08f88918aed43a044" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="53" endline="55">WiFiWrapper::status</referencedby>
+        <referencedby refid="class_wi_fi_connection_1a6a72cbd87ec31d29bb1bdd3ccfa2632a" compoundref="archive_2bgeigie__firmware__pio_2src_2wifi__connection_8cpp" startline="53" endline="56">WiFiConnection::stop_ap_server</referencedby>
+        <referencedby refid="class_wi_fi_wrapper_1aa9ca9b276121fdd25b8a88c1a59ecf26" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="74" endline="79">WiFiWrapper::stop_ap_server</referencedby>
+        <referencedby refid="hardware__counter_8cpp_1a332e473d9db05aedc2fa329a3e3392cf" compoundref="hardware__counter_8cpp" startline="17" endline="20">timer_intr_handler</referencedby>
+        <referencedby refid="class_tiny_g_p_s_1a98d5f25996f9ecdf7b6345ffca2dbece" compoundref="bgeigie__firmware_2_tiny_g_p_s_8cpp" startline="52" endline="78">TinyGPS::TinyGPS</referencedby>
+        <referencedby refid="class_tiny_g_p_s_custom_1a29b2a658bf95d8e6265e983b1c0251b5" compoundref="_tiny_g_p_s_09_09_8cpp" startline="466" endline="469">TinyGPSCustom::TinyGPSCustom</referencedby>
+        <referencedby refid="class_context_1a33b213d58cb2d6bd4e2affdd5416e9be" compoundref="fsm__context_8cpp" startline="84" endline="88">Context::transition_to</referencedby>
+        <referencedby refid="class_display_1ad2740b779d61e461c4dcaaf34f1fcd8f" compoundref="display_8cpp" startline="89" endline="234">Display::update</referencedby>
+        <referencedby refid="class_geiger_counter_1af47906652803b0a81b3485ee19d1f7e6" compoundref="geiger__counter_8cpp" startline="5" endline="36">GeigerCounter::update</referencedby>
+        <referencedby refid="class_g_p_s_sensor_1a70ffb7412fa7a4cc14cad2135b79c59e" compoundref="gps_8cpp" startline="3" endline="54">GPSSensor::update</referencedby>
+        <referencedby refid="class_motion_detect_1a45bf353f17123a6bfcc6c155ff7e2528" compoundref="motion_8cpp" startline="4" endline="16">MotionDetect::update</referencedby>
+        <referencedby refid="class_init_state_1a872bd60375e54093bc025337998ef08c" compoundref="menu_8cpp" startline="97" endline="125">InitState::update</referencedby>
+        <referencedby refid="class_wi_fi_wrapper_1ad810fce36f8f603465f255fbd88dc5c9" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="99" endline="103">WiFiWrapper::update_active</referencedby>
+        <referencedby refid="class_wi_fi_wrapper_1a47e4ba98a6816444c9e52d35ed62df6f" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="105" endline="107">WiFiWrapper::was_active</referencedby>
+        <referencedby refid="class_wi_fi_connection_1a36ce5e5b17827a41862c5d16746a74b9" compoundref="archive_2bgeigie__firmware__pio_2src_2wifi__connection_8cpp" startline="33" endline="35">WiFiConnection::wifi_connected</referencedby>
+        <referencedby refid="class_wi_fi_wrapper_1a37ba31d67d18f35822a2cda0b6b5bf48" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="49" endline="51">WiFiWrapper::wifi_connected</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">SDInterface::write_safezen_file_from_settings</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;Update.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ESPmDNS.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="configuration__server_8hpp" kindref="compound">configuration_server.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="user__config_8h" kindref="compound">user_config.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="local__storage_8h" kindref="compound">local_storage.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;debugger.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="http__pages_8h" kindref="compound">http_pages.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="identifiers_8h" kindref="compound">identifiers.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1ab28fa84742de00ea3342319de160ff37" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RETRY_TIMEOUT<sp/>4000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T2&gt;</highlight></codeline>
+<codeline lineno="13" refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" refkind="member"><highlight class="normal"><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">T</ref><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">clamp</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">T2</ref><sp/>val,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">T</ref><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">min</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">T</ref><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">max</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">T</ref><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">_val</ref><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">T</ref></highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(val);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">_val &lt; min ? min : _val &gt;</ref><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">max</ref><sp/>?<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">max</ref><sp/>:<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">_val</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><ref refid="class_config_web_server_1a7e951751a94a176867f7443e24545987" kindref="member">ConfigWebServer::ConfigWebServer</ref>(<ref refid="class_display" kindref="compound">Display</ref>&amp;<sp/>display)</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_server(<ref refid="user__config_8h_1a2e6a8253ab0bc7773cfccfb1ae8d5fbc" kindref="member">SERVER_WIFI_PORT</ref>),</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>_config(config)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/>add_urls();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="class_config_web_server_1a5fba48f2cf78029036a923eb27bc0674" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_config_web_server_1a5fba48f2cf78029036a923eb27bc0674" kindref="member">ConfigWebServer::activate</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="class_wi_fi_connection_1a36ce5e5b17827a41862c5d16746a74b9" kindref="member">WiFiConnection::wifi_connected</ref>()<sp/>||<sp/><ref refid="class_wi_fi_connection_1a81c1171ee44b4fcea512384f9fd1a986" kindref="member">WiFiConnection::ap_server_up</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>DNS<sp/>hostname<sp/>for<sp/>easy<sp/>access</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">hostname</ref>[16];</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sprintf</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">hostname</ref>,<sp/><ref refid="user__config_8h_1a61e55f831ccc0dca94bf0e0f121f2a7c" kindref="member">ACCESS_POINT_SSID</ref>,<sp/>display.data.device_id);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">MDNS</ref>.begin(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">hostname</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_wi_fi_connection_1a4458679fcc6f69033124d451ec873bb5" kindref="member">WiFiConnection::set_hostname</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">hostname</ref>);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">MDNS</ref>.addService(</highlight><highlight class="stringliteral">&quot;http&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;tcp&quot;</highlight><highlight class="normal">,<sp/>80);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Start<sp/>config<sp/>server</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.begin(<ref refid="user__config_8h_1a2e6a8253ab0bc7773cfccfb1ae8d5fbc" kindref="member">SERVER_WIFI_PORT</ref>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_http_pages_1a9d1744128b715be721740fe9783a3b98" kindref="member">HttpPages::internet_access</ref><sp/>=<sp/><ref refid="class_wi_fi_connection_1a36ce5e5b17827a41862c5d16746a74b9" kindref="member">WiFiConnection::wifi_connected</ref>();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="class_config_web_server_1ac0bce5e4a438388e030c21d56243c643" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_config_web_server_1ac0bce5e4a438388e030c21d56243c643" kindref="member">ConfigWebServer::deactivate</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>_server.close();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>_server.stop();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">MDNS</ref>.end();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="class_config_web_server_1a5466445c2a77e40eba794ba0ac2f809f" refkind="member"><highlight class="normal">int8_t<sp/><ref refid="class_config_web_server_1a5466445c2a77e40eba794ba0ac2f809f" kindref="member">ConfigWebServer::produce_data</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>_server.handleClient();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(data<sp/>==<sp/><ref refid="configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aa4b8c7d857d90208a15c3af10b3eaf36a" kindref="member">k_server_status_offline</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>data<sp/>=<sp/><ref refid="class_http_pages_1a9d1744128b715be721740fe9783a3b98" kindref="member">HttpPages::internet_access</ref><sp/>?<sp/><ref refid="configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aacdcee34b8952d730fe2ec62d29195b4c" kindref="member">k_server_status_running_wifi</ref><sp/>:<sp/><ref refid="configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aae66ec56782b751934b4ae350253e524c" kindref="member">k_server_status_running_access_point</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WorkerStatus::e_worker_data_read;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>WorkerStatus::e_worker_idle;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" kindref="member">ConfigWebServer::add_urls</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Home</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>_server.on(</highlight><highlight class="stringliteral">&quot;/&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HTTP_GET</ref>,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.sendHeader(</highlight><highlight class="stringliteral">&quot;Connection&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;close&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/html&quot;</highlight><highlight class="normal">,<sp/><ref refid="class_http_pages_1a2029cf0ccea4c0cf9497eb2b0a30f78a" kindref="member">HttpPages::get_home_page</ref>(_config.<ref refid="class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65" kindref="member">get_device_id</ref>()));</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Configure<sp/>Device</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>_server.on(</highlight><highlight class="stringliteral">&quot;/device&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HTTP_GET</ref>,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.sendHeader(</highlight><highlight class="stringliteral">&quot;Connection&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;close&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/html&quot;</highlight><highlight class="normal">,<sp/><ref refid="class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4" kindref="member">HttpPages::get_config_device_page</ref>(</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_server.hasArg(</highlight><highlight class="stringliteral">&quot;success&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>_config.get_device_id(),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>_config.get_led_color_intensity(),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>_config.is_led_color_blind()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>));</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Configure<sp/>Connection</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>_server.on(</highlight><highlight class="stringliteral">&quot;/connection&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HTTP_GET</ref>,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.sendHeader(</highlight><highlight class="stringliteral">&quot;Connection&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;close&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/html&quot;</highlight><highlight class="normal">,<sp/><ref refid="class_http_pages_1a64735f36d77809ba60b69d33ad6c0003" kindref="member">HttpPages::get_config_connection_page</ref>(</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_server.hasArg(</highlight><highlight class="stringliteral">&quot;success&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_config.<ref refid="class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65" kindref="member">get_device_id</ref>(),</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_config.<ref refid="class_local_storage_1a3cc3942e1b3d46088e4ec092dd9b5034" kindref="member">get_ap_password</ref>(),</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_config.<ref refid="class_local_storage_1a8d0807c2fad52121c446d91f85976856" kindref="member">get_wifi_ssid</ref>(),</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_config.<ref refid="class_local_storage_1a619ba1c828df4e5c97e7ac77115e72a2" kindref="member">get_wifi_password</ref>(),</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_config.<ref refid="class_local_storage_1a119e9cbf7e8edad53786b070ee2cb298" kindref="member">get_api_key</ref>(),</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_config.get_use_dev()</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>));</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Configure<sp/>Location</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>_server.on(</highlight><highlight class="stringliteral">&quot;/location&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HTTP_GET</ref>,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.sendHeader(</highlight><highlight class="stringliteral">&quot;Connection&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;close&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/html&quot;</highlight><highlight class="normal">,<sp/><ref refid="class_http_pages_1a74d1994442f6781235fa7d76a9c7c36a" kindref="member">HttpPages::get_config_location_page</ref>(</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_server.hasArg(</highlight><highlight class="stringliteral">&quot;success&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_config.<ref refid="class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65" kindref="member">get_device_id</ref>(),</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_config.get_use_home_location(),</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_config.get_home_latitude(),</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_config.get_home_longitude(),</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_config.<ref refid="class_local_storage_1a9aa6633c81709db989f2bf3ea1f21521" kindref="member">get_last_latitude</ref>(),</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_config.<ref refid="class_local_storage_1a120a3285914a098837bb4d3b8be20d0b" kindref="member">get_last_longitude</ref>()</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>));</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.sendHeader(</highlight><highlight class="stringliteral">&quot;Connection&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;close&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Save<sp/>config</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>_server.on(</highlight><highlight class="stringliteral">&quot;/save&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HTTP_POST</ref>,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>handle_save();</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Upload<sp/>get</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>_server.on(</highlight><highlight class="stringliteral">&quot;/update&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HTTP_GET</ref>,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.sendHeader(</highlight><highlight class="stringliteral">&quot;Connection&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;close&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/html&quot;</highlight><highlight class="normal">,<sp/>HttpPages::get_update_page(_config.<ref refid="class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65" kindref="member">get_device_id</ref>()));</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Status<sp/>get</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>_server.on(</highlight><highlight class="stringliteral">&quot;/status&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HTTP_GET</ref>,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.sendHeader(</highlight><highlight class="stringliteral">&quot;Connection&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;close&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/html&quot;</highlight><highlight class="normal">,<sp/>HttpPages::get_status_page(_config.<ref refid="class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65" kindref="member">get_device_id</ref>()));</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Upload<sp/>post</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>_server.on(</highlight><highlight class="stringliteral">&quot;/update&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HTTP_POST</ref>,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Complete</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.sendHeader(</highlight><highlight class="stringliteral">&quot;Connection&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;close&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_server.upload().totalSize<sp/>==<sp/>0<sp/>||<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Update</ref>.hasError())<sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_server.send(500,<sp/></highlight><highlight class="stringliteral">&quot;text/plain&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;FAIL&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_server.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/plain&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_server.client().flush();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>},<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Progress</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>handle_update_uploading();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>_server.on(</highlight><highlight class="stringliteral">&quot;/reboot&quot;</highlight><highlight class="normal">,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>{<sp/></highlight><highlight class="comment">//<sp/>Reboot</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.send(200,<sp/></highlight><highlight class="stringliteral">&quot;text/plain&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;OK&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.client().flush();</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ESP</ref>.restart();</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>css<sp/>get</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>_server.on(</highlight><highlight class="stringliteral">&quot;/pure.css&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HTTP_GET</ref>,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.sendHeader(</highlight><highlight class="stringliteral">&quot;Content-Encoding&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;gzip&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.send_P(200,<sp/></highlight><highlight class="stringliteral">&quot;text/css&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<ref refid="class_http_pages_1a4a7f7da507251011076206062a49e0af" kindref="member">HttpPages::pure_css</ref>),<sp/><ref refid="http__pages_8h_1ada5878d891f82a42326746c9dbe6b9a6" kindref="member">PURE_CSS_SIZE</ref>);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>css<sp/>get</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>_server.on(</highlight><highlight class="stringliteral">&quot;/favicon.ico&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HTTP_GET</ref>,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">]()<sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>_server.send_P(200,<sp/></highlight><highlight class="stringliteral">&quot;image/x-icon&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<ref refid="class_http_pages_1a9be2569908780465b83751bc08251a61" kindref="member">HttpPages::favicon</ref>),<sp/><ref refid="http__pages_8h_1abc7068a1efb6caca697cbfa09cb56f32" kindref="member">FAVICON_SIZE</ref>);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/>});</highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ConfigWebServer::handle_save()<sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_server.hasArg(<ref refid="http__pages_8h_1ae7358aae4052b227beb51c8e36519387" kindref="member">FORM_NAME_AP_LOGIN</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>_config.<ref refid="class_local_storage_1a22ccb69bc387bdfeea837a8f5f1456e1" kindref="member">set_ap_password</ref>(_server.arg(<ref refid="http__pages_8h_1ae7358aae4052b227beb51c8e36519387" kindref="member">FORM_NAME_AP_LOGIN</ref>).c_str(),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_server.hasArg(<ref refid="http__pages_8h_1a96d41a86c2cbed3a1a481f9124820640" kindref="member">FORM_NAME_WIFI_SSID</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>_config.<ref refid="class_local_storage_1a89834da9be662b2881d56b78bc72035e" kindref="member">set_wifi_ssid</ref>(_server.arg(<ref refid="http__pages_8h_1a96d41a86c2cbed3a1a481f9124820640" kindref="member">FORM_NAME_WIFI_SSID</ref>).c_str(),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_server.hasArg(<ref refid="http__pages_8h_1a1c66dedc46fd01c917f6d9d61867b169" kindref="member">FORM_NAME_WIFI_PASS</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>_config.<ref refid="class_local_storage_1a36a08d7042318aafd9a89e5e47d16218" kindref="member">set_wifi_password</ref>(_server.arg(<ref refid="http__pages_8h_1a1c66dedc46fd01c917f6d9d61867b169" kindref="member">FORM_NAME_WIFI_PASS</ref>).c_str(),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_server.hasArg(<ref refid="http__pages_8h_1ae05bc8c6aa3fdd1c77743317486bbe25" kindref="member">FORM_NAME_API_KEY</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>_config.<ref refid="class_local_storage_1a0c0380d90c7cd50702c203c00254cc7a" kindref="member">set_api_key</ref>(_server.arg(<ref refid="http__pages_8h_1ae05bc8c6aa3fdd1c77743317486bbe25" kindref="member">FORM_NAME_API_KEY</ref>).c_str(),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_server.hasArg(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">FORM_NAME_USE_DEV</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>_config.set_use_dev(_server.arg(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">FORM_NAME_USE_DEV</ref>)<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_server.hasArg(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">FORM_NAME_LED_INTENSITY</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>_config.set_led_color_intensity(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">clamp&lt;uint8_t&gt;</ref>(_server.arg(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">FORM_NAME_LED_INTENSITY</ref>).toInt(),<sp/>5,<sp/>100),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_server.hasArg(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">FORM_NAME_LED_COLOR</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>_config.set_led_color_blind(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">strcmp</ref>(_server.arg(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">FORM_NAME_LED_COLOR</ref>).c_str(),<sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_server.hasArg(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">FORM_NAME_LOC_HOME</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>_config.set_use_home_location(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">strcmp</ref>(_server.arg(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">FORM_NAME_LOC_HOME</ref>).c_str(),<sp/></highlight><highlight class="stringliteral">&quot;1&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_server.hasArg(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">FORM_NAME_LOC_HOME_LAT</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>_config.set_home_latitude(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">clamp&lt;double&gt;</ref>(_server.arg(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">FORM_NAME_LOC_HOME_LAT</ref>).toDouble(),<sp/>-90.0,<sp/>90.0),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_server.hasArg(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">FORM_NAME_LOC_HOME_LON</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>_config.set_home_longitude(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">clamp&lt;double&gt;</ref>(_server.arg(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">FORM_NAME_LOC_HOME_LON</ref>).toDouble(),<sp/>-180.0,<sp/>180.0),<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/>_server.sendHeader(</highlight><highlight class="stringliteral">&quot;Location&quot;</highlight><highlight class="normal">,<sp/>_server.arg(</highlight><highlight class="stringliteral">&quot;next&quot;</highlight><highlight class="normal">)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;?success=true&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/>_server.send(302,<sp/></highlight><highlight class="stringliteral">&quot;text/html&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>_server.client().flush();</highlight></codeline>
+<codeline lineno="192"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ConfigWebServer::handle_update_uploading()<sp/>{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HTTPUpload</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">upload</ref><sp/>=<sp/>_server.upload();</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">upload</ref>.status)<sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">UPLOAD_FILE_START</ref>:<sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">DEBUG_PRINTF</ref>(</highlight><highlight class="stringliteral">&quot;Update:<sp/>%s\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">upload</ref>.filename.c_str());</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Update</ref>.begin(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">UPDATE_SIZE_UNKNOWN</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">DEBUG_PRINTLN</ref>(</highlight><highlight class="stringliteral">&quot;Starting<sp/>update&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">DEBUG_PRINTLN</ref>(</highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>start<sp/>update&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">UPLOAD_FILE_WRITE</ref>:<sp/>{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">DEBUG_PRINTF</ref>(</highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">write_size</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Update</ref>.write(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">upload</ref>.buf,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">upload</ref>.currentSize);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">write_size</ref><sp/>!=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">upload</ref>.currentSize)<sp/>{</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">DEBUG_PRINTF</ref>(</highlight><highlight class="stringliteral">&quot;Something<sp/>failed<sp/>while<sp/>uploading<sp/>(wrote<sp/>%d<sp/>out<sp/>of<sp/>%d)\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">write_size</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">upload</ref>.currentSize);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Update</ref>.abort();</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">UPLOAD_FILE_END</ref>:<sp/>{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">upload</ref>.totalSize<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Update</ref>.end(</highlight><highlight class="keyword">true</highlight><highlight class="normal">))<sp/>{<sp/></highlight><highlight class="comment">//true<sp/>to<sp/>set<sp/>the<sp/>size<sp/>to<sp/>the<sp/>current<sp/>progress</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">DEBUG_PRINTF</ref>(</highlight><highlight class="stringliteral">&quot;\nUpdate<sp/>Success:<sp/>%u\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">upload</ref>.totalSize);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">DEBUG_PRINTF</ref>(</highlight><highlight class="stringliteral">&quot;Update<sp/>Failed...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">UPLOAD_FILE_ABORTED</ref>:<sp/>{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Update</ref>.abort();</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">DEBUG_PRINTF</ref>(</highlight><highlight class="stringliteral">&quot;Update<sp/>aborted...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ConfigWebServer::handle_report(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Report</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">report</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="232"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="archive/bgeigie_firmware_pio/src/configuration_server.cpp"/>
+  </compounddef>
+</doxygen>

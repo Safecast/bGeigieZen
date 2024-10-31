@@ -1,0 +1,392 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_display_data" kind="struct" language="C++" prot="public">
+    <compoundname>DisplayData</compoundname>
+    <includes refid="include_2display_8hpp" local="no">display.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_display_data_1a18f85013bc2db1d5db55d87eded63633" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t DisplayData::device_id</definition>
+        <argsstring></argsstring>
+        <name>device_id</name>
+        <qualifiedname>DisplayData::device_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="54" column="12" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="54" bodyend="-1"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1a4e1b7f010db6d39b421560b24550fdf1" compoundref="display_8cpp" startline="382" endline="394">Display::draw_menu</referencedby>
+        <referencedby refid="class_display_1aadce78ab84e53b437eedf6cc2d941a3a" compoundref="display_8cpp" startline="236" endline="249">Display::draw_qrcode</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="class_display_1af015ee8348feb81297c6af96595f6b40" compoundref="include_2display_8hpp" startline="114" endline="116">Display::feed</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_display_data_1ad9962eb3cbb4b794a5c38c920c3c9a00" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool DisplayData::geiger_fresh</definition>
+        <argsstring></argsstring>
+        <name>geiger_fresh</name>
+        <qualifiedname>DisplayData::geiger_fresh</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">true</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="57" column="8" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="57" bodyend="-1"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="class_display_1a6dfdf5e308b468964627eec5e6de802d" compoundref="display_8cpp" startline="396" endline="401">Display::feed</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_display_data_1acd3b4d9a44a06151b1970687266a0709" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool DisplayData::geiger_valid</definition>
+        <argsstring></argsstring>
+        <name>geiger_valid</name>
+        <qualifiedname>DisplayData::geiger_valid</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="58" column="8" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="58" bodyend="-1"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="class_display_1a6dfdf5e308b468964627eec5e6de802d" compoundref="display_8cpp" startline="396" endline="401">Display::feed</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_display_data_1a43705d7afd5dba6f06af94c49cd1d376" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t DisplayData::geiger_cpm</definition>
+        <argsstring></argsstring>
+        <name>geiger_cpm</name>
+        <qualifiedname>DisplayData::geiger_cpm</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="59" column="12" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="59" bodyend="-1"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="class_display_1a6dfdf5e308b468964627eec5e6de802d" compoundref="display_8cpp" startline="396" endline="401">Display::feed</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_display_data_1ae21a0c925831e6cf20d98fc964979c3f" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float DisplayData::geiger_uSv</definition>
+        <argsstring></argsstring>
+        <name>geiger_uSv</name>
+        <qualifiedname>DisplayData::geiger_uSv</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="60" column="9" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="60" bodyend="-1"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="class_display_1a6dfdf5e308b468964627eec5e6de802d" compoundref="display_8cpp" startline="396" endline="401">Display::feed</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_display_data_1a2fc0df40c42e1f7b7399633fb8e45a36" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float DisplayData::geiger_bqm2</definition>
+        <argsstring></argsstring>
+        <name>geiger_bqm2</name>
+        <qualifiedname>DisplayData::geiger_bqm2</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="61" column="9" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="61" bodyend="-1"/>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_display_data_1a7ec2ff9538503735617327db18d35c48" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool DisplayData::gps_fresh</definition>
+        <argsstring></argsstring>
+        <name>gps_fresh</name>
+        <qualifiedname>DisplayData::gps_fresh</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">true</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="64" column="8" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="64" bodyend="-1"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="class_display_1a79b95e2561ff7d142363f89a41ca543c" compoundref="display_8cpp" startline="403" endline="415">Display::feed</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_display_data_1a46aff8bdb1baf8f0f8fcb52860f2a6ce" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_tiny_g_p_s_integer" kindref="compound">TinyGPSInteger</ref></type>
+        <definition>TinyGPSInteger DisplayData::gps_satellites</definition>
+        <argsstring></argsstring>
+        <name>gps_satellites</name>
+        <qualifiedname>DisplayData::gps_satellites</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="65" column="18" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="65" bodyend="-1"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="class_display_1a79b95e2561ff7d142363f89a41ca543c" compoundref="display_8cpp" startline="403" endline="415">Display::feed</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_display_data_1a8555fc6952471b16e281a0b13727d26c" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_tiny_g_p_s_altitude" kindref="compound">TinyGPSAltitude</ref></type>
+        <definition>TinyGPSAltitude DisplayData::gps_altitude</definition>
+        <argsstring></argsstring>
+        <name>gps_altitude</name>
+        <qualifiedname>DisplayData::gps_altitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="66" column="19" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="66" bodyend="-1"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="class_display_1a79b95e2561ff7d142363f89a41ca543c" compoundref="display_8cpp" startline="403" endline="415">Display::feed</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_display_data_1a4bda74f0875dd000136c419e3cb3a1a8" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_tiny_g_p_s_speed" kindref="compound">TinyGPSSpeed</ref></type>
+        <definition>TinyGPSSpeed DisplayData::gps_speed</definition>
+        <argsstring></argsstring>
+        <name>gps_speed</name>
+        <qualifiedname>DisplayData::gps_speed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="67" column="16" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="67" bodyend="-1"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1a79b95e2561ff7d142363f89a41ca543c" compoundref="display_8cpp" startline="403" endline="415">Display::feed</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_display_data_1a28bd33d4f4bcecdb08f7b76bd3454cb1" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_tiny_g_p_s_course" kindref="compound">TinyGPSCourse</ref></type>
+        <definition>TinyGPSCourse DisplayData::gps_course</definition>
+        <argsstring></argsstring>
+        <name>gps_course</name>
+        <qualifiedname>DisplayData::gps_course</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="68" column="17" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="68" bodyend="-1"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1a79b95e2561ff7d142363f89a41ca543c" compoundref="display_8cpp" startline="403" endline="415">Display::feed</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_display_data_1a22e3ebee0a003f41d98a34d38a632335" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_tiny_g_p_s_location" kindref="compound">TinyGPSLocation</ref></type>
+        <definition>TinyGPSLocation DisplayData::gps_location</definition>
+        <argsstring></argsstring>
+        <name>gps_location</name>
+        <qualifiedname>DisplayData::gps_location</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="69" column="19" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="69" bodyend="-1"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="class_display_1a79b95e2561ff7d142363f89a41ca543c" compoundref="display_8cpp" startline="403" endline="415">Display::feed</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_display_data_1ac18f89b50f66be4928873d3ee1a4b7d0" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_tiny_g_p_s_time" kindref="compound">TinyGPSTime</ref></type>
+        <definition>TinyGPSTime DisplayData::gps_time</definition>
+        <argsstring></argsstring>
+        <name>gps_time</name>
+        <qualifiedname>DisplayData::gps_time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="70" column="15" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="70" bodyend="-1"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="class_display_1a79b95e2561ff7d142363f89a41ca543c" compoundref="display_8cpp" startline="403" endline="415">Display::feed</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_display_data_1aec3b9d0e45566e975f37e91d7c409877" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_tiny_g_p_s_date" kindref="compound">TinyGPSDate</ref></type>
+        <definition>TinyGPSDate DisplayData::gps_date</definition>
+        <argsstring></argsstring>
+        <name>gps_date</name>
+        <qualifiedname>DisplayData::gps_date</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="71" column="15" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="71" bodyend="-1"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="class_display_1a79b95e2561ff7d142363f89a41ca543c" compoundref="display_8cpp" startline="403" endline="415">Display::feed</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_display_data_1a4a74edd66f777279b57275ce42120a41" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float DisplayData::battery_level</definition>
+        <argsstring></argsstring>
+        <name>battery_level</name>
+        <qualifiedname>DisplayData::battery_level</qualifiedname>
+        <initializer>= -1.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="74" column="9" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="74" bodyend="-1"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1a4e1b7f010db6d39b421560b24550fdf1" compoundref="display_8cpp" startline="382" endline="394">Display::draw_menu</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="class_display_1a00504e9ba16dc10557125c9c8dbc6aa8" compoundref="include_2display_8hpp" startline="117" endline="117">Display::feed_battery_level</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_display_data_1a2fc5dd5733fb2dd041682927da623ce9" prot="public" static="no" mutable="no">
+        <type>int8_t</type>
+        <definition>int8_t DisplayData::battery_level</definition>
+        <argsstring></argsstring>
+        <name>battery_level</name>
+        <qualifiedname>DisplayData::battery_level</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/display.hpp" line="53" column="10" bodyfile="archive/bgeigie_firmware_pio/src/display.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>DisplayData</label>
+        <link refid="struct_display_data"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>device_id</edgelabel>
+          <edgelabel>geiger_cpm</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>gps_satellites</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>gps_altitude</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>gps_speed</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>gps_course</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>gps_location</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>gps_time</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>gps_date</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>battery_level</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>TinyGPSAltitude</label>
+        <link refid="struct_tiny_g_p_s_altitude"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>TinyGPSCourse</label>
+        <link refid="struct_tiny_g_p_s_course"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>TinyGPSDate</label>
+        <link refid="struct_tiny_g_p_s_date"/>
+      </node>
+      <node id="5">
+        <label>TinyGPSDecimal</label>
+        <link refid="struct_tiny_g_p_s_decimal"/>
+      </node>
+      <node id="3">
+        <label>TinyGPSInteger</label>
+        <link refid="struct_tiny_g_p_s_integer"/>
+      </node>
+      <node id="8">
+        <label>TinyGPSLocation</label>
+        <link refid="struct_tiny_g_p_s_location"/>
+      </node>
+      <node id="6">
+        <label>TinyGPSSpeed</label>
+        <link refid="struct_tiny_g_p_s_speed"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>TinyGPSTime</label>
+        <link refid="struct_tiny_g_p_s_time"/>
+      </node>
+      <node id="11">
+        <label>int8_t</label>
+      </node>
+      <node id="2">
+        <label>uint32_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="52" column="1" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="52" bodyend="76"/>
+    <listofallmembers>
+      <member refid="struct_display_data_1a4a74edd66f777279b57275ce42120a41" prot="public" virt="non-virtual"><scope>DisplayData</scope><name>battery_level</name></member>
+      <member refid="struct_display_data_1a2fc5dd5733fb2dd041682927da623ce9" prot="public" virt="non-virtual"><scope>DisplayData</scope><name>battery_level</name></member>
+      <member refid="struct_display_data_1a18f85013bc2db1d5db55d87eded63633" prot="public" virt="non-virtual"><scope>DisplayData</scope><name>device_id</name></member>
+      <member refid="struct_display_data_1a2fc0df40c42e1f7b7399633fb8e45a36" prot="public" virt="non-virtual"><scope>DisplayData</scope><name>geiger_bqm2</name></member>
+      <member refid="struct_display_data_1a43705d7afd5dba6f06af94c49cd1d376" prot="public" virt="non-virtual"><scope>DisplayData</scope><name>geiger_cpm</name></member>
+      <member refid="struct_display_data_1ad9962eb3cbb4b794a5c38c920c3c9a00" prot="public" virt="non-virtual"><scope>DisplayData</scope><name>geiger_fresh</name></member>
+      <member refid="struct_display_data_1ae21a0c925831e6cf20d98fc964979c3f" prot="public" virt="non-virtual"><scope>DisplayData</scope><name>geiger_uSv</name></member>
+      <member refid="struct_display_data_1acd3b4d9a44a06151b1970687266a0709" prot="public" virt="non-virtual"><scope>DisplayData</scope><name>geiger_valid</name></member>
+      <member refid="struct_display_data_1a8555fc6952471b16e281a0b13727d26c" prot="public" virt="non-virtual"><scope>DisplayData</scope><name>gps_altitude</name></member>
+      <member refid="struct_display_data_1a28bd33d4f4bcecdb08f7b76bd3454cb1" prot="public" virt="non-virtual"><scope>DisplayData</scope><name>gps_course</name></member>
+      <member refid="struct_display_data_1aec3b9d0e45566e975f37e91d7c409877" prot="public" virt="non-virtual"><scope>DisplayData</scope><name>gps_date</name></member>
+      <member refid="struct_display_data_1a7ec2ff9538503735617327db18d35c48" prot="public" virt="non-virtual"><scope>DisplayData</scope><name>gps_fresh</name></member>
+      <member refid="struct_display_data_1a22e3ebee0a003f41d98a34d38a632335" prot="public" virt="non-virtual"><scope>DisplayData</scope><name>gps_location</name></member>
+      <member refid="struct_display_data_1a46aff8bdb1baf8f0f8fcb52860f2a6ce" prot="public" virt="non-virtual"><scope>DisplayData</scope><name>gps_satellites</name></member>
+      <member refid="struct_display_data_1a4bda74f0875dd000136c419e3cb3a1a8" prot="public" virt="non-virtual"><scope>DisplayData</scope><name>gps_speed</name></member>
+      <member refid="struct_display_data_1ac18f89b50f66be4928873d3ee1a4b7d0" prot="public" virt="non-virtual"><scope>DisplayData</scope><name>gps_time</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

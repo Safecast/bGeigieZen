@@ -1,0 +1,494 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_tiny_g_p_s_custom" kind="class" language="C++" prot="public">
+    <compoundname>TinyGPSCustom</compoundname>
+    <includes refid="include_2_tiny_g_p_s_09_09_8h" local="no">TinyGPS++.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_tiny_g_p_s_custom_1a5dac5dddd4dfa78efb2a3fcb83f7e20e" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char TinyGPSCustom::stagingBuffer</definition>
+        <argsstring>[_GPS_MAX_FIELD_SIZE+1]</argsstring>
+        <name>stagingBuffer</name>
+        <qualifiedname>TinyGPSCustom::stagingBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="215" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="215" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_g_p_s_custom_1a7c266c7e30db98b42936667c5742d1a7" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char TinyGPSCustom::buffer</definition>
+        <argsstring>[_GPS_MAX_FIELD_SIZE+1]</argsstring>
+        <name>buffer</name>
+        <qualifiedname>TinyGPSCustom::buffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="216" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="216" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_g_p_s_custom_1acd99fe5bbe5f274de1c172079e80110b" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">unsigned</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">long</ref></type>
+        <definition>unsigned long TinyGPSCustom::lastCommitTime</definition>
+        <argsstring></argsstring>
+        <name>lastCommitTime</name>
+        <qualifiedname>TinyGPSCustom::lastCommitTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="217" column="18" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_g_p_s_custom_1a579ba14a727c8fa4b65a756ddec209c8" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSCustom::valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <qualifiedname>TinyGPSCustom::valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="218" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_g_p_s_custom_1a9cb408f7deeff94aeec23b49a3036f97" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSCustom::updated</definition>
+        <argsstring></argsstring>
+        <name>updated</name>
+        <qualifiedname>TinyGPSCustom::updated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="218" column="15" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_g_p_s_custom_1ac4dc484ef0306bd9f0d24ebf860597db" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * TinyGPSCustom::sentenceName</definition>
+        <argsstring></argsstring>
+        <name>sentenceName</name>
+        <qualifiedname>TinyGPSCustom::sentenceName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="219" column="15" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_g_p_s_custom_1ae7302f115f94eab88739fa67bf6cbba1" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>int TinyGPSCustom::termNumber</definition>
+        <argsstring></argsstring>
+        <name>termNumber</name>
+        <qualifiedname>TinyGPSCustom::termNumber</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="220" column="8" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tiny_g_p_s_custom_1a1dd19c9ce5909d6b97d71f842e52634f" prot="private" static="no" mutable="no">
+        <type><ref refid="class_tiny_g_p_s_custom" kindref="compound">TinyGPSCustom</ref> *</type>
+        <definition>TinyGPSCustom * TinyGPSCustom::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <qualifiedname>TinyGPSCustom::next</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="222" column="18" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="class_tiny_g_p_s_custom_1a2bcf8d5290fbef8c44b415e281b8c6f2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">class</ref></type>
+        <definition>TinyGPSPlus</definition>
+        <argsstring></argsstring>
+        <name>TinyGPSPlus</name>
+        <qualifiedname>TinyGPSCustom::TinyGPSPlus</qualifiedname>
+        <param>
+          <type><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="221" column="17" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1ac82fa99f3bcd9811377dd5fa3e9e98c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TinyGPSCustom::TinyGPSCustom</definition>
+        <argsstring>()</argsstring>
+        <name>TinyGPSCustom</name>
+        <qualifiedname>TinyGPSCustom::TinyGPSCustom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="202" column="4" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="202" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1a29b2a658bf95d8e6265e983b1c0251b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TinyGPSCustom::TinyGPSCustom</definition>
+        <argsstring>(TinyGPSPlus &amp;gps, const char *sentenceName, int termNumber)</argsstring>
+        <name>TinyGPSCustom</name>
+        <qualifiedname>TinyGPSCustom::TinyGPSCustom</qualifiedname>
+        <param>
+          <type><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref> &amp;</type>
+          <declname>gps</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>sentenceName</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+          <declname>termNumber</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="203" column="4" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="466" bodyend="469"/>
+        <references refid="class_tiny_g_p_s_custom_1a3bf972f7e2e7e3f483071630e5ca8355" compoundref="_tiny_g_p_s_09_09_8cpp" startline="471" endline="482">begin</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" compoundref="_raku__code_8cpp" startline="48">gps</references>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1a3bf972f7e2e7e3f483071630e5ca8355" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSCustom::begin</definition>
+        <argsstring>(TinyGPSPlus &amp;gps, const char *_sentenceName, int _termNumber)</argsstring>
+        <name>begin</name>
+        <qualifiedname>TinyGPSCustom::begin</qualifiedname>
+        <param>
+          <type><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref> &amp;</type>
+          <declname>gps</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>_sentenceName</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+          <declname>_termNumber</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="204" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="471" bodyend="482"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" compoundref="_raku__code_8cpp" startline="48">gps</references>
+        <referencedby refid="class_tiny_g_p_s_custom_1a29b2a658bf95d8e6265e983b1c0251b5" compoundref="_tiny_g_p_s_09_09_8cpp" startline="466" endline="469">TinyGPSCustom</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1ac735cdd0adb996de1d86bdcc15090977" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSCustom::isUpdated</definition>
+        <argsstring>() const</argsstring>
+        <name>isUpdated</name>
+        <qualifiedname>TinyGPSCustom::isUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="206" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="206" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1a6cc9903b3c45a321962642440204afeb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSCustom::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>TinyGPSCustom::isValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="207" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="207" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1af5347ee2785bca9acb5a0f16fcc68ea0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSCustom::age</definition>
+        <argsstring>() const</argsstring>
+        <name>age</name>
+        <qualifiedname>TinyGPSCustom::age</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="208" column="13" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="208" bodyend="208"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1a03bb66f8d3e078b21c8a5033a88d8a32" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * TinyGPSCustom::value</definition>
+        <argsstring>()</argsstring>
+        <name>value</name>
+        <qualifiedname>TinyGPSCustom::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="209" column="15" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="209" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1ac82fa99f3bcd9811377dd5fa3e9e98c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TinyGPSCustom::TinyGPSCustom</definition>
+        <argsstring>()</argsstring>
+        <name>TinyGPSCustom</name>
+        <qualifiedname>TinyGPSCustom::TinyGPSCustom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="202" column="4" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="202" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1a29b2a658bf95d8e6265e983b1c0251b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TinyGPSCustom::TinyGPSCustom</definition>
+        <argsstring>(TinyGPSPlus &amp;gps, const char *sentenceName, int termNumber)</argsstring>
+        <name>TinyGPSCustom</name>
+        <qualifiedname>TinyGPSCustom::TinyGPSCustom</qualifiedname>
+        <param>
+          <type><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref> &amp;</type>
+          <declname>gps</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>sentenceName</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+          <declname>termNumber</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="203" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1a3bf972f7e2e7e3f483071630e5ca8355" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSCustom::begin</definition>
+        <argsstring>(TinyGPSPlus &amp;gps, const char *_sentenceName, int _termNumber)</argsstring>
+        <name>begin</name>
+        <qualifiedname>TinyGPSCustom::begin</qualifiedname>
+        <param>
+          <type><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref> &amp;</type>
+          <declname>gps</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>_sentenceName</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+          <declname>_termNumber</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="204" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1ac735cdd0adb996de1d86bdcc15090977" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSCustom::isUpdated</definition>
+        <argsstring>() const</argsstring>
+        <name>isUpdated</name>
+        <qualifiedname>TinyGPSCustom::isUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="206" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="206" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1a6cc9903b3c45a321962642440204afeb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSCustom::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>TinyGPSCustom::isValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="207" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="207" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1af5347ee2785bca9acb5a0f16fcc68ea0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSCustom::age</definition>
+        <argsstring>() const</argsstring>
+        <name>age</name>
+        <qualifiedname>TinyGPSCustom::age</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="208" column="13" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="208" bodyend="208"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1a03bb66f8d3e078b21c8a5033a88d8a32" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * TinyGPSCustom::value</definition>
+        <argsstring>()</argsstring>
+        <name>value</name>
+        <qualifiedname>TinyGPSCustom::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="209" column="15" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="209" bodyend="209"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1a3eea950a5ef62d6a226613fe72055dc4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSCustom::commit</definition>
+        <argsstring>()</argsstring>
+        <name>commit</name>
+        <qualifiedname>TinyGPSCustom::commit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="212" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="484" bodyend="489"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1a7fab13d1b33b96c112d896322ad9ec29" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSCustom::set</definition>
+        <argsstring>(const char *term)</argsstring>
+        <name>set</name>
+        <qualifiedname>TinyGPSCustom::set</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>term</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="213" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="491" bodyend="494"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1a3eea950a5ef62d6a226613fe72055dc4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSCustom::commit</definition>
+        <argsstring>()</argsstring>
+        <name>commit</name>
+        <qualifiedname>TinyGPSCustom::commit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="212" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tiny_g_p_s_custom_1a7fab13d1b33b96c112d896322ad9ec29" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSCustom::set</definition>
+        <argsstring>(const char *term)</argsstring>
+        <name>set</name>
+        <qualifiedname>TinyGPSCustom::set</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>term</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="213" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="199" column="1" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="200" bodyend="223"/>
+    <listofallmembers>
+      <member refid="class_tiny_g_p_s_custom_1af5347ee2785bca9acb5a0f16fcc68ea0" prot="public" virt="non-virtual"><scope>TinyGPSCustom</scope><name>age</name></member>
+      <member refid="class_tiny_g_p_s_custom_1af5347ee2785bca9acb5a0f16fcc68ea0" prot="public" virt="non-virtual"><scope>TinyGPSCustom</scope><name>age</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a3bf972f7e2e7e3f483071630e5ca8355" prot="public" virt="non-virtual"><scope>TinyGPSCustom</scope><name>begin</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a3bf972f7e2e7e3f483071630e5ca8355" prot="public" virt="non-virtual"><scope>TinyGPSCustom</scope><name>begin</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a7c266c7e30db98b42936667c5742d1a7" prot="private" virt="non-virtual"><scope>TinyGPSCustom</scope><name>buffer</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a3eea950a5ef62d6a226613fe72055dc4" prot="private" virt="non-virtual"><scope>TinyGPSCustom</scope><name>commit</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a3eea950a5ef62d6a226613fe72055dc4" prot="private" virt="non-virtual"><scope>TinyGPSCustom</scope><name>commit</name></member>
+      <member refid="class_tiny_g_p_s_custom_1ac735cdd0adb996de1d86bdcc15090977" prot="public" virt="non-virtual"><scope>TinyGPSCustom</scope><name>isUpdated</name></member>
+      <member refid="class_tiny_g_p_s_custom_1ac735cdd0adb996de1d86bdcc15090977" prot="public" virt="non-virtual"><scope>TinyGPSCustom</scope><name>isUpdated</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a6cc9903b3c45a321962642440204afeb" prot="public" virt="non-virtual"><scope>TinyGPSCustom</scope><name>isValid</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a6cc9903b3c45a321962642440204afeb" prot="public" virt="non-virtual"><scope>TinyGPSCustom</scope><name>isValid</name></member>
+      <member refid="class_tiny_g_p_s_custom_1acd99fe5bbe5f274de1c172079e80110b" prot="private" virt="non-virtual"><scope>TinyGPSCustom</scope><name>lastCommitTime</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a1dd19c9ce5909d6b97d71f842e52634f" prot="private" virt="non-virtual"><scope>TinyGPSCustom</scope><name>next</name></member>
+      <member refid="class_tiny_g_p_s_custom_1ac4dc484ef0306bd9f0d24ebf860597db" prot="private" virt="non-virtual"><scope>TinyGPSCustom</scope><name>sentenceName</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a7fab13d1b33b96c112d896322ad9ec29" prot="private" virt="non-virtual"><scope>TinyGPSCustom</scope><name>set</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a7fab13d1b33b96c112d896322ad9ec29" prot="private" virt="non-virtual"><scope>TinyGPSCustom</scope><name>set</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a5dac5dddd4dfa78efb2a3fcb83f7e20e" prot="private" virt="non-virtual"><scope>TinyGPSCustom</scope><name>stagingBuffer</name></member>
+      <member refid="class_tiny_g_p_s_custom_1ae7302f115f94eab88739fa67bf6cbba1" prot="private" virt="non-virtual"><scope>TinyGPSCustom</scope><name>termNumber</name></member>
+      <member refid="class_tiny_g_p_s_custom_1ac82fa99f3bcd9811377dd5fa3e9e98c7" prot="public" virt="non-virtual"><scope>TinyGPSCustom</scope><name>TinyGPSCustom</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a29b2a658bf95d8e6265e983b1c0251b5" prot="public" virt="non-virtual"><scope>TinyGPSCustom</scope><name>TinyGPSCustom</name></member>
+      <member refid="class_tiny_g_p_s_custom_1ac82fa99f3bcd9811377dd5fa3e9e98c7" prot="public" virt="non-virtual"><scope>TinyGPSCustom</scope><name>TinyGPSCustom</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a29b2a658bf95d8e6265e983b1c0251b5" prot="public" virt="non-virtual"><scope>TinyGPSCustom</scope><name>TinyGPSCustom</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a2bcf8d5290fbef8c44b415e281b8c6f2" prot="private" virt="non-virtual"><scope>TinyGPSCustom</scope><name>TinyGPSPlus</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a9cb408f7deeff94aeec23b49a3036f97" prot="private" virt="non-virtual"><scope>TinyGPSCustom</scope><name>updated</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a579ba14a727c8fa4b65a756ddec209c8" prot="private" virt="non-virtual"><scope>TinyGPSCustom</scope><name>valid</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a03bb66f8d3e078b21c8a5033a88d8a32" prot="public" virt="non-virtual"><scope>TinyGPSCustom</scope><name>value</name></member>
+      <member refid="class_tiny_g_p_s_custom_1a03bb66f8d3e078b21c8a5033a88d8a32" prot="public" virt="non-virtual"><scope>TinyGPSCustom</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

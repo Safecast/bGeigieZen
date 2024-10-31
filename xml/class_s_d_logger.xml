@@ -1,0 +1,308 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_s_d_logger" kind="class" language="C++" prot="public">
+    <compoundname>SDLogger</compoundname>
+    <includes refid="include_2logger_8hpp" local="no">logger.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_s_d_logger_1adca09377240e183a6ccb225aa664e1e2" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDLogger::_folder_created</definition>
+        <argsstring></argsstring>
+        <name>_folder_created</name>
+        <qualifiedname>SDLogger::_folder_created</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="45" column="8" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_d_logger_1a0c40155684b5fc7c25f4ef1f23417ff5" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDLogger::_logfile_created</definition>
+        <argsstring></argsstring>
+        <name>_logfile_created</name>
+        <qualifiedname>SDLogger::_logfile_created</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="46" column="8" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_d_logger_1acbc7990c294e61505af798a37a770bf0" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDLogger::_ready</definition>
+        <argsstring></argsstring>
+        <name>_ready</name>
+        <qualifiedname>SDLogger::_ready</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="47" column="8" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_d_logger_1a25520a2023b2ff64a52e8ae323bfaf6a" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char SDLogger::_filename</definition>
+        <argsstring>[filename_maxlen]</argsstring>
+        <name>_filename</name>
+        <qualifiedname>SDLogger::_filename</qualifiedname>
+        <initializer>= {0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="49" column="8" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="49" bodyend="49"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_s_d_logger_1af84bc592199d5f1594837867096e976e" prot="private" static="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> size_t</type>
+        <definition>static const size_t SDLogger::filename_maxlen</definition>
+        <argsstring></argsstring>
+        <name>filename_maxlen</name>
+        <qualifiedname>SDLogger::filename_maxlen</qualifiedname>
+        <initializer>= 32</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="48" column="23" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_s_d_logger_1a38d05d38170d08f0a15b9537340e9d97" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SDLogger::SDLogger</definition>
+        <argsstring>()</argsstring>
+        <name>SDLogger</name>
+        <qualifiedname>SDLogger::SDLogger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="52" column="3" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_logger_1af2514db995481908f4821ff13c76635b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDLogger::start</definition>
+        <argsstring>(uint32_t device_id, uint16_t year, uint8_t month, uint8_t day)</argsstring>
+        <name>start</name>
+        <qualifiedname>SDLogger::start</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>device_id</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>year</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>month</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>day</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="53" column="8" bodyfile="archive/bgeigie_firmware_pio/src/logger.cpp" bodystart="77" bodyend="118"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="include_2config_8hpp_1a5f8b2d16c907ca3ebbc69f0f4491ab8a" compoundref="include_2config_8hpp" startline="19">device_nickname</references>
+        <references refid="class_s_d_logger_1ae96cd0c7555285c7191193be27c52d42" compoundref="logger_8cpp" startline="120" endline="128">log</references>
+        <references refid="include_2config_8hpp_1a6ece29d27b64e8d45ba35ad8768004fd" compoundref="include_2config_8hpp" startline="44">LOG_HEADER_LINE1</references>
+        <references refid="include_2config_8hpp_1a512c9567b6eb82a4cd574e527c911ef5" compoundref="include_2config_8hpp" startline="45">LOG_HEADER_LINE2</references>
+        <references refid="include_2config_8hpp_1a77e3330c0e698251fcc72973de75f5ae" compoundref="include_2config_8hpp" startline="46">LOG_HEADER_LINE3</references>
+        <references refid="include_2config_8hpp_1ab976d08f8762ed4298848ae330237a90" compoundref="include_2config_8hpp" startline="16">MAJOR</references>
+        <references refid="include_2config_8hpp_1ab28fb130c702bd359f772132957f38f3" compoundref="include_2config_8hpp" startline="17">MINOR</references>
+        <references refid="include_2config_8hpp_1aabe4b3e1826d9969ffdbce0a856bff5c" compoundref="include_2config_8hpp" startline="18">PATCH</references>
+        <references refid="class_s_d_logger_1a5389d9735705f04a9ee50121975543c2" compoundref="include_2logger_8hpp" startline="55" endline="55">ready</references>
+        <referencedby refid="class_state_wait_g_p_s_time_1a5afbcebf690e8a8eadc30a7795d9a907" compoundref="fsm__state__concrete_8cpp" startline="35" endline="45">StateWaitGPSTime::on_exit</referencedby>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_logger_1a5389d9735705f04a9ee50121975543c2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDLogger::ready</definition>
+        <argsstring>() const</argsstring>
+        <name>ready</name>
+        <qualifiedname>SDLogger::ready</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="55" column="8" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="55" bodyend="55"/>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+        <referencedby refid="class_s_d_logger_1af2514db995481908f4821ff13c76635b" compoundref="logger_8cpp" startline="77" endline="118">start</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_logger_1a31da366d921e759f5c78253a9cb21a2e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDLogger::folder_created</definition>
+        <argsstring>() const</argsstring>
+        <name>folder_created</name>
+        <qualifiedname>SDLogger::folder_created</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="56" column="8" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="56" bodyend="56"/>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_logger_1ae96cd0c7555285c7191193be27c52d42" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDLogger::log</definition>
+        <argsstring>(const char *log_line) const</argsstring>
+        <name>log</name>
+        <qualifiedname>SDLogger::log</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>log_line</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="58" column="8" bodyfile="archive/bgeigie_firmware_pio/src/logger.cpp" bodystart="120" bodyend="128"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+        <referencedby refid="class_s_d_logger_1af2514db995481908f4821ff13c76635b" compoundref="logger_8cpp" startline="77" endline="118">start</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_logger_1a38d05d38170d08f0a15b9537340e9d97" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SDLogger::SDLogger</definition>
+        <argsstring>()</argsstring>
+        <name>SDLogger</name>
+        <qualifiedname>SDLogger::SDLogger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/logger.hpp" line="52" column="3" bodyfile="archive/bgeigie_firmware_pio/src/logger.hpp" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_logger_1af2514db995481908f4821ff13c76635b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDLogger::start</definition>
+        <argsstring>(uint32_t device_id, uint16_t year, uint8_t month, uint8_t day)</argsstring>
+        <name>start</name>
+        <qualifiedname>SDLogger::start</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>device_id</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>year</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>month</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>day</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/logger.hpp" line="53" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_logger_1a5389d9735705f04a9ee50121975543c2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDLogger::ready</definition>
+        <argsstring>() const</argsstring>
+        <name>ready</name>
+        <qualifiedname>SDLogger::ready</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/logger.hpp" line="55" column="8" bodyfile="archive/bgeigie_firmware_pio/src/logger.hpp" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_logger_1a31da366d921e759f5c78253a9cb21a2e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDLogger::folder_created</definition>
+        <argsstring>() const</argsstring>
+        <name>folder_created</name>
+        <qualifiedname>SDLogger::folder_created</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/logger.hpp" line="56" column="8" bodyfile="archive/bgeigie_firmware_pio/src/logger.hpp" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_logger_1ae96cd0c7555285c7191193be27c52d42" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDLogger::log</definition>
+        <argsstring>(const char *log_line) const</argsstring>
+        <name>log</name>
+        <qualifiedname>SDLogger::log</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>log_line</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/logger.hpp" line="58" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="43" column="1" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="43" bodyend="59"/>
+    <listofallmembers>
+      <member refid="class_s_d_logger_1a25520a2023b2ff64a52e8ae323bfaf6a" prot="private" virt="non-virtual"><scope>SDLogger</scope><name>_filename</name></member>
+      <member refid="class_s_d_logger_1adca09377240e183a6ccb225aa664e1e2" prot="private" virt="non-virtual"><scope>SDLogger</scope><name>_folder_created</name></member>
+      <member refid="class_s_d_logger_1a0c40155684b5fc7c25f4ef1f23417ff5" prot="private" virt="non-virtual"><scope>SDLogger</scope><name>_logfile_created</name></member>
+      <member refid="class_s_d_logger_1acbc7990c294e61505af798a37a770bf0" prot="private" virt="non-virtual"><scope>SDLogger</scope><name>_ready</name></member>
+      <member refid="class_s_d_logger_1af84bc592199d5f1594837867096e976e" prot="private" virt="non-virtual"><scope>SDLogger</scope><name>filename_maxlen</name></member>
+      <member refid="class_s_d_logger_1a31da366d921e759f5c78253a9cb21a2e" prot="public" virt="non-virtual"><scope>SDLogger</scope><name>folder_created</name></member>
+      <member refid="class_s_d_logger_1a31da366d921e759f5c78253a9cb21a2e" prot="public" virt="non-virtual"><scope>SDLogger</scope><name>folder_created</name></member>
+      <member refid="class_s_d_logger_1ae96cd0c7555285c7191193be27c52d42" prot="public" virt="non-virtual"><scope>SDLogger</scope><name>log</name></member>
+      <member refid="class_s_d_logger_1ae96cd0c7555285c7191193be27c52d42" prot="public" virt="non-virtual"><scope>SDLogger</scope><name>log</name></member>
+      <member refid="class_s_d_logger_1a5389d9735705f04a9ee50121975543c2" prot="public" virt="non-virtual"><scope>SDLogger</scope><name>ready</name></member>
+      <member refid="class_s_d_logger_1a5389d9735705f04a9ee50121975543c2" prot="public" virt="non-virtual"><scope>SDLogger</scope><name>ready</name></member>
+      <member refid="class_s_d_logger_1a38d05d38170d08f0a15b9537340e9d97" prot="public" virt="non-virtual"><scope>SDLogger</scope><name>SDLogger</name></member>
+      <member refid="class_s_d_logger_1a38d05d38170d08f0a15b9537340e9d97" prot="public" virt="non-virtual"><scope>SDLogger</scope><name>SDLogger</name></member>
+      <member refid="class_s_d_logger_1af2514db995481908f4821ff13c76635b" prot="public" virt="non-virtual"><scope>SDLogger</scope><name>start</name></member>
+      <member refid="class_s_d_logger_1af2514db995481908f4821ff13c76635b" prot="public" virt="non-virtual"><scope>SDLogger</scope><name>start</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

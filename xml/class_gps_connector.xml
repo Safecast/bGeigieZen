@@ -1,0 +1,344 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_gps_connector" kind="class" language="C++" prot="public">
+    <compoundname>GpsConnector</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Worker&lt; GnssData &gt;</basecompoundref>
+    <includes refid="gps__connector_8h" local="no">gps_connector.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_gps_connector_1a52f7c0a911de48b03594f541564ba10f" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TeenyUbloxConnect</ref> &amp;</type>
+        <definition>TeenyUbloxConnect&amp; GpsConnector::_gnss</definition>
+        <argsstring></argsstring>
+        <name>_gnss</name>
+        <qualifiedname>GpsConnector::_gnss</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="96" column="21" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_gps_connector_1ae6dfb61987b8d771f8e1ee63b9ef8a8c" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HardwareSerial</ref> &amp;</type>
+        <definition>HardwareSerial&amp; GpsConnector::_serial_conn</definition>
+        <argsstring></argsstring>
+        <name>_serial_conn</name>
+        <qualifiedname>GpsConnector::_serial_conn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="97" column="18" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_gps_connector_1a8e9700338c79f7fe867220c57adadd25" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GpsConnector::_tried_115200_at</definition>
+        <argsstring></argsstring>
+        <name>_tried_115200_at</name>
+        <qualifiedname>GpsConnector::_tried_115200_at</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="98" column="12" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_gps_connector_1a045f6ef12d879ec61e73afd6dd362d45" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GpsConnector::_tried_38400_at</definition>
+        <argsstring></argsstring>
+        <name>_tried_38400_at</name>
+        <qualifiedname>GpsConnector::_tried_38400_at</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="99" column="12" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_gps_connector_1a4874991f818bd725911cdd76a45bc241" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GpsConnector::_tried_9600_at</definition>
+        <argsstring></argsstring>
+        <name>_tried_9600_at</name>
+        <qualifiedname>GpsConnector::_tried_9600_at</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="100" column="12" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_gps_connector_1aca13c10a7aeaf77c913eb0e4ef506bc7" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GpsConnector::_init_at</definition>
+        <argsstring></argsstring>
+        <name>_init_at</name>
+        <qualifiedname>GpsConnector::_init_at</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="101" column="12" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_gps_connector_1abbc40719b895b50211fe137b648f6769" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double GpsConnector::_last_latitude</definition>
+        <argsstring></argsstring>
+        <name>_last_latitude</name>
+        <qualifiedname>GpsConnector::_last_latitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="103" column="10" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_gps_connector_1a87d568537e604fca892af554c18224c4" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double GpsConnector::_last_longitude</definition>
+        <argsstring></argsstring>
+        <name>_last_longitude</name>
+        <qualifiedname>GpsConnector::_last_longitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="104" column="10" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_gps_connector_1ac55f18b876f2d068681bd55f4cedf514" prot="private" static="no" mutable="no">
+        <type>RBD::Timer</type>
+        <definition>RBD::Timer GpsConnector::location_timer</definition>
+        <argsstring></argsstring>
+        <name>location_timer</name>
+        <qualifiedname>GpsConnector::location_timer</qualifiedname>
+        <initializer>{<ref refid="user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691" kindref="member">GPS_FIX_AGE_LIMIT</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="107" column="14" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="107" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_gps_connector_1a339f83c25aa2cf53445d55f9a449de78" prot="private" static="no" mutable="no">
+        <type>RBD::Timer</type>
+        <definition>RBD::Timer GpsConnector::date_timer</definition>
+        <argsstring></argsstring>
+        <name>date_timer</name>
+        <qualifiedname>GpsConnector::date_timer</qualifiedname>
+        <initializer>{<ref refid="user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691" kindref="member">GPS_FIX_AGE_LIMIT</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="108" column="14" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="108" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_gps_connector_1a65ef2c31118558770b48939f2e094c94" prot="private" static="no" mutable="no">
+        <type>RBD::Timer</type>
+        <definition>RBD::Timer GpsConnector::time_timer</definition>
+        <argsstring></argsstring>
+        <name>time_timer</name>
+        <qualifiedname>GpsConnector::time_timer</qualifiedname>
+        <initializer>{<ref refid="user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691" kindref="member">GPS_FIX_AGE_LIMIT</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="109" column="14" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="109" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_gps_connector_1a1cedaff75a4bc84b8d1bac7c170a977e" prot="private" static="no" mutable="no">
+        <type>RBD::Timer</type>
+        <definition>RBD::Timer GpsConnector::time_getpvt</definition>
+        <argsstring></argsstring>
+        <name>time_getpvt</name>
+        <qualifiedname>GpsConnector::time_getpvt</qualifiedname>
+        <initializer>{<ref refid="user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691" kindref="member">GPS_FIX_AGE_LIMIT</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="110" column="14" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="110" bodyend="110"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_gps_connector_1aff7afdfbf2918f864fdc4e7aee38db00" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GpsConnector::GpsConnector</definition>
+        <argsstring>(TeenyUbloxConnect &amp;_gnss, HardwareSerial &amp;serial)</argsstring>
+        <name>GpsConnector</name>
+        <qualifiedname>GpsConnector::GpsConnector</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TeenyUbloxConnect</ref> &amp;</type>
+          <declname>_gnss</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HardwareSerial</ref> &amp;</type>
+          <declname>serial</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="79" column="12" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="34" bodyend="54"/>
+        <references refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabaf944ece0444554e52923b0637a96e96c" compoundref="gps__connector_8h" startline="37">GnssData::UNKNOWN</references>
+      </memberdef>
+      <memberdef kind="function" id="class_gps_connector_1a407cbc36ea5bca53e9471c4d27af4225" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual GpsConnector::~GpsConnector</definition>
+        <argsstring>()=default</argsstring>
+        <name>~GpsConnector</name>
+        <qualifiedname>GpsConnector::~GpsConnector</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="81" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_gps_connector_1ae9c39a62d97e5491bb420cba02df2a98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GpsConnector::activate</definition>
+        <argsstring>(bool retry) override</argsstring>
+        <name>activate</name>
+        <qualifiedname>GpsConnector::activate</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>retry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if initialized GNSS library, false if no connection with module. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="83" column="8" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="58" bodyend="125"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="class_gps_connector_1a772998cb4be0a4a1f4964e7dfc6962db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t GpsConnector::produce_data</definition>
+        <argsstring>() override</argsstring>
+        <name>produce_data</name>
+        <qualifiedname>GpsConnector::produce_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="85" column="10" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="134" bodyend="229"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabac59171f32d388e75c92c0898cb44bc15" compoundref="gps__connector_8h" startline="40">GnssData::EAST</references>
+        <references refid="gps__connector_8cpp_1aead3f3cfc07558543a2fc4ff6c55c8c2" compoundref="gps__connector_8cpp" startline="26">ENE</references>
+        <references refid="gps__connector_8cpp_1a138bf1f8fd55931f28bd36f0a88bb074" compoundref="gps__connector_8cpp" startline="27">ESE</references>
+        <references refid="gps__connector_8cpp_1a4658257e8be7db42ef4e1df1bfb92c61" compoundref="gps__connector_8cpp" startline="20">GPS_INVALID_DAY</references>
+        <references refid="gps__connector_8cpp_1a6b6cb776673221f5ca110e5d9d9f4f4d" compoundref="gps__connector_8cpp" startline="21">GPS_INVALID_HOUR</references>
+        <references refid="gps__connector_8cpp_1af879278be57fbdbb5b4cb4a63f54b882" compoundref="gps__connector_8cpp" startline="22">GPS_INVALID_MINUTE</references>
+        <references refid="gps__connector_8cpp_1a3bca17db281c79460fab5db86b3431ec" compoundref="gps__connector_8cpp" startline="19">GPS_INVALID_MONTH</references>
+        <references refid="gps__connector_8cpp_1a37648bd05c7cd6c1d1980238561e95ff" compoundref="gps__connector_8cpp" startline="23">GPS_INVALID_SECOND</references>
+        <references refid="gps__connector_8cpp_1a6bd854d2104015e821eeed7a174ff783" compoundref="gps__connector_8cpp" startline="18">GPS_INVALID_YEAR</references>
+        <references refid="functions_8h_1a9b1d6cb0ae5f9e0e2eb8547c8d1fa038" compoundref="functions_8h" startline="19" endline="25">haversine_km</references>
+        <references refid="gps__connector_8cpp_1a24cb4d821a247d2bbb49d109d11feaa4" compoundref="gps__connector_8cpp" startline="25">NNE</references>
+        <references refid="gps__connector_8cpp_1ad9184ebbef4e69eb7b2df74684a2e809" compoundref="gps__connector_8cpp" startline="32">NNW</references>
+        <references refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba4da3c06fe6c911023224dae72dbdad61" compoundref="gps__connector_8h" startline="38">GnssData::NORTH</references>
+        <references refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabacfd7d0af2deacc4d633d98eaa83619fb" compoundref="gps__connector_8h" startline="39">GnssData::NORTHEAST</references>
+        <references refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabacc2c1d688ba66385c9a84718f3d97800" compoundref="gps__connector_8h" startline="45">GnssData::NORTHWEST</references>
+        <references refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcababcc52805fa984d5c3f174295df0b3461" compoundref="gps__connector_8h" startline="42">GnssData::SOUTH</references>
+        <references refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba14b6d0ef04f8f7d52d377b04d4335194" compoundref="gps__connector_8h" startline="41">GnssData::SOUTHEAST</references>
+        <references refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba77bc8bd9de96e62e1247652bc0923398" compoundref="gps__connector_8h" startline="43">GnssData::SOUTHWEST</references>
+        <references refid="gps__connector_8cpp_1ad518177eb0b052ffed6ce4d0d63e6ae4" compoundref="gps__connector_8cpp" startline="28">SSE</references>
+        <references refid="gps__connector_8cpp_1ab8fdcdfe8f08033094c1179c905612ae" compoundref="gps__connector_8cpp" startline="29">SSW</references>
+        <references refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba5215b2609bd9d9ba6d84fbf741c70ad5" compoundref="gps__connector_8h" startline="44">GnssData::WEST</references>
+        <references refid="gps__connector_8cpp_1af0e115ed15753c6cfb48ad35a3cd6efa" compoundref="gps__connector_8cpp" startline="31">WNW</references>
+        <references refid="gps__connector_8cpp_1ae293446ee09a6d14dcb84e7bee54af13" compoundref="gps__connector_8cpp" startline="30">WSW</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_gps_connector_1aa74f07bb7ed9075fe0b0ed64b6eecbc6" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GpsConnector::deactivate</definition>
+        <argsstring>() override</argsstring>
+        <name>deactivate</name>
+        <qualifiedname>GpsConnector::deactivate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="88" column="8" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="127" bodyend="132"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>GPS device worker, produces the current GPS location. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GpsConnector</label>
+        <link refid="class_gps_connector"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Worker&lt; GnssData &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GpsConnector</label>
+        <link refid="class_gps_connector"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Worker&lt; GnssData &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/workers/gps_connector.h" line="76" column="1" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="76" bodyend="111"/>
+    <listofallmembers>
+      <member refid="class_gps_connector_1a52f7c0a911de48b03594f541564ba10f" prot="private" virt="non-virtual"><scope>GpsConnector</scope><name>_gnss</name></member>
+      <member refid="class_gps_connector_1aca13c10a7aeaf77c913eb0e4ef506bc7" prot="private" virt="non-virtual"><scope>GpsConnector</scope><name>_init_at</name></member>
+      <member refid="class_gps_connector_1abbc40719b895b50211fe137b648f6769" prot="private" virt="non-virtual"><scope>GpsConnector</scope><name>_last_latitude</name></member>
+      <member refid="class_gps_connector_1a87d568537e604fca892af554c18224c4" prot="private" virt="non-virtual"><scope>GpsConnector</scope><name>_last_longitude</name></member>
+      <member refid="class_gps_connector_1ae6dfb61987b8d771f8e1ee63b9ef8a8c" prot="private" virt="non-virtual"><scope>GpsConnector</scope><name>_serial_conn</name></member>
+      <member refid="class_gps_connector_1a8e9700338c79f7fe867220c57adadd25" prot="private" virt="non-virtual"><scope>GpsConnector</scope><name>_tried_115200_at</name></member>
+      <member refid="class_gps_connector_1a045f6ef12d879ec61e73afd6dd362d45" prot="private" virt="non-virtual"><scope>GpsConnector</scope><name>_tried_38400_at</name></member>
+      <member refid="class_gps_connector_1a4874991f818bd725911cdd76a45bc241" prot="private" virt="non-virtual"><scope>GpsConnector</scope><name>_tried_9600_at</name></member>
+      <member refid="class_gps_connector_1ae9c39a62d97e5491bb420cba02df2a98" prot="public" virt="non-virtual"><scope>GpsConnector</scope><name>activate</name></member>
+      <member refid="class_gps_connector_1a339f83c25aa2cf53445d55f9a449de78" prot="private" virt="non-virtual"><scope>GpsConnector</scope><name>date_timer</name></member>
+      <member refid="class_gps_connector_1aa74f07bb7ed9075fe0b0ed64b6eecbc6" prot="protected" virt="non-virtual"><scope>GpsConnector</scope><name>deactivate</name></member>
+      <member refid="class_gps_connector_1aff7afdfbf2918f864fdc4e7aee38db00" prot="public" virt="non-virtual"><scope>GpsConnector</scope><name>GpsConnector</name></member>
+      <member refid="class_gps_connector_1ac55f18b876f2d068681bd55f4cedf514" prot="private" virt="non-virtual"><scope>GpsConnector</scope><name>location_timer</name></member>
+      <member refid="class_gps_connector_1a772998cb4be0a4a1f4964e7dfc6962db" prot="public" virt="non-virtual"><scope>GpsConnector</scope><name>produce_data</name></member>
+      <member refid="class_gps_connector_1a1cedaff75a4bc84b8d1bac7c170a977e" prot="private" virt="non-virtual"><scope>GpsConnector</scope><name>time_getpvt</name></member>
+      <member refid="class_gps_connector_1a65ef2c31118558770b48939f2e094c94" prot="private" virt="non-virtual"><scope>GpsConnector</scope><name>time_timer</name></member>
+      <member refid="class_gps_connector_1a407cbc36ea5bca53e9471c4d27af4225" prot="public" virt="virtual"><scope>GpsConnector</scope><name>~GpsConnector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

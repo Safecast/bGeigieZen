@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="gps__connector_8h" kind="file" language="C++">
+    <compoundname>gps_connector.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes local="no">RBD_Timer.h</includes>
+    <includes local="no">Worker.hpp</includes>
+    <includes refid="user__config_8h" local="no">user_config.h</includes>
+    <includes local="no">TeenyUbloxConnect.h</includes>
+    <includedby refid="bgeigiezen__firmware_2main_8cpp" local="yes">bgeigiezen_firmware/main.cpp</includedby>
+    <includedby refid="base__screen_8cpp" local="yes">bgeigiezen_firmware/screens/base_screen.cpp</includedby>
+    <includedby refid="debug__mode_8cpp" local="yes">bgeigiezen_firmware/screens/debug_mode.cpp</includedby>
+    <includedby refid="drive__mode_8cpp" local="yes">bgeigiezen_firmware/screens/drive_mode.cpp</includedby>
+    <includedby refid="satellite__view_8cpp" local="yes">bgeigiezen_firmware/screens/satellite_view.cpp</includedby>
+    <includedby refid="survery__mode_8cpp" local="yes">bgeigiezen_firmware/screens/survery_mode.cpp</includedby>
+    <includedby refid="gps__connector_8cpp" local="yes">bgeigiezen_firmware/workers/gps_connector.cpp</includedby>
+    <includedby refid="local__storage_8cpp" local="yes">bgeigiezen_firmware/workers/local_storage.cpp</includedby>
+    <includedby refid="log__aggregator_8cpp" local="yes">bgeigiezen_firmware/workers/log_aggregator.cpp</includedby>
+    <includedby refid="rtc__connector_8cpp" local="yes">bgeigiezen_firmware/workers/rtc_connector.cpp</includedby>
+    <includedby refid="rtc__connector_8h" local="yes">bgeigiezen_firmware/workers/rtc_connector.h</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/workers/gps_connector.h</label>
+        <link refid="gps__connector_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Arduino.h</label>
+      </node>
+      <node id="6">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="3">
+        <label>RBD_Timer.h</label>
+      </node>
+      <node id="7">
+        <label>TeenyUbloxConnect.h</label>
+      </node>
+      <node id="4">
+        <label>Worker.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="13">
+        <label>bgeigiezen_firmware/gfx_screen.cpp</label>
+        <link refid="gfx__screen_8cpp"/>
+      </node>
+      <node id="14">
+        <label>bgeigiezen_firmware/handlers/sd_logger.cpp</label>
+        <link refid="sd__logger_8cpp"/>
+      </node>
+      <node id="2">
+        <label>bgeigiezen_firmware/main.cpp</label>
+        <link refid="bgeigiezen__firmware_2main_8cpp"/>
+      </node>
+      <node id="3">
+        <label>bgeigiezen_firmware/screens/base_screen.cpp</label>
+        <link refid="base__screen_8cpp"/>
+      </node>
+      <node id="4">
+        <label>bgeigiezen_firmware/screens/debug_mode.cpp</label>
+        <link refid="debug__mode_8cpp"/>
+      </node>
+      <node id="5">
+        <label>bgeigiezen_firmware/screens/drive_mode.cpp</label>
+        <link refid="drive__mode_8cpp"/>
+      </node>
+      <node id="6">
+        <label>bgeigiezen_firmware/screens/satellite_view.cpp</label>
+        <link refid="satellite__view_8cpp"/>
+      </node>
+      <node id="7">
+        <label>bgeigiezen_firmware/screens/survery_mode.cpp</label>
+        <link refid="survery__mode_8cpp"/>
+      </node>
+      <node id="8">
+        <label>bgeigiezen_firmware/workers/gps_connector.cpp</label>
+        <link refid="gps__connector_8cpp"/>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/workers/gps_connector.h</label>
+        <link refid="gps__connector_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>bgeigiezen_firmware/workers/local_storage.cpp</label>
+        <link refid="local__storage_8cpp"/>
+      </node>
+      <node id="10">
+        <label>bgeigiezen_firmware/workers/log_aggregator.cpp</label>
+        <link refid="log__aggregator_8cpp"/>
+      </node>
+      <node id="11">
+        <label>bgeigiezen_firmware/workers/rtc_connector.cpp</label>
+        <link refid="rtc__connector_8cpp"/>
+      </node>
+      <node id="12">
+        <label>bgeigiezen_firmware/workers/rtc_connector.h</label>
+        <link refid="rtc__connector_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_gnss_data" prot="public">GnssData</innerclass>
+    <innerclass refid="class_gps_connector" prot="public">GpsConnector</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>BGEIGIEZEN_GPS_SENSOR_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BGEIGIEZEN_GPS_SENSOR_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;RBD_Timer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Worker.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="user__config_8h" kindref="compound">user_config.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;TeenyUbloxConnect.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="struct_gnss_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_gnss_data" kindref="compound">GnssData</ref><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>When<sp/>true,<sp/>the<sp/>item<sp/>related<sp/>to<sp/>each<sp/>Boolean<sp/>is<sp/>valid<sp/>and<sp/>updated<sp/>in<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>most<sp/>recent<sp/>poll<sp/>of<sp/>the<sp/>gps_connector<sp/>worker<sp/>by<sp/>the<sp/>controller.<sp/>If<sp/>the<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>gps_connector<sp/>doesn&apos;t<sp/>have<sp/>a<sp/>new<sp/>fix<sp/>because<sp/>it<sp/>only<sp/>becomes<sp/>available</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>every<sp/>1<sp/>second,<sp/>then<sp/>the<sp/>corresponding<sp/>Boolean<sp/>becomes<sp/>false.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>stale,<sp/>render<sp/>in<sp/>gray/white<sp/>text.<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="struct_gnss_data_1a6912d592ab6fe6edce0f30c25601b947" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_gnss_data_1a6912d592ab6fe6edce0f30c25601b947" kindref="member">location_valid</ref>;</highlight></codeline>
+<codeline lineno="29" refid="struct_gnss_data_1a2dfadddc5f94b12baa0cf2ac3ccc1fd8" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_gnss_data_1a2dfadddc5f94b12baa0cf2ac3ccc1fd8" kindref="member">date_valid</ref>;</highlight></codeline>
+<codeline lineno="30" refid="struct_gnss_data_1a44dce35e9d2ff7e54fe1a5daaafeb7e0" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_gnss_data_1a44dce35e9d2ff7e54fe1a5daaafeb7e0" kindref="member">time_valid</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="struct_gnss_data_1aedd0b5e4e6a8b73715ec2a5f97b97401" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_gnss_data_1aedd0b5e4e6a8b73715ec2a5f97b97401" kindref="member">valid</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="struct_gnss_data_1a6912d592ab6fe6edce0f30c25601b947" kindref="member">location_valid</ref><sp/>&amp;&amp;<sp/><ref refid="struct_gnss_data_1a2dfadddc5f94b12baa0cf2ac3ccc1fd8" kindref="member">date_valid</ref><sp/>&amp;&amp;<sp/><ref refid="struct_gnss_data_1a44dce35e9d2ff7e54fe1a5daaafeb7e0" kindref="member">time_valid</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcab" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcab" kindref="member">Heading</ref><sp/>{</highlight></codeline>
+<codeline lineno="37" refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabaf944ece0444554e52923b0637a96e96c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabaf944ece0444554e52923b0637a96e96c" kindref="member">UNKNOWN</ref>,</highlight></codeline>
+<codeline lineno="38" refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba4da3c06fe6c911023224dae72dbdad61" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba4da3c06fe6c911023224dae72dbdad61" kindref="member">NORTH</ref>,</highlight></codeline>
+<codeline lineno="39" refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabacfd7d0af2deacc4d633d98eaa83619fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabacfd7d0af2deacc4d633d98eaa83619fb" kindref="member">NORTHEAST</ref>,</highlight></codeline>
+<codeline lineno="40" refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabac59171f32d388e75c92c0898cb44bc15" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabac59171f32d388e75c92c0898cb44bc15" kindref="member">EAST</ref>,</highlight></codeline>
+<codeline lineno="41" refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba14b6d0ef04f8f7d52d377b04d4335194" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba14b6d0ef04f8f7d52d377b04d4335194" kindref="member">SOUTHEAST</ref>,</highlight></codeline>
+<codeline lineno="42" refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcababcc52805fa984d5c3f174295df0b3461" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcababcc52805fa984d5c3f174295df0b3461" kindref="member">SOUTH</ref>,</highlight></codeline>
+<codeline lineno="43" refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba77bc8bd9de96e62e1247652bc0923398" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba77bc8bd9de96e62e1247652bc0923398" kindref="member">SOUTHWEST</ref>,</highlight></codeline>
+<codeline lineno="44" refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba5215b2609bd9d9ba6d84fbf741c70ad5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba5215b2609bd9d9ba6d84fbf741c70ad5" kindref="member">WEST</ref>,</highlight></codeline>
+<codeline lineno="45" refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabacc2c1d688ba66385c9a84718f3d97800" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabacc2c1d688ba66385c9a84718f3d97800" kindref="member">NORTHWEST</ref>,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="struct_gnss_data_1a81efa192d3bc42bba228fb66e0322f57" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_gnss_data_1a81efa192d3bc42bba228fb66e0322f57" kindref="member">latitude</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>Longitude:<sp/>deg</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="struct_gnss_data_1a3869e76ad6bc7e1da392f31a620467aa" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_gnss_data_1a3869e76ad6bc7e1da392f31a620467aa" kindref="member">longitude</ref>;<sp/></highlight><highlight class="comment">//<sp/>Longitude:<sp/>deg</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="struct_gnss_data_1a76141979345be47d549b4b573e2f02ee" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_gnss_data_1a76141979345be47d549b4b573e2f02ee" kindref="member">altitudeMSL</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>above<sp/>mean<sp/>sea<sp/>level<sp/>in<sp/>meters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="struct_gnss_data_1a673e52bd09d1d40d5975614427235dc3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_gnss_data_1a673e52bd09d1d40d5975614427235dc3" kindref="member">heading_degree</ref>;<sp/></highlight><highlight class="comment">//<sp/>in<sp/>degrees</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="struct_gnss_data_1a165a4bfdf7b6754eb9b58744de3fba6d" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcab" kindref="member">Heading</ref><sp/><ref refid="struct_gnss_data_1a165a4bfdf7b6754eb9b58744de3fba6d" kindref="member">heading</ref>;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Confidence</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="struct_gnss_data_1a5c0549e186eda2349ba05c53ea33fb71" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_gnss_data_1a5c0549e186eda2349ba05c53ea33fb71" kindref="member">satsInView</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>satellites<sp/>used<sp/>to<sp/>calculate<sp/>fix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="struct_gnss_data_1a2ee43d23d2c3727d123bc3b4f07ccd57" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_gnss_data_1a2ee43d23d2c3727d123bc3b4f07ccd57" kindref="member">pdop</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>position<sp/>dilution<sp/>of<sp/>precision<sp/>(not<sp/>horizontal)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Date<sp/>&amp;<sp/>Time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="struct_gnss_data_1a3ea97efe2658783303e9567d6ff79ff1" refkind="member"><highlight class="normal"><sp/><sp/>uint16_t<sp/><ref refid="struct_gnss_data_1a3ea97efe2658783303e9567d6ff79ff1" kindref="member">year</ref>;</highlight></codeline>
+<codeline lineno="61" refid="struct_gnss_data_1a43b69cd3cf4afbbd71a2b6574b33e487" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_gnss_data_1a43b69cd3cf4afbbd71a2b6574b33e487" kindref="member">month</ref>;</highlight></codeline>
+<codeline lineno="62" refid="struct_gnss_data_1a6851119d66adbff10f39148a71a51a51" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_gnss_data_1a6851119d66adbff10f39148a71a51a51" kindref="member">day</ref>;</highlight></codeline>
+<codeline lineno="63" refid="struct_gnss_data_1a7b758dda23019c4603a07046b252e9b8" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_gnss_data_1a7b758dda23019c4603a07046b252e9b8" kindref="member">hour</ref>;</highlight></codeline>
+<codeline lineno="64" refid="struct_gnss_data_1a21f857584d5627b3a01fc775dbe66691" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_gnss_data_1a21f857584d5627b3a01fc775dbe66691" kindref="member">minute</ref>;</highlight></codeline>
+<codeline lineno="65" refid="struct_gnss_data_1a2d68cd9dd5fb0405a7c507a318ccfaf1" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_gnss_data_1a2d68cd9dd5fb0405a7c507a318ccfaf1" kindref="member">second</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Debug<sp/>info</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="struct_gnss_data_1a1076f9d397f084801bbd44a1930be6a4" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_gnss_data_1a1076f9d397f084801bbd44a1930be6a4" kindref="member">protocolVersionHigh</ref>;</highlight></codeline>
+<codeline lineno="69" refid="struct_gnss_data_1a6d275d6e30b32fd83e8b25256dbf07e1" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_gnss_data_1a6d275d6e30b32fd83e8b25256dbf07e1" kindref="member">protocolVersionLow</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="class_gps_connector" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_gps_connector" kindref="compound">GpsConnector</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Worker&lt;GnssData&gt;<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_gps_connector" kindref="compound">GpsConnector</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TeenyUbloxConnect</ref>&amp;<sp/>_gnss,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HardwareSerial</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">serial</ref>);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="class_gps_connector_1a407cbc36ea5bca53e9471c4d27af4225" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_gps_connector_1a407cbc36ea5bca53e9471c4d27af4225" kindref="member">~GpsConnector</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_gps_connector_1ae9c39a62d97e5491bb420cba02df2a98" kindref="member">activate</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">retry</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>int8_t<sp/><ref refid="class_gps_connector_1a772998cb4be0a4a1f4964e7dfc6962db" kindref="member">produce_data</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_gps_connector_1aa74f07bb7ed9075fe0b0ed64b6eecbc6" kindref="member">deactivate</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>u-blox<sp/>UBX<sp/>protocol<sp/>query<sp/>PVT<sp/>gets<sp/>position,<sp/>velocity<sp/>&amp;<sp/>time<sp/>in<sp/>one<sp/>call.</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/>*<sp/>The<sp/>call<sp/>returns<sp/>false<sp/>if<sp/>no<sp/>new<sp/>fix<sp/>has<sp/>been<sp/>received.<sp/>In<sp/>other<sp/>words,</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/><sp/><sp/>*<sp/>each<sp/>call<sp/>only<sp/>succeeds<sp/>once<sp/>until<sp/>the<sp/>next<sp/>fix<sp/>update.</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/>*<sp/>Use<sp/>pdop<sp/>and<sp/>satsInView<sp/>to<sp/>determine<sp/>acceptability.</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TeenyUbloxConnect</ref>&amp;<sp/>_gnss;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HardwareSerial</ref>&amp;<sp/>_serial_conn;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>uint32_t<sp/>_tried_115200_at;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>uint32_t<sp/>_tried_38400_at;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>uint32_t<sp/>_tried_9600_at;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>uint32_t<sp/>_init_at;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_last_latitude;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_last_longitude;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Age<sp/>each<sp/>item.<sp/>If<sp/>the<sp/>corresponding<sp/>timer<sp/>times<sp/>out,<sp/>it&apos;s<sp/>stale.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>RBD::Timer<sp/>location_timer{<ref refid="user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691" kindref="member">GPS_FIX_AGE_LIMIT</ref>};</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>RBD::Timer<sp/>date_timer{<ref refid="user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691" kindref="member">GPS_FIX_AGE_LIMIT</ref>};</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>RBD::Timer<sp/>time_timer{<ref refid="user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691" kindref="member">GPS_FIX_AGE_LIMIT</ref>};</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>RBD::Timer<sp/>time_getpvt{<ref refid="user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691" kindref="member">GPS_FIX_AGE_LIMIT</ref>};<sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>no<sp/>response<sp/>from<sp/>getPVT()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//BGEIGIEZEN_GPS_SENSOR_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/workers/gps_connector.h"/>
+  </compounddef>
+</doxygen>

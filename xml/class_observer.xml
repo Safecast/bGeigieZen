@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_observer" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>Observer</compoundname>
+    <derivedcompoundref refid="class_aggregator" prot="public" virt="non-virtual">Aggregator</derivedcompoundref>
+    <includes refid="bgeigie__firmware_2patterns_8hpp" local="no">patterns.hpp</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_observer_1ac75e4b339faeb3ea6fe0a01bf0b4a215" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>virtual void Observer::update</definition>
+        <argsstring>()=0</argsstring>
+        <name>update</name>
+        <qualifiedname>Observer::update</qualifiedname>
+        <reimplementedby refid="class_aggregator_1a2715c67ec5ebc41a248dd22785ca6862">update</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/patterns.hpp" line="9" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_observer_1ac75e4b339faeb3ea6fe0a01bf0b4a215" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>virtual void Observer::update</definition>
+        <argsstring>()=0</argsstring>
+        <name>update</name>
+        <qualifiedname>Observer::update</qualifiedname>
+        <reimplementedby refid="class_aggregator_1a2715c67ec5ebc41a248dd22785ca6862">update</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/patterns.hpp" line="9" column="18"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Aggregator</label>
+        <link refid="class_aggregator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Controller</label>
+        <link refid="class_controller"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Observer</label>
+        <link refid="class_observer"/>
+      </node>
+    </inheritancegraph>
+    <location file="archive/bgeigie_firmware/patterns.hpp" line="6" column="1" bodyfile="archive/bgeigie_firmware/patterns.hpp" bodystart="7" bodyend="10"/>
+    <listofallmembers>
+      <member refid="class_observer_1ac75e4b339faeb3ea6fe0a01bf0b4a215" prot="public" virt="pure-virtual"><scope>Observer</scope><name>update</name></member>
+      <member refid="class_observer_1ac75e4b339faeb3ea6fe0a01bf0b4a215" prot="public" virt="pure-virtual"><scope>Observer</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

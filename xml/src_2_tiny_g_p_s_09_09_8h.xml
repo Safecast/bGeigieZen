@@ -1,0 +1,522 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="src_2_tiny_g_p_s_09_09_8h" kind="file" language="C++">
+    <compoundname>TinyGPS++.h</compoundname>
+    <includes local="yes">WProgram.h</includes>
+    <includes local="no">limits.h</includes>
+    <includedby refid="_tiny_g_p_s_09_09_8cpp" local="yes">archive/bgeigie_firmware_pio/src/TinyGPS++.cpp</includedby>
+    <includedby refid="src_2display_8hpp" local="no">archive/bgeigie_firmware_pio/src/display.hpp</includedby>
+    <includedby refid="src_2gps_8hpp" local="no">archive/bgeigie_firmware_pio/src/gps.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/src/TinyGPS++.h</label>
+        <link refid="src_2_tiny_g_p_s_09_09_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>WProgram.h</label>
+      </node>
+      <node id="3">
+        <label>limits.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>archive/bgeigie_firmware_pio/src/TinyGPS++.cpp</label>
+        <link refid="_tiny_g_p_s_09_09_8cpp"/>
+      </node>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/src/TinyGPS++.h</label>
+        <link refid="src_2_tiny_g_p_s_09_09_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>archive/bgeigie_firmware_pio/src/display.cpp</label>
+        <link refid="display_8cpp"/>
+      </node>
+      <node id="3">
+        <label>archive/bgeigie_firmware_pio/src/display.hpp</label>
+        <link refid="src_2display_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>archive/bgeigie_firmware_pio/src/fsm_context.cpp</label>
+        <link refid="fsm__context_8cpp"/>
+      </node>
+      <node id="5">
+        <label>archive/bgeigie_firmware_pio/src/fsm_context.hpp</label>
+        <link refid="src_2fsm__context_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>archive/bgeigie_firmware_pio/src/fsm_state_base.hpp</label>
+        <link refid="src_2fsm__state__base_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>archive/bgeigie_firmware_pio/src/fsm_state_concrete.cpp</label>
+        <link refid="fsm__state__concrete_8cpp"/>
+      </node>
+      <node id="8">
+        <label>archive/bgeigie_firmware_pio/src/fsm_state_concrete.hpp</label>
+        <link refid="src_2fsm__state__concrete_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>archive/bgeigie_firmware_pio/src/gps.cpp</label>
+        <link refid="gps_8cpp"/>
+      </node>
+      <node id="12">
+        <label>archive/bgeigie_firmware_pio/src/gps.hpp</label>
+        <link refid="src_2gps_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>archive/bgeigie_firmware_pio/src/logger.cpp</label>
+        <link refid="logger_8cpp"/>
+      </node>
+      <node id="14">
+        <label>archive/bgeigie_firmware_pio/src/logger.hpp</label>
+        <link refid="src_2logger_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>archive/bgeigie_firmware_pio/src/main.cpp</label>
+        <link refid="archive_2bgeigie__firmware__pio_2src_2main_8cpp"/>
+      </node>
+      <node id="11">
+        <label>archive/bgeigie_firmware_pio/src/menu.cpp</label>
+        <link refid="menu_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_raw_degrees" prot="public">RawDegrees</innerclass>
+    <innerclass refid="struct_tiny_g_p_s_location" prot="public">TinyGPSLocation</innerclass>
+    <innerclass refid="struct_tiny_g_p_s_date" prot="public">TinyGPSDate</innerclass>
+    <innerclass refid="struct_tiny_g_p_s_time" prot="public">TinyGPSTime</innerclass>
+    <innerclass refid="struct_tiny_g_p_s_decimal" prot="public">TinyGPSDecimal</innerclass>
+    <innerclass refid="struct_tiny_g_p_s_integer" prot="public">TinyGPSInteger</innerclass>
+    <innerclass refid="struct_tiny_g_p_s_speed" prot="public">TinyGPSSpeed</innerclass>
+    <innerclass refid="struct_tiny_g_p_s_course" prot="public">TinyGPSCourse</innerclass>
+    <innerclass refid="struct_tiny_g_p_s_altitude" prot="public">TinyGPSAltitude</innerclass>
+    <innerclass refid="struct_tiny_g_p_s_h_d_o_p" prot="public">TinyGPSHDOP</innerclass>
+    <innerclass refid="class_tiny_g_p_s_custom" prot="public">TinyGPSCustom</innerclass>
+    <innerclass refid="class_tiny_g_p_s_plus" prot="public">TinyGPSPlus</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="src_2_tiny_g_p_s_09_09_8h_1a210404d704c58b910ecee5bd7e97a7dc" prot="public" static="no">
+        <name>_GPS_VERSION</name>
+        <initializer>&quot;1.0.2&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="37" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="src_2_tiny_g_p_s_09_09_8h_1a15c78046c05b411cbcb3f93b7a452a97" prot="public" static="no">
+        <name>_GPS_MPH_PER_KNOT</name>
+        <initializer>1.15077945</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="38" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="src_2_tiny_g_p_s_09_09_8h_1a54cbb270522b52fe2c0f14eab76f032b" prot="public" static="no">
+        <name>_GPS_MPS_PER_KNOT</name>
+        <initializer>0.51444444</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="39" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="src_2_tiny_g_p_s_09_09_8h_1a757cab8e33085416dbafbc05cf71f6a9" prot="public" static="no">
+        <name>_GPS_KMPH_PER_KNOT</name>
+        <initializer>1.852</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="40" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="src_2_tiny_g_p_s_09_09_8h_1a51d2cc47a0dc5655cde4135c24fef480" prot="public" static="no">
+        <name>_GPS_MILES_PER_METER</name>
+        <initializer>0.00062137112</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="41" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="src_2_tiny_g_p_s_09_09_8h_1a49b3ac6a23c4f78931942c51810e3439" prot="public" static="no">
+        <name>_GPS_KM_PER_METER</name>
+        <initializer>0.001</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="42" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="src_2_tiny_g_p_s_09_09_8h_1af1a3b64121f34d416925518e994b454f" prot="public" static="no">
+        <name>_GPS_FEET_PER_METER</name>
+        <initializer>3.2808399</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="43" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="src_2_tiny_g_p_s_09_09_8h_1ad31ceaaeae16e1ff8e13640e3b012de3" prot="public" static="no">
+        <name>_GPS_MAX_FIELD_SIZE</name>
+        <initializer>15</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="44" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">TinyGPS++<sp/>-<sp/>a<sp/>small<sp/>GPS<sp/>library<sp/>for<sp/>Arduino<sp/>providing<sp/>universal<sp/>NMEA<sp/>parsing</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">Based<sp/>on<sp/>work<sp/>by<sp/>and<sp/>&quot;distanceBetween&quot;<sp/>and<sp/>&quot;courseTo&quot;<sp/>courtesy<sp/>of<sp/>Maarten<sp/>Lamers.</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">Suggestion<sp/>to<sp/>add<sp/>satellites,<sp/>courseTo(),<sp/>and<sp/>cardinal()<sp/>by<sp/>Matt<sp/>Monson.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">Location<sp/>precision<sp/>improvements<sp/>suggested<sp/>by<sp/>Wayne<sp/>Holder.</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">Copyright<sp/>(C)<sp/>2008-2013<sp/>Mikal<sp/>Hart</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"></highlight></codeline>
+<codeline lineno="9"><highlight class="comment">This<sp/>library<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">modify<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>Lesser<sp/>General<sp/>Public</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">License<sp/>as<sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">version<sp/>2.1<sp/>of<sp/>the<sp/>License,<sp/>or<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment">This<sp/>library<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the<sp/>GNU</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">Lesser<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"></highlight></codeline>
+<codeline lineno="19"><highlight class="comment">You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>Lesser<sp/>General<sp/>Public</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">License<sp/>along<sp/>with<sp/>this<sp/>library;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/>Free<sp/>Software</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">Foundation,<sp/>Inc.,<sp/>51<sp/>Franklin<sp/>St,<sp/>Fifth<sp/>Floor,<sp/>Boston,<sp/>MA<sp/><sp/>02110-1301<sp/><sp/>USA</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__TinyGPSPlus_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__TinyGPSPlus_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(ARDUINO)<sp/>&amp;&amp;<sp/>ARDUINO<sp/>&gt;=<sp/>100</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;Arduino.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;WProgram.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;limits.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&lt;gps.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_g_p_s_sensor" kindref="compound">GPSSensor</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="src_2_tiny_g_p_s_09_09_8h_1a210404d704c58b910ecee5bd7e97a7dc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_GPS_VERSION<sp/>&quot;1.0.2&quot;<sp/></highlight><highlight class="comment">//<sp/>software<sp/>version<sp/>of<sp/>this<sp/>library</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="src_2_tiny_g_p_s_09_09_8h_1a15c78046c05b411cbcb3f93b7a452a97" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_GPS_MPH_PER_KNOT<sp/>1.15077945</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="src_2_tiny_g_p_s_09_09_8h_1a54cbb270522b52fe2c0f14eab76f032b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_GPS_MPS_PER_KNOT<sp/>0.51444444</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="src_2_tiny_g_p_s_09_09_8h_1a757cab8e33085416dbafbc05cf71f6a9" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_GPS_KMPH_PER_KNOT<sp/>1.852</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="src_2_tiny_g_p_s_09_09_8h_1a51d2cc47a0dc5655cde4135c24fef480" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_GPS_MILES_PER_METER<sp/>0.00062137112</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="src_2_tiny_g_p_s_09_09_8h_1a49b3ac6a23c4f78931942c51810e3439" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_GPS_KM_PER_METER<sp/>0.001</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="src_2_tiny_g_p_s_09_09_8h_1af1a3b64121f34d416925518e994b454f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_GPS_FEET_PER_METER<sp/>3.2808399</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="src_2_tiny_g_p_s_09_09_8h_1ad31ceaaeae16e1ff8e13640e3b012de3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_GPS_MAX_FIELD_SIZE<sp/>15</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_raw_degrees" kindref="compound">RawDegrees</ref></highlight></codeline>
+<codeline lineno="47"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/>uint16_t<sp/><ref refid="struct_raw_degrees_1a11831d9220f303bd716d9412af28e84e" kindref="member">deg</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_raw_degrees_1a13564009c60e20dbf03b158114d1c0e2" kindref="member">billionths</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_raw_degrees_1a39c31d2d0332155a4d2c975cec0a796f" kindref="member">negative</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="52" refid="struct_raw_degrees_1a156d5ced092fa1473b9b669a29be3509" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="struct_raw_degrees_1a156d5ced092fa1473b9b669a29be3509" kindref="member">RawDegrees</ref>()<sp/>:<sp/><ref refid="struct_raw_degrees_1a11831d9220f303bd716d9412af28e84e" kindref="member">deg</ref>(0),<sp/><ref refid="struct_raw_degrees_1a13564009c60e20dbf03b158114d1c0e2" kindref="member">billionths</ref>(0),<sp/><ref refid="struct_raw_degrees_1a39c31d2d0332155a4d2c975cec0a796f" kindref="member">negative</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref>)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_tiny_g_p_s_location" kindref="compound">TinyGPSLocation</ref></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref>;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="60" refid="struct_tiny_g_p_s_location_1aa5182c29798506eb727058d884f20633" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_location_1aa5182c29798506eb727058d884f20633" kindref="member">isValid</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>valid;<sp/>}</highlight></codeline>
+<codeline lineno="61" refid="struct_tiny_g_p_s_location_1a905822cea7a00e550d29d037acdde549" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_location_1a905822cea7a00e550d29d037acdde549" kindref="member">isUpdated</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>updated;<sp/>}</highlight></codeline>
+<codeline lineno="62" refid="struct_tiny_g_p_s_location_1ae5da08aba335d0515b7a84ce57b80179" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_tiny_g_p_s_location_1ae5da08aba335d0515b7a84ce57b80179" kindref="member">age</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>valid<sp/>?<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>()<sp/>-<sp/>lastCommitTime<sp/>:<sp/>(uint32_t)<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ULONG_MAX</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="63" refid="struct_tiny_g_p_s_location_1abe5f28b0d636a1031af3cd98af863af6" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_raw_degrees" kindref="compound">RawDegrees</ref><sp/>&amp;<ref refid="struct_tiny_g_p_s_location_1abe5f28b0d636a1031af3cd98af863af6" kindref="member">rawLat</ref>()<sp/><sp/><sp/><sp/><sp/>{<sp/>updated<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rawLatData;<sp/>}</highlight></codeline>
+<codeline lineno="64" refid="struct_tiny_g_p_s_location_1a4e20b4067a448ca0003fc65a3d3864d2" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_raw_degrees" kindref="compound">RawDegrees</ref><sp/>&amp;<ref refid="struct_tiny_g_p_s_location_1a4e20b4067a448ca0003fc65a3d3864d2" kindref="member">rawLng</ref>()<sp/><sp/><sp/><sp/><sp/>{<sp/>updated<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rawLngData;<sp/>}</highlight></codeline>
+<codeline lineno="65" refid="struct_tiny_g_p_s_location_1a6b596b17737bd93b662481c4af9511ec" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="struct_tiny_g_p_s_location_1a6b596b17737bd93b662481c4af9511ec" kindref="member">rawLatStr</ref>()<sp/>{<sp/>updated<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rawLatStrData;<sp/>}</highlight></codeline>
+<codeline lineno="66" refid="struct_tiny_g_p_s_location_1a71140428381c5c38e901cc602ef47f68" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="struct_tiny_g_p_s_location_1a71140428381c5c38e901cc602ef47f68" kindref="member">rawLngStr</ref>()<sp/>{<sp/>updated<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rawLngStrData;<sp/>}</highlight></codeline>
+<codeline lineno="67" refid="struct_tiny_g_p_s_location_1a86c3acea4f317b427eebb667e4d05a49" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_location_1a86c3acea4f317b427eebb667e4d05a49" kindref="member">lat</ref>();</highlight></codeline>
+<codeline lineno="68" refid="struct_tiny_g_p_s_location_1a544e9009a5580b2fd5466821a5e5b782" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_location_1a544e9009a5580b2fd5466821a5e5b782" kindref="member">lng</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="struct_tiny_g_p_s_location_1a9bc435af16c3c5224fcd4b5c40d0c70f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="struct_tiny_g_p_s_location_1a9bc435af16c3c5224fcd4b5c40d0c70f" kindref="member">TinyGPSLocation</ref>()<sp/>:<sp/>valid(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref>),<sp/>updated(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref>)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>valid,<sp/>updated;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><ref refid="struct_raw_degrees" kindref="compound">RawDegrees</ref><sp/>rawLatData,<sp/>rawLngData,<sp/>rawNewLatData,<sp/>rawNewLngData;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>rawLatStrData[10],<sp/>rawNewLatStrData[10],<sp/>rawLngStrData[11],<sp/>rawNewLngStrData[11];</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/>lastCommitTime;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>commit();</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setLatitude(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*term);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setLongitude(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*term);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_tiny_g_p_s_date" kindref="compound">TinyGPSDate</ref></highlight></codeline>
+<codeline lineno="84"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="87" refid="struct_tiny_g_p_s_date_1a3ae7825f840ef4ba0ecddbc22f741817" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_date_1a3ae7825f840ef4ba0ecddbc22f741817" kindref="member">isValid</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>valid;<sp/>}</highlight></codeline>
+<codeline lineno="88" refid="struct_tiny_g_p_s_date_1a1b913837130bb49ecd309eaf6bc205b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_date_1a1b913837130bb49ecd309eaf6bc205b1" kindref="member">isUpdated</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>updated;<sp/>}</highlight></codeline>
+<codeline lineno="89" refid="struct_tiny_g_p_s_date_1af8b9c057a28dcb490081fcfde2a0ee11" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_tiny_g_p_s_date_1af8b9c057a28dcb490081fcfde2a0ee11" kindref="member">age</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>valid<sp/>?<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>()<sp/>-<sp/>lastCommitTime<sp/>:<sp/>(uint32_t)<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ULONG_MAX</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="struct_tiny_g_p_s_date_1a718150ae16f68afa9ae81f9d1b3ce3f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_tiny_g_p_s_date_1a718150ae16f68afa9ae81f9d1b3ce3f4" kindref="member">value</ref>()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>updated<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>date;<sp/>}</highlight></codeline>
+<codeline lineno="92" refid="struct_tiny_g_p_s_date_1ae2cc914fec377b429d99f01204f50d60" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint16_t<sp/><ref refid="struct_tiny_g_p_s_date_1ae2cc914fec377b429d99f01204f50d60" kindref="member">year</ref>();</highlight></codeline>
+<codeline lineno="93" refid="struct_tiny_g_p_s_date_1a6f3c5b4e72ef28b010f94ac9016315f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint8_t<sp/><ref refid="struct_tiny_g_p_s_date_1a6f3c5b4e72ef28b010f94ac9016315f3" kindref="member">month</ref>();</highlight></codeline>
+<codeline lineno="94" refid="struct_tiny_g_p_s_date_1ae8cc5f80c49e328f792d168a44062000" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint8_t<sp/><ref refid="struct_tiny_g_p_s_date_1ae8cc5f80c49e328f792d168a44062000" kindref="member">day</ref>();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="struct_tiny_g_p_s_date_1a4d5f23eb008cbfd385343687bf902003" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="struct_tiny_g_p_s_date_1a4d5f23eb008cbfd385343687bf902003" kindref="member">TinyGPSDate</ref>()<sp/>:<sp/>valid(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref>),<sp/>updated(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref>),<sp/>date(0)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>valid,<sp/>updated;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/>date,<sp/>newDate;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/>lastCommitTime;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>commit();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setDate(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*term);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_tiny_g_p_s_time" kindref="compound">TinyGPSTime</ref></highlight></codeline>
+<codeline lineno="108"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref>;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="111" refid="struct_tiny_g_p_s_time_1a46b2dc7a7946885b509b9a2f83ae655c" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_time_1a46b2dc7a7946885b509b9a2f83ae655c" kindref="member">isValid</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>valid;<sp/>}</highlight></codeline>
+<codeline lineno="112" refid="struct_tiny_g_p_s_time_1a0d6434dc19675d214f58347d513e7c69" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_time_1a0d6434dc19675d214f58347d513e7c69" kindref="member">isUpdated</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>updated;<sp/>}</highlight></codeline>
+<codeline lineno="113" refid="struct_tiny_g_p_s_time_1ae0aba0cbd875a3e1fe5d7872171e79fc" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_tiny_g_p_s_time_1ae0aba0cbd875a3e1fe5d7872171e79fc" kindref="member">age</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>valid<sp/>?<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>()<sp/>-<sp/>lastCommitTime<sp/>:<sp/>(uint32_t)<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ULONG_MAX</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="struct_tiny_g_p_s_time_1afcdb632fee9d144b1414c9d7b95719f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_tiny_g_p_s_time_1afcdb632fee9d144b1414c9d7b95719f1" kindref="member">value</ref>()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>updated<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>time;<sp/>}</highlight></codeline>
+<codeline lineno="116" refid="struct_tiny_g_p_s_time_1a37fdb629b6ed0e31134214c7d07df2b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint8_t<sp/><ref refid="struct_tiny_g_p_s_time_1a37fdb629b6ed0e31134214c7d07df2b1" kindref="member">hour</ref>();</highlight></codeline>
+<codeline lineno="117" refid="struct_tiny_g_p_s_time_1aef83c20c14d404219299da2d7e35cdce" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint8_t<sp/><ref refid="struct_tiny_g_p_s_time_1aef83c20c14d404219299da2d7e35cdce" kindref="member">minute</ref>();</highlight></codeline>
+<codeline lineno="118" refid="struct_tiny_g_p_s_time_1a729cab36ced07eb5607503663fbe33e8" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint8_t<sp/><ref refid="struct_tiny_g_p_s_time_1a729cab36ced07eb5607503663fbe33e8" kindref="member">second</ref>();</highlight></codeline>
+<codeline lineno="119" refid="struct_tiny_g_p_s_time_1a1f74ad4a2a53e0ee19f8e3a6b2bc985f" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint8_t<sp/><ref refid="struct_tiny_g_p_s_time_1a1f74ad4a2a53e0ee19f8e3a6b2bc985f" kindref="member">centisecond</ref>();</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="struct_tiny_g_p_s_time_1abd6dd7a576fd42cd6980c92eec77ab1d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="struct_tiny_g_p_s_time_1abd6dd7a576fd42cd6980c92eec77ab1d" kindref="member">TinyGPSTime</ref>()<sp/>:<sp/>valid(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref>),<sp/>updated(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref>),<sp/>time(0)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>valid,<sp/>updated;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/>time,<sp/>newTime;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/>lastCommitTime;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>commit();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setTime(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*term);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_tiny_g_p_s_decimal" kindref="compound">TinyGPSDecimal</ref></highlight></codeline>
+<codeline lineno="133"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref>;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="136" refid="struct_tiny_g_p_s_decimal_1a34e6448314c198fa204dfb22cd24fc7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_decimal_1a34e6448314c198fa204dfb22cd24fc7e" kindref="member">isValid</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>valid;<sp/>}</highlight></codeline>
+<codeline lineno="137" refid="struct_tiny_g_p_s_decimal_1a8c7fd3ccd678b195d8f23bd1cb31d9ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_decimal_1a8c7fd3ccd678b195d8f23bd1cb31d9ba" kindref="member">isUpdated</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>updated;<sp/>}</highlight></codeline>
+<codeline lineno="138" refid="struct_tiny_g_p_s_decimal_1a041cada3e406205d0878c9819eddbbbb" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_tiny_g_p_s_decimal_1a041cada3e406205d0878c9819eddbbbb" kindref="member">age</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>valid<sp/>?<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>()<sp/>-<sp/>lastCommitTime<sp/>:<sp/>(uint32_t)<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ULONG_MAX</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="139" refid="struct_tiny_g_p_s_decimal_1ac3ce80976e5d8456e9f211b910a6cb19" refkind="member"><highlight class="normal"><sp/><sp/><sp/>int32_t<sp/><ref refid="struct_tiny_g_p_s_decimal_1ac3ce80976e5d8456e9f211b910a6cb19" kindref="member">value</ref>()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>updated<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>val;<sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141" refid="struct_tiny_g_p_s_decimal_1ae09cbb1856cd57c7dcee52fb5fb1ba16" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="struct_tiny_g_p_s_decimal_1ae09cbb1856cd57c7dcee52fb5fb1ba16" kindref="member">TinyGPSDecimal</ref>()<sp/>:<sp/>valid(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref>),<sp/>updated(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref>),<sp/>val(0)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>valid,<sp/>updated;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/>lastCommitTime;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/>int32_t<sp/>val,<sp/>newval;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>commit();</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>set(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*term);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_tiny_g_p_s_integer" kindref="compound">TinyGPSInteger</ref></highlight></codeline>
+<codeline lineno="153"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref>;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="156" refid="struct_tiny_g_p_s_integer_1a3a76131645f7604b3f3e759b90f9373f" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_integer_1a3a76131645f7604b3f3e759b90f9373f" kindref="member">isValid</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>valid;<sp/>}</highlight></codeline>
+<codeline lineno="157" refid="struct_tiny_g_p_s_integer_1a35234fdeeffdb934a93740db1aefa6a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_integer_1a35234fdeeffdb934a93740db1aefa6a5" kindref="member">isUpdated</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>updated;<sp/>}</highlight></codeline>
+<codeline lineno="158" refid="struct_tiny_g_p_s_integer_1aabd55511befbd769155c69e0c1208691" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_tiny_g_p_s_integer_1aabd55511befbd769155c69e0c1208691" kindref="member">age</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>valid<sp/>?<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>()<sp/>-<sp/>lastCommitTime<sp/>:<sp/>(uint32_t)<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ULONG_MAX</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="159" refid="struct_tiny_g_p_s_integer_1a67de7e76d61dbd25eb32f701d8ce867b" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_tiny_g_p_s_integer_1a67de7e76d61dbd25eb32f701d8ce867b" kindref="member">value</ref>()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>updated<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>val;<sp/>}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="struct_tiny_g_p_s_integer_1a017a71970fa652964a9e71b7ec945cec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="struct_tiny_g_p_s_integer_1a017a71970fa652964a9e71b7ec945cec" kindref="member">TinyGPSInteger</ref>()<sp/>:<sp/>valid(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref>),<sp/>updated(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref>),<sp/>val(0)</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>valid,<sp/>updated;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/>lastCommitTime;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/>val,<sp/>newval;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>commit();</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>set(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*term);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_tiny_g_p_s_speed" kindref="compound">TinyGPSSpeed</ref><sp/>:<sp/><ref refid="struct_tiny_g_p_s_decimal" kindref="compound">TinyGPSDecimal</ref></highlight></codeline>
+<codeline lineno="173"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="174" refid="struct_tiny_g_p_s_speed_1aa3a38ce4ece3d8062c794b73f260395e" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_speed_1aa3a38ce4ece3d8062c794b73f260395e" kindref="member">knots</ref>()<sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_decimal_1ac3ce80976e5d8456e9f211b910a6cb19" kindref="member">value</ref>()<sp/>/<sp/>100.0;<sp/>}</highlight></codeline>
+<codeline lineno="175" refid="struct_tiny_g_p_s_speed_1a1809120167961ea9a85e860a964b1c6e" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_speed_1a1809120167961ea9a85e860a964b1c6e" kindref="member">mph</ref>()<sp/><sp/><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="src_2_tiny_g_p_s_09_09_8h_1a15c78046c05b411cbcb3f93b7a452a97" kindref="member">_GPS_MPH_PER_KNOT</ref><sp/>*<sp/><ref refid="struct_tiny_g_p_s_decimal_1ac3ce80976e5d8456e9f211b910a6cb19" kindref="member">value</ref>()<sp/>/<sp/>100.0;<sp/>}</highlight></codeline>
+<codeline lineno="176" refid="struct_tiny_g_p_s_speed_1aacee536241e810cdf4ba7846d6c202cb" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_speed_1aacee536241e810cdf4ba7846d6c202cb" kindref="member">mps</ref>()<sp/><sp/><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="src_2_tiny_g_p_s_09_09_8h_1a54cbb270522b52fe2c0f14eab76f032b" kindref="member">_GPS_MPS_PER_KNOT</ref><sp/>*<sp/><ref refid="struct_tiny_g_p_s_decimal_1ac3ce80976e5d8456e9f211b910a6cb19" kindref="member">value</ref>()<sp/>/<sp/>100.0;<sp/>}</highlight></codeline>
+<codeline lineno="177" refid="struct_tiny_g_p_s_speed_1a7fee3c8f9f2fcc5f4a517bd6108f79dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_speed_1a7fee3c8f9f2fcc5f4a517bd6108f79dd" kindref="member">kmph</ref>()<sp/><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="src_2_tiny_g_p_s_09_09_8h_1a757cab8e33085416dbafbc05cf71f6a9" kindref="member">_GPS_KMPH_PER_KNOT</ref><sp/>*<sp/><ref refid="struct_tiny_g_p_s_decimal_1ac3ce80976e5d8456e9f211b910a6cb19" kindref="member">value</ref>()<sp/>/<sp/>100.0;<sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_tiny_g_p_s_course" kindref="compound">TinyGPSCourse</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_decimal" kindref="compound">TinyGPSDecimal</ref></highlight></codeline>
+<codeline lineno="181"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="182" refid="struct_tiny_g_p_s_course_1a76dc8ae6c2fe5ead9b44c8d53a3272ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_course_1a76dc8ae6c2fe5ead9b44c8d53a3272ca" kindref="member">deg</ref>()<sp/><sp/><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_decimal_1ac3ce80976e5d8456e9f211b910a6cb19" kindref="member">value</ref>()<sp/>/<sp/>100.0;<sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_tiny_g_p_s_altitude" kindref="compound">TinyGPSAltitude</ref><sp/>:<sp/><ref refid="struct_tiny_g_p_s_decimal" kindref="compound">TinyGPSDecimal</ref></highlight></codeline>
+<codeline lineno="186"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="187" refid="struct_tiny_g_p_s_altitude_1a5a39d145bb1778814007206c765189f7" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_altitude_1a5a39d145bb1778814007206c765189f7" kindref="member">meters</ref>()<sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_decimal_1ac3ce80976e5d8456e9f211b910a6cb19" kindref="member">value</ref>()<sp/>/<sp/>100.0;<sp/>}</highlight></codeline>
+<codeline lineno="188" refid="struct_tiny_g_p_s_altitude_1a5ae68d990ea08d4e21cfa6aefb46cc03" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_altitude_1a5ae68d990ea08d4e21cfa6aefb46cc03" kindref="member">miles</ref>()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="src_2_tiny_g_p_s_09_09_8h_1a51d2cc47a0dc5655cde4135c24fef480" kindref="member">_GPS_MILES_PER_METER</ref><sp/>*<sp/><ref refid="struct_tiny_g_p_s_decimal_1ac3ce80976e5d8456e9f211b910a6cb19" kindref="member">value</ref>()<sp/>/<sp/>100.0;<sp/>}</highlight></codeline>
+<codeline lineno="189" refid="struct_tiny_g_p_s_altitude_1a1eb3e5b425784fc0db3e9ffe0f77f741" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_altitude_1a1eb3e5b425784fc0db3e9ffe0f77f741" kindref="member">kilometers</ref>()<sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="src_2_tiny_g_p_s_09_09_8h_1a49b3ac6a23c4f78931942c51810e3439" kindref="member">_GPS_KM_PER_METER</ref><sp/>*<sp/><ref refid="struct_tiny_g_p_s_decimal_1ac3ce80976e5d8456e9f211b910a6cb19" kindref="member">value</ref>()<sp/>/<sp/>100.0;<sp/>}</highlight></codeline>
+<codeline lineno="190" refid="struct_tiny_g_p_s_altitude_1ac782babc0c485d47e6f57384e88b8cc8" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_altitude_1ac782babc0c485d47e6f57384e88b8cc8" kindref="member">feet</ref>()<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="src_2_tiny_g_p_s_09_09_8h_1af1a3b64121f34d416925518e994b454f" kindref="member">_GPS_FEET_PER_METER</ref><sp/>*<sp/><ref refid="struct_tiny_g_p_s_decimal_1ac3ce80976e5d8456e9f211b910a6cb19" kindref="member">value</ref>()<sp/>/<sp/>100.0;<sp/>}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_tiny_g_p_s_h_d_o_p" kindref="compound">TinyGPSHDOP</ref><sp/>:<sp/><ref refid="struct_tiny_g_p_s_decimal" kindref="compound">TinyGPSDecimal</ref></highlight></codeline>
+<codeline lineno="194"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="195" refid="struct_tiny_g_p_s_h_d_o_p_1a27cd35588c96eefb690bba46497d20d7" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_h_d_o_p_1a27cd35588c96eefb690bba46497d20d7" kindref="member">hdop</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="struct_tiny_g_p_s_decimal_1ac3ce80976e5d8456e9f211b910a6cb19" kindref="member">value</ref>()<sp/>/<sp/>100.0;<sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref>;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_tiny_g_p_s_custom" kindref="compound">TinyGPSCustom</ref></highlight></codeline>
+<codeline lineno="200"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="202" refid="class_tiny_g_p_s_custom_1ac82fa99f3bcd9811377dd5fa3e9e98c7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="class_tiny_g_p_s_custom_1ac82fa99f3bcd9811377dd5fa3e9e98c7" kindref="member">TinyGPSCustom</ref>()<sp/>{};</highlight></codeline>
+<codeline lineno="203" refid="class_tiny_g_p_s_custom_1a29b2a658bf95d8e6265e983b1c0251b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="class_tiny_g_p_s_custom_1a29b2a658bf95d8e6265e983b1c0251b5" kindref="member">TinyGPSCustom</ref>(<ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref><sp/>&amp;<ref refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" kindref="member">gps</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sentenceName,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>termNumber);</highlight></codeline>
+<codeline lineno="204" refid="class_tiny_g_p_s_custom_1a3bf972f7e2e7e3f483071630e5ca8355" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_tiny_g_p_s_custom_1a3bf972f7e2e7e3f483071630e5ca8355" kindref="member">begin</ref>(<ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref><sp/>&amp;<ref refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" kindref="member">gps</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">_sentenceName</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">_termNumber</ref>);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206" refid="class_tiny_g_p_s_custom_1ac735cdd0adb996de1d86bdcc15090977" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_tiny_g_p_s_custom_1ac735cdd0adb996de1d86bdcc15090977" kindref="member">isUpdated</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>updated;<sp/>}</highlight></codeline>
+<codeline lineno="207" refid="class_tiny_g_p_s_custom_1a6cc9903b3c45a321962642440204afeb" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_tiny_g_p_s_custom_1a6cc9903b3c45a321962642440204afeb" kindref="member">isValid</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>valid;<sp/>}</highlight></codeline>
+<codeline lineno="208" refid="class_tiny_g_p_s_custom_1af5347ee2785bca9acb5a0f16fcc68ea0" refkind="member"><highlight class="normal"><sp/><sp/><sp/>uint32_t<sp/><ref refid="class_tiny_g_p_s_custom_1af5347ee2785bca9acb5a0f16fcc68ea0" kindref="member">age</ref>()</highlight><highlight class="keyword"><sp/>const<sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>valid<sp/>?<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>()<sp/>-<sp/>lastCommitTime<sp/>:<sp/>(uint32_t)<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ULONG_MAX</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="209" refid="class_tiny_g_p_s_custom_1a03bb66f8d3e078b21c8a5033a88d8a32" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="class_tiny_g_p_s_custom_1a03bb66f8d3e078b21c8a5033a88d8a32" kindref="member">value</ref>()<sp/><sp/><sp/><sp/><sp/>{<sp/>updated<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>buffer;<sp/>}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>commit();</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>set(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*term);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>stagingBuffer[<ref refid="src_2_tiny_g_p_s_09_09_8h_1ad31ceaaeae16e1ff8e13640e3b012de3" kindref="member">_GPS_MAX_FIELD_SIZE</ref><sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buffer[<ref refid="src_2_tiny_g_p_s_09_09_8h_1ad31ceaaeae16e1ff8e13640e3b012de3" kindref="member">_GPS_MAX_FIELD_SIZE</ref><sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>lastCommitTime;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>valid,<sp/>updated;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sentenceName;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>termNumber;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref>;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><ref refid="class_tiny_g_p_s_custom" kindref="compound">TinyGPSCustom</ref><sp/>*next;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref></highlight></codeline>
+<codeline lineno="226"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_g_p_s_sensor" kindref="compound">GPSSensor</ref>;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="230" refid="class_tiny_g_p_s_plus_1a3d9173312d514abf50bd43efe6bf6af3" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_tiny_g_p_s_plus_1a3d9173312d514abf50bd43efe6bf6af3" kindref="member">TinyGPSPlus</ref>();</highlight></codeline>
+<codeline lineno="231" refid="class_tiny_g_p_s_plus_1ad7b78320b7e4967df17c6a27008a5154" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_tiny_g_p_s_plus_1ad7b78320b7e4967df17c6a27008a5154" kindref="member">encode</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">c</ref>);<sp/></highlight><highlight class="comment">//<sp/>process<sp/>one<sp/>character<sp/>received<sp/>from<sp/>GPS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232" refid="class_tiny_g_p_s_plus_1a05c12d268eddf254a9846bc34935a73c" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref><sp/>&amp;<ref refid="class_tiny_g_p_s_plus_1a05c12d268eddf254a9846bc34935a73c" kindref="member">operator &lt;&lt; </ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">c</ref>)<sp/>{<ref refid="class_tiny_g_p_s_plus_1ad7b78320b7e4967df17c6a27008a5154" kindref="member">encode</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">c</ref>);<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><ref refid="struct_tiny_g_p_s_location" kindref="compound">TinyGPSLocation</ref><sp/><ref refid="class_tiny_g_p_s_plus_1a886255f412f8e01f84e5104d36315fb3" kindref="member">location</ref>;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><ref refid="struct_tiny_g_p_s_date" kindref="compound">TinyGPSDate</ref><sp/><ref refid="class_tiny_g_p_s_plus_1a83a70812b432d7f51c7c735bfe7be0f0" kindref="member">date</ref>;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><ref refid="struct_tiny_g_p_s_time" kindref="compound">TinyGPSTime</ref><sp/><ref refid="class_tiny_g_p_s_plus_1a377c975527fa24b45fb86356505eb134" kindref="member">time</ref>;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><ref refid="struct_tiny_g_p_s_speed" kindref="compound">TinyGPSSpeed</ref><sp/><ref refid="class_tiny_g_p_s_plus_1aa085c3e72a399a829dd92af52b373404" kindref="member">speed</ref>;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><ref refid="struct_tiny_g_p_s_course" kindref="compound">TinyGPSCourse</ref><sp/><ref refid="class_tiny_g_p_s_plus_1ad7800d3decbe58e355f5229bba231868" kindref="member">course</ref>;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><ref refid="struct_tiny_g_p_s_altitude" kindref="compound">TinyGPSAltitude</ref><sp/><ref refid="class_tiny_g_p_s_plus_1a0b3451a4ee75e5880ffd88c3038eacf8" kindref="member">altitude</ref>;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><ref refid="struct_tiny_g_p_s_integer" kindref="compound">TinyGPSInteger</ref><sp/><ref refid="class_tiny_g_p_s_plus_1a5fb47066d1d03f4bb5853529053aab48" kindref="member">satellites</ref>;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><ref refid="struct_tiny_g_p_s_h_d_o_p" kindref="compound">TinyGPSHDOP</ref><sp/><ref refid="class_tiny_g_p_s_plus_1a0bb6a7eb2d0261095911d71c8c067546" kindref="member">hdop</ref>;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243" refid="class_tiny_g_p_s_plus_1a9cf0da36b5237ea295b4544f4a6d2273" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="class_tiny_g_p_s_plus_1a9cf0da36b5237ea295b4544f4a6d2273" kindref="member">libraryVersion</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="src_2_tiny_g_p_s_09_09_8h_1a210404d704c58b910ecee5bd7e97a7dc" kindref="member">_GPS_VERSION</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight></codeline>
+<codeline lineno="245" refid="class_tiny_g_p_s_plus_1add9aef227cf2836b53cbdfed5133bb4d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_tiny_g_p_s_plus_1add9aef227cf2836b53cbdfed5133bb4d" kindref="member">distanceBetween</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">lat1</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">long1</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">lat2</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">long2</ref>);</highlight></codeline>
+<codeline lineno="246" refid="class_tiny_g_p_s_plus_1a82b8fff820573de45c9ae98df3abbdfa" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_tiny_g_p_s_plus_1a82b8fff820573de45c9ae98df3abbdfa" kindref="member">courseTo</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">lat1</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">long1</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">lat2</ref>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">long2</ref>);</highlight></codeline>
+<codeline lineno="247" refid="class_tiny_g_p_s_plus_1a288b2da8a18e7660377f376372892a58" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="class_tiny_g_p_s_plus_1a288b2da8a18e7660377f376372892a58" kindref="member">cardinal</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="class_tiny_g_p_s_plus_1ad7800d3decbe58e355f5229bba231868" kindref="member">course</ref>);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249" refid="class_tiny_g_p_s_plus_1afd333e29a6a337affc6531183d716e04" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>int32_t<sp/><ref refid="class_tiny_g_p_s_plus_1afd333e29a6a337affc6531183d716e04" kindref="member">parseDecimal</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*term);</highlight></codeline>
+<codeline lineno="250" refid="class_tiny_g_p_s_plus_1ad17b86db786450c5c7249aba98090954" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_tiny_g_p_s_plus_1ad17b86db786450c5c7249aba98090954" kindref="member">parseDegrees</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*term,<sp/><ref refid="struct_raw_degrees" kindref="compound">RawDegrees</ref><sp/>&amp;deg);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252" refid="class_tiny_g_p_s_plus_1addfc1fdbfddfeef2774dda1be42cdd55" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="class_tiny_g_p_s_plus_1addfc1fdbfddfeef2774dda1be42cdd55" kindref="member">charsProcessed</ref>()</highlight><highlight class="keyword"><sp/><sp/><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>encodedCharCount;<sp/>}</highlight></codeline>
+<codeline lineno="253" refid="class_tiny_g_p_s_plus_1a8093eef1ee9f97b5293f1048320756e3" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="class_tiny_g_p_s_plus_1a8093eef1ee9f97b5293f1048320756e3" kindref="member">sentencesWithFix</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sentencesWithFixCount;<sp/>}</highlight></codeline>
+<codeline lineno="254" refid="class_tiny_g_p_s_plus_1af7dc415ad7cf13f01ca2eaead8a4ade2" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="class_tiny_g_p_s_plus_1af7dc415ad7cf13f01ca2eaead8a4ade2" kindref="member">failedChecksum</ref>()</highlight><highlight class="keyword"><sp/><sp/><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>failedChecksumCount;<sp/>}</highlight></codeline>
+<codeline lineno="255" refid="class_tiny_g_p_s_plus_1a54c027a84bdeed40ac25bb54010d7c96" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="class_tiny_g_p_s_plus_1a54c027a84bdeed40ac25bb54010d7c96" kindref="member">passedChecksum</ref>()</highlight><highlight class="keyword"><sp/><sp/><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>passedChecksumCount;<sp/>}</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{GPS_SENTENCE_GPGGA,<sp/>GPS_SENTENCE_GPRMC,<sp/>GPS_SENTENCE_OTHER};</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>parsing<sp/>state<sp/>variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/>uint8_t<sp/>parity;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isChecksumTerm;</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>term[<ref refid="src_2_tiny_g_p_s_09_09_8h_1ad31ceaaeae16e1ff8e13640e3b012de3" kindref="member">_GPS_MAX_FIELD_SIZE</ref>];</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/>uint8_t<sp/>curSentenceType;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/>uint8_t<sp/>curTermNumber;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/>uint8_t<sp/>curTermOffset;</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>sentenceHasFix;</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>custom<sp/>element<sp/>support</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_tiny_g_p_s_custom" kindref="compound">TinyGPSCustom</ref>;</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><ref refid="class_tiny_g_p_s_custom" kindref="compound">TinyGPSCustom</ref><sp/>*customElts;</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><ref refid="class_tiny_g_p_s_custom" kindref="compound">TinyGPSCustom</ref><sp/>*customCandidates;</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>insertCustom(<ref refid="class_tiny_g_p_s_custom" kindref="compound">TinyGPSCustom</ref><sp/>*<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">pElt</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*sentenceName,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">index</ref>);</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>statistics</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/>uint32_t<sp/>encodedCharCount;</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/>uint32_t<sp/>sentencesWithFixCount;</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/>uint32_t<sp/>failedChecksumCount;</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/>uint32_t<sp/>passedChecksumCount;</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>internal<sp/>utilities</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fromHex(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">a</ref>);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>endOfTermHandler();</highlight></codeline>
+<codeline lineno="284"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>def(__TinyGPSPlus_h)</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h"/>
+  </compounddef>
+</doxygen>

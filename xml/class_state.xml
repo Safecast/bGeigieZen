@@ -1,0 +1,519 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_state" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>State</compoundname>
+    <derivedcompoundref refid="class_state_logging" prot="public" virt="non-virtual">StateLogging</derivedcompoundref>
+    <derivedcompoundref refid="class_state_logging" prot="public" virt="non-virtual">StateLogging</derivedcompoundref>
+    <derivedcompoundref refid="class_state_startup" prot="public" virt="non-virtual">StateStartup</derivedcompoundref>
+    <derivedcompoundref refid="class_state_startup" prot="public" virt="non-virtual">StateStartup</derivedcompoundref>
+    <derivedcompoundref refid="class_state_wait_g_p_s_time" prot="public" virt="non-virtual">StateWaitGPSTime</derivedcompoundref>
+    <derivedcompoundref refid="class_state_wait_g_p_s_time" prot="public" virt="non-virtual">StateWaitGPSTime</derivedcompoundref>
+    <includes refid="include_2fsm__state__base_8hpp" local="no">fsm_state_base.hpp</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_state_1a92a578f1318bfa1f095d00e8621f4d41" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_context" kindref="compound">Context</ref> *</type>
+        <definition>Context * State::_ctx</definition>
+        <argsstring></argsstring>
+        <name>_ctx</name>
+        <qualifiedname>State::_ctx</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">NULL</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_state_base.hpp" line="21" column="13" bodyfile="archive/bgeigie_firmware_pio/include/fsm_state_base.hpp" bodystart="21" bodyend="-1"/>
+        <referencedby refid="class_state_1a3c1399d4cb6c84dfa4d8ba0ee71e2ce5" compoundref="include_2fsm__state__base_8hpp" startline="24" endline="27">enter</referencedby>
+        <referencedby refid="class_state_1a0d945aef6435c50896e9815b17a37e7c" compoundref="src_2fsm__state__base_8hpp" startline="24" endline="27">enter</referencedby>
+        <referencedby refid="class_state_1ae5e43afacaf6c1a35c07f0d3622f6e86" compoundref="include_2fsm__state__base_8hpp" startline="28" endline="31">exit</referencedby>
+        <referencedby refid="class_state_1a795215fb9fb25a27292ea72b1ab989b9" compoundref="src_2fsm__state__base_8hpp" startline="28" endline="31">exit</referencedby>
+        <referencedby refid="class_state_startup_1aa18d08fdc8b18a4b9711a10075d992f8" compoundref="fsm__state__concrete_8cpp" startline="10" endline="13">StateStartup::on_enter</referencedby>
+        <referencedby refid="class_state_wait_g_p_s_time_1a5afbcebf690e8a8eadc30a7795d9a907" compoundref="fsm__state__concrete_8cpp" startline="35" endline="45">StateWaitGPSTime::on_exit</referencedby>
+        <referencedby refid="class_state_wait_g_p_s_time_1a6953188f692b1a2d0e8d6ab42f6b7685" compoundref="fsm__state__concrete_8cpp" startline="25" endline="34">StateWaitGPSTime::process</referencedby>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_state_1ab91bb1dd5aa6260ab2a456581daf9ec2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>State::State</definition>
+        <argsstring>()</argsstring>
+        <name>State</name>
+        <qualifiedname>State::State</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_state_base.hpp" line="23" column="5" bodyfile="archive/bgeigie_firmware_pio/include/fsm_state_base.hpp" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1a3c1399d4cb6c84dfa4d8ba0ee71e2ce5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void State::enter</definition>
+        <argsstring>(Context *ctx, bGeigieZen::Event e)</argsstring>
+        <name>enter</name>
+        <qualifiedname>State::enter</qualifiedname>
+        <param>
+          <type><ref refid="class_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785" kindref="member">bGeigieZen::Event</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_state_base.hpp" line="24" column="10" bodyfile="archive/bgeigie_firmware_pio/include/fsm_state_base.hpp" bodystart="24" bodyend="27"/>
+        <references refid="class_state_1a92a578f1318bfa1f095d00e8621f4d41" compoundref="include_2fsm__state__base_8hpp" startline="21">_ctx</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_state_1afc63f032dab5bd57dc2a9570e7e0d57c">on_enter</references>
+        <referencedby refid="class_context_1a33b213d58cb2d6bd4e2affdd5416e9be" compoundref="fsm__context_8cpp" startline="84" endline="88">Context::transition_to</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1ae5e43afacaf6c1a35c07f0d3622f6e86" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void State::exit</definition>
+        <argsstring>(bGeigieZen::Event e)</argsstring>
+        <name>exit</name>
+        <qualifiedname>State::exit</qualifiedname>
+        <param>
+          <type><ref refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785" kindref="member">bGeigieZen::Event</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_state_base.hpp" line="28" column="10" bodyfile="archive/bgeigie_firmware_pio/include/fsm_state_base.hpp" bodystart="28" bodyend="31"/>
+        <references refid="class_state_1a92a578f1318bfa1f095d00e8621f4d41" compoundref="include_2fsm__state__base_8hpp" startline="21">_ctx</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_state_1a1bfe3a368211f8722ba22dbab6dc1c68">on_exit</references>
+        <referencedby refid="class_context_1a33b213d58cb2d6bd4e2affdd5416e9be" compoundref="fsm__context_8cpp" startline="84" endline="88">Context::transition_to</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1afc63f032dab5bd57dc2a9570e7e0d57c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>virtual void State::on_enter</definition>
+        <argsstring>(bGeigieZen::Event e)=0</argsstring>
+        <name>on_enter</name>
+        <qualifiedname>State::on_enter</qualifiedname>
+        <reimplementedby refid="class_state_startup_1aa18d08fdc8b18a4b9711a10075d992f8">on_enter</reimplementedby>
+        <reimplementedby refid="class_state_wait_g_p_s_time_1ae7e0b7274b8bacc1c930e003ae929dec">on_enter</reimplementedby>
+        <reimplementedby refid="class_state_logging_1a0f11046bb045448f1a943c528e966d00">on_enter</reimplementedby>
+        <param>
+          <type><ref refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785" kindref="member">bGeigieZen::Event</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_state_base.hpp" line="32" column="18"/>
+        <referencedby refid="class_state_1a3c1399d4cb6c84dfa4d8ba0ee71e2ce5" compoundref="include_2fsm__state__base_8hpp" startline="24" endline="27">enter</referencedby>
+        <referencedby refid="class_state_1a0d945aef6435c50896e9815b17a37e7c" compoundref="src_2fsm__state__base_8hpp" startline="24" endline="27">enter</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1a82ef896916bba81b0c818d37af21bf3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>virtual void State::process</definition>
+        <argsstring>()=0</argsstring>
+        <name>process</name>
+        <qualifiedname>State::process</qualifiedname>
+        <reimplementedby refid="class_state_startup_1a19485e9b27923fe6139910a1c8c262fa">process</reimplementedby>
+        <reimplementedby refid="class_state_wait_g_p_s_time_1a6953188f692b1a2d0e8d6ab42f6b7685">process</reimplementedby>
+        <reimplementedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f">process</reimplementedby>
+        <reimplementedby refid="class_state_startup_1a19485e9b27923fe6139910a1c8c262fa">process</reimplementedby>
+        <reimplementedby refid="class_state_wait_g_p_s_time_1a6953188f692b1a2d0e8d6ab42f6b7685">process</reimplementedby>
+        <reimplementedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f">process</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_state_base.hpp" line="33" column="18"/>
+        <referencedby refid="class_context_1a78c450b80877fe560a2abe7a541a118c" compoundref="fsm__context_8cpp" startline="10" endline="17">Context::loop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1a1bfe3a368211f8722ba22dbab6dc1c68" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>virtual void State::on_exit</definition>
+        <argsstring>(bGeigieZen::Event e)=0</argsstring>
+        <name>on_exit</name>
+        <qualifiedname>State::on_exit</qualifiedname>
+        <reimplementedby refid="class_state_startup_1a4436c40ba274291353f87aeac7a13a80">on_exit</reimplementedby>
+        <reimplementedby refid="class_state_wait_g_p_s_time_1a5afbcebf690e8a8eadc30a7795d9a907">on_exit</reimplementedby>
+        <reimplementedby refid="class_state_logging_1a148349f3922acebbf878afca927d8e30">on_exit</reimplementedby>
+        <param>
+          <type><ref refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785" kindref="member">bGeigieZen::Event</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_state_base.hpp" line="34" column="18"/>
+        <referencedby refid="class_state_1ae5e43afacaf6c1a35c07f0d3622f6e86" compoundref="include_2fsm__state__base_8hpp" startline="28" endline="31">exit</referencedby>
+        <referencedby refid="class_state_1a795215fb9fb25a27292ea72b1ab989b9" compoundref="src_2fsm__state__base_8hpp" startline="28" endline="31">exit</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1ab91bb1dd5aa6260ab2a456581daf9ec2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>State::State</definition>
+        <argsstring>()</argsstring>
+        <name>State</name>
+        <qualifiedname>State::State</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_state_base.hpp" line="23" column="5" bodyfile="archive/bgeigie_firmware_pio/src/fsm_state_base.hpp" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1a0d945aef6435c50896e9815b17a37e7c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void State::enter</definition>
+        <argsstring>(Context *ctx, Event e)</argsstring>
+        <name>enter</name>
+        <qualifiedname>State::enter</qualifiedname>
+        <param>
+          <type><ref refid="class_context" kindref="compound">Context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>Event</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_state_base.hpp" line="24" column="10" bodyfile="archive/bgeigie_firmware_pio/src/fsm_state_base.hpp" bodystart="24" bodyend="27"/>
+        <references refid="class_state_1a92a578f1318bfa1f095d00e8621f4d41" compoundref="include_2fsm__state__base_8hpp" startline="21">_ctx</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_state_1afc63f032dab5bd57dc2a9570e7e0d57c">on_enter</references>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1a795215fb9fb25a27292ea72b1ab989b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void State::exit</definition>
+        <argsstring>(Event e)</argsstring>
+        <name>exit</name>
+        <qualifiedname>State::exit</qualifiedname>
+        <param>
+          <type>Event</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_state_base.hpp" line="28" column="10" bodyfile="archive/bgeigie_firmware_pio/src/fsm_state_base.hpp" bodystart="28" bodyend="31"/>
+        <references refid="class_state_1a92a578f1318bfa1f095d00e8621f4d41" compoundref="include_2fsm__state__base_8hpp" startline="21">_ctx</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_state_1a1bfe3a368211f8722ba22dbab6dc1c68">on_exit</references>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1a90c1611b3f58be4640f75da32165bc29" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>virtual void State::on_enter</definition>
+        <argsstring>(Event e)=0</argsstring>
+        <name>on_enter</name>
+        <qualifiedname>State::on_enter</qualifiedname>
+        <reimplementedby refid="class_state_startup_1a7ac68981fbb09d54b448f1905502f668">on_enter</reimplementedby>
+        <reimplementedby refid="class_state_wait_g_p_s_time_1a57115a2417eace7cb3c097ad107eb16d">on_enter</reimplementedby>
+        <reimplementedby refid="class_state_logging_1a299656c3d8d5435a452b9b666f597fe0">on_enter</reimplementedby>
+        <param>
+          <type>Event</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_state_base.hpp" line="32" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1a82ef896916bba81b0c818d37af21bf3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>virtual void State::process</definition>
+        <argsstring>()=0</argsstring>
+        <name>process</name>
+        <qualifiedname>State::process</qualifiedname>
+        <reimplementedby refid="class_state_startup_1a19485e9b27923fe6139910a1c8c262fa">process</reimplementedby>
+        <reimplementedby refid="class_state_wait_g_p_s_time_1a6953188f692b1a2d0e8d6ab42f6b7685">process</reimplementedby>
+        <reimplementedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f">process</reimplementedby>
+        <reimplementedby refid="class_state_startup_1a19485e9b27923fe6139910a1c8c262fa">process</reimplementedby>
+        <reimplementedby refid="class_state_wait_g_p_s_time_1a6953188f692b1a2d0e8d6ab42f6b7685">process</reimplementedby>
+        <reimplementedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f">process</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_state_base.hpp" line="33" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_state_1a5b7bd02d54cb890342a6324439f6f2df" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>virtual void State::on_exit</definition>
+        <argsstring>(Event e)=0</argsstring>
+        <name>on_exit</name>
+        <qualifiedname>State::on_exit</qualifiedname>
+        <reimplementedby refid="class_state_startup_1ae11b8c18cf622da3214a7243e27ccefd">on_exit</reimplementedby>
+        <reimplementedby refid="class_state_wait_g_p_s_time_1aa4c8c32275103c24931f768fca870f49">on_exit</reimplementedby>
+        <reimplementedby refid="class_state_logging_1a464ee3a62e36ee70b9d76410997c6ca6">on_exit</reimplementedby>
+        <param>
+          <type>Event</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_state_base.hpp" line="34" column="18"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>State</label>
+        <link refid="class_state"/>
+      </node>
+      <node id="2">
+        <label>StateLogging</label>
+        <link refid="class_state_logging"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>StateStartup</label>
+        <link refid="class_state_startup"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>StateWaitGPSTime</label>
+        <link refid="class_state_wait_g_p_s_time"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="8">
+        <label>BGeigieLogFormatter</label>
+        <link refid="class_b_geigie_log_formatter"/>
+      </node>
+      <node id="7">
+        <label>BatteryMonitorIP5306</label>
+        <link refid="class_battery_monitor_i_p5306"/>
+      </node>
+      <node id="24">
+        <label>ConfigWebServer</label>
+        <link refid="class_config_web_server"/>
+        <childnode refid="25" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Context</label>
+        <link refid="class_context"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>device_setup</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>geiger_count</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>gps</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>battery_monitor</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>bgeigie_formatter</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>sd_wrapper</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>logger</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>display</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Display</label>
+        <link refid="class_display"/>
+        <childnode refid="12" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>wificonn</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>webserver</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>DisplayData</label>
+        <link refid="struct_display_data"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>device_id</edgelabel>
+          <edgelabel>geiger_cpm</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>gps_satellites</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>gps_altitude</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>gps_speed</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>gps_course</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>gps_location</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>gps_time</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>gps_date</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>battery_level</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>GPSSensor</label>
+        <link refid="class_g_p_s_sensor"/>
+      </node>
+      <node id="4">
+        <label>GeigerCounter</label>
+        <link refid="class_geiger_counter"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>SDLogger</label>
+        <link refid="class_s_d_logger"/>
+      </node>
+      <node id="9">
+        <label>SDWrapper</label>
+        <link refid="class_s_d_wrapper"/>
+      </node>
+      <node id="3">
+        <label>Setup</label>
+        <link refid="class_setup"/>
+      </node>
+      <node id="1">
+        <label>State</label>
+        <link refid="class_state"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>_ctx</edgelabel>
+        </childnode>
+      </node>
+      <node id="15">
+        <label>TinyGPSAltitude</label>
+        <link refid="struct_tiny_g_p_s_altitude"/>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>TinyGPSCourse</label>
+        <link refid="struct_tiny_g_p_s_course"/>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>TinyGPSDate</label>
+        <link refid="struct_tiny_g_p_s_date"/>
+      </node>
+      <node id="16">
+        <label>TinyGPSDecimal</label>
+        <link refid="struct_tiny_g_p_s_decimal"/>
+      </node>
+      <node id="14">
+        <label>TinyGPSInteger</label>
+        <link refid="struct_tiny_g_p_s_integer"/>
+      </node>
+      <node id="19">
+        <label>TinyGPSLocation</label>
+        <link refid="struct_tiny_g_p_s_location"/>
+      </node>
+      <node id="17">
+        <label>TinyGPSSpeed</label>
+        <link refid="struct_tiny_g_p_s_speed"/>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+        <childnode refid="16" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>TinyGPSTime</label>
+        <link refid="struct_tiny_g_p_s_time"/>
+      </node>
+      <node id="23">
+        <label>WiFiConnection</label>
+        <link refid="class_wi_fi_connection"/>
+      </node>
+      <node id="5">
+        <label>Worker&lt; GeigerData &gt;</label>
+      </node>
+      <node id="25">
+        <label>Worker&lt; ServerStatus &gt;</label>
+      </node>
+      <node id="22">
+        <label>int8_t</label>
+      </node>
+      <node id="13">
+        <label>uint32_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="archive/bgeigie_firmware_pio/include/fsm_state_base.hpp" line="19" column="1" bodyfile="archive/bgeigie_firmware_pio/include/fsm_state_base.hpp" bodystart="19" bodyend="35"/>
+    <listofallmembers>
+      <member refid="class_state_1a92a578f1318bfa1f095d00e8621f4d41" prot="protected" virt="non-virtual"><scope>State</scope><name>_ctx</name></member>
+      <member refid="class_state_1a3c1399d4cb6c84dfa4d8ba0ee71e2ce5" prot="public" virt="non-virtual"><scope>State</scope><name>enter</name></member>
+      <member refid="class_state_1a0d945aef6435c50896e9815b17a37e7c" prot="public" virt="non-virtual"><scope>State</scope><name>enter</name></member>
+      <member refid="class_state_1ae5e43afacaf6c1a35c07f0d3622f6e86" prot="public" virt="non-virtual"><scope>State</scope><name>exit</name></member>
+      <member refid="class_state_1a795215fb9fb25a27292ea72b1ab989b9" prot="public" virt="non-virtual"><scope>State</scope><name>exit</name></member>
+      <member refid="class_state_1afc63f032dab5bd57dc2a9570e7e0d57c" prot="public" virt="pure-virtual"><scope>State</scope><name>on_enter</name></member>
+      <member refid="class_state_1a90c1611b3f58be4640f75da32165bc29" prot="public" virt="pure-virtual"><scope>State</scope><name>on_enter</name></member>
+      <member refid="class_state_1a1bfe3a368211f8722ba22dbab6dc1c68" prot="public" virt="pure-virtual"><scope>State</scope><name>on_exit</name></member>
+      <member refid="class_state_1a5b7bd02d54cb890342a6324439f6f2df" prot="public" virt="pure-virtual"><scope>State</scope><name>on_exit</name></member>
+      <member refid="class_state_1a82ef896916bba81b0c818d37af21bf3c" prot="public" virt="pure-virtual"><scope>State</scope><name>process</name></member>
+      <member refid="class_state_1a82ef896916bba81b0c818d37af21bf3c" prot="public" virt="pure-virtual"><scope>State</scope><name>process</name></member>
+      <member refid="class_state_1ab91bb1dd5aa6260ab2a456581daf9ec2" prot="public" virt="non-virtual"><scope>State</scope><name>State</name></member>
+      <member refid="class_state_1ab91bb1dd5aa6260ab2a456581daf9ec2" prot="public" virt="non-virtual"><scope>State</scope><name>State</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1538 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_local_storage" kind="class" language="C++" prot="public">
+    <compoundname>LocalStorage</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ProcessWorker&lt; bool &gt;</basecompoundref>
+    <includes refid="local__storage_8h" local="no">local_storage.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217c" prot="public" static="no" strong="no">
+        <type></type>
+        <name>OperationalMode</name>
+        <qualifiedname>LocalStorage::OperationalMode</qualifiedname>
+        <enumvalue id="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217cac05b6810bb29caecbb222b95e849dc04" prot="public">
+          <name>e_operational_mode_drive</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217ca446644afcec34db806ecb38c71e0647e" prot="public">
+          <name>e_operational_mode_survey</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217ca84bd8bba9f0e018c9e0a70da96ae85c8" prot="public">
+          <name>e_operational_mode_fixed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217ca290aa317f83558d07669d014067cb738" prot="public">
+          <name>e_operational_mode_satellite</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="16" column="3" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="16" bodyend="21"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_local_storage_1a5c812aab122888b63185d0bdc3aa13ed" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Preferences</ref></type>
+        <definition>Preferences LocalStorage::_memory</definition>
+        <argsstring></argsstring>
+        <name>_memory</name>
+        <qualifiedname>LocalStorage::_memory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="84" column="15" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1a0670acbcd5cb16d935d5a9a89d9e4158" prot="private" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t LocalStorage::_device_id</definition>
+        <argsstring></argsstring>
+        <name>_device_id</name>
+        <qualifiedname>LocalStorage::_device_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="87" column="12" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1afedad64d190fb277ffb1c86e56fc8c92" prot="private" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t LocalStorage::_alert_threshold</definition>
+        <argsstring></argsstring>
+        <name>_alert_threshold</name>
+        <qualifiedname>LocalStorage::_alert_threshold</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="88" column="12" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1a91fe86a1501ce42ab62e2ad6cc60b58d" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool LocalStorage::_cpm_usvh</definition>
+        <argsstring></argsstring>
+        <name>_cpm_usvh</name>
+        <qualifiedname>LocalStorage::_cpm_usvh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="89" column="8" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1a42daeb60e2ca45f850ada83e7aeab927" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool LocalStorage::_manual_logging</definition>
+        <argsstring></argsstring>
+        <name>_manual_logging</name>
+        <qualifiedname>LocalStorage::_manual_logging</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="90" column="8" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1a45a19afcb6596576b67e69d3f4faf222" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool LocalStorage::_enable_journal</definition>
+        <argsstring></argsstring>
+        <name>_enable_journal</name>
+        <qualifiedname>LocalStorage::_enable_journal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="91" column="8" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1a720a1327adce05ab3c30d6fbd61dc9fa" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool LocalStorage::_log_void</definition>
+        <argsstring></argsstring>
+        <name>_log_void</name>
+        <qualifiedname>LocalStorage::_log_void</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="92" column="8" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1a06637a98462ed90cb1b865b661c727d8" prot="private" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t LocalStorage::_screen_dim_timeout</definition>
+        <argsstring></argsstring>
+        <name>_screen_dim_timeout</name>
+        <qualifiedname>LocalStorage::_screen_dim_timeout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="93" column="12" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1a49cc9cc5bea9874b6c70321328c6a055" prot="private" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t LocalStorage::_screen_off_timeout</definition>
+        <argsstring></argsstring>
+        <name>_screen_off_timeout</name>
+        <qualifiedname>LocalStorage::_screen_off_timeout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="94" column="12" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1ac3991155a583e48121e51848e0f3b062" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool LocalStorage::_animated_screensaver</definition>
+        <argsstring></argsstring>
+        <name>_animated_screensaver</name>
+        <qualifiedname>LocalStorage::_animated_screensaver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="95" column="8" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1a456a18ef9015bcc92f2b37e37730298a" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char LocalStorage::_ap_password[CONFIG_VAL_MAX]</definition>
+        <argsstring>[CONFIG_VAL_MAX]</argsstring>
+        <name>_ap_password</name>
+        <qualifiedname>LocalStorage::_ap_password</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="96" column="8" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1a9d35d78d7ab2596e32922563265537c5" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char LocalStorage::_wifi_ssid[CONFIG_VAL_MAX]</definition>
+        <argsstring>[CONFIG_VAL_MAX]</argsstring>
+        <name>_wifi_ssid</name>
+        <qualifiedname>LocalStorage::_wifi_ssid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="99" column="8" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1af2d9b5159df12be485327ad614cda4d2" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char LocalStorage::_wifi_password[CONFIG_LONG_VAL_MAX]</definition>
+        <argsstring>[CONFIG_LONG_VAL_MAX]</argsstring>
+        <name>_wifi_password</name>
+        <qualifiedname>LocalStorage::_wifi_password</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="100" column="8" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1a1b976050ac111ada3202a085a57c01a1" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char LocalStorage::_api_key[CONFIG_VAL_MAX]</definition>
+        <argsstring>[CONFIG_VAL_MAX]</argsstring>
+        <name>_api_key</name>
+        <qualifiedname>LocalStorage::_api_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="101" column="8" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1ab821976fc1c68b4b2bece919622870fa" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double LocalStorage::_fixed_longitude</definition>
+        <argsstring></argsstring>
+        <name>_fixed_longitude</name>
+        <qualifiedname>LocalStorage::_fixed_longitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="104" column="10" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1a0d066e62b2c28ccd099f56fedf638c5d" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double LocalStorage::_fixed_latitude</definition>
+        <argsstring></argsstring>
+        <name>_fixed_latitude</name>
+        <qualifiedname>LocalStorage::_fixed_latitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="105" column="10" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1a482e86415f859471ae4293c92a53d4b8" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float LocalStorage::_fixed_range</definition>
+        <argsstring></argsstring>
+        <name>_fixed_range</name>
+        <qualifiedname>LocalStorage::_fixed_range</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="106" column="9" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1a2b18403f4b0729c9bce64f42f571701a" prot="private" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t LocalStorage::_dop_max</definition>
+        <argsstring></argsstring>
+        <name>_dop_max</name>
+        <qualifiedname>LocalStorage::_dop_max</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="107" column="12" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1a3a90b950afb223da1f10c6dba40790e5" prot="private" static="no" mutable="no">
+        <type><ref refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217c" kindref="member">OperationalMode</ref></type>
+        <definition>OperationalMode LocalStorage::_last_mode</definition>
+        <argsstring></argsstring>
+        <name>_last_mode</name>
+        <qualifiedname>LocalStorage::_last_mode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="111" column="19" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1a62201674f819b5f704604f9f9f1f41be" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double LocalStorage::_last_longitude</definition>
+        <argsstring></argsstring>
+        <name>_last_longitude</name>
+        <qualifiedname>LocalStorage::_last_longitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="112" column="10" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_local_storage_1a5d138f791ec3cef49dd0816fb8af5c01" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double LocalStorage::_last_latitude</definition>
+        <argsstring></argsstring>
+        <name>_last_latitude</name>
+        <qualifiedname>LocalStorage::_last_latitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="113" column="10" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_local_storage_1a0b6c01b08888b91281605a865ea1af2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LocalStorage::LocalStorage</definition>
+        <argsstring>()</argsstring>
+        <name>LocalStorage</name>
+        <qualifiedname>LocalStorage::LocalStorage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="23" column="3" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="30" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a25de978ca30dc1686f928e34772c072a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual LocalStorage::~LocalStorage</definition>
+        <argsstring>()=default</argsstring>
+        <name>~LocalStorage</name>
+        <qualifiedname>LocalStorage::~LocalStorage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="24" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a809d095a05789828cc50ee1a4d575844" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::reset_defaults</definition>
+        <argsstring>()</argsstring>
+        <name>reset_defaults</name>
+        <qualifiedname>LocalStorage::reset_defaults</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reset settings to default (defined in user_config) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="29" column="8" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="55" bodyend="79"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_local_storage_1abf645efa025a556a3188b42d5f5590fe" compoundref="local__storage_8cpp" startline="375" endline="384">clear</references>
+        <references refid="user__config_8h_1abe4c502e45b2b84c3b9667723c0ae81d" compoundref="user__config_8h" startline="104">D_ALARM_THRESHOLD</references>
+        <references refid="user__config_8h_1a8e1a5f4448f925e8cfb3878338eef85d" compoundref="user__config_8h" startline="112">D_ANIMATED_SCREENSAVER</references>
+        <references refid="user__config_8h_1afe984c303d2eba85ae72ff51588906a3" compoundref="user__config_8h" startline="103">D_AP_PASSWORD</references>
+        <references refid="user__config_8h_1aaad540fec2007dfd02d97f3e4be96a69" compoundref="user__config_8h" startline="115">D_API_KEY</references>
+        <references refid="user__config_8h_1a6d846f28e6a66e8302af1f540172088c" compoundref="user__config_8h" startline="105">D_CPM_USVH</references>
+        <references refid="user__config_8h_1ab5ab7140802b46e7db66cc9b92b61193" compoundref="user__config_8h" startline="102">D_DEVICE_ID</references>
+        <references refid="user__config_8h_1a54f763f535840cffd2e25e33d8564d08" compoundref="user__config_8h" startline="109">D_DOP_MAX</references>
+        <references refid="user__config_8h_1a840942ce392b3b068c4c5e7d988d04f4" compoundref="user__config_8h" startline="107">D_ENABLE_JOURNAL</references>
+        <references refid="user__config_8h_1a096ffa00860e0db4fb97eaa690efac41" compoundref="user__config_8h" startline="117">D_FIXED_LATITUDE</references>
+        <references refid="user__config_8h_1a8f81e5d632bbab0ac6c1fc8f9feacf0d" compoundref="user__config_8h" startline="116">D_FIXED_LONGITUDE</references>
+        <references refid="user__config_8h_1ac7e9d55a764e6cbb6cd21cf207f6f03f" compoundref="user__config_8h" startline="118">D_FIXED_RANGE</references>
+        <references refid="user__config_8h_1a94d2b7faaa3be93bb82004403ed74710" compoundref="user__config_8h" startline="120">D_LAST_LATITUDE</references>
+        <references refid="user__config_8h_1a5d0564dc97326732724ee38b73560aee" compoundref="user__config_8h" startline="119">D_LAST_LONGITUDE</references>
+        <references refid="user__config_8h_1a19a12ae4d5d5474bc32dcfbde165cd92" compoundref="user__config_8h" startline="108">D_LOG_VOID</references>
+        <references refid="user__config_8h_1ae7bf88ff5fd9df66061edb486e907095" compoundref="user__config_8h" startline="106">D_MANUAL_LOGGING</references>
+        <references refid="user__config_8h_1a1c2adcb1cfc54c4f8d58dd56b26a02c7" compoundref="user__config_8h" startline="110">D_SCREEN_DIM_TIMEOUT</references>
+        <references refid="user__config_8h_1a25fad4438853d6fac0b0611b343bafd0" compoundref="user__config_8h" startline="111">D_SCREEN_OFF_TIMEOUT</references>
+        <references refid="user__config_8h_1ac2201e2757292b5e01d7fdaa4bd777be" compoundref="user__config_8h" startline="114">D_WIFI_PASSWORD</references>
+        <references refid="user__config_8h_1aff876460366b50a61c98ba651c49adda" compoundref="user__config_8h" startline="113">D_WIFI_SSID</references>
+        <references refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217cac05b6810bb29caecbb222b95e849dc04" compoundref="local__storage_8h" startline="17">e_operational_mode_drive</references>
+        <references refid="class_local_storage_1ada3971b867dbd9068048f22cc7e6988d" compoundref="local__storage_8cpp" startline="189" endline="197">set_alert_threshold</references>
+        <references refid="class_local_storage_1a06b075138b2cc76a1959b98f74f3652e" compoundref="local__storage_8cpp" startline="269" endline="277">set_animated_screensaver</references>
+        <references refid="class_local_storage_1a22ccb69bc387bdfeea837a8f5f1456e1" compoundref="local__storage_8cpp" startline="177" endline="187">set_ap_password</references>
+        <references refid="class_local_storage_1a0c0380d90c7cd50702c203c00254cc7a" compoundref="local__storage_8cpp" startline="303" endline="313">set_api_key</references>
+        <references refid="class_local_storage_1a7dad93ca98e63001a64d86953f80f0ad" compoundref="local__storage_8cpp" startline="199" endline="207">set_cpm_usvh</references>
+        <references refid="class_local_storage_1a5b975387d77a0d68a0eae66ce9f265df" compoundref="local__storage_8cpp" startline="165" endline="175">set_device_id</references>
+        <references refid="class_local_storage_1ac9c1a4f37dfc4be46315634fead4c7ff" compoundref="local__storage_8cpp" startline="239" endline="247">set_dop_max</references>
+        <references refid="class_local_storage_1a57b94961a1114b683bf4783aa2006bea" compoundref="local__storage_8cpp" startline="219" endline="227">set_enable_journal</references>
+        <references refid="class_local_storage_1a85feeba95879976c5b32d0e31a1cb0c3" compoundref="local__storage_8cpp" startline="325" endline="333">set_fixed_latitude</references>
+        <references refid="class_local_storage_1aece6d66d88334ec1d56123af1e30beec" compoundref="local__storage_8cpp" startline="315" endline="323">set_fixed_longitude</references>
+        <references refid="class_local_storage_1a7ce10010f72eb996f1d6f3fa3315b87d" compoundref="local__storage_8cpp" startline="335" endline="343">set_fixed_range</references>
+        <references refid="class_local_storage_1a61222cf72160eb65fe14a84ee43052bb" compoundref="local__storage_8cpp" startline="355" endline="363">set_last_latitude</references>
+        <references refid="class_local_storage_1a30925c71296c99004645906c9dabfc9d" compoundref="local__storage_8cpp" startline="345" endline="353">set_last_longitude</references>
+        <references refid="class_local_storage_1a496d17681c046860f06fb4b0b1f77359" compoundref="local__storage_8cpp" startline="365" endline="373">set_last_mode</references>
+        <references refid="class_local_storage_1aa2262ee533051bc1d4d400f9576aadcc" compoundref="local__storage_8cpp" startline="229" endline="237">set_log_void</references>
+        <references refid="class_local_storage_1a481852bb1bfc9fd8e4f4ccde87b90fb5" compoundref="local__storage_8cpp" startline="209" endline="217">set_manual_logging</references>
+        <references refid="class_local_storage_1a246b493b3b4267e66de4e4a347b6d8b9" compoundref="local__storage_8cpp" startline="249" endline="257">set_screen_dim_timeout</references>
+        <references refid="class_local_storage_1a3586222dbcd1a4c2bef4d14ef23b98c7" compoundref="local__storage_8cpp" startline="259" endline="267">set_screen_off_timeout</references>
+        <references refid="class_local_storage_1a36a08d7042318aafd9a89e5e47d16218" compoundref="local__storage_8cpp" startline="291" endline="301">set_wifi_password</references>
+        <references refid="class_local_storage_1a89834da9be662b2881d56b78bc72035e" compoundref="local__storage_8cpp" startline="279" endline="289">set_wifi_ssid</references>
+        <referencedby refid="class_controller_1a1f2a8e25a98c49de20f09472fb8d5c16" compoundref="controller_8cpp" startline="100" endline="102">Controller::reset_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t LocalStorage::get_device_id</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_device_id</name>
+        <qualifiedname>LocalStorage::get_device_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="32" column="20" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="81" bodyend="83"/>
+        <referencedby refid="class_bluetooth_reporter_1a365b2431527d3601eca8f9349f73053a" compoundref="bluetooth__reporter_8cpp" startline="13" endline="49">BluetoothReporter::activate</referencedby>
+        <referencedby refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="58" endline="155">ConfigWebServer::add_urls</referencedby>
+        <referencedby refid="class_config_mode_screen_1a63e57a291d31fc8974e1801314b0c75b" compoundref="config__mode_8cpp" startline="218" endline="255">ConfigModeScreen::enter_screen</referencedby>
+        <referencedby refid="class_http_pages_1a64735f36d77809ba60b69d33ad6c0003" compoundref="http__pages_8cpp" startline="249" endline="299">HttpPages::get_config_connection_page</referencedby>
+        <referencedby refid="class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4" compoundref="http__pages_8cpp" startline="93" endline="190">HttpPages::get_config_device_page</referencedby>
+        <referencedby refid="class_http_pages_1a74d1994442f6781235fa7d76a9c7c36a" compoundref="http__pages_8cpp" startline="192" endline="247">HttpPages::get_config_location_page</referencedby>
+        <referencedby refid="class_http_pages_1a2029cf0ccea4c0cf9497eb2b0a30f78a" compoundref="http__pages_8cpp" startline="69" endline="91">HttpPages::get_home_page</referencedby>
+        <referencedby refid="class_boot_screen_1a1d605b7d6ed086214a7f1a0bcd3d1fe2" compoundref="boot__screen_8cpp" startline="14" endline="26">BootScreen::handle_input</referencedby>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+        <referencedby refid="class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494" compoundref="log__aggregator_8cpp" startline="44" endline="128">LogAggregator::produce_data</referencedby>
+        <referencedby refid="class_first_time_startup_screen_1a1f5c80b0f1a40f208787e6b27a1b34c7" compoundref="first__time__startup_8cpp" startline="25" endline="39">FirstTimeStartupScreen::render</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">SDInterface::write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1ad567a475a216fc14ab359b09b00c25de" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t LocalStorage::get_fixed_device_id</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_fixed_device_id</name>
+        <qualifiedname>LocalStorage::get_fixed_device_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="33" column="20" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="85" bodyend="87"/>
+        <referencedby refid="class_http_pages_1a2029cf0ccea4c0cf9497eb2b0a30f78a" compoundref="http__pages_8cpp" startline="69" endline="91">HttpPages::get_home_page</referencedby>
+        <referencedby refid="class_api_connector_1a46089ea3e64a0c222657429e68c5beca" compoundref="api__connector_8cpp" startline="39" endline="74">ApiConnector::handle_produced_work</referencedby>
+        <referencedby refid="class_api_connector_1ac19687cf6ae2d1d0bcb2e77ee9e8c539" compoundref="api__connector_8cpp" startline="76" endline="93">ApiConnector::reading_to_json</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a3cc3942e1b3d46088e4ec092dd9b5034" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * LocalStorage::get_ap_password</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_ap_password</name>
+        <qualifiedname>LocalStorage::get_ap_password</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="34" column="22" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="89" bodyend="91"/>
+        <referencedby refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="58" endline="155">ConfigWebServer::add_urls</referencedby>
+        <referencedby refid="class_config_mode_screen_1a63e57a291d31fc8974e1801314b0c75b" compoundref="config__mode_8cpp" startline="218" endline="255">ConfigModeScreen::enter_screen</referencedby>
+        <referencedby refid="class_http_pages_1a64735f36d77809ba60b69d33ad6c0003" compoundref="http__pages_8cpp" startline="249" endline="299">HttpPages::get_config_connection_page</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">SDInterface::write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a5434f10e036beedc21b5382f9234981a" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t LocalStorage::get_alert_threshold</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_alert_threshold</name>
+        <qualifiedname>LocalStorage::get_alert_threshold</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="35" column="20" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="93" bodyend="95"/>
+        <referencedby refid="class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4" compoundref="http__pages_8cpp" startline="93" endline="190">HttpPages::get_config_device_page</referencedby>
+        <referencedby refid="class_api_connector_1a46089ea3e64a0c222657429e68c5beca" compoundref="api__connector_8cpp" startline="39" endline="74">ApiConnector::handle_produced_work</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">SDInterface::write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a79a337d9f87106bc59e28a9f91796588" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool LocalStorage::get_cpm_usvh</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_cpm_usvh</name>
+        <qualifiedname>LocalStorage::get_cpm_usvh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="36" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="97" bodyend="99"/>
+        <referencedby refid="class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4" compoundref="http__pages_8cpp" startline="93" endline="190">HttpPages::get_config_device_page</referencedby>
+        <referencedby refid="class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85" compoundref="drive__mode_8cpp" startline="37" endline="156">DriveModeScreen::render</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af" compoundref="fixed__mode_8cpp" startline="26" endline="128">FixedModeScreen::render</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50" compoundref="survery__mode_8cpp" startline="30" endline="109">SurveyModeScreen::render</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">SDInterface::write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a213ff59d5af95ac21edcded1dc8f2143" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool LocalStorage::get_manual_logging</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_manual_logging</name>
+        <qualifiedname>LocalStorage::get_manual_logging</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="37" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="101" bodyend="103"/>
+        <referencedby refid="class_drive_mode_screen_1a5b274abdc3e6d98c004fda8bb7ec90c0" compoundref="drive__mode_8cpp" startline="158" endline="164">DriveModeScreen::enter_screen</referencedby>
+        <referencedby refid="class_survey_mode_screen_1a8f92dc2c5a954f6284517b39cb08db8e" compoundref="survery__mode_8cpp" startline="111" endline="116">SurveyModeScreen::enter_screen</referencedby>
+        <referencedby refid="class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4" compoundref="http__pages_8cpp" startline="93" endline="190">HttpPages::get_config_device_page</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">SDInterface::write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1aa662366b5f7c3e35dd844dc93886bde1" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool LocalStorage::get_enable_journal</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_enable_journal</name>
+        <qualifiedname>LocalStorage::get_enable_journal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="38" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="105" bodyend="107"/>
+        <referencedby refid="class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4" compoundref="http__pages_8cpp" startline="93" endline="190">HttpPages::get_config_device_page</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">SDInterface::write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1adba9d64409a8a882f4cd36b92e01342b" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool LocalStorage::get_log_void</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_log_void</name>
+        <qualifiedname>LocalStorage::get_log_void</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="39" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="109" bodyend="111"/>
+        <referencedby refid="class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4" compoundref="http__pages_8cpp" startline="93" endline="190">HttpPages::get_config_device_page</referencedby>
+        <referencedby refid="class_sd_logger_1ab55fb4b592ef94b61f23d408aecd7ee1" compoundref="sd__logger_8cpp" startline="49" endline="86">SdLogger::handle_produced_work</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">SDInterface::write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1affa78ca5f1e87c0c8b608b2ca944e31d" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t LocalStorage::get_screen_dim_timeout</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_screen_dim_timeout</name>
+        <qualifiedname>LocalStorage::get_screen_dim_timeout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="40" column="20" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="117" bodyend="119"/>
+        <referencedby refid="class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4" compoundref="http__pages_8cpp" startline="93" endline="190">HttpPages::get_config_device_page</referencedby>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a1d68d91675a043e514a0d07cf326a50b" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t LocalStorage::get_screen_off_timeout</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_screen_off_timeout</name>
+        <qualifiedname>LocalStorage::get_screen_off_timeout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="41" column="20" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="121" bodyend="123"/>
+        <referencedby refid="class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4" compoundref="http__pages_8cpp" startline="93" endline="190">HttpPages::get_config_device_page</referencedby>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1ae0f9229a40a1ef1ffcbc7667f5b3de1b" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool LocalStorage::get_animated_screensaver</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_animated_screensaver</name>
+        <qualifiedname>LocalStorage::get_animated_screensaver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="42" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="125" bodyend="127"/>
+        <referencedby refid="class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4" compoundref="http__pages_8cpp" startline="93" endline="190">HttpPages::get_config_device_page</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a8d0807c2fad52121c446d91f85976856" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * LocalStorage::get_wifi_ssid</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_wifi_ssid</name>
+        <qualifiedname>LocalStorage::get_wifi_ssid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="43" column="22" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="129" bodyend="131"/>
+        <referencedby refid="class_api_connector_1a27801902e618afb9d835438d66ddec3c" compoundref="api__connector_8cpp" startline="19" endline="32">ApiConnector::activate</referencedby>
+        <referencedby refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="58" endline="155">ConfigWebServer::add_urls</referencedby>
+        <referencedby refid="class_config_mode_screen_1a63e57a291d31fc8974e1801314b0c75b" compoundref="config__mode_8cpp" startline="218" endline="255">ConfigModeScreen::enter_screen</referencedby>
+        <referencedby refid="class_http_pages_1a64735f36d77809ba60b69d33ad6c0003" compoundref="http__pages_8cpp" startline="249" endline="299">HttpPages::get_config_connection_page</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">SDInterface::write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a619ba1c828df4e5c97e7ac77115e72a2" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * LocalStorage::get_wifi_password</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_wifi_password</name>
+        <qualifiedname>LocalStorage::get_wifi_password</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="44" column="22" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="133" bodyend="135"/>
+        <referencedby refid="class_api_connector_1a27801902e618afb9d835438d66ddec3c" compoundref="api__connector_8cpp" startline="19" endline="32">ApiConnector::activate</referencedby>
+        <referencedby refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="58" endline="155">ConfigWebServer::add_urls</referencedby>
+        <referencedby refid="class_config_mode_screen_1a63e57a291d31fc8974e1801314b0c75b" compoundref="config__mode_8cpp" startline="218" endline="255">ConfigModeScreen::enter_screen</referencedby>
+        <referencedby refid="class_http_pages_1a64735f36d77809ba60b69d33ad6c0003" compoundref="http__pages_8cpp" startline="249" endline="299">HttpPages::get_config_connection_page</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">SDInterface::write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a119e9cbf7e8edad53786b070ee2cb298" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * LocalStorage::get_api_key</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_api_key</name>
+        <qualifiedname>LocalStorage::get_api_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="45" column="22" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="137" bodyend="139"/>
+        <referencedby refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="58" endline="155">ConfigWebServer::add_urls</referencedby>
+        <referencedby refid="class_http_pages_1a64735f36d77809ba60b69d33ad6c0003" compoundref="http__pages_8cpp" startline="249" endline="299">HttpPages::get_config_connection_page</referencedby>
+        <referencedby refid="class_api_connector_1a8fc0aaa8a9cff66aef93d202a102d9ea" compoundref="api__connector_8cpp" startline="99" endline="147">ApiConnector::handle_async</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">SDInterface::write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a2972e2632be5da773cfa65e23be878e5" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double LocalStorage::get_fixed_longitude</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_fixed_longitude</name>
+        <qualifiedname>LocalStorage::get_fixed_longitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="46" column="18" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="141" bodyend="143"/>
+        <referencedby refid="class_http_pages_1a74d1994442f6781235fa7d76a9c7c36a" compoundref="http__pages_8cpp" startline="192" endline="247">HttpPages::get_config_location_page</referencedby>
+        <referencedby refid="class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494" compoundref="log__aggregator_8cpp" startline="44" endline="128">LogAggregator::produce_data</referencedby>
+        <referencedby refid="class_api_connector_1ac19687cf6ae2d1d0bcb2e77ee9e8c539" compoundref="api__connector_8cpp" startline="76" endline="93">ApiConnector::reading_to_json</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af" compoundref="fixed__mode_8cpp" startline="26" endline="128">FixedModeScreen::render</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">SDInterface::write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double LocalStorage::get_fixed_latitude</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_fixed_latitude</name>
+        <qualifiedname>LocalStorage::get_fixed_latitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="47" column="18" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="145" bodyend="147"/>
+        <referencedby refid="class_http_pages_1a74d1994442f6781235fa7d76a9c7c36a" compoundref="http__pages_8cpp" startline="192" endline="247">HttpPages::get_config_location_page</referencedby>
+        <referencedby refid="class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494" compoundref="log__aggregator_8cpp" startline="44" endline="128">LogAggregator::produce_data</referencedby>
+        <referencedby refid="class_api_connector_1ac19687cf6ae2d1d0bcb2e77ee9e8c539" compoundref="api__connector_8cpp" startline="76" endline="93">ApiConnector::reading_to_json</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af" compoundref="fixed__mode_8cpp" startline="26" endline="128">FixedModeScreen::render</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">SDInterface::write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1aac7014bfb52a62f890592c21ed41c968" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float LocalStorage::get_fixed_range</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_fixed_range</name>
+        <qualifiedname>LocalStorage::get_fixed_range</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="48" column="17" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="149" bodyend="151"/>
+        <referencedby refid="class_http_pages_1a74d1994442f6781235fa7d76a9c7c36a" compoundref="http__pages_8cpp" startline="192" endline="247">HttpPages::get_config_location_page</referencedby>
+        <referencedby refid="class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494" compoundref="log__aggregator_8cpp" startline="44" endline="128">LogAggregator::produce_data</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">SDInterface::write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a90c32142b83907cfd9acba79c8221c63" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t LocalStorage::get_dop_max</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_dop_max</name>
+        <qualifiedname>LocalStorage::get_dop_max</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="49" column="20" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="113" bodyend="115"/>
+        <referencedby refid="class_http_pages_1a74d1994442f6781235fa7d76a9c7c36a" compoundref="http__pages_8cpp" startline="192" endline="247">HttpPages::get_config_location_page</referencedby>
+        <referencedby refid="class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494" compoundref="log__aggregator_8cpp" startline="44" endline="128">LogAggregator::produce_data</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">SDInterface::write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a120a3285914a098837bb4d3b8be20d0b" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double LocalStorage::get_last_longitude</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_last_longitude</name>
+        <qualifiedname>LocalStorage::get_last_longitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="50" column="18" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="153" bodyend="155"/>
+        <referencedby refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="58" endline="155">ConfigWebServer::add_urls</referencedby>
+        <referencedby refid="class_http_pages_1a74d1994442f6781235fa7d76a9c7c36a" compoundref="http__pages_8cpp" startline="192" endline="247">HttpPages::get_config_location_page</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a9aa6633c81709db989f2bf3ea1f21521" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double LocalStorage::get_last_latitude</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_last_latitude</name>
+        <qualifiedname>LocalStorage::get_last_latitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="51" column="18" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="157" bodyend="159"/>
+        <referencedby refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="58" endline="155">ConfigWebServer::add_urls</referencedby>
+        <referencedby refid="class_http_pages_1a74d1994442f6781235fa7d76a9c7c36a" compoundref="http__pages_8cpp" startline="192" endline="247">HttpPages::get_config_location_page</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1abd7d5124e171060b7fed159c6623ab95" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217c" kindref="member">OperationalMode</ref></type>
+        <definition>LocalStorage::OperationalMode LocalStorage::get_last_mode</definition>
+        <argsstring>() const final</argsstring>
+        <name>get_last_mode</name>
+        <qualifiedname>LocalStorage::get_last_mode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="52" column="27" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="161" bodyend="163"/>
+        <referencedby refid="class_default_entry_screen_1a06fd4454eff553465a74d30b02567a0f" compoundref="default__entry__screen_8cpp" startline="13" endline="28">DefaultEntryScreen::handle_input</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a5b975387d77a0d68a0eae66ce9f265df" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_device_id</definition>
+        <argsstring>(uint16_t device_id, bool force)</argsstring>
+        <name>set_device_id</name>
+        <qualifiedname>LocalStorage::set_device_id</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>device_id</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="54" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="165" bodyend="175"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1a2bdf1ebb9208918c311f9ae9c58af883" compoundref="local__storage_8cpp" startline="9">key_device_id</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a22ccb69bc387bdfeea837a8f5f1456e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_ap_password</definition>
+        <argsstring>(const char *ap_password, bool force)</argsstring>
+        <name>set_ap_password</name>
+        <qualifiedname>LocalStorage::set_ap_password</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>ap_password</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="55" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="177" bodyend="187"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d" compoundref="local__storage_8h" startline="8">CONFIG_VAL_MAX</references>
+        <references refid="local__storage_8cpp_1aa955425690aceccf1f5f44209342aed6" compoundref="local__storage_8cpp" startline="10">key_ap_password</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1ada3971b867dbd9068048f22cc7e6988d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_alert_threshold</definition>
+        <argsstring>(uint16_t alert_threshold, bool force)</argsstring>
+        <name>set_alert_threshold</name>
+        <qualifiedname>LocalStorage::set_alert_threshold</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>alert_threshold</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="56" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="189" bodyend="197"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1a1312b539d1288db04728674db8177218" compoundref="local__storage_8cpp" startline="14">key_alert_threshold</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a7dad93ca98e63001a64d86953f80f0ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_cpm_usvh</definition>
+        <argsstring>(bool cpm_usvh, bool force)</argsstring>
+        <name>set_cpm_usvh</name>
+        <qualifiedname>LocalStorage::set_cpm_usvh</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>cpm_usvh</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="57" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="199" bodyend="207"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1a4c6aa77e0b01f1462fc43f290794f859" compoundref="local__storage_8cpp" startline="15">key_cpm_usvh</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a481852bb1bfc9fd8e4f4ccde87b90fb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_manual_logging</definition>
+        <argsstring>(bool manual_logging, bool force)</argsstring>
+        <name>set_manual_logging</name>
+        <qualifiedname>LocalStorage::set_manual_logging</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>manual_logging</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="58" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="209" bodyend="217"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1aeab876ecf5b8f822606ef851ad9e2759" compoundref="local__storage_8cpp" startline="16">key_manual_logging</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a57b94961a1114b683bf4783aa2006bea" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_enable_journal</definition>
+        <argsstring>(bool enable_journal, bool force)</argsstring>
+        <name>set_enable_journal</name>
+        <qualifiedname>LocalStorage::set_enable_journal</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>enable_journal</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="59" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="219" bodyend="227"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1a57967d726c284ea0b2f9ba24cf093d0f" compoundref="local__storage_8cpp" startline="17">key_enable_journal</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1aa2262ee533051bc1d4d400f9576aadcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_log_void</definition>
+        <argsstring>(bool log_void, bool force)</argsstring>
+        <name>set_log_void</name>
+        <qualifiedname>LocalStorage::set_log_void</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>log_void</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="60" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="229" bodyend="237"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1a9298b11902843170d57ff2fb0fc79563" compoundref="local__storage_8cpp" startline="18">key_log_void</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a246b493b3b4267e66de4e4a347b6d8b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_screen_dim_timeout</definition>
+        <argsstring>(uint16_t screen_dim_timeout, bool force)</argsstring>
+        <name>set_screen_dim_timeout</name>
+        <qualifiedname>LocalStorage::set_screen_dim_timeout</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>screen_dim_timeout</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="61" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="249" bodyend="257"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1af961723d2f9b4e3f00e289fc4900d095" compoundref="local__storage_8cpp" startline="20">key_screen_dim_timeout</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a3586222dbcd1a4c2bef4d14ef23b98c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_screen_off_timeout</definition>
+        <argsstring>(uint16_t screen_off_timeout, bool force)</argsstring>
+        <name>set_screen_off_timeout</name>
+        <qualifiedname>LocalStorage::set_screen_off_timeout</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>screen_off_timeout</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="62" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="259" bodyend="267"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1a365b650f9a63875b076fa8bceb4c35ec" compoundref="local__storage_8cpp" startline="21">key_screen_off_timeout</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a06b075138b2cc76a1959b98f74f3652e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_animated_screensaver</definition>
+        <argsstring>(bool animated_screensaver, bool force)</argsstring>
+        <name>set_animated_screensaver</name>
+        <qualifiedname>LocalStorage::set_animated_screensaver</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>animated_screensaver</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="63" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="269" bodyend="277"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1ab8f9d64b32cfc65029f5006357d31c3d" compoundref="local__storage_8cpp" startline="22">key_animated_screensaver</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a89834da9be662b2881d56b78bc72035e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_wifi_ssid</definition>
+        <argsstring>(const char *wifi_ssid, bool force)</argsstring>
+        <name>set_wifi_ssid</name>
+        <qualifiedname>LocalStorage::set_wifi_ssid</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>wifi_ssid</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="64" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="279" bodyend="289"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d" compoundref="local__storage_8h" startline="8">CONFIG_VAL_MAX</references>
+        <references refid="local__storage_8cpp_1a35e881035416981021acfacf4199d2d0" compoundref="local__storage_8cpp" startline="11">key_wifi_ssid</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a36a08d7042318aafd9a89e5e47d16218" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_wifi_password</definition>
+        <argsstring>(const char *wifi_password, bool force)</argsstring>
+        <name>set_wifi_password</name>
+        <qualifiedname>LocalStorage::set_wifi_password</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>wifi_password</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="65" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="291" bodyend="301"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8h_1a4ef3beb63a023a1527c2a224797296d0" compoundref="local__storage_8h" startline="9">CONFIG_LONG_VAL_MAX</references>
+        <references refid="local__storage_8cpp_1a0770a68809342e7bf982b2971f98f201" compoundref="local__storage_8cpp" startline="12">key_wifi_password</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a0c0380d90c7cd50702c203c00254cc7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_api_key</definition>
+        <argsstring>(const char *api_key, bool force)</argsstring>
+        <name>set_api_key</name>
+        <qualifiedname>LocalStorage::set_api_key</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>api_key</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="66" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="303" bodyend="313"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d" compoundref="local__storage_8h" startline="8">CONFIG_VAL_MAX</references>
+        <references refid="local__storage_8cpp_1abb6a5d556312a879ce3e7f88952588e9" compoundref="local__storage_8cpp" startline="13">key_api_key</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1aece6d66d88334ec1d56123af1e30beec" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_fixed_longitude</definition>
+        <argsstring>(double fixed_longitude, bool force)</argsstring>
+        <name>set_fixed_longitude</name>
+        <qualifiedname>LocalStorage::set_fixed_longitude</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+          <declname>fixed_longitude</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="67" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="315" bodyend="323"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1a6670813ac9b722b298c168b0697b9fee" compoundref="local__storage_8cpp" startline="24">key_fixed_longitude</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a85feeba95879976c5b32d0e31a1cb0c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_fixed_latitude</definition>
+        <argsstring>(double fixed_latitude, bool force)</argsstring>
+        <name>set_fixed_latitude</name>
+        <qualifiedname>LocalStorage::set_fixed_latitude</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+          <declname>fixed_latitude</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="68" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="325" bodyend="333"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1a8c2317b48ce4c56720e7218f5902fc93" compoundref="local__storage_8cpp" startline="25">key_fixed_latitude</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a7ce10010f72eb996f1d6f3fa3315b87d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_fixed_range</definition>
+        <argsstring>(float fixed_range, bool force)</argsstring>
+        <name>set_fixed_range</name>
+        <qualifiedname>LocalStorage::set_fixed_range</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+          <declname>fixed_range</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="69" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="335" bodyend="343"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1a74806962ac0b6e1c16136a500461c550" compoundref="local__storage_8cpp" startline="23">key_fixed_range</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1ac9c1a4f37dfc4be46315634fead4c7ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_dop_max</definition>
+        <argsstring>(uint16_t dop_max, bool force)</argsstring>
+        <name>set_dop_max</name>
+        <qualifiedname>LocalStorage::set_dop_max</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>dop_max</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="70" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="239" bodyend="247"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1ac288c279b8790ca70ed361d1d59b7356" compoundref="local__storage_8cpp" startline="19">key_dop_max</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a30925c71296c99004645906c9dabfc9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_last_longitude</definition>
+        <argsstring>(double last_longitude, bool force)</argsstring>
+        <name>set_last_longitude</name>
+        <qualifiedname>LocalStorage::set_last_longitude</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+          <declname>last_longitude</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="71" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="345" bodyend="353"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1abf4adbb5fd527ef1a4d6927a722f1763" compoundref="local__storage_8cpp" startline="26">key_last_longitude</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a85c0f20776d31fb74839e777889aadd0" compoundref="local__storage_8cpp" startline="420" endline="429">produce_data</referencedby>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a61222cf72160eb65fe14a84ee43052bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_last_latitude</definition>
+        <argsstring>(double last_latitude, bool force)</argsstring>
+        <name>set_last_latitude</name>
+        <qualifiedname>LocalStorage::set_last_latitude</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+          <declname>last_latitude</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="72" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="355" bodyend="363"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1ac8036e269f98e0d3d510c11c04641c33" compoundref="local__storage_8cpp" startline="27">key_last_latitude</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a85c0f20776d31fb74839e777889aadd0" compoundref="local__storage_8cpp" startline="420" endline="429">produce_data</referencedby>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a496d17681c046860f06fb4b0b1f77359" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void LocalStorage::set_last_mode</definition>
+        <argsstring>(OperationalMode last_mode, bool force)</argsstring>
+        <name>set_last_mode</name>
+        <qualifiedname>LocalStorage::set_last_mode</qualifiedname>
+        <param>
+          <type><ref refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217c" kindref="member">OperationalMode</ref></type>
+          <declname>last_mode</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="73" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="365" bodyend="373"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1aac6303955cf18eeaae3b23a1a19f1ca0" compoundref="local__storage_8cpp" startline="28">key_last_mode</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_local_storage_1abf645efa025a556a3188b42d5f5590fe" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool LocalStorage::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>LocalStorage::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="76" column="16" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="375" bodyend="384"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+        <referencedby refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" compoundref="local__storage_8cpp" startline="55" endline="79">reset_defaults</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a5452afc6c29b246572d3e01ee9eb84d8" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool LocalStorage::activate</definition>
+        <argsstring>(bool) override</argsstring>
+        <name>activate</name>
+        <qualifiedname>LocalStorage::activate</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read all settings </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="81" column="8" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="386" bodyend="418"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d" compoundref="local__storage_8h" startline="8">CONFIG_VAL_MAX</references>
+        <references refid="user__config_8h_1abe4c502e45b2b84c3b9667723c0ae81d" compoundref="user__config_8h" startline="104">D_ALARM_THRESHOLD</references>
+        <references refid="user__config_8h_1a8e1a5f4448f925e8cfb3878338eef85d" compoundref="user__config_8h" startline="112">D_ANIMATED_SCREENSAVER</references>
+        <references refid="user__config_8h_1afe984c303d2eba85ae72ff51588906a3" compoundref="user__config_8h" startline="103">D_AP_PASSWORD</references>
+        <references refid="user__config_8h_1aaad540fec2007dfd02d97f3e4be96a69" compoundref="user__config_8h" startline="115">D_API_KEY</references>
+        <references refid="user__config_8h_1a6d846f28e6a66e8302af1f540172088c" compoundref="user__config_8h" startline="105">D_CPM_USVH</references>
+        <references refid="user__config_8h_1ab5ab7140802b46e7db66cc9b92b61193" compoundref="user__config_8h" startline="102">D_DEVICE_ID</references>
+        <references refid="user__config_8h_1a54f763f535840cffd2e25e33d8564d08" compoundref="user__config_8h" startline="109">D_DOP_MAX</references>
+        <references refid="user__config_8h_1a840942ce392b3b068c4c5e7d988d04f4" compoundref="user__config_8h" startline="107">D_ENABLE_JOURNAL</references>
+        <references refid="user__config_8h_1a096ffa00860e0db4fb97eaa690efac41" compoundref="user__config_8h" startline="117">D_FIXED_LATITUDE</references>
+        <references refid="user__config_8h_1a8f81e5d632bbab0ac6c1fc8f9feacf0d" compoundref="user__config_8h" startline="116">D_FIXED_LONGITUDE</references>
+        <references refid="user__config_8h_1ac7e9d55a764e6cbb6cd21cf207f6f03f" compoundref="user__config_8h" startline="118">D_FIXED_RANGE</references>
+        <references refid="user__config_8h_1a94d2b7faaa3be93bb82004403ed74710" compoundref="user__config_8h" startline="120">D_LAST_LATITUDE</references>
+        <references refid="user__config_8h_1a5d0564dc97326732724ee38b73560aee" compoundref="user__config_8h" startline="119">D_LAST_LONGITUDE</references>
+        <references refid="user__config_8h_1a19a12ae4d5d5474bc32dcfbde165cd92" compoundref="user__config_8h" startline="108">D_LOG_VOID</references>
+        <references refid="user__config_8h_1ae7bf88ff5fd9df66061edb486e907095" compoundref="user__config_8h" startline="106">D_MANUAL_LOGGING</references>
+        <references refid="user__config_8h_1a1c2adcb1cfc54c4f8d58dd56b26a02c7" compoundref="user__config_8h" startline="110">D_SCREEN_DIM_TIMEOUT</references>
+        <references refid="user__config_8h_1a25fad4438853d6fac0b0611b343bafd0" compoundref="user__config_8h" startline="111">D_SCREEN_OFF_TIMEOUT</references>
+        <references refid="user__config_8h_1ac2201e2757292b5e01d7fdaa4bd777be" compoundref="user__config_8h" startline="114">D_WIFI_PASSWORD</references>
+        <references refid="user__config_8h_1aff876460366b50a61c98ba651c49adda" compoundref="user__config_8h" startline="113">D_WIFI_SSID</references>
+        <references refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217cac05b6810bb29caecbb222b95e849dc04" compoundref="local__storage_8h" startline="17">e_operational_mode_drive</references>
+        <references refid="local__storage_8cpp_1a1312b539d1288db04728674db8177218" compoundref="local__storage_8cpp" startline="14">key_alert_threshold</references>
+        <references refid="local__storage_8cpp_1ab8f9d64b32cfc65029f5006357d31c3d" compoundref="local__storage_8cpp" startline="22">key_animated_screensaver</references>
+        <references refid="local__storage_8cpp_1aa955425690aceccf1f5f44209342aed6" compoundref="local__storage_8cpp" startline="10">key_ap_password</references>
+        <references refid="local__storage_8cpp_1abb6a5d556312a879ce3e7f88952588e9" compoundref="local__storage_8cpp" startline="13">key_api_key</references>
+        <references refid="local__storage_8cpp_1a4c6aa77e0b01f1462fc43f290794f859" compoundref="local__storage_8cpp" startline="15">key_cpm_usvh</references>
+        <references refid="local__storage_8cpp_1a2bdf1ebb9208918c311f9ae9c58af883" compoundref="local__storage_8cpp" startline="9">key_device_id</references>
+        <references refid="local__storage_8cpp_1ac288c279b8790ca70ed361d1d59b7356" compoundref="local__storage_8cpp" startline="19">key_dop_max</references>
+        <references refid="local__storage_8cpp_1a57967d726c284ea0b2f9ba24cf093d0f" compoundref="local__storage_8cpp" startline="17">key_enable_journal</references>
+        <references refid="local__storage_8cpp_1a8c2317b48ce4c56720e7218f5902fc93" compoundref="local__storage_8cpp" startline="25">key_fixed_latitude</references>
+        <references refid="local__storage_8cpp_1a6670813ac9b722b298c168b0697b9fee" compoundref="local__storage_8cpp" startline="24">key_fixed_longitude</references>
+        <references refid="local__storage_8cpp_1a74806962ac0b6e1c16136a500461c550" compoundref="local__storage_8cpp" startline="23">key_fixed_range</references>
+        <references refid="local__storage_8cpp_1ac8036e269f98e0d3d510c11c04641c33" compoundref="local__storage_8cpp" startline="27">key_last_latitude</references>
+        <references refid="local__storage_8cpp_1abf4adbb5fd527ef1a4d6927a722f1763" compoundref="local__storage_8cpp" startline="26">key_last_longitude</references>
+        <references refid="local__storage_8cpp_1aac6303955cf18eeaae3b23a1a19f1ca0" compoundref="local__storage_8cpp" startline="28">key_last_mode</references>
+        <references refid="local__storage_8cpp_1a9298b11902843170d57ff2fb0fc79563" compoundref="local__storage_8cpp" startline="18">key_log_void</references>
+        <references refid="local__storage_8cpp_1aeab876ecf5b8f822606ef851ad9e2759" compoundref="local__storage_8cpp" startline="16">key_manual_logging</references>
+        <references refid="local__storage_8cpp_1af961723d2f9b4e3f00e289fc4900d095" compoundref="local__storage_8cpp" startline="20">key_screen_dim_timeout</references>
+        <references refid="local__storage_8cpp_1a365b650f9a63875b076fa8bceb4c35ec" compoundref="local__storage_8cpp" startline="21">key_screen_off_timeout</references>
+        <references refid="local__storage_8cpp_1a0770a68809342e7bf982b2971f98f201" compoundref="local__storage_8cpp" startline="12">key_wifi_password</references>
+        <references refid="local__storage_8cpp_1a35e881035416981021acfacf4199d2d0" compoundref="local__storage_8cpp" startline="11">key_wifi_ssid</references>
+        <references refid="local__storage_8cpp_1ac4a0f92030b1df3638ea940fc50ef893" compoundref="local__storage_8cpp" startline="6">memory_name</references>
+      </memberdef>
+      <memberdef kind="function" id="class_local_storage_1a85c0f20776d31fb74839e777889aadd0" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t LocalStorage::produce_data</definition>
+        <argsstring>(const worker_map_t &amp;workers) override</argsstring>
+        <name>produce_data</name>
+        <qualifiedname>LocalStorage::produce_data</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref> &amp;</type>
+          <declname>workers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/local_storage.h" line="82" column="10" bodyfile="bgeigiezen_firmware/workers/local_storage.cpp" bodystart="420" bodyend="429"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" compoundref="_raku__code_8cpp" startline="48">gps</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211" compoundref="identifiers_8h" startline="13">k_worker_gps_connector</references>
+        <references refid="class_local_storage_1a61222cf72160eb65fe14a84ee43052bb" compoundref="local__storage_8cpp" startline="355" endline="363">set_last_latitude</references>
+        <references refid="class_local_storage_1a30925c71296c99004645906c9dabfc9d" compoundref="local__storage_8cpp" startline="345" endline="353">set_last_longitude</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Configurations for the ESP32, stored in the flash memory </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LocalStorage</label>
+        <link refid="class_local_storage"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ProcessWorker&lt; bool &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LocalStorage</label>
+        <link refid="class_local_storage"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ProcessWorker&lt; bool &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/workers/local_storage.h" line="14" column="1" bodyfile="bgeigiezen_firmware/workers/local_storage.h" bodystart="14" bodyend="115"/>
+    <listofallmembers>
+      <member refid="class_local_storage_1afedad64d190fb277ffb1c86e56fc8c92" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_alert_threshold</name></member>
+      <member refid="class_local_storage_1ac3991155a583e48121e51848e0f3b062" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_animated_screensaver</name></member>
+      <member refid="class_local_storage_1a456a18ef9015bcc92f2b37e37730298a" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_ap_password</name></member>
+      <member refid="class_local_storage_1a1b976050ac111ada3202a085a57c01a1" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_api_key</name></member>
+      <member refid="class_local_storage_1a91fe86a1501ce42ab62e2ad6cc60b58d" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_cpm_usvh</name></member>
+      <member refid="class_local_storage_1a0670acbcd5cb16d935d5a9a89d9e4158" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_device_id</name></member>
+      <member refid="class_local_storage_1a2b18403f4b0729c9bce64f42f571701a" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_dop_max</name></member>
+      <member refid="class_local_storage_1a45a19afcb6596576b67e69d3f4faf222" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_enable_journal</name></member>
+      <member refid="class_local_storage_1a0d066e62b2c28ccd099f56fedf638c5d" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_fixed_latitude</name></member>
+      <member refid="class_local_storage_1ab821976fc1c68b4b2bece919622870fa" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_fixed_longitude</name></member>
+      <member refid="class_local_storage_1a482e86415f859471ae4293c92a53d4b8" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_fixed_range</name></member>
+      <member refid="class_local_storage_1a5d138f791ec3cef49dd0816fb8af5c01" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_last_latitude</name></member>
+      <member refid="class_local_storage_1a62201674f819b5f704604f9f9f1f41be" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_last_longitude</name></member>
+      <member refid="class_local_storage_1a3a90b950afb223da1f10c6dba40790e5" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_last_mode</name></member>
+      <member refid="class_local_storage_1a720a1327adce05ab3c30d6fbd61dc9fa" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_log_void</name></member>
+      <member refid="class_local_storage_1a42daeb60e2ca45f850ada83e7aeab927" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_manual_logging</name></member>
+      <member refid="class_local_storage_1a5c812aab122888b63185d0bdc3aa13ed" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_memory</name></member>
+      <member refid="class_local_storage_1a06637a98462ed90cb1b865b661c727d8" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_screen_dim_timeout</name></member>
+      <member refid="class_local_storage_1a49cc9cc5bea9874b6c70321328c6a055" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_screen_off_timeout</name></member>
+      <member refid="class_local_storage_1af2d9b5159df12be485327ad614cda4d2" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_wifi_password</name></member>
+      <member refid="class_local_storage_1a9d35d78d7ab2596e32922563265537c5" prot="private" virt="non-virtual"><scope>LocalStorage</scope><name>_wifi_ssid</name></member>
+      <member refid="class_local_storage_1a5452afc6c29b246572d3e01ee9eb84d8" prot="protected" virt="non-virtual"><scope>LocalStorage</scope><name>activate</name></member>
+      <member refid="class_local_storage_1abf645efa025a556a3188b42d5f5590fe" prot="protected" virt="virtual"><scope>LocalStorage</scope><name>clear</name></member>
+      <member refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217cac05b6810bb29caecbb222b95e849dc04" prot="public" virt="non-virtual"><scope>LocalStorage</scope><name>e_operational_mode_drive</name></member>
+      <member refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217ca84bd8bba9f0e018c9e0a70da96ae85c8" prot="public" virt="non-virtual"><scope>LocalStorage</scope><name>e_operational_mode_fixed</name></member>
+      <member refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217ca290aa317f83558d07669d014067cb738" prot="public" virt="non-virtual"><scope>LocalStorage</scope><name>e_operational_mode_satellite</name></member>
+      <member refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217ca446644afcec34db806ecb38c71e0647e" prot="public" virt="non-virtual"><scope>LocalStorage</scope><name>e_operational_mode_survey</name></member>
+      <member refid="class_local_storage_1a5434f10e036beedc21b5382f9234981a" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_alert_threshold</name></member>
+      <member refid="class_local_storage_1ae0f9229a40a1ef1ffcbc7667f5b3de1b" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_animated_screensaver</name></member>
+      <member refid="class_local_storage_1a3cc3942e1b3d46088e4ec092dd9b5034" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_ap_password</name></member>
+      <member refid="class_local_storage_1a119e9cbf7e8edad53786b070ee2cb298" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_api_key</name></member>
+      <member refid="class_local_storage_1a79a337d9f87106bc59e28a9f91796588" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_cpm_usvh</name></member>
+      <member refid="class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_device_id</name></member>
+      <member refid="class_local_storage_1a90c32142b83907cfd9acba79c8221c63" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_dop_max</name></member>
+      <member refid="class_local_storage_1aa662366b5f7c3e35dd844dc93886bde1" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_enable_journal</name></member>
+      <member refid="class_local_storage_1ad567a475a216fc14ab359b09b00c25de" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_fixed_device_id</name></member>
+      <member refid="class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_fixed_latitude</name></member>
+      <member refid="class_local_storage_1a2972e2632be5da773cfa65e23be878e5" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_fixed_longitude</name></member>
+      <member refid="class_local_storage_1aac7014bfb52a62f890592c21ed41c968" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_fixed_range</name></member>
+      <member refid="class_local_storage_1a9aa6633c81709db989f2bf3ea1f21521" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_last_latitude</name></member>
+      <member refid="class_local_storage_1a120a3285914a098837bb4d3b8be20d0b" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_last_longitude</name></member>
+      <member refid="class_local_storage_1abd7d5124e171060b7fed159c6623ab95" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_last_mode</name></member>
+      <member refid="class_local_storage_1adba9d64409a8a882f4cd36b92e01342b" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_log_void</name></member>
+      <member refid="class_local_storage_1a213ff59d5af95ac21edcded1dc8f2143" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_manual_logging</name></member>
+      <member refid="class_local_storage_1affa78ca5f1e87c0c8b608b2ca944e31d" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_screen_dim_timeout</name></member>
+      <member refid="class_local_storage_1a1d68d91675a043e514a0d07cf326a50b" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_screen_off_timeout</name></member>
+      <member refid="class_local_storage_1a619ba1c828df4e5c97e7ac77115e72a2" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_wifi_password</name></member>
+      <member refid="class_local_storage_1a8d0807c2fad52121c446d91f85976856" prot="public" virt="virtual"><scope>LocalStorage</scope><name>get_wifi_ssid</name></member>
+      <member refid="class_local_storage_1a0b6c01b08888b91281605a865ea1af2f" prot="public" virt="non-virtual"><scope>LocalStorage</scope><name>LocalStorage</name></member>
+      <member refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217c" prot="public" virt="non-virtual"><scope>LocalStorage</scope><name>OperationalMode</name></member>
+      <member refid="class_local_storage_1a85c0f20776d31fb74839e777889aadd0" prot="protected" virt="non-virtual"><scope>LocalStorage</scope><name>produce_data</name></member>
+      <member refid="class_local_storage_1a809d095a05789828cc50ee1a4d575844" prot="public" virt="non-virtual"><scope>LocalStorage</scope><name>reset_defaults</name></member>
+      <member refid="class_local_storage_1ada3971b867dbd9068048f22cc7e6988d" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_alert_threshold</name></member>
+      <member refid="class_local_storage_1a06b075138b2cc76a1959b98f74f3652e" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_animated_screensaver</name></member>
+      <member refid="class_local_storage_1a22ccb69bc387bdfeea837a8f5f1456e1" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_ap_password</name></member>
+      <member refid="class_local_storage_1a0c0380d90c7cd50702c203c00254cc7a" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_api_key</name></member>
+      <member refid="class_local_storage_1a7dad93ca98e63001a64d86953f80f0ad" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_cpm_usvh</name></member>
+      <member refid="class_local_storage_1a5b975387d77a0d68a0eae66ce9f265df" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_device_id</name></member>
+      <member refid="class_local_storage_1ac9c1a4f37dfc4be46315634fead4c7ff" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_dop_max</name></member>
+      <member refid="class_local_storage_1a57b94961a1114b683bf4783aa2006bea" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_enable_journal</name></member>
+      <member refid="class_local_storage_1a85feeba95879976c5b32d0e31a1cb0c3" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_fixed_latitude</name></member>
+      <member refid="class_local_storage_1aece6d66d88334ec1d56123af1e30beec" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_fixed_longitude</name></member>
+      <member refid="class_local_storage_1a7ce10010f72eb996f1d6f3fa3315b87d" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_fixed_range</name></member>
+      <member refid="class_local_storage_1a61222cf72160eb65fe14a84ee43052bb" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_last_latitude</name></member>
+      <member refid="class_local_storage_1a30925c71296c99004645906c9dabfc9d" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_last_longitude</name></member>
+      <member refid="class_local_storage_1a496d17681c046860f06fb4b0b1f77359" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_last_mode</name></member>
+      <member refid="class_local_storage_1aa2262ee533051bc1d4d400f9576aadcc" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_log_void</name></member>
+      <member refid="class_local_storage_1a481852bb1bfc9fd8e4f4ccde87b90fb5" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_manual_logging</name></member>
+      <member refid="class_local_storage_1a246b493b3b4267e66de4e4a347b6d8b9" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_screen_dim_timeout</name></member>
+      <member refid="class_local_storage_1a3586222dbcd1a4c2bef4d14ef23b98c7" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_screen_off_timeout</name></member>
+      <member refid="class_local_storage_1a36a08d7042318aafd9a89e5e47d16218" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_wifi_password</name></member>
+      <member refid="class_local_storage_1a89834da9be662b2881d56b78bc72035e" prot="public" virt="virtual"><scope>LocalStorage</scope><name>set_wifi_ssid</name></member>
+      <member refid="class_local_storage_1a25de978ca30dc1686f928e34772c072a" prot="public" virt="virtual"><scope>LocalStorage</scope><name>~LocalStorage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

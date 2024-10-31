@@ -1,0 +1,352 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_sd_message_screen" kind="class" language="C++" prot="public">
+    <compoundname>SdMessageScreen</compoundname>
+    <basecompoundref refid="class_base_screen" prot="public" virt="non-virtual">BaseScreen</basecompoundref>
+    <includes refid="sd__message_8h" local="no">sd_message.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992" prot="public" static="no" strong="no">
+        <type></type>
+        <name>SdMessageType</name>
+        <qualifiedname>SdMessageScreen::SdMessageType</qualifiedname>
+        <enumvalue id="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a191c84bbd973235a9458ffdb7ac46834" prot="public">
+          <name>k_unknown</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a28ab250033e34bb188e2db3127b4e78e" prot="public">
+          <name>k_no_sd_with_storage</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992aa7c41a2a5c18a9c52edefa2e0f64be0f" prot="public">
+          <name>k_no_sd_no_storage</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a1ac6118f188463d133c588180b37373b" prot="public">
+          <name>k_empty_sd_with_storage</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992ad8b65deb6bfcf28c2fafd7604142b6cf" prot="public">
+          <name>k_empty_sd_no_storage</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a787163c7393e708d4c098baf9f2c0352" prot="public">
+          <name>k_config_sd_different_id</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992abc5a883c610cab86ca83264b48ad2a3c" prot="public">
+          <name>k_new_device</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/sd_message.h" line="8" column="3" bodyfile="bgeigiezen_firmware/screens/sd_message.h" bodystart="8" bodyend="16"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_sd_message_screen_1ab40f2d07b6538383f3d60b2d921fa7a6" prot="private" static="no" mutable="no">
+        <type><ref refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992" kindref="member">SdMessageType</ref></type>
+        <definition>SdMessageType SdMessageScreen::error_type</definition>
+        <argsstring></argsstring>
+        <name>error_type</name>
+        <qualifiedname>SdMessageScreen::error_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/sd_message.h" line="29" column="17" bodyfile="bgeigiezen_firmware/screens/sd_message.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_sd_message_screen_1a1561c286018e167b2f6b5bc9a503eb42" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SdMessageScreen::SdMessageScreen</definition>
+        <argsstring>()</argsstring>
+        <name>SdMessageScreen</name>
+        <qualifiedname>SdMessageScreen::SdMessageScreen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/sd_message.h" line="18" column="12" bodyfile="bgeigiezen_firmware/screens/sd_message.cpp" bodystart="14" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sd_message_screen_1aa6f1495614e3c8a88dfe30920fcd5b8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="class_base_screen" kindref="compound">BaseScreen</ref> *</type>
+        <definition>BaseScreen * SdMessageScreen::handle_input</definition>
+        <argsstring>(Controller &amp;controller, const worker_map_t &amp;workers) override</argsstring>
+        <name>handle_input</name>
+        <qualifiedname>SdMessageScreen::handle_input</qualifiedname>
+        <reimplements refid="class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57">handle_input</reimplements>
+        <param>
+          <type><ref refid="class_controller" kindref="compound">Controller</ref> &amp;</type>
+          <declname>controller</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref> &amp;</type>
+          <declname>workers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/sd_message.h" line="20" column="14" bodyfile="bgeigiezen_firmware/screens/sd_message.cpp" bodystart="17" bodyend="76"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</references>
+        <references refid="default__entry__screen_8cpp_1ab126f9971ee3b4d579c108bed23f2ae5" compoundref="default__entry__screen_8cpp" startline="8">DefaultEntryScreen_i</references>
+        <references refid="first__time__startup_8cpp_1a44955fe4c5d47abe03cdf01ed15d3022" compoundref="first__time__startup_8cpp" startline="8">FirstTimeStartupScreen_i</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a787163c7393e708d4c098baf9f2c0352" compoundref="sd__message_8h" startline="14">k_config_sd_different_id</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992ad8b65deb6bfcf28c2fafd7604142b6cf" compoundref="sd__message_8h" startline="13">k_empty_sd_no_storage</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a1ac6118f188463d133c588180b37373b" compoundref="sd__message_8h" startline="12">k_empty_sd_with_storage</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992abc5a883c610cab86ca83264b48ad2a3c" compoundref="sd__message_8h" startline="15">k_new_device</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992aa7c41a2a5c18a9c52edefa2e0f64be0f" compoundref="sd__message_8h" startline="11">k_no_sd_no_storage</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a28ab250033e34bb188e2db3127b4e78e" compoundref="sd__message_8h" startline="10">k_no_sd_with_storage</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a191c84bbd973235a9458ffdb7ac46834" compoundref="sd__message_8h" startline="9">k_unknown</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa34908d3524a003a1a416f710d3bf096b" compoundref="identifiers_8h" startline="8">k_worker_button_1</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fae09f915b7a21b04751f8379fe4ea0b88" compoundref="identifiers_8h" startline="9">k_worker_button_2</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa824a84bb0222b57ea4966a17b90b110c" compoundref="identifiers_8h" startline="10">k_worker_button_3</references>
+        <references refid="class_controller_1aebc7292ba3c56fbd1402ca76f7a34281" compoundref="controller_8cpp" startline="81" endline="83">Controller::load_sd_config</references>
+        <references refid="class_device_utils_1af32ea5953b8187c07a39ff8b2247a216" compoundref="device__utils_8h" startline="9" endline="19">DeviceUtils::shutdown</references>
+        <references refid="class_controller_1aec53fb71b003add1ecb4fb57df080925" compoundref="controller_8cpp" startline="85" endline="87">Controller::write_sd_config</references>
+      </memberdef>
+      <memberdef kind="function" id="class_sd_message_screen_1a37d7575e04491ff6fedae89389694248" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void SdMessageScreen::enter_screen</definition>
+        <argsstring>(Controller &amp;controller) override</argsstring>
+        <name>enter_screen</name>
+        <qualifiedname>SdMessageScreen::enter_screen</qualifiedname>
+        <reimplements refid="class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea">enter_screen</reimplements>
+        <param>
+          <type><ref refid="class_controller" kindref="compound">Controller</ref> &amp;</type>
+          <declname>controller</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enter the screen, use controller to enable screen specific workers/handlers <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>controller</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/sd_message.h" line="21" column="8" bodyfile="bgeigiezen_firmware/screens/sd_message.cpp" bodystart="150" bodyend="168"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</references>
+        <references refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50ab3eaba2df7231bec6b29aee75b5b18c7" compoundref="sd__wrapper_8h" startline="19">SDInterface::e_sd_config_status_config_different_id</references>
+        <references refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a97640d3ba2438308592c625779e0fe12" compoundref="sd__wrapper_8h" startline="20">SDInterface::e_sd_config_status_config_no_content</references>
+        <references refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50aca5a6270a52c089d851e54e7919a72cf" compoundref="sd__wrapper_8h" startline="21">SDInterface::e_sd_config_status_no_config_file</references>
+        <references refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a8a094cf03ccf414f4b77666f6c4e8611" compoundref="sd__wrapper_8h" startline="17">SDInterface::e_sd_config_status_not_ready</references>
+        <references refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a4220a7d9f2295ecf4a6df95fc73de789" compoundref="sd__wrapper_8h" startline="18">SDInterface::e_sd_config_status_ok</references>
+        <references refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" compoundref="sd__wrapper_8h" startline="39" endline="42">SDInterface::i</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a787163c7393e708d4c098baf9f2c0352" compoundref="sd__message_8h" startline="14">k_config_sd_different_id</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992ad8b65deb6bfcf28c2fafd7604142b6cf" compoundref="sd__message_8h" startline="13">k_empty_sd_no_storage</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a1ac6118f188463d133c588180b37373b" compoundref="sd__message_8h" startline="12">k_empty_sd_with_storage</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992abc5a883c610cab86ca83264b48ad2a3c" compoundref="sd__message_8h" startline="15">k_new_device</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992aa7c41a2a5c18a9c52edefa2e0f64be0f" compoundref="sd__message_8h" startline="11">k_no_sd_no_storage</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a28ab250033e34bb188e2db3127b4e78e" compoundref="sd__message_8h" startline="10">k_no_sd_with_storage</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a191c84bbd973235a9458ffdb7ac46834" compoundref="sd__message_8h" startline="9">k_unknown</references>
+        <references refid="class_s_d_interface_1abdd9e014e0bab83e0ab99c8807f2e5fd" compoundref="sd__wrapper_8cpp" startline="80" endline="82">SDInterface::status</references>
+      </memberdef>
+      <memberdef kind="function" id="class_sd_message_screen_1a80f1af31e6f9a40d9587ca86bee2220f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void SdMessageScreen::leave_screen</definition>
+        <argsstring>(Controller &amp;controller) override</argsstring>
+        <name>leave_screen</name>
+        <qualifiedname>SdMessageScreen::leave_screen</qualifiedname>
+        <reimplements refid="class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1">leave_screen</reimplements>
+        <param>
+          <type><ref refid="class_controller" kindref="compound">Controller</ref> &amp;</type>
+          <declname>controller</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Leave the screen, use controller to disable screen specific workers/handlers <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>controller</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/sd_message.h" line="22" column="8" bodyfile="bgeigiezen_firmware/screens/sd_message.cpp" bodystart="170" bodyend="171"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_sd_message_screen_1a2c75124920b18c3d29c65887cbe404c7" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void SdMessageScreen::render</definition>
+        <argsstring>(const worker_map_t &amp;workers, const handler_map_t &amp;handlers, bool force) override</argsstring>
+        <name>render</name>
+        <qualifiedname>SdMessageScreen::render</qualifiedname>
+        <reimplements refid="class_base_screen_1a4a44081a61a095ce9cb8d086525d42b0">render</reimplements>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref> &amp;</type>
+          <declname>workers</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">handler_map_t</ref> &amp;</type>
+          <declname>handlers</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Render the screen with latest data <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>workers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handlers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/sd_message.h" line="25" column="8" bodyfile="bgeigiezen_firmware/screens/sd_message.cpp" bodystart="78" bodyend="148"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="user__config_8h_1a77ba3a545a8a7ab2ce9c75c171b19f6f" compoundref="user__config_8h" startline="19">COPYRIGHT_YEAR_STRING</references>
+        <references refid="class_base_screen_1abd62ea7f2f318142dde3d81f1a5e46a1" compoundref="base__screen_8cpp" startline="63" endline="65">BaseScreen::drawButton1</references>
+        <references refid="class_base_screen_1af5e00b4efc1ada7bb34cd0361b21397c" compoundref="base__screen_8cpp" startline="67" endline="69">BaseScreen::drawButton2</references>
+        <references refid="class_base_screen_1a13d1abed7e9ef452c950ee1a5af14860" compoundref="base__screen_8cpp" startline="71" endline="73">BaseScreen::drawButton3</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a787163c7393e708d4c098baf9f2c0352" compoundref="sd__message_8h" startline="14">k_config_sd_different_id</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992ad8b65deb6bfcf28c2fafd7604142b6cf" compoundref="sd__message_8h" startline="13">k_empty_sd_no_storage</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a1ac6118f188463d133c588180b37373b" compoundref="sd__message_8h" startline="12">k_empty_sd_with_storage</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992aa7c41a2a5c18a9c52edefa2e0f64be0f" compoundref="sd__message_8h" startline="11">k_no_sd_no_storage</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a28ab250033e34bb188e2db3127b4e78e" compoundref="sd__message_8h" startline="10">k_no_sd_with_storage</references>
+        <references refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a191c84bbd973235a9458ffdb7ac46834" compoundref="sd__message_8h" startline="9">k_unknown</references>
+        <references refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" compoundref="user__config_8h" startline="44">LCD_COLOR_BACKGROUND</references>
+        <references refid="user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62" compoundref="user__config_8h" startline="45">LCD_COLOR_DEFAULT</references>
+        <references refid="user__config_8h_1aa2e906d0e32b57f0fa6a9aae19cee822" compoundref="user__config_8h" startline="46">LCD_COLOR_STALE_INCOMPLETE</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BaseScreen</label>
+        <link refid="class_base_screen"/>
+      </node>
+      <node id="1">
+        <label>SdMessageScreen</label>
+        <link refid="class_sd_message_screen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BaseScreen</label>
+        <link refid="class_base_screen"/>
+      </node>
+      <node id="1">
+        <label>SdMessageScreen</label>
+        <link refid="class_sd_message_screen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/screens/sd_message.h" line="6" column="1" bodyfile="bgeigiezen_firmware/screens/sd_message.h" bodystart="6" bodyend="30"/>
+    <listofallmembers>
+      <member refid="class_base_screen_1a2e28e5b4ef3027c3c4392dfb4a6c3ff8" prot="protected" virt="non-virtual"><scope>SdMessageScreen</scope><name>BaseScreen</name></member>
+      <member refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>ButtonState</name></member>
+      <member refid="class_base_screen_1a0302e81913f193447bcbd63fc5dc1621" prot="protected" virt="non-virtual"><scope>SdMessageScreen</scope><name>clear_screen_content</name></member>
+      <member refid="class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98" prot="public" virt="virtual"><scope>SdMessageScreen</scope><name>do_render</name></member>
+      <member refid="class_base_screen_1abd62ea7f2f318142dde3d81f1a5e46a1" prot="protected" virt="non-virtual"><scope>SdMessageScreen</scope><name>drawButton1</name></member>
+      <member refid="class_base_screen_1af5e00b4efc1ada7bb34cd0361b21397c" prot="protected" virt="non-virtual"><scope>SdMessageScreen</scope><name>drawButton2</name></member>
+      <member refid="class_base_screen_1a13d1abed7e9ef452c950ee1a5af14860" prot="protected" virt="non-virtual"><scope>SdMessageScreen</scope><name>drawButton3</name></member>
+      <member refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669aeec92bb30ab578e6b0eceb97b61880fb" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>e_button_active</name></member>
+      <member refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>e_button_default</name></member>
+      <member refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669aa1df192f7cb5a602ccdf145fb8e7bca2" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>e_button_disabled</name></member>
+      <member refid="class_sd_message_screen_1a37d7575e04491ff6fedae89389694248" prot="public" virt="virtual"><scope>SdMessageScreen</scope><name>enter_screen</name></member>
+      <member refid="class_sd_message_screen_1ab40f2d07b6538383f3d60b2d921fa7a6" prot="private" virt="non-virtual"><scope>SdMessageScreen</scope><name>error_type</name></member>
+      <member refid="class_base_screen_1a475d077e56c80429539f9c8a973752dd" prot="public" virt="virtual"><scope>SdMessageScreen</scope><name>force_next_render</name></member>
+      <member refid="class_base_screen_1a34ca21425e8a0306c8b28669b35216e6" prot="public" virt="virtual"><scope>SdMessageScreen</scope><name>get_error_message</name></member>
+      <member refid="class_base_screen_1ac34eef3f7a364202d2399ce1b234bf04" prot="public" virt="virtual"><scope>SdMessageScreen</scope><name>get_status_message</name></member>
+      <member refid="class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42" prot="public" virt="virtual"><scope>SdMessageScreen</scope><name>get_title</name></member>
+      <member refid="class_sd_message_screen_1aa6f1495614e3c8a88dfe30920fcd5b8d" prot="public" virt="virtual"><scope>SdMessageScreen</scope><name>handle_input</name></member>
+      <member refid="class_base_screen_1a5757931996557c8d7ec0ab352abc6e3e" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>has_required_ble</name></member>
+      <member refid="class_base_screen_1ab4a9e852483065ab2ad6a86955985e90" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>has_required_gps</name></member>
+      <member refid="class_base_screen_1a02551c85c014f0c35c0a887cdaad2e3e" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>has_required_sd</name></member>
+      <member refid="class_base_screen_1abaf330fe58d138607d7eddafec78d2bc" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>has_required_tube</name></member>
+      <member refid="class_base_screen_1a2062532ed7e5f3fa63be92c2d04c7a66" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>has_required_wifi</name></member>
+      <member refid="class_base_screen_1a2b0ff8ed2e49c96fa6e8d3e158d6db13" prot="public" virt="virtual"><scope>SdMessageScreen</scope><name>has_status_bar</name></member>
+      <member refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a787163c7393e708d4c098baf9f2c0352" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>k_config_sd_different_id</name></member>
+      <member refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992ad8b65deb6bfcf28c2fafd7604142b6cf" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>k_empty_sd_no_storage</name></member>
+      <member refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a1ac6118f188463d133c588180b37373b" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>k_empty_sd_with_storage</name></member>
+      <member refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992abc5a883c610cab86ca83264b48ad2a3c" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>k_new_device</name></member>
+      <member refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992aa7c41a2a5c18a9c52edefa2e0f64be0f" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>k_no_sd_no_storage</name></member>
+      <member refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a28ab250033e34bb188e2db3127b4e78e" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>k_no_sd_with_storage</name></member>
+      <member refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992a191c84bbd973235a9458ffdb7ac46834" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>k_unknown</name></member>
+      <member refid="class_sd_message_screen_1a80f1af31e6f9a40d9587ca86bee2220f" prot="public" virt="virtual"><scope>SdMessageScreen</scope><name>leave_screen</name></member>
+      <member refid="class_base_screen_1acfec22b4351b13b4f0c6bd84254198ec" prot="protected" virt="non-virtual"><scope>SdMessageScreen</scope><name>printFloatFont</name></member>
+      <member refid="class_base_screen_1ae6e6ee7b78413b55d89fd192157ea9db" prot="protected" virt="non-virtual"><scope>SdMessageScreen</scope><name>printIntFont</name></member>
+      <member refid="class_sd_message_screen_1a2c75124920b18c3d29c65887cbe404c7" prot="protected" virt="virtual"><scope>SdMessageScreen</scope><name>render</name></member>
+      <member refid="class_base_screen_1a4519670c7f1d8995d30f441f473c4e1d" prot="protected" virt="non-virtual"><scope>SdMessageScreen</scope><name>required_ble</name></member>
+      <member refid="class_base_screen_1aa7ff73902ffb4869a7a1e4da7a004f86" prot="protected" virt="non-virtual"><scope>SdMessageScreen</scope><name>required_gps</name></member>
+      <member refid="class_base_screen_1a0ec50e2f5e767c49926acea4eff5d62a" prot="protected" virt="non-virtual"><scope>SdMessageScreen</scope><name>required_sd</name></member>
+      <member refid="class_base_screen_1aaec338ea2e36bc2c621d3283ab345313" prot="protected" virt="non-virtual"><scope>SdMessageScreen</scope><name>required_tube</name></member>
+      <member refid="class_base_screen_1a1aca75e6183b4428be7008ae8cdae37e" prot="protected" virt="non-virtual"><scope>SdMessageScreen</scope><name>required_wifi</name></member>
+      <member refid="class_sd_message_screen_1a1561c286018e167b2f6b5bc9a503eb42" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>SdMessageScreen</name></member>
+      <member refid="class_sd_message_screen_1ac5867a7f8e9c422db572ad706ffeb992" prot="public" virt="non-virtual"><scope>SdMessageScreen</scope><name>SdMessageType</name></member>
+      <member refid="class_base_screen_1ae483509d86c8f2ca88f5250180aefe1b" prot="protected" virt="non-virtual"><scope>SdMessageScreen</scope><name>set_status_message</name></member>
+      <member refid="class_base_screen_1a86234c33321bb25d534c0347a946b084" prot="protected" virt="virtual"><scope>SdMessageScreen</scope><name>~BaseScreen</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,441 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="gps__connector_8cpp" kind="file" language="C++">
+    <compoundname>gps_connector.cpp</compoundname>
+    <includes refid="functions_8h" local="yes">utils/functions.h</includes>
+    <includes refid="gps__connector_8h" local="yes">gps_connector.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>utils/functions.h</label>
+        <link refid="functions_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/workers/gps_connector.cpp</label>
+        <link refid="gps__connector_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>gps_connector.h</label>
+        <link refid="gps__connector_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Arduino.h</label>
+      </node>
+      <node id="3">
+        <label>M5Unified.h</label>
+      </node>
+      <node id="9">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="6">
+        <label>RBD_Timer.h</label>
+      </node>
+      <node id="10">
+        <label>TeenyUbloxConnect.h</label>
+      </node>
+      <node id="7">
+        <label>Worker.hpp</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="gps__connector_8cpp_1a6bd854d2104015e821eeed7a174ff783" prot="public" static="no">
+        <name>GPS_INVALID_YEAR</name>
+        <initializer>2000</initializer>
+        <briefdescription>
+<para>GNSS handler using UBX protocol library. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When activated, set auto receive for the UBX protocol commands used: UBX-NAV-PVT: position, velocity and time <emphasis><bold>REMOVED</bold></emphasis> UBX-NAV-DOP: dilution of precision, for horizontal DOP <emphasis><bold>REMOVED</bold></emphasis> UBX-NAV-SAT: enumeration of satellites in view, for number of sats. Based on examples by Paul Clark, SparkFun Electronics <ulink url="https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library">https://github.com/sparkfun/SparkFun_u-blox_GNSS_Arduino_Library</ulink></para>
+<para><emphasis><bold>REMOVED</bold></emphasis> The two removed packets were not providing any additional useful information. HDOP was always zero. NSATS was the total number of satellites, regardless of their status in computing a fix. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.cpp" line="18" column="9" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gps__connector_8cpp_1a3bca17db281c79460fab5db86b3431ec" prot="public" static="no">
+        <name>GPS_INVALID_MONTH</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.cpp" line="19" column="9" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gps__connector_8cpp_1a4658257e8be7db42ef4e1df1bfb92c61" prot="public" static="no">
+        <name>GPS_INVALID_DAY</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.cpp" line="20" column="9" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gps__connector_8cpp_1a6b6cb776673221f5ca110e5d9d9f4f4d" prot="public" static="no">
+        <name>GPS_INVALID_HOUR</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.cpp" line="21" column="9" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gps__connector_8cpp_1af879278be57fbdbb5b4cb4a63f54b882" prot="public" static="no">
+        <name>GPS_INVALID_MINUTE</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.cpp" line="22" column="9" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gps__connector_8cpp_1a37648bd05c7cd6c1d1980238561e95ff" prot="public" static="no">
+        <name>GPS_INVALID_SECOND</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.cpp" line="23" column="9" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gps__connector_8cpp_1a24cb4d821a247d2bbb49d109d11feaa4" prot="public" static="no">
+        <name>NNE</name>
+        <initializer>22.5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.cpp" line="25" column="9" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gps__connector_8cpp_1aead3f3cfc07558543a2fc4ff6c55c8c2" prot="public" static="no">
+        <name>ENE</name>
+        <initializer>(<ref refid="gps__connector_8cpp_1a24cb4d821a247d2bbb49d109d11feaa4" kindref="member">NNE</ref> + 45)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.cpp" line="26" column="9" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gps__connector_8cpp_1a138bf1f8fd55931f28bd36f0a88bb074" prot="public" static="no">
+        <name>ESE</name>
+        <initializer>(<ref refid="gps__connector_8cpp_1aead3f3cfc07558543a2fc4ff6c55c8c2" kindref="member">ENE</ref> + 45)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.cpp" line="27" column="9" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gps__connector_8cpp_1ad518177eb0b052ffed6ce4d0d63e6ae4" prot="public" static="no">
+        <name>SSE</name>
+        <initializer>(<ref refid="gps__connector_8cpp_1a138bf1f8fd55931f28bd36f0a88bb074" kindref="member">ESE</ref> + 45)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.cpp" line="28" column="9" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gps__connector_8cpp_1ab8fdcdfe8f08033094c1179c905612ae" prot="public" static="no">
+        <name>SSW</name>
+        <initializer>(<ref refid="gps__connector_8cpp_1ad518177eb0b052ffed6ce4d0d63e6ae4" kindref="member">SSE</ref> + 45)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.cpp" line="29" column="9" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gps__connector_8cpp_1ae293446ee09a6d14dcb84e7bee54af13" prot="public" static="no">
+        <name>WSW</name>
+        <initializer>(<ref refid="gps__connector_8cpp_1ab8fdcdfe8f08033094c1179c905612ae" kindref="member">SSW</ref> + 45)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.cpp" line="30" column="9" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gps__connector_8cpp_1af0e115ed15753c6cfb48ad35a3cd6efa" prot="public" static="no">
+        <name>WNW</name>
+        <initializer>(<ref refid="gps__connector_8cpp_1ae293446ee09a6d14dcb84e7bee54af13" kindref="member">WSW</ref> + 45)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.cpp" line="31" column="9" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gps__connector_8cpp_1ad9184ebbef4e69eb7b2df74684a2e809" prot="public" static="no">
+        <name>NNW</name>
+        <initializer>(<ref refid="gps__connector_8cpp_1af0e115ed15753c6cfb48ad35a3cd6efa" kindref="member">WNW</ref> + 45)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.cpp" line="32" column="9" bodyfile="bgeigiezen_firmware/workers/gps_connector.cpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="functions_8h" kindref="compound">utils/functions.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gps__connector_8h" kindref="compound">gps_connector.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="gps__connector_8cpp_1a6bd854d2104015e821eeed7a174ff783" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GPS_INVALID_YEAR<sp/>2000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="gps__connector_8cpp_1a3bca17db281c79460fab5db86b3431ec" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GPS_INVALID_MONTH<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="gps__connector_8cpp_1a4658257e8be7db42ef4e1df1bfb92c61" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GPS_INVALID_DAY<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="gps__connector_8cpp_1a6b6cb776673221f5ca110e5d9d9f4f4d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GPS_INVALID_HOUR<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="gps__connector_8cpp_1af879278be57fbdbb5b4cb4a63f54b882" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GPS_INVALID_MINUTE<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="gps__connector_8cpp_1a37648bd05c7cd6c1d1980238561e95ff" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GPS_INVALID_SECOND<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="gps__connector_8cpp_1a24cb4d821a247d2bbb49d109d11feaa4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NNE<sp/>22.5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="gps__connector_8cpp_1aead3f3cfc07558543a2fc4ff6c55c8c2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ENE<sp/>(NNE<sp/>+<sp/>45)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="gps__connector_8cpp_1a138bf1f8fd55931f28bd36f0a88bb074" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ESE<sp/>(ENE<sp/>+<sp/>45)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="gps__connector_8cpp_1ad518177eb0b052ffed6ce4d0d63e6ae4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SSE<sp/>(ESE<sp/>+<sp/>45)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="gps__connector_8cpp_1ab8fdcdfe8f08033094c1179c905612ae" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SSW<sp/>(SSE<sp/>+<sp/>45)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="gps__connector_8cpp_1ae293446ee09a6d14dcb84e7bee54af13" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WSW<sp/>(SSW<sp/>+<sp/>45)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="gps__connector_8cpp_1af0e115ed15753c6cfb48ad35a3cd6efa" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WNW<sp/>(WSW<sp/>+<sp/>45)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="gps__connector_8cpp_1ad9184ebbef4e69eb7b2df74684a2e809" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NNW<sp/>(WNW<sp/>+<sp/>45)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="class_gps_connector_1aff7afdfbf2918f864fdc4e7aee38db00" refkind="member"><highlight class="normal"><ref refid="class_gps_connector_1aff7afdfbf2918f864fdc4e7aee38db00" kindref="member">GpsConnector::GpsConnector</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TeenyUbloxConnect</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a658cddeb4423ca050427704c6761e2e3" kindref="member">gnss</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HardwareSerial</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">serial</ref>)<sp/>:<sp/>Worker&lt;<ref refid="struct_gnss_data" kindref="compound">GnssData</ref>&gt;({</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.location_valid=</highlight><highlight class="keyword">false</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.date_valid=</highlight><highlight class="keyword">false</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.time_valid=</highlight><highlight class="keyword">false</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.latitude=0,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.longitude=0,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.altitudeMSL=0,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.heading_degree=0,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.heading=<ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabaf944ece0444554e52923b0637a96e96c" kindref="member">GnssData::UNKNOWN</ref>,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.satsInView=0,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.pdop=0,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.year=0,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.month=0,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.day=0,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.hour=0,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.minute=0,</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.second=0,</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.protocolVersionHigh=0,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.protocolVersionLow=0</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}),<sp/>_gnss(<ref refid="bgeigiezen__firmware_2main_8cpp_1a658cddeb4423ca050427704c6761e2e3" kindref="member">gnss</ref>),<sp/>_serial_conn(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">serial</ref>),<sp/>_tried_115200_at(0),<sp/>_tried_38400_at(0),<sp/>_tried_9600_at(0),<sp/>_init_at(0),<sp/>_last_latitude(0),<sp/>_last_longitude(0)<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58" refid="class_gps_connector_1ae9c39a62d97e5491bb420cba02df2a98" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_gps_connector_1ae9c39a62d97e5491bb420cba02df2a98" kindref="member">GpsConnector::activate</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">retry</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>From<sp/>Sparkfun<sp/>examples/Example12_UseUart</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Assume<sp/>that<sp/>the<sp/>U-Blox<sp/>GNSS<sp/>is<sp/>running<sp/>at<sp/>9600<sp/>baud<sp/>(the<sp/>default)<sp/>or<sp/>at<sp/>38400<sp/>baud.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">retry</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>CONFIG_IDF_TARGET_ESP32S3<sp/></highlight><highlight class="comment">//<sp/>Core<sp/>S3SE<sp/>fix<sp/>using<sp/>the<sp/>correct<sp/>serial<sp/>pins</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>_serial_conn.begin(38400,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">SERIAL_8N1</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">RXD2</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TXD2</ref>);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>_serial_conn.begin(38400);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>_init_at<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_tried_115200_at<sp/>==<sp/>0<sp/>&amp;&amp;<sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>()<sp/>-<sp/>_init_at<sp/>&gt;<sp/>1000))<sp/>{<sp/></highlight><highlight class="comment">//<sp/>Wait<sp/>for<sp/>device<sp/>to<sp/>completely<sp/>startup</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>_tried_115200_at<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>_serial_conn.updateBaudRate(115200);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;GNSS:<sp/>Try<sp/>at<sp/>115200<sp/>baud&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_gnss.begin(_serial_conn,<sp/>500))<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;GNSS:<sp/>connected<sp/>at<sp/>115200<sp/>baud&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>no<sp/>need<sp/>to<sp/>set<sp/>module<sp/>to<sp/>38.4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_tried_38400_at<sp/>==<sp/>0<sp/>&amp;&amp;<sp/>_tried_115200_at<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>()<sp/>-<sp/>_tried_115200_at<sp/>&gt;<sp/>1200))<sp/>{<sp/></highlight><highlight class="comment">//<sp/>Wait<sp/>for<sp/>device<sp/>to<sp/>completely<sp/>startup</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>_tried_38400_at<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>_serial_conn.updateBaudRate(38400);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;GNSS:<sp/>Try<sp/>at<sp/>38400<sp/>baud&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_gnss.begin(_serial_conn,<sp/>500))<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;GNSS:<sp/>connected<sp/>at<sp/>38400<sp/>baud&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>no<sp/>need<sp/>to<sp/>set<sp/>module<sp/>to<sp/>38.4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_tried_9600_at<sp/>==<sp/>0<sp/>&amp;&amp;<sp/>_tried_38400_at<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>()<sp/>-<sp/>_tried_38400_at<sp/>&gt;<sp/>1200))<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>_tried_9600_at<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>_serial_conn.updateBaudRate(9600);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;GNSS:<sp/>Try<sp/>at<sp/>9600<sp/>baud&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_gnss.begin(_serial_conn,<sp/>500))<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;GNSS:<sp/>connected<sp/>at<sp/>9600<sp/>baud,<sp/>switching<sp/>to<sp/>38400&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_gnss.setSerialRate(38400);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">delay</ref>(100);<sp/></highlight><highlight class="comment">//<sp/>recovery<sp/>time<sp/>for<sp/>gnss<sp/>module<sp/>baud<sp/>rate<sp/>change</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_serial_conn.updateBaudRate(38400);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Confirm<sp/>that<sp/>we<sp/>actually<sp/>have<sp/>a<sp/>connection</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>data.protocolVersionHigh<sp/>=<sp/>_gnss.getProtocolVersionHigh();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>data.protocolVersionLow<sp/>=<sp/>_gnss.getProtocolVersionLow();</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;GNSS:<sp/>u-blox<sp/>protocol<sp/>version<sp/>%02d.%02d&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.protocolVersionHigh,<sp/>data.protocolVersionLow);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Send<sp/>UBX,<sp/>disable<sp/>NMEA-0183<sp/>messages<sp/>that<sp/>we<sp/>are<sp/>ignoring<sp/>anyway.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>_gnss.setPortOutput(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">COM_PORT_UART1</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">COM_TYPE_UBX</ref>);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>Auto<sp/>on<sp/>NAV-PVT<sp/>for<sp/>non-blocking<sp/>access</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>getPVT()<sp/>will<sp/>return<sp/>true<sp/>if<sp/>a<sp/>new<sp/>navigation<sp/>solution<sp/>is<sp/>available</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>_gnss.setAutoPVT(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>Tell<sp/>the<sp/>GNSS<sp/>to<sp/>send<sp/>the<sp/>solution<sp/>as<sp/>it<sp/>is<sp/>computed<sp/>(1<sp/>second)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>_gnss.setAutoNAVSAT(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>Disable<sp/>navsat<sp/>by<sp/>default<sp/>(navsat<sp/>worker<sp/>handles<sp/>this)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="class_gps_connector_1aa74f07bb7ed9075fe0b0ed64b6eecbc6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_gps_connector_1aa74f07bb7ed9075fe0b0ed64b6eecbc6" kindref="member">GpsConnector::deactivate</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>_tried_9600_at<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>_tried_38400_at<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>_tried_115200_at<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>_serial_conn.end();</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="class_gps_connector_1a772998cb4be0a4a1f4964e7dfc6962db" refkind="member"><highlight class="normal">int8_t<sp/><ref refid="class_gps_connector_1a772998cb4be0a4a1f4964e7dfc6962db" kindref="member">GpsConnector::produce_data</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ret_status</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_worker_idle</ref>;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>getPVT<sp/>returns<sp/>true<sp/>if<sp/>there<sp/>is<sp/>a<sp/>fresh<sp/>navigation<sp/>solution<sp/>available.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;LLH&quot;<sp/>is<sp/>longitude,<sp/>latitude,<sp/>height.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>getPVT()<sp/>returns<sp/>UTC<sp/>date<sp/>and<sp/>time.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Do<sp/>not<sp/>use<sp/>GNSS<sp/>time,<sp/>see<sp/>u-blox<sp/>spec<sp/>section<sp/>9.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_gnss.getPVT())<sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M5_LOGD(&quot;[%d]<sp/>_gnss.getPVT()<sp/>is<sp/>true.&quot;,<sp/>millis());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>data.satsInView<sp/>=<sp/>_gnss.getSIV();<sp/></highlight><highlight class="comment">//<sp/>Satellites<sp/>In<sp/>View</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_gnss.getFixType()<sp/>==<sp/>2<sp/>||<sp/>_gnss.getFixType()<sp/>==<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M5_LOGD(&quot;[%d]<sp/>fix<sp/>type<sp/>is<sp/>2D<sp/>or<sp/>3D.&quot;,<sp/>millis());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.pdop<sp/>=<sp/>_gnss.getPDOP()<sp/>*<sp/>1<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>-2;<sp/></highlight><highlight class="comment">//<sp/>Position<sp/>Dilution<sp/>of<sp/>Precision</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_last_latitude<sp/>=<sp/>data.latitude;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_last_longitude<sp/>=<sp/>data.longitude;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.latitude<sp/>=<sp/>_gnss.getLatitude()<sp/>*<sp/>1<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>-7;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.longitude<sp/>=<sp/>_gnss.getLongitude()<sp/>*<sp/>1<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>-7;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.heading_degree<sp/>=<sp/>_gnss.getHeading()<sp/>*<sp/>1<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>-5;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data.heading_degree<sp/>&gt;=<sp/><ref refid="gps__connector_8cpp_1ad9184ebbef4e69eb7b2df74684a2e809" kindref="member">NNW</ref><sp/>||<sp/>data.heading_degree<sp/>&lt;<sp/><ref refid="gps__connector_8cpp_1a24cb4d821a247d2bbb49d109d11feaa4" kindref="member">NNE</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.heading<sp/>=<sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba4da3c06fe6c911023224dae72dbdad61" kindref="member">GnssData::NORTH</ref>;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data.heading_degree<sp/>&gt;=<sp/><ref refid="gps__connector_8cpp_1a24cb4d821a247d2bbb49d109d11feaa4" kindref="member">NNE</ref><sp/>||<sp/>data.heading_degree<sp/>&lt;<sp/><ref refid="gps__connector_8cpp_1aead3f3cfc07558543a2fc4ff6c55c8c2" kindref="member">ENE</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.heading<sp/>=<sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabacfd7d0af2deacc4d633d98eaa83619fb" kindref="member">GnssData::NORTHEAST</ref>;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data.heading_degree<sp/>&gt;=<sp/><ref refid="gps__connector_8cpp_1aead3f3cfc07558543a2fc4ff6c55c8c2" kindref="member">ENE</ref><sp/>||<sp/>data.heading_degree<sp/>&lt;<sp/><ref refid="gps__connector_8cpp_1a138bf1f8fd55931f28bd36f0a88bb074" kindref="member">ESE</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.heading<sp/>=<sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabac59171f32d388e75c92c0898cb44bc15" kindref="member">GnssData::EAST</ref>;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data.heading_degree<sp/>&gt;=<sp/><ref refid="gps__connector_8cpp_1a138bf1f8fd55931f28bd36f0a88bb074" kindref="member">ESE</ref><sp/>||<sp/>data.heading_degree<sp/>&lt;<sp/><ref refid="gps__connector_8cpp_1ad518177eb0b052ffed6ce4d0d63e6ae4" kindref="member">SSE</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.heading<sp/>=<sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba14b6d0ef04f8f7d52d377b04d4335194" kindref="member">GnssData::SOUTHEAST</ref>;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data.heading_degree<sp/>&gt;=<sp/><ref refid="gps__connector_8cpp_1ad518177eb0b052ffed6ce4d0d63e6ae4" kindref="member">SSE</ref><sp/>||<sp/>data.heading_degree<sp/>&lt;<sp/><ref refid="gps__connector_8cpp_1ab8fdcdfe8f08033094c1179c905612ae" kindref="member">SSW</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.heading<sp/>=<sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcababcc52805fa984d5c3f174295df0b3461" kindref="member">GnssData::SOUTH</ref>;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data.heading_degree<sp/>&gt;=<sp/><ref refid="gps__connector_8cpp_1ab8fdcdfe8f08033094c1179c905612ae" kindref="member">SSW</ref><sp/>||<sp/>data.heading_degree<sp/>&lt;<sp/><ref refid="gps__connector_8cpp_1ae293446ee09a6d14dcb84e7bee54af13" kindref="member">WSW</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.heading<sp/>=<sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba77bc8bd9de96e62e1247652bc0923398" kindref="member">GnssData::SOUTHWEST</ref>;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data.heading_degree<sp/>&gt;=<sp/><ref refid="gps__connector_8cpp_1ae293446ee09a6d14dcb84e7bee54af13" kindref="member">WSW</ref><sp/>||<sp/>data.heading_degree<sp/>&lt;<sp/><ref refid="gps__connector_8cpp_1af0e115ed15753c6cfb48ad35a3cd6efa" kindref="member">WNW</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.heading<sp/>=<sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba5215b2609bd9d9ba6d84fbf741c70ad5" kindref="member">GnssData::WEST</ref>;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data.heading_degree<sp/>&gt;=<sp/><ref refid="gps__connector_8cpp_1af0e115ed15753c6cfb48ad35a3cd6efa" kindref="member">WNW</ref><sp/>||<sp/>data.heading_degree<sp/>&lt;<sp/><ref refid="gps__connector_8cpp_1ad9184ebbef4e69eb7b2df74684a2e809" kindref="member">NNW</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.heading<sp/>=<sp/><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabacc2c1d688ba66385c9a84718f3d97800" kindref="member">GnssData::NORTHWEST</ref>;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.altitudeMSL<sp/>=<sp/>_gnss.getFixType()<sp/>==<sp/>3<sp/>?<sp/>_gnss.getAltitudeMSL()<sp/>*<sp/>1<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>-3<sp/>:<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>Above<sp/>MSL<sp/>(not<sp/>ellipsoid)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">distance_step</ref><sp/>=<sp/><ref refid="functions_8h_1a9b1d6cb0ae5f9e0e2eb8547c8d1fa038" kindref="member">haversine_km</ref>(data.latitude,<sp/>data.longitude,<sp/>_last_latitude,<sp/>_last_longitude);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.location_valid<sp/>=<sp/>_gnss.getGnssFixOk()<sp/>&amp;&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">distance_step</ref><sp/>&lt;<sp/>0.5;<sp/></highlight><highlight class="comment">//<sp/>Airplanes<sp/>fly<sp/>at<sp/>255m<sp/>per<sp/>second,<sp/>500<sp/>meter<sp/>check<sp/>is<sp/>good<sp/>enough</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>location_timer.restart();</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ret_status</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_worker_data_read</ref>;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>DEBUG:<sp/>Compare<sp/>PDOP<sp/>from<sp/>NAV-PVT<sp/>and<sp/>HDOP<sp/>from<sp/>NAV-DOP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>M5_LOGD(&quot;[%d]<sp/>GnssFixOk<sp/>(type<sp/>=<sp/>%d).&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;<sp/><sp/>SATS:<sp/>%d;<sp/>PDOP:<sp/>%d;<sp/>HDOP:<sp/>%d\n&quot;,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>millis(),<sp/>_gnss.getFixType(),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data.satsInView,<sp/>_gnss.getPDOP(),<sp/>data.hdop);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_gnss.getDateValid())<sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>M5_LOGD(&quot;[%lu]<sp/>_gnss.getDateValid()<sp/>is<sp/>true.&quot;,<sp/>millis());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.year<sp/>=<sp/>_gnss.getYear();</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.month<sp/>=<sp/>_gnss.getMonth();</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.day<sp/>=<sp/>_gnss.getDay();</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.date_valid<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>date_timer.restart();</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ret_status</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_worker_data_read</ref>;</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_gnss.getTimeValid())<sp/>{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>M5_LOGD(&quot;[%lu]<sp/>_gnss.getTimeValid()<sp/>is<sp/>true.&quot;,<sp/>millis());</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.hour<sp/>=<sp/>_gnss.getHour();</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.minute<sp/>=<sp/>_gnss.getMinute();</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.second<sp/>=<sp/>_gnss.getSecond();</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.time_valid<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>time_timer.restart();</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ret_status</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_worker_data_read</ref>;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>expiry</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(location_timer.isExpired())<sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>data.location_valid<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(time_timer.isExpired())<sp/>{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>data.time_valid<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>data.hour<sp/>=<sp/><ref refid="gps__connector_8cpp_1a6b6cb776673221f5ca110e5d9d9f4f4d" kindref="member">GPS_INVALID_HOUR</ref>;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>data.minute<sp/>=<sp/><ref refid="gps__connector_8cpp_1af879278be57fbdbb5b4cb4a63f54b882" kindref="member">GPS_INVALID_MINUTE</ref>;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>data.second<sp/>=<sp/><ref refid="gps__connector_8cpp_1a37648bd05c7cd6c1d1980238561e95ff" kindref="member">GPS_INVALID_SECOND</ref>;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(date_timer.isExpired())<sp/>{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>data.date_valid<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>data.year<sp/>=<sp/><ref refid="gps__connector_8cpp_1a6bd854d2104015e821eeed7a174ff783" kindref="member">GPS_INVALID_YEAR</ref>;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>data.month<sp/>=<sp/><ref refid="gps__connector_8cpp_1a3bca17db281c79460fab5db86b3431ec" kindref="member">GPS_INVALID_MONTH</ref>;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>data.day<sp/>=<sp/><ref refid="gps__connector_8cpp_1a4658257e8be7db42ef4e1df1bfb92c61" kindref="member">GPS_INVALID_DAY</ref>;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ret_status</ref>;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/workers/gps_connector.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,345 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_g_p_s_data" kind="struct" language="C++" prot="public">
+    <compoundname>GPSData</compoundname>
+    <basecompoundref refid="struct_measurement_data" prot="public" virt="non-virtual">MeasurementData</basecompoundref>
+    <basecompoundref refid="struct_measurement_data" prot="public" virt="non-virtual">MeasurementData</basecompoundref>
+    <includes refid="bgeigie__firmware_2threaded__gps_8hpp" local="no">threaded_gps.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_g_p_s_data_1ad9399fd6e9b5efaffe53770aae93a352" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>int GPSData::year</definition>
+        <argsstring></argsstring>
+        <name>year</name>
+        <qualifiedname>GPSData::year</qualifiedname>
+        <initializer>= <ref refid="test_2test__gpsthreaded_2threaded__gps_8hpp_1acacba745d4adee75cce649d32509e895" kindref="member">DEFAULT_YEAR</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="23" column="7" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1aa9c697d9a2f3cf3335931f1261065da7" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GPSData::month</definition>
+        <argsstring></argsstring>
+        <name>month</name>
+        <qualifiedname>GPSData::month</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="24" column="11" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1a7c9690e05945b95b5ea708b83f4e2482" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GPSData::day</definition>
+        <argsstring></argsstring>
+        <name>day</name>
+        <qualifiedname>GPSData::day</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="24" column="18" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1afcfcb66ea715d9adcde3f05d1ab957e5" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GPSData::hour</definition>
+        <argsstring></argsstring>
+        <name>hour</name>
+        <qualifiedname>GPSData::hour</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="24" column="23" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1a2ef4291a9d5cc447d3a01dde37991fdf" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GPSData::minute</definition>
+        <argsstring></argsstring>
+        <name>minute</name>
+        <qualifiedname>GPSData::minute</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="24" column="29" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1ae742dea61b3abc238661398c96f16eba" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GPSData::second</definition>
+        <argsstring></argsstring>
+        <name>second</name>
+        <qualifiedname>GPSData::second</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="24" column="37" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1af0df28c65cca782a2bd75e56a5b13a62" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GPSData::hundredths</definition>
+        <argsstring></argsstring>
+        <name>hundredths</name>
+        <qualifiedname>GPSData::hundredths</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="24" column="45" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1a8db2bb19609fe364948c44d4a90e83d5" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">long</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>long int GPSData::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>GPSData::x</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="25" column="12" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1a9095a3768a426997281b236ef0fc2a12" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">long</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>long int GPSData::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>GPSData::y</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="25" column="15" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1a761ee6092fbb668db174ea1ce595b85c" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GPSData::faltitude</definition>
+        <argsstring></argsstring>
+        <name>faltitude</name>
+        <qualifiedname>GPSData::faltitude</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="26" column="9" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1a50dc1d84e32c46f5066db723bec0d835" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GPSData::fspeed</definition>
+        <argsstring></argsstring>
+        <name>fspeed</name>
+        <qualifiedname>GPSData::fspeed</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="26" column="20" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1aeda136381f6a6e57557376031f913066" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">unsigned</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">short</ref></type>
+        <definition>unsigned short GPSData::nbsat</definition>
+        <argsstring></argsstring>
+        <name>nbsat</name>
+        <qualifiedname>GPSData::nbsat</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="27" column="18" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1a79c88bf69d2c80d09211cf6de41119e7" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">unsigned</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">long</ref></type>
+        <definition>unsigned long GPSData::precision</definition>
+        <argsstring></argsstring>
+        <name>precision</name>
+        <qualifiedname>GPSData::precision</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="28" column="17" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1a6cd748bce7a1e72c4ffcb1b590e6f899" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">unsigned</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">long</ref></type>
+        <definition>unsigned long GPSData::age</definition>
+        <argsstring></argsstring>
+        <name>age</name>
+        <qualifiedname>GPSData::age</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="29" column="17" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1abe060ab9b67affe29fd04d93cf5de4eb" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char GPSData::NS</definition>
+        <argsstring></argsstring>
+        <name>NS</name>
+        <qualifiedname>GPSData::NS</qualifiedname>
+        <initializer>= &apos;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">N</ref>&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="30" column="8" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1a9148de3874ced0b69b5fca4c765526b4" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char GPSData::WE</definition>
+        <argsstring></argsstring>
+        <name>WE</name>
+        <qualifiedname>GPSData::WE</qualifiedname>
+        <initializer>= &apos;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">E</ref>&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="31" column="8" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1a81aecf4e34a2ae729124447f2211282c" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GPSData::gps_status</definition>
+        <argsstring></argsstring>
+        <name>gps_status</name>
+        <qualifiedname>GPSData::gps_status</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="32" column="8" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_g_p_s_data_1a49b3e39d517d9cbeab2bfe3fe6b17739" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">unsigned</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">long</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>unsigned long int GPSData::distance</definition>
+        <argsstring></argsstring>
+        <name>distance</name>
+        <qualifiedname>GPSData::distance</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="33" column="21" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GPSData</label>
+        <link refid="struct_g_p_s_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MeasurementData</label>
+        <link refid="struct_measurement_data"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GPSData</label>
+        <link refid="struct_g_p_s_data"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>day</edgelabel>
+          <edgelabel>hour</edgelabel>
+          <edgelabel>hundredths</edgelabel>
+          <edgelabel>minute</edgelabel>
+          <edgelabel>month</edgelabel>
+          <edgelabel>second</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MeasurementData</label>
+        <link refid="struct_measurement_data"/>
+      </node>
+      <node id="3">
+        <label>uint8_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="21" column="1" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="22" bodyend="34"/>
+    <listofallmembers>
+      <member refid="struct_g_p_s_data_1a6cd748bce7a1e72c4ffcb1b590e6f899" prot="public" virt="non-virtual"><scope>GPSData</scope><name>age</name></member>
+      <member refid="struct_g_p_s_data_1a7c9690e05945b95b5ea708b83f4e2482" prot="public" virt="non-virtual"><scope>GPSData</scope><name>day</name></member>
+      <member refid="struct_g_p_s_data_1a49b3e39d517d9cbeab2bfe3fe6b17739" prot="public" virt="non-virtual"><scope>GPSData</scope><name>distance</name></member>
+      <member refid="struct_g_p_s_data_1a761ee6092fbb668db174ea1ce595b85c" prot="public" virt="non-virtual"><scope>GPSData</scope><name>faltitude</name></member>
+      <member refid="struct_measurement_data_1a25308fdf55e553fc2a59a035c241cd1d" prot="public" virt="non-virtual"><scope>GPSData</scope><name>fresh</name></member>
+      <member refid="struct_g_p_s_data_1a50dc1d84e32c46f5066db723bec0d835" prot="public" virt="non-virtual"><scope>GPSData</scope><name>fspeed</name></member>
+      <member refid="struct_g_p_s_data_1a81aecf4e34a2ae729124447f2211282c" prot="public" virt="non-virtual"><scope>GPSData</scope><name>gps_status</name></member>
+      <member refid="struct_g_p_s_data_1afcfcb66ea715d9adcde3f05d1ab957e5" prot="public" virt="non-virtual"><scope>GPSData</scope><name>hour</name></member>
+      <member refid="struct_g_p_s_data_1af0df28c65cca782a2bd75e56a5b13a62" prot="public" virt="non-virtual"><scope>GPSData</scope><name>hundredths</name></member>
+      <member refid="struct_g_p_s_data_1a2ef4291a9d5cc447d3a01dde37991fdf" prot="public" virt="non-virtual"><scope>GPSData</scope><name>minute</name></member>
+      <member refid="struct_g_p_s_data_1aa9c697d9a2f3cf3335931f1261065da7" prot="public" virt="non-virtual"><scope>GPSData</scope><name>month</name></member>
+      <member refid="struct_g_p_s_data_1aeda136381f6a6e57557376031f913066" prot="public" virt="non-virtual"><scope>GPSData</scope><name>nbsat</name></member>
+      <member refid="struct_g_p_s_data_1abe060ab9b67affe29fd04d93cf5de4eb" prot="public" virt="non-virtual"><scope>GPSData</scope><name>NS</name></member>
+      <member refid="struct_g_p_s_data_1a79c88bf69d2c80d09211cf6de41119e7" prot="public" virt="non-virtual"><scope>GPSData</scope><name>precision</name></member>
+      <member refid="struct_g_p_s_data_1ae742dea61b3abc238661398c96f16eba" prot="public" virt="non-virtual"><scope>GPSData</scope><name>second</name></member>
+      <member refid="struct_g_p_s_data_1a9148de3874ced0b69b5fca4c765526b4" prot="public" virt="non-virtual"><scope>GPSData</scope><name>WE</name></member>
+      <member refid="struct_g_p_s_data_1a8db2bb19609fe364948c44d4a90e83d5" prot="public" virt="non-virtual"><scope>GPSData</scope><name>x</name></member>
+      <member refid="struct_g_p_s_data_1a9095a3768a426997281b236ef0fc2a12" prot="public" virt="non-virtual"><scope>GPSData</scope><name>y</name></member>
+      <member refid="struct_g_p_s_data_1ad9399fd6e9b5efaffe53770aae93a352" prot="public" virt="non-virtual"><scope>GPSData</scope><name>year</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

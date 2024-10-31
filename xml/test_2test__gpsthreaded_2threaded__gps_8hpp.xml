@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="test_2test__gpsthreaded_2threaded__gps_8hpp" kind="file" language="C++">
+    <compoundname>threaded_gps.hpp</compoundname>
+    <includes local="no">pthread.h</includes>
+    <includes local="no">cstdint</includes>
+    <includes local="no">mutex</includes>
+    <includes refid="test_2test__gpsthreaded_2_tiny_g_p_s_8h" local="yes">TinyGPS.h</includes>
+    <includes refid="test_2test__gpsthreaded_2serial__source_8hpp" local="yes">serial_source.hpp</includes>
+    <includes refid="test_2test__gpsthreaded_2measurements_8hpp" local="yes">measurements.hpp</includes>
+    <includedby refid="test_2test__gpsthreaded_2threaded__gps_8cpp" local="yes">archive/test/test_gpsthreaded/threaded_gps.cpp</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>TinyGPS.h</label>
+        <link refid="test_2test__gpsthreaded_2_tiny_g_p_s_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>measurements.hpp</label>
+        <link refid="test_2test__gpsthreaded_2measurements_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>patterns.hpp</label>
+        <link refid="test_2test__gpsthreaded_2patterns_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>serial_source.hpp</label>
+        <link refid="test_2test__gpsthreaded_2serial__source_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>archive/test/test_gpsthreaded/threaded_gps.hpp</label>
+        <link refid="test_2test__gpsthreaded_2threaded__gps_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>cstdint</label>
+      </node>
+      <node id="7">
+        <label>cstdio</label>
+      </node>
+      <node id="11">
+        <label>forward_list</label>
+      </node>
+      <node id="4">
+        <label>mutex</label>
+      </node>
+      <node id="2">
+        <label>pthread.h</label>
+      </node>
+      <node id="9">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>archive/test/test_gpsthreaded/threaded_gps.cpp</label>
+        <link refid="test_2test__gpsthreaded_2threaded__gps_8cpp"/>
+      </node>
+      <node id="1">
+        <label>archive/test/test_gpsthreaded/threaded_gps.hpp</label>
+        <link refid="test_2test__gpsthreaded_2threaded__gps_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_g_p_s_data" prot="public">GPSData</innerclass>
+    <innerclass refid="class_g_p_s_thread" prot="public">GPSThread</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="test_2test__gpsthreaded_2threaded__gps_8hpp_1acacba745d4adee75cce649d32509e895" prot="public" static="no">
+        <name>DEFAULT_YEAR</name>
+        <initializer>2013</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/threaded_gps.hpp" line="19" column="9" bodyfile="archive/test/test_gpsthreaded/threaded_gps.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Class<sp/>implementing<sp/>threaded<sp/>parsing<sp/>of<sp/>the<sp/>GPS<sp/>data</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>This<sp/>class<sp/>uses<sp/>the<sp/>Serial1</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>2018,<sp/>Robin<sp/>Scheibler</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__GPS_THREAD__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__GPS_THREAD__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;pthread.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;mutex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="test_2test__gpsthreaded_2_tiny_g_p_s_8h" kindref="compound">TinyGPS.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="test_2test__gpsthreaded_2serial__source_8hpp" kindref="compound">serial_source.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="test_2test__gpsthreaded_2measurements_8hpp" kindref="compound">measurements.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="test_2test__gpsthreaded_2threaded__gps_8hpp_1acacba745d4adee75cce649d32509e895" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DEFAULT_YEAR<sp/>2013</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_g_p_s_data" kindref="compound">GPSData</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="struct_measurement_data" kindref="compound">MeasurementData</ref></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_g_p_s_data_1ad9399fd6e9b5efaffe53770aae93a352" kindref="member">year</ref><sp/>=<sp/><ref refid="test_2test__gpsthreaded_2threaded__gps_8hpp_1acacba745d4adee75cce649d32509e895" kindref="member">DEFAULT_YEAR</ref>;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_g_p_s_data_1aa9c697d9a2f3cf3335931f1261065da7" kindref="member">month</ref><sp/>=<sp/>0,<sp/><ref refid="struct_g_p_s_data_1a7c9690e05945b95b5ea708b83f4e2482" kindref="member">day</ref><sp/>=<sp/>0,<sp/><ref refid="struct_g_p_s_data_1afcfcb66ea715d9adcde3f05d1ab957e5" kindref="member">hour</ref><sp/>=<sp/>0,<sp/><ref refid="struct_g_p_s_data_1a2ef4291a9d5cc447d3a01dde37991fdf" kindref="member">minute</ref><sp/>=<sp/>0,<sp/><ref refid="struct_g_p_s_data_1ae742dea61b3abc238661398c96f16eba" kindref="member">second</ref><sp/>=<sp/>0,<sp/><ref refid="struct_g_p_s_data_1af0df28c65cca782a2bd75e56a5b13a62" kindref="member">hundredths</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_g_p_s_data_1a8db2bb19609fe364948c44d4a90e83d5" kindref="member">x</ref><sp/>=<sp/>0,<sp/><ref refid="struct_g_p_s_data_1a9095a3768a426997281b236ef0fc2a12" kindref="member">y</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_g_p_s_data_1a761ee6092fbb668db174ea1ce595b85c" kindref="member">faltitude</ref><sp/>=<sp/>0,<sp/><ref refid="struct_g_p_s_data_1a50dc1d84e32c46f5066db723bec0d835" kindref="member">fspeed</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/><ref refid="struct_g_p_s_data_1aeda136381f6a6e57557376031f913066" kindref="member">nbsat</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="struct_g_p_s_data_1a79c88bf69d2c80d09211cf6de41119e7" kindref="member">precision</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="struct_g_p_s_data_1a6cd748bce7a1e72c4ffcb1b590e6f899" kindref="member">age</ref>;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_g_p_s_data_1abe060ab9b67affe29fd04d93cf5de4eb" kindref="member">NS</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;N&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_g_p_s_data_1a9148de3874ced0b69b5fca4c765526b4" kindref="member">WE</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;E&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_g_p_s_data_1a81aecf4e34a2ae729124447f2211282c" kindref="member">gps_status</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_g_p_s_data_1a49b3e39d517d9cbeab2bfe3fe6b17739" kindref="member">distance</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_g_p_s_thread" kindref="compound">GPSThread</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_measurement" kindref="compound">Measurement</ref>&lt;GPSData&gt;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>status<sp/>flag<sp/>to<sp/>indicate<sp/>if<sp/>the<sp/>GPS<sp/>is<sp/>information<sp/>is<sp/>ready</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_ready<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>std::mutex<sp/>_update_mutex;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_tiny_g_p_s" kindref="compound">TinyGPS</ref><sp/>_parser;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>the<sp/>distance<sp/>calculation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_gps_fix_first<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_gps_last_lon<sp/>=<sp/>0,<sp/>_gps_last_lat<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">pthread_t</ref><sp/>_the_thread;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_g_p_s_data" kindref="compound">GPSData</ref><sp/>_info;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>will<sp/>fill<sp/>the<sp/>data<sp/>structure<sp/>from<sp/>the<sp/>TinyGPS<sp/>parser</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>fill_info();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Function<sp/>running<sp/>the<sp/>GPS<sp/>update<sp/>thread</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*update_loop(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>the<sp/>serial<sp/>source<sp/>of<sp/>the<sp/>GPS<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_serial_source" kindref="compound">SerialSource</ref><sp/>*_serial_input;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_serial_sink" kindref="compound">SerialSink</ref><sp/>*_serial_output;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="class_g_p_s_thread_1a94581db30acf1ea26c48e5353259aaa5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_g_p_s_thread_1a94581db30acf1ea26c48e5353259aaa5" kindref="member">GPSThread</ref>(<ref refid="class_serial_source" kindref="compound">SerialSource</ref><sp/>*<ref refid="class_g_p_s_thread_1a2842ed18eb698595f3b0bf063e75863c" kindref="member">serial_in</ref>,<sp/><ref refid="class_serial_sink" kindref="compound">SerialSink</ref><sp/>*<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">serial_out</ref>)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>_serial_input(<ref refid="class_g_p_s_thread_1a2842ed18eb698595f3b0bf063e75863c" kindref="member">serial_in</ref>),<sp/>_serial_output(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">serial_out</ref>)<sp/>{}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Implementation<sp/>of<sp/>Measurement<sp/>API</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="class_g_p_s_thread_1aa519d5004c9b13c2ac4308b99324efd9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_p_s_thread_1aa519d5004c9b13c2ac4308b99324efd9" kindref="member">init</ref>();</highlight></codeline>
+<codeline lineno="69" refid="class_g_p_s_thread_1aef0bf3ae06eff688503cfafe58cfe5f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_g_p_s_thread_1aef0bf3ae06eff688503cfafe58cfe5f8" kindref="member">prepare_data</ref>(<ref refid="struct_g_p_s_data" kindref="compound">GPSData</ref><sp/>&amp;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">dest</ref>);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="class_g_p_s_thread_1a2842ed18eb698595f3b0bf063e75863c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_serial_source" kindref="compound">SerialSource</ref><sp/>&amp;<ref refid="class_g_p_s_thread_1a2842ed18eb698595f3b0bf063e75863c" kindref="member">serial_in</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*_serial_input;<sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="archive/test/test_gpsthreaded/threaded_gps.hpp"/>
+  </compounddef>
+</doxygen>

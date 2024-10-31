@@ -1,0 +1,713 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_context" kind="class" language="C++" prot="public">
+    <compoundname>Context</compoundname>
+    <includes refid="include_2fsm__context_8hpp" local="no">fsm_context.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_context_1a7a46b4a938873cb1de829df0c0a893e0" prot="private" static="no" mutable="no">
+        <type><ref refid="class_state" kindref="compound">State</ref> *</type>
+        <definition>State * Context::current_state</definition>
+        <argsstring></argsstring>
+        <name>current_state</name>
+        <qualifiedname>Context::current_state</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">NULL</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="29" column="9" bodyfile="archive/bgeigie_firmware_pio/include/fsm_context.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_context_1a54e51afce0edd534d7f0950ad83986ec" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_setup" kindref="compound">Setup</ref></type>
+        <definition>Setup Context::device_setup</definition>
+        <argsstring></argsstring>
+        <name>device_setup</name>
+        <qualifiedname>Context::device_setup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="33" column="9" bodyfile="archive/bgeigie_firmware_pio/include/fsm_context.hpp" bodystart="33" bodyend="-1"/>
+        <referencedby refid="class_state_wait_g_p_s_time_1a5afbcebf690e8a8eadc30a7795d9a907" compoundref="fsm__state__concrete_8cpp" startline="35" endline="45">StateWaitGPSTime::on_exit</referencedby>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+        <referencedby refid="class_context_1ad6ab2ba0b337de2f0ff6ae764a4ee18a" compoundref="fsm__context_8cpp" startline="19" endline="67">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_context_1a0dbf6bc88a0646c37c8b53d7220d073e" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_geiger_counter" kindref="compound">GeigerCounter</ref></type>
+        <definition>GeigerCounter Context::geiger_count</definition>
+        <argsstring></argsstring>
+        <name>geiger_count</name>
+        <qualifiedname>Context::geiger_count</qualifiedname>
+        <initializer>{<ref refid="include_2config_8hpp_1ad4f6757e97b449f1d666cb645f7c3b0b" kindref="member">GEIGER_AVERAGING_PERIOD_S</ref>, <ref refid="include_2config_8hpp_1a4d1e4f44b01dca70b038d11aa8791da7" kindref="member">GEIGER_PULSE_GPIO</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="34" column="17" bodyfile="archive/bgeigie_firmware_pio/include/fsm_context.hpp" bodystart="34" bodyend="34"/>
+        <referencedby refid="class_context_1a78c450b80877fe560a2abe7a541a118c" compoundref="fsm__context_8cpp" startline="10" endline="17">loop</referencedby>
+        <referencedby refid="class_context_1a508a6b9c7ed84ea20ef39bfa54607ad4" compoundref="fsm__context_8cpp" startline="69" endline="77">on_geiger_counter_available</referencedby>
+        <referencedby refid="class_state_wait_g_p_s_time_1a6953188f692b1a2d0e8d6ab42f6b7685" compoundref="fsm__state__concrete_8cpp" startline="25" endline="34">StateWaitGPSTime::process</referencedby>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+        <referencedby refid="class_context_1ad6ab2ba0b337de2f0ff6ae764a4ee18a" compoundref="fsm__context_8cpp" startline="19" endline="67">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_context_1acb802a2b6ddda206da0be0b1c78a371d" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_g_p_s_sensor" kindref="compound">GPSSensor</ref></type>
+        <definition>GPSSensor Context::gps</definition>
+        <argsstring></argsstring>
+        <name>gps</name>
+        <qualifiedname>Context::gps</qualifiedname>
+        <initializer>{<ref refid="include_2config_8hpp_1a2080a9b9250553498c56afc1e18b3caa" kindref="member">GPS_SERIAL_NUM</ref>, <ref refid="include_2config_8hpp_1a3f0796531188fce47f3b5c0e87688f34" kindref="member">GPS_BAUD_RATE</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="35" column="13" bodyfile="archive/bgeigie_firmware_pio/include/fsm_context.hpp" bodystart="35" bodyend="35"/>
+        <referencedby refid="class_context_1a78c450b80877fe560a2abe7a541a118c" compoundref="fsm__context_8cpp" startline="10" endline="17">loop</referencedby>
+        <referencedby refid="class_state_wait_g_p_s_time_1a5afbcebf690e8a8eadc30a7795d9a907" compoundref="fsm__state__concrete_8cpp" startline="35" endline="45">StateWaitGPSTime::on_exit</referencedby>
+        <referencedby refid="class_context_1a402bea63f404fae0790d6bb4f1a011f2" compoundref="fsm__context_8cpp" startline="79" endline="82">on_gps_available</referencedby>
+        <referencedby refid="class_state_wait_g_p_s_time_1a6953188f692b1a2d0e8d6ab42f6b7685" compoundref="fsm__state__concrete_8cpp" startline="25" endline="34">StateWaitGPSTime::process</referencedby>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_context_1a149d0ed1f90e574bffafcc60bad2e886" prot="protected" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">AXP192</ref> &amp;</type>
+        <definition>AXP192&amp; Context::battery_monitor</definition>
+        <argsstring></argsstring>
+        <name>battery_monitor</name>
+        <qualifiedname>Context::battery_monitor</qualifiedname>
+        <initializer>= M5.Axp</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="36" column="10" bodyfile="archive/bgeigie_firmware_pio/include/fsm_context.hpp" bodystart="36" bodyend="-1"/>
+        <referencedby refid="class_context_1a508a6b9c7ed84ea20ef39bfa54607ad4" compoundref="fsm__context_8cpp" startline="69" endline="77">on_geiger_counter_available</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_context_1abd136fe9e19e278ef2851d63f7313bf2" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_b_geigie_log_formatter" kindref="compound">BGeigieLogFormatter</ref></type>
+        <definition>BGeigieLogFormatter Context::bgeigie_formatter</definition>
+        <argsstring></argsstring>
+        <name>bgeigie_formatter</name>
+        <qualifiedname>Context::bgeigie_formatter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="39" column="23" bodyfile="archive/bgeigie_firmware_pio/include/fsm_context.hpp" bodystart="39" bodyend="-1"/>
+        <referencedby refid="class_context_1a508a6b9c7ed84ea20ef39bfa54607ad4" compoundref="fsm__context_8cpp" startline="69" endline="77">on_geiger_counter_available</referencedby>
+        <referencedby refid="class_context_1a402bea63f404fae0790d6bb4f1a011f2" compoundref="fsm__context_8cpp" startline="79" endline="82">on_gps_available</referencedby>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+        <referencedby refid="class_context_1ad6ab2ba0b337de2f0ff6ae764a4ee18a" compoundref="fsm__context_8cpp" startline="19" endline="67">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_context_1a78bc5d216452fcaee033806fea777198" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_s_d_wrapper" kindref="compound">SDWrapper</ref></type>
+        <definition>SDWrapper Context::sd_wrapper</definition>
+        <argsstring></argsstring>
+        <name>sd_wrapper</name>
+        <qualifiedname>Context::sd_wrapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="40" column="13" bodyfile="archive/bgeigie_firmware_pio/include/fsm_context.hpp" bodystart="40" bodyend="-1"/>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+        <referencedby refid="class_context_1ad6ab2ba0b337de2f0ff6ae764a4ee18a" compoundref="fsm__context_8cpp" startline="19" endline="67">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_context_1a365a2efa8a9dca76082a3b03bd6579dd" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_s_d_logger" kindref="compound">SDLogger</ref></type>
+        <definition>SDLogger Context::logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <qualifiedname>Context::logger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="41" column="12" bodyfile="archive/bgeigie_firmware_pio/include/fsm_context.hpp" bodystart="41" bodyend="-1"/>
+        <referencedby refid="class_state_wait_g_p_s_time_1a5afbcebf690e8a8eadc30a7795d9a907" compoundref="fsm__state__concrete_8cpp" startline="35" endline="45">StateWaitGPSTime::on_exit</referencedby>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_context_1a9921e196f07be3a73b723f68f140b988" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_display" kindref="compound">Display</ref></type>
+        <definition>Display Context::display</definition>
+        <argsstring></argsstring>
+        <name>display</name>
+        <qualifiedname>Context::display</qualifiedname>
+        <initializer>{<ref refid="include_2config_8hpp_1a2daf29815f1eb8bce357ffde5c694343" kindref="member">LCD_REFRESH_RATE</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="42" column="11" bodyfile="archive/bgeigie_firmware_pio/include/fsm_context.hpp" bodystart="42" bodyend="42"/>
+        <referencedby refid="class_context_1a78c450b80877fe560a2abe7a541a118c" compoundref="fsm__context_8cpp" startline="10" endline="17">loop</referencedby>
+        <referencedby refid="class_context_1a508a6b9c7ed84ea20ef39bfa54607ad4" compoundref="fsm__context_8cpp" startline="69" endline="77">on_geiger_counter_available</referencedby>
+        <referencedby refid="class_context_1a402bea63f404fae0790d6bb4f1a011f2" compoundref="fsm__context_8cpp" startline="79" endline="82">on_gps_available</referencedby>
+        <referencedby refid="class_context_1ad6ab2ba0b337de2f0ff6ae764a4ee18a" compoundref="fsm__context_8cpp" startline="19" endline="67">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_context_1a203eb67d86d0886703b41cab5b6fb7e0" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_battery_monitor_i_p5306" kindref="compound">BatteryMonitorIP5306</ref></type>
+        <definition>BatteryMonitorIP5306 Context::battery_monitor</definition>
+        <argsstring></argsstring>
+        <name>battery_monitor</name>
+        <qualifiedname>Context::battery_monitor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_context.hpp" line="32" column="24" bodyfile="archive/bgeigie_firmware_pio/src/fsm_context.hpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="class_context_1a6d2ffbaf01d2d4e8b023fa79ad5e131b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">class</ref></type>
+        <definition>StateStartup</definition>
+        <argsstring></argsstring>
+        <name>StateStartup</name>
+        <qualifiedname>Context::StateStartup</qualifiedname>
+        <param>
+          <type><ref refid="class_state_startup" kindref="compound">StateStartup</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="56" column="16" bodyfile="archive/bgeigie_firmware_pio/include/fsm_context.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="class_context_1a272f0d87c003693fd5408601335f1ed9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">class</ref></type>
+        <definition>StateWaitGPSTime</definition>
+        <argsstring></argsstring>
+        <name>StateWaitGPSTime</name>
+        <qualifiedname>Context::StateWaitGPSTime</qualifiedname>
+        <param>
+          <type><ref refid="class_state_wait_g_p_s_time" kindref="compound">StateWaitGPSTime</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="57" column="16" bodyfile="archive/bgeigie_firmware_pio/include/fsm_context.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="class_context_1ae2fe9fed9a39f58206554136398afbcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">class</ref></type>
+        <definition>StateLogging</definition>
+        <argsstring></argsstring>
+        <name>StateLogging</name>
+        <qualifiedname>Context::StateLogging</qualifiedname>
+        <param>
+          <type><ref refid="class_state_logging" kindref="compound">StateLogging</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="58" column="16" bodyfile="archive/bgeigie_firmware_pio/include/fsm_context.hpp" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_context_1ad6ab2ba0b337de2f0ff6ae764a4ee18a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Context::setup</definition>
+        <argsstring>()</argsstring>
+        <name>setup</name>
+        <qualifiedname>Context::setup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="45" column="8" bodyfile="archive/bgeigie_firmware_pio/src/fsm_context.cpp" bodystart="19" bodyend="67"/>
+        <references refid="struct_config_data_1a0926ea1423d747769c2c483cfe9e67d8" compoundref="include_2setup_8hpp" startline="88">ConfigData::alarm_level</references>
+        <references refid="class_geiger_counter_1a828539acf44e719d73716ff545bce51b" compoundref="include_2geiger__counter_8hpp" startline="53" endline="53">GeigerCounter::begin</references>
+        <references refid="class_s_d_wrapper_1a3cf0aa59da68a1368b7f7ce0f6714676" compoundref="include_2sd__wrapper_8hpp" startline="27" endline="32">SDWrapper::begin</references>
+        <references refid="class_context_1abd136fe9e19e278ef2851d63f7313bf2" compoundref="include_2fsm__context_8hpp" startline="39">bgeigie_formatter</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_setup_1a973924be0fdd98b6e5a964a2416cf721" compoundref="include_2setup_8hpp" startline="120" endline="120">Setup::config</references>
+        <references refid="class_geiger_counter_1ac068defdfdf364a2009891f736d45b76" compoundref="include_2geiger__counter_8hpp" startline="45" endline="51">GeigerCounter::configure</references>
+        <references refid="struct_config_data_1aa5933f3b80cedf442c2e77e0b4f2bc21" compoundref="include_2setup_8hpp" startline="87">ConfigData::cpm2bqm2_factor</references>
+        <references refid="struct_config_data_1aa24c38bbf7f45bf50326d157831c89f5" compoundref="include_2setup_8hpp" startline="86">ConfigData::cpm2ush_divider</references>
+        <references refid="struct_config_data_1af4aa84fbef118fd20be9a243b4f1668f" compoundref="include_2setup_8hpp" startline="84">ConfigData::device_id</references>
+        <references refid="class_context_1a54e51afce0edd534d7f0950ad83986ec" compoundref="include_2fsm__context_8hpp" startline="33">device_setup</references>
+        <references refid="class_context_1a9921e196f07be3a73b723f68f140b988" compoundref="include_2fsm__context_8hpp" startline="42" endline="42">display</references>
+        <references refid="class_display_1a6dfdf5e308b468964627eec5e6de802d" compoundref="display_8cpp" startline="396" endline="401">Display::feed</references>
+        <references refid="class_context_1a0dbf6bc88a0646c37c8b53d7220d073e" compoundref="include_2fsm__context_8hpp" startline="34" endline="34">geiger_count</references>
+        <references refid="class_setup_1a4c4cdbea334ad453542eba54c846c98f" compoundref="setup_8cpp" startline="41" endline="61">Setup::initialize</references>
+        <references refid="class_setup_1aa70fc3ff2c0e8122f9dd60376066352d" compoundref="setup_8cpp" startline="63" endline="271">Setup::load_from_file</references>
+        <references refid="class_s_d_wrapper_1a98d58fcf2935bd08e8de1f8b46d2eab9" compoundref="include_2sd__wrapper_8hpp" startline="26" endline="26">SDWrapper::ready</references>
+        <references refid="class_context_1a78bc5d216452fcaee033806fea777198" compoundref="include_2fsm__context_8hpp" startline="40">sd_wrapper</references>
+        <references refid="class_b_geigie_log_formatter_1aa9b91572348c098bb151e3662690a602" compoundref="include_2logger_8hpp" startline="34" endline="34">BGeigieLogFormatter::set_device_id</references>
+        <references refid="include_2config_8hpp_1a8f8959f14b4d147636e897f57e4798f9" compoundref="include_2config_8hpp" startline="48">SETUP_FILENAME</references>
+        <referencedby refid="class_state_startup_1aa18d08fdc8b18a4b9711a10075d992f8" compoundref="fsm__state__concrete_8cpp" startline="10" endline="13">StateStartup::on_enter</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_context_1a508a6b9c7ed84ea20ef39bfa54607ad4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Context::on_geiger_counter_available</definition>
+        <argsstring>()</argsstring>
+        <name>on_geiger_counter_available</name>
+        <qualifiedname>Context::on_geiger_counter_available</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="46" column="8" bodyfile="archive/bgeigie_firmware_pio/src/fsm_context.cpp" bodystart="69" bodyend="77"/>
+        <references refid="class_context_1a149d0ed1f90e574bffafcc60bad2e886" compoundref="include_2fsm__context_8hpp" startline="36">battery_monitor</references>
+        <references refid="class_context_1abd136fe9e19e278ef2851d63f7313bf2" compoundref="include_2fsm__context_8hpp" startline="39">bgeigie_formatter</references>
+        <references refid="class_geiger_counter_1a31310cb1270920b6bf8e183a6eb0ecb6" compoundref="include_2geiger__counter_8hpp" startline="71" endline="71">GeigerCounter::consume</references>
+        <references refid="class_context_1a9921e196f07be3a73b723f68f140b988" compoundref="include_2fsm__context_8hpp" startline="42" endline="42">display</references>
+        <references refid="class_display_1a6dfdf5e308b468964627eec5e6de802d" compoundref="display_8cpp" startline="396" endline="401">Display::feed</references>
+        <references refid="class_b_geigie_log_formatter_1a1c9a69c9790a8bc038b157ced1fcdbe3" compoundref="logger_8cpp" startline="23" endline="44">BGeigieLogFormatter::feed</references>
+        <references refid="class_display_1a00504e9ba16dc10557125c9c8dbc6aa8" compoundref="include_2display_8hpp" startline="117" endline="117">Display::feed_battery_level</references>
+        <references refid="class_context_1a0dbf6bc88a0646c37c8b53d7220d073e" compoundref="include_2fsm__context_8hpp" startline="34" endline="34">geiger_count</references>
+        <referencedby refid="class_state_wait_g_p_s_time_1a6953188f692b1a2d0e8d6ab42f6b7685" compoundref="fsm__state__concrete_8cpp" startline="25" endline="34">StateWaitGPSTime::process</referencedby>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_context_1a402bea63f404fae0790d6bb4f1a011f2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Context::on_gps_available</definition>
+        <argsstring>()</argsstring>
+        <name>on_gps_available</name>
+        <qualifiedname>Context::on_gps_available</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="47" column="8" bodyfile="archive/bgeigie_firmware_pio/src/fsm_context.cpp" bodystart="79" bodyend="82"/>
+        <references refid="class_context_1abd136fe9e19e278ef2851d63f7313bf2" compoundref="include_2fsm__context_8hpp" startline="39">bgeigie_formatter</references>
+        <references refid="class_context_1a9921e196f07be3a73b723f68f140b988" compoundref="include_2fsm__context_8hpp" startline="42" endline="42">display</references>
+        <references refid="class_display_1a6dfdf5e308b468964627eec5e6de802d" compoundref="display_8cpp" startline="396" endline="401">Display::feed</references>
+        <references refid="class_b_geigie_log_formatter_1a1c9a69c9790a8bc038b157ced1fcdbe3" compoundref="logger_8cpp" startline="23" endline="44">BGeigieLogFormatter::feed</references>
+        <references refid="class_context_1acb802a2b6ddda206da0be0b1c78a371d" compoundref="include_2fsm__context_8hpp" startline="35" endline="35">gps</references>
+        <referencedby refid="class_state_wait_g_p_s_time_1a6953188f692b1a2d0e8d6ab42f6b7685" compoundref="fsm__state__concrete_8cpp" startline="25" endline="34">StateWaitGPSTime::process</referencedby>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_context_1a33b213d58cb2d6bd4e2affdd5416e9be" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Context::transition_to</definition>
+        <argsstring>(State *next_state, bGeigieZen::Event e)</argsstring>
+        <name>transition_to</name>
+        <qualifiedname>Context::transition_to</qualifiedname>
+        <param>
+          <type><ref refid="class_state" kindref="compound">State</ref> *</type>
+          <declname>next_state</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785" kindref="member">bGeigieZen::Event</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="48" column="8" bodyfile="archive/bgeigie_firmware_pio/src/fsm_context.cpp" bodystart="84" bodyend="88"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_state_1a3c1399d4cb6c84dfa4d8ba0ee71e2ce5" compoundref="include_2fsm__state__base_8hpp" startline="24" endline="27">State::enter</references>
+        <references refid="class_state_1ae5e43afacaf6c1a35c07f0d3622f6e86" compoundref="include_2fsm__state__base_8hpp" startline="28" endline="31">State::exit</references>
+        <referencedby refid="class_context_1ac449a249d2b16a40e2b154aa918267ac" compoundref="fsm__context_8cpp" startline="6" endline="8">begin</referencedby>
+        <referencedby refid="class_state_startup_1aa18d08fdc8b18a4b9711a10075d992f8" compoundref="fsm__state__concrete_8cpp" startline="10" endline="13">StateStartup::on_enter</referencedby>
+        <referencedby refid="class_state_wait_g_p_s_time_1a6953188f692b1a2d0e8d6ab42f6b7685" compoundref="fsm__state__concrete_8cpp" startline="25" endline="34">StateWaitGPSTime::process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_context_1ad6ab2ba0b337de2f0ff6ae764a4ee18a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Context::setup</definition>
+        <argsstring>()</argsstring>
+        <name>setup</name>
+        <qualifiedname>Context::setup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_context.hpp" line="41" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_context_1a508a6b9c7ed84ea20ef39bfa54607ad4" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Context::on_geiger_counter_available</definition>
+        <argsstring>()</argsstring>
+        <name>on_geiger_counter_available</name>
+        <qualifiedname>Context::on_geiger_counter_available</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_context.hpp" line="42" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_context_1a402bea63f404fae0790d6bb4f1a011f2" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Context::on_gps_available</definition>
+        <argsstring>()</argsstring>
+        <name>on_gps_available</name>
+        <qualifiedname>Context::on_gps_available</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_context.hpp" line="43" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_context_1ad2abb2caf3f645e7eb1fd8f5c752a5cb" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Context::transition_to</definition>
+        <argsstring>(State *next_state, Event e)</argsstring>
+        <name>transition_to</name>
+        <qualifiedname>Context::transition_to</qualifiedname>
+        <param>
+          <type><ref refid="class_state" kindref="compound">State</ref> *</type>
+          <declname>next_state</declname>
+        </param>
+        <param>
+          <type>Event</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_context.hpp" line="44" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_context_1a652cdcd2eedc8dbd9110bd284c5d5cf0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Context::Context</definition>
+        <argsstring>()</argsstring>
+        <name>Context</name>
+        <qualifiedname>Context::Context</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="51" column="3" bodyfile="archive/bgeigie_firmware_pio/include/fsm_context.hpp" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_context_1ac449a249d2b16a40e2b154aa918267ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Context::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <qualifiedname>Context::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="52" column="8" bodyfile="archive/bgeigie_firmware_pio/src/fsm_context.cpp" bodystart="6" bodyend="8"/>
+        <references refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785a04d407ea661493959d1c331f98bed756">bGeigieZen::DEVICE_STARTED</references>
+        <references refid="class_state_startup_1a4f51bf08ed5a31e78ddc0d2e778a8087" compoundref="fsm__state__concrete_8cpp" startline="4" endline="9">StateStartup::instance</references>
+        <references refid="class_context_1a33b213d58cb2d6bd4e2affdd5416e9be" compoundref="fsm__context_8cpp" startline="84" endline="88">transition_to</references>
+        <referencedby refid="archive_2bgeigie__firmware__pio_2src_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="archive_2bgeigie__firmware__pio_2src_2main_8cpp" startline="9" endline="11">setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_context_1a78c450b80877fe560a2abe7a541a118c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Context::loop</definition>
+        <argsstring>()</argsstring>
+        <name>loop</name>
+        <qualifiedname>Context::loop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="53" column="8" bodyfile="archive/bgeigie_firmware_pio/src/fsm_context.cpp" bodystart="10" bodyend="17"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_context_1a9921e196f07be3a73b723f68f140b988" compoundref="include_2fsm__context_8hpp" startline="42" endline="42">display</references>
+        <references refid="class_context_1a0dbf6bc88a0646c37c8b53d7220d073e" compoundref="include_2fsm__context_8hpp" startline="34" endline="34">geiger_count</references>
+        <references refid="class_context_1acb802a2b6ddda206da0be0b1c78a371d" compoundref="include_2fsm__context_8hpp" startline="35" endline="35">gps</references>
+        <references refid="class_state_1a82ef896916bba81b0c818d37af21bf3c">State::process</references>
+        <references refid="class_display_1ad2740b779d61e461c4dcaaf34f1fcd8f" compoundref="display_8cpp" startline="89" endline="234">Display::update</references>
+        <references refid="class_geiger_counter_1af47906652803b0a81b3485ee19d1f7e6" compoundref="geiger__counter_8cpp" startline="5" endline="36">GeigerCounter::update</references>
+        <references refid="class_g_p_s_sensor_1a70ffb7412fa7a4cc14cad2135b79c59e" compoundref="gps_8cpp" startline="3" endline="54">GPSSensor::update</references>
+        <referencedby refid="archive_2bgeigie__firmware__pio_2src_2main_8cpp_1afe461d27b9c48d5921c00d521181f12f" compoundref="archive_2bgeigie__firmware__pio_2src_2main_8cpp" startline="13" endline="13">loop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_context_1a652cdcd2eedc8dbd9110bd284c5d5cf0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Context::Context</definition>
+        <argsstring>()</argsstring>
+        <name>Context</name>
+        <qualifiedname>Context::Context</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_context.hpp" line="47" column="3" bodyfile="archive/bgeigie_firmware_pio/src/fsm_context.hpp" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_context_1ac449a249d2b16a40e2b154aa918267ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Context::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <qualifiedname>Context::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_context.hpp" line="48" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_context_1a78c450b80877fe560a2abe7a541a118c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Context::loop</definition>
+        <argsstring>()</argsstring>
+        <name>loop</name>
+        <qualifiedname>Context::loop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_context.hpp" line="49" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="7">
+        <label>BGeigieLogFormatter</label>
+        <link refid="class_b_geigie_log_formatter"/>
+      </node>
+      <node id="6">
+        <label>BatteryMonitorIP5306</label>
+        <link refid="class_battery_monitor_i_p5306"/>
+      </node>
+      <node id="23">
+        <label>ConfigWebServer</label>
+        <link refid="class_config_web_server"/>
+        <childnode refid="24" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Context</label>
+        <link refid="class_context"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>device_setup</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>geiger_count</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>gps</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>battery_monitor</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>bgeigie_formatter</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>sd_wrapper</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>logger</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>display</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Display</label>
+        <link refid="class_display"/>
+        <childnode refid="11" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>wificonn</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>webserver</edgelabel>
+        </childnode>
+      </node>
+      <node id="11">
+        <label>DisplayData</label>
+        <link refid="struct_display_data"/>
+        <childnode refid="12" relation="usage">
+          <edgelabel>device_id</edgelabel>
+          <edgelabel>geiger_cpm</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>gps_satellites</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>gps_altitude</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>gps_speed</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>gps_course</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>gps_location</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>gps_time</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>gps_date</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>battery_level</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>GPSSensor</label>
+        <link refid="class_g_p_s_sensor"/>
+      </node>
+      <node id="3">
+        <label>GeigerCounter</label>
+        <link refid="class_geiger_counter"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>SDLogger</label>
+        <link refid="class_s_d_logger"/>
+      </node>
+      <node id="8">
+        <label>SDWrapper</label>
+        <link refid="class_s_d_wrapper"/>
+      </node>
+      <node id="2">
+        <label>Setup</label>
+        <link refid="class_setup"/>
+      </node>
+      <node id="14">
+        <label>TinyGPSAltitude</label>
+        <link refid="struct_tiny_g_p_s_altitude"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>TinyGPSCourse</label>
+        <link refid="struct_tiny_g_p_s_course"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>TinyGPSDate</label>
+        <link refid="struct_tiny_g_p_s_date"/>
+      </node>
+      <node id="15">
+        <label>TinyGPSDecimal</label>
+        <link refid="struct_tiny_g_p_s_decimal"/>
+      </node>
+      <node id="13">
+        <label>TinyGPSInteger</label>
+        <link refid="struct_tiny_g_p_s_integer"/>
+      </node>
+      <node id="18">
+        <label>TinyGPSLocation</label>
+        <link refid="struct_tiny_g_p_s_location"/>
+      </node>
+      <node id="16">
+        <label>TinyGPSSpeed</label>
+        <link refid="struct_tiny_g_p_s_speed"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>TinyGPSTime</label>
+        <link refid="struct_tiny_g_p_s_time"/>
+      </node>
+      <node id="22">
+        <label>WiFiConnection</label>
+        <link refid="class_wi_fi_connection"/>
+      </node>
+      <node id="4">
+        <label>Worker&lt; GeigerData &gt;</label>
+      </node>
+      <node id="24">
+        <label>Worker&lt; ServerStatus &gt;</label>
+      </node>
+      <node id="21">
+        <label>int8_t</label>
+      </node>
+      <node id="12">
+        <label>uint32_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="archive/bgeigie_firmware_pio/include/fsm_context.hpp" line="28" column="1" bodyfile="archive/bgeigie_firmware_pio/include/fsm_context.hpp" bodystart="28" bodyend="59"/>
+    <listofallmembers>
+      <member refid="class_context_1a149d0ed1f90e574bffafcc60bad2e886" prot="protected" virt="non-virtual"><scope>Context</scope><name>battery_monitor</name></member>
+      <member refid="class_context_1a203eb67d86d0886703b41cab5b6fb7e0" prot="protected" virt="non-virtual"><scope>Context</scope><name>battery_monitor</name></member>
+      <member refid="class_context_1ac449a249d2b16a40e2b154aa918267ac" prot="public" virt="non-virtual"><scope>Context</scope><name>begin</name></member>
+      <member refid="class_context_1ac449a249d2b16a40e2b154aa918267ac" prot="public" virt="non-virtual"><scope>Context</scope><name>begin</name></member>
+      <member refid="class_context_1abd136fe9e19e278ef2851d63f7313bf2" prot="protected" virt="non-virtual"><scope>Context</scope><name>bgeigie_formatter</name></member>
+      <member refid="class_context_1a652cdcd2eedc8dbd9110bd284c5d5cf0" prot="public" virt="non-virtual"><scope>Context</scope><name>Context</name></member>
+      <member refid="class_context_1a652cdcd2eedc8dbd9110bd284c5d5cf0" prot="public" virt="non-virtual"><scope>Context</scope><name>Context</name></member>
+      <member refid="class_context_1a7a46b4a938873cb1de829df0c0a893e0" prot="private" virt="non-virtual"><scope>Context</scope><name>current_state</name></member>
+      <member refid="class_context_1a54e51afce0edd534d7f0950ad83986ec" prot="protected" virt="non-virtual"><scope>Context</scope><name>device_setup</name></member>
+      <member refid="class_context_1a9921e196f07be3a73b723f68f140b988" prot="protected" virt="non-virtual"><scope>Context</scope><name>display</name></member>
+      <member refid="class_context_1a0dbf6bc88a0646c37c8b53d7220d073e" prot="protected" virt="non-virtual"><scope>Context</scope><name>geiger_count</name></member>
+      <member refid="class_context_1acb802a2b6ddda206da0be0b1c78a371d" prot="protected" virt="non-virtual"><scope>Context</scope><name>gps</name></member>
+      <member refid="class_context_1a365a2efa8a9dca76082a3b03bd6579dd" prot="protected" virt="non-virtual"><scope>Context</scope><name>logger</name></member>
+      <member refid="class_context_1a78c450b80877fe560a2abe7a541a118c" prot="public" virt="non-virtual"><scope>Context</scope><name>loop</name></member>
+      <member refid="class_context_1a78c450b80877fe560a2abe7a541a118c" prot="public" virt="non-virtual"><scope>Context</scope><name>loop</name></member>
+      <member refid="class_context_1a508a6b9c7ed84ea20ef39bfa54607ad4" prot="protected" virt="non-virtual"><scope>Context</scope><name>on_geiger_counter_available</name></member>
+      <member refid="class_context_1a508a6b9c7ed84ea20ef39bfa54607ad4" prot="protected" virt="non-virtual"><scope>Context</scope><name>on_geiger_counter_available</name></member>
+      <member refid="class_context_1a402bea63f404fae0790d6bb4f1a011f2" prot="protected" virt="non-virtual"><scope>Context</scope><name>on_gps_available</name></member>
+      <member refid="class_context_1a402bea63f404fae0790d6bb4f1a011f2" prot="protected" virt="non-virtual"><scope>Context</scope><name>on_gps_available</name></member>
+      <member refid="class_context_1a78bc5d216452fcaee033806fea777198" prot="protected" virt="non-virtual"><scope>Context</scope><name>sd_wrapper</name></member>
+      <member refid="class_context_1ad6ab2ba0b337de2f0ff6ae764a4ee18a" prot="protected" virt="non-virtual"><scope>Context</scope><name>setup</name></member>
+      <member refid="class_context_1ad6ab2ba0b337de2f0ff6ae764a4ee18a" prot="protected" virt="non-virtual"><scope>Context</scope><name>setup</name></member>
+      <member refid="class_context_1ae2fe9fed9a39f58206554136398afbcd" prot="public" virt="non-virtual"><scope>Context</scope><name>StateLogging</name></member>
+      <member refid="class_context_1a6d2ffbaf01d2d4e8b023fa79ad5e131b" prot="public" virt="non-virtual"><scope>Context</scope><name>StateStartup</name></member>
+      <member refid="class_context_1a272f0d87c003693fd5408601335f1ed9" prot="public" virt="non-virtual"><scope>Context</scope><name>StateWaitGPSTime</name></member>
+      <member refid="class_context_1a33b213d58cb2d6bd4e2affdd5416e9be" prot="protected" virt="non-virtual"><scope>Context</scope><name>transition_to</name></member>
+      <member refid="class_context_1ad2abb2caf3f645e7eb1fd8f5c752a5cb" prot="protected" virt="non-virtual"><scope>Context</scope><name>transition_to</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

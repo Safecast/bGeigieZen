@@ -1,0 +1,1061 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_base_screen" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>BaseScreen</compoundname>
+    <derivedcompoundref refid="class_base_screen_with_menu" prot="public" virt="non-virtual">BaseScreenWithMenu</derivedcompoundref>
+    <derivedcompoundref refid="class_boot_screen" prot="public" virt="non-virtual">BootScreen</derivedcompoundref>
+    <derivedcompoundref refid="class_debug_mode_screen" prot="public" virt="non-virtual">DebugModeScreen</derivedcompoundref>
+    <derivedcompoundref refid="class_default_entry_screen" prot="public" virt="non-virtual">DefaultEntryScreen</derivedcompoundref>
+    <derivedcompoundref refid="class_drive_mode_screen" prot="public" virt="non-virtual">DriveModeScreen</derivedcompoundref>
+    <derivedcompoundref refid="class_first_time_startup_screen" prot="public" virt="non-virtual">FirstTimeStartupScreen</derivedcompoundref>
+    <derivedcompoundref refid="class_fixed_mode_screen" prot="public" virt="non-virtual">FixedModeScreen</derivedcompoundref>
+    <derivedcompoundref refid="class_sd_message_screen" prot="public" virt="non-virtual">SdMessageScreen</derivedcompoundref>
+    <derivedcompoundref refid="class_survey_mode_screen" prot="public" virt="non-virtual">SurveyModeScreen</derivedcompoundref>
+    <derivedcompoundref refid="class_zen_info_screen" prot="public" virt="non-virtual">ZenInfoScreen</derivedcompoundref>
+    <includes refid="base__screen_8h" local="no">base_screen.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_base_screen_1ad4a1248dca462731c78b423fcda99669" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ButtonState</name>
+        <qualifiedname>BaseScreen::ButtonState</qualifiedname>
+        <enumvalue id="class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67" prot="public">
+          <name>e_button_default</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_base_screen_1ad4a1248dca462731c78b423fcda99669aeec92bb30ab578e6b0eceb97b61880fb" prot="public">
+          <name>e_button_active</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_base_screen_1ad4a1248dca462731c78b423fcda99669aa1df192f7cb5a602ccdf145fb8e7bca2" prot="public">
+          <name>e_button_disabled</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="22" column="3" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="22" bodyend="26"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_base_screen_1aa7ff73902ffb4869a7a1e4da7a004f86" prot="protected" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BaseScreen::required_gps</definition>
+        <argsstring></argsstring>
+        <name>required_gps</name>
+        <qualifiedname>BaseScreen::required_gps</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="111" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="111" bodyend="-1"/>
+        <referencedby refid="class_drive_mode_screen_1a3b3cf7ae50441e51ffe7d95f7d058069" compoundref="drive__mode_8cpp" startline="12" endline="16">DriveModeScreen::DriveModeScreen</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1afe51eddf2e905338c926ec8a0f085d5a" compoundref="fixed__mode_8cpp" startline="12" endline="16">FixedModeScreen::FixedModeScreen</referencedby>
+        <referencedby refid="class_base_screen_1a34ca21425e8a0306c8b28669b35216e6" compoundref="base__screen_8cpp" startline="116" endline="137">get_error_message</referencedby>
+        <referencedby refid="class_base_screen_1ab4a9e852483065ab2ad6a86955985e90" compoundref="base__screen_8h" startline="79" endline="79">has_required_gps</referencedby>
+        <referencedby refid="class_satellite_view_screen_1a1a4a737a2f4de7fdce55488ab20c596d" compoundref="satellite__view_8cpp" startline="28" endline="30">SatelliteViewScreen::SatelliteViewScreen</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ab676a4806bb2cc10d1b5f9dd1e6c9448" compoundref="survery__mode_8cpp" startline="11" endline="15">SurveyModeScreen::SurveyModeScreen</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_base_screen_1a0ec50e2f5e767c49926acea4eff5d62a" prot="protected" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BaseScreen::required_sd</definition>
+        <argsstring></argsstring>
+        <name>required_sd</name>
+        <qualifiedname>BaseScreen::required_sd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="112" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="112" bodyend="-1"/>
+        <referencedby refid="class_drive_mode_screen_1a3b3cf7ae50441e51ffe7d95f7d058069" compoundref="drive__mode_8cpp" startline="12" endline="16">DriveModeScreen::DriveModeScreen</referencedby>
+        <referencedby refid="class_base_screen_1a34ca21425e8a0306c8b28669b35216e6" compoundref="base__screen_8cpp" startline="116" endline="137">get_error_message</referencedby>
+        <referencedby refid="class_base_screen_1a02551c85c014f0c35c0a887cdaad2e3e" compoundref="base__screen_8h" startline="80" endline="80">has_required_sd</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ab676a4806bb2cc10d1b5f9dd1e6c9448" compoundref="survery__mode_8cpp" startline="11" endline="15">SurveyModeScreen::SurveyModeScreen</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_base_screen_1aaec338ea2e36bc2c621d3283ab345313" prot="protected" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BaseScreen::required_tube</definition>
+        <argsstring></argsstring>
+        <name>required_tube</name>
+        <qualifiedname>BaseScreen::required_tube</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="113" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="113" bodyend="-1"/>
+        <referencedby refid="class_drive_mode_screen_1a3b3cf7ae50441e51ffe7d95f7d058069" compoundref="drive__mode_8cpp" startline="12" endline="16">DriveModeScreen::DriveModeScreen</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1afe51eddf2e905338c926ec8a0f085d5a" compoundref="fixed__mode_8cpp" startline="12" endline="16">FixedModeScreen::FixedModeScreen</referencedby>
+        <referencedby refid="class_base_screen_1a34ca21425e8a0306c8b28669b35216e6" compoundref="base__screen_8cpp" startline="116" endline="137">get_error_message</referencedby>
+        <referencedby refid="class_base_screen_1abaf330fe58d138607d7eddafec78d2bc" compoundref="base__screen_8h" startline="81" endline="81">has_required_tube</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ab676a4806bb2cc10d1b5f9dd1e6c9448" compoundref="survery__mode_8cpp" startline="11" endline="15">SurveyModeScreen::SurveyModeScreen</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_base_screen_1a1aca75e6183b4428be7008ae8cdae37e" prot="protected" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BaseScreen::required_wifi</definition>
+        <argsstring></argsstring>
+        <name>required_wifi</name>
+        <qualifiedname>BaseScreen::required_wifi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="114" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="114" bodyend="-1"/>
+        <referencedby refid="class_fixed_mode_screen_1afe51eddf2e905338c926ec8a0f085d5a" compoundref="fixed__mode_8cpp" startline="12" endline="16">FixedModeScreen::FixedModeScreen</referencedby>
+        <referencedby refid="class_base_screen_1a34ca21425e8a0306c8b28669b35216e6" compoundref="base__screen_8cpp" startline="116" endline="137">get_error_message</referencedby>
+        <referencedby refid="class_base_screen_1a2062532ed7e5f3fa63be92c2d04c7a66" compoundref="base__screen_8h" startline="82" endline="82">has_required_wifi</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_base_screen_1a4519670c7f1d8995d30f441f473c4e1d" prot="protected" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BaseScreen::required_ble</definition>
+        <argsstring></argsstring>
+        <name>required_ble</name>
+        <qualifiedname>BaseScreen::required_ble</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="115" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="115" bodyend="-1"/>
+        <referencedby refid="class_base_screen_1a5757931996557c8d7ec0ab352abc6e3e" compoundref="base__screen_8h" startline="83" endline="83">has_required_ble</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_base_screen_1a4038978f84a79b161c7e23e3e586c8ee" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char BaseScreen::_title[20]</definition>
+        <argsstring>[20]</argsstring>
+        <name>_title</name>
+        <qualifiedname>BaseScreen::_title</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="120" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_base_screen_1adb77e53dec7a1f1c3515a4f6d8e7afb8" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BaseScreen::_status_bar</definition>
+        <argsstring></argsstring>
+        <name>_status_bar</name>
+        <qualifiedname>BaseScreen::_status_bar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="121" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_base_screen_1a17a98d10e854cca96549f48195b18913" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BaseScreen::_force_render</definition>
+        <argsstring></argsstring>
+        <name>_force_render</name>
+        <qualifiedname>BaseScreen::_force_render</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="122" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_base_screen_1a18139b32b78ad24d500c851897f113cd" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t BaseScreen::_status_message_time</definition>
+        <argsstring></argsstring>
+        <name>_status_message_time</name>
+        <qualifiedname>BaseScreen::_status_message_time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="123" column="12" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_base_screen_1a48989d45d82c37c79841e64dd2abcac9" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">__FlashStringHelper</ref> *</type>
+        <definition>const __FlashStringHelper* BaseScreen::_message</definition>
+        <argsstring></argsstring>
+        <name>_message</name>
+        <qualifiedname>BaseScreen::_message</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="124" column="29" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="124" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="class_base_screen" kindref="compound">BaseScreen</ref> *</type>
+        <definition>virtual BaseScreen * BaseScreen::handle_input</definition>
+        <argsstring>(Controller &amp;controller, const worker_map_t &amp;workers)=0</argsstring>
+        <name>handle_input</name>
+        <qualifiedname>BaseScreen::handle_input</qualifiedname>
+        <reimplementedby refid="class_boot_screen_1a1d605b7d6ed086214a7f1a0bcd3d1fe2">handle_input</reimplementedby>
+        <reimplementedby refid="class_config_mode_screen_1a7fcba3bb1764bd72b76c1f80f1f6a762">handle_input</reimplementedby>
+        <reimplementedby refid="class_debug_mode_screen_1a74b4a2f357094dcda42fffe968067b28">handle_input</reimplementedby>
+        <reimplementedby refid="class_default_entry_screen_1a06fd4454eff553465a74d30b02567a0f">handle_input</reimplementedby>
+        <reimplementedby refid="class_drive_mode_screen_1a69c70a1c35f362131345ecd652cd4416">handle_input</reimplementedby>
+        <reimplementedby refid="class_first_time_startup_screen_1a5247fbb47d0d251542376a1199c48684">handle_input</reimplementedby>
+        <reimplementedby refid="class_fixed_mode_screen_1afb1295bc1c4272752239f7ea2ee111a4">handle_input</reimplementedby>
+        <reimplementedby refid="class_menu_window_1afe3cdb7f44d6d7a534044abc6b4e1b92">handle_input</reimplementedby>
+        <reimplementedby refid="class_satellite_view_screen_1a14b2221b6c62c0bf858f9f8816140b96">handle_input</reimplementedby>
+        <reimplementedby refid="class_sd_message_screen_1aa6f1495614e3c8a88dfe30920fcd5b8d">handle_input</reimplementedby>
+        <reimplementedby refid="class_survey_mode_screen_1a2b1210c4b71c7b2da15777f7c8c677d0">handle_input</reimplementedby>
+        <reimplementedby refid="class_zen_info_screen_1a786b973c3a31797c902d23dfcb44fe7a">handle_input</reimplementedby>
+        <param>
+          <type><ref refid="class_controller" kindref="compound">Controller</ref> &amp;</type>
+          <declname>controller</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref> &amp;</type>
+          <declname>workers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="28" column="22"/>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BaseScreen::enter_screen</definition>
+        <argsstring>(Controller &amp;controller)</argsstring>
+        <name>enter_screen</name>
+        <qualifiedname>BaseScreen::enter_screen</qualifiedname>
+        <reimplementedby refid="class_boot_screen_1af19273a9e16613f547b44773b1761fae">enter_screen</reimplementedby>
+        <reimplementedby refid="class_config_mode_screen_1a63e57a291d31fc8974e1801314b0c75b">enter_screen</reimplementedby>
+        <reimplementedby refid="class_drive_mode_screen_1a5b274abdc3e6d98c004fda8bb7ec90c0">enter_screen</reimplementedby>
+        <reimplementedby refid="class_first_time_startup_screen_1a6fe45b4d763b2e2a36bef931d0a6fb98">enter_screen</reimplementedby>
+        <reimplementedby refid="class_fixed_mode_screen_1ac6674655b2713b9cf9194eada7424ddd">enter_screen</reimplementedby>
+        <reimplementedby refid="class_menu_window_1a2971f694878323174c931b8a466c5e82">enter_screen</reimplementedby>
+        <reimplementedby refid="class_satellite_view_screen_1aca0938985e81a83c6817a7d9de94df26">enter_screen</reimplementedby>
+        <reimplementedby refid="class_sd_message_screen_1a37d7575e04491ff6fedae89389694248">enter_screen</reimplementedby>
+        <reimplementedby refid="class_survey_mode_screen_1a8f92dc2c5a954f6284517b39cb08db8e">enter_screen</reimplementedby>
+        <reimplementedby refid="class_zen_info_screen_1ab3f312ea8678af3a5d339d781f241da8">enter_screen</reimplementedby>
+        <param>
+          <type><ref refid="class_controller" kindref="compound">Controller</ref> &amp;</type>
+          <declname>controller</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Enter the screen, use controller to enable screen specific workers/handlers <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>controller</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="33" column="16" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="90" bodyend="91"/>
+        <referencedby refid="class_base_screen_with_menu_1ad5a98a6810c71d60582197b4cec5bb5d" compoundref="base__screen_8cpp" startline="155" endline="196">BaseScreenWithMenu::handle_menu_input</referencedby>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+        <referencedby refid="class_g_f_x_screen_1a1f5f80dd70f0b3975746457fc3759b74" compoundref="gfx__screen_8cpp" startline="42" endline="57">GFXScreen::initialize</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BaseScreen::leave_screen</definition>
+        <argsstring>(Controller &amp;controller)</argsstring>
+        <name>leave_screen</name>
+        <qualifiedname>BaseScreen::leave_screen</qualifiedname>
+        <reimplementedby refid="class_boot_screen_1a7703ae6ca965fa5481870a087976e7e8">leave_screen</reimplementedby>
+        <reimplementedby refid="class_config_mode_screen_1a6d5e41de275a9ff08fa50351a20c3190">leave_screen</reimplementedby>
+        <reimplementedby refid="class_drive_mode_screen_1ac0c53ec7f983bfd75c289db8291d5aa3">leave_screen</reimplementedby>
+        <reimplementedby refid="class_fixed_mode_screen_1afcdf6db54b6e44220c39b0b0dfbcf162">leave_screen</reimplementedby>
+        <reimplementedby refid="class_menu_window_1a2c5ae75df9da64b970dcbd408efc17ae">leave_screen</reimplementedby>
+        <reimplementedby refid="class_satellite_view_screen_1a6df05f5f59dc13460099b08fdbb05b86">leave_screen</reimplementedby>
+        <reimplementedby refid="class_sd_message_screen_1a80f1af31e6f9a40d9587ca86bee2220f">leave_screen</reimplementedby>
+        <reimplementedby refid="class_survey_mode_screen_1ab5e2b29f4e65d44fcd51be6f09d23fa9">leave_screen</reimplementedby>
+        <param>
+          <type><ref refid="class_controller" kindref="compound">Controller</ref> &amp;</type>
+          <declname>controller</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Leave the screen, use controller to disable screen specific workers/handlers <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>controller</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="39" column="16" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="93" bodyend="94"/>
+        <referencedby refid="class_base_screen_with_menu_1ad5a98a6810c71d60582197b4cec5bb5d" compoundref="base__screen_8cpp" startline="155" endline="196">BaseScreenWithMenu::handle_menu_input</referencedby>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98" prot="public" static="no" const="no" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BaseScreen::do_render</definition>
+        <argsstring>(const worker_map_t &amp;workers, const handler_map_t &amp;handlers) final</argsstring>
+        <name>do_render</name>
+        <qualifiedname>BaseScreen::do_render</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref> &amp;</type>
+          <declname>workers</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">handler_map_t</ref> &amp;</type>
+          <declname>handlers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Render the screen with latest data <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>workers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handlers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="46" column="16" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="107" bodyend="110"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_base_screen_1a4a44081a61a095ce9cb8d086525d42b0" compoundref="base__screen_8cpp" startline="104" endline="105">render</references>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1a475d077e56c80429539f9c8a973752dd" prot="public" static="no" const="no" explicit="no" inline="no" final="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BaseScreen::force_next_render</definition>
+        <argsstring>() final</argsstring>
+        <name>force_next_render</name>
+        <qualifiedname>BaseScreen::force_next_render</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Render the screen with latest data <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>workers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handlers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="53" column="16" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="112" bodyend="114"/>
+        <referencedby refid="class_menu_window_1a2971f694878323174c931b8a466c5e82" compoundref="menu__window_8cpp" startline="44" endline="47">MenuWindow::enter_screen</referencedby>
+        <referencedby refid="class_zen_info_screen_1ab3f312ea8678af3a5d339d781f241da8" compoundref="zen__info_8cpp" startline="58" endline="61">ZenInfoScreen::enter_screen</referencedby>
+        <referencedby refid="class_config_mode_screen_1a7fcba3bb1764bd72b76c1f80f1f6a762" compoundref="config__mode_8cpp" startline="27" endline="91">ConfigModeScreen::handle_input</referencedby>
+        <referencedby refid="class_satellite_view_screen_1a14b2221b6c62c0bf858f9f8816140b96" compoundref="satellite__view_8cpp" startline="32" endline="78">SatelliteViewScreen::handle_input</referencedby>
+        <referencedby refid="class_zen_info_screen_1a786b973c3a31797c902d23dfcb44fe7a" compoundref="zen__info_8cpp" startline="12" endline="23">ZenInfoScreen::handle_input</referencedby>
+        <referencedby refid="class_base_screen_with_menu_1ad5a98a6810c71d60582197b4cec5bb5d" compoundref="base__screen_8cpp" startline="155" endline="196">BaseScreenWithMenu::handle_menu_input</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * BaseScreen::get_title</definition>
+        <argsstring>() const</argsstring>
+        <name>get_title</name>
+        <qualifiedname>BaseScreen::get_title</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get screen name <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="59" column="22" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="96" bodyend="98"/>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1a2b0ff8ed2e49c96fa6e8d3e158d6db13" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BaseScreen::has_status_bar</definition>
+        <argsstring>() const</argsstring>
+        <name>has_status_bar</name>
+        <qualifiedname>BaseScreen::has_status_bar</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get screen name <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="65" column="16" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="100" bodyend="102"/>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1a34ca21425e8a0306c8b28669b35216e6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">__FlashStringHelper</ref> *</type>
+        <definition>const __FlashStringHelper * BaseScreen::get_error_message</definition>
+        <argsstring>(const worker_map_t &amp;workers, const handler_map_t &amp;handlers) const</argsstring>
+        <name>get_error_message</name>
+        <qualifiedname>BaseScreen::get_error_message</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref> &amp;</type>
+          <declname>workers</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">handler_map_t</ref> &amp;</type>
+          <declname>handlers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get screen error message (if available), else nullptr <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="71" column="37" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="116" bodyend="137"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" compoundref="sd__wrapper_8h" startline="39" endline="42">SDInterface::i</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fadce40ed07be9b46afdd704f59b77a907" compoundref="identifiers_8h" startline="11">k_worker_gm_sensor</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211" compoundref="identifiers_8h" startline="13">k_worker_gps_connector</references>
+        <references refid="class_base_screen_1aa7ff73902ffb4869a7a1e4da7a004f86" compoundref="base__screen_8h" startline="111">required_gps</references>
+        <references refid="class_base_screen_1a0ec50e2f5e767c49926acea4eff5d62a" compoundref="base__screen_8h" startline="112">required_sd</references>
+        <references refid="class_base_screen_1aaec338ea2e36bc2c621d3283ab345313" compoundref="base__screen_8h" startline="113">required_tube</references>
+        <references refid="class_base_screen_1a1aca75e6183b4428be7008ae8cdae37e" compoundref="base__screen_8h" startline="114">required_wifi</references>
+        <references refid="class_wi_fi_wrapper_1aa58f85290d8055a08f88918aed43a044" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="53" endline="55">WiFiWrapper::status</references>
+        <references refid="base__screen_8h_1a61c07fa7f9b6867d4140d66fe54ba492" compoundref="base__screen_8h" startline="11">STATUS_ERROR_GEIGER</references>
+        <references refid="base__screen_8h_1a618e5ec407b21fc7d26d2866dd234f13" compoundref="base__screen_8h" startline="12">STATUS_ERROR_GPS</references>
+        <references refid="base__screen_8h_1a184fe94d217c2817ccb7ad482385da35" compoundref="base__screen_8h" startline="13">STATUS_ERROR_SD</references>
+        <references refid="base__screen_8h_1a9905705fbff288438592e61fdec9c806" compoundref="base__screen_8h" startline="15">STATUS_ERROR_WIFI_CONNECT_FAILED</references>
+        <references refid="base__screen_8h_1a25d2dd2bc5b69b932ce7b9183cb3ef50" compoundref="base__screen_8h" startline="16">STATUS_ERROR_WIFI_CONNECTION_LOST</references>
+        <references refid="base__screen_8h_1a05ae5a89f54bb7066cdfce9c4d7f81f0" compoundref="base__screen_8h" startline="14">STATUS_ERROR_WIFI_NO_SSID_AVAIL</references>
+        <references refid="bgeigiezen__firmware_2utils_2wifi__connection_8cpp_1a8d10d559fa8c2d79262a08609d604700" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="9">WiFiWrapper_i</references>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1ac34eef3f7a364202d2399ce1b234bf04" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">__FlashStringHelper</ref> *</type>
+        <definition>const __FlashStringHelper * BaseScreen::get_status_message</definition>
+        <argsstring>(const worker_map_t &amp;workers, const handler_map_t &amp;handlers) const</argsstring>
+        <name>get_status_message</name>
+        <qualifiedname>BaseScreen::get_status_message</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref> &amp;</type>
+          <declname>workers</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">handler_map_t</ref> &amp;</type>
+          <declname>handlers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get screen status message (if available), else nullptr <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="77" column="37" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="139" bodyend="144"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="user__config_8h_1a2f20082db3d979803dad0bad5c4f785b" compoundref="user__config_8h" startline="43">STATUS_MESSAGE_DURATION</references>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1ab4a9e852483065ab2ad6a86955985e90" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BaseScreen::has_required_gps</definition>
+        <argsstring>() const</argsstring>
+        <name>has_required_gps</name>
+        <qualifiedname>BaseScreen::has_required_gps</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="79" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="79" bodyend="79"/>
+        <references refid="class_base_screen_1aa7ff73902ffb4869a7a1e4da7a004f86" compoundref="base__screen_8h" startline="111">required_gps</references>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1a02551c85c014f0c35c0a887cdaad2e3e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BaseScreen::has_required_sd</definition>
+        <argsstring>() const</argsstring>
+        <name>has_required_sd</name>
+        <qualifiedname>BaseScreen::has_required_sd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="80" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="80" bodyend="80"/>
+        <references refid="class_base_screen_1a0ec50e2f5e767c49926acea4eff5d62a" compoundref="base__screen_8h" startline="112">required_sd</references>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1abaf330fe58d138607d7eddafec78d2bc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BaseScreen::has_required_tube</definition>
+        <argsstring>() const</argsstring>
+        <name>has_required_tube</name>
+        <qualifiedname>BaseScreen::has_required_tube</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="81" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="81" bodyend="81"/>
+        <references refid="class_base_screen_1aaec338ea2e36bc2c621d3283ab345313" compoundref="base__screen_8h" startline="113">required_tube</references>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1a2062532ed7e5f3fa63be92c2d04c7a66" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BaseScreen::has_required_wifi</definition>
+        <argsstring>() const</argsstring>
+        <name>has_required_wifi</name>
+        <qualifiedname>BaseScreen::has_required_wifi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="82" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="82" bodyend="82"/>
+        <references refid="class_base_screen_1a1aca75e6183b4428be7008ae8cdae37e" compoundref="base__screen_8h" startline="114">required_wifi</references>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1a5757931996557c8d7ec0ab352abc6e3e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BaseScreen::has_required_ble</definition>
+        <argsstring>() const</argsstring>
+        <name>has_required_ble</name>
+        <qualifiedname>BaseScreen::has_required_ble</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="83" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="83" bodyend="83"/>
+        <references refid="class_base_screen_1a4519670c7f1d8995d30f441f473c4e1d" compoundref="base__screen_8h" startline="115">required_ble</references>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_base_screen_1a2e28e5b4ef3027c3c4392dfb4a6c3ff8" prot="protected" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BaseScreen::BaseScreen</definition>
+        <argsstring>(const char *title, bool status_bar)</argsstring>
+        <name>BaseScreen</name>
+        <qualifiedname>BaseScreen::BaseScreen</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>title</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>status_bar</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="86" column="12" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="11" bodyend="21"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1a86234c33321bb25d534c0347a946b084" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual BaseScreen::~BaseScreen</definition>
+        <argsstring>()=default</argsstring>
+        <name>~BaseScreen</name>
+        <qualifiedname>BaseScreen::~BaseScreen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="87" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1a4a44081a61a095ce9cb8d086525d42b0" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BaseScreen::render</definition>
+        <argsstring>(const worker_map_t &amp;workers, const handler_map_t &amp;handlers, bool force)</argsstring>
+        <name>render</name>
+        <qualifiedname>BaseScreen::render</qualifiedname>
+        <reimplementedby refid="class_boot_screen_1ae251e91a0e4a84ef9b6739ed928ef3c5">render</reimplementedby>
+        <reimplementedby refid="class_config_mode_screen_1a5878db5e53f53183144488937f6657e9">render</reimplementedby>
+        <reimplementedby refid="class_debug_mode_screen_1af5a52170b297c87f33e5eea935f8ca04">render</reimplementedby>
+        <reimplementedby refid="class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85">render</reimplementedby>
+        <reimplementedby refid="class_first_time_startup_screen_1a1f5c80b0f1a40f208787e6b27a1b34c7">render</reimplementedby>
+        <reimplementedby refid="class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af">render</reimplementedby>
+        <reimplementedby refid="class_menu_window_1a668a8a350e49de44844d8d06d0032938">render</reimplementedby>
+        <reimplementedby refid="class_satellite_view_screen_1a480ec31a9de82c4f9e8ee3228d870f65">render</reimplementedby>
+        <reimplementedby refid="class_sd_message_screen_1a2c75124920b18c3d29c65887cbe404c7">render</reimplementedby>
+        <reimplementedby refid="class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50">render</reimplementedby>
+        <reimplementedby refid="class_zen_info_screen_1ac6aeca5cbd35b67bfb60f3c39a26e010">render</reimplementedby>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref> &amp;</type>
+          <declname>workers</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">handler_map_t</ref> &amp;</type>
+          <declname>handlers</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Render the screen with latest data <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>workers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handlers</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="94" column="16" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="104" bodyend="105"/>
+        <referencedby refid="class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98" compoundref="base__screen_8cpp" startline="107" endline="110">do_render</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1abd62ea7f2f318142dde3d81f1a5e46a1" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BaseScreen::drawButton1</definition>
+        <argsstring>(const char *text, ButtonState state=e_button_default) const</argsstring>
+        <name>drawButton1</name>
+        <qualifiedname>BaseScreen::drawButton1</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type><ref refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669" kindref="member">ButtonState</ref></type>
+          <declname>state</declname>
+          <defval><ref refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67" kindref="member">e_button_default</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="96" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="63" bodyend="65"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_debug_mode_screen_1af5a52170b297c87f33e5eea935f8ca04" compoundref="debug__mode_8cpp" startline="16" endline="102">DebugModeScreen::render</referencedby>
+        <referencedby refid="class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85" compoundref="drive__mode_8cpp" startline="37" endline="156">DriveModeScreen::render</referencedby>
+        <referencedby refid="class_first_time_startup_screen_1a1f5c80b0f1a40f208787e6b27a1b34c7" compoundref="first__time__startup_8cpp" startline="25" endline="39">FirstTimeStartupScreen::render</referencedby>
+        <referencedby refid="class_satellite_view_screen_1a480ec31a9de82c4f9e8ee3228d870f65" compoundref="satellite__view_8cpp" startline="80" endline="207">SatelliteViewScreen::render</referencedby>
+        <referencedby refid="class_sd_message_screen_1a2c75124920b18c3d29c65887cbe404c7" compoundref="sd__message_8cpp" startline="78" endline="148">SdMessageScreen::render</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50" compoundref="survery__mode_8cpp" startline="30" endline="109">SurveyModeScreen::render</referencedby>
+        <referencedby refid="class_base_screen_with_menu_1a807060775e90107a1ed93c4720c2ddc0" compoundref="base__screen_8cpp" startline="198" endline="259">BaseScreenWithMenu::render_menu</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1af5e00b4efc1ada7bb34cd0361b21397c" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BaseScreen::drawButton2</definition>
+        <argsstring>(const char *text, ButtonState state=e_button_default) const</argsstring>
+        <name>drawButton2</name>
+        <qualifiedname>BaseScreen::drawButton2</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type><ref refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669" kindref="member">ButtonState</ref></type>
+          <declname>state</declname>
+          <defval><ref refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67" kindref="member">e_button_default</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="97" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="67" bodyend="69"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_debug_mode_screen_1af5a52170b297c87f33e5eea935f8ca04" compoundref="debug__mode_8cpp" startline="16" endline="102">DebugModeScreen::render</referencedby>
+        <referencedby refid="class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85" compoundref="drive__mode_8cpp" startline="37" endline="156">DriveModeScreen::render</referencedby>
+        <referencedby refid="class_satellite_view_screen_1a480ec31a9de82c4f9e8ee3228d870f65" compoundref="satellite__view_8cpp" startline="80" endline="207">SatelliteViewScreen::render</referencedby>
+        <referencedby refid="class_sd_message_screen_1a2c75124920b18c3d29c65887cbe404c7" compoundref="sd__message_8cpp" startline="78" endline="148">SdMessageScreen::render</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50" compoundref="survery__mode_8cpp" startline="30" endline="109">SurveyModeScreen::render</referencedby>
+        <referencedby refid="class_base_screen_with_menu_1a807060775e90107a1ed93c4720c2ddc0" compoundref="base__screen_8cpp" startline="198" endline="259">BaseScreenWithMenu::render_menu</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1a13d1abed7e9ef452c950ee1a5af14860" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BaseScreen::drawButton3</definition>
+        <argsstring>(const char *text, ButtonState state=e_button_default) const</argsstring>
+        <name>drawButton3</name>
+        <qualifiedname>BaseScreen::drawButton3</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type><ref refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669" kindref="member">ButtonState</ref></type>
+          <declname>state</declname>
+          <defval><ref refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67" kindref="member">e_button_default</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="98" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="71" bodyend="73"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_debug_mode_screen_1af5a52170b297c87f33e5eea935f8ca04" compoundref="debug__mode_8cpp" startline="16" endline="102">DebugModeScreen::render</referencedby>
+        <referencedby refid="class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85" compoundref="drive__mode_8cpp" startline="37" endline="156">DriveModeScreen::render</referencedby>
+        <referencedby refid="class_first_time_startup_screen_1a1f5c80b0f1a40f208787e6b27a1b34c7" compoundref="first__time__startup_8cpp" startline="25" endline="39">FirstTimeStartupScreen::render</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af" compoundref="fixed__mode_8cpp" startline="26" endline="128">FixedModeScreen::render</referencedby>
+        <referencedby refid="class_satellite_view_screen_1a480ec31a9de82c4f9e8ee3228d870f65" compoundref="satellite__view_8cpp" startline="80" endline="207">SatelliteViewScreen::render</referencedby>
+        <referencedby refid="class_sd_message_screen_1a2c75124920b18c3d29c65887cbe404c7" compoundref="sd__message_8cpp" startline="78" endline="148">SdMessageScreen::render</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50" compoundref="survery__mode_8cpp" startline="30" endline="109">SurveyModeScreen::render</referencedby>
+        <referencedby refid="class_zen_info_screen_1ac6aeca5cbd35b67bfb60f3c39a26e010" compoundref="zen__info_8cpp" startline="25" endline="39">ZenInfoScreen::render</referencedby>
+        <referencedby refid="class_base_screen_with_menu_1a807060775e90107a1ed93c4720c2ddc0" compoundref="base__screen_8cpp" startline="198" endline="259">BaseScreenWithMenu::render_menu</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1a0302e81913f193447bcbd63fc5dc1621" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BaseScreen::clear_screen_content</definition>
+        <argsstring>()</argsstring>
+        <name>clear_screen_content</name>
+        <qualifiedname>BaseScreen::clear_screen_content</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears page content area (NOT the buttons, status message and status bar) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="106" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="151" bodyend="153"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" compoundref="user__config_8h" startline="44">LCD_COLOR_BACKGROUND</references>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1ae483509d86c8f2ca88f5250180aefe1b" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BaseScreen::set_status_message</definition>
+        <argsstring>(const __FlashStringHelper *message)</argsstring>
+        <name>set_status_message</name>
+        <qualifiedname>BaseScreen::set_status_message</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">__FlashStringHelper</ref> *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="108" column="8" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="146" bodyend="149"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_config_mode_screen_1a63e57a291d31fc8974e1801314b0c75b" compoundref="config__mode_8cpp" startline="218" endline="255">ConfigModeScreen::enter_screen</referencedby>
+        <referencedby refid="class_satellite_view_screen_1aca0938985e81a83c6817a7d9de94df26" compoundref="satellite__view_8cpp" startline="209" endline="220">SatelliteViewScreen::enter_screen</referencedby>
+        <referencedby refid="class_satellite_view_screen_1a14b2221b6c62c0bf858f9f8816140b96" compoundref="satellite__view_8cpp" startline="32" endline="78">SatelliteViewScreen::handle_input</referencedby>
+        <referencedby refid="class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85" compoundref="drive__mode_8cpp" startline="37" endline="156">DriveModeScreen::render</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af" compoundref="fixed__mode_8cpp" startline="26" endline="128">FixedModeScreen::render</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50" compoundref="survery__mode_8cpp" startline="30" endline="109">SurveyModeScreen::render</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-static-func">
+      <memberdef kind="function" id="class_base_screen_1acfec22b4351b13b4f0c6bd84254198ec" prot="protected" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t BaseScreen::printFloatFont</definition>
+        <argsstring>(float val, int prec, int x, int y, const lgfx::IFont *font)</argsstring>
+        <name>printFloatFont</name>
+        <qualifiedname>BaseScreen::printFloatFont</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+          <declname>val</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+          <declname>prec</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> lgfx::IFont *</type>
+          <declname>font</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="100" column="17" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="75" bodyend="81"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85" compoundref="drive__mode_8cpp" startline="37" endline="156">DriveModeScreen::render</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af" compoundref="fixed__mode_8cpp" startline="26" endline="128">FixedModeScreen::render</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50" compoundref="survery__mode_8cpp" startline="30" endline="109">SurveyModeScreen::render</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_base_screen_1ae6e6ee7b78413b55d89fd192157ea9db" prot="protected" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t BaseScreen::printIntFont</definition>
+        <argsstring>(unsigned long val, int x, int y, const lgfx::IFont *font)</argsstring>
+        <name>printIntFont</name>
+        <qualifiedname>BaseScreen::printIntFont</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">unsigned</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">long</ref></type>
+          <declname>val</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> lgfx::IFont *</type>
+          <declname>font</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="101" column="17" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="84" bodyend="88"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85" compoundref="drive__mode_8cpp" startline="37" endline="156">DriveModeScreen::render</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af" compoundref="fixed__mode_8cpp" startline="26" endline="128">FixedModeScreen::render</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50" compoundref="survery__mode_8cpp" startline="30" endline="109">SurveyModeScreen::render</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_base_screen_1ad4d18cfd6712a25f460c1266410a2e9a" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BaseScreen::drawButton</definition>
+        <argsstring>(uint16_t x, const char *text, ButtonState state)</argsstring>
+        <name>drawButton</name>
+        <qualifiedname>BaseScreen::drawButton</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type><ref refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669" kindref="member">ButtonState</ref></type>
+          <declname>state</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/base_screen.h" line="118" column="15" bodyfile="bgeigiezen_firmware/screens/base_screen.cpp" bodystart="24" bodyend="61"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BaseScreen</label>
+        <link refid="class_base_screen"/>
+      </node>
+      <node id="2">
+        <label>BaseScreenWithMenu</label>
+        <link refid="class_base_screen_with_menu"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>BootScreen</label>
+        <link refid="class_boot_screen"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ConfigModeScreen</label>
+        <link refid="class_config_mode_screen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>DebugModeScreen</label>
+        <link refid="class_debug_mode_screen"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>DefaultEntryScreen</label>
+        <link refid="class_default_entry_screen"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>DriveModeScreen</label>
+        <link refid="class_drive_mode_screen"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>FirstTimeStartupScreen</label>
+        <link refid="class_first_time_startup_screen"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>FixedModeScreen</label>
+        <link refid="class_fixed_mode_screen"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>MenuWindow</label>
+        <link refid="class_menu_window"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>SatelliteViewScreen</label>
+        <link refid="class_satellite_view_screen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>SdMessageScreen</label>
+        <link refid="class_sd_message_screen"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>SurveyModeScreen</label>
+        <link refid="class_survey_mode_screen"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>ZenInfoScreen</label>
+        <link refid="class_zen_info_screen"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="bgeigiezen_firmware/screens/base_screen.h" line="20" column="1" bodyfile="bgeigiezen_firmware/screens/base_screen.h" bodystart="20" bodyend="125"/>
+    <listofallmembers>
+      <member refid="class_base_screen_1a17a98d10e854cca96549f48195b18913" prot="private" virt="non-virtual"><scope>BaseScreen</scope><name>_force_render</name></member>
+      <member refid="class_base_screen_1a48989d45d82c37c79841e64dd2abcac9" prot="private" virt="non-virtual"><scope>BaseScreen</scope><name>_message</name></member>
+      <member refid="class_base_screen_1adb77e53dec7a1f1c3515a4f6d8e7afb8" prot="private" virt="non-virtual"><scope>BaseScreen</scope><name>_status_bar</name></member>
+      <member refid="class_base_screen_1a18139b32b78ad24d500c851897f113cd" prot="private" virt="non-virtual"><scope>BaseScreen</scope><name>_status_message_time</name></member>
+      <member refid="class_base_screen_1a4038978f84a79b161c7e23e3e586c8ee" prot="private" virt="non-virtual"><scope>BaseScreen</scope><name>_title</name></member>
+      <member refid="class_base_screen_1a2e28e5b4ef3027c3c4392dfb4a6c3ff8" prot="protected" virt="non-virtual"><scope>BaseScreen</scope><name>BaseScreen</name></member>
+      <member refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669" prot="public" virt="non-virtual"><scope>BaseScreen</scope><name>ButtonState</name></member>
+      <member refid="class_base_screen_1a0302e81913f193447bcbd63fc5dc1621" prot="protected" virt="non-virtual"><scope>BaseScreen</scope><name>clear_screen_content</name></member>
+      <member refid="class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98" prot="public" virt="virtual"><scope>BaseScreen</scope><name>do_render</name></member>
+      <member refid="class_base_screen_1ad4d18cfd6712a25f460c1266410a2e9a" prot="private" virt="non-virtual"><scope>BaseScreen</scope><name>drawButton</name></member>
+      <member refid="class_base_screen_1abd62ea7f2f318142dde3d81f1a5e46a1" prot="protected" virt="non-virtual"><scope>BaseScreen</scope><name>drawButton1</name></member>
+      <member refid="class_base_screen_1af5e00b4efc1ada7bb34cd0361b21397c" prot="protected" virt="non-virtual"><scope>BaseScreen</scope><name>drawButton2</name></member>
+      <member refid="class_base_screen_1a13d1abed7e9ef452c950ee1a5af14860" prot="protected" virt="non-virtual"><scope>BaseScreen</scope><name>drawButton3</name></member>
+      <member refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669aeec92bb30ab578e6b0eceb97b61880fb" prot="public" virt="non-virtual"><scope>BaseScreen</scope><name>e_button_active</name></member>
+      <member refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67" prot="public" virt="non-virtual"><scope>BaseScreen</scope><name>e_button_default</name></member>
+      <member refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669aa1df192f7cb5a602ccdf145fb8e7bca2" prot="public" virt="non-virtual"><scope>BaseScreen</scope><name>e_button_disabled</name></member>
+      <member refid="class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea" prot="public" virt="virtual"><scope>BaseScreen</scope><name>enter_screen</name></member>
+      <member refid="class_base_screen_1a475d077e56c80429539f9c8a973752dd" prot="public" virt="virtual"><scope>BaseScreen</scope><name>force_next_render</name></member>
+      <member refid="class_base_screen_1a34ca21425e8a0306c8b28669b35216e6" prot="public" virt="virtual"><scope>BaseScreen</scope><name>get_error_message</name></member>
+      <member refid="class_base_screen_1ac34eef3f7a364202d2399ce1b234bf04" prot="public" virt="virtual"><scope>BaseScreen</scope><name>get_status_message</name></member>
+      <member refid="class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42" prot="public" virt="virtual"><scope>BaseScreen</scope><name>get_title</name></member>
+      <member refid="class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57" prot="public" virt="pure-virtual"><scope>BaseScreen</scope><name>handle_input</name></member>
+      <member refid="class_base_screen_1a5757931996557c8d7ec0ab352abc6e3e" prot="public" virt="non-virtual"><scope>BaseScreen</scope><name>has_required_ble</name></member>
+      <member refid="class_base_screen_1ab4a9e852483065ab2ad6a86955985e90" prot="public" virt="non-virtual"><scope>BaseScreen</scope><name>has_required_gps</name></member>
+      <member refid="class_base_screen_1a02551c85c014f0c35c0a887cdaad2e3e" prot="public" virt="non-virtual"><scope>BaseScreen</scope><name>has_required_sd</name></member>
+      <member refid="class_base_screen_1abaf330fe58d138607d7eddafec78d2bc" prot="public" virt="non-virtual"><scope>BaseScreen</scope><name>has_required_tube</name></member>
+      <member refid="class_base_screen_1a2062532ed7e5f3fa63be92c2d04c7a66" prot="public" virt="non-virtual"><scope>BaseScreen</scope><name>has_required_wifi</name></member>
+      <member refid="class_base_screen_1a2b0ff8ed2e49c96fa6e8d3e158d6db13" prot="public" virt="virtual"><scope>BaseScreen</scope><name>has_status_bar</name></member>
+      <member refid="class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1" prot="public" virt="virtual"><scope>BaseScreen</scope><name>leave_screen</name></member>
+      <member refid="class_base_screen_1acfec22b4351b13b4f0c6bd84254198ec" prot="protected" virt="non-virtual"><scope>BaseScreen</scope><name>printFloatFont</name></member>
+      <member refid="class_base_screen_1ae6e6ee7b78413b55d89fd192157ea9db" prot="protected" virt="non-virtual"><scope>BaseScreen</scope><name>printIntFont</name></member>
+      <member refid="class_base_screen_1a4a44081a61a095ce9cb8d086525d42b0" prot="protected" virt="virtual"><scope>BaseScreen</scope><name>render</name></member>
+      <member refid="class_base_screen_1a4519670c7f1d8995d30f441f473c4e1d" prot="protected" virt="non-virtual"><scope>BaseScreen</scope><name>required_ble</name></member>
+      <member refid="class_base_screen_1aa7ff73902ffb4869a7a1e4da7a004f86" prot="protected" virt="non-virtual"><scope>BaseScreen</scope><name>required_gps</name></member>
+      <member refid="class_base_screen_1a0ec50e2f5e767c49926acea4eff5d62a" prot="protected" virt="non-virtual"><scope>BaseScreen</scope><name>required_sd</name></member>
+      <member refid="class_base_screen_1aaec338ea2e36bc2c621d3283ab345313" prot="protected" virt="non-virtual"><scope>BaseScreen</scope><name>required_tube</name></member>
+      <member refid="class_base_screen_1a1aca75e6183b4428be7008ae8cdae37e" prot="protected" virt="non-virtual"><scope>BaseScreen</scope><name>required_wifi</name></member>
+      <member refid="class_base_screen_1ae483509d86c8f2ca88f5250180aefe1b" prot="protected" virt="non-virtual"><scope>BaseScreen</scope><name>set_status_message</name></member>
+      <member refid="class_base_screen_1a86234c33321bb25d534c0347a946b084" prot="protected" virt="virtual"><scope>BaseScreen</scope><name>~BaseScreen</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

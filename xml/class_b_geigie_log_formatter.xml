@@ -1,0 +1,607 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_b_geigie_log_formatter" kind="class" language="C++" prot="public">
+    <compoundname>BGeigieLogFormatter</compoundname>
+    <includes refid="include_2logger_8hpp" local="no">logger.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1ad1a1d3320aa34ba92e12f0fa291f148d" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char BGeigieLogFormatter::_buffer</definition>
+        <argsstring>[LOG_BUFFER_SIZE]</argsstring>
+        <name>_buffer</name>
+        <qualifiedname>BGeigieLogFormatter::_buffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="15" column="8" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1a7e3f1c7ec9fdf99e1a1e84ed124b6bb0" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>int BGeigieLogFormatter::_device_id</definition>
+        <argsstring></argsstring>
+        <name>_device_id</name>
+        <qualifiedname>BGeigieLogFormatter::_device_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="17" column="7" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1a35a8fb337fbd062b49cbfeaa63b6be85" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BGeigieLogFormatter::_geiger_fresh</definition>
+        <argsstring></argsstring>
+        <name>_geiger_fresh</name>
+        <qualifiedname>BGeigieLogFormatter::_geiger_fresh</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="18" column="8" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1ac49cbb866a271e7f4e5af08d258f04cd" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BGeigieLogFormatter::_gps_fresh</definition>
+        <argsstring></argsstring>
+        <name>_gps_fresh</name>
+        <qualifiedname>BGeigieLogFormatter::_gps_fresh</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="18" column="23" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1af8abc1cabb8764b4dbe343635798ad2e" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t BGeigieLogFormatter::_cpm</definition>
+        <argsstring></argsstring>
+        <name>_cpm</name>
+        <qualifiedname>BGeigieLogFormatter::_cpm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="21" column="12" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1a8e063f8827e8e6d56631c1d636eb2e4a" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t BGeigieLogFormatter::_cpb</definition>
+        <argsstring></argsstring>
+        <name>_cpb</name>
+        <qualifiedname>BGeigieLogFormatter::_cpb</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="21" column="17" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1afb1d6d2381dd446d19d9d4487a374b49" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t BGeigieLogFormatter::_total_count</definition>
+        <argsstring></argsstring>
+        <name>_total_count</name>
+        <qualifiedname>BGeigieLogFormatter::_total_count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="21" column="22" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1a8dcd1d5eb7485c27f649160fd4d9abd4" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char BGeigieLogFormatter::_geiger_status</definition>
+        <argsstring></argsstring>
+        <name>_geiger_status</name>
+        <qualifiedname>BGeigieLogFormatter::_geiger_status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="22" column="8" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1a5ee848475c208ea1a707667e522cb85d" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>int BGeigieLogFormatter::_year</definition>
+        <argsstring></argsstring>
+        <name>_year</name>
+        <qualifiedname>BGeigieLogFormatter::_year</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="24" column="7" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1a1c386f10f717b55d86efe0bc679caaf6" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>int BGeigieLogFormatter::_month</definition>
+        <argsstring></argsstring>
+        <name>_month</name>
+        <qualifiedname>BGeigieLogFormatter::_month</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="24" column="13" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1a416aed0e719c6639e04e7fc5986e0c06" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>int BGeigieLogFormatter::_day</definition>
+        <argsstring></argsstring>
+        <name>_day</name>
+        <qualifiedname>BGeigieLogFormatter::_day</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="24" column="20" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1a5fd319a170702b3f949a1db470baf7ae" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>int BGeigieLogFormatter::_hour</definition>
+        <argsstring></argsstring>
+        <name>_hour</name>
+        <qualifiedname>BGeigieLogFormatter::_hour</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="24" column="25" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1add69503e720826ecb3bf843363ee0e8e" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>int BGeigieLogFormatter::_minute</definition>
+        <argsstring></argsstring>
+        <name>_minute</name>
+        <qualifiedname>BGeigieLogFormatter::_minute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="24" column="31" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1a90c692cb738915a59ea9a1519b41ae52" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>int BGeigieLogFormatter::_second</definition>
+        <argsstring></argsstring>
+        <name>_second</name>
+        <qualifiedname>BGeigieLogFormatter::_second</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="24" column="39" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1a60bed60757a14824cffa432219b0d452" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char BGeigieLogFormatter::_lat</definition>
+        <argsstring>[10]</argsstring>
+        <name>_lat</name>
+        <qualifiedname>BGeigieLogFormatter::_lat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="25" column="8" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1aa906b33e5d2a1abe39325e3b513ffc01" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char BGeigieLogFormatter::_NS</definition>
+        <argsstring></argsstring>
+        <name>_NS</name>
+        <qualifiedname>BGeigieLogFormatter::_NS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="25" column="13" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1afa7bacc68dcc966ea9cf8f108bf144bf" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char BGeigieLogFormatter::_lon</definition>
+        <argsstring>[11]</argsstring>
+        <name>_lon</name>
+        <qualifiedname>BGeigieLogFormatter::_lon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="25" column="17" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1a0c652b716f83ae7d67f8293d87088172" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char BGeigieLogFormatter::_WE</definition>
+        <argsstring></argsstring>
+        <name>_WE</name>
+        <qualifiedname>BGeigieLogFormatter::_WE</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="25" column="22" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1adc80635b8d82914b558703d378d2549e" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float BGeigieLogFormatter::_altitude</definition>
+        <argsstring></argsstring>
+        <name>_altitude</name>
+        <qualifiedname>BGeigieLogFormatter::_altitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="26" column="9" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1a50636d83c831e74440f92945ff624e1d" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float BGeigieLogFormatter::_precision</definition>
+        <argsstring></argsstring>
+        <name>_precision</name>
+        <qualifiedname>BGeigieLogFormatter::_precision</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="26" column="19" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1a7d383d9fd7dee9142145170c29c86a24" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>int BGeigieLogFormatter::_satellites</definition>
+        <argsstring></argsstring>
+        <name>_satellites</name>
+        <qualifiedname>BGeigieLogFormatter::_satellites</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="27" column="7" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_b_geigie_log_formatter_1ad252946ce15201e3b40e5b0b3e8d5d14" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char BGeigieLogFormatter::_gps_status</definition>
+        <argsstring></argsstring>
+        <name>_gps_status</name>
+        <qualifiedname>BGeigieLogFormatter::_gps_status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="28" column="8" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_b_geigie_log_formatter_1aab3ecfeec59796d260ad30cc1b330d1f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BGeigieLogFormatter::BGeigieLogFormatter</definition>
+        <argsstring>(uint32_t device_id)</argsstring>
+        <name>BGeigieLogFormatter</name>
+        <qualifiedname>BGeigieLogFormatter::BGeigieLogFormatter</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>device_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="31" column="3" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_geigie_log_formatter_1a5a7b0bd7e99af0b0e08791621ad56f90" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BGeigieLogFormatter::BGeigieLogFormatter</definition>
+        <argsstring>()</argsstring>
+        <name>BGeigieLogFormatter</name>
+        <qualifiedname>BGeigieLogFormatter::BGeigieLogFormatter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="32" column="3" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_geigie_log_formatter_1aa9b91572348c098bb151e3662690a602" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BGeigieLogFormatter::set_device_id</definition>
+        <argsstring>(uint32_t device_id)</argsstring>
+        <name>set_device_id</name>
+        <qualifiedname>BGeigieLogFormatter::set_device_id</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>device_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="34" column="8" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="34" bodyend="34"/>
+        <referencedby refid="class_context_1ad6ab2ba0b337de2f0ff6ae764a4ee18a" compoundref="fsm__context_8cpp" startline="19" endline="67">Context::setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_b_geigie_log_formatter_1a1c9a69c9790a8bc038b157ced1fcdbe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BGeigieLogFormatter::feed</definition>
+        <argsstring>(GPSSensor &amp;gps)</argsstring>
+        <name>feed</name>
+        <qualifiedname>BGeigieLogFormatter::feed</qualifiedname>
+        <param>
+          <type><ref refid="class_g_p_s_sensor" kindref="compound">GPSSensor</ref> &amp;</type>
+          <declname>gps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="36" column="8" bodyfile="archive/bgeigie_firmware_pio/src/logger.cpp" bodystart="23" bodyend="44"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" compoundref="_raku__code_8cpp" startline="48">gps</references>
+        <referencedby refid="class_context_1a508a6b9c7ed84ea20ef39bfa54607ad4" compoundref="fsm__context_8cpp" startline="69" endline="77">Context::on_geiger_counter_available</referencedby>
+        <referencedby refid="class_context_1a402bea63f404fae0790d6bb4f1a011f2" compoundref="fsm__context_8cpp" startline="79" endline="82">Context::on_gps_available</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_b_geigie_log_formatter_1accfbb55ef326bf6483157ff01d40a9ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BGeigieLogFormatter::feed</definition>
+        <argsstring>(const GeigerCounter &amp;geiger_count)</argsstring>
+        <name>feed</name>
+        <qualifiedname>BGeigieLogFormatter::feed</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="class_geiger_counter" kindref="compound">GeigerCounter</ref> &amp;</type>
+          <declname>geiger_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="37" column="8" bodyfile="archive/bgeigie_firmware_pio/src/logger.cpp" bodystart="15" bodyend="21"/>
+        <references refid="class_geiger_counter_1ab594033dc6831e26aeee3fb6db67d5fb" compoundref="include_2geiger__counter_8hpp" startline="55" endline="55">GeigerCounter::per_bin</references>
+        <references refid="class_geiger_counter_1aa43acb94f31899c5ca5859f7d1f616cf" compoundref="include_2geiger__counter_8hpp" startline="58" endline="58">GeigerCounter::per_minute_raw</references>
+        <references refid="class_geiger_counter_1ad3dd76831d8afa748a17c4319ad42463" compoundref="include_2geiger__counter_8hpp" startline="56" endline="56">GeigerCounter::total</references>
+        <references refid="class_geiger_counter_1a62c418e910486f29ef2b9c09b979756a" compoundref="include_2geiger__counter_8hpp" startline="69" endline="69">GeigerCounter::valid</references>
+      </memberdef>
+      <memberdef kind="function" id="class_b_geigie_log_formatter_1a1a53d87a30121624a61a5a32e359b535" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BGeigieLogFormatter::ready</definition>
+        <argsstring>()</argsstring>
+        <name>ready</name>
+        <qualifiedname>BGeigieLogFormatter::ready</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="38" column="8" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="38" bodyend="38"/>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_b_geigie_log_formatter_1a73f74383a11aa5e2d1c7ddafbeb3f708" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * BGeigieLogFormatter::format</definition>
+        <argsstring>()</argsstring>
+        <name>format</name>
+        <qualifiedname>BGeigieLogFormatter::format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="40" column="14" bodyfile="archive/bgeigie_firmware_pio/src/logger.cpp" bodystart="46" bodyend="75"/>
+        <references refid="logger_8cpp_1a77b34e269d2a6500076f032667578f0b" compoundref="logger_8cpp" startline="6" endline="13">checksum</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="include_2config_8hpp_1a13b51bdb19001339023a073629d0d18e" compoundref="include_2config_8hpp" startline="24">DEVICE_HEADER</references>
+        <references refid="include_2config_8hpp_1a17871a57cec4c4717bd53399af95ca5e" compoundref="include_2config_8hpp" startline="26">LOG_BUFFER_SIZE</references>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_b_geigie_log_formatter_1aab3ecfeec59796d260ad30cc1b330d1f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BGeigieLogFormatter::BGeigieLogFormatter</definition>
+        <argsstring>(uint32_t device_id)</argsstring>
+        <name>BGeigieLogFormatter</name>
+        <qualifiedname>BGeigieLogFormatter::BGeigieLogFormatter</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>device_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/logger.hpp" line="31" column="3" bodyfile="archive/bgeigie_firmware_pio/src/logger.hpp" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_geigie_log_formatter_1a5a7b0bd7e99af0b0e08791621ad56f90" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BGeigieLogFormatter::BGeigieLogFormatter</definition>
+        <argsstring>()</argsstring>
+        <name>BGeigieLogFormatter</name>
+        <qualifiedname>BGeigieLogFormatter::BGeigieLogFormatter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/logger.hpp" line="32" column="3" bodyfile="archive/bgeigie_firmware_pio/src/logger.hpp" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_geigie_log_formatter_1aa9b91572348c098bb151e3662690a602" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BGeigieLogFormatter::set_device_id</definition>
+        <argsstring>(uint32_t device_id)</argsstring>
+        <name>set_device_id</name>
+        <qualifiedname>BGeigieLogFormatter::set_device_id</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>device_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/logger.hpp" line="34" column="8" bodyfile="archive/bgeigie_firmware_pio/src/logger.hpp" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_geigie_log_formatter_1a1c9a69c9790a8bc038b157ced1fcdbe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BGeigieLogFormatter::feed</definition>
+        <argsstring>(GPSSensor &amp;gps)</argsstring>
+        <name>feed</name>
+        <qualifiedname>BGeigieLogFormatter::feed</qualifiedname>
+        <param>
+          <type><ref refid="class_g_p_s_sensor" kindref="compound">GPSSensor</ref> &amp;</type>
+          <declname>gps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/logger.hpp" line="36" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_geigie_log_formatter_1accfbb55ef326bf6483157ff01d40a9ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BGeigieLogFormatter::feed</definition>
+        <argsstring>(const GeigerCounter &amp;geiger_count)</argsstring>
+        <name>feed</name>
+        <qualifiedname>BGeigieLogFormatter::feed</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="class_geiger_counter" kindref="compound">GeigerCounter</ref> &amp;</type>
+          <declname>geiger_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/logger.hpp" line="37" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_geigie_log_formatter_1a1a53d87a30121624a61a5a32e359b535" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BGeigieLogFormatter::ready</definition>
+        <argsstring>()</argsstring>
+        <name>ready</name>
+        <qualifiedname>BGeigieLogFormatter::ready</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/logger.hpp" line="38" column="8" bodyfile="archive/bgeigie_firmware_pio/src/logger.hpp" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_b_geigie_log_formatter_1a73f74383a11aa5e2d1c7ddafbeb3f708" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * BGeigieLogFormatter::format</definition>
+        <argsstring>()</argsstring>
+        <name>format</name>
+        <qualifiedname>BGeigieLogFormatter::format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/logger.hpp" line="40" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="archive/bgeigie_firmware_pio/include/logger.hpp" line="12" column="1" bodyfile="archive/bgeigie_firmware_pio/include/logger.hpp" bodystart="12" bodyend="41"/>
+    <listofallmembers>
+      <member refid="class_b_geigie_log_formatter_1adc80635b8d82914b558703d378d2549e" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_altitude</name></member>
+      <member refid="class_b_geigie_log_formatter_1ad1a1d3320aa34ba92e12f0fa291f148d" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_buffer</name></member>
+      <member refid="class_b_geigie_log_formatter_1a8e063f8827e8e6d56631c1d636eb2e4a" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_cpb</name></member>
+      <member refid="class_b_geigie_log_formatter_1af8abc1cabb8764b4dbe343635798ad2e" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_cpm</name></member>
+      <member refid="class_b_geigie_log_formatter_1a416aed0e719c6639e04e7fc5986e0c06" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_day</name></member>
+      <member refid="class_b_geigie_log_formatter_1a7e3f1c7ec9fdf99e1a1e84ed124b6bb0" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_device_id</name></member>
+      <member refid="class_b_geigie_log_formatter_1a35a8fb337fbd062b49cbfeaa63b6be85" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_geiger_fresh</name></member>
+      <member refid="class_b_geigie_log_formatter_1a8dcd1d5eb7485c27f649160fd4d9abd4" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_geiger_status</name></member>
+      <member refid="class_b_geigie_log_formatter_1ac49cbb866a271e7f4e5af08d258f04cd" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_gps_fresh</name></member>
+      <member refid="class_b_geigie_log_formatter_1ad252946ce15201e3b40e5b0b3e8d5d14" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_gps_status</name></member>
+      <member refid="class_b_geigie_log_formatter_1a5fd319a170702b3f949a1db470baf7ae" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_hour</name></member>
+      <member refid="class_b_geigie_log_formatter_1a60bed60757a14824cffa432219b0d452" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_lat</name></member>
+      <member refid="class_b_geigie_log_formatter_1afa7bacc68dcc966ea9cf8f108bf144bf" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_lon</name></member>
+      <member refid="class_b_geigie_log_formatter_1add69503e720826ecb3bf843363ee0e8e" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_minute</name></member>
+      <member refid="class_b_geigie_log_formatter_1a1c386f10f717b55d86efe0bc679caaf6" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_month</name></member>
+      <member refid="class_b_geigie_log_formatter_1aa906b33e5d2a1abe39325e3b513ffc01" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_NS</name></member>
+      <member refid="class_b_geigie_log_formatter_1a50636d83c831e74440f92945ff624e1d" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_precision</name></member>
+      <member refid="class_b_geigie_log_formatter_1a7d383d9fd7dee9142145170c29c86a24" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_satellites</name></member>
+      <member refid="class_b_geigie_log_formatter_1a90c692cb738915a59ea9a1519b41ae52" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_second</name></member>
+      <member refid="class_b_geigie_log_formatter_1afb1d6d2381dd446d19d9d4487a374b49" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_total_count</name></member>
+      <member refid="class_b_geigie_log_formatter_1a0c652b716f83ae7d67f8293d87088172" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_WE</name></member>
+      <member refid="class_b_geigie_log_formatter_1a5ee848475c208ea1a707667e522cb85d" prot="private" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>_year</name></member>
+      <member refid="class_b_geigie_log_formatter_1aab3ecfeec59796d260ad30cc1b330d1f" prot="public" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>BGeigieLogFormatter</name></member>
+      <member refid="class_b_geigie_log_formatter_1a5a7b0bd7e99af0b0e08791621ad56f90" prot="public" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>BGeigieLogFormatter</name></member>
+      <member refid="class_b_geigie_log_formatter_1aab3ecfeec59796d260ad30cc1b330d1f" prot="public" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>BGeigieLogFormatter</name></member>
+      <member refid="class_b_geigie_log_formatter_1a5a7b0bd7e99af0b0e08791621ad56f90" prot="public" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>BGeigieLogFormatter</name></member>
+      <member refid="class_b_geigie_log_formatter_1a1c9a69c9790a8bc038b157ced1fcdbe3" prot="public" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>feed</name></member>
+      <member refid="class_b_geigie_log_formatter_1accfbb55ef326bf6483157ff01d40a9ae" prot="public" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>feed</name></member>
+      <member refid="class_b_geigie_log_formatter_1a1c9a69c9790a8bc038b157ced1fcdbe3" prot="public" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>feed</name></member>
+      <member refid="class_b_geigie_log_formatter_1accfbb55ef326bf6483157ff01d40a9ae" prot="public" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>feed</name></member>
+      <member refid="class_b_geigie_log_formatter_1a73f74383a11aa5e2d1c7ddafbeb3f708" prot="public" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>format</name></member>
+      <member refid="class_b_geigie_log_formatter_1a73f74383a11aa5e2d1c7ddafbeb3f708" prot="public" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>format</name></member>
+      <member refid="class_b_geigie_log_formatter_1a1a53d87a30121624a61a5a32e359b535" prot="public" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>ready</name></member>
+      <member refid="class_b_geigie_log_formatter_1a1a53d87a30121624a61a5a32e359b535" prot="public" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>ready</name></member>
+      <member refid="class_b_geigie_log_formatter_1aa9b91572348c098bb151e3662690a602" prot="public" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>set_device_id</name></member>
+      <member refid="class_b_geigie_log_formatter_1aa9b91572348c098bb151e3662690a602" prot="public" virt="non-virtual"><scope>BGeigieLogFormatter</scope><name>set_device_id</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

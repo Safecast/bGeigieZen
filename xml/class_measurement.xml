@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_measurement" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>Measurement</compoundname>
+    <basecompoundref refid="class_subject" prot="public" virt="non-virtual">Subject</basecompoundref>
+    <basecompoundref refid="class_subject" prot="public" virt="non-virtual">Subject</basecompoundref>
+    <includes refid="bgeigie__firmware_2measurements_8hpp" local="no">measurements.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">class</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">T</ref></type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_measurement_1a65c2fc904258e398a3b24180c0177882" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool Measurement&lt; T &gt;::_available</definition>
+        <argsstring></argsstring>
+        <name>_available</name>
+        <qualifiedname>Measurement::_available</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/measurements.hpp" line="18" column="10" bodyfile="archive/bgeigie_firmware/measurements.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_measurement_1a32dd364962c8b51cabc130bb6a8dbeab" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Measurement&lt; T &gt;::set_avalaible</definition>
+        <argsstring>()</argsstring>
+        <name>set_avalaible</name>
+        <qualifiedname>Measurement::set_avalaible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/measurements.hpp" line="22" column="10" bodyfile="archive/bgeigie_firmware/measurements.hpp" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_measurement_1ac0e479fd97b23c32f929602da6987b74" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Measurement&lt; T &gt;::unset_avalaible</definition>
+        <argsstring>()</argsstring>
+        <name>unset_avalaible</name>
+        <qualifiedname>Measurement::unset_avalaible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/measurements.hpp" line="23" column="10" bodyfile="archive/bgeigie_firmware/measurements.hpp" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_measurement_1a32dd364962c8b51cabc130bb6a8dbeab" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Measurement&lt; T &gt;::set_avalaible</definition>
+        <argsstring>()</argsstring>
+        <name>set_avalaible</name>
+        <qualifiedname>Measurement::set_avalaible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/measurements.hpp" line="22" column="10" bodyfile="archive/test/test_gpsthreaded/measurements.hpp" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_measurement_1ac0e479fd97b23c32f929602da6987b74" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Measurement&lt; T &gt;::unset_avalaible</definition>
+        <argsstring>()</argsstring>
+        <name>unset_avalaible</name>
+        <qualifiedname>Measurement::unset_avalaible</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/measurements.hpp" line="23" column="10" bodyfile="archive/test/test_gpsthreaded/measurements.hpp" bodystart="23" bodyend="23"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_measurement_1a0794a0ebe788293db07255b822ca15c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>virtual void Measurement&lt; T &gt;::init</definition>
+        <argsstring>()=0</argsstring>
+        <name>init</name>
+        <qualifiedname>Measurement::init</qualifiedname>
+        <reimplementedby refid="class_g_p_s_thread_1aa519d5004c9b13c2ac4308b99324efd9">init</reimplementedby>
+        <reimplementedby refid="class_g_p_s_thread_1aa519d5004c9b13c2ac4308b99324efd9">init</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/measurements.hpp" line="26" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_measurement_1a8019e4491efe1ec58a076e6b17272f6e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>virtual bool Measurement&lt; T &gt;::available</definition>
+        <argsstring>()</argsstring>
+        <name>available</name>
+        <qualifiedname>Measurement::available</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/measurements.hpp" line="27" column="18" bodyfile="archive/bgeigie_firmware/measurements.hpp" bodystart="27" bodyend="27"/>
+        <referencedby refid="class_aggregator_1a2715c67ec5ebc41a248dd22785ca6862" compoundref="aggregator_8cpp" startline="4" endline="11">Aggregator::update</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_measurement_1acefa9e85f3dae6c2b81d68cc5dce9f82" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>virtual bool Measurement&lt; T &gt;::prepare_data</definition>
+        <argsstring>(T &amp;dest)=0</argsstring>
+        <name>prepare_data</name>
+        <qualifiedname>Measurement::prepare_data</qualifiedname>
+        <reimplementedby refid="class_g_p_s_thread_1aef0bf3ae06eff688503cfafe58cfe5f8">prepare_data</reimplementedby>
+        <reimplementedby refid="class_g_p_s_thread_1aef0bf3ae06eff688503cfafe58cfe5f8">prepare_data</reimplementedby>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">T</ref> &amp;</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/measurements.hpp" line="32" column="18"/>
+        <referencedby refid="class_measurement_1aabfa61bb1f0c3098635e6104ad8a95ad" compoundref="bgeigie__firmware_2measurements_8hpp" startline="36" endline="45">Measurement&lt; T &gt;::get_data</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_measurement_1aabfa61bb1f0c3098635e6104ad8a95ad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool Measurement&lt; T &gt;::get_data</definition>
+        <argsstring>(T &amp;dest)</argsstring>
+        <name>get_data</name>
+        <qualifiedname>Measurement::get_data</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">T</ref> &amp;</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/measurements.hpp" line="36" column="10" bodyfile="archive/bgeigie_firmware/measurements.hpp" bodystart="36" bodyend="45"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_measurement_1acefa9e85f3dae6c2b81d68cc5dce9f82">Measurement&lt; T &gt;::prepare_data</references>
+        <referencedby refid="class_aggregator_1a2715c67ec5ebc41a248dd22785ca6862" compoundref="aggregator_8cpp" startline="4" endline="11">Aggregator::update</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_measurement_1a0794a0ebe788293db07255b822ca15c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>virtual void Measurement&lt; T &gt;::init</definition>
+        <argsstring>()=0</argsstring>
+        <name>init</name>
+        <qualifiedname>Measurement::init</qualifiedname>
+        <reimplementedby refid="class_g_p_s_thread_1aa519d5004c9b13c2ac4308b99324efd9">init</reimplementedby>
+        <reimplementedby refid="class_g_p_s_thread_1aa519d5004c9b13c2ac4308b99324efd9">init</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/measurements.hpp" line="26" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_measurement_1a8019e4491efe1ec58a076e6b17272f6e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>virtual bool Measurement&lt; T &gt;::available</definition>
+        <argsstring>()</argsstring>
+        <name>available</name>
+        <qualifiedname>Measurement::available</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/measurements.hpp" line="27" column="18" bodyfile="archive/test/test_gpsthreaded/measurements.hpp" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_measurement_1acefa9e85f3dae6c2b81d68cc5dce9f82" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>virtual bool Measurement&lt; T &gt;::prepare_data</definition>
+        <argsstring>(T &amp;dest)=0</argsstring>
+        <name>prepare_data</name>
+        <qualifiedname>Measurement::prepare_data</qualifiedname>
+        <reimplementedby refid="class_g_p_s_thread_1aef0bf3ae06eff688503cfafe58cfe5f8">prepare_data</reimplementedby>
+        <reimplementedby refid="class_g_p_s_thread_1aef0bf3ae06eff688503cfafe58cfe5f8">prepare_data</reimplementedby>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">T</ref> &amp;</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/measurements.hpp" line="32" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_measurement_1aabfa61bb1f0c3098635e6104ad8a95ad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool Measurement&lt; T &gt;::get_data</definition>
+        <argsstring>(T &amp;dest)</argsstring>
+        <name>get_data</name>
+        <qualifiedname>Measurement::get_data</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">T</ref> &amp;</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/measurements.hpp" line="36" column="10" bodyfile="archive/test/test_gpsthreaded/measurements.hpp" bodystart="36" bodyend="45"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_measurement_1acefa9e85f3dae6c2b81d68cc5dce9f82">Measurement&lt; T &gt;::prepare_data</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Measurement&lt; T &gt;</label>
+        <link refid="class_measurement"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Subject</label>
+        <link refid="class_subject"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Measurement&lt; T &gt;</label>
+        <link refid="class_measurement"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Subject</label>
+        <link refid="class_subject"/>
+      </node>
+    </collaborationgraph>
+    <location file="archive/bgeigie_firmware/measurements.hpp" line="15" column="1" bodyfile="archive/bgeigie_firmware/measurements.hpp" bodystart="16" bodyend="47"/>
+    <listofallmembers>
+      <member refid="class_measurement_1a65c2fc904258e398a3b24180c0177882" prot="private" virt="non-virtual"><scope>Measurement</scope><name>_available</name></member>
+      <member refid="class_measurement_1a8019e4491efe1ec58a076e6b17272f6e" prot="public" virt="virtual"><scope>Measurement</scope><name>available</name></member>
+      <member refid="class_measurement_1a8019e4491efe1ec58a076e6b17272f6e" prot="public" virt="virtual"><scope>Measurement</scope><name>available</name></member>
+      <member refid="class_measurement_1aabfa61bb1f0c3098635e6104ad8a95ad" prot="public" virt="non-virtual"><scope>Measurement</scope><name>get_data</name></member>
+      <member refid="class_measurement_1aabfa61bb1f0c3098635e6104ad8a95ad" prot="public" virt="non-virtual"><scope>Measurement</scope><name>get_data</name></member>
+      <member refid="class_measurement_1a0794a0ebe788293db07255b822ca15c9" prot="public" virt="pure-virtual"><scope>Measurement</scope><name>init</name></member>
+      <member refid="class_measurement_1a0794a0ebe788293db07255b822ca15c9" prot="public" virt="pure-virtual"><scope>Measurement</scope><name>init</name></member>
+      <member refid="class_measurement_1acefa9e85f3dae6c2b81d68cc5dce9f82" prot="public" virt="pure-virtual"><scope>Measurement</scope><name>prepare_data</name></member>
+      <member refid="class_measurement_1acefa9e85f3dae6c2b81d68cc5dce9f82" prot="public" virt="pure-virtual"><scope>Measurement</scope><name>prepare_data</name></member>
+      <member refid="class_subject_1a91cb4e6bb958acf74de6cf82142215f8" prot="public" virt="non-virtual"><scope>Measurement</scope><name>register_observer</name></member>
+      <member refid="class_subject_1a91cb4e6bb958acf74de6cf82142215f8" prot="public" virt="non-virtual"><scope>Measurement</scope><name>register_observer</name></member>
+      <member refid="class_measurement_1a32dd364962c8b51cabc130bb6a8dbeab" prot="protected" virt="non-virtual"><scope>Measurement</scope><name>set_avalaible</name></member>
+      <member refid="class_measurement_1a32dd364962c8b51cabc130bb6a8dbeab" prot="protected" virt="non-virtual"><scope>Measurement</scope><name>set_avalaible</name></member>
+      <member refid="class_measurement_1ac0e479fd97b23c32f929602da6987b74" prot="protected" virt="non-virtual"><scope>Measurement</scope><name>unset_avalaible</name></member>
+      <member refid="class_measurement_1ac0e479fd97b23c32f929602da6987b74" prot="protected" virt="non-virtual"><scope>Measurement</scope><name>unset_avalaible</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

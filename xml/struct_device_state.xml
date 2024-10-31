@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_device_state" kind="struct" language="C++" prot="public">
+    <compoundname>DeviceState</compoundname>
+    <includes refid="controller_8h" local="no">controller.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_device_state_1ae85122e455cbb9989f3907df2f4badb9" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Mode</name>
+        <qualifiedname>DeviceState::Mode</qualifiedname>
+        <enumvalue id="struct_device_state_1ae85122e455cbb9989f3907df2f4badb9ae2c3220b8b997cebebc4346434fa9594" prot="public">
+          <name>e_mode_not_set</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_device_state_1ae85122e455cbb9989f3907df2f4badb9a2062bfe8b3a5aaba404b1efad2fa3687" prot="public">
+          <name>e_mode_simple</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_device_state_1ae85122e455cbb9989f3907df2f4badb9abda2c76c2ac34132df0b238412a19b84" prot="public">
+          <name>e_mode_advanced</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/controller.h" line="12" column="3" bodyfile="bgeigiezen_firmware/controller.h" bodystart="12" bodyend="16"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_device_state_1a99bc29ac8c5a39044953985cfdda8d3e" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool DeviceState::initialized</definition>
+        <argsstring></argsstring>
+        <name>initialized</name>
+        <qualifiedname>DeviceState::initialized</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/controller.h" line="18" column="8" bodyfile="bgeigiezen_firmware/controller.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_device_state_1a664f04e5b1d2d2763b2d406217b97ebf" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool DeviceState::local_available</definition>
+        <argsstring></argsstring>
+        <name>local_available</name>
+        <qualifiedname>DeviceState::local_available</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/controller.h" line="19" column="8" bodyfile="bgeigiezen_firmware/controller.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_device_state_1a9f0f22f8a77b94040987f0ad1dc1316d" prot="public" static="no" mutable="no">
+        <type><ref refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50" kindref="member">SDInterface::SdStatus</ref></type>
+        <definition>SDInterface::SdStatus DeviceState::sd_card_status</definition>
+        <argsstring></argsstring>
+        <name>sd_card_status</name>
+        <qualifiedname>DeviceState::sd_card_status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/controller.h" line="20" column="25" bodyfile="bgeigiezen_firmware/controller.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_device_state_1a447772342db30431c1183572585dc5e4" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_device_state_1ae85122e455cbb9989f3907df2f4badb9" kindref="member">Mode</ref></type>
+        <definition>Mode DeviceState::mode</definition>
+        <argsstring></argsstring>
+        <name>mode</name>
+        <qualifiedname>DeviceState::mode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/controller.h" line="21" column="8" bodyfile="bgeigiezen_firmware/controller.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="bgeigiezen_firmware/controller.h" line="11" column="1" bodyfile="bgeigiezen_firmware/controller.h" bodystart="11" bodyend="23"/>
+    <listofallmembers>
+      <member refid="struct_device_state_1ae85122e455cbb9989f3907df2f4badb9abda2c76c2ac34132df0b238412a19b84" prot="public" virt="non-virtual"><scope>DeviceState</scope><name>e_mode_advanced</name></member>
+      <member refid="struct_device_state_1ae85122e455cbb9989f3907df2f4badb9ae2c3220b8b997cebebc4346434fa9594" prot="public" virt="non-virtual"><scope>DeviceState</scope><name>e_mode_not_set</name></member>
+      <member refid="struct_device_state_1ae85122e455cbb9989f3907df2f4badb9a2062bfe8b3a5aaba404b1efad2fa3687" prot="public" virt="non-virtual"><scope>DeviceState</scope><name>e_mode_simple</name></member>
+      <member refid="struct_device_state_1a99bc29ac8c5a39044953985cfdda8d3e" prot="public" virt="non-virtual"><scope>DeviceState</scope><name>initialized</name></member>
+      <member refid="struct_device_state_1a664f04e5b1d2d2763b2d406217b97ebf" prot="public" virt="non-virtual"><scope>DeviceState</scope><name>local_available</name></member>
+      <member refid="struct_device_state_1ae85122e455cbb9989f3907df2f4badb9" prot="public" virt="non-virtual"><scope>DeviceState</scope><name>Mode</name></member>
+      <member refid="struct_device_state_1a447772342db30431c1183572585dc5e4" prot="public" virt="non-virtual"><scope>DeviceState</scope><name>mode</name></member>
+      <member refid="struct_device_state_1a9f0f22f8a77b94040987f0ad1dc1316d" prot="public" virt="non-virtual"><scope>DeviceState</scope><name>sd_card_status</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,455 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_tiny_g_p_s_time" kind="struct" language="C++" prot="public">
+    <compoundname>TinyGPSTime</compoundname>
+    <includes refid="include_2_tiny_g_p_s_09_09_8h" local="no">TinyGPS++.h</includes>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="struct_tiny_g_p_s_time_1a2bcf8d5290fbef8c44b415e281b8c6f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">class</ref></type>
+        <definition>TinyGPSPlus</definition>
+        <argsstring></argsstring>
+        <name>TinyGPSPlus</name>
+        <qualifiedname>TinyGPSTime::TinyGPSPlus</qualifiedname>
+        <param>
+          <type><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="109" column="17" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="struct_tiny_g_p_s_time_1ab4fd62a69d4f06a45164f6a4f4caae45" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSTime::valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <qualifiedname>TinyGPSTime::valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="125" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_time_1a8af55d20c789d6bc3c759fd42d588c7b" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSTime::updated</definition>
+        <argsstring></argsstring>
+        <name>updated</name>
+        <qualifiedname>TinyGPSTime::updated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="125" column="15" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_time_1ae9d8132463ce75723cc826be9a1b6380" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSTime::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <qualifiedname>TinyGPSTime::time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="126" column="13" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_time_1ab6794a7906f46e0309ffa31a3682ea92" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSTime::newTime</definition>
+        <argsstring></argsstring>
+        <name>newTime</name>
+        <qualifiedname>TinyGPSTime::newTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="126" column="18" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_time_1a3a033dc00767099f6c1b3c328ff586e4" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSTime::lastCommitTime</definition>
+        <argsstring></argsstring>
+        <name>lastCommitTime</name>
+        <qualifiedname>TinyGPSTime::lastCommitTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="127" column="13" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1a46b2dc7a7946885b509b9a2f83ae655c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSTime::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>TinyGPSTime::isValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="111" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="111" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1a0d6434dc19675d214f58347d513e7c69" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSTime::isUpdated</definition>
+        <argsstring>() const</argsstring>
+        <name>isUpdated</name>
+        <qualifiedname>TinyGPSTime::isUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="112" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="112" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1ae0aba0cbd875a3e1fe5d7872171e79fc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSTime::age</definition>
+        <argsstring>() const</argsstring>
+        <name>age</name>
+        <qualifiedname>TinyGPSTime::age</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="113" column="13" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="113" bodyend="113"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1afcdb632fee9d144b1414c9d7b95719f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSTime::value</definition>
+        <argsstring>()</argsstring>
+        <name>value</name>
+        <qualifiedname>TinyGPSTime::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="115" column="13" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="115" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1a37fdb629b6ed0e31134214c7d07df2b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t TinyGPSTime::hour</definition>
+        <argsstring>()</argsstring>
+        <name>hour</name>
+        <qualifiedname>TinyGPSTime::hour</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="116" column="12" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="418" bodyend="422"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1aef83c20c14d404219299da2d7e35cdce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t TinyGPSTime::minute</definition>
+        <argsstring>()</argsstring>
+        <name>minute</name>
+        <qualifiedname>TinyGPSTime::minute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="117" column="12" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="424" bodyend="428"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1a729cab36ced07eb5607503663fbe33e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t TinyGPSTime::second</definition>
+        <argsstring>()</argsstring>
+        <name>second</name>
+        <qualifiedname>TinyGPSTime::second</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="118" column="12" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="430" bodyend="434"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1a1f74ad4a2a53e0ee19f8e3a6b2bc985f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t TinyGPSTime::centisecond</definition>
+        <argsstring>()</argsstring>
+        <name>centisecond</name>
+        <qualifiedname>TinyGPSTime::centisecond</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="119" column="12" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="436" bodyend="440"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1abd6dd7a576fd42cd6980c92eec77ab1d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TinyGPSTime::TinyGPSTime</definition>
+        <argsstring>()</argsstring>
+        <name>TinyGPSTime</name>
+        <qualifiedname>TinyGPSTime::TinyGPSTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="121" column="4" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="121" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1a46b2dc7a7946885b509b9a2f83ae655c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSTime::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>TinyGPSTime::isValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="111" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="111" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1a0d6434dc19675d214f58347d513e7c69" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSTime::isUpdated</definition>
+        <argsstring>() const</argsstring>
+        <name>isUpdated</name>
+        <qualifiedname>TinyGPSTime::isUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="112" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="112" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1ae0aba0cbd875a3e1fe5d7872171e79fc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSTime::age</definition>
+        <argsstring>() const</argsstring>
+        <name>age</name>
+        <qualifiedname>TinyGPSTime::age</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="113" column="13" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="113" bodyend="113"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1afcdb632fee9d144b1414c9d7b95719f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSTime::value</definition>
+        <argsstring>()</argsstring>
+        <name>value</name>
+        <qualifiedname>TinyGPSTime::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="115" column="13" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="115" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1a37fdb629b6ed0e31134214c7d07df2b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t TinyGPSTime::hour</definition>
+        <argsstring>()</argsstring>
+        <name>hour</name>
+        <qualifiedname>TinyGPSTime::hour</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="116" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1aef83c20c14d404219299da2d7e35cdce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t TinyGPSTime::minute</definition>
+        <argsstring>()</argsstring>
+        <name>minute</name>
+        <qualifiedname>TinyGPSTime::minute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="117" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1a729cab36ced07eb5607503663fbe33e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t TinyGPSTime::second</definition>
+        <argsstring>()</argsstring>
+        <name>second</name>
+        <qualifiedname>TinyGPSTime::second</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="118" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1a1f74ad4a2a53e0ee19f8e3a6b2bc985f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t TinyGPSTime::centisecond</definition>
+        <argsstring>()</argsstring>
+        <name>centisecond</name>
+        <qualifiedname>TinyGPSTime::centisecond</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="119" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1abd6dd7a576fd42cd6980c92eec77ab1d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TinyGPSTime::TinyGPSTime</definition>
+        <argsstring>()</argsstring>
+        <name>TinyGPSTime</name>
+        <qualifiedname>TinyGPSTime::TinyGPSTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="121" column="4" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="121" bodyend="122"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1a7d281752a3ce8360f02a782b938fee22" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSTime::commit</definition>
+        <argsstring>()</argsstring>
+        <name>commit</name>
+        <qualifiedname>TinyGPSTime::commit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="128" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="382" bodyend="387"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1a07646db66f928524a46b22030f3367c6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSTime::setTime</definition>
+        <argsstring>(const char *term)</argsstring>
+        <name>setTime</name>
+        <qualifiedname>TinyGPSTime::setTime</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>term</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="129" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="389" bodyend="392"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1a7d281752a3ce8360f02a782b938fee22" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSTime::commit</definition>
+        <argsstring>()</argsstring>
+        <name>commit</name>
+        <qualifiedname>TinyGPSTime::commit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="128" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_time_1a07646db66f928524a46b22030f3367c6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSTime::setTime</definition>
+        <argsstring>(const char *term)</argsstring>
+        <name>setTime</name>
+        <qualifiedname>TinyGPSTime::setTime</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>term</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="129" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="107" column="1" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="108" bodyend="130"/>
+    <listofallmembers>
+      <member refid="struct_tiny_g_p_s_time_1ae0aba0cbd875a3e1fe5d7872171e79fc" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>age</name></member>
+      <member refid="struct_tiny_g_p_s_time_1ae0aba0cbd875a3e1fe5d7872171e79fc" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>age</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a1f74ad4a2a53e0ee19f8e3a6b2bc985f" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>centisecond</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a1f74ad4a2a53e0ee19f8e3a6b2bc985f" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>centisecond</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a7d281752a3ce8360f02a782b938fee22" prot="private" virt="non-virtual"><scope>TinyGPSTime</scope><name>commit</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a7d281752a3ce8360f02a782b938fee22" prot="private" virt="non-virtual"><scope>TinyGPSTime</scope><name>commit</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a37fdb629b6ed0e31134214c7d07df2b1" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>hour</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a37fdb629b6ed0e31134214c7d07df2b1" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>hour</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a0d6434dc19675d214f58347d513e7c69" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>isUpdated</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a0d6434dc19675d214f58347d513e7c69" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>isUpdated</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a46b2dc7a7946885b509b9a2f83ae655c" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>isValid</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a46b2dc7a7946885b509b9a2f83ae655c" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>isValid</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a3a033dc00767099f6c1b3c328ff586e4" prot="private" virt="non-virtual"><scope>TinyGPSTime</scope><name>lastCommitTime</name></member>
+      <member refid="struct_tiny_g_p_s_time_1aef83c20c14d404219299da2d7e35cdce" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>minute</name></member>
+      <member refid="struct_tiny_g_p_s_time_1aef83c20c14d404219299da2d7e35cdce" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>minute</name></member>
+      <member refid="struct_tiny_g_p_s_time_1ab6794a7906f46e0309ffa31a3682ea92" prot="private" virt="non-virtual"><scope>TinyGPSTime</scope><name>newTime</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a729cab36ced07eb5607503663fbe33e8" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>second</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a729cab36ced07eb5607503663fbe33e8" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>second</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a07646db66f928524a46b22030f3367c6" prot="private" virt="non-virtual"><scope>TinyGPSTime</scope><name>setTime</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a07646db66f928524a46b22030f3367c6" prot="private" virt="non-virtual"><scope>TinyGPSTime</scope><name>setTime</name></member>
+      <member refid="struct_tiny_g_p_s_time_1ae9d8132463ce75723cc826be9a1b6380" prot="private" virt="non-virtual"><scope>TinyGPSTime</scope><name>time</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a2bcf8d5290fbef8c44b415e281b8c6f2" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>TinyGPSPlus</name></member>
+      <member refid="struct_tiny_g_p_s_time_1abd6dd7a576fd42cd6980c92eec77ab1d" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>TinyGPSTime</name></member>
+      <member refid="struct_tiny_g_p_s_time_1abd6dd7a576fd42cd6980c92eec77ab1d" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>TinyGPSTime</name></member>
+      <member refid="struct_tiny_g_p_s_time_1a8af55d20c789d6bc3c759fd42d588c7b" prot="private" virt="non-virtual"><scope>TinyGPSTime</scope><name>updated</name></member>
+      <member refid="struct_tiny_g_p_s_time_1ab4fd62a69d4f06a45164f6a4f4caae45" prot="private" virt="non-virtual"><scope>TinyGPSTime</scope><name>valid</name></member>
+      <member refid="struct_tiny_g_p_s_time_1afcdb632fee9d144b1414c9d7b95719f1" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>value</name></member>
+      <member refid="struct_tiny_g_p_s_time_1afcdb632fee9d144b1414c9d7b95719f1" prot="public" virt="non-virtual"><scope>TinyGPSTime</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

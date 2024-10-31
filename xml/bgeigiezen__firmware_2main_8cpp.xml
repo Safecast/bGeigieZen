@@ -1,0 +1,948 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="bgeigiezen__firmware_2main_8cpp" kind="file" language="C++">
+    <compoundname>main.cpp</compoundname>
+    <includes local="no">M5Unified.hpp</includes>
+    <includes local="no">Arduino.h</includes>
+    <includes refid="controller_8h" local="yes">controller.h</includes>
+    <includes refid="gfx__screen_8h" local="yes">gfx_screen.h</includes>
+    <includes refid="api__connector_8h" local="yes">handlers/api_connector.h</includes>
+    <includes refid="bluetooth__reporter_8h" local="yes">handlers/bluetooth_reporter.h</includes>
+    <includes refid="sd__logger_8h" local="yes">handlers/sd_logger.h</includes>
+    <includes refid="identifiers_8h" local="yes">identifiers.h</includes>
+    <includes refid="battery__indicator_8h" local="yes">workers/battery_indicator.h</includes>
+    <includes refid="configuration__server_8h" local="yes">workers/configuration_server.h</includes>
+    <includes refid="gm__sensor_8h" local="yes">workers/gm_sensor.h</includes>
+    <includes refid="gps__connector_8h" local="yes">workers/gps_connector.h</includes>
+    <includes refid="log__aggregator_8h" local="yes">workers/log_aggregator.h</includes>
+    <includes refid="navsat__collector_8h" local="yes">workers/navsat_collector.h</includes>
+    <includes refid="rtc__connector_8h" local="yes">workers/rtc_connector.h</includes>
+    <includes refid="shake__detector_8h" local="yes">workers/shake_detector.h</includes>
+    <includes refid="zen__button_8h" local="yes">workers/zen_button.h</includes>
+    <incdepgraph>
+      <node id="11">
+        <label>TinyGPS.h</label>
+        <link refid="bgeigie__firmware_2_tiny_g_p_s_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Aggregator.hpp</label>
+        <link refid="aggregator_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>measurements.hpp</label>
+        <link refid="bgeigie__firmware_2measurements_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>patterns.hpp</label>
+        <link refid="bgeigie__firmware_2patterns_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>serial_source.hpp</label>
+        <link refid="bgeigie__firmware_2serial__source_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>threaded_gps.hpp</label>
+        <link refid="bgeigie__firmware_2threaded__gps_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>controller.h</label>
+        <link refid="controller_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>gfx_screen.h</label>
+        <link refid="gfx__screen_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>handlers/api_connector.h</label>
+        <link refid="api__connector_8h"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>handlers/bluetooth_reporter.h</label>
+        <link refid="bluetooth__reporter_8h"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>handlers/sd_logger.h</label>
+        <link refid="sd__logger_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>identifiers.h</label>
+        <link refid="identifiers_8h"/>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/main.cpp</label>
+        <link refid="bgeigiezen__firmware_2main_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>base_screen.h</label>
+        <link refid="base__screen_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>screens/menu_window.h</label>
+        <link refid="menu__window_8h"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>utils/bluetooth_settings.h</label>
+        <link refid="bluetooth__settings_8h"/>
+      </node>
+      <node id="48">
+        <label>circular_buffer.h</label>
+        <link refid="circular__buffer_8h"/>
+      </node>
+      <node id="44">
+        <label>utils/hardware_counter.h</label>
+        <link refid="hardware__counter_8h"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>utils/sd_wrapper.h</label>
+        <link refid="sd__wrapper_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>utils/wifi_connection.h</label>
+        <link refid="wifi__connection_8h"/>
+      </node>
+      <node id="40">
+        <label>workers/battery_indicator.h</label>
+        <link refid="battery__indicator_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>workers/configuration_server.h</label>
+        <link refid="configuration__server_8h"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>workers/gm_sensor.h</label>
+        <link refid="gm__sensor_8h"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>workers/gps_connector.h</label>
+        <link refid="gps__connector_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>workers/local_storage.h</label>
+        <link refid="local__storage_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>workers/log_aggregator.h</label>
+        <link refid="log__aggregator_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>workers/navsat_collector.h</label>
+        <link refid="navsat__collector_8h"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>workers/rtc_connector.h</label>
+        <link refid="rtc__connector_8h"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>workers/shake_detector.h</label>
+        <link refid="shake__detector_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>workers/zen_button.h</label>
+        <link refid="zen__button_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Arduino.h</label>
+      </node>
+      <node id="36">
+        <label>BLEDevice.h</label>
+      </node>
+      <node id="32">
+        <label>HTTPClient.h</label>
+      </node>
+      <node id="17">
+        <label>Handler.hpp</label>
+      </node>
+      <node id="2">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="22">
+        <label>Preferences.h</label>
+      </node>
+      <node id="50">
+        <label>RBD_Timer.h</label>
+      </node>
+      <node id="20">
+        <label>SD.h</label>
+      </node>
+      <node id="24">
+        <label>Supervisor.hpp</label>
+      </node>
+      <node id="18">
+        <label>TeenyUbloxConnect.h</label>
+      </node>
+      <node id="46">
+        <label>Ticker.h</label>
+      </node>
+      <node id="42">
+        <label>WebServer.h</label>
+      </node>
+      <node id="31">
+        <label>WiFi.h</label>
+      </node>
+      <node id="28">
+        <label>Worker.hpp</label>
+      </node>
+      <node id="9">
+        <label>cstdint</label>
+      </node>
+      <node id="13">
+        <label>cstdio</label>
+      </node>
+      <node id="47">
+        <label>driver/pcnt.h</label>
+      </node>
+      <node id="6">
+        <label>forward_list</label>
+      </node>
+      <node id="45">
+        <label>limits</label>
+      </node>
+      <node id="10">
+        <label>mutex</label>
+      </node>
+      <node id="8">
+        <label>pthread.h</label>
+      </node>
+      <node id="15">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1a658cddeb4423ca050427704c6761e2e3" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TeenyUbloxConnect</ref></type>
+        <definition>TeenyUbloxConnect gnss</definition>
+        <argsstring></argsstring>
+        <name>gnss</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The <ref refid="namespaceb_geigie_zen" kindref="compound">bGeigieZen</ref> is the next generation, modern Open Source customizable Geiger Counter. The followup to the successful bGeigieNanoKit.</para>
+<para>Homepage: <ulink url="https://bgeigiezen.safecast.jp/">https://bgeigiezen.safecast.jp/</ulink> GitHub <ulink url="https://github.com/Safecast/bGeigieZen">https://github.com/Safecast/bGeigieZen</ulink> wiki: <ulink url="https://github.com/Safecast/bGeigieZen/wiki">https://github.com/Safecast/bGeigieZen/wiki</ulink> Slack channel: <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bgeigiezen</ref></para>
+<para>Copyright (c) 2024, Safecast</para>
+<para>All rights reserved.</para>
+<para>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met: Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. Neither the name of the &lt;organization&gt; nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</para>
+<para>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL &lt;COPYRIGHT HOLDER&gt; BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</para>
+<para>History Versions:</para>
+<para>Contact: </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="64" column="19" bodyfile="bgeigiezen_firmware/main.cpp" bodystart="64" bodyend="-1"/>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1afe461d27b9c48d5921c00d521181f12f" compoundref="bgeigiezen__firmware_2main_8cpp" startline="132" endline="140">loop</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" prot="public" static="no" mutable="no">
+        <type><ref refid="class_local_storage" kindref="compound">LocalStorage</ref></type>
+        <definition>LocalStorage settings</definition>
+        <argsstring></argsstring>
+        <name>settings</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="65" column="14" bodyfile="bgeigiezen_firmware/main.cpp" bodystart="65" bodyend="-1"/>
+        <referencedby refid="class_http_pages_1a64735f36d77809ba60b69d33ad6c0003" compoundref="http__pages_8cpp" startline="249" endline="299">HttpPages::get_config_connection_page</referencedby>
+        <referencedby refid="class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4" compoundref="http__pages_8cpp" startline="93" endline="190">HttpPages::get_config_device_page</referencedby>
+        <referencedby refid="class_http_pages_1a74d1994442f6781235fa7d76a9c7c36a" compoundref="http__pages_8cpp" startline="192" endline="247">HttpPages::get_config_location_page</referencedby>
+        <referencedby refid="class_http_pages_1a2029cf0ccea4c0cf9497eb2b0a30f78a" compoundref="http__pages_8cpp" startline="69" endline="91">HttpPages::get_home_page</referencedby>
+        <referencedby refid="class_boot_screen_1a1d605b7d6ed086214a7f1a0bcd3d1fe2" compoundref="boot__screen_8cpp" startline="14" endline="26">BootScreen::handle_input</referencedby>
+        <referencedby refid="class_default_entry_screen_1a06fd4454eff553465a74d30b02567a0f" compoundref="default__entry__screen_8cpp" startline="13" endline="28">DefaultEntryScreen::handle_input</referencedby>
+        <referencedby refid="class_sd_logger_1ab55fb4b592ef94b61f23d408aecd7ee1" compoundref="sd__logger_8cpp" startline="49" endline="86">SdLogger::handle_produced_work</referencedby>
+        <referencedby refid="class_s_d_interface_1a2e3f02d8a0c231ee408f7b4a5d960063" compoundref="sd__wrapper_8cpp" startline="192" endline="227">SDInterface::read_safezen_file_to_settings</referencedby>
+        <referencedby refid="class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85" compoundref="drive__mode_8cpp" startline="37" endline="156">DriveModeScreen::render</referencedby>
+        <referencedby refid="class_first_time_startup_screen_1a1f5c80b0f1a40f208787e6b27a1b34c7" compoundref="first__time__startup_8cpp" startline="25" endline="39">FirstTimeStartupScreen::render</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af" compoundref="fixed__mode_8cpp" startline="26" endline="128">FixedModeScreen::render</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50" compoundref="survery__mode_8cpp" startline="30" endline="109">SurveyModeScreen::render</referencedby>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">SDInterface::write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" prot="public" static="no" mutable="no">
+        <type><ref refid="class_controller" kindref="compound">Controller</ref></type>
+        <definition>Controller controller(settings, gnss)</definition>
+        <argsstring>(settings, gnss)</argsstring>
+        <name>controller</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="66" column="12"/>
+        <referencedby refid="class_config_mode_screen_1a63e57a291d31fc8974e1801314b0c75b" compoundref="config__mode_8cpp" startline="218" endline="255">ConfigModeScreen::enter_screen</referencedby>
+        <referencedby refid="class_drive_mode_screen_1a5b274abdc3e6d98c004fda8bb7ec90c0" compoundref="drive__mode_8cpp" startline="158" endline="164">DriveModeScreen::enter_screen</referencedby>
+        <referencedby refid="class_first_time_startup_screen_1a6fe45b4d763b2e2a36bef931d0a6fb98" compoundref="first__time__startup_8cpp" startline="41" endline="43">FirstTimeStartupScreen::enter_screen</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1ac6674655b2713b9cf9194eada7424ddd" compoundref="fixed__mode_8cpp" startline="130" endline="132">FixedModeScreen::enter_screen</referencedby>
+        <referencedby refid="class_satellite_view_screen_1aca0938985e81a83c6817a7d9de94df26" compoundref="satellite__view_8cpp" startline="209" endline="220">SatelliteViewScreen::enter_screen</referencedby>
+        <referencedby refid="class_sd_message_screen_1a37d7575e04491ff6fedae89389694248" compoundref="sd__message_8cpp" startline="150" endline="168">SdMessageScreen::enter_screen</referencedby>
+        <referencedby refid="class_survey_mode_screen_1a8f92dc2c5a954f6284517b39cb08db8e" compoundref="survery__mode_8cpp" startline="111" endline="116">SurveyModeScreen::enter_screen</referencedby>
+        <referencedby refid="class_boot_screen_1a1d605b7d6ed086214a7f1a0bcd3d1fe2" compoundref="boot__screen_8cpp" startline="14" endline="26">BootScreen::handle_input</referencedby>
+        <referencedby refid="class_config_mode_screen_1a7fcba3bb1764bd72b76c1f80f1f6a762" compoundref="config__mode_8cpp" startline="27" endline="91">ConfigModeScreen::handle_input</referencedby>
+        <referencedby refid="class_drive_mode_screen_1a69c70a1c35f362131345ecd652cd4416" compoundref="drive__mode_8cpp" startline="18" endline="35">DriveModeScreen::handle_input</referencedby>
+        <referencedby refid="class_menu_window_1afe3cdb7f44d6d7a534044abc6b4e1b92" compoundref="menu__window_8cpp" startline="33" endline="35">MenuWindow::handle_input</referencedby>
+        <referencedby refid="class_satellite_view_screen_1a14b2221b6c62c0bf858f9f8816140b96" compoundref="satellite__view_8cpp" startline="32" endline="78">SatelliteViewScreen::handle_input</referencedby>
+        <referencedby refid="class_sd_message_screen_1aa6f1495614e3c8a88dfe30920fcd5b8d" compoundref="sd__message_8cpp" startline="17" endline="76">SdMessageScreen::handle_input</referencedby>
+        <referencedby refid="class_survey_mode_screen_1a2b1210c4b71c7b2da15777f7c8c677d0" compoundref="survery__mode_8cpp" startline="17" endline="28">SurveyModeScreen::handle_input</referencedby>
+        <referencedby refid="class_base_screen_with_menu_1ad5a98a6810c71d60582197b4cec5bb5d" compoundref="base__screen_8cpp" startline="155" endline="196">BaseScreenWithMenu::handle_menu_input</referencedby>
+        <referencedby refid="class_config_mode_screen_1a6d5e41de275a9ff08fa50351a20c3190" compoundref="config__mode_8cpp" startline="257" endline="274">ConfigModeScreen::leave_screen</referencedby>
+        <referencedby refid="class_drive_mode_screen_1ac0c53ec7f983bfd75c289db8291d5aa3" compoundref="drive__mode_8cpp" startline="166" endline="170">DriveModeScreen::leave_screen</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1afcdf6db54b6e44220c39b0b0dfbcf162" compoundref="fixed__mode_8cpp" startline="134" endline="136">FixedModeScreen::leave_screen</referencedby>
+        <referencedby refid="class_satellite_view_screen_1a6df05f5f59dc13460099b08fdbb05b86" compoundref="satellite__view_8cpp" startline="222" endline="224">SatelliteViewScreen::leave_screen</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ab5e2b29f4e65d44fcd51be6f09d23fa9" compoundref="survery__mode_8cpp" startline="118" endline="121">SurveyModeScreen::leave_screen</referencedby>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1afe461d27b9c48d5921c00d521181f12f" compoundref="bgeigiezen__firmware_2main_8cpp" startline="132" endline="140">loop</referencedby>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1ac62488a56102577aa5630e11594a7753" prot="public" static="no" mutable="no">
+        <type><ref refid="class_gps_connector" kindref="compound">GpsConnector</ref></type>
+        <definition>GpsConnector gps(gnss, Serial2)</definition>
+        <argsstring>(gnss, Serial2)</argsstring>
+        <name>gps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="72" column="14"/>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1afe461d27b9c48d5921c00d521181f12f" compoundref="bgeigiezen__firmware_2main_8cpp" startline="132" endline="140">loop</referencedby>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1a8722305ee92769b3587f0be1b991dfb2" prot="public" static="no" mutable="no">
+        <type><ref refid="class_navsat_collector" kindref="compound">NavsatCollector</ref></type>
+        <definition>NavsatCollector navsat(gnss)</definition>
+        <argsstring>(gnss)</argsstring>
+        <name>navsat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="73" column="17"/>
+        <referencedby refid="class_satellite_view_screen_1a14b2221b6c62c0bf858f9f8816140b96" compoundref="satellite__view_8cpp" startline="32" endline="78">SatelliteViewScreen::handle_input</referencedby>
+        <referencedby refid="class_satellite_view_screen_1a480ec31a9de82c4f9e8ee3228d870f65" compoundref="satellite__view_8cpp" startline="80" endline="207">SatelliteViewScreen::render</referencedby>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" prot="public" static="no" mutable="no">
+        <type><ref refid="class_geiger_counter" kindref="compound">GeigerCounter</ref></type>
+        <definition>GeigerCounter gm_sensor</definition>
+        <argsstring></argsstring>
+        <name>gm_sensor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="74" column="15" bodyfile="bgeigiezen_firmware/main.cpp" bodystart="74" bodyend="-1"/>
+        <referencedby refid="class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494" compoundref="log__aggregator_8cpp" startline="44" endline="128">LogAggregator::produce_data</referencedby>
+        <referencedby refid="class_debug_mode_screen_1af5a52170b297c87f33e5eea935f8ca04" compoundref="debug__mode_8cpp" startline="16" endline="102">DebugModeScreen::render</referencedby>
+        <referencedby refid="class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85" compoundref="drive__mode_8cpp" startline="37" endline="156">DriveModeScreen::render</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af" compoundref="fixed__mode_8cpp" startline="26" endline="128">FixedModeScreen::render</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50" compoundref="survery__mode_8cpp" startline="30" endline="109">SurveyModeScreen::render</referencedby>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1a40c3633d7598f468c5672dbcedaaf46c" prot="public" static="no" mutable="no">
+        <type><ref refid="class_battery_indicator" kindref="compound">BatteryIndicator</ref></type>
+        <definition>BatteryIndicator battery_indicator</definition>
+        <argsstring></argsstring>
+        <name>battery_indicator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="75" column="18" bodyfile="bgeigiezen_firmware/main.cpp" bodystart="75" bodyend="-1"/>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1a444de82b40413b92c3392f7ade0ad0f8" prot="public" static="no" mutable="no">
+        <type><ref refid="class_date_time_provider" kindref="compound">DateTimeProvider</ref></type>
+        <definition>DateTimeProvider rtc</definition>
+        <argsstring></argsstring>
+        <name>rtc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="76" column="18" bodyfile="bgeigiezen_firmware/main.cpp" bodystart="76" bodyend="-1"/>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+        <referencedby refid="class_debug_mode_screen_1af5a52170b297c87f33e5eea935f8ca04" compoundref="debug__mode_8cpp" startline="16" endline="102">DebugModeScreen::render</referencedby>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1aec547d64ab192c39476f5cbad0e32eb0" prot="public" static="no" mutable="no">
+        <type><ref refid="class_shake_detector" kindref="compound">ShakeDetector</ref></type>
+        <definition>ShakeDetector shake_detector</definition>
+        <argsstring></argsstring>
+        <name>shake_detector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="77" column="15" bodyfile="bgeigiezen_firmware/main.cpp" bodystart="77" bodyend="-1"/>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1a14fad6b96fd26bd4219043784815c08b" prot="public" static="no" mutable="no">
+        <type><ref refid="class_log_aggregator" kindref="compound">LogAggregator</ref></type>
+        <definition>LogAggregator log_aggregator(settings)</definition>
+        <argsstring>(settings)</argsstring>
+        <name>log_aggregator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="78" column="15"/>
+        <referencedby refid="class_api_connector_1a46089ea3e64a0c222657429e68c5beca" compoundref="api__connector_8cpp" startline="39" endline="74">ApiConnector::handle_produced_work</referencedby>
+        <referencedby refid="class_debug_mode_screen_1af5a52170b297c87f33e5eea935f8ca04" compoundref="debug__mode_8cpp" startline="16" endline="102">DebugModeScreen::render</referencedby>
+        <referencedby refid="class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85" compoundref="drive__mode_8cpp" startline="37" endline="156">DriveModeScreen::render</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af" compoundref="fixed__mode_8cpp" startline="26" endline="128">FixedModeScreen::render</referencedby>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1a6efa087556a42909b58dcd0c6bba3bbf" prot="public" static="no" mutable="no">
+        <type><ref refid="class_config_web_server" kindref="compound">ConfigWebServer</ref></type>
+        <definition>ConfigWebServer config_server(settings)</definition>
+        <argsstring>(settings)</argsstring>
+        <name>config_server</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="79" column="17"/>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1ad888edaa320f5673456f88897c65fd8e" prot="public" static="no" mutable="no">
+        <type><ref refid="class_sd_logger" kindref="compound">SdLogger</ref></type>
+        <definition>SdLogger journal_logger(settings, SdLogger::journal)</definition>
+        <argsstring>(settings, SdLogger::journal)</argsstring>
+        <name>journal_logger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="82" column="10"/>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1a948f19e8ec8f4f5e19f2715a0d4525bc" prot="public" static="no" mutable="no">
+        <type><ref refid="class_sd_logger" kindref="compound">SdLogger</ref></type>
+        <definition>SdLogger drive_logger(settings, SdLogger::drive)</definition>
+        <argsstring>(settings, SdLogger::drive)</argsstring>
+        <name>drive_logger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="83" column="10"/>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1ac55666265db39b0801ee9001f302d9d3" prot="public" static="no" mutable="no">
+        <type><ref refid="class_sd_logger" kindref="compound">SdLogger</ref></type>
+        <definition>SdLogger survey_logger(settings, SdLogger::survey)</definition>
+        <argsstring>(settings, SdLogger::survey)</argsstring>
+        <name>survey_logger</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="84" column="10"/>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1ac2f6eb2b04a5c7d7f54b19273b775ee7" prot="public" static="no" mutable="no">
+        <type><ref refid="class_bluetooth_reporter" kindref="compound">BluetoothReporter</ref></type>
+        <definition>BluetoothReporter bt_connector(settings)</definition>
+        <argsstring>(settings)</argsstring>
+        <name>bt_connector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="85" column="19"/>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1a66980691ce11f67f4363dec2c5f4fd16" prot="public" static="no" mutable="no">
+        <type><ref refid="class_api_connector" kindref="compound">ApiConnector</ref></type>
+        <definition>ApiConnector api_connector(settings)</definition>
+        <argsstring>(settings)</argsstring>
+        <name>api_connector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="86" column="14"/>
+        <referencedby refid="class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af" compoundref="fixed__mode_8cpp" startline="26" endline="128">FixedModeScreen::render</referencedby>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="bgeigiezen__firmware_2main_8cpp_1a8cb3808a6d150a5aad73326d6d0a7ce1" prot="public" static="no" mutable="no">
+        <type><ref refid="class_g_f_x_screen" kindref="compound">GFXScreen</ref></type>
+        <definition>GFXScreen gfx_screen(settings, controller)</definition>
+        <argsstring>(settings, controller)</argsstring>
+        <name>gfx_screen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="89" column="11"/>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="bgeigiezen__firmware_2main_8cpp_1a0545b0e81b175ec1ffc51bdea06d4826" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_zen_button" kindref="compound">ZenButton</ref></type>
+        <definition>ZenButton zen_A</definition>
+        <argsstring>(M5.BtnA)</argsstring>
+        <name>zen_A</name>
+        <param>
+          <type>M5.</type>
+          <declname>BtnA</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="69" column="11" declfile="bgeigiezen_firmware/main.cpp" declline="69" declcolumn="11"/>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bgeigiezen__firmware_2main_8cpp_1a57f4b91a8bc40525b0cbebd234968c5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_zen_button" kindref="compound">ZenButton</ref></type>
+        <definition>ZenButton zen_B</definition>
+        <argsstring>(M5.BtnB)</argsstring>
+        <name>zen_B</name>
+        <param>
+          <type>M5.</type>
+          <declname>BtnB</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="70" column="11" declfile="bgeigiezen_firmware/main.cpp" declline="70" declcolumn="11"/>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bgeigiezen__firmware_2main_8cpp_1a68ec89250dc79e85ab90a9e1c4e7f2a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_zen_button" kindref="compound">ZenButton</ref></type>
+        <definition>ZenButton zen_C</definition>
+        <argsstring>(M5.BtnC)</argsstring>
+        <name>zen_C</name>
+        <param>
+          <type>M5.</type>
+          <declname>BtnC</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="71" column="11" declfile="bgeigiezen_firmware/main.cpp" declline="71" declcolumn="11"/>
+        <referencedby refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" compoundref="bgeigiezen__firmware_2main_8cpp" startline="91" endline="130">setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void setup</definition>
+        <argsstring>()</argsstring>
+        <name>setup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Hardware configurations</para>
+<para>Software configurations</para>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="91" column="6" bodyfile="bgeigiezen_firmware/main.cpp" bodystart="91" bodyend="130"/>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a66980691ce11f67f4363dec2c5f4fd16">api_connector</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a40c3633d7598f468c5672dbcedaaf46c" compoundref="bgeigiezen__firmware_2main_8cpp" startline="75">battery_indicator</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1ac2f6eb2b04a5c7d7f54b19273b775ee7">bt_connector</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a6efa087556a42909b58dcd0c6bba3bbf">config_server</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a948f19e8ec8f4f5e19f2715a0d4525bc">drive_logger</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a8cb3808a6d150a5aad73326d6d0a7ce1">gfx_screen</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" compoundref="bgeigiezen__firmware_2main_8cpp" startline="74">gm_sensor</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1ac62488a56102577aa5630e11594a7753">gps</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1ad888edaa320f5673456f88897c65fd8e">journal_logger</references>
+        <references refid="identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8ad174dad7202e8845d4dd50a439aa76aa" compoundref="identifiers_8h" startline="31">k_handler_api_reporter</references>
+        <references refid="identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8ae62e75c687017be7a3279ccd1aaeb593" compoundref="identifiers_8h" startline="30">k_handler_bluetooth_reporter</references>
+        <references refid="identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8ac64e5b3c4f298cf9ab58d7381cef6d63" compoundref="identifiers_8h" startline="28">k_handler_drive_logger</references>
+        <references refid="identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8a8bd3b0b86e3ac598cbb5b437d61708d8" compoundref="identifiers_8h" startline="27">k_handler_journal_logger</references>
+        <references refid="identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8a7353da73bc5b47b7d6668072f9626c07" compoundref="identifiers_8h" startline="29">k_handler_survey_logger</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa6daa8cab2f33582eddf479bf8dc018d9" compoundref="identifiers_8h" startline="12">k_worker_battery_indicator</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa34908d3524a003a1a416f710d3bf096b" compoundref="identifiers_8h" startline="8">k_worker_button_1</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fae09f915b7a21b04751f8379fe4ea0b88" compoundref="identifiers_8h" startline="9">k_worker_button_2</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa824a84bb0222b57ea4966a17b90b110c" compoundref="identifiers_8h" startline="10">k_worker_button_3</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa8191827c3399e575066d932866f26c6b" compoundref="identifiers_8h" startline="20">k_worker_config_server</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fad35320cf9c17965d52ea2427552a20f7" compoundref="identifiers_8h" startline="18">k_worker_device_state</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fadce40ed07be9b46afdd704f59b77a907" compoundref="identifiers_8h" startline="11">k_worker_gm_sensor</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211" compoundref="identifiers_8h" startline="13">k_worker_gps_connector</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa5f34c7ca896fe335fe512801296de30c" compoundref="identifiers_8h" startline="19">k_worker_local_storage</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa40dd481c8643b09aff483e9f4f7c2006" compoundref="identifiers_8h" startline="16">k_worker_log_aggregator</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fac64f1ad9f405bc35953c984036eccc67" compoundref="identifiers_8h" startline="14">k_worker_navsat_collector</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa84141b7b60c4055e432a1f28ae9aa98b" compoundref="identifiers_8h" startline="15">k_worker_rtc_connector</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa951ed1e78f9184858e490f6522b39c5d" compoundref="identifiers_8h" startline="17">k_worker_shake_detector</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a14fad6b96fd26bd4219043784815c08b">log_aggregator</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a8722305ee92769b3587f0be1b991dfb2">navsat</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a444de82b40413b92c3392f7ade0ad0f8" compoundref="bgeigiezen__firmware_2main_8cpp" startline="76">rtc</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" compoundref="bgeigiezen__firmware_2main_8cpp" startline="65">settings</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1aec547d64ab192c39476f5cbad0e32eb0" compoundref="bgeigiezen__firmware_2main_8cpp" startline="77">shake_detector</references>
+        <references refid="class_controller_1a772a3f581d1741f01044e1c581139924" compoundref="controller_8cpp" startline="19" endline="31">Controller::start_default_workers</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1ac55666265db39b0801ee9001f302d9d3">survey_logger</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a0545b0e81b175ec1ffc51bdea06d4826">zen_A</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a57f4b91a8bc40525b0cbebd234968c5d">zen_B</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a68ec89250dc79e85ab90a9e1c4e7f2a2">zen_C</references>
+      </memberdef>
+      <memberdef kind="function" id="bgeigiezen__firmware_2main_8cpp_1afe461d27b9c48d5921c00d521181f12f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void loop</definition>
+        <argsstring>()</argsstring>
+        <name>loop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/main.cpp" line="132" column="6" bodyfile="bgeigiezen_firmware/main.cpp" bodystart="132" bodyend="140"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a658cddeb4423ca050427704c6761e2e3" compoundref="bgeigiezen__firmware_2main_8cpp" startline="64">gnss</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1ac62488a56102577aa5630e11594a7753">gps</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;M5Unified.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="controller_8h" kindref="compound">controller.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gfx__screen_8h" kindref="compound">gfx_screen.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="api__connector_8h" kindref="compound">handlers/api_connector.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="bluetooth__reporter_8h" kindref="compound">handlers/bluetooth_reporter.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="sd__logger_8h" kindref="compound">handlers/sd_logger.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="identifiers_8h" kindref="compound">identifiers.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="battery__indicator_8h" kindref="compound">workers/battery_indicator.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="configuration__server_8h" kindref="compound">workers/configuration_server.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gm__sensor_8h" kindref="compound">workers/gm_sensor.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gps__connector_8h" kindref="compound">workers/gps_connector.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="log__aggregator_8h" kindref="compound">workers/log_aggregator.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="navsat__collector_8h" kindref="compound">workers/navsat_collector.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="rtc__connector_8h" kindref="compound">workers/rtc_connector.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="shake__detector_8h" kindref="compound">workers/shake_detector.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="zen__button_8h" kindref="compound">workers/zen_button.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="bgeigiezen__firmware_2main_8cpp_1a658cddeb4423ca050427704c6761e2e3" refkind="member"><highlight class="normal"><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TeenyUbloxConnect</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a658cddeb4423ca050427704c6761e2e3" kindref="member">gnss</ref>;</highlight></codeline>
+<codeline lineno="65" refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" refkind="member"><highlight class="normal"><ref refid="class_local_storage" kindref="compound">LocalStorage</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref>;</highlight></codeline>
+<codeline lineno="66" refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" refkind="member"><highlight class="normal"><ref refid="class_controller" kindref="compound">Controller</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>(<ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a658cddeb4423ca050427704c6761e2e3" kindref="member">gnss</ref>);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Workers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="bgeigiezen__firmware_2main_8cpp_1a0545b0e81b175ec1ffc51bdea06d4826" refkind="member"><highlight class="normal"><ref refid="class_zen_button" kindref="compound">ZenButton</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a0545b0e81b175ec1ffc51bdea06d4826" kindref="member">zen_A</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.BtnA);</highlight></codeline>
+<codeline lineno="70" refid="bgeigiezen__firmware_2main_8cpp_1a57f4b91a8bc40525b0cbebd234968c5d" refkind="member"><highlight class="normal"><ref refid="class_zen_button" kindref="compound">ZenButton</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a57f4b91a8bc40525b0cbebd234968c5d" kindref="member">zen_B</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.BtnB);</highlight></codeline>
+<codeline lineno="71" refid="bgeigiezen__firmware_2main_8cpp_1a68ec89250dc79e85ab90a9e1c4e7f2a2" refkind="member"><highlight class="normal"><ref refid="class_zen_button" kindref="compound">ZenButton</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a68ec89250dc79e85ab90a9e1c4e7f2a2" kindref="member">zen_C</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.BtnC);</highlight></codeline>
+<codeline lineno="72" refid="bgeigiezen__firmware_2main_8cpp_1ac62488a56102577aa5630e11594a7753" refkind="member"><highlight class="normal"><ref refid="class_gps_connector" kindref="compound">GpsConnector</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1ac62488a56102577aa5630e11594a7753" kindref="member">gps</ref>(<ref refid="bgeigiezen__firmware_2main_8cpp_1a658cddeb4423ca050427704c6761e2e3" kindref="member">gnss</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial2</ref>);</highlight></codeline>
+<codeline lineno="73" refid="bgeigiezen__firmware_2main_8cpp_1a8722305ee92769b3587f0be1b991dfb2" refkind="member"><highlight class="normal"><ref refid="class_navsat_collector" kindref="compound">NavsatCollector</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a8722305ee92769b3587f0be1b991dfb2" kindref="member">navsat</ref>(<ref refid="bgeigiezen__firmware_2main_8cpp_1a658cddeb4423ca050427704c6761e2e3" kindref="member">gnss</ref>);</highlight></codeline>
+<codeline lineno="74" refid="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" refkind="member"><highlight class="normal"><ref refid="class_geiger_counter" kindref="compound">GeigerCounter</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" kindref="member">gm_sensor</ref>;</highlight></codeline>
+<codeline lineno="75" refid="bgeigiezen__firmware_2main_8cpp_1a40c3633d7598f468c5672dbcedaaf46c" refkind="member"><highlight class="normal"><ref refid="class_battery_indicator" kindref="compound">BatteryIndicator</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a40c3633d7598f468c5672dbcedaaf46c" kindref="member">battery_indicator</ref>;</highlight></codeline>
+<codeline lineno="76" refid="bgeigiezen__firmware_2main_8cpp_1a444de82b40413b92c3392f7ade0ad0f8" refkind="member"><highlight class="normal"><ref refid="class_date_time_provider" kindref="compound">DateTimeProvider</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a444de82b40413b92c3392f7ade0ad0f8" kindref="member">rtc</ref>;</highlight></codeline>
+<codeline lineno="77" refid="bgeigiezen__firmware_2main_8cpp_1aec547d64ab192c39476f5cbad0e32eb0" refkind="member"><highlight class="normal"><ref refid="class_shake_detector" kindref="compound">ShakeDetector</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1aec547d64ab192c39476f5cbad0e32eb0" kindref="member">shake_detector</ref>;</highlight></codeline>
+<codeline lineno="78" refid="bgeigiezen__firmware_2main_8cpp_1a14fad6b96fd26bd4219043784815c08b" refkind="member"><highlight class="normal"><ref refid="class_log_aggregator" kindref="compound">LogAggregator</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a14fad6b96fd26bd4219043784815c08b" kindref="member">log_aggregator</ref>(<ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref>);</highlight></codeline>
+<codeline lineno="79" refid="bgeigiezen__firmware_2main_8cpp_1a6efa087556a42909b58dcd0c6bba3bbf" refkind="member"><highlight class="normal"><ref refid="class_config_web_server" kindref="compound">ConfigWebServer</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a6efa087556a42909b58dcd0c6bba3bbf" kindref="member">config_server</ref>(<ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref>);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Data<sp/>handlers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="bgeigiezen__firmware_2main_8cpp_1ad888edaa320f5673456f88897c65fd8e" refkind="member"><highlight class="normal"><ref refid="class_sd_logger" kindref="compound">SdLogger</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1ad888edaa320f5673456f88897c65fd8e" kindref="member">journal_logger</ref>(<ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref>,<sp/><ref refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44bab545cc1bdb3f42f80a36701d68555ff1" kindref="member">SdLogger::journal</ref>);</highlight></codeline>
+<codeline lineno="83" refid="bgeigiezen__firmware_2main_8cpp_1a948f19e8ec8f4f5e19f2715a0d4525bc" refkind="member"><highlight class="normal"><ref refid="class_sd_logger" kindref="compound">SdLogger</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a948f19e8ec8f4f5e19f2715a0d4525bc" kindref="member">drive_logger</ref>(<ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref>,<sp/><ref refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44ba53399929e212628cffd59c173abb1094" kindref="member">SdLogger::drive</ref>);</highlight></codeline>
+<codeline lineno="84" refid="bgeigiezen__firmware_2main_8cpp_1ac55666265db39b0801ee9001f302d9d3" refkind="member"><highlight class="normal"><ref refid="class_sd_logger" kindref="compound">SdLogger</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1ac55666265db39b0801ee9001f302d9d3" kindref="member">survey_logger</ref>(<ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref>,<sp/><ref refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44ba7c405a0c04deffbf82e78a0f9765614a" kindref="member">SdLogger::survey</ref>);</highlight></codeline>
+<codeline lineno="85" refid="bgeigiezen__firmware_2main_8cpp_1ac2f6eb2b04a5c7d7f54b19273b775ee7" refkind="member"><highlight class="normal"><ref refid="class_bluetooth_reporter" kindref="compound">BluetoothReporter</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1ac2f6eb2b04a5c7d7f54b19273b775ee7" kindref="member">bt_connector</ref>(<ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref>);</highlight></codeline>
+<codeline lineno="86" refid="bgeigiezen__firmware_2main_8cpp_1a66980691ce11f67f4363dec2c5f4fd16" refkind="member"><highlight class="normal"><ref refid="class_api_connector" kindref="compound">ApiConnector</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a66980691ce11f67f4363dec2c5f4fd16" kindref="member">api_connector</ref>(<ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Supervisors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="bgeigiezen__firmware_2main_8cpp_1a8cb3808a6d150a5aad73326d6d0a7ce1" refkind="member"><highlight class="normal"><ref refid="class_g_f_x_screen" kindref="compound">GFXScreen</ref><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a8cb3808a6d150a5aad73326d6d0a7ce1" kindref="member">gfx_screen</ref>(<ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a4fc01d736fe50cf5b977f755b675f11d" kindref="member">setup</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.begin();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Log.setLogLevel(m5::log_target_t::log_target_serial,<sp/>esp_log_level_t::ESP_LOG_DEBUG);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;MAIN<sp/>SETUP<sp/>DEBUG<sp/>ENABLED&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;Register<sp/>workers...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_worker(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211" kindref="member">k_worker_gps_connector</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1ac62488a56102577aa5630e11594a7753" kindref="member">gps</ref>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_worker(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fac64f1ad9f405bc35953c984036eccc67" kindref="member">k_worker_navsat_collector</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a8722305ee92769b3587f0be1b991dfb2" kindref="member">navsat</ref>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_worker(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fadce40ed07be9b46afdd704f59b77a907" kindref="member">k_worker_gm_sensor</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" kindref="member">gm_sensor</ref>);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_worker(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa951ed1e78f9184858e490f6522b39c5d" kindref="member">k_worker_shake_detector</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1aec547d64ab192c39476f5cbad0e32eb0" kindref="member">shake_detector</ref>);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_worker(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa6daa8cab2f33582eddf479bf8dc018d9" kindref="member">k_worker_battery_indicator</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a40c3633d7598f468c5672dbcedaaf46c" kindref="member">battery_indicator</ref>);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_worker(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa84141b7b60c4055e432a1f28ae9aa98b" kindref="member">k_worker_rtc_connector</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a444de82b40413b92c3392f7ade0ad0f8" kindref="member">rtc</ref>);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_worker(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa824a84bb0222b57ea4966a17b90b110c" kindref="member">k_worker_button_3</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a0545b0e81b175ec1ffc51bdea06d4826" kindref="member">zen_A</ref>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_worker(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fae09f915b7a21b04751f8379fe4ea0b88" kindref="member">k_worker_button_2</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a57f4b91a8bc40525b0cbebd234968c5d" kindref="member">zen_B</ref>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_worker(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa34908d3524a003a1a416f710d3bf096b" kindref="member">k_worker_button_1</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a68ec89250dc79e85ab90a9e1c4e7f2a2" kindref="member">zen_C</ref>);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_worker(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa40dd481c8643b09aff483e9f4f7c2006" kindref="member">k_worker_log_aggregator</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a14fad6b96fd26bd4219043784815c08b" kindref="member">log_aggregator</ref>);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_worker(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fad35320cf9c17965d52ea2427552a20f7" kindref="member">k_worker_device_state</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_worker(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa5f34c7ca896fe335fe512801296de30c" kindref="member">k_worker_local_storage</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref>);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_worker(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa8191827c3399e575066d932866f26c6b" kindref="member">k_worker_config_server</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a6efa087556a42909b58dcd0c6bba3bbf" kindref="member">config_server</ref>);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;Register<sp/>handlers...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_handler(<ref refid="identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8a8bd3b0b86e3ac598cbb5b437d61708d8" kindref="member">k_handler_journal_logger</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1ad888edaa320f5673456f88897c65fd8e" kindref="member">journal_logger</ref>);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_handler(<ref refid="identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8ac64e5b3c4f298cf9ab58d7381cef6d63" kindref="member">k_handler_drive_logger</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a948f19e8ec8f4f5e19f2715a0d4525bc" kindref="member">drive_logger</ref>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_handler(<ref refid="identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8a7353da73bc5b47b7d6668072f9626c07" kindref="member">k_handler_survey_logger</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1ac55666265db39b0801ee9001f302d9d3" kindref="member">survey_logger</ref>);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_handler(<ref refid="identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8ae62e75c687017be7a3279ccd1aaeb593" kindref="member">k_handler_bluetooth_reporter</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1ac2f6eb2b04a5c7d7f54b19273b775ee7" kindref="member">bt_connector</ref>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_handler(<ref refid="identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8ad174dad7202e8845d4dd50a439aa76aa" kindref="member">k_handler_api_reporter</ref>,<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a66980691ce11f67f4363dec2c5f4fd16" kindref="member">api_connector</ref>);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;Register<sp/>supervisors...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.register_supervisor(<ref refid="bgeigiezen__firmware_2main_8cpp_1a8cb3808a6d150a5aad73326d6d0a7ce1" kindref="member">gfx_screen</ref>);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;Start<sp/>default<sp/>workers...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.<ref refid="class_controller_1a772a3f581d1741f01044e1c581139924" kindref="member">start_default_workers</ref>();</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;Setup<sp/>complete&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132" refid="bgeigiezen__firmware_2main_8cpp_1afe461d27b9c48d5921c00d521181f12f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1afe461d27b9c48d5921c00d521181f12f" kindref="member">loop</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="bgeigiezen__firmware_2main_8cpp_1ac62488a56102577aa5630e11594a7753" kindref="member">gps</ref>.active())<sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a658cddeb4423ca050427704c6761e2e3" kindref="member">gnss</ref>.checkUblox();</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.update();</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.run();</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/main.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,394 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_tiny_g_p_s_decimal" kind="struct" language="C++" prot="public">
+    <compoundname>TinyGPSDecimal</compoundname>
+    <derivedcompoundref refid="struct_tiny_g_p_s_altitude" prot="public" virt="non-virtual">TinyGPSAltitude</derivedcompoundref>
+    <derivedcompoundref refid="struct_tiny_g_p_s_altitude" prot="public" virt="non-virtual">TinyGPSAltitude</derivedcompoundref>
+    <derivedcompoundref refid="struct_tiny_g_p_s_course" prot="public" virt="non-virtual">TinyGPSCourse</derivedcompoundref>
+    <derivedcompoundref refid="struct_tiny_g_p_s_course" prot="public" virt="non-virtual">TinyGPSCourse</derivedcompoundref>
+    <derivedcompoundref refid="struct_tiny_g_p_s_h_d_o_p" prot="public" virt="non-virtual">TinyGPSHDOP</derivedcompoundref>
+    <derivedcompoundref refid="struct_tiny_g_p_s_h_d_o_p" prot="public" virt="non-virtual">TinyGPSHDOP</derivedcompoundref>
+    <derivedcompoundref refid="struct_tiny_g_p_s_speed" prot="public" virt="non-virtual">TinyGPSSpeed</derivedcompoundref>
+    <derivedcompoundref refid="struct_tiny_g_p_s_speed" prot="public" virt="non-virtual">TinyGPSSpeed</derivedcompoundref>
+    <includes refid="include_2_tiny_g_p_s_09_09_8h" local="no">TinyGPS++.h</includes>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="struct_tiny_g_p_s_decimal_1a2bcf8d5290fbef8c44b415e281b8c6f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">class</ref></type>
+        <definition>TinyGPSPlus</definition>
+        <argsstring></argsstring>
+        <name>TinyGPSPlus</name>
+        <qualifiedname>TinyGPSDecimal::TinyGPSPlus</qualifiedname>
+        <param>
+          <type><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="134" column="17" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="struct_tiny_g_p_s_decimal_1a858e8762c24b39ee28e5076275affef2" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSDecimal::valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <qualifiedname>TinyGPSDecimal::valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="145" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_decimal_1af0803d568a59f6212f2e88e2e5ee6077" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSDecimal::updated</definition>
+        <argsstring></argsstring>
+        <name>updated</name>
+        <qualifiedname>TinyGPSDecimal::updated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="145" column="15" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_decimal_1aaa47eb71175c36d4ba3ba0e94d0c752e" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSDecimal::lastCommitTime</definition>
+        <argsstring></argsstring>
+        <name>lastCommitTime</name>
+        <qualifiedname>TinyGPSDecimal::lastCommitTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="146" column="13" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_decimal_1a187fd7724408f9828603ea4368eccb1d" prot="private" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t TinyGPSDecimal::val</definition>
+        <argsstring></argsstring>
+        <name>val</name>
+        <qualifiedname>TinyGPSDecimal::val</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="147" column="12" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_decimal_1ad8fa7dfb23e381b2353ea4ecaeaebc8b" prot="private" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t TinyGPSDecimal::newval</definition>
+        <argsstring></argsstring>
+        <name>newval</name>
+        <qualifiedname>TinyGPSDecimal::newval</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="147" column="16" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_tiny_g_p_s_decimal_1a34e6448314c198fa204dfb22cd24fc7e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSDecimal::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>TinyGPSDecimal::isValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="136" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="136" bodyend="136"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="_raku__code_8cpp_1afe461d27b9c48d5921c00d521181f12f" compoundref="_raku__code_8cpp" startline="485" endline="582">loop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_decimal_1a8c7fd3ccd678b195d8f23bd1cb31d9ba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSDecimal::isUpdated</definition>
+        <argsstring>() const</argsstring>
+        <name>isUpdated</name>
+        <qualifiedname>TinyGPSDecimal::isUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="137" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="137" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_decimal_1a041cada3e406205d0878c9819eddbbbb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSDecimal::age</definition>
+        <argsstring>() const</argsstring>
+        <name>age</name>
+        <qualifiedname>TinyGPSDecimal::age</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="138" column="13" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="138" bodyend="138"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_decimal_1ac3ce80976e5d8456e9f211b910a6cb19" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t TinyGPSDecimal::value</definition>
+        <argsstring>()</argsstring>
+        <name>value</name>
+        <qualifiedname>TinyGPSDecimal::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="139" column="12" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="139" bodyend="139"/>
+        <referencedby refid="struct_tiny_g_p_s_course_1a76dc8ae6c2fe5ead9b44c8d53a3272ca" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="182" endline="182">TinyGPSCourse::deg</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_altitude_1ac782babc0c485d47e6f57384e88b8cc8" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="190" endline="190">TinyGPSAltitude::feet</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_h_d_o_p_1a27cd35588c96eefb690bba46497d20d7" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="195" endline="195">TinyGPSHDOP::hdop</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_altitude_1a1eb3e5b425784fc0db3e9ffe0f77f741" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="189" endline="189">TinyGPSAltitude::kilometers</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_speed_1a7fee3c8f9f2fcc5f4a517bd6108f79dd" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="177" endline="177">TinyGPSSpeed::kmph</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_speed_1aa3a38ce4ece3d8062c794b73f260395e" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="174" endline="174">TinyGPSSpeed::knots</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_altitude_1a5a39d145bb1778814007206c765189f7" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="187" endline="187">TinyGPSAltitude::meters</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_altitude_1a5ae68d990ea08d4e21cfa6aefb46cc03" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="188" endline="188">TinyGPSAltitude::miles</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_speed_1a1809120167961ea9a85e860a964b1c6e" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="175" endline="175">TinyGPSSpeed::mph</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_speed_1aacee536241e810cdf4ba7846d6c202cb" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="176" endline="176">TinyGPSSpeed::mps</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_decimal_1ae09cbb1856cd57c7dcee52fb5fb1ba16" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TinyGPSDecimal::TinyGPSDecimal</definition>
+        <argsstring>()</argsstring>
+        <name>TinyGPSDecimal</name>
+        <qualifiedname>TinyGPSDecimal::TinyGPSDecimal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="141" column="4" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="141" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_decimal_1a34e6448314c198fa204dfb22cd24fc7e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSDecimal::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>TinyGPSDecimal::isValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="136" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="136" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_decimal_1a8c7fd3ccd678b195d8f23bd1cb31d9ba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSDecimal::isUpdated</definition>
+        <argsstring>() const</argsstring>
+        <name>isUpdated</name>
+        <qualifiedname>TinyGPSDecimal::isUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="137" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="137" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_decimal_1a041cada3e406205d0878c9819eddbbbb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSDecimal::age</definition>
+        <argsstring>() const</argsstring>
+        <name>age</name>
+        <qualifiedname>TinyGPSDecimal::age</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="138" column="13" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="138" bodyend="138"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_decimal_1ac3ce80976e5d8456e9f211b910a6cb19" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t TinyGPSDecimal::value</definition>
+        <argsstring>()</argsstring>
+        <name>value</name>
+        <qualifiedname>TinyGPSDecimal::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="139" column="12" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="139" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_decimal_1ae09cbb1856cd57c7dcee52fb5fb1ba16" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TinyGPSDecimal::TinyGPSDecimal</definition>
+        <argsstring>()</argsstring>
+        <name>TinyGPSDecimal</name>
+        <qualifiedname>TinyGPSDecimal::TinyGPSDecimal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="141" column="4" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="141" bodyend="142"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="struct_tiny_g_p_s_decimal_1a37516916786d5c66990d5a1797cc8f86" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSDecimal::commit</definition>
+        <argsstring>()</argsstring>
+        <name>commit</name>
+        <qualifiedname>TinyGPSDecimal::commit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="148" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="442" bodyend="447"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_decimal_1a804fc590e73489e2f14b0daf7c8112b8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSDecimal::set</definition>
+        <argsstring>(const char *term)</argsstring>
+        <name>set</name>
+        <qualifiedname>TinyGPSDecimal::set</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>term</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="149" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="449" bodyend="452"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_decimal_1a37516916786d5c66990d5a1797cc8f86" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSDecimal::commit</definition>
+        <argsstring>()</argsstring>
+        <name>commit</name>
+        <qualifiedname>TinyGPSDecimal::commit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="148" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_decimal_1a804fc590e73489e2f14b0daf7c8112b8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSDecimal::set</definition>
+        <argsstring>(const char *term)</argsstring>
+        <name>set</name>
+        <qualifiedname>TinyGPSDecimal::set</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>term</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="149" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>TinyGPSAltitude</label>
+        <link refid="struct_tiny_g_p_s_altitude"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>TinyGPSCourse</label>
+        <link refid="struct_tiny_g_p_s_course"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>TinyGPSDecimal</label>
+        <link refid="struct_tiny_g_p_s_decimal"/>
+      </node>
+      <node id="4">
+        <label>TinyGPSHDOP</label>
+        <link refid="struct_tiny_g_p_s_h_d_o_p"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>TinyGPSSpeed</label>
+        <link refid="struct_tiny_g_p_s_speed"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="132" column="1" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="133" bodyend="150"/>
+    <listofallmembers>
+      <member refid="struct_tiny_g_p_s_decimal_1a041cada3e406205d0878c9819eddbbbb" prot="public" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>age</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1a041cada3e406205d0878c9819eddbbbb" prot="public" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>age</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1a37516916786d5c66990d5a1797cc8f86" prot="private" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>commit</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1a37516916786d5c66990d5a1797cc8f86" prot="private" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>commit</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1a8c7fd3ccd678b195d8f23bd1cb31d9ba" prot="public" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>isUpdated</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1a8c7fd3ccd678b195d8f23bd1cb31d9ba" prot="public" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>isUpdated</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1a34e6448314c198fa204dfb22cd24fc7e" prot="public" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>isValid</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1a34e6448314c198fa204dfb22cd24fc7e" prot="public" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>isValid</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1aaa47eb71175c36d4ba3ba0e94d0c752e" prot="private" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>lastCommitTime</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1ad8fa7dfb23e381b2353ea4ecaeaebc8b" prot="private" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>newval</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1a804fc590e73489e2f14b0daf7c8112b8" prot="private" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>set</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1a804fc590e73489e2f14b0daf7c8112b8" prot="private" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>set</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1ae09cbb1856cd57c7dcee52fb5fb1ba16" prot="public" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>TinyGPSDecimal</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1ae09cbb1856cd57c7dcee52fb5fb1ba16" prot="public" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>TinyGPSDecimal</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1a2bcf8d5290fbef8c44b415e281b8c6f2" prot="public" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>TinyGPSPlus</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1af0803d568a59f6212f2e88e2e5ee6077" prot="private" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>updated</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1a187fd7724408f9828603ea4368eccb1d" prot="private" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>val</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1a858e8762c24b39ee28e5076275affef2" prot="private" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>valid</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1ac3ce80976e5d8456e9f211b910a6cb19" prot="public" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>value</name></member>
+      <member refid="struct_tiny_g_p_s_decimal_1ac3ce80976e5d8456e9f211b910a6cb19" prot="public" virt="non-virtual"><scope>TinyGPSDecimal</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

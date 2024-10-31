@@ -1,0 +1,263 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="api__connector_8cpp" kind="file" language="C++">
+    <compoundname>api_connector.cpp</compoundname>
+    <includes refid="api__connector_8h" local="yes">api_connector.h</includes>
+    <includes refid="identifiers_8h" local="yes">identifiers.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>bgeigiezen_firmware/handlers/api_connector.cpp</label>
+        <link refid="api__connector_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>api_connector.h</label>
+        <link refid="api__connector_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>identifiers.h</label>
+        <link refid="identifiers_8h"/>
+      </node>
+      <node id="8">
+        <label>user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>utils/wifi_connection.h</label>
+        <link refid="wifi__connection_8h"/>
+      </node>
+      <node id="6">
+        <label>workers/local_storage.h</label>
+        <link refid="local__storage_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>workers/log_aggregator.h</label>
+        <link refid="log__aggregator_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>HTTPClient.h</label>
+      </node>
+      <node id="5">
+        <label>Handler.hpp</label>
+      </node>
+      <node id="9">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="7">
+        <label>Preferences.h</label>
+      </node>
+      <node id="3">
+        <label>WiFi.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="api__connector_8cpp_1ab28fa84742de00ea3342319de160ff37" prot="public" static="no">
+        <name>RETRY_TIMEOUT</name>
+        <initializer>10000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.cpp" line="4" column="9" bodyfile="bgeigiezen_firmware/handlers/api_connector.cpp" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="api__connector_8cpp_1ab2c6388751fbcb1117265b565e9b6c14" prot="public" static="no">
+        <name>SEND_FREQUENCY</name>
+        <param><defname>last_send</defname></param>
+        <param><defname>sec</defname></param>
+        <initializer>((<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">last_send</ref>) == 0 || (<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>() - (<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">last_send</ref>)) &gt; (((<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sec</ref>) * 1000) - 500))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.cpp" line="7" column="9" bodyfile="bgeigiezen_firmware/handlers/api_connector.cpp" bodystart="7" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="api__connector_8h" kindref="compound">api_connector.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="identifiers_8h" kindref="compound">identifiers.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="api__connector_8cpp_1ab28fa84742de00ea3342319de160ff37" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RETRY_TIMEOUT<sp/>10000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>subtracting<sp/>1<sp/>seconds<sp/>so<sp/>data<sp/>is<sp/>sent<sp/>more<sp/>often<sp/>than<sp/>not.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="api__connector_8cpp_1ab2c6388751fbcb1117265b565e9b6c14" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SEND_FREQUENCY(last_send,<sp/>sec)<sp/>((last_send)<sp/>==<sp/>0<sp/>||<sp/>(millis()<sp/>-<sp/>(last_send))<sp/>&gt;<sp/>(((sec)<sp/>*<sp/>1000)<sp/>-<sp/>500))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="class_api_connector_1abc35b6946aaa4ea60a97154beefa638b" refkind="member"><highlight class="normal"><ref refid="class_api_connector_1abc35b6946aaa4ea60a97154beefa638b" kindref="member">ApiConnector::ApiConnector</ref>(<ref refid="class_local_storage" kindref="compound">LocalStorage</ref>&amp;<sp/>config)<sp/>:<sp/>Handler(),<sp/>_http_client(),<sp/>_config(config),<sp/>_payload(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">),<sp/>_post_count(0),<sp/>_last_post(0)<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="class_api_connector_1ae4158ccefdfdc7d83196cbdfe7af8d36" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_api_connector_1ae4158ccefdfdc7d83196cbdfe7af8d36" kindref="member">ApiConnector::time_to_send</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>in_fixed_range,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>alert)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(in_fixed_range)<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="api__connector_8cpp_1ab2c6388751fbcb1117265b565e9b6c14" kindref="member">SEND_FREQUENCY</ref>(_last_post,<sp/>alert<sp/>?<sp/><ref refid="user__config_8h_1a8c27197c9f3132c4da80fffaea1ee29f" kindref="member">API_SEND_SECONDS_DELAY_ALERT</ref><sp/>:<sp/><ref refid="user__config_8h_1a5adca5c7efa9bcb38ce5a52072c1c77b" kindref="member">API_SEND_SECONDS_DELAY</ref>);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="api__connector_8cpp_1ab2c6388751fbcb1117265b565e9b6c14" kindref="member">SEND_FREQUENCY</ref>(_last_post,<sp/><ref refid="user__config_8h_1a477dfdc37e6a7d2b70aa6766d6eafb3b" kindref="member">API_SEND_SECONDS_DELAY_ROAMING</ref>);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="class_api_connector_1a27801902e618afb9d835438d66ddec3c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_api_connector_1a27801902e618afb9d835438d66ddec3c" kindref="member">ApiConnector::activate</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">retry</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">last_try</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="bgeigiezen__firmware_2utils_2wifi__connection_8cpp_1a8d10d559fa8c2d79262a08609d604700" kindref="member">WiFiWrapper_i</ref>.<ref refid="class_wi_fi_wrapper_1a37ba31d67d18f35822a2cda0b6b5bf48" kindref="member">wifi_connected</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">retry</ref><sp/>&amp;&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>()<sp/>-<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">last_try</ref><sp/>&lt;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1ab28fa84742de00ea3342319de160ff37" kindref="member">RETRY_TIMEOUT</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">last_try</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2utils_2wifi__connection_8cpp_1a8d10d559fa8c2d79262a08609d604700" kindref="member">WiFiWrapper_i</ref>.<ref refid="class_wi_fi_wrapper_1ac2331e7155ee97b89214f721d91cd657" kindref="member">connect_wifi</ref>(_config.<ref refid="class_local_storage_1a8d0807c2fad52121c446d91f85976856" kindref="member">get_wifi_ssid</ref>(),<sp/>_config.<ref refid="class_local_storage_1a619ba1c828df4e5c97e7ac77115e72a2" kindref="member">get_wifi_password</ref>(),<sp/>!<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">retry</ref>);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">WiFi</ref>.isConnected();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="class_api_connector_1a2f3ddac28265bde686f1d9e245b991eb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_api_connector_1a2f3ddac28265bde686f1d9e245b991eb" kindref="member">ApiConnector::deactivate</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">kill_task</ref>();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2utils_2wifi__connection_8cpp_1a8d10d559fa8c2d79262a08609d604700" kindref="member">WiFiWrapper_i</ref>.<ref refid="class_wi_fi_wrapper_1ad3550ed2833397450e1a4c80cb5727cf" kindref="member">disconnect_wifi</ref>();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="class_api_connector_1a46089ea3e64a0c222657429e68c5beca" refkind="member"><highlight class="normal">int8_t<sp/><ref refid="class_api_connector_1a46089ea3e64a0c222657429e68c5beca" kindref="member">ApiConnector::handle_produced_work</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!_config.<ref refid="class_local_storage_1ad567a475a216fc14ab359b09b00c25de" kindref="member">get_fixed_device_id</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Cant<sp/>even<sp/>send<sp/>anything,<sp/>because<sp/>there<sp/>is<sp/>an<sp/>invalid<sp/>id</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_handler_idle</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a14fad6b96fd26bd4219043784815c08b" kindref="member">log_aggregator</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>.worker&lt;<ref refid="class_log_aggregator" kindref="compound">LogAggregator</ref>&gt;(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa40dd481c8643b09aff483e9f4f7c2006" kindref="member">k_worker_log_aggregator</ref>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_data</ref><sp/>=<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a14fad6b96fd26bd4219043784815c08b" kindref="member">log_aggregator</ref>-&gt;get_data();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="bgeigiezen__firmware_2main_8cpp_1a14fad6b96fd26bd4219043784815c08b" kindref="member">log_aggregator</ref>-&gt;is_fresh())<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>No<sp/>fresh<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_handler_idle</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_data</ref>.valid())<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>data<sp/>not<sp/>valid<sp/>(either<sp/>gm<sp/>or<sp/>gps)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_handler_idle</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_api_connector_1ae4158ccefdfdc7d83196cbdfe7af8d36" kindref="member">time_to_send</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_data</ref>.in_fixed_range,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_data</ref>.cpm<sp/>&gt;<sp/>_config.<ref refid="class_local_storage_1a5434f10e036beedc21b5382f9234981a" kindref="member">get_alert_threshold</ref>()))<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Not<sp/>time<sp/>to<sp/>send<sp/>yet</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_handler_idle</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">WiFi</ref>.isConnected()<sp/>&amp;&amp;<sp/>!<ref refid="class_api_connector_1a27801902e618afb9d835438d66ddec3c" kindref="member">activate</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>send,<sp/>lost<sp/>connection&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717aeedeeef2ce17687fdcd6326db176b20a" kindref="member">e_api_reporter_error_not_connected</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_api_connector_1ac19687cf6ae2d1d0bcb2e77ee9e8c539" kindref="member">reading_to_json</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_data</ref>,_payload))<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a29a3d191db6db09f7d4757322d81438d" kindref="member">e_api_reporter_error_to_json</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;Starting<sp/>task<sp/>to<sp/>send<sp/>data<sp/>to<sp/>API...&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">start_task</ref>(</highlight><highlight class="stringliteral">&quot;api_send&quot;</highlight><highlight class="normal">,<sp/>2048<sp/>*<sp/>4,<sp/>3);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="class_api_connector_1ac19687cf6ae2d1d0bcb2e77ee9e8c539" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_api_connector_1ac19687cf6ae2d1d0bcb2e77ee9e8c539" kindref="member">ApiConnector::reading_to_json</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_data_line" kindref="compound">DataLine</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">line</ref>,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">out</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">result</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sprintf</ref>(</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">out</ref>,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;{\&quot;captured_at\&quot;:\&quot;%s\&quot;,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;device_id\&quot;:%d,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;value\&quot;:%d,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;unit\&quot;:\&quot;cpm\&quot;,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;height\&quot;:%0.6f,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;latitude\&quot;:%0.6f,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;longitude\&quot;:%0.6f}&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">line</ref>.timestamp,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_config.<ref refid="class_local_storage_1ad567a475a216fc14ab359b09b00c25de" kindref="member">get_fixed_device_id</ref>(),</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">line</ref>.cpm,</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">line</ref>.in_fixed_range<sp/>?<sp/>0<sp/>:<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">line</ref>.latitude,<sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>fixed<sp/>location<sp/>altitude</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">line</ref>.in_fixed_range<sp/>?<sp/>_config.<ref refid="class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca" kindref="member">get_fixed_latitude</ref>()<sp/>:<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">line</ref>.latitude,</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">line</ref>.in_fixed_range<sp/>?<sp/>_config.<ref refid="class_local_storage_1a2972e2632be5da773cfa65e23be878e5" kindref="member">get_fixed_longitude</ref>()<sp/>:<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">line</ref>.longitude);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">result</ref><sp/>&gt;<sp/>0;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="class_api_connector_1a884e820440be9b962b9302b38b061c8e" refkind="member"><highlight class="normal">uint32_t<sp/><ref refid="class_api_connector_1a884e820440be9b962b9302b38b061c8e" kindref="member">ApiConnector::get_post_count</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_post_count;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="class_api_connector_1a8fc0aaa8a9cff66aef93d202a102d9ea" refkind="member"><highlight class="normal">int8_t<sp/><ref refid="class_api_connector_1a8fc0aaa8a9cff66aef93d202a102d9ea" kindref="member">ApiConnector::handle_async</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">time_at_send</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">url</ref>[100];</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sprintf</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">url</ref>,<sp/></highlight><highlight class="stringliteral">&quot;%s?api_key=%s&amp;&quot;</highlight><highlight class="normal">,<sp/><ref refid="user__config_8h_1ae7d310923399cda9586b4916f7070fc5" kindref="member">API_MEASUREMENTS_ENDPOINT</ref>,<sp/>_config.<ref refid="class_local_storage_1a119e9cbf7e8edad53786b070ee2cb298" kindref="member">get_api_key</ref>());</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//Specify<sp/>destination<sp/>for<sp/>HTTP<sp/>request</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!_http_client.begin(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">url</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>begin<sp/>url<sp/>connection&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>_http_client.end();<sp/></highlight><highlight class="comment">//Free<sp/>resources</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717abf2ec433e6a95b2c211e011517128471" kindref="member">e_api_reporter_error_remote_not_available</ref>;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">content_length</ref>[5];</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sprintf</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">content_length</ref>,<sp/></highlight><highlight class="stringliteral">&quot;%d&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">strlen</ref>(_payload));</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>_http_client.setUserAgent(<ref refid="user__config_8h_1a37ec0fa268fd3617f7d7f5ad0a2d463e" kindref="member">HEADER_API_USER_AGENT</ref>);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>_http_client.addHeader(</highlight><highlight class="stringliteral">&quot;Host&quot;</highlight><highlight class="normal">,<sp/><ref refid="user__config_8h_1a583b0748ee647a56a2e607bfe09d13dd" kindref="member">API_HOST</ref>);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>_http_client.addHeader(</highlight><highlight class="stringliteral">&quot;Content-Type&quot;</highlight><highlight class="normal">,<sp/><ref refid="user__config_8h_1a688b2c08fbc53d20db8a5f829f372338" kindref="member">HEADER_API_CONTENT_TYPE</ref>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>_http_client.addHeader(</highlight><highlight class="stringliteral">&quot;Content-Length&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">content_length</ref>);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">httpResponseCode</ref><sp/>=<sp/>_http_client.POST(_payload);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">String</ref><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">response</ref><sp/>=<sp/>_http_client.getString();</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;POST<sp/>complete,<sp/>response<sp/>(%d):\n%s\n&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">httpResponseCode</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">response</ref>.c_str());</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>_http_client.end();<sp/></highlight><highlight class="comment">//Free<sp/>resources</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>Check<sp/>response<sp/>measurement<sp/>ID</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2utils_2wifi__connection_8cpp_1a8d10d559fa8c2d79262a08609d604700" kindref="member">WiFiWrapper_i</ref>.<ref refid="class_wi_fi_wrapper_1ad810fce36f8f603465f255fbd88dc5c9" kindref="member">update_active</ref>();</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>_last_post<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">time_at_send</ref>;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">httpResponseCode</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>200<sp/>...<sp/>204:</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>++_post_count;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a5c6cf8f03d275050a7373e360dff0909" kindref="member">e_api_reporter_send_success</ref>;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>400:</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a0eb4fc88c576f048ed5f47be9da3be88" kindref="member">e_api_reporter_error_server_rejected_post_400</ref>;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>401:</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a41188ca61a8819bac63964431728fb19" kindref="member">e_api_reporter_error_server_rejected_post_401</ref>;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>403:</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a03c4f15d5aa2fc9ef5d3608eba481897" kindref="member">e_api_reporter_error_server_rejected_post_403</ref>;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>500<sp/>...<sp/>599:</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717ad7308ded852533ee42fbba18e1577f6b" kindref="member">e_api_reporter_error_server_rejected_post_5xx</ref>;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717abf2ec433e6a95b2c211e011517128471" kindref="member">e_api_reporter_error_remote_not_available</ref>;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/handlers/api_connector.cpp"/>
+  </compounddef>
+</doxygen>

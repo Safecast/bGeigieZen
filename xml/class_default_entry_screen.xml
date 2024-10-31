@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_default_entry_screen" kind="class" language="C++" prot="public">
+    <compoundname>DefaultEntryScreen</compoundname>
+    <basecompoundref refid="class_base_screen" prot="public" virt="non-virtual">BaseScreen</basecompoundref>
+    <includes refid="default__entry__screen_8h" local="no">default_entry_screen.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_default_entry_screen_1a559a96167e4673edc6d056eef9d793ad" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DefaultEntryScreen::DefaultEntryScreen</definition>
+        <argsstring>()</argsstring>
+        <name>DefaultEntryScreen</name>
+        <qualifiedname>DefaultEntryScreen::DefaultEntryScreen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/default_entry_screen.h" line="8" column="12" bodyfile="bgeigiezen_firmware/screens/default_entry_screen.cpp" bodystart="10" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_default_entry_screen_1a06fd4454eff553465a74d30b02567a0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="class_base_screen" kindref="compound">BaseScreen</ref> *</type>
+        <definition>BaseScreen * DefaultEntryScreen::handle_input</definition>
+        <argsstring>(Controller &amp;controller, const worker_map_t &amp;workers) override</argsstring>
+        <name>handle_input</name>
+        <qualifiedname>DefaultEntryScreen::handle_input</qualifiedname>
+        <reimplements refid="class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57">handle_input</reimplements>
+        <param>
+          <type><ref refid="class_controller" kindref="compound">Controller</ref> &amp;</type>
+          <declname>controller</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref> &amp;</type>
+          <declname>workers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/default_entry_screen.h" line="10" column="14" bodyfile="bgeigiezen_firmware/screens/default_entry_screen.cpp" bodystart="13" bodyend="28"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="drive__mode_8cpp_1a55dd664ce7148bd9ba5556188ca39417" compoundref="drive__mode_8cpp" startline="10">DriveModeScreen_i</references>
+        <references refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217cac05b6810bb29caecbb222b95e849dc04" compoundref="local__storage_8h" startline="17">LocalStorage::e_operational_mode_drive</references>
+        <references refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217ca84bd8bba9f0e018c9e0a70da96ae85c8" compoundref="local__storage_8h" startline="19">LocalStorage::e_operational_mode_fixed</references>
+        <references refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217ca290aa317f83558d07669d014067cb738" compoundref="local__storage_8h" startline="20">LocalStorage::e_operational_mode_satellite</references>
+        <references refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217ca446644afcec34db806ecb38c71e0647e" compoundref="local__storage_8h" startline="18">LocalStorage::e_operational_mode_survey</references>
+        <references refid="fixed__mode_8cpp_1aba53b5d8109b5e1b5df836db667957d4" compoundref="fixed__mode_8cpp" startline="10">FixedModeScreen_i</references>
+        <references refid="class_local_storage_1abd7d5124e171060b7fed159c6623ab95" compoundref="local__storage_8cpp" startline="161" endline="163">LocalStorage::get_last_mode</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa5f34c7ca896fe335fe512801296de30c" compoundref="identifiers_8h" startline="19">k_worker_local_storage</references>
+        <references refid="satellite__view_8cpp_1ab7705c5a76518b7896cd0baf3b287962" compoundref="satellite__view_8cpp" startline="26">SatelliteViewScreen_i</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" compoundref="bgeigiezen__firmware_2main_8cpp" startline="65">settings</references>
+        <references refid="survery__mode_8cpp_1a0a0b8dcabfce5b6df4104060ae19af90" compoundref="survery__mode_8cpp" startline="9">SurveyModeScreen_i</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BaseScreen</label>
+        <link refid="class_base_screen"/>
+      </node>
+      <node id="1">
+        <label>DefaultEntryScreen</label>
+        <link refid="class_default_entry_screen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BaseScreen</label>
+        <link refid="class_base_screen"/>
+      </node>
+      <node id="1">
+        <label>DefaultEntryScreen</label>
+        <link refid="class_default_entry_screen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/screens/default_entry_screen.h" line="6" column="1" bodyfile="bgeigiezen_firmware/screens/default_entry_screen.h" bodystart="6" bodyend="14"/>
+    <listofallmembers>
+      <member refid="class_base_screen_1a2e28e5b4ef3027c3c4392dfb4a6c3ff8" prot="protected" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>BaseScreen</name></member>
+      <member refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669" prot="public" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>ButtonState</name></member>
+      <member refid="class_base_screen_1a0302e81913f193447bcbd63fc5dc1621" prot="protected" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>clear_screen_content</name></member>
+      <member refid="class_default_entry_screen_1a559a96167e4673edc6d056eef9d793ad" prot="public" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>DefaultEntryScreen</name></member>
+      <member refid="class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98" prot="public" virt="virtual"><scope>DefaultEntryScreen</scope><name>do_render</name></member>
+      <member refid="class_base_screen_1abd62ea7f2f318142dde3d81f1a5e46a1" prot="protected" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>drawButton1</name></member>
+      <member refid="class_base_screen_1af5e00b4efc1ada7bb34cd0361b21397c" prot="protected" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>drawButton2</name></member>
+      <member refid="class_base_screen_1a13d1abed7e9ef452c950ee1a5af14860" prot="protected" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>drawButton3</name></member>
+      <member refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669aeec92bb30ab578e6b0eceb97b61880fb" prot="public" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>e_button_active</name></member>
+      <member refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67" prot="public" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>e_button_default</name></member>
+      <member refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669aa1df192f7cb5a602ccdf145fb8e7bca2" prot="public" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>e_button_disabled</name></member>
+      <member refid="class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea" prot="public" virt="virtual"><scope>DefaultEntryScreen</scope><name>enter_screen</name></member>
+      <member refid="class_base_screen_1a475d077e56c80429539f9c8a973752dd" prot="public" virt="virtual"><scope>DefaultEntryScreen</scope><name>force_next_render</name></member>
+      <member refid="class_base_screen_1a34ca21425e8a0306c8b28669b35216e6" prot="public" virt="virtual"><scope>DefaultEntryScreen</scope><name>get_error_message</name></member>
+      <member refid="class_base_screen_1ac34eef3f7a364202d2399ce1b234bf04" prot="public" virt="virtual"><scope>DefaultEntryScreen</scope><name>get_status_message</name></member>
+      <member refid="class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42" prot="public" virt="virtual"><scope>DefaultEntryScreen</scope><name>get_title</name></member>
+      <member refid="class_default_entry_screen_1a06fd4454eff553465a74d30b02567a0f" prot="public" virt="virtual"><scope>DefaultEntryScreen</scope><name>handle_input</name></member>
+      <member refid="class_base_screen_1a5757931996557c8d7ec0ab352abc6e3e" prot="public" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>has_required_ble</name></member>
+      <member refid="class_base_screen_1ab4a9e852483065ab2ad6a86955985e90" prot="public" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>has_required_gps</name></member>
+      <member refid="class_base_screen_1a02551c85c014f0c35c0a887cdaad2e3e" prot="public" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>has_required_sd</name></member>
+      <member refid="class_base_screen_1abaf330fe58d138607d7eddafec78d2bc" prot="public" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>has_required_tube</name></member>
+      <member refid="class_base_screen_1a2062532ed7e5f3fa63be92c2d04c7a66" prot="public" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>has_required_wifi</name></member>
+      <member refid="class_base_screen_1a2b0ff8ed2e49c96fa6e8d3e158d6db13" prot="public" virt="virtual"><scope>DefaultEntryScreen</scope><name>has_status_bar</name></member>
+      <member refid="class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1" prot="public" virt="virtual"><scope>DefaultEntryScreen</scope><name>leave_screen</name></member>
+      <member refid="class_base_screen_1acfec22b4351b13b4f0c6bd84254198ec" prot="protected" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>printFloatFont</name></member>
+      <member refid="class_base_screen_1ae6e6ee7b78413b55d89fd192157ea9db" prot="protected" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>printIntFont</name></member>
+      <member refid="class_base_screen_1a4a44081a61a095ce9cb8d086525d42b0" prot="protected" virt="virtual"><scope>DefaultEntryScreen</scope><name>render</name></member>
+      <member refid="class_base_screen_1a4519670c7f1d8995d30f441f473c4e1d" prot="protected" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>required_ble</name></member>
+      <member refid="class_base_screen_1aa7ff73902ffb4869a7a1e4da7a004f86" prot="protected" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>required_gps</name></member>
+      <member refid="class_base_screen_1a0ec50e2f5e767c49926acea4eff5d62a" prot="protected" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>required_sd</name></member>
+      <member refid="class_base_screen_1aaec338ea2e36bc2c621d3283ab345313" prot="protected" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>required_tube</name></member>
+      <member refid="class_base_screen_1a1aca75e6183b4428be7008ae8cdae37e" prot="protected" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>required_wifi</name></member>
+      <member refid="class_base_screen_1ae483509d86c8f2ca88f5250180aefe1b" prot="protected" virt="non-virtual"><scope>DefaultEntryScreen</scope><name>set_status_message</name></member>
+      <member refid="class_base_screen_1a86234c33321bb25d534c0347a946b084" prot="protected" virt="virtual"><scope>DefaultEntryScreen</scope><name>~BaseScreen</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

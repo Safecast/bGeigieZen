@@ -1,0 +1,748 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_s_d_interface" kind="class" language="C++" prot="public">
+    <compoundname>SDInterface</compoundname>
+    <includes refid="sd__wrapper_8h" local="no">sd_wrapper.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50" prot="public" static="no" strong="no">
+        <type></type>
+        <name>SdStatus</name>
+        <qualifiedname>SDInterface::SdStatus</qualifiedname>
+        <enumvalue id="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a8a094cf03ccf414f4b77666f6c4e8611" prot="public">
+          <name>e_sd_config_status_not_ready</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a4220a7d9f2295ecf4a6df95fc73de789" prot="public">
+          <name>e_sd_config_status_ok</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50ab3eaba2df7231bec6b29aee75b5b18c7" prot="public">
+          <name>e_sd_config_status_config_different_id</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a97640d3ba2438308592c625779e0fe12" prot="public">
+          <name>e_sd_config_status_config_no_content</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50aca5a6270a52c089d851e54e7919a72cf" prot="public">
+          <name>e_sd_config_status_no_config_file</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="16" column="3" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.h" bodystart="16" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="enum" id="class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500" prot="public" static="no" strong="no">
+        <type></type>
+        <name>SdError</name>
+        <qualifiedname>SDInterface::SdError</qualifiedname>
+        <enumvalue id="class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500af0739939ceb0afbd4c08f58400b510e2" prot="public">
+          <name>e_sd_err_not_ready</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500a9e6fa9818cf185dba1b2e4f9d34b89d7" prot="public">
+          <name>e_sd_err_file_open_w_fail</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500a6f24e3394bc18ffac9170adfde185951" prot="public">
+          <name>e_sd_err_file_open_r_fail</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="24" column="3" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.h" bodystart="24" bodyend="28"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_s_d_interface_1a30960b2f738cd1bc41d660ce04347b2e" prot="private" static="no" mutable="no">
+        <type><ref refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50" kindref="member">SdStatus</ref></type>
+        <definition>SdStatus SDInterface::_status</definition>
+        <argsstring></argsstring>
+        <name>_status</name>
+        <qualifiedname>SDInterface::_status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="130" column="12" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_d_interface_1a29938ff1f62c19c4637e7efe69140408" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t SDInterface::_device_id</definition>
+        <argsstring></argsstring>
+        <name>_device_id</name>
+        <qualifiedname>SDInterface::_device_id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="131" column="12" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.h" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_d_interface_1ae60c2c7309ccf395984350d1e4b37816" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t SDInterface::_last_read</definition>
+        <argsstring></argsstring>
+        <name>_last_read</name>
+        <qualifiedname>SDInterface::_last_read</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="132" column="12" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_d_interface_1ae54b1336d9ec405bc13a37775e0d5b80" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t SDInterface::_last_write</definition>
+        <argsstring></argsstring>
+        <name>_last_write</name>
+        <qualifiedname>SDInterface::_last_write</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="133" column="12" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_s_d_interface_1a853c39e0b90d4bfe6ab8c5f639dc58d6" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t SDInterface::_last_try</definition>
+        <argsstring></argsstring>
+        <name>_last_try</name>
+        <qualifiedname>SDInterface::_last_try</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="134" column="12" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_s_d_interface_1afbcd9b0cdc8f6c6eabf2202aabf78a93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SDInterface::SDInterface</definition>
+        <argsstring>(const SDInterface &amp;)=delete</argsstring>
+        <name>SDInterface</name>
+        <qualifiedname>SDInterface::SDInterface</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="class_s_d_interface" kindref="compound">SDInterface</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="30" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1a0e610420f9195a31def20935935bcad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_s_d_interface" kindref="compound">SDInterface</ref> &amp;</type>
+        <definition>SDInterface &amp; SDInterface::operator=</definition>
+        <argsstring>(const SDInterface &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>SDInterface::operator=</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="class_s_d_interface" kindref="compound">SDInterface</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="31" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1a89395c7916aff77ceecb5d4e9932b2c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SDInterface::SDInterface</definition>
+        <argsstring>(SDInterface &amp;&amp;)=delete</argsstring>
+        <name>SDInterface</name>
+        <qualifiedname>SDInterface::SDInterface</qualifiedname>
+        <param>
+          <type><ref refid="class_s_d_interface" kindref="compound">SDInterface</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="32" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1a1aa6910b72ec4d30ae716c8818432034" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_s_d_interface" kindref="compound">SDInterface</ref> &amp;</type>
+        <definition>SDInterface &amp; SDInterface::operator=</definition>
+        <argsstring>(SDInterface &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>SDInterface::operator=</qualifiedname>
+        <param>
+          <type><ref refid="class_s_d_interface" kindref="compound">SDInterface</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="33" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDInterface::ready</definition>
+        <argsstring>()</argsstring>
+        <name>ready</name>
+        <qualifiedname>SDInterface::ready</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks sd readiness, will end sd connection if sd has been lost <simplesect kind="return"><para>true if ready </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="48" column="8" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="69" bodyend="74"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a8a094cf03ccf414f4b77666f6c4e8611" compoundref="sd__wrapper_8h" startline="17">e_sd_config_status_not_ready</references>
+        <references refid="class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a" compoundref="sd__wrapper_8cpp" startline="121" endline="124">end</references>
+        <references refid="user__config_8h_1a8640e19b0a934a2937951a06148f1f38" compoundref="user__config_8h" startline="56">TEST_FILENAME</references>
+        <referencedby refid="class_s_d_interface_1a809a47ce4ef0dc0ea1918552601cbbdd" compoundref="sd__wrapper_8cpp" startline="88" endline="105">begin</referencedby>
+        <referencedby refid="class_s_d_interface_1aa383b96a9103432407c022af1dc3d290" compoundref="sd__wrapper_8cpp" startline="107" endline="115">clear_all_logs</referencedby>
+        <referencedby refid="class_s_d_interface_1aabe6178f355242e557c214581eba395f" compoundref="sd__wrapper_8cpp" startline="508" endline="514">delete_log</referencedby>
+        <referencedby refid="class_sd_logger_1ab55fb4b592ef94b61f23d408aecd7ee1" compoundref="sd__logger_8cpp" startline="49" endline="86">SdLogger::handle_produced_work</referencedby>
+        <referencedby refid="class_s_d_interface_1ac011e72bed01b65fb3af9cc1242b4f14" compoundref="sd__wrapper_8cpp" startline="151" endline="190">has_safezen_content</referencedby>
+        <referencedby refid="class_s_d_interface_1a77a1a4519025efa2ff17c99f2c3e7d67" compoundref="sd__wrapper_8cpp" startline="126" endline="149">log_println</referencedby>
+        <referencedby refid="class_s_d_interface_1a2e3f02d8a0c231ee408f7b4a5d960063" compoundref="sd__wrapper_8cpp" startline="192" endline="227">read_safezen_file_to_settings</referencedby>
+        <referencedby refid="class_s_d_interface_1a9579c7433715db5ea05b8190b8f9ee13" compoundref="sd__wrapper_8cpp" startline="497" endline="506">rename_log</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1a1d00f529d7e34ba8b79d01ecca7577bf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDInterface::can_write_logs</definition>
+        <argsstring>() const</argsstring>
+        <name>can_write_logs</name>
+        <qualifiedname>SDInterface::can_write_logs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Eeturns true if sd was properly set up with device id and all.. <simplesect kind="return"><para>true if ready </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="54" column="8" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="76" bodyend="78"/>
+        <references refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a4220a7d9f2295ecf4a6df95fc73de789" compoundref="sd__wrapper_8h" startline="18">e_sd_config_status_ok</references>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1abdd9e014e0bab83e0ab99c8807f2e5fd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50" kindref="member">SdStatus</ref></type>
+        <definition>SDInterface::SdStatus SDInterface::status</definition>
+        <argsstring>() const</argsstring>
+        <name>status</name>
+        <qualifiedname>SDInterface::status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>last know status </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="59" column="12" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="80" bodyend="82"/>
+        <referencedby refid="class_sd_message_screen_1a37d7575e04491ff6fedae89389694248" compoundref="sd__message_8cpp" startline="150" endline="168">SdMessageScreen::enter_screen</referencedby>
+        <referencedby refid="class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85" compoundref="drive__mode_8cpp" startline="37" endline="156">DriveModeScreen::render</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50" compoundref="survery__mode_8cpp" startline="30" endline="109">SurveyModeScreen::render</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1a809a47ce4ef0dc0ea1918552601cbbdd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDInterface::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <qualifiedname>SDInterface::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>We note that for the ESP32, the SD library is robust to multiple call to the <ref refid="class_s_d_interface_1a809a47ce4ef0dc0ea1918552601cbbdd" kindref="member">begin()</ref> function <simplesect kind="return"><para>true if available</para>
+</simplesect>
+We note that for the ESP32, the SD library is robust to multiple call to the <ref refid="class_s_d_interface_1a809a47ce4ef0dc0ea1918552601cbbdd" kindref="member">begin()</ref> function <simplesect kind="return"><para>true if ready </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="65" column="8" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="88" bodyend="105"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a97640d3ba2438308592c625779e0fe12" compoundref="sd__wrapper_8h" startline="20">e_sd_config_status_config_no_content</references>
+        <references refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a8a094cf03ccf414f4b77666f6c4e8611" compoundref="sd__wrapper_8h" startline="17">e_sd_config_status_not_ready</references>
+        <references refid="class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe" compoundref="sd__wrapper_8cpp" startline="69" endline="74">ready</references>
+        <references refid="include_2config_8hpp_1a587c91dc29e14d8227957fbe22af6f45" compoundref="include_2config_8hpp" startline="39">SD_CS_PIN</references>
+        <references refid="user__config_8h_1a8640e19b0a934a2937951a06148f1f38" compoundref="user__config_8h" startline="56">TEST_FILENAME</references>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1aa383b96a9103432407c022af1dc3d290" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDInterface::clear_all_logs</definition>
+        <argsstring>()</argsstring>
+        <name>clear_all_logs</name>
+        <qualifiedname>SDInterface::clear_all_logs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Delete all log files / directories <simplesect kind="return"><para>true if available </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="71" column="8" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="107" bodyend="115"/>
+        <references refid="user__config_8h_1a9a0d7b4ec2eb1af45cbacaeab2da6ee2" compoundref="user__config_8h" startline="63">DRIVE_LOG_DIRECTORY</references>
+        <references refid="user__config_8h_1a33f8f515cdf75dee7bf5f09aaecca794" compoundref="user__config_8h" startline="62">JOURNAL_LOG_DIRECTORY</references>
+        <references refid="class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe" compoundref="sd__wrapper_8cpp" startline="69" endline="74">ready</references>
+        <references refid="user__config_8h_1a7a6e0e8fefbe0f4672066c0ff34ef585" compoundref="user__config_8h" startline="64">SURVEY_LOG_DIRECTORY</references>
+        <referencedby refid="class_controller_1af1a46a7c8a34f04e6551a977580ede91" compoundref="controller_8cpp" startline="89" endline="94">Controller::factory_reset</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1afbb88cd8a67481964cd9f887e54898d5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDInterface::just_wrote</definition>
+        <argsstring>() const</argsstring>
+        <name>just_wrote</name>
+        <qualifiedname>SDInterface::just_wrote</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true last write in last 0.5 sec </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="76" column="8" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="117" bodyend="119"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void SDInterface::end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <qualifiedname>SDInterface::end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>close SD connection </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="81" column="8" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="121" bodyend="124"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a8a094cf03ccf414f4b77666f6c4e8611" compoundref="sd__wrapper_8h" startline="17">e_sd_config_status_not_ready</references>
+        <referencedby refid="class_s_d_interface_1a77a1a4519025efa2ff17c99f2c3e7d67" compoundref="sd__wrapper_8cpp" startline="126" endline="149">log_println</referencedby>
+        <referencedby refid="class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe" compoundref="sd__wrapper_8cpp" startline="69" endline="74">ready</referencedby>
+        <referencedby refid="class_s_d_interface_1a516ce1d47ca0a80250dca3c3d3d44e5c" compoundref="sd__wrapper_8cpp" startline="476" endline="495">setup_log</referencedby>
+        <referencedby refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" compoundref="sd__wrapper_8cpp" startline="384" endline="474">write_safezen_file_from_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1a516ce1d47ca0a80250dca3c3d3d44e5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDInterface::setup_log</definition>
+        <argsstring>(const char *dir, const char *log_name_output, bool clear_on_exist)</argsstring>
+        <name>setup_log</name>
+        <qualifiedname>SDInterface::setup_log</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>log_name_output</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>clear_on_exist</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="85" column="8" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="476" bodyend="495"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a" compoundref="sd__wrapper_8cpp" startline="121" endline="124">end</references>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1a9579c7433715db5ea05b8190b8f9ee13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDInterface::rename_log</definition>
+        <argsstring>(const char *old_log_name, const char *new_log_name)</argsstring>
+        <name>rename_log</name>
+        <qualifiedname>SDInterface::rename_log</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>old_log_name</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>new_log_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rename log file </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="90" column="8" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="497" bodyend="506"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe" compoundref="sd__wrapper_8cpp" startline="69" endline="74">ready</references>
+        <referencedby refid="class_sd_logger_1ab55fb4b592ef94b61f23d408aecd7ee1" compoundref="sd__logger_8cpp" startline="49" endline="86">SdLogger::handle_produced_work</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1aabe6178f355242e557c214581eba395f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDInterface::delete_log</definition>
+        <argsstring>(const char *log_name)</argsstring>
+        <name>delete_log</name>
+        <qualifiedname>SDInterface::delete_log</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>log_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Delete log file </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="95" column="8" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="508" bodyend="514"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe" compoundref="sd__wrapper_8cpp" startline="69" endline="74">ready</references>
+        <referencedby refid="class_sd_logger_1a8e8463c086ad85bd39a99bdbe2207cfa" compoundref="sd__logger_8cpp" startline="38" endline="47">SdLogger::deactivate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1a77a1a4519025efa2ff17c99f2c3e7d67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDInterface::log_println</definition>
+        <argsstring>(const char *log_name, const char *data)</argsstring>
+        <name>log_println</name>
+        <qualifiedname>SDInterface::log_println</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>log_name</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="99" column="8" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="126" bodyend="149"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a" compoundref="sd__wrapper_8cpp" startline="121" endline="124">end</references>
+        <references refid="class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe" compoundref="sd__wrapper_8cpp" startline="69" endline="74">ready</references>
+        <referencedby refid="class_sd_logger_1a03701029b7b1906ff9e910c79d509585" compoundref="sd__logger_8cpp" startline="15" endline="36">SdLogger::activate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1ac011e72bed01b65fb3af9cc1242b4f14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50" kindref="member">SdStatus</ref></type>
+        <definition>SDInterface::SdStatus SDInterface::has_safezen_content</definition>
+        <argsstring>(uint16_t device_id)</argsstring>
+        <name>has_safezen_content</name>
+        <qualifiedname>SDInterface::has_safezen_content</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>device_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get device id from SAFEZEN.txt file on the SD card <simplesect kind="return"><para>device id if available, else 0 </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="105" column="12" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="151" bodyend="190"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50ab3eaba2df7231bec6b29aee75b5b18c7" compoundref="sd__wrapper_8h" startline="19">e_sd_config_status_config_different_id</references>
+        <references refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a97640d3ba2438308592c625779e0fe12" compoundref="sd__wrapper_8h" startline="20">e_sd_config_status_config_no_content</references>
+        <references refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50aca5a6270a52c089d851e54e7919a72cf" compoundref="sd__wrapper_8h" startline="21">e_sd_config_status_no_config_file</references>
+        <references refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a8a094cf03ccf414f4b77666f6c4e8611" compoundref="sd__wrapper_8h" startline="17">e_sd_config_status_not_ready</references>
+        <references refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a4220a7d9f2295ecf4a6df95fc73de789" compoundref="sd__wrapper_8h" startline="18">e_sd_config_status_ok</references>
+        <references refid="class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe" compoundref="sd__wrapper_8cpp" startline="69" endline="74">ready</references>
+        <references refid="sd__wrapper_8cpp_1a61ecfa2a1eff3111c758ef203807e699" compoundref="sd__wrapper_8cpp" startline="34">sd_config_device_id_f</references>
+        <references refid="sd__wrapper_8cpp_1a2df5eceb62a2d0dce531cac7ca33407a" compoundref="sd__wrapper_8cpp" startline="5">SD_CONFIG_FIELD_DEVICE_ID</references>
+        <references refid="include_2config_8hpp_1a8f8959f14b4d147636e897f57e4798f9" compoundref="include_2config_8hpp" startline="48">SETUP_FILENAME</references>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1a2e3f02d8a0c231ee408f7b4a5d960063" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDInterface::read_safezen_file_to_settings</definition>
+        <argsstring>(LocalStorage &amp;settings)</argsstring>
+        <name>read_safezen_file_to_settings</name>
+        <qualifiedname>SDInterface::read_safezen_file_to_settings</qualifiedname>
+        <param>
+          <type><ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read SAFEZEN.txt file contents on SD card to local storage <simplesect kind="return"><para>true if succeeded </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="111" column="8" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="192" bodyend="227"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="local__storage_8h_1ab9e209f6d7775c67a42c462bd7e2eb5d" compoundref="local__storage_8h" startline="8">CONFIG_VAL_MAX</references>
+        <references refid="class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe" compoundref="sd__wrapper_8cpp" startline="69" endline="74">ready</references>
+        <references refid="sd__wrapper_8cpp_1ac55ff083f92a00b5f2f8319c3e5e04db" compoundref="sd__wrapper_8cpp" startline="4">SD_CONFIG_FIELD_VERSION</references>
+        <references refid="sd__wrapper_8cpp_1ab1e5559f15733708d3b3ab6316b17425" compoundref="sd__wrapper_8cpp" startline="33">sd_config_version_f</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" compoundref="bgeigiezen__firmware_2main_8cpp" startline="65">settings</references>
+        <references refid="include_2config_8hpp_1a8f8959f14b4d147636e897f57e4798f9" compoundref="include_2config_8hpp" startline="48">SETUP_FILENAME</references>
+        <references refid="user__config_8h_1affb1ffbd24de6be88bd8ac877aae1688" compoundref="user__config_8h" startline="13">VERSION_NUMBER</references>
+        <referencedby refid="class_controller_1aebc7292ba3c56fbd1402ca76f7a34281" compoundref="controller_8cpp" startline="81" endline="83">Controller::load_sd_config</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDInterface::write_safezen_file_from_settings</definition>
+        <argsstring>(const LocalStorage &amp;settings, bool full=false)</argsstring>
+        <name>write_safezen_file_from_settings</name>
+        <qualifiedname>SDInterface::write_safezen_file_from_settings</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>full</declname>
+          <defval><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Write SAFEZEN.txt file on the SD card from local storage <simplesect kind="return"><para>true if succeeded </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="117" column="8" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="384" bodyend="474"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a4220a7d9f2295ecf4a6df95fc73de789" compoundref="sd__wrapper_8h" startline="18">e_sd_config_status_ok</references>
+        <references refid="class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a" compoundref="sd__wrapper_8cpp" startline="121" endline="124">end</references>
+        <references refid="class_local_storage_1a5434f10e036beedc21b5382f9234981a" compoundref="local__storage_8cpp" startline="93" endline="95">LocalStorage::get_alert_threshold</references>
+        <references refid="class_local_storage_1a3cc3942e1b3d46088e4ec092dd9b5034" compoundref="local__storage_8cpp" startline="89" endline="91">LocalStorage::get_ap_password</references>
+        <references refid="class_local_storage_1a119e9cbf7e8edad53786b070ee2cb298" compoundref="local__storage_8cpp" startline="137" endline="139">LocalStorage::get_api_key</references>
+        <references refid="class_local_storage_1a79a337d9f87106bc59e28a9f91796588" compoundref="local__storage_8cpp" startline="97" endline="99">LocalStorage::get_cpm_usvh</references>
+        <references refid="class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65" compoundref="local__storage_8cpp" startline="81" endline="83">LocalStorage::get_device_id</references>
+        <references refid="class_local_storage_1a90c32142b83907cfd9acba79c8221c63" compoundref="local__storage_8cpp" startline="113" endline="115">LocalStorage::get_dop_max</references>
+        <references refid="class_local_storage_1aa662366b5f7c3e35dd844dc93886bde1" compoundref="local__storage_8cpp" startline="105" endline="107">LocalStorage::get_enable_journal</references>
+        <references refid="class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca" compoundref="local__storage_8cpp" startline="145" endline="147">LocalStorage::get_fixed_latitude</references>
+        <references refid="class_local_storage_1a2972e2632be5da773cfa65e23be878e5" compoundref="local__storage_8cpp" startline="141" endline="143">LocalStorage::get_fixed_longitude</references>
+        <references refid="class_local_storage_1aac7014bfb52a62f890592c21ed41c968" compoundref="local__storage_8cpp" startline="149" endline="151">LocalStorage::get_fixed_range</references>
+        <references refid="class_local_storage_1adba9d64409a8a882f4cd36b92e01342b" compoundref="local__storage_8cpp" startline="109" endline="111">LocalStorage::get_log_void</references>
+        <references refid="class_local_storage_1a213ff59d5af95ac21edcded1dc8f2143" compoundref="local__storage_8cpp" startline="101" endline="103">LocalStorage::get_manual_logging</references>
+        <references refid="class_local_storage_1a619ba1c828df4e5c97e7ac77115e72a2" compoundref="local__storage_8cpp" startline="133" endline="135">LocalStorage::get_wifi_password</references>
+        <references refid="class_local_storage_1a8d0807c2fad52121c446d91f85976856" compoundref="local__storage_8cpp" startline="129" endline="131">LocalStorage::get_wifi_ssid</references>
+        <references refid="class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe" compoundref="sd__wrapper_8cpp" startline="69" endline="74">ready</references>
+        <references refid="sd__wrapper_8cpp_1a03d918c3fff42b3127b793fcbc1521ee" compoundref="sd__wrapper_8cpp" startline="46">sd_config_access_point_password_write_f</references>
+        <references refid="sd__wrapper_8cpp_1a9ad954f3d60b05d1dd36a626018d2e00" compoundref="sd__wrapper_8cpp" startline="47">sd_config_alert_threshold_f</references>
+        <references refid="sd__wrapper_8cpp_1a0a19c314a85643ef82614487153b2a47" compoundref="sd__wrapper_8cpp" startline="59">sd_config_api_key_f</references>
+        <references refid="sd__wrapper_8cpp_1a7e8d68334717d393f57b834bbad50511" compoundref="sd__wrapper_8cpp" startline="48">sd_config_cpm_usvh_f</references>
+        <references refid="sd__wrapper_8cpp_1a61ecfa2a1eff3111c758ef203807e699" compoundref="sd__wrapper_8cpp" startline="34">sd_config_device_id_f</references>
+        <references refid="sd__wrapper_8cpp_1a1db333a124b31105387559319c88ec2d" compoundref="sd__wrapper_8cpp" startline="63">sd_config_dop_max_f</references>
+        <references refid="sd__wrapper_8cpp_1ad9f96d48a892421ac14d5df982871c4f" compoundref="sd__wrapper_8cpp" startline="50">sd_config_enable_journal_f</references>
+        <references refid="sd__wrapper_8cpp_1a53ce0b8f308a6648e28d3988a056eb17" compoundref="sd__wrapper_8cpp" startline="60">sd_config_fixed_latitude_f</references>
+        <references refid="sd__wrapper_8cpp_1a70a9775d4baf9ce894b9566e55fdaa3c" compoundref="sd__wrapper_8cpp" startline="61">sd_config_fixed_longitude_f</references>
+        <references refid="sd__wrapper_8cpp_1abb907d5a507b3a98d9b9dd02c0f3db27" compoundref="sd__wrapper_8cpp" startline="62">sd_config_fixed_range_f</references>
+        <references refid="sd__wrapper_8cpp_1a298cda22f9aa524fd3ac516548e1ec0e" compoundref="sd__wrapper_8cpp" startline="51">sd_config_log_void_f</references>
+        <references refid="sd__wrapper_8cpp_1a3323f47c27d8886f58c1f9be1942ec8b" compoundref="sd__wrapper_8cpp" startline="49">sd_config_manual_logging_f</references>
+        <references refid="sd__wrapper_8cpp_1ab1e5559f15733708d3b3ab6316b17425" compoundref="sd__wrapper_8cpp" startline="33">sd_config_version_f</references>
+        <references refid="sd__wrapper_8cpp_1aabb3063b526a9ac0e57d9b638737cca6" compoundref="sd__wrapper_8cpp" startline="58">sd_config_wifi_password_write_f</references>
+        <references refid="sd__wrapper_8cpp_1a72f710a3ca4370aaa43dd7ab2bb207ce" compoundref="sd__wrapper_8cpp" startline="56">sd_config_wifi_ssid_write_f</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" compoundref="bgeigiezen__firmware_2main_8cpp" startline="65">settings</references>
+        <references refid="include_2config_8hpp_1a8f8959f14b4d147636e897f57e4798f9" compoundref="include_2config_8hpp" startline="48">SETUP_FILENAME</references>
+        <references refid="user__config_8h_1affb1ffbd24de6be88bd8ac877aae1688" compoundref="user__config_8h" startline="13">VERSION_NUMBER</references>
+        <referencedby refid="class_controller_1aec53fb71b003add1ecb4fb57df080925" compoundref="controller_8cpp" startline="85" endline="87">Controller::write_sd_config</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_s_d_interface" kindref="compound">SDInterface</ref> &amp;</type>
+        <definition>static SDInterface &amp; SDInterface::i</definition>
+        <argsstring>()</argsstring>
+        <name>i</name>
+        <qualifiedname>SDInterface::i</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Singleton <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="39" column="22" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.h" bodystart="39" bodyend="42"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_sd_logger_1a03701029b7b1906ff9e910c79d509585" compoundref="sd__logger_8cpp" startline="15" endline="36">SdLogger::activate</referencedby>
+        <referencedby refid="class_sd_logger_1a8e8463c086ad85bd39a99bdbe2207cfa" compoundref="sd__logger_8cpp" startline="38" endline="47">SdLogger::deactivate</referencedby>
+        <referencedby refid="class_sd_message_screen_1a37d7575e04491ff6fedae89389694248" compoundref="sd__message_8cpp" startline="150" endline="168">SdMessageScreen::enter_screen</referencedby>
+        <referencedby refid="class_controller_1af1a46a7c8a34f04e6551a977580ede91" compoundref="controller_8cpp" startline="89" endline="94">Controller::factory_reset</referencedby>
+        <referencedby refid="class_base_screen_1a34ca21425e8a0306c8b28669b35216e6" compoundref="base__screen_8cpp" startline="116" endline="137">BaseScreen::get_error_message</referencedby>
+        <referencedby refid="class_sd_logger_1ab55fb4b592ef94b61f23d408aecd7ee1" compoundref="sd__logger_8cpp" startline="49" endline="86">SdLogger::handle_produced_work</referencedby>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+        <referencedby refid="class_controller_1aebc7292ba3c56fbd1402ca76f7a34281" compoundref="controller_8cpp" startline="81" endline="83">Controller::load_sd_config</referencedby>
+        <referencedby refid="class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85" compoundref="drive__mode_8cpp" startline="37" endline="156">DriveModeScreen::render</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50" compoundref="survery__mode_8cpp" startline="30" endline="109">SurveyModeScreen::render</referencedby>
+        <referencedby refid="class_controller_1aec53fb71b003add1ecb4fb57df080925" compoundref="controller_8cpp" startline="85" endline="87">Controller::write_sd_config</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_s_d_interface_1abe0e8e53ae81bfbb63f6b7e54a108aa6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SDInterface::SDInterface</definition>
+        <argsstring>()</argsstring>
+        <name>SDInterface</name>
+        <qualifiedname>SDInterface::SDInterface</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="120" column="3" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="66" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1a86c1d42dbd024ac5ed2c9ffed0b78430" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SDInterface::read_safezen_file_latest</definition>
+        <argsstring>(LocalStorage &amp;settings, File &amp;file)</argsstring>
+        <name>read_safezen_file_latest</name>
+        <qualifiedname>SDInterface::read_safezen_file_latest</qualifiedname>
+        <param>
+          <type><ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">File</ref> &amp;</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Read SAFEZEN.txt file contents on SD card to local storage <simplesect kind="return"><para>true if succeeded </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="126" column="8" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="229" bodyend="382"/>
+      </memberdef>
+      <memberdef kind="function" id="class_s_d_interface_1a707211d27454fecbc714778eef1970dc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void SDInterface::delete_directory</definition>
+        <argsstring>(const char *dirPath)</argsstring>
+        <name>delete_directory</name>
+        <qualifiedname>SDInterface::delete_directory</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>dirPath</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="128" column="8" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.cpp" bodystart="516" bodyend="570"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This singleton class provides an interface to check that the SD card is already connected and operational </para>
+    </detaileddescription>
+    <location file="bgeigiezen_firmware/utils/sd_wrapper.h" line="14" column="1" bodyfile="bgeigiezen_firmware/utils/sd_wrapper.h" bodystart="14" bodyend="135"/>
+    <listofallmembers>
+      <member refid="class_s_d_interface_1a29938ff1f62c19c4637e7efe69140408" prot="private" virt="non-virtual"><scope>SDInterface</scope><name>_device_id</name></member>
+      <member refid="class_s_d_interface_1ae60c2c7309ccf395984350d1e4b37816" prot="private" virt="non-virtual"><scope>SDInterface</scope><name>_last_read</name></member>
+      <member refid="class_s_d_interface_1a853c39e0b90d4bfe6ab8c5f639dc58d6" prot="private" virt="non-virtual"><scope>SDInterface</scope><name>_last_try</name></member>
+      <member refid="class_s_d_interface_1ae54b1336d9ec405bc13a37775e0d5b80" prot="private" virt="non-virtual"><scope>SDInterface</scope><name>_last_write</name></member>
+      <member refid="class_s_d_interface_1a30960b2f738cd1bc41d660ce04347b2e" prot="private" virt="non-virtual"><scope>SDInterface</scope><name>_status</name></member>
+      <member refid="class_s_d_interface_1a809a47ce4ef0dc0ea1918552601cbbdd" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>begin</name></member>
+      <member refid="class_s_d_interface_1a1d00f529d7e34ba8b79d01ecca7577bf" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>can_write_logs</name></member>
+      <member refid="class_s_d_interface_1aa383b96a9103432407c022af1dc3d290" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>clear_all_logs</name></member>
+      <member refid="class_s_d_interface_1a707211d27454fecbc714778eef1970dc" prot="private" virt="non-virtual"><scope>SDInterface</scope><name>delete_directory</name></member>
+      <member refid="class_s_d_interface_1aabe6178f355242e557c214581eba395f" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>delete_log</name></member>
+      <member refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50ab3eaba2df7231bec6b29aee75b5b18c7" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>e_sd_config_status_config_different_id</name></member>
+      <member refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a97640d3ba2438308592c625779e0fe12" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>e_sd_config_status_config_no_content</name></member>
+      <member refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50aca5a6270a52c089d851e54e7919a72cf" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>e_sd_config_status_no_config_file</name></member>
+      <member refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a8a094cf03ccf414f4b77666f6c4e8611" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>e_sd_config_status_not_ready</name></member>
+      <member refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a4220a7d9f2295ecf4a6df95fc73de789" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>e_sd_config_status_ok</name></member>
+      <member refid="class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500a6f24e3394bc18ffac9170adfde185951" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>e_sd_err_file_open_r_fail</name></member>
+      <member refid="class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500a9e6fa9818cf185dba1b2e4f9d34b89d7" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>e_sd_err_file_open_w_fail</name></member>
+      <member refid="class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500af0739939ceb0afbd4c08f58400b510e2" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>e_sd_err_not_ready</name></member>
+      <member refid="class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>end</name></member>
+      <member refid="class_s_d_interface_1ac011e72bed01b65fb3af9cc1242b4f14" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>has_safezen_content</name></member>
+      <member refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>i</name></member>
+      <member refid="class_s_d_interface_1afbb88cd8a67481964cd9f887e54898d5" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>just_wrote</name></member>
+      <member refid="class_s_d_interface_1a77a1a4519025efa2ff17c99f2c3e7d67" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>log_println</name></member>
+      <member refid="class_s_d_interface_1a0e610420f9195a31def20935935bcad6" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>operator=</name></member>
+      <member refid="class_s_d_interface_1a1aa6910b72ec4d30ae716c8818432034" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>operator=</name></member>
+      <member refid="class_s_d_interface_1a86c1d42dbd024ac5ed2c9ffed0b78430" prot="private" virt="non-virtual"><scope>SDInterface</scope><name>read_safezen_file_latest</name></member>
+      <member refid="class_s_d_interface_1a2e3f02d8a0c231ee408f7b4a5d960063" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>read_safezen_file_to_settings</name></member>
+      <member refid="class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>ready</name></member>
+      <member refid="class_s_d_interface_1a9579c7433715db5ea05b8190b8f9ee13" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>rename_log</name></member>
+      <member refid="class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>SdError</name></member>
+      <member refid="class_s_d_interface_1afbcd9b0cdc8f6c6eabf2202aabf78a93" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>SDInterface</name></member>
+      <member refid="class_s_d_interface_1a89395c7916aff77ceecb5d4e9932b2c6" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>SDInterface</name></member>
+      <member refid="class_s_d_interface_1abe0e8e53ae81bfbb63f6b7e54a108aa6" prot="private" virt="non-virtual"><scope>SDInterface</scope><name>SDInterface</name></member>
+      <member refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>SdStatus</name></member>
+      <member refid="class_s_d_interface_1a516ce1d47ca0a80250dca3c3d3d44e5c" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>setup_log</name></member>
+      <member refid="class_s_d_interface_1abdd9e014e0bab83e0ab99c8807f2e5fd" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>status</name></member>
+      <member refid="class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799" prot="public" virt="non-virtual"><scope>SDInterface</scope><name>write_safezen_file_from_settings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

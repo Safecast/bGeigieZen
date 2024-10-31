@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_log_aggregator" kind="class" language="C++" prot="public">
+    <compoundname>LogAggregator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ProcessWorker&lt; DataLine &gt;</basecompoundref>
+    <includes refid="log__aggregator_8h" local="no">log_aggregator.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_log_aggregator_1a05f992ae341e9147ac650902f87d7e76" prot="private" static="no" mutable="no">
+        <type><ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+        <definition>LocalStorage&amp; LogAggregator::_settings</definition>
+        <argsstring></argsstring>
+        <name>_settings</name>
+        <qualifiedname>LogAggregator::_settings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="44" column="16" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_log_aggregator_1add1b127c42f548f98c79ac2ad3a51699" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double LogAggregator::_last_latitude</definition>
+        <argsstring></argsstring>
+        <name>_last_latitude</name>
+        <qualifiedname>LogAggregator::_last_latitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="45" column="10" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_log_aggregator_1aa7188afb08b10ec23f195ff7476d52ef" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double LogAggregator::_last_longitude</definition>
+        <argsstring></argsstring>
+        <name>_last_longitude</name>
+        <qualifiedname>LogAggregator::_last_longitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="46" column="10" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_log_aggregator_1a8579c4b144649166f3689c9177c8f3e9" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LogAggregator::LogAggregator</definition>
+        <argsstring>(LocalStorage &amp;settings)</argsstring>
+        <name>LogAggregator</name>
+        <qualifiedname>LogAggregator::LogAggregator</qualifiedname>
+        <param>
+          <type><ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="37" column="12" bodyfile="bgeigiezen_firmware/workers/log_aggregator.cpp" bodystart="39" bodyend="41"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t LogAggregator::produce_data</definition>
+        <argsstring>(const WorkerMap &amp;workers) override</argsstring>
+        <name>produce_data</name>
+        <qualifiedname>LogAggregator::produce_data</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">WorkerMap</ref> &amp;</type>
+          <declname>workers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="41" column="10" bodyfile="bgeigiezen_firmware/workers/log_aggregator.cpp" bodystart="44" bodyend="128"/>
+        <references refid="logger_8cpp_1a77b34e269d2a6500076f032667578f0b" compoundref="logger_8cpp" startline="6" endline="13">checksum</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="log__aggregator_8cpp_1a2a3c66cbe993c2d69da64f0576581018" compoundref="log__aggregator_8cpp" startline="15" endline="19">dd_to_dm</references>
+        <references refid="include_2config_8hpp_1a13b51bdb19001339023a073629d0d18e" compoundref="include_2config_8hpp" startline="24">DEVICE_HEADER</references>
+        <references refid="class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65" compoundref="local__storage_8cpp" startline="81" endline="83">LocalStorage::get_device_id</references>
+        <references refid="class_local_storage_1a90c32142b83907cfd9acba79c8221c63" compoundref="local__storage_8cpp" startline="113" endline="115">LocalStorage::get_dop_max</references>
+        <references refid="class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca" compoundref="local__storage_8cpp" startline="145" endline="147">LocalStorage::get_fixed_latitude</references>
+        <references refid="class_local_storage_1a2972e2632be5da773cfa65e23be878e5" compoundref="local__storage_8cpp" startline="141" endline="143">LocalStorage::get_fixed_longitude</references>
+        <references refid="class_local_storage_1aac7014bfb52a62f890592c21ed41c968" compoundref="local__storage_8cpp" startline="149" endline="151">LocalStorage::get_fixed_range</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" compoundref="bgeigiezen__firmware_2main_8cpp" startline="74">gm_sensor</references>
+        <references refid="functions_8h_1a9b1d6cb0ae5f9e0e2eb8547c8d1fa038" compoundref="functions_8h" startline="19" endline="25">haversine_km</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa6daa8cab2f33582eddf479bf8dc018d9" compoundref="identifiers_8h" startline="12">k_worker_battery_indicator</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fadce40ed07be9b46afdd704f59b77a907" compoundref="identifiers_8h" startline="11">k_worker_gm_sensor</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211" compoundref="identifiers_8h" startline="13">k_worker_gps_connector</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Log aggregator listens to sensor data from GPS and Geigie counter, and creates single, complete readings to log every 5 seconds Used by SD logger, API connector, BT connector </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>LogAggregator</label>
+        <link refid="class_log_aggregator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ProcessWorker&lt; DataLine &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>LogAggregator</label>
+        <link refid="class_log_aggregator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ProcessWorker&lt; DataLine &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="35" column="1" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="35" bodyend="47"/>
+    <listofallmembers>
+      <member refid="class_log_aggregator_1add1b127c42f548f98c79ac2ad3a51699" prot="private" virt="non-virtual"><scope>LogAggregator</scope><name>_last_latitude</name></member>
+      <member refid="class_log_aggregator_1aa7188afb08b10ec23f195ff7476d52ef" prot="private" virt="non-virtual"><scope>LogAggregator</scope><name>_last_longitude</name></member>
+      <member refid="class_log_aggregator_1a05f992ae341e9147ac650902f87d7e76" prot="private" virt="non-virtual"><scope>LogAggregator</scope><name>_settings</name></member>
+      <member refid="class_log_aggregator_1a8579c4b144649166f3689c9177c8f3e9" prot="public" virt="non-virtual"><scope>LogAggregator</scope><name>LogAggregator</name></member>
+      <member refid="class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494" prot="protected" virt="non-virtual"><scope>LogAggregator</scope><name>produce_data</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

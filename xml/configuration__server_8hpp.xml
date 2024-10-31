@@ -1,0 +1,338 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="configuration__server_8hpp" kind="file" language="C++">
+    <compoundname>configuration_server.hpp</compoundname>
+    <includes local="no">WiFi.h</includes>
+    <includes local="no">WebServer.h</includes>
+    <includes refid="include_2display_8hpp" local="no">display.hpp</includes>
+    <includes refid="wifi__connection_8hpp" local="no">wifi_connection.hpp</includes>
+    <includedby refid="include_2display_8hpp" local="no">archive/bgeigie_firmware_pio/include/display.hpp</includedby>
+    <includedby refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" local="no">archive/bgeigie_firmware_pio/src/configuration_server.cpp</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>TinyGPS++.h</label>
+        <link refid="include_2_tiny_g_p_s_09_09_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>config.hpp</label>
+        <link refid="include_2config_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/include/configuration_server.hpp</label>
+        <link refid="configuration__server_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>display.hpp</label>
+        <link refid="include_2display_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>geiger_counter.hpp</label>
+        <link refid="include_2geiger__counter_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>gps.hpp</label>
+        <link refid="include_2gps_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>hardwarecounter.hpp</label>
+        <link refid="include_2hardwarecounter_8hpp"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>menu.hpp</label>
+        <link refid="menu_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>motion.hpp</label>
+        <link refid="motion_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>setup.hpp</label>
+        <link refid="include_2setup_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>wifi_connection.hpp</label>
+        <link refid="wifi__connection_8hpp"/>
+      </node>
+      <node id="13">
+        <label>M5Core2.h</label>
+      </node>
+      <node id="14">
+        <label>Preferences.h</label>
+      </node>
+      <node id="23">
+        <label>RBD_Timer.h</label>
+      </node>
+      <node id="20">
+        <label>Ticker.h</label>
+      </node>
+      <node id="6">
+        <label>WProgram.h</label>
+      </node>
+      <node id="3">
+        <label>WebServer.h</label>
+      </node>
+      <node id="2">
+        <label>WiFi.h</label>
+      </node>
+      <node id="17">
+        <label>array</label>
+      </node>
+      <node id="9">
+        <label>cstdint</label>
+      </node>
+      <node id="10">
+        <label>cstdlib</label>
+      </node>
+      <node id="12">
+        <label>cstring</label>
+      </node>
+      <node id="21">
+        <label>driver/pcnt.h</label>
+      </node>
+      <node id="19">
+        <label>limits</label>
+      </node>
+      <node id="7">
+        <label>limits.h</label>
+      </node>
+      <node id="22">
+        <label>utility/M5Button.h</label>
+      </node>
+      <node id="25">
+        <label>utility/MPU6886.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/include/configuration_server.hpp</label>
+        <link refid="configuration__server_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>archive/bgeigie_firmware_pio/include/display.hpp</label>
+        <link refid="include_2display_8hpp"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>archive/bgeigie_firmware_pio/include/fsm_context.hpp</label>
+        <link refid="include_2fsm__context_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>archive/bgeigie_firmware_pio/include/fsm_state_base.hpp</label>
+        <link refid="include_2fsm__state__base_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>archive/bgeigie_firmware_pio/include/fsm_state_concrete.hpp</label>
+        <link refid="include_2fsm__state__concrete_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>archive/bgeigie_firmware_pio/include/menu.hpp</label>
+        <link refid="menu_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>archive/bgeigie_firmware_pio/src/configuration_server.cpp</label>
+        <link refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp"/>
+      </node>
+      <node id="7">
+        <label>archive/bgeigie_firmware_pio/src/display.cpp</label>
+        <link refid="display_8cpp"/>
+      </node>
+      <node id="8">
+        <label>archive/bgeigie_firmware_pio/src/menu.cpp</label>
+        <link refid="menu_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_config_web_server" prot="public">ConfigWebServer</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="configuration__server_8hpp_1a23331e5df325fea12f9a553d3b1cab4a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ServerStatus</name>
+        <enumvalue id="configuration__server_8hpp_1a23331e5df325fea12f9a553d3b1cab4aa4b8c7d857d90208a15c3af10b3eaf36a" prot="public">
+          <name>k_server_status_offline</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="configuration__server_8hpp_1a23331e5df325fea12f9a553d3b1cab4aacdcee34b8952d730fe2ec62d29195b4c" prot="public">
+          <name>k_server_status_running_wifi</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="configuration__server_8hpp_1a23331e5df325fea12f9a553d3b1cab4aae66ec56782b751934b4ae350253e524c" prot="public">
+          <name>k_server_status_running_access_point</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/configuration_server.hpp" line="11" column="1" bodyfile="archive/bgeigie_firmware_pio/include/configuration_server.hpp" bodystart="11" bodyend="15"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>BGEIGIEZEN_SERVER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BGEIGIEZEN_SERVER_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;WiFi.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;WebServer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="src_2display_8hpp" kindref="compound">display.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&quot;local_storage.h&quot;<sp/>/**<sp/>TODO:<sp/>Figure<sp/>out<sp/>where<sp/>to<sp/>write<sp/>the<sp/>configuration<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="wifi__connection_8hpp" kindref="compound">wifi_connection.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="configuration__server_8hpp_1a23331e5df325fea12f9a553d3b1cab4a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="configuration__server_8hpp_1a23331e5df325fea12f9a553d3b1cab4a" kindref="member">ServerStatus</ref><sp/>{</highlight></codeline>
+<codeline lineno="12" refid="configuration__server_8hpp_1a23331e5df325fea12f9a553d3b1cab4aa4b8c7d857d90208a15c3af10b3eaf36a" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="configuration__server_8hpp_1a23331e5df325fea12f9a553d3b1cab4aa4b8c7d857d90208a15c3af10b3eaf36a" kindref="member">k_server_status_offline</ref>,</highlight></codeline>
+<codeline lineno="13" refid="configuration__server_8hpp_1a23331e5df325fea12f9a553d3b1cab4aacdcee34b8952d730fe2ec62d29195b4c" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="configuration__server_8hpp_1a23331e5df325fea12f9a553d3b1cab4aacdcee34b8952d730fe2ec62d29195b4c" kindref="member">k_server_status_running_wifi</ref>,</highlight></codeline>
+<codeline lineno="14" refid="configuration__server_8hpp_1a23331e5df325fea12f9a553d3b1cab4aae66ec56782b751934b4ae350253e524c" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="configuration__server_8hpp_1a23331e5df325fea12f9a553d3b1cab4aae66ec56782b751934b4ae350253e524c" kindref="member">k_server_status_running_access_point</ref>,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="class_config_web_server" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_config_web_server" kindref="compound">ConfigWebServer</ref><sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="23" refid="class_config_web_server_1a7e951751a94a176867f7443e24545987" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_config_web_server_1a7e951751a94a176867f7443e24545987" kindref="member">ConfigWebServer</ref>(<ref refid="class_display" kindref="compound">Display</ref>&amp;<sp/>display);</highlight></codeline>
+<codeline lineno="24" refid="class_config_web_server_1a25c459b986060d38b5557e1eb42a0f4f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_config_web_server_1a25c459b986060d38b5557e1eb42a0f4f" kindref="member">~ConfigWebServer</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>int8_t<sp/><ref refid="class_config_web_server_1a5466445c2a77e40eba794ba0ac2f809f" kindref="member">produce_data</ref>();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" kindref="member">add_urls</ref>();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//void<sp/>handle_report(const<sp/>Report&amp;<sp/>report)<sp/>override;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_config_web_server_1a5fba48f2cf78029036a923eb27bc0674" kindref="member">activate</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">retry</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_config_web_server_1ac0bce5e4a438388e030c21d56243c643" kindref="member">deactivate</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>handle_save();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>handle_update_uploading();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">WebServer</ref><sp/>_server;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>LocalStorage&amp;<sp/>_config;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//BGEIGIECAST_SERVER_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="archive/bgeigie_firmware_pio/include/configuration_server.hpp"/>
+  </compounddef>
+</doxygen>

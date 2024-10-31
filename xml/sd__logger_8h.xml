@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="sd__logger_8h" kind="file" language="C++">
+    <compoundname>sd_logger.h</compoundname>
+    <includes local="no">Handler.hpp</includes>
+    <includes refid="local__storage_8h" local="yes">workers/local_storage.h</includes>
+    <includes refid="user__config_8h" local="yes">user_config.h</includes>
+    <includes refid="log__aggregator_8h" local="yes">workers/log_aggregator.h</includes>
+    <includedby refid="sd__logger_8cpp" local="yes">bgeigiezen_firmware/handlers/sd_logger.cpp</includedby>
+    <includedby refid="bgeigiezen__firmware_2main_8cpp" local="yes">bgeigiezen_firmware/main.cpp</includedby>
+    <includedby refid="drive__mode_8cpp" local="yes">bgeigiezen_firmware/screens/drive_mode.cpp</includedby>
+    <includedby refid="survery__mode_8cpp" local="yes">bgeigiezen_firmware/screens/survery_mode.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>bgeigiezen_firmware/handlers/sd_logger.h</label>
+        <link refid="sd__logger_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>workers/local_storage.h</label>
+        <link refid="local__storage_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>workers/log_aggregator.h</label>
+        <link refid="log__aggregator_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Handler.hpp</label>
+      </node>
+      <node id="6">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="4">
+        <label>Preferences.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>bgeigiezen_firmware/handlers/sd_logger.cpp</label>
+        <link refid="sd__logger_8cpp"/>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/handlers/sd_logger.h</label>
+        <link refid="sd__logger_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>bgeigiezen_firmware/main.cpp</label>
+        <link refid="bgeigiezen__firmware_2main_8cpp"/>
+      </node>
+      <node id="4">
+        <label>bgeigiezen_firmware/screens/drive_mode.cpp</label>
+        <link refid="drive__mode_8cpp"/>
+      </node>
+      <node id="5">
+        <label>bgeigiezen_firmware/screens/survery_mode.cpp</label>
+        <link refid="survery__mode_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_sd_logger" prot="public">SdLogger</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>BGEIGIEZEN_JOURNAL_LOGGER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BGEIGIEZEN_JOURNAL_LOGGER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Handler.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="local__storage_8h" kindref="compound">workers/local_storage.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="user__config_8h" kindref="compound">user_config.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="log__aggregator_8h" kindref="compound">workers/log_aggregator.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="class_sd_logger" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_sd_logger" kindref="compound">SdLogger</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Handler<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15" refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44b" kindref="member">LogType</ref><sp/>{</highlight></codeline>
+<codeline lineno="16" refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44bab545cc1bdb3f42f80a36701d68555ff1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44bab545cc1bdb3f42f80a36701d68555ff1" kindref="member">journal</ref>,</highlight></codeline>
+<codeline lineno="17" refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44ba7c405a0c04deffbf82e78a0f9765614a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44ba7c405a0c04deffbf82e78a0f9765614a" kindref="member">survey</ref>,</highlight></codeline>
+<codeline lineno="18" refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44ba53399929e212628cffd59c173abb1094" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44ba53399929e212628cffd59c173abb1094" kindref="member">drive</ref>,</highlight></codeline>
+<codeline lineno="19" refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44baec4026695297a2544dde006c3115edd7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44baec4026695297a2544dde006c3115edd7" kindref="member">error</ref>,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_sd_logger" kindref="compound">SdLogger</ref>(<ref refid="class_local_storage" kindref="compound">LocalStorage</ref>&amp;<sp/>config,<sp/><ref refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44b" kindref="member">LogType</ref><sp/>type);</highlight></codeline>
+<codeline lineno="23" refid="class_sd_logger_1af7b5361e519fc8ad83c39b5a43aef02d" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_sd_logger_1af7b5361e519fc8ad83c39b5a43aef02d" kindref="member">~SdLogger</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_sd_logger_1a03701029b7b1906ff9e910c79d509585" kindref="member">activate</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">retry</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sd_logger_1a8e8463c086ad85bd39a99bdbe2207cfa" kindref="member">deactivate</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>int8_t<sp/><ref refid="class_sd_logger_1ab55fb4b592ef94b61f23d408aecd7ee1" kindref="member">handle_produced_work</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>get_dir()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="class_local_storage" kindref="compound">LocalStorage</ref>&amp;<sp/>_config;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><ref refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44b" kindref="member">LogType</ref><sp/>_log_type;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>_logging_to[<ref refid="user__config_8h_1a75f97d568a246165199355e9c8272011" kindref="member">LOG_FILENAME_SIZE</ref>];</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_is_temp;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>uint32_t<sp/>_total;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//BGEIGIEZEN_JOURNAL_LOGGER_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/handlers/sd_logger.h"/>
+  </compounddef>
+</doxygen>

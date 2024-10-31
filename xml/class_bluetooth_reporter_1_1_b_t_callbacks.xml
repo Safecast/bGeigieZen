@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_bluetooth_reporter_1_1_b_t_callbacks" kind="class" language="C++" prot="private">
+    <compoundname>BluetoothReporter::BTCallbacks</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">BLEServerCallbacks</basecompoundref>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_bluetooth_reporter_1_1_b_t_callbacks_1acd728a6db2abe120e2137830776fd103" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BluetoothReporter::BTCallbacks::onConnect</definition>
+        <argsstring>(BLEServer *pServer)</argsstring>
+        <name>onConnect</name>
+        <qualifiedname>BluetoothReporter::BTCallbacks::onConnect</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">BLEServer</ref> *</type>
+          <declname>pServer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/bluetooth_reporter.h" line="37" column="10" bodyfile="bgeigiezen_firmware/handlers/bluetooth_reporter.h" bodystart="37" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bluetooth_reporter_1_1_b_t_callbacks_1a510b3da60834a1825089dafde98984a8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BluetoothReporter::BTCallbacks::onDisconnect</definition>
+        <argsstring>(BLEServer *pServer)</argsstring>
+        <name>onDisconnect</name>
+        <qualifiedname>BluetoothReporter::BTCallbacks::onDisconnect</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">BLEServer</ref> *</type>
+          <declname>pServer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/bluetooth_reporter.h" line="41" column="10" bodyfile="bgeigiezen_firmware/handlers/bluetooth_reporter.h" bodystart="41" bodyend="43"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BLEServerCallbacks</label>
+      </node>
+      <node id="1">
+        <label>BluetoothReporter::BTCallbacks</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BLEServerCallbacks</label>
+      </node>
+      <node id="1">
+        <label>BluetoothReporter::BTCallbacks</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/handlers/bluetooth_reporter.h" line="36" column="3" bodyfile="bgeigiezen_firmware/handlers/bluetooth_reporter.h" bodystart="36" bodyend="44"/>
+    <listofallmembers>
+      <member refid="class_bluetooth_reporter_1_1_b_t_callbacks_1acd728a6db2abe120e2137830776fd103" prot="private" virt="non-virtual"><scope>BluetoothReporter::BTCallbacks</scope><name>onConnect</name></member>
+      <member refid="class_bluetooth_reporter_1_1_b_t_callbacks_1a510b3da60834a1825089dafde98984a8" prot="private" virt="non-virtual"><scope>BluetoothReporter::BTCallbacks</scope><name>onDisconnect</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

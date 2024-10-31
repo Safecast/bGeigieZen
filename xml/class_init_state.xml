@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_init_state" kind="class" language="C++" prot="public">
+    <compoundname>InitState</compoundname>
+    <basecompoundref refid="class_menu_state" prot="public" virt="non-virtual">MenuState</basecompoundref>
+    <includes refid="menu_8hpp" local="no">menu.hpp</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_init_state_1aa9862d3b06712801c7971dfb4f6d7b6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void InitState::on_entry</definition>
+        <argsstring>(MenuContext *context)</argsstring>
+        <name>on_entry</name>
+        <qualifiedname>InitState::on_entry</qualifiedname>
+        <reimplements refid="class_menu_state_1acd29e722c964ac3926c9042b15fd9712">on_entry</reimplements>
+        <param>
+          <type><ref refid="class_menu_context" kindref="compound">MenuContext</ref> *</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>TODO: Eliminate duplication from <ref refid="class_display_1aa64573075ec3f5141cb7906c9cbb4ad1" kindref="member">Display::draw_base</ref> and draw_navbar</para>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/menu.hpp" line="48" column="10" bodyfile="archive/bgeigie_firmware_pio/src/menu.cpp" bodystart="39" bodyend="93"/>
+        <references refid="user__config_8h_1a61e55f831ccc0dca94bf0e0f121f2a7c" compoundref="user__config_8h" startline="96">ACCESS_POINT_SSID</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2main_8cpp_1af73e715b5b0bbc5ea42336c758ceda5f" compoundref="archive_2bgeigie__firmware__pio_2src_2main_8cpp" startline="7">context</references>
+      </memberdef>
+      <memberdef kind="function" id="class_init_state_1a55d3c6ca4119b23a0ce079116b3be7ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void InitState::on_exit</definition>
+        <argsstring>(MenuContext *context)</argsstring>
+        <name>on_exit</name>
+        <qualifiedname>InitState::on_exit</qualifiedname>
+        <reimplements refid="class_menu_state_1a1a4c87b679b923de723deaad8ed03361">on_exit</reimplements>
+        <param>
+          <type><ref refid="class_menu_context" kindref="compound">MenuContext</ref> *</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/menu.hpp" line="49" column="10" bodyfile="archive/bgeigie_firmware_pio/src/menu.cpp" bodystart="95" bodyend="95"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="class_init_state_1a872bd60375e54093bc025337998ef08c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void InitState::update</definition>
+        <argsstring>(MenuContext *context)</argsstring>
+        <name>update</name>
+        <qualifiedname>InitState::update</qualifiedname>
+        <reimplements refid="class_menu_state_1ade23ec3aca339602fc6145ca7594b69b">update</reimplements>
+        <param>
+          <type><ref refid="class_menu_context" kindref="compound">MenuContext</ref> *</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/menu.hpp" line="50" column="10" bodyfile="archive/bgeigie_firmware_pio/src/menu.cpp" bodystart="97" bodyend="125"/>
+        <references refid="menu_8cpp_1a4d6e7e2c0f02c2dd91055a5586326513" compoundref="menu_8cpp" startline="8" endline="8">cfgstate</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2main_8cpp_1af73e715b5b0bbc5ea42336c758ceda5f" compoundref="archive_2bgeigie__firmware__pio_2src_2main_8cpp" startline="7">context</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>InitState</label>
+        <link refid="class_init_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MenuState</label>
+        <link refid="class_menu_state"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="18">
+        <label>ConfigWebServer</label>
+        <link refid="class_config_web_server"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>DimBlankTiming</label>
+        <link refid="class_dim_blank_timing"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>delay_blanking</edgelabel>
+          <edgelabel>delay_dimming</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Display</label>
+        <link refid="class_display"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>wificonn</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>webserver</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>DisplayData</label>
+        <link refid="struct_display_data"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>device_id</edgelabel>
+          <edgelabel>geiger_cpm</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>gps_satellites</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>gps_altitude</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>gps_speed</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>gps_course</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>gps_location</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>gps_time</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>gps_date</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>battery_level</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>InitState</label>
+        <link refid="class_init_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>MenuContext</label>
+        <link refid="class_menu_context"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>dimblank_choices</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>main_display</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MenuState</label>
+        <link refid="class_menu_state"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>mcontext_</edgelabel>
+        </childnode>
+      </node>
+      <node id="9">
+        <label>TinyGPSAltitude</label>
+        <link refid="struct_tiny_g_p_s_altitude"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>TinyGPSCourse</label>
+        <link refid="struct_tiny_g_p_s_course"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>TinyGPSDate</label>
+        <link refid="struct_tiny_g_p_s_date"/>
+      </node>
+      <node id="10">
+        <label>TinyGPSDecimal</label>
+        <link refid="struct_tiny_g_p_s_decimal"/>
+      </node>
+      <node id="8">
+        <label>TinyGPSInteger</label>
+        <link refid="struct_tiny_g_p_s_integer"/>
+      </node>
+      <node id="13">
+        <label>TinyGPSLocation</label>
+        <link refid="struct_tiny_g_p_s_location"/>
+      </node>
+      <node id="11">
+        <label>TinyGPSSpeed</label>
+        <link refid="struct_tiny_g_p_s_speed"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>TinyGPSTime</label>
+        <link refid="struct_tiny_g_p_s_time"/>
+      </node>
+      <node id="17">
+        <label>WiFiConnection</label>
+        <link refid="class_wi_fi_connection"/>
+      </node>
+      <node id="19">
+        <label>Worker&lt; ServerStatus &gt;</label>
+      </node>
+      <node id="16">
+        <label>int8_t</label>
+      </node>
+      <node id="5">
+        <label>uint32_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="archive/bgeigie_firmware_pio/include/menu.hpp" line="46" column="1" bodyfile="archive/bgeigie_firmware_pio/include/menu.hpp" bodystart="46" bodyend="52"/>
+    <listofallmembers>
+      <member refid="class_menu_state_1a2890e7397a2c06403b61204bf946525a" prot="protected" virt="non-virtual"><scope>InitState</scope><name>mcontext_</name></member>
+      <member refid="class_init_state_1aa9862d3b06712801c7971dfb4f6d7b6f" prot="public" virt="virtual"><scope>InitState</scope><name>on_entry</name></member>
+      <member refid="class_init_state_1a55d3c6ca4119b23a0ce079116b3be7ac" prot="public" virt="virtual"><scope>InitState</scope><name>on_exit</name></member>
+      <member refid="class_menu_state_1a0ffb3360e91b86375dc079ceed77b67b" prot="public" virt="non-virtual"><scope>InitState</scope><name>set_context</name></member>
+      <member refid="class_init_state_1a872bd60375e54093bc025337998ef08c" prot="public" virt="virtual"><scope>InitState</scope><name>update</name></member>
+      <member refid="class_menu_state_1abbd5869601cb7673c38e9deb44b4342a" prot="public" virt="virtual"><scope>InitState</scope><name>~MenuState</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
