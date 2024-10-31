@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_navsat_collector" kind="class" language="C++" prot="public">
+    <compoundname>NavsatCollector</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Worker&lt; NavsatData &gt;</basecompoundref>
+    <includes refid="navsat__collector_8h" local="no">navsat_collector.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_navsat_collector_1a451f1f70499bd2dc27cf92bebd6a714f" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TeenyUbloxConnect</ref> &amp;</type>
+        <definition>TeenyUbloxConnect&amp; NavsatCollector::_gnss</definition>
+        <argsstring></argsstring>
+        <name>_gnss</name>
+        <qualifiedname>NavsatCollector::_gnss</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/navsat_collector.h" line="32" column="21" bodyfile="bgeigiezen_firmware/workers/navsat_collector.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_navsat_collector_1aeaa2bb2eff97171c176346039bc80511" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NavsatCollector::NavsatCollector</definition>
+        <argsstring>(TeenyUbloxConnect &amp;_gnss)</argsstring>
+        <name>NavsatCollector</name>
+        <qualifiedname>NavsatCollector::NavsatCollector</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TeenyUbloxConnect</ref> &amp;</type>
+          <declname>_gnss</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/navsat_collector.h" line="21" column="12" bodyfile="bgeigiezen_firmware/workers/navsat_collector.cpp" bodystart="4" bodyend="8"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="class_navsat_collector_1a5e705a554a6ea3a901e74d6446a2043f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual NavsatCollector::~NavsatCollector</definition>
+        <argsstring>()=default</argsstring>
+        <name>~NavsatCollector</name>
+        <qualifiedname>NavsatCollector::~NavsatCollector</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/navsat_collector.h" line="23" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navsat_collector_1ad94174b1af2175c4c484cd3d8b0e1f2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool NavsatCollector::activate</definition>
+        <argsstring>(bool retry) override</argsstring>
+        <name>activate</name>
+        <qualifiedname>NavsatCollector::activate</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>retry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if auto NAVSAT has been set, only if GPS module is already initialized. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/navsat_collector.h" line="25" column="8" bodyfile="bgeigiezen_firmware/workers/navsat_collector.cpp" bodystart="13" bodyend="19"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="class_navsat_collector_1a89eb998ac1a3dda3f2ec94b3f50232ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void NavsatCollector::deactivate</definition>
+        <argsstring>() override</argsstring>
+        <name>deactivate</name>
+        <qualifiedname>NavsatCollector::deactivate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/navsat_collector.h" line="27" column="8" bodyfile="bgeigiezen_firmware/workers/navsat_collector.cpp" bodystart="21" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_navsat_collector_1a6a35cc446ad59a57f7fa243aa01b3e5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t NavsatCollector::produce_data</definition>
+        <argsstring>() override</argsstring>
+        <name>produce_data</name>
+        <qualifiedname>NavsatCollector::produce_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/navsat_collector.h" line="29" column="10" bodyfile="bgeigiezen_firmware/workers/navsat_collector.cpp" bodystart="25" bodyend="35"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>GPS device worker, produces the current GPS location. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>NavsatCollector</label>
+        <link refid="class_navsat_collector"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Worker&lt; NavsatData &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>NavsatCollector</label>
+        <link refid="class_navsat_collector"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Worker&lt; NavsatData &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/workers/navsat_collector.h" line="18" column="1" bodyfile="bgeigiezen_firmware/workers/navsat_collector.h" bodystart="18" bodyend="33"/>
+    <listofallmembers>
+      <member refid="class_navsat_collector_1a451f1f70499bd2dc27cf92bebd6a714f" prot="private" virt="non-virtual"><scope>NavsatCollector</scope><name>_gnss</name></member>
+      <member refid="class_navsat_collector_1ad94174b1af2175c4c484cd3d8b0e1f2d" prot="public" virt="non-virtual"><scope>NavsatCollector</scope><name>activate</name></member>
+      <member refid="class_navsat_collector_1a89eb998ac1a3dda3f2ec94b3f50232ce" prot="public" virt="non-virtual"><scope>NavsatCollector</scope><name>deactivate</name></member>
+      <member refid="class_navsat_collector_1aeaa2bb2eff97171c176346039bc80511" prot="public" virt="non-virtual"><scope>NavsatCollector</scope><name>NavsatCollector</name></member>
+      <member refid="class_navsat_collector_1a6a35cc446ad59a57f7fa243aa01b3e5c" prot="public" virt="non-virtual"><scope>NavsatCollector</scope><name>produce_data</name></member>
+      <member refid="class_navsat_collector_1a5e705a554a6ea3a901e74d6446a2043f" prot="public" virt="virtual"><scope>NavsatCollector</scope><name>~NavsatCollector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

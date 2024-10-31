@@ -1,0 +1,354 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="http__pages_8h" kind="file" language="C++">
+    <compoundname>http_pages.h</compoundname>
+    <includes local="no">WebServer.h</includes>
+    <includes refid="local__storage_8h" local="no">workers/local_storage.h</includes>
+    <includedby refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" local="yes">archive/bgeigie_firmware_pio/src/configuration_server.cpp</includedby>
+    <includedby refid="http__pages_8cpp" local="yes">bgeigiezen_firmware/utils/http_pages.cpp</includedby>
+    <includedby refid="bgeigiezen__firmware_2workers_2configuration__server_8cpp" local="yes">bgeigiezen_firmware/workers/configuration_server.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>bgeigiezen_firmware/utils/http_pages.h</label>
+        <link refid="http__pages_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>workers/local_storage.h</label>
+        <link refid="local__storage_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Handler.hpp</label>
+      </node>
+      <node id="4">
+        <label>Preferences.h</label>
+      </node>
+      <node id="2">
+        <label>WebServer.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>archive/bgeigie_firmware_pio/src/configuration_server.cpp</label>
+        <link refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp"/>
+      </node>
+      <node id="3">
+        <label>bgeigiezen_firmware/utils/http_pages.cpp</label>
+        <link refid="http__pages_8cpp"/>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/utils/http_pages.h</label>
+        <link refid="http__pages_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>bgeigiezen_firmware/workers/configuration_server.cpp</label>
+        <link refid="bgeigiezen__firmware_2workers_2configuration__server_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_http_pages" prot="public">HttpPages</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="http__pages_8h_1aebb78aa92bb82104805350394cf60e62" prot="public" static="no">
+        <name>TRANSMISSION_SIZE</name>
+        <initializer>6000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="7" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1ada5878d891f82a42326746c9dbe6b9a6" prot="public" static="no">
+        <name>PURE_CSS_SIZE</name>
+        <initializer>3929</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="9" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1abc7068a1efb6caca697cbfa09cb56f32" prot="public" static="no">
+        <name>FAVICON_SIZE</name>
+        <initializer>696</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="10" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1ad8c4fff45a5a2de52e574e24cdf12538" prot="public" static="no">
+        <name>FORM_NAME_ALERT_THRESHOLD</name>
+        <initializer>&quot;d_al&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="15" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1a86d39a0de4041c963b6e625be363a1ad" prot="public" static="no">
+        <name>FORM_NAME_CPM_USVH</name>
+        <initializer>&quot;d_cu&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="16" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1ada823b1f31aaaee10bc3b846f1434a53" prot="public" static="no">
+        <name>FORM_NAME_MANUAL_LOGGING</name>
+        <initializer>&quot;d_ml&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="17" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1a86f8f5a04f35476f4a489e8b74db6366" prot="public" static="no">
+        <name>FORM_NAME_ENABLE_JOURNAL</name>
+        <initializer>&quot;d_ej&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="18" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1a601dbed3cd2afa2f9f7cb55ff669923e" prot="public" static="no">
+        <name>FORM_NAME_LOG_VOID</name>
+        <initializer>&quot;d_lv&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="19" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1aa407c1d67e39d469202d6ed135bbbdd2" prot="public" static="no">
+        <name>FORM_NAME_SCREEN_DIM_TIMEOUT</name>
+        <initializer>&quot;d_dt&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="20" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1ac6d9c7f4b2aa55af0b004cd15cb02fca" prot="public" static="no">
+        <name>FORM_NAME_SCREEN_OFF_TIMEOUT</name>
+        <initializer>&quot;d_ot&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="21" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1a0675ea7383d4e03c537b8c29cb4476e6" prot="public" static="no">
+        <name>FORM_NAME_ANIMATED_SCREENSAVER</name>
+        <initializer>&quot;d_as&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="22" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1ae7358aae4052b227beb51c8e36519387" prot="public" static="no">
+        <name>FORM_NAME_AP_LOGIN</name>
+        <initializer>&quot;c_ap&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="25" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1a96d41a86c2cbed3a1a481f9124820640" prot="public" static="no">
+        <name>FORM_NAME_WIFI_SSID</name>
+        <initializer>&quot;c_ws&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="26" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1a1c66dedc46fd01c917f6d9d61867b169" prot="public" static="no">
+        <name>FORM_NAME_WIFI_PASS</name>
+        <initializer>&quot;c_wp&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="27" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1ae05bc8c6aa3fdd1c77743317486bbe25" prot="public" static="no">
+        <name>FORM_NAME_API_KEY</name>
+        <initializer>&quot;c_ak&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="28" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1a096f276a1b519da8d831533f74ace4b7" prot="public" static="no">
+        <name>FORM_NAME_LOC_FIXED_LAT</name>
+        <initializer>&quot;l_ha&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="31" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1adcc40f6da0a247463f074731e8907d73" prot="public" static="no">
+        <name>FORM_NAME_LOC_FIXED_LON</name>
+        <initializer>&quot;l_ho&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="32" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1a95ce4b4f383e36ec196282a39826f6c5" prot="public" static="no">
+        <name>FORM_NAME_FIXED_RANGE</name>
+        <initializer>&quot;l_fr&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="33" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="http__pages_8h_1a5ddd7521ad524438ef47933cccc16027" prot="public" static="no">
+        <name>FORM_NAME_DOP_MAX</name>
+        <initializer>&quot;l_dm&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/http_pages.h" line="34" column="9" bodyfile="bgeigiezen_firmware/utils/http_pages.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>BGEIGIECAST_HTTP_PAGES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BGEIGIECAST_HTTP_PAGES_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;WebServer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="local__storage_8h" kindref="compound">workers/local_storage.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="http__pages_8h_1aebb78aa92bb82104805350394cf60e62" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TRANSMISSION_SIZE<sp/>6000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="http__pages_8h_1ada5878d891f82a42326746c9dbe6b9a6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PURE_CSS_SIZE<sp/>3929</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="http__pages_8h_1abc7068a1efb6caca697cbfa09cb56f32" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FAVICON_SIZE<sp/>696</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Device<sp/>setting<sp/>form<sp/>names</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="http__pages_8h_1ad8c4fff45a5a2de52e574e24cdf12538" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FORM_NAME_ALERT_THRESHOLD<sp/>&quot;d_al&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="http__pages_8h_1a86d39a0de4041c963b6e625be363a1ad" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FORM_NAME_CPM_USVH<sp/>&quot;d_cu&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="http__pages_8h_1ada823b1f31aaaee10bc3b846f1434a53" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FORM_NAME_MANUAL_LOGGING<sp/>&quot;d_ml&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="http__pages_8h_1a86f8f5a04f35476f4a489e8b74db6366" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FORM_NAME_ENABLE_JOURNAL<sp/>&quot;d_ej&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="http__pages_8h_1a601dbed3cd2afa2f9f7cb55ff669923e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FORM_NAME_LOG_VOID<sp/>&quot;d_lv&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="http__pages_8h_1aa407c1d67e39d469202d6ed135bbbdd2" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FORM_NAME_SCREEN_DIM_TIMEOUT<sp/>&quot;d_dt&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="http__pages_8h_1ac6d9c7f4b2aa55af0b004cd15cb02fca" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FORM_NAME_SCREEN_OFF_TIMEOUT<sp/>&quot;d_ot&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="http__pages_8h_1a0675ea7383d4e03c537b8c29cb4476e6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FORM_NAME_ANIMATED_SCREENSAVER<sp/>&quot;d_as&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Connection<sp/>setting<sp/>form<sp/>names</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="http__pages_8h_1ae7358aae4052b227beb51c8e36519387" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FORM_NAME_AP_LOGIN<sp/>&quot;c_ap&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="http__pages_8h_1a96d41a86c2cbed3a1a481f9124820640" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FORM_NAME_WIFI_SSID<sp/>&quot;c_ws&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="http__pages_8h_1a1c66dedc46fd01c917f6d9d61867b169" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FORM_NAME_WIFI_PASS<sp/>&quot;c_wp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="http__pages_8h_1ae05bc8c6aa3fdd1c77743317486bbe25" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FORM_NAME_API_KEY<sp/>&quot;c_ak&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Location<sp/>setting<sp/>form<sp/>names</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="http__pages_8h_1a096f276a1b519da8d831533f74ace4b7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FORM_NAME_LOC_FIXED_LAT<sp/>&quot;l_ha&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="http__pages_8h_1adcc40f6da0a247463f074731e8907d73" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FORM_NAME_LOC_FIXED_LON<sp/>&quot;l_ho&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="http__pages_8h_1a95ce4b4f383e36ec196282a39826f6c5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FORM_NAME_FIXED_RANGE<sp/>&quot;l_fr&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="http__pages_8h_1a5ddd7521ad524438ef47933cccc16027" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FORM_NAME_DOP_MAX<sp/>&quot;l_dm&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="class_http_pages" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_http_pages" kindref="compound">HttpPages</ref><sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="39" refid="class_http_pages_1a737989b229f10049a7e687eb3fba60cf" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_http_pages_1a737989b229f10049a7e687eb3fba60cf" kindref="member">HttpPages</ref>()<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="class_http_pages_1a2029cf0ccea4c0cf9497eb2b0a30f78a" kindref="member">get_home_page</ref>(</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_local_storage" kindref="compound">LocalStorage</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4" kindref="member">get_config_device_page</ref>(</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">display_success</ref>,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_local_storage" kindref="compound">LocalStorage</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="class_http_pages_1a64735f36d77809ba60b69d33ad6c0003" kindref="member">get_config_connection_page</ref>(</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">display_success</ref>,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_local_storage" kindref="compound">LocalStorage</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="class_http_pages_1a74d1994442f6781235fa7d76a9c7c36a" kindref="member">get_config_location_page</ref>(</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">display_success</ref>,</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_local_storage" kindref="compound">LocalStorage</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="class_http_pages_1a4a7f7da507251011076206062a49e0af" kindref="member">pure_css</ref>[<ref refid="http__pages_8h_1ada5878d891f82a42326746c9dbe6b9a6" kindref="member">PURE_CSS_SIZE</ref>];</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="class_http_pages_1a9be2569908780465b83751bc08251a61" kindref="member">favicon</ref>[<ref refid="http__pages_8h_1abc7068a1efb6caca697cbfa09cb56f32" kindref="member">FAVICON_SIZE</ref>];</highlight></codeline>
+<codeline lineno="97" refid="class_http_pages_1a27971511660fee4a1b5f5f8b7f7e47f4" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="class_http_pages_1a27971511660fee4a1b5f5f8b7f7e47f4" kindref="member">pure_js</ref>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="class_http_pages_1a9d1744128b715be721740fe9783a3b98" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_http_pages_1a9d1744128b715be721740fe9783a3b98" kindref="member">internet_access</ref>;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>render_full_page(uint32_t<sp/>device_id,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">page_name</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">content_format</ref>,<sp/>...);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>transmission_buffer[<ref refid="http__pages_8h_1aebb78aa92bb82104805350394cf60e62" kindref="member">TRANSMISSION_SIZE</ref>];</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//BGEIGIECAST_HTTP_PAGES_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/utils/http_pages.h"/>
+  </compounddef>
+</doxygen>

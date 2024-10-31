@@ -1,0 +1,468 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_g_f_x_screen" kind="class" language="C++" prot="public">
+    <compoundname>GFXScreen</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Supervisor</basecompoundref>
+    <includes refid="gfx__screen_8h" local="no">gfx_screen.h</includes>
+    <sectiondef kind="private-type">
+      <memberdef kind="enum" id="class_g_f_x_screen_1a733a9f4a2e7a03aeb45032ee3efdbc1d" prot="private" static="no" strong="no">
+        <type></type>
+        <name>ScreenStatus</name>
+        <qualifiedname>GFXScreen::ScreenStatus</qualifiedname>
+        <enumvalue id="class_g_f_x_screen_1a733a9f4a2e7a03aeb45032ee3efdbc1daeda1683de452e558dc432387c9d009dd" prot="private">
+          <name>e_screen_status_on</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_g_f_x_screen_1a733a9f4a2e7a03aeb45032ee3efdbc1da258b5f83e75c6a581279cc0b5043894f" prot="private">
+          <name>e_screen_status_dim</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_g_f_x_screen_1a733a9f4a2e7a03aeb45032ee3efdbc1da4d1951c5ef50069299196f097e515096" prot="private">
+          <name>e_screen_status_off</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="23" column="3" bodyfile="bgeigiezen_firmware/gfx_screen.h" bodystart="23" bodyend="27"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_g_f_x_screen_1a0be97a0d10b0679447773c1fc3737432" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5Canvas</ref></type>
+        <definition>M5Canvas GFXScreen::_saver</definition>
+        <argsstring></argsstring>
+        <name>_saver</name>
+        <qualifiedname>GFXScreen::_saver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="34" column="12" bodyfile="bgeigiezen_firmware/gfx_screen.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_f_x_screen_1a1c8b7ba077d051caa94ddcc3ed8224e6" prot="private" static="no" mutable="no">
+        <type><ref refid="class_controller" kindref="compound">Controller</ref> &amp;</type>
+        <definition>Controller&amp; GFXScreen::_controller</definition>
+        <argsstring></argsstring>
+        <name>_controller</name>
+        <qualifiedname>GFXScreen::_controller</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="35" column="14" bodyfile="bgeigiezen_firmware/gfx_screen.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_f_x_screen_1abda8ba77f5f136c592ad340b10853c23" prot="private" static="no" mutable="no">
+        <type><ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+        <definition>LocalStorage&amp; GFXScreen::_settings</definition>
+        <argsstring></argsstring>
+        <name>_settings</name>
+        <qualifiedname>GFXScreen::_settings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="36" column="16" bodyfile="bgeigiezen_firmware/gfx_screen.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_f_x_screen_1a7c3307a764dee7e9ad4a327aeaeabd34" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">unsigned</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">long</ref></type>
+        <definition>unsigned long GFXScreen::_last_render</definition>
+        <argsstring></argsstring>
+        <name>_last_render</name>
+        <qualifiedname>GFXScreen::_last_render</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="37" column="17" bodyfile="bgeigiezen_firmware/gfx_screen.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_f_x_screen_1a9f644ddfe7d34a156699619fe31ab5ce" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GFXScreen::_last_interaction</definition>
+        <argsstring></argsstring>
+        <name>_last_interaction</name>
+        <qualifiedname>GFXScreen::_last_interaction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="38" column="12" bodyfile="bgeigiezen_firmware/gfx_screen.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_f_x_screen_1adfcdb6b2bed53b071f9b1fd1069cb7c1" prot="private" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t GFXScreen::_saver_x</definition>
+        <argsstring></argsstring>
+        <name>_saver_x</name>
+        <qualifiedname>GFXScreen::_saver_x</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="39" column="11" bodyfile="bgeigiezen_firmware/gfx_screen.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_f_x_screen_1a9ba7d45b8b82cf5e5f02791c16d1f14c" prot="private" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t GFXScreen::_saver_y</definition>
+        <argsstring></argsstring>
+        <name>_saver_y</name>
+        <qualifiedname>GFXScreen::_saver_y</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="40" column="11" bodyfile="bgeigiezen_firmware/gfx_screen.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_f_x_screen_1a32eef4a30d48e15104e59d5703352d4e" prot="private" static="no" mutable="no">
+        <type>int8_t</type>
+        <definition>int8_t GFXScreen::_saver_x_direction</definition>
+        <argsstring></argsstring>
+        <name>_saver_x_direction</name>
+        <qualifiedname>GFXScreen::_saver_x_direction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="41" column="10" bodyfile="bgeigiezen_firmware/gfx_screen.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_f_x_screen_1a715ea3c981ba11a70951b6b8ced55599" prot="private" static="no" mutable="no">
+        <type>int8_t</type>
+        <definition>int8_t GFXScreen::_saver_y_direction</definition>
+        <argsstring></argsstring>
+        <name>_saver_y_direction</name>
+        <qualifiedname>GFXScreen::_saver_y_direction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="42" column="10" bodyfile="bgeigiezen_firmware/gfx_screen.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_f_x_screen_1aa5cd5c89d63cd0f699658d81349fcc5a" prot="private" static="no" mutable="no">
+        <type>ScreenStatus</type>
+        <definition>ScreenStatus GFXScreen::_screen_status</definition>
+        <argsstring></argsstring>
+        <name>_screen_status</name>
+        <qualifiedname>GFXScreen::_screen_status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="43" column="16" bodyfile="bgeigiezen_firmware/gfx_screen.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_f_x_screen_1a7c565f1a22cc5f6117d131ba742a5d7a" prot="private" static="no" mutable="no">
+        <type><ref refid="class_base_screen" kindref="compound">BaseScreen</ref> *</type>
+        <definition>BaseScreen* GFXScreen::_screen</definition>
+        <argsstring></argsstring>
+        <name>_screen</name>
+        <qualifiedname>GFXScreen::_screen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="44" column="14" bodyfile="bgeigiezen_firmware/gfx_screen.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_f_x_screen_1a8e1df0219627a45c063a5ac44588d810" prot="private" static="no" mutable="no">
+        <type><ref refid="class_menu_window" kindref="compound">MenuWindow</ref> *</type>
+        <definition>MenuWindow* GFXScreen::_menu</definition>
+        <argsstring></argsstring>
+        <name>_menu</name>
+        <qualifiedname>GFXScreen::_menu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="45" column="14" bodyfile="bgeigiezen_firmware/gfx_screen.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_g_f_x_screen_1a71ab01ccbc43de9a848ca9576feebe1c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GFXScreen::GFXScreen</definition>
+        <argsstring>(LocalStorage &amp;settings, Controller &amp;controller)</argsstring>
+        <name>GFXScreen</name>
+        <qualifiedname>GFXScreen::GFXScreen</qualifiedname>
+        <param>
+          <type><ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <param>
+          <type><ref refid="class_controller" kindref="compound">Controller</ref> &amp;</type>
+          <declname>controller</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="16" column="12" bodyfile="bgeigiezen_firmware/gfx_screen.cpp" bodystart="26" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_f_x_screen_1afcd0eaa354a264ea21d87582237105c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual GFXScreen::~GFXScreen</definition>
+        <argsstring>()=default</argsstring>
+        <name>~GFXScreen</name>
+        <qualifiedname>GFXScreen::~GFXScreen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="17" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GFXScreen::handle_report</definition>
+        <argsstring>(const worker_map_t &amp;workers, const handler_map_t &amp;handlers) override</argsstring>
+        <name>handle_report</name>
+        <qualifiedname>GFXScreen::handle_report</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref> &amp;</type>
+          <declname>workers</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">handler_map_t</ref> &amp;</type>
+          <declname>handlers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="19" column="8" bodyfile="bgeigiezen_firmware/gfx_screen.cpp" bodystart="124" bodyend="325"/>
+        <references refid="class_s_d_interface_1a1d00f529d7e34ba8b79d01ecca7577bf" compoundref="sd__wrapper_8cpp" startline="76" endline="78">SDInterface::can_write_logs</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="default__entry__screen_8cpp_1ab126f9971ee3b4d579c108bed23f2ae5" compoundref="default__entry__screen_8cpp" startline="8">DefaultEntryScreen_i</references>
+        <references refid="class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98" compoundref="base__screen_8cpp" startline="107" endline="110">BaseScreen::do_render</references>
+        <references refid="drive__mode_8cpp_1a55dd664ce7148bd9ba5556188ca39417" compoundref="drive__mode_8cpp" startline="10">DriveModeScreen_i</references>
+        <references refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217cac05b6810bb29caecbb222b95e849dc04" compoundref="local__storage_8h" startline="17">LocalStorage::e_operational_mode_drive</references>
+        <references refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217ca84bd8bba9f0e018c9e0a70da96ae85c8" compoundref="local__storage_8h" startline="19">LocalStorage::e_operational_mode_fixed</references>
+        <references refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217ca290aa317f83558d07669d014067cb738" compoundref="local__storage_8h" startline="20">LocalStorage::e_operational_mode_satellite</references>
+        <references refid="class_local_storage_1a30ef027dcb5f6477c2f6bdec2a35217ca446644afcec34db806ecb38c71e0647e" compoundref="local__storage_8h" startline="18">LocalStorage::e_operational_mode_survey</references>
+        <references refid="class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea" compoundref="base__screen_8cpp" startline="90" endline="91">BaseScreen::enter_screen</references>
+        <references refid="class_menu_window_1a2971f694878323174c931b8a466c5e82" compoundref="menu__window_8cpp" startline="44" endline="47">MenuWindow::enter_screen</references>
+        <references refid="fixed__mode_8cpp_1aba53b5d8109b5e1b5df836db667957d4" compoundref="fixed__mode_8cpp" startline="10">FixedModeScreen_i</references>
+        <references refid="class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65" compoundref="local__storage_8cpp" startline="81" endline="83">LocalStorage::get_device_id</references>
+        <references refid="class_base_screen_1a34ca21425e8a0306c8b28669b35216e6" compoundref="base__screen_8cpp" startline="116" endline="137">BaseScreen::get_error_message</references>
+        <references refid="class_local_storage_1affa78ca5f1e87c0c8b608b2ca944e31d" compoundref="local__storage_8cpp" startline="117" endline="119">LocalStorage::get_screen_dim_timeout</references>
+        <references refid="class_local_storage_1a1d68d91675a043e514a0d07cf326a50b" compoundref="local__storage_8cpp" startline="121" endline="123">LocalStorage::get_screen_off_timeout</references>
+        <references refid="class_base_screen_1ac34eef3f7a364202d2399ce1b234bf04" compoundref="base__screen_8cpp" startline="139" endline="144">BaseScreen::get_status_message</references>
+        <references refid="class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42" compoundref="base__screen_8cpp" startline="96" endline="98">BaseScreen::get_title</references>
+        <references refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" compoundref="_raku__code_8cpp" startline="48">gps</references>
+        <references refid="class_menu_window_1afe3cdb7f44d6d7a534044abc6b4e1b92" compoundref="menu__window_8cpp" startline="33" endline="35">MenuWindow::handle_input</references>
+        <references refid="class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57">BaseScreen::handle_input</references>
+        <references refid="class_base_screen_1a5757931996557c8d7ec0ab352abc6e3e" compoundref="base__screen_8h" startline="83" endline="83">BaseScreen::has_required_ble</references>
+        <references refid="class_base_screen_1ab4a9e852483065ab2ad6a86955985e90" compoundref="base__screen_8h" startline="79" endline="79">BaseScreen::has_required_gps</references>
+        <references refid="class_base_screen_1a02551c85c014f0c35c0a887cdaad2e3e" compoundref="base__screen_8h" startline="80" endline="80">BaseScreen::has_required_sd</references>
+        <references refid="class_base_screen_1abaf330fe58d138607d7eddafec78d2bc" compoundref="base__screen_8h" startline="81" endline="81">BaseScreen::has_required_tube</references>
+        <references refid="class_base_screen_1a2062532ed7e5f3fa63be92c2d04c7a66" compoundref="base__screen_8h" startline="82" endline="82">BaseScreen::has_required_wifi</references>
+        <references refid="class_base_screen_1a2b0ff8ed2e49c96fa6e8d3e158d6db13" compoundref="base__screen_8cpp" startline="100" endline="102">BaseScreen::has_status_bar</references>
+        <references refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" compoundref="sd__wrapper_8h" startline="39" endline="42">SDInterface::i</references>
+        <references refid="class_s_d_interface_1afbb88cd8a67481964cd9f887e54898d5" compoundref="sd__wrapper_8cpp" startline="117" endline="119">SDInterface::just_wrote</references>
+        <references refid="identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8ae62e75c687017be7a3279ccd1aaeb593" compoundref="identifiers_8h" startline="30">k_handler_bluetooth_reporter</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa6daa8cab2f33582eddf479bf8dc018d9" compoundref="identifiers_8h" startline="12">k_worker_battery_indicator</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa34908d3524a003a1a416f710d3bf096b" compoundref="identifiers_8h" startline="8">k_worker_button_1</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fae09f915b7a21b04751f8379fe4ea0b88" compoundref="identifiers_8h" startline="9">k_worker_button_2</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa824a84bb0222b57ea4966a17b90b110c" compoundref="identifiers_8h" startline="10">k_worker_button_3</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fadce40ed07be9b46afdd704f59b77a907" compoundref="identifiers_8h" startline="11">k_worker_gm_sensor</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211" compoundref="identifiers_8h" startline="13">k_worker_gps_connector</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa84141b7b60c4055e432a1f28ae9aa98b" compoundref="identifiers_8h" startline="15">k_worker_rtc_connector</references>
+        <references refid="user__config_8h_1adc1a58589cc01dd65c017cf116e5450e" compoundref="user__config_8h" startline="49">LCD_COLOR_ACTIVITY</references>
+        <references refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" compoundref="user__config_8h" startline="44">LCD_COLOR_BACKGROUND</references>
+        <references refid="user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62" compoundref="user__config_8h" startline="45">LCD_COLOR_DEFAULT</references>
+        <references refid="user__config_8h_1ae0f8a87167f3f90938876248a8abb27b" compoundref="user__config_8h" startline="47">LCD_COLOR_ERROR</references>
+        <references refid="user__config_8h_1a7513793964f7e96f4fbb7a2016f1336a" compoundref="user__config_8h" startline="48">LCD_COLOR_INACTIVE</references>
+        <references refid="user__config_8h_1aa2e906d0e32b57f0fa6a9aae19cee822" compoundref="user__config_8h" startline="46">LCD_COLOR_STALE_INCOMPLETE</references>
+        <references refid="include_2config_8hpp_1a2daf29815f1eb8bce357ffde5c694343" compoundref="include_2config_8hpp" startline="37">LCD_REFRESH_RATE</references>
+        <references refid="class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1" compoundref="base__screen_8cpp" startline="93" endline="94">BaseScreen::leave_screen</references>
+        <references refid="class_menu_window_1a2c5ae75df9da64b970dcbd408efc17ae" compoundref="menu__window_8cpp" startline="49" endline="51">MenuWindow::leave_screen</references>
+        <references refid="class_base_screen_with_menu_1ab66bf6129a48cb1012009a3fe21a00b8" compoundref="base__screen_8cpp" startline="261" endline="263">BaseScreenWithMenu::menu_open</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a444de82b40413b92c3392f7ade0ad0f8" compoundref="bgeigiezen__firmware_2main_8cpp" startline="76">rtc</references>
+        <references refid="satellite__view_8cpp_1ab7705c5a76518b7896cd0baf3b287962" compoundref="satellite__view_8cpp" startline="26">SatelliteViewScreen_i</references>
+        <references refid="class_local_storage_1a496d17681c046860f06fb4b0b1f77359" compoundref="local__storage_8cpp" startline="365" endline="373">LocalStorage::set_last_mode</references>
+        <references refid="survery__mode_8cpp_1a0a0b8dcabfce5b6df4104060ae19af90" compoundref="survery__mode_8cpp" startline="9">SurveyModeScreen_i</references>
+        <references refid="gfx__screen_8cpp_1a8125c17a66a45ad8dffd7dbf4b610207" compoundref="gfx__screen_8cpp" startline="20">TIMEOUT_PASSED</references>
+        <references refid="class_wi_fi_wrapper_1a47e4ba98a6816444c9e52d35ed62df6f" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="105" endline="107">WiFiWrapper::was_active</references>
+        <references refid="class_wi_fi_wrapper_1a37ba31d67d18f35822a2cda0b6b5bf48" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="49" endline="51">WiFiWrapper::wifi_connected</references>
+        <references refid="bgeigiezen__firmware_2utils_2wifi__connection_8cpp_1a8d10d559fa8c2d79262a08609d604700" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="9">WiFiWrapper_i</references>
+      </memberdef>
+      <memberdef kind="function" id="class_g_f_x_screen_1a1f5f80dd70f0b3975746457fc3759b74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GFXScreen::initialize</definition>
+        <argsstring>() override</argsstring>
+        <name>initialize</name>
+        <qualifiedname>GFXScreen::initialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="20" column="8" bodyfile="bgeigiezen_firmware/gfx_screen.cpp" bodystart="42" bodyend="57"/>
+        <references refid="boot__screen_8cpp_1a69b44db90ec31942257f9c414c4105a6" compoundref="boot__screen_8cpp" startline="9">BootScreen_i</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea" compoundref="base__screen_8cpp" startline="90" endline="91">BaseScreen::enter_screen</references>
+        <references refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" compoundref="user__config_8h" startline="44">LCD_COLOR_BACKGROUND</references>
+        <references refid="user__config_8h_1a0ff5bd7e17a0227695cdee8ddc7342e9" compoundref="user__config_8h" startline="80">SCREENSAVER_TEXT</references>
+        <references refid="gfx__screen_8cpp_1a8aae1f9bdeaaa5978bca037bfef6e70f" compoundref="gfx__screen_8cpp" startline="19">SCREENSAVER_TEXT_LENGTH</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_g_f_x_screen_1aeea237be04099ed81e3563586832e3cb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GFXScreen::set_screen_status</definition>
+        <argsstring>(ScreenStatus status)</argsstring>
+        <name>set_screen_status</name>
+        <qualifiedname>GFXScreen::set_screen_status</qualifiedname>
+        <param>
+          <type>ScreenStatus</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="28" column="8" bodyfile="bgeigiezen_firmware/gfx_screen.cpp" bodystart="59" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_f_x_screen_1a8397c294b0d903c4abb9980a6e7aca11" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GFXScreen::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>GFXScreen::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="29" column="8" bodyfile="bgeigiezen_firmware/gfx_screen.cpp" bodystart="107" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_f_x_screen_1ad466fe855eaf28d49e8a3d5a4ad20f98" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GFXScreen::setBrightness</definition>
+        <argsstring>(uint8_t lvl)</argsstring>
+        <name>setBrightness</name>
+        <qualifiedname>GFXScreen::setBrightness</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>lvl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="31" column="8" bodyfile="bgeigiezen_firmware/gfx_screen.cpp" bodystart="80" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_f_x_screen_1ab261792237cec7f327e8df1d47e88e62" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GFXScreen::render_screensaver</definition>
+        <argsstring>()</argsstring>
+        <name>render_screensaver</name>
+        <qualifiedname>GFXScreen::render_screensaver</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/gfx_screen.h" line="32" column="8" bodyfile="bgeigiezen_firmware/gfx_screen.cpp" bodystart="327" bodyend="342"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>M5 Screen renderer </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GFXScreen</label>
+        <link refid="class_g_f_x_screen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Supervisor</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GFXScreen</label>
+        <link refid="class_g_f_x_screen"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Supervisor</label>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/gfx_screen.h" line="14" column="1" bodyfile="bgeigiezen_firmware/gfx_screen.h" bodystart="14" bodyend="46"/>
+    <listofallmembers>
+      <member refid="class_g_f_x_screen_1a1c8b7ba077d051caa94ddcc3ed8224e6" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>_controller</name></member>
+      <member refid="class_g_f_x_screen_1a9f644ddfe7d34a156699619fe31ab5ce" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>_last_interaction</name></member>
+      <member refid="class_g_f_x_screen_1a7c3307a764dee7e9ad4a327aeaeabd34" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>_last_render</name></member>
+      <member refid="class_g_f_x_screen_1a8e1df0219627a45c063a5ac44588d810" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>_menu</name></member>
+      <member refid="class_g_f_x_screen_1a0be97a0d10b0679447773c1fc3737432" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>_saver</name></member>
+      <member refid="class_g_f_x_screen_1adfcdb6b2bed53b071f9b1fd1069cb7c1" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>_saver_x</name></member>
+      <member refid="class_g_f_x_screen_1a32eef4a30d48e15104e59d5703352d4e" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>_saver_x_direction</name></member>
+      <member refid="class_g_f_x_screen_1a9ba7d45b8b82cf5e5f02791c16d1f14c" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>_saver_y</name></member>
+      <member refid="class_g_f_x_screen_1a715ea3c981ba11a70951b6b8ced55599" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>_saver_y_direction</name></member>
+      <member refid="class_g_f_x_screen_1a7c565f1a22cc5f6117d131ba742a5d7a" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>_screen</name></member>
+      <member refid="class_g_f_x_screen_1aa5cd5c89d63cd0f699658d81349fcc5a" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>_screen_status</name></member>
+      <member refid="class_g_f_x_screen_1abda8ba77f5f136c592ad340b10853c23" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>_settings</name></member>
+      <member refid="class_g_f_x_screen_1a8397c294b0d903c4abb9980a6e7aca11" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>clear</name></member>
+      <member refid="class_g_f_x_screen_1a733a9f4a2e7a03aeb45032ee3efdbc1da258b5f83e75c6a581279cc0b5043894f" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>e_screen_status_dim</name></member>
+      <member refid="class_g_f_x_screen_1a733a9f4a2e7a03aeb45032ee3efdbc1da4d1951c5ef50069299196f097e515096" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>e_screen_status_off</name></member>
+      <member refid="class_g_f_x_screen_1a733a9f4a2e7a03aeb45032ee3efdbc1daeda1683de452e558dc432387c9d009dd" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>e_screen_status_on</name></member>
+      <member refid="class_g_f_x_screen_1a71ab01ccbc43de9a848ca9576feebe1c" prot="public" virt="non-virtual"><scope>GFXScreen</scope><name>GFXScreen</name></member>
+      <member refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" prot="public" virt="non-virtual"><scope>GFXScreen</scope><name>handle_report</name></member>
+      <member refid="class_g_f_x_screen_1a1f5f80dd70f0b3975746457fc3759b74" prot="public" virt="non-virtual"><scope>GFXScreen</scope><name>initialize</name></member>
+      <member refid="class_g_f_x_screen_1ab261792237cec7f327e8df1d47e88e62" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>render_screensaver</name></member>
+      <member refid="class_g_f_x_screen_1a733a9f4a2e7a03aeb45032ee3efdbc1d" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>ScreenStatus</name></member>
+      <member refid="class_g_f_x_screen_1aeea237be04099ed81e3563586832e3cb" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>set_screen_status</name></member>
+      <member refid="class_g_f_x_screen_1ad466fe855eaf28d49e8a3d5a4ad20f98" prot="private" virt="non-virtual"><scope>GFXScreen</scope><name>setBrightness</name></member>
+      <member refid="class_g_f_x_screen_1afcd0eaa354a264ea21d87582237105c0" prot="public" virt="virtual"><scope>GFXScreen</scope><name>~GFXScreen</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

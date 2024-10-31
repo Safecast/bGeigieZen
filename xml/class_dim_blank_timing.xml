@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_dim_blank_timing" kind="class" language="C++" prot="public">
+    <compoundname>DimBlankTiming</compoundname>
+    <includes refid="menu_8hpp" local="no">menu.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_dim_blank_timing_1a6b9e5622a88d94e403f6bdd128b0710a" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t DimBlankTiming::delay_dimming</definition>
+        <argsstring></argsstring>
+        <name>delay_dimming</name>
+        <qualifiedname>DimBlankTiming::delay_dimming</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/menu.hpp" line="20" column="14" bodyfile="archive/bgeigie_firmware_pio/include/menu.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_dim_blank_timing_1a1abd83d615a24fe22432bd0e2c38833f" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t DimBlankTiming::delay_blanking</definition>
+        <argsstring></argsstring>
+        <name>delay_blanking</name>
+        <qualifiedname>DimBlankTiming::delay_blanking</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/menu.hpp" line="21" column="14" bodyfile="archive/bgeigie_firmware_pio/include/menu.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_dim_blank_timing_1abce6edc76b306c63b410a4d8f06f1d92" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char* DimBlankTiming::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <qualifiedname>DimBlankTiming::label</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/menu.hpp" line="22" column="16" bodyfile="archive/bgeigie_firmware_pio/include/menu.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_dim_blank_timing_1a158a515299769d51693f4cc04dc12b77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DimBlankTiming::DimBlankTiming</definition>
+        <argsstring>(uint32_t delay_dimming, uint32_t delay_blanking, const char *item_label)</argsstring>
+        <name>DimBlankTiming</name>
+        <qualifiedname>DimBlankTiming::DimBlankTiming</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>delay_dimming</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>delay_blanking</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>item_label</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/menu.hpp" line="23" column="5" bodyfile="archive/bgeigie_firmware_pio/src/menu.cpp" bodystart="10" bodyend="16"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>DimBlankTiming</label>
+        <link refid="class_dim_blank_timing"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>delay_blanking</edgelabel>
+          <edgelabel>delay_dimming</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>uint32_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="archive/bgeigie_firmware_pio/include/menu.hpp" line="18" column="1" bodyfile="archive/bgeigie_firmware_pio/include/menu.hpp" bodystart="18" bodyend="26"/>
+    <listofallmembers>
+      <member refid="class_dim_blank_timing_1a1abd83d615a24fe22432bd0e2c38833f" prot="public" virt="non-virtual"><scope>DimBlankTiming</scope><name>delay_blanking</name></member>
+      <member refid="class_dim_blank_timing_1a6b9e5622a88d94e403f6bdd128b0710a" prot="public" virt="non-virtual"><scope>DimBlankTiming</scope><name>delay_dimming</name></member>
+      <member refid="class_dim_blank_timing_1a158a515299769d51693f4cc04dc12b77" prot="public" virt="non-virtual"><scope>DimBlankTiming</scope><name>DimBlankTiming</name></member>
+      <member refid="class_dim_blank_timing_1abce6edc76b306c63b410a4d8f06f1d92" prot="public" virt="non-virtual"><scope>DimBlankTiming</scope><name>label</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

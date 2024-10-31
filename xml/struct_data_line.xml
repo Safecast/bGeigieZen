@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_data_line" kind="struct" language="C++" prot="public">
+    <compoundname>DataLine</compoundname>
+    <includes refid="log__aggregator_8h" local="no">log_aggregator.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_data_line_1a292c19f8c1d9c3165f61171b5a4e1fab" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool DataLine::gps_valid</definition>
+        <argsstring></argsstring>
+        <name>gps_valid</name>
+        <qualifiedname>DataLine::gps_valid</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="12" column="8" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="12" bodyend="-1"/>
+        <referencedby refid="struct_data_line_1abff342b441dda01f5c12d23d57082561" compoundref="log__aggregator_8h" startline="16" endline="18">valid</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_data_line_1ae8b49d7c3ac25ac8e6e09c4fda24a1c9" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool DataLine::gm_valid</definition>
+        <argsstring></argsstring>
+        <name>gm_valid</name>
+        <qualifiedname>DataLine::gm_valid</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="13" column="8" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="13" bodyend="-1"/>
+        <referencedby refid="struct_data_line_1abff342b441dda01f5c12d23d57082561" compoundref="log__aggregator_8h" startline="16" endline="18">valid</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_data_line_1aa1aa4fdcb09a9820c6c5c1c2f7bc5c83" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char DataLine::log_string[LINE_BUFFER_SIZE]</definition>
+        <argsstring>[LINE_BUFFER_SIZE]</argsstring>
+        <name>log_string</name>
+        <qualifiedname>DataLine::log_string</qualifiedname>
+        <initializer>= &quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="14" column="8" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_data_line_1a4c3181b5e8ec468e96f66ee0d89fc607" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t DataLine::cpm</definition>
+        <argsstring></argsstring>
+        <name>cpm</name>
+        <qualifiedname>DataLine::cpm</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="20" column="12" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_data_line_1a1ee77be147052e0a8fbac4a94c6b1786" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char DataLine::timestamp[20]</definition>
+        <argsstring>[20]</argsstring>
+        <name>timestamp</name>
+        <qualifiedname>DataLine::timestamp</qualifiedname>
+        <initializer>= &quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="21" column="8" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_data_line_1a16ff25715c3cfcb264dc5b59727ed63b" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double DataLine::latitude</definition>
+        <argsstring></argsstring>
+        <name>latitude</name>
+        <qualifiedname>DataLine::latitude</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="22" column="10" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_data_line_1a85ec6d244f6ef370c015cf55b4c783f4" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double DataLine::longitude</definition>
+        <argsstring></argsstring>
+        <name>longitude</name>
+        <qualifiedname>DataLine::longitude</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="23" column="10" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_data_line_1aac7fcc08bfdda1f87a710588996a7f87" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double DataLine::altitude</definition>
+        <argsstring></argsstring>
+        <name>altitude</name>
+        <qualifiedname>DataLine::altitude</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="24" column="10" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_data_line_1a6edb6aeb248a236c836afc2b66fba420" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double DataLine::distance</definition>
+        <argsstring></argsstring>
+        <name>distance</name>
+        <qualifiedname>DataLine::distance</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="25" column="10" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_data_line_1ac28e64034f471a7ca3dfb7afb5a2f0dc" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool DataLine::dop_valid</definition>
+        <argsstring></argsstring>
+        <name>dop_valid</name>
+        <qualifiedname>DataLine::dop_valid</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="26" column="8" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="26" bodyend="-1"/>
+        <referencedby refid="struct_data_line_1abff342b441dda01f5c12d23d57082561" compoundref="log__aggregator_8h" startline="16" endline="18">valid</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_data_line_1a4f792da4bab2d7292b75b8ff5c7211f7" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool DataLine::in_fixed_range</definition>
+        <argsstring></argsstring>
+        <name>in_fixed_range</name>
+        <qualifiedname>DataLine::in_fixed_range</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="27" column="8" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_data_line_1abff342b441dda01f5c12d23d57082561" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool DataLine::valid</definition>
+        <argsstring>() const</argsstring>
+        <name>valid</name>
+        <qualifiedname>DataLine::valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="16" column="8" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="16" bodyend="18"/>
+        <references refid="struct_data_line_1ac28e64034f471a7ca3dfb7afb5a2f0dc" compoundref="log__aggregator_8h" startline="26">dop_valid</references>
+        <references refid="struct_data_line_1ae8b49d7c3ac25ac8e6e09c4fda24a1c9" compoundref="log__aggregator_8h" startline="13">gm_valid</references>
+        <references refid="struct_data_line_1a292c19f8c1d9c3165f61171b5a4e1fab" compoundref="log__aggregator_8h" startline="12">gps_valid</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Data collection </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>DataLine</label>
+        <link refid="struct_data_line"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>cpm</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>uint16_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/workers/log_aggregator.h" line="11" column="1" bodyfile="bgeigiezen_firmware/workers/log_aggregator.h" bodystart="11" bodyend="28"/>
+    <listofallmembers>
+      <member refid="struct_data_line_1aac7fcc08bfdda1f87a710588996a7f87" prot="public" virt="non-virtual"><scope>DataLine</scope><name>altitude</name></member>
+      <member refid="struct_data_line_1a4c3181b5e8ec468e96f66ee0d89fc607" prot="public" virt="non-virtual"><scope>DataLine</scope><name>cpm</name></member>
+      <member refid="struct_data_line_1a6edb6aeb248a236c836afc2b66fba420" prot="public" virt="non-virtual"><scope>DataLine</scope><name>distance</name></member>
+      <member refid="struct_data_line_1ac28e64034f471a7ca3dfb7afb5a2f0dc" prot="public" virt="non-virtual"><scope>DataLine</scope><name>dop_valid</name></member>
+      <member refid="struct_data_line_1ae8b49d7c3ac25ac8e6e09c4fda24a1c9" prot="public" virt="non-virtual"><scope>DataLine</scope><name>gm_valid</name></member>
+      <member refid="struct_data_line_1a292c19f8c1d9c3165f61171b5a4e1fab" prot="public" virt="non-virtual"><scope>DataLine</scope><name>gps_valid</name></member>
+      <member refid="struct_data_line_1a4f792da4bab2d7292b75b8ff5c7211f7" prot="public" virt="non-virtual"><scope>DataLine</scope><name>in_fixed_range</name></member>
+      <member refid="struct_data_line_1a16ff25715c3cfcb264dc5b59727ed63b" prot="public" virt="non-virtual"><scope>DataLine</scope><name>latitude</name></member>
+      <member refid="struct_data_line_1aa1aa4fdcb09a9820c6c5c1c2f7bc5c83" prot="public" virt="non-virtual"><scope>DataLine</scope><name>log_string</name></member>
+      <member refid="struct_data_line_1a85ec6d244f6ef370c015cf55b4c783f4" prot="public" virt="non-virtual"><scope>DataLine</scope><name>longitude</name></member>
+      <member refid="struct_data_line_1a1ee77be147052e0a8fbac4a94c6b1786" prot="public" virt="non-virtual"><scope>DataLine</scope><name>timestamp</name></member>
+      <member refid="struct_data_line_1abff342b441dda01f5c12d23d57082561" prot="public" virt="non-virtual"><scope>DataLine</scope><name>valid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

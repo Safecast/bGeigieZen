@@ -1,0 +1,473 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="include_2setup_8hpp" kind="file" language="C++">
+    <compoundname>setup.hpp</compoundname>
+    <includes local="no">cstring</includes>
+    <includes local="no">M5Core2.h</includes>
+    <includes refid="include_2config_8hpp" local="no">config.hpp</includes>
+    <includes local="no">Preferences.h</includes>
+    <includedby refid="include_2display_8hpp" local="no">archive/bgeigie_firmware_pio/include/display.hpp</includedby>
+    <includedby refid="include_2fsm__context_8hpp" local="no">archive/bgeigie_firmware_pio/include/fsm_context.hpp</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>config.hpp</label>
+        <link refid="include_2config_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/include/setup.hpp</label>
+        <link refid="include_2setup_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>M5Core2.h</label>
+      </node>
+      <node id="8">
+        <label>Preferences.h</label>
+      </node>
+      <node id="7">
+        <label>WiFi.h</label>
+      </node>
+      <node id="5">
+        <label>cstdint</label>
+      </node>
+      <node id="6">
+        <label>cstdlib</label>
+      </node>
+      <node id="2">
+        <label>cstring</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>archive/bgeigie_firmware_pio/include/configuration_server.hpp</label>
+        <link refid="configuration__server_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>archive/bgeigie_firmware_pio/include/display.hpp</label>
+        <link refid="include_2display_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>archive/bgeigie_firmware_pio/include/fsm_context.hpp</label>
+        <link refid="include_2fsm__context_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>archive/bgeigie_firmware_pio/include/fsm_state_base.hpp</label>
+        <link refid="include_2fsm__state__base_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>archive/bgeigie_firmware_pio/include/fsm_state_concrete.hpp</label>
+        <link refid="include_2fsm__state__concrete_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>archive/bgeigie_firmware_pio/include/menu.hpp</label>
+        <link refid="menu_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/include/setup.hpp</label>
+        <link refid="include_2setup_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>archive/bgeigie_firmware_pio/src/configuration_server.cpp</label>
+        <link refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp"/>
+      </node>
+      <node id="9">
+        <label>archive/bgeigie_firmware_pio/src/display.cpp</label>
+        <link refid="display_8cpp"/>
+      </node>
+      <node id="10">
+        <label>archive/bgeigie_firmware_pio/src/menu.cpp</label>
+        <link refid="menu_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_dose_data" prot="public">DoseData</innerclass>
+    <innerclass refid="struct_wi_fi_parameters" prot="public">WiFiParameters</innerclass>
+    <innerclass refid="struct_config_data" prot="public">ConfigData</innerclass>
+    <innerclass refid="class_setup" prot="public">Setup</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="include_2setup_8hpp_1a9062880a42e2fe7cee5fb048fb51e894" prot="public" static="no" strong="no">
+        <type></type>
+        <name>GeigieType</name>
+        <enumvalue id="include_2setup_8hpp_1a9062880a42e2fe7cee5fb048fb51e894a1b8c857fb3b0401edff31d7fa07dfba0" prot="public">
+          <name>GEIGIE_TYPE_B</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="include_2setup_8hpp_1a9062880a42e2fe7cee5fb048fb51e894af20e825a19b49d92075c0a8afdc3df91" prot="public">
+          <name>GEIGIE_TYPE_X</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/setup.hpp" line="44" column="1" bodyfile="archive/bgeigie_firmware_pio/include/setup.hpp" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="enum" id="include_2setup_8hpp_1ae760bd8ad07eb8a31d8f8687560c6cf0" prot="public" static="no" strong="no">
+        <type></type>
+        <name>GeigieMode</name>
+        <enumvalue id="include_2setup_8hpp_1ae760bd8ad07eb8a31d8f8687560c6cf0ae6287e35662f4d3db7fb9d09fcdcced8" prot="public">
+          <name>GEIGIE_MODE_USVH</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="include_2setup_8hpp_1ae760bd8ad07eb8a31d8f8687560c6cf0a128eff6337d9fec760a28bf90064c84c" prot="public">
+          <name>GEIGIE_MODE_BQM2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/setup.hpp" line="46" column="1" bodyfile="archive/bgeigie_firmware_pio/include/setup.hpp" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="enum" id="include_2setup_8hpp_1a213c434cb928c4ca22513e2302632435" prot="public" static="no" strong="no">
+        <type></type>
+        <name>SensorType</name>
+        <enumvalue id="include_2setup_8hpp_1a213c434cb928c4ca22513e2302632435ac81f7c364566da4700e6a306618d8b38" prot="public">
+          <name>SENSOR_TYPE_LND7317</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="include_2setup_8hpp_1a213c434cb928c4ca22513e2302632435acc465c153d86187829f968a7af97a05a" prot="public">
+          <name>SENSOR_TYPE_LND712</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/setup.hpp" line="48" column="1" bodyfile="archive/bgeigie_firmware_pio/include/setup.hpp" bodystart="48" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="enum" id="include_2setup_8hpp_1aec493692f04b8ad0615bc96bb222762a" prot="public" static="no" strong="no">
+        <type></type>
+        <name>SensorShield</name>
+        <enumvalue id="include_2setup_8hpp_1aec493692f04b8ad0615bc96bb222762aa44d3ee3f931052b03b3fac7d55fb515e" prot="public">
+          <name>SENSOR_SHIELD_NONE</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="include_2setup_8hpp_1aec493692f04b8ad0615bc96bb222762aaed9b03adb95ab99e0e8914783137a6ad" prot="public">
+          <name>SENSOR_SHIELD_ALPHA</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="include_2setup_8hpp_1aec493692f04b8ad0615bc96bb222762aa8b506ed33b4155a618c954408bd96f67" prot="public">
+          <name>SENSOR_SHIELD_ALPHABETA</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/setup.hpp" line="53" column="1" bodyfile="archive/bgeigie_firmware_pio/include/setup.hpp" bodystart="53" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="enum" id="include_2setup_8hpp_1abc47929dd59afff19be8147ebe8fa684" prot="public" static="no" strong="no">
+        <type></type>
+        <name>SensorMode</name>
+        <enumvalue id="include_2setup_8hpp_1abc47929dd59afff19be8147ebe8fa684aa541e9c9ff769396280f40383d2b16c3" prot="public">
+          <name>SENSOR_MODE_AIR</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="include_2setup_8hpp_1abc47929dd59afff19be8147ebe8fa684a5dc052fe87bab8a0321abc672a84274d" prot="public">
+          <name>SENSOR_MODE_SURFACE</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="include_2setup_8hpp_1abc47929dd59afff19be8147ebe8fa684a19b1f2f4bdd32944492b43ed9d703e30" prot="public">
+          <name>SENSOR_MODE_PLANE</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/setup.hpp" line="59" column="1" bodyfile="archive/bgeigie_firmware_pio/include/setup.hpp" bodystart="59" bodyend="63"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="include_2setup_8hpp_1a6a9772a479558b0790e8743e066c8f00" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>const char SETUP_NAMESPACE[]</definition>
+        <argsstring>[]</argsstring>
+        <name>SETUP_NAMESPACE</name>
+        <initializer>= &quot;bgzen-<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">data&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/setup.hpp" line="36" column="12" bodyfile="archive/bgeigie_firmware_pio/include/setup.hpp" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="include_2setup_8hpp_1a74cf8b881c8b51c508ebfde92fdba6a8" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>const char SETUP_KEY_CONFIG[]</definition>
+        <argsstring>[]</argsstring>
+        <name>SETUP_KEY_CONFIG</name>
+        <initializer>= &quot;config&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/setup.hpp" line="37" column="12" bodyfile="archive/bgeigie_firmware_pio/include/setup.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="include_2setup_8hpp_1aa98c7916d9b8fd2a61563eedebc9ec9e" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>const char SETUP_KEY_DOSE[]</definition>
+        <argsstring>[]</argsstring>
+        <name>SETUP_KEY_DOSE</name>
+        <initializer>= &quot;dose&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/setup.hpp" line="38" column="12" bodyfile="archive/bgeigie_firmware_pio/include/setup.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="include_2setup_8hpp_1a8dc42066c07943dc3182c2475a4ef967" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint32_t</type>
+        <definition>const uint32_t BNRDD_EEPROM_DOSE_WRITETIME</definition>
+        <argsstring></argsstring>
+        <name>BNRDD_EEPROM_DOSE_WRITETIME</name>
+        <initializer>= 3600</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/setup.hpp" line="42" column="16" bodyfile="archive/bgeigie_firmware_pio/include/setup.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/>Simple<sp/>library<sp/>to<sp/>handle<sp/>nano<sp/>configuration<sp/>from<sp/>file<sp/>and<sp/>EEPROM</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/>Copyright<sp/>(c)<sp/>2012,<sp/>Lionel<sp/>Bergeret</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/><sp/><sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>notice,<sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>documentation<sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>Neither<sp/>the<sp/>name<sp/>of<sp/>the<sp/>&lt;organization&gt;<sp/>nor<sp/>the</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>names<sp/>of<sp/>its<sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>derived<sp/>from<sp/>this<sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/><sp/><sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/><sp/><sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/><sp/><sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>&lt;COPYRIGHT<sp/>HOLDER&gt;<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/><sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR<sp/>CONSEQUENTIAL<sp/>DAMAGES</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/><sp/><sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/><sp/><sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/><sp/><sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/><sp/><sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="25"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__SETUP_HPP__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__SETUP_HPP__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Link<sp/>to<sp/>arduino<sp/>library</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstring&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;M5Core2.h&gt;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>#include<sp/>&lt;M5Stack.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="src_2config_8hpp" kindref="compound">config.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Preferences.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="include_2setup_8hpp_1a6a9772a479558b0790e8743e066c8f00" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="include_2setup_8hpp_1a6a9772a479558b0790e8743e066c8f00" kindref="member">SETUP_NAMESPACE</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;bgzen-data&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37" refid="include_2setup_8hpp_1a74cf8b881c8b51c508ebfde92fdba6a8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="include_2setup_8hpp_1a74cf8b881c8b51c508ebfde92fdba6a8" kindref="member">SETUP_KEY_CONFIG</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;config&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="38" refid="include_2setup_8hpp_1aa98c7916d9b8fd2a61563eedebc9ec9e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="include_2setup_8hpp_1aa98c7916d9b8fd2a61563eedebc9ec9e" kindref="member">SETUP_KEY_DOSE</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;dose&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//<sp/>geiger<sp/>dose</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/>write<sp/>every<sp/>hours<sp/>(eeprom<sp/>~<sp/>100000<sp/>cycles<sp/>-&gt;<sp/>~<sp/>11<sp/>years)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="include_2setup_8hpp_1a8dc42066c07943dc3182c2475a4ef967" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="include_2setup_8hpp_1a8dc42066c07943dc3182c2475a4ef967" kindref="member">BNRDD_EEPROM_DOSE_WRITETIME</ref><sp/>=<sp/>3600;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="include_2setup_8hpp_1a9062880a42e2fe7cee5fb048fb51e894a1b8c857fb3b0401edff31d7fa07dfba0" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="include_2setup_8hpp_1a9062880a42e2fe7cee5fb048fb51e894" kindref="member">GeigieType</ref><sp/>{<sp/><ref refid="include_2setup_8hpp_1a9062880a42e2fe7cee5fb048fb51e894a1b8c857fb3b0401edff31d7fa07dfba0" kindref="member">GEIGIE_TYPE_B</ref><sp/>=<sp/>0,<sp/><ref refid="include_2setup_8hpp_1a9062880a42e2fe7cee5fb048fb51e894af20e825a19b49d92075c0a8afdc3df91" kindref="member">GEIGIE_TYPE_X</ref><sp/>};</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="include_2setup_8hpp_1ae760bd8ad07eb8a31d8f8687560c6cf0a128eff6337d9fec760a28bf90064c84c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="include_2setup_8hpp_1ae760bd8ad07eb8a31d8f8687560c6cf0" kindref="member">GeigieMode</ref><sp/>{<sp/><ref refid="include_2setup_8hpp_1ae760bd8ad07eb8a31d8f8687560c6cf0ae6287e35662f4d3db7fb9d09fcdcced8" kindref="member">GEIGIE_MODE_USVH</ref><sp/>=<sp/>0,<sp/><ref refid="include_2setup_8hpp_1ae760bd8ad07eb8a31d8f8687560c6cf0a128eff6337d9fec760a28bf90064c84c" kindref="member">GEIGIE_MODE_BQM2</ref><sp/>};</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="include_2setup_8hpp_1a213c434cb928c4ca22513e2302632435" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="include_2setup_8hpp_1a213c434cb928c4ca22513e2302632435" kindref="member">SensorType</ref><sp/>{</highlight></codeline>
+<codeline lineno="49" refid="include_2setup_8hpp_1a213c434cb928c4ca22513e2302632435ac81f7c364566da4700e6a306618d8b38" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="include_2setup_8hpp_1a213c434cb928c4ca22513e2302632435ac81f7c364566da4700e6a306618d8b38" kindref="member">SENSOR_TYPE_LND7317</ref><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="50" refid="include_2setup_8hpp_1a213c434cb928c4ca22513e2302632435acc465c153d86187829f968a7af97a05a" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="include_2setup_8hpp_1a213c434cb928c4ca22513e2302632435acc465c153d86187829f968a7af97a05a" kindref="member">SENSOR_TYPE_LND712</ref>,</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="include_2setup_8hpp_1aec493692f04b8ad0615bc96bb222762a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="include_2setup_8hpp_1aec493692f04b8ad0615bc96bb222762a" kindref="member">SensorShield</ref><sp/>{</highlight></codeline>
+<codeline lineno="54" refid="include_2setup_8hpp_1aec493692f04b8ad0615bc96bb222762aa44d3ee3f931052b03b3fac7d55fb515e" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="include_2setup_8hpp_1aec493692f04b8ad0615bc96bb222762aa44d3ee3f931052b03b3fac7d55fb515e" kindref="member">SENSOR_SHIELD_NONE</ref><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="55" refid="include_2setup_8hpp_1aec493692f04b8ad0615bc96bb222762aaed9b03adb95ab99e0e8914783137a6ad" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="include_2setup_8hpp_1aec493692f04b8ad0615bc96bb222762aaed9b03adb95ab99e0e8914783137a6ad" kindref="member">SENSOR_SHIELD_ALPHA</ref>,</highlight></codeline>
+<codeline lineno="56" refid="include_2setup_8hpp_1aec493692f04b8ad0615bc96bb222762aa8b506ed33b4155a618c954408bd96f67" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="include_2setup_8hpp_1aec493692f04b8ad0615bc96bb222762aa8b506ed33b4155a618c954408bd96f67" kindref="member">SENSOR_SHIELD_ALPHABETA</ref>,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="include_2setup_8hpp_1abc47929dd59afff19be8147ebe8fa684" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="include_2setup_8hpp_1abc47929dd59afff19be8147ebe8fa684" kindref="member">SensorMode</ref><sp/>{</highlight></codeline>
+<codeline lineno="60" refid="include_2setup_8hpp_1abc47929dd59afff19be8147ebe8fa684aa541e9c9ff769396280f40383d2b16c3" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="include_2setup_8hpp_1abc47929dd59afff19be8147ebe8fa684aa541e9c9ff769396280f40383d2b16c3" kindref="member">SENSOR_MODE_AIR</ref><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="61" refid="include_2setup_8hpp_1abc47929dd59afff19be8147ebe8fa684a5dc052fe87bab8a0321abc672a84274d" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="include_2setup_8hpp_1abc47929dd59afff19be8147ebe8fa684a5dc052fe87bab8a0321abc672a84274d" kindref="member">SENSOR_MODE_SURFACE</ref><sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><ref refid="include_2setup_8hpp_1abc47929dd59afff19be8147ebe8fa684a19b1f2f4bdd32944492b43ed9d703e30" kindref="member">SENSOR_MODE_PLANE</ref><sp/>=<sp/>2</highlight></codeline>
+<codeline lineno="63" refid="include_2setup_8hpp_1abc47929dd59afff19be8147ebe8fa684a19b1f2f4bdd32944492b43ed9d703e30" refkind="member"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="struct_dose_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_dose_data" kindref="compound">DoseData</ref><sp/>{</highlight></codeline>
+<codeline lineno="66" refid="struct_dose_data_1ad85e2eb5fac819a1529cfca336dec903" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="struct_dose_data_1ad85e2eb5fac819a1529cfca336dec903" kindref="member">total_count</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="67" refid="struct_dose_data_1a3177f770053383ab080807b751ea4a12" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="struct_dose_data_1a3177f770053383ab080807b751ea4a12" kindref="member">total_time</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WiFi<sp/>parameters</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="struct_wi_fi_parameters" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_wi_fi_parameters" kindref="compound">WiFiParameters</ref><sp/>{</highlight></codeline>
+<codeline lineno="72" refid="struct_wi_fi_parameters_1ac5c96d748b6720ca9ab5aff95d4241ac" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_wi_fi_parameters_1ac5c96d748b6720ca9ab5aff95d4241ac" kindref="member">myWifiSSID</ref><sp/>[32]<sp/>=<sp/>{</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="73" refid="struct_wi_fi_parameters_1ab51b9a3738836d404a39afc121dfe726" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_wi_fi_parameters_1ab51b9a3738836d404a39afc121dfe726" kindref="member">myIPaddr</ref>[16]<sp/>=<sp/>{</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="74" refid="struct_wi_fi_parameters_1a94f9bf01eebc6b9433ad57116d26d837" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_wi_fi_parameters_1a94f9bf01eebc6b9433ad57116d26d837" kindref="member">configWifiSSID</ref><sp/>[32]<sp/>=<sp/>{</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="75" refid="struct_wi_fi_parameters_1a6e9a4ec5b9cff367ed7f6c8cbf64f049" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_wi_fi_parameters_1a6e9a4ec5b9cff367ed7f6c8cbf64f049" kindref="member">configWifiPreSharedKey</ref><sp/>[32]<sp/>=<sp/>{</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="76" refid="struct_wi_fi_parameters_1a23f2c894ce56c8dfbf42a51ac2dd5773" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_wi_fi_parameters_1a23f2c894ce56c8dfbf42a51ac2dd5773" kindref="member">configIPaddr</ref><sp/>[20]<sp/>=<sp/>{</highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="struct_config_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_config_data" kindref="compound">ConfigData</ref><sp/>{</highlight></codeline>
+<codeline lineno="80" refid="struct_config_data_1adb78a42cc714fe0bfdf03d9a1e3d0cc5" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_config_data_1adb78a42cc714fe0bfdf03d9a1e3d0cc5" kindref="member">ConfigData</ref>()<sp/>{<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">strcpy</ref>(<ref refid="struct_config_data_1acfc75aed54ef7c7cb2642cc5762f2bc0" kindref="member">country_code</ref>,<sp/><ref refid="include_2config_8hpp_1aa31b585084f13a60ac6961c26cfcf498" kindref="member">SETUP_DEFAULT_COUNTRY_CODE</ref>);<sp/>}</highlight></codeline>
+<codeline lineno="81" refid="struct_config_data_1aeed7f19eb7986d26a13a94c4f3b59987" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_config_data_1aeed7f19eb7986d26a13a94c4f3b59987" kindref="member">type</ref><sp/>=<sp/><ref refid="src_2setup_8hpp_1a9062880a42e2fe7cee5fb048fb51e894a1b8c857fb3b0401edff31d7fa07dfba0" kindref="member">GEIGIE_TYPE_B</ref>;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>0<sp/>for<sp/>bGeigie,<sp/>1<sp/>for<sp/>xGeigie</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="struct_config_data_1a463f5b14cb1e9aac840fd0a0e3ddc320" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_config_data_1a463f5b14cb1e9aac840fd0a0e3ddc320" kindref="member">mode</ref><sp/>=<sp/><ref refid="src_2setup_8hpp_1ae760bd8ad07eb8a31d8f8687560c6cf0ae6287e35662f4d3db7fb9d09fcdcced8" kindref="member">GEIGIE_MODE_USVH</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>0<sp/>for<sp/>uSv/h,<sp/>1<sp/>for<sp/>Bq/m2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="struct_config_data_1a7263336a4701b3c57cdca2d5ab9e13db" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_config_data_1a7263336a4701b3c57cdca2d5ab9e13db" kindref="member">user_name</ref>[<ref refid="include_2config_8hpp_1a50ca9e33b6057d7fc20a964b6811eb93" kindref="member">SETUP_USERNAME_MAXLEN</ref><sp/>+<sp/>1]<sp/>=<sp/>{0};</highlight></codeline>
+<codeline lineno="84" refid="struct_config_data_1af4aa84fbef118fd20be9a243b4f1668f" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="struct_config_data_1af4aa84fbef118fd20be9a243b4f1668f" kindref="member">device_id</ref><sp/>=<sp/><ref refid="include_2config_8hpp_1a84c783b401aa6af2b28edfc527c2f226" kindref="member">SETUP_DEFAULT_DEVICE_ID</ref>;</highlight></codeline>
+<codeline lineno="85" refid="struct_config_data_1aba12291a53be13e4faa5f65b59e3b9ff" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_config_data_1aba12291a53be13e4faa5f65b59e3b9ff" kindref="member">cpm_window</ref><sp/>=<sp/><ref refid="include_2config_8hpp_1a79f9da3755693d5acec3bb7fd2cc3b2c" kindref="member">SETUP_DEFAULT_CPM_WINDOW</ref>;</highlight></codeline>
+<codeline lineno="86" refid="struct_config_data_1aa24c38bbf7f45bf50326d157831c89f5" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_config_data_1aa24c38bbf7f45bf50326d157831c89f5" kindref="member">cpm2ush_divider</ref><sp/>=<sp/><ref refid="include_2config_8hpp_1a107643ea05cf125d833475198786ad3d" kindref="member">SETUP_DEFAULT_USH_DIVIDER</ref>;</highlight></codeline>
+<codeline lineno="87" refid="struct_config_data_1aa5933f3b80cedf442c2e77e0b4f2bc21" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_config_data_1aa5933f3b80cedf442c2e77e0b4f2bc21" kindref="member">cpm2bqm2_factor</ref><sp/>=<sp/><ref refid="include_2config_8hpp_1a335bd0ef57c435bba8aa8e944345a9ba" kindref="member">SETUP_DEFAULT_BQM2_FACTOR</ref>;</highlight></codeline>
+<codeline lineno="88" refid="struct_config_data_1a0926ea1423d747769c2c483cfe9e67d8" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="struct_config_data_1a0926ea1423d747769c2c483cfe9e67d8" kindref="member">alarm_level</ref><sp/>=<sp/><ref refid="include_2config_8hpp_1a59a0c2ce5ef2a55d3c7f0bef8516c5bf" kindref="member">SETUP_DEFAULT_ALARM_LEVEL</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>in<sp/>CPM</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="struct_config_data_1ac5bcb661e8da0969e1387523c1ecff10" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_config_data_1ac5bcb661e8da0969e1387523c1ecff10" kindref="member">timezone</ref><sp/>=<sp/><ref refid="include_2config_8hpp_1a1c6afeea01e41eeab258c096afa9bee8" kindref="member">SETUP_DEFAULT_TIMEZONE</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>in<sp/>hours</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="struct_config_data_1acfc75aed54ef7c7cb2642cc5762f2bc0" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_config_data_1acfc75aed54ef7c7cb2642cc5762f2bc0" kindref="member">country_code</ref>[</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="include_2config_8hpp_1aa31b585084f13a60ac6961c26cfcf498" kindref="member">SETUP_DEFAULT_COUNTRY_CODE</ref>)];</highlight></codeline>
+<codeline lineno="91" refid="struct_config_data_1afaa007becc1fe66c42b28b9d9b506c74" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_config_data_1afaa007becc1fe66c42b28b9d9b506c74" kindref="member">sensor_type</ref><sp/>=<sp/><ref refid="src_2setup_8hpp_1a213c434cb928c4ca22513e2302632435ac81f7c364566da4700e6a306618d8b38" kindref="member">SENSOR_TYPE_LND7317</ref>;</highlight></codeline>
+<codeline lineno="92" refid="struct_config_data_1a29c26bc2030a73ae5f7484237e423539" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_config_data_1a29c26bc2030a73ae5f7484237e423539" kindref="member">sensor_shield</ref><sp/>=<sp/><ref refid="src_2setup_8hpp_1aec493692f04b8ad0615bc96bb222762aa44d3ee3f931052b03b3fac7d55fb515e" kindref="member">SENSOR_SHIELD_NONE</ref>;</highlight></codeline>
+<codeline lineno="93" refid="struct_config_data_1af65585d256d098d3fec853a4262a8495" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="struct_config_data_1af65585d256d098d3fec853a4262a8495" kindref="member">sensor_height</ref><sp/>=<sp/><ref refid="include_2config_8hpp_1a2783fe3face44b94bc95810aa7e880f4" kindref="member">SETUP_DEFAULT_SENSOR_HEIGHT</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>in<sp/>cm</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="struct_config_data_1afa1985002409161b5baba9ca3ee30a21" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_config_data_1afa1985002409161b5baba9ca3ee30a21" kindref="member">sensor_mode</ref><sp/>=<sp/><ref refid="src_2setup_8hpp_1abc47929dd59afff19be8147ebe8fa684aa541e9c9ff769396280f40383d2b16c3" kindref="member">SENSOR_MODE_AIR</ref>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="struct_config_data_1afbf78e1817c53c2a8ce593a0462e9067" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="struct_config_data_1afbf78e1817c53c2a8ce593a0462e9067" kindref="member">print</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.print(</highlight><highlight class="stringliteral">&quot;Type:<sp/>&quot;</highlight><highlight class="normal">);<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(<ref refid="struct_config_data_1aeed7f19eb7986d26a13a94c4f3b59987" kindref="member">type</ref>);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.print(</highlight><highlight class="stringliteral">&quot;Mode:<sp/>&quot;</highlight><highlight class="normal">);<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(<ref refid="struct_config_data_1a463f5b14cb1e9aac840fd0a0e3ddc320" kindref="member">mode</ref>);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.print(</highlight><highlight class="stringliteral">&quot;Username:<sp/>&quot;</highlight><highlight class="normal">);<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(<ref refid="struct_config_data_1a7263336a4701b3c57cdca2d5ab9e13db" kindref="member">user_name</ref>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.print(</highlight><highlight class="stringliteral">&quot;Device_id:<sp/>&quot;</highlight><highlight class="normal">);<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(<ref refid="struct_config_data_1af4aa84fbef118fd20be9a243b4f1668f" kindref="member">device_id</ref>);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.print(</highlight><highlight class="stringliteral">&quot;CPM<sp/>window:<sp/>&quot;</highlight><highlight class="normal">);<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(<ref refid="struct_config_data_1aba12291a53be13e4faa5f65b59e3b9ff" kindref="member">cpm_window</ref>);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.print(</highlight><highlight class="stringliteral">&quot;CPM<sp/>factor:<sp/>&quot;</highlight><highlight class="normal">);<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(<ref refid="struct_config_data_1aa24c38bbf7f45bf50326d157831c89f5" kindref="member">cpm2ush_divider</ref>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.print(</highlight><highlight class="stringliteral">&quot;BQM2<sp/>factor:<sp/>&quot;</highlight><highlight class="normal">);<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(<ref refid="struct_config_data_1aa5933f3b80cedf442c2e77e0b4f2bc21" kindref="member">cpm2bqm2_factor</ref>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.print(</highlight><highlight class="stringliteral">&quot;Alarm<sp/>level:<sp/>&quot;</highlight><highlight class="normal">);<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(<ref refid="struct_config_data_1a0926ea1423d747769c2c483cfe9e67d8" kindref="member">alarm_level</ref>);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.print(</highlight><highlight class="stringliteral">&quot;Timezone:<sp/>&quot;</highlight><highlight class="normal">);<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(<ref refid="struct_config_data_1ac5bcb661e8da0969e1387523c1ecff10" kindref="member">timezone</ref>);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.print(</highlight><highlight class="stringliteral">&quot;Country<sp/>code:<sp/>&quot;</highlight><highlight class="normal">);<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(<ref refid="struct_config_data_1acfc75aed54ef7c7cb2642cc5762f2bc0" kindref="member">country_code</ref>);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.print(</highlight><highlight class="stringliteral">&quot;Sensor<sp/>type:<sp/>&quot;</highlight><highlight class="normal">);<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(<ref refid="struct_config_data_1afaa007becc1fe66c42b28b9d9b506c74" kindref="member">sensor_type</ref>);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.print(</highlight><highlight class="stringliteral">&quot;Sensor<sp/>shield:<sp/>&quot;</highlight><highlight class="normal">);<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(<ref refid="struct_config_data_1a29c26bc2030a73ae5f7484237e423539" kindref="member">sensor_shield</ref>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.print(</highlight><highlight class="stringliteral">&quot;Sensor<sp/>height:<sp/>&quot;</highlight><highlight class="normal">);<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(<ref refid="struct_config_data_1af65585d256d098d3fec853a4262a8495" kindref="member">sensor_height</ref>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.print(</highlight><highlight class="stringliteral">&quot;Sensor<sp/>mode:<sp/>&quot;</highlight><highlight class="normal">);<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(<ref refid="struct_config_data_1afa1985002409161b5baba9ca3ee30a21" kindref="member">sensor_mode</ref>);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="class_setup" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_setup" kindref="compound">Setup</ref><sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="116" refid="class_setup_1a0921e54e5a0200af117192e4c0c845b7" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_setup_1a0921e54e5a0200af117192e4c0c845b7" kindref="member">Setup</ref>(){};</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_setup_1a4c4cdbea334ad453542eba54c846c98f" kindref="member">initialize</ref>();</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_setup_1aa70fc3ff2c0e8122f9dd60376066352d" kindref="member">load_from_file</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">setup_filename</ref>);</highlight></codeline>
+<codeline lineno="119" refid="class_setup_1a17908db744a167f157d138597cfdf351" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_setup_1a17908db744a167f157d138597cfdf351" kindref="member">ready</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_ready;<sp/>}</highlight></codeline>
+<codeline lineno="120" refid="class_setup_1a973924be0fdd98b6e5a964a2416cf721" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_config_data" kindref="compound">ConfigData</ref><sp/>&amp;<ref refid="class_setup_1a973924be0fdd98b6e5a964a2416cf721" kindref="member">config</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_config;<sp/>}</highlight></codeline>
+<codeline lineno="121" refid="class_setup_1a2b764de6fcf9cee8e8c07c555d98f626" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_dose_data" kindref="compound">DoseData</ref><sp/>&amp;<ref refid="class_setup_1a2b764de6fcf9cee8e8c07c555d98f626" kindref="member">dose</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_dose;<sp/>}</highlight></codeline>
+<codeline lineno="122" refid="class_setup_1a7cb83a624a4e7dad9176e6ee607780a0" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_wi_fi_parameters" kindref="compound">WiFiParameters</ref><sp/>&amp;<ref refid="class_setup_1a7cb83a624a4e7dad9176e6ee607780a0" kindref="member">wifiparams</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_wifiparams;<sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_ready<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Preferences</ref><sp/>_prefs;<sp/><sp/></highlight><highlight class="comment">//<sp/>persistent<sp/>storage<sp/>connection</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><ref refid="struct_config_data" kindref="compound">ConfigData</ref><sp/>_config;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>configuration<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><ref refid="struct_dose_data" kindref="compound">DoseData</ref><sp/>_dose;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>dose<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><ref refid="struct_wi_fi_parameters" kindref="compound">WiFiParameters</ref><sp/>_wifiparams;<sp/></highlight><highlight class="comment">//<sp/>WiFi<sp/>parameters<sp/>when<sp/>configured</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>__SETUP_HPP__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="archive/bgeigie_firmware_pio/include/setup.hpp"/>
+  </compounddef>
+</doxygen>

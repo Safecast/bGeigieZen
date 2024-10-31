@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_data_stamp" kind="struct" language="C++" prot="public">
+    <compoundname>DataStamp</compoundname>
+    <includes refid="aggregator_8hpp" local="no">aggregator.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_data_stamp_1a14691686755ad569640d673ffe142a5a" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_g_p_s_data" kindref="compound">GPSData</ref></type>
+        <definition>GPSData DataStamp::gps</definition>
+        <argsstring></argsstring>
+        <name>gps</name>
+        <qualifiedname>DataStamp::gps</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/aggregator.hpp" line="11" column="11" bodyfile="archive/bgeigie_firmware/aggregator.hpp" bodystart="11" bodyend="-1"/>
+        <referencedby refid="class_aggregator_1a2715c67ec5ebc41a248dd22785ca6862" compoundref="aggregator_8cpp" startline="4" endline="11">Aggregator::update</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>DataStamp</label>
+        <link refid="struct_data_stamp"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>gps</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GPSData</label>
+        <link refid="struct_g_p_s_data"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>day</edgelabel>
+          <edgelabel>hour</edgelabel>
+          <edgelabel>hundredths</edgelabel>
+          <edgelabel>minute</edgelabel>
+          <edgelabel>month</edgelabel>
+          <edgelabel>second</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>MeasurementData</label>
+        <link refid="struct_measurement_data"/>
+      </node>
+      <node id="4">
+        <label>uint8_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="archive/bgeigie_firmware/aggregator.hpp" line="9" column="1" bodyfile="archive/bgeigie_firmware/aggregator.hpp" bodystart="10" bodyend="15"/>
+    <listofallmembers>
+      <member refid="struct_data_stamp_1a14691686755ad569640d673ffe142a5a" prot="public" virt="non-virtual"><scope>DataStamp</scope><name>gps</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

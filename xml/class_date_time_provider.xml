@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_date_time_provider" kind="class" language="C++" prot="public">
+    <compoundname>DateTimeProvider</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ProcessWorker&lt; RtcData &gt;</basecompoundref>
+    <includes refid="rtc__connector_8h" local="no">rtc_connector.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_date_time_provider_1a82efc733f8b1c426da0dbb42fb5a37e7" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">tm</ref></type>
+        <definition>tm DateTimeProvider::_sys_time</definition>
+        <argsstring></argsstring>
+        <name>_sys_time</name>
+        <qualifiedname>DateTimeProvider::_sys_time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/rtc_connector.h" line="61" column="6" bodyfile="bgeigiezen_firmware/workers/rtc_connector.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_date_time_provider_1a772ac72367f80e32c142afb852981ec4" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t DateTimeProvider::_last_sys_set</definition>
+        <argsstring></argsstring>
+        <name>_last_sys_set</name>
+        <qualifiedname>DateTimeProvider::_last_sys_set</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/rtc_connector.h" line="62" column="12" bodyfile="bgeigiezen_firmware/workers/rtc_connector.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_date_time_provider_1a472459daf693401f0036829c537a87bd" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DateTimeProvider::DateTimeProvider</definition>
+        <argsstring>()</argsstring>
+        <name>DateTimeProvider</name>
+        <qualifiedname>DateTimeProvider::DateTimeProvider</qualifiedname>
+        <briefdescription>
+<para>Realtime clock IC handler for Core2. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Acts as a backup provider of realtime when no GNSS date-time available. The BM8563 (a.k.a. PCF8563) RTC is only present on the M5Stack Core2. Based on BM8563_Get.ino example in the library </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/rtc_connector.h" line="41" column="12" bodyfile="bgeigiezen_firmware/workers/rtc_connector.cpp" bodystart="13" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_date_time_provider_1a21cfbde559de40acb433c416003ed4fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual DateTimeProvider::~DateTimeProvider</definition>
+        <argsstring>()=default</argsstring>
+        <name>~DateTimeProvider</name>
+        <qualifiedname>DateTimeProvider::~DateTimeProvider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/rtc_connector.h" line="43" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_date_time_provider_1a4d3939b1215f619cc267afcb57d306f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool DateTimeProvider::activate</definition>
+        <argsstring>(bool retry) override</argsstring>
+        <name>activate</name>
+        <qualifiedname>DateTimeProvider::activate</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>retry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if initialized RTC library, false if no connection to the IC. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/rtc_connector.h" line="45" column="8" bodyfile="bgeigiezen_firmware/workers/rtc_connector.cpp" bodystart="19" bodyend="34"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="class_date_time_provider_1a998e11085139dd50ddf440c701ea3409" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t DateTimeProvider::produce_data</definition>
+        <argsstring>(const worker_map_t &amp;workers) override</argsstring>
+        <name>produce_data</name>
+        <qualifiedname>DateTimeProvider::produce_data</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref> &amp;</type>
+          <declname>workers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/rtc_connector.h" line="47" column="10" bodyfile="bgeigiezen_firmware/workers/rtc_connector.cpp" bodystart="36" bodyend="44"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211" compoundref="identifiers_8h" startline="13">k_worker_gps_connector</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_date_time_provider_1a9ba355ffa79e1d36a8502930572adf9b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void DateTimeProvider::system_to_data</definition>
+        <argsstring>()</argsstring>
+        <name>system_to_data</name>
+        <qualifiedname>DateTimeProvider::system_to_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/rtc_connector.h" line="52" column="8" bodyfile="bgeigiezen_firmware/workers/rtc_connector.cpp" bodystart="46" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_date_time_provider_1a913b3acdc64b5acb2fd65f942d78e166" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void DateTimeProvider::gps_to_system</definition>
+        <argsstring>(const GnssData &amp;gps_data)</argsstring>
+        <name>gps_to_system</name>
+        <qualifiedname>DateTimeProvider::gps_to_system</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="struct_gnss_data" kindref="compound">GnssData</ref> &amp;</type>
+          <declname>gps_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/rtc_connector.h" line="55" column="8" bodyfile="bgeigiezen_firmware/workers/rtc_connector.cpp" bodystart="59" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_date_time_provider_1a018a48ca396615bfd450aa5ce56f039b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void DateTimeProvider::rtc_to_system</definition>
+        <argsstring>()</argsstring>
+        <name>rtc_to_system</name>
+        <qualifiedname>DateTimeProvider::rtc_to_system</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/rtc_connector.h" line="56" column="8" bodyfile="bgeigiezen_firmware/workers/rtc_connector.cpp" bodystart="81" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="class_date_time_provider_1aa1fa2ac718fe350e33c2cf11bf759820" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void DateTimeProvider::save_to_system</definition>
+        <argsstring>(tm &amp;sys_time)</argsstring>
+        <name>save_to_system</name>
+        <qualifiedname>DateTimeProvider::save_to_system</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">tm</ref> &amp;</type>
+          <declname>sys_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/rtc_connector.h" line="57" column="8" bodyfile="bgeigiezen_firmware/workers/rtc_connector.cpp" bodystart="123" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="class_date_time_provider_1a083b926a820b1bc2e196083ad4a36d22" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void DateTimeProvider::system_to_rtc</definition>
+        <argsstring>()</argsstring>
+        <name>system_to_rtc</name>
+        <qualifiedname>DateTimeProvider::system_to_rtc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/rtc_connector.h" line="58" column="8" bodyfile="bgeigiezen_firmware/workers/rtc_connector.cpp" bodystart="108" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="class_date_time_provider_1a41aef3dfbc74d89cc55f3815eaebb06d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void DateTimeProvider::invalidate_sys_time</definition>
+        <argsstring>()</argsstring>
+        <name>invalidate_sys_time</name>
+        <qualifiedname>DateTimeProvider::invalidate_sys_time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/rtc_connector.h" line="59" column="8" bodyfile="bgeigiezen_firmware/workers/rtc_connector.cpp" bodystart="145" bodyend="157"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>RTC device worker, produces the current date and time. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DateTimeProvider</label>
+        <link refid="class_date_time_provider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ProcessWorker&lt; RtcData &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DateTimeProvider</label>
+        <link refid="class_date_time_provider"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ProcessWorker&lt; RtcData &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/workers/rtc_connector.h" line="38" column="1" bodyfile="bgeigiezen_firmware/workers/rtc_connector.h" bodystart="38" bodyend="63"/>
+    <listofallmembers>
+      <member refid="class_date_time_provider_1a772ac72367f80e32c142afb852981ec4" prot="private" virt="non-virtual"><scope>DateTimeProvider</scope><name>_last_sys_set</name></member>
+      <member refid="class_date_time_provider_1a82efc733f8b1c426da0dbb42fb5a37e7" prot="private" virt="non-virtual"><scope>DateTimeProvider</scope><name>_sys_time</name></member>
+      <member refid="class_date_time_provider_1a4d3939b1215f619cc267afcb57d306f9" prot="public" virt="non-virtual"><scope>DateTimeProvider</scope><name>activate</name></member>
+      <member refid="class_date_time_provider_1a472459daf693401f0036829c537a87bd" prot="public" virt="non-virtual"><scope>DateTimeProvider</scope><name>DateTimeProvider</name></member>
+      <member refid="class_date_time_provider_1a913b3acdc64b5acb2fd65f942d78e166" prot="private" virt="non-virtual"><scope>DateTimeProvider</scope><name>gps_to_system</name></member>
+      <member refid="class_date_time_provider_1a41aef3dfbc74d89cc55f3815eaebb06d" prot="private" virt="non-virtual"><scope>DateTimeProvider</scope><name>invalidate_sys_time</name></member>
+      <member refid="class_date_time_provider_1a998e11085139dd50ddf440c701ea3409" prot="public" virt="non-virtual"><scope>DateTimeProvider</scope><name>produce_data</name></member>
+      <member refid="class_date_time_provider_1a018a48ca396615bfd450aa5ce56f039b" prot="private" virt="non-virtual"><scope>DateTimeProvider</scope><name>rtc_to_system</name></member>
+      <member refid="class_date_time_provider_1aa1fa2ac718fe350e33c2cf11bf759820" prot="private" virt="non-virtual"><scope>DateTimeProvider</scope><name>save_to_system</name></member>
+      <member refid="class_date_time_provider_1a9ba355ffa79e1d36a8502930572adf9b" prot="private" virt="non-virtual"><scope>DateTimeProvider</scope><name>system_to_data</name></member>
+      <member refid="class_date_time_provider_1a083b926a820b1bc2e196083ad4a36d22" prot="private" virt="non-virtual"><scope>DateTimeProvider</scope><name>system_to_rtc</name></member>
+      <member refid="class_date_time_provider_1a21cfbde559de40acb433c416003ed4fd" prot="public" virt="virtual"><scope>DateTimeProvider</scope><name>~DateTimeProvider</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

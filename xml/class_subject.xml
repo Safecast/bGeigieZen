@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_subject" kind="class" language="C++" prot="public">
+    <compoundname>Subject</compoundname>
+    <derivedcompoundref refid="class_measurement" prot="public" virt="non-virtual">Measurement&lt; GPSData &gt;</derivedcompoundref>
+    <derivedcompoundref refid="class_measurement" prot="public" virt="non-virtual">Measurement&lt; GPSData &gt;</derivedcompoundref>
+    <derivedcompoundref refid="class_measurement" prot="public" virt="non-virtual">Measurement&lt; T &gt;</derivedcompoundref>
+    <derivedcompoundref refid="class_measurement" prot="public" virt="non-virtual">Measurement&lt; T &gt;</derivedcompoundref>
+    <includes refid="bgeigie__firmware_2patterns_8hpp" local="no">patterns.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_subject_1ae6e83874b6bd0700f0270ef722861291" prot="private" static="no" mutable="no">
+        <type>std::forward_list&lt; <ref refid="class_observer" kindref="compound">Observer</ref> * &gt;</type>
+        <definition>std::forward_list&lt; Observer * &gt; Subject::observers</definition>
+        <argsstring></argsstring>
+        <name>observers</name>
+        <qualifiedname>Subject::observers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/patterns.hpp" line="15" column="23" bodyfile="archive/bgeigie_firmware/patterns.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_subject_1a91cb4e6bb958acf74de6cf82142215f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Subject::register_observer</definition>
+        <argsstring>(Observer *obs)</argsstring>
+        <name>register_observer</name>
+        <qualifiedname>Subject::register_observer</qualifiedname>
+        <param>
+          <type><ref refid="class_observer" kindref="compound">Observer</ref> *</type>
+          <declname>obs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/patterns.hpp" line="18" column="10" bodyfile="archive/bgeigie_firmware/patterns.hpp" bodystart="18" bodyend="20"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="class_subject_1a91cb4e6bb958acf74de6cf82142215f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Subject::register_observer</definition>
+        <argsstring>(Observer *obs)</argsstring>
+        <name>register_observer</name>
+        <qualifiedname>Subject::register_observer</qualifiedname>
+        <param>
+          <type><ref refid="class_observer" kindref="compound">Observer</ref> *</type>
+          <declname>obs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/patterns.hpp" line="18" column="10" bodyfile="archive/test/test_gpsthreaded/patterns.hpp" bodystart="18" bodyend="20"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>GPSThread</label>
+        <link refid="class_g_p_s_thread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Measurement&lt; T &gt;</label>
+        <link refid="class_measurement"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Measurement&lt; GPSData &gt;</label>
+        <link refid="class_measurement"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Subject</label>
+        <link refid="class_subject"/>
+      </node>
+    </inheritancegraph>
+    <location file="archive/bgeigie_firmware/patterns.hpp" line="12" column="1" bodyfile="archive/bgeigie_firmware/patterns.hpp" bodystart="13" bodyend="21"/>
+    <listofallmembers>
+      <member refid="class_subject_1ae6e83874b6bd0700f0270ef722861291" prot="private" virt="non-virtual"><scope>Subject</scope><name>observers</name></member>
+      <member refid="class_subject_1a91cb4e6bb958acf74de6cf82142215f8" prot="public" virt="non-virtual"><scope>Subject</scope><name>register_observer</name></member>
+      <member refid="class_subject_1a91cb4e6bb958acf74de6cf82142215f8" prot="public" virt="non-virtual"><scope>Subject</scope><name>register_observer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

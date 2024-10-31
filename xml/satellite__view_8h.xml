@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="satellite__view_8h" kind="file" language="C++">
+    <compoundname>satellite_view.h</compoundname>
+    <includes refid="base__screen_8h" local="yes">base_screen.h</includes>
+    <includedby refid="gfx__screen_8cpp" local="yes">bgeigiezen_firmware/gfx_screen.cpp</includedby>
+    <includedby refid="default__entry__screen_8cpp" local="yes">bgeigiezen_firmware/screens/default_entry_screen.cpp</includedby>
+    <includedby refid="menu__window_8cpp" local="yes">bgeigiezen_firmware/screens/menu_window.cpp</includedby>
+    <includedby refid="satellite__view_8cpp" local="yes">bgeigiezen_firmware/screens/satellite_view.cpp</includedby>
+    <incdepgraph>
+      <node id="16">
+        <label>TinyGPS.h</label>
+        <link refid="bgeigie__firmware_2_tiny_g_p_s_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Aggregator.hpp</label>
+        <link refid="aggregator_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>measurements.hpp</label>
+        <link refid="bgeigie__firmware_2measurements_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>patterns.hpp</label>
+        <link refid="bgeigie__firmware_2patterns_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>serial_source.hpp</label>
+        <link refid="bgeigie__firmware_2serial__source_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>threaded_gps.hpp</label>
+        <link refid="bgeigie__firmware_2threaded__gps_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>controller.h</label>
+        <link refid="controller_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>base_screen.h</label>
+        <link refid="base__screen_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/screens/satellite_view.h</label>
+        <link refid="satellite__view_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>utils/sd_wrapper.h</label>
+        <link refid="sd__wrapper_8h"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>workers/local_storage.h</label>
+        <link refid="local__storage_8h"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>workers/zen_button.h</label>
+        <link refid="zen__button_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Arduino.h</label>
+      </node>
+      <node id="22">
+        <label>Handler.hpp</label>
+      </node>
+      <node id="3">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="27">
+        <label>Preferences.h</label>
+      </node>
+      <node id="25">
+        <label>SD.h</label>
+      </node>
+      <node id="4">
+        <label>Supervisor.hpp</label>
+      </node>
+      <node id="23">
+        <label>TeenyUbloxConnect.h</label>
+      </node>
+      <node id="7">
+        <label>Worker.hpp</label>
+      </node>
+      <node id="14">
+        <label>cstdint</label>
+      </node>
+      <node id="18">
+        <label>cstdio</label>
+      </node>
+      <node id="11">
+        <label>forward_list</label>
+      </node>
+      <node id="15">
+        <label>mutex</label>
+      </node>
+      <node id="13">
+        <label>pthread.h</label>
+      </node>
+      <node id="20">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>bgeigiezen_firmware/gfx_screen.cpp</label>
+        <link refid="gfx__screen_8cpp"/>
+      </node>
+      <node id="3">
+        <label>bgeigiezen_firmware/screens/default_entry_screen.cpp</label>
+        <link refid="default__entry__screen_8cpp"/>
+      </node>
+      <node id="4">
+        <label>bgeigiezen_firmware/screens/menu_window.cpp</label>
+        <link refid="menu__window_8cpp"/>
+      </node>
+      <node id="5">
+        <label>bgeigiezen_firmware/screens/satellite_view.cpp</label>
+        <link refid="satellite__view_8cpp"/>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/screens/satellite_view.h</label>
+        <link refid="satellite__view_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_satellite_view_screen" prot="public">SatelliteViewScreen</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="satellite__view_8h_1ab7705c5a76518b7896cd0baf3b287962" prot="public" static="no" extern="yes" mutable="no">
+        <type><ref refid="class_satellite_view_screen" kindref="compound">SatelliteViewScreen</ref></type>
+        <definition>SatelliteViewScreen SatelliteViewScreen_i</definition>
+        <argsstring></argsstring>
+        <name>SatelliteViewScreen_i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/satellite_view.h" line="34" column="28" bodyfile="bgeigiezen_firmware/screens/satellite_view.cpp" bodystart="26" bodyend="-1" declfile="bgeigiezen_firmware/screens/satellite_view.h" declline="34" declcolumn="28"/>
+        <referencedby refid="class_default_entry_screen_1a06fd4454eff553465a74d30b02567a0f" compoundref="default__entry__screen_8cpp" startline="13" endline="28">DefaultEntryScreen::handle_input</referencedby>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>SCREENS_SATELLITE_VIEW_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCREENS_SATELLITE_VIEW_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="base__screen_8h" kindref="compound">base_screen.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="class_satellite_view_screen" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_satellite_view_screen" kindref="compound">SatelliteViewScreen</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_base_screen_with_menu" kindref="compound">BaseScreenWithMenu</ref><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872f" kindref="member">SatellitePage</ref><sp/>{</highlight></codeline>
+<codeline lineno="10" refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872faf0d5e81914125bd8a47c36c5c021e18b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872faf0d5e81914125bd8a47c36c5c021e18b" kindref="member">e_satellite_page_main</ref>,</highlight></codeline>
+<codeline lineno="11" refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fafa4f1b80ca57fcc5dae6296566888bd2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fafa4f1b80ca57fcc5dae6296566888bd2" kindref="member">e_satellite_page_set_default_config</ref>,</highlight></codeline>
+<codeline lineno="12" refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa7a5838af6cea35a4e56ecc13ba1eda27" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa7a5838af6cea35a4e56ecc13ba1eda27" kindref="member">e_satellite_page_set_na_config</ref>,</highlight></codeline>
+<codeline lineno="13" refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa0451cc8809c7438309d6b09a7389e40c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa0451cc8809c7438309d6b09a7389e40c" kindref="member">e_satellite_page_set_eu_config</ref>,</highlight></codeline>
+<codeline lineno="14" refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa88d422b980de55ca0917116e7dfa8ffd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa88d422b980de55ca0917116e7dfa8ffd" kindref="member">e_satellite_page_set_asia_config</ref>,</highlight></codeline>
+<codeline lineno="15" refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fad289ab4d4c5e909be171ccc40d603af6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fad289ab4d4c5e909be171ccc40d603af6" kindref="member">e_satellite_page_cold_start</ref>,</highlight></codeline>
+<codeline lineno="16" refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa4cbd62bdd17cd6622a81b9d313d4a8f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa4cbd62bdd17cd6622a81b9d313d4a8f1" kindref="member">e_satellite_page_factory_reset</ref>,</highlight></codeline>
+<codeline lineno="17" refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa7e77bdd29011695074cdf7082f4cd6a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa7e77bdd29011695074cdf7082f4cd6a5" kindref="member">e_satellite_MENU_MAX</ref>,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_satellite_view_screen_1a1a4a737a2f4de7fdce55488ab20c596d" kindref="member">SatelliteViewScreen</ref>();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><ref refid="class_base_screen" kindref="compound">BaseScreen</ref>*<sp/><ref refid="class_satellite_view_screen_1a14b2221b6c62c0bf858f9f8816140b96" kindref="member">handle_input</ref>(<ref refid="class_controller" kindref="compound">Controller</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_satellite_view_screen_1a480ec31a9de82c4f9e8ee3228d870f65" kindref="member">render</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">handler_map_t</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">handlers</ref>,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">force</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_satellite_view_screen_1aca0938985e81a83c6817a7d9de94df26" kindref="member">enter_screen</ref>(<ref refid="class_controller" kindref="compound">Controller</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_satellite_view_screen_1a6df05f5f59dc13460099b08fdbb05b86" kindref="member">leave_screen</ref>(<ref refid="class_controller" kindref="compound">Controller</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="class_satellite_view_screen" kindref="compound">SatelliteViewScreen</ref><sp/><ref refid="satellite__view_8h_1ab7705c5a76518b7896cd0baf3b287962" kindref="member">SatelliteViewScreen_i</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//SCREENS_SATELLITE_VIEW_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/screens/satellite_view.h"/>
+  </compounddef>
+</doxygen>
