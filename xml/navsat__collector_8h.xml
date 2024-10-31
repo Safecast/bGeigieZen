@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="navsat__collector_8h" kind="file" language="C++">
+    <compoundname>navsat_collector.h</compoundname>
+    <includes local="no">Worker.hpp</includes>
+    <includes local="no">TeenyUbloxConnect.h</includes>
+    <includedby refid="bgeigiezen__firmware_2main_8cpp" local="yes">bgeigiezen_firmware/main.cpp</includedby>
+    <includedby refid="satellite__view_8cpp" local="yes">bgeigiezen_firmware/screens/satellite_view.cpp</includedby>
+    <includedby refid="navsat__collector_8cpp" local="yes">bgeigiezen_firmware/workers/navsat_collector.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>bgeigiezen_firmware/workers/navsat_collector.h</label>
+        <link refid="navsat__collector_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>TeenyUbloxConnect.h</label>
+      </node>
+      <node id="2">
+        <label>Worker.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>bgeigiezen_firmware/main.cpp</label>
+        <link refid="bgeigiezen__firmware_2main_8cpp"/>
+      </node>
+      <node id="3">
+        <label>bgeigiezen_firmware/screens/satellite_view.cpp</label>
+        <link refid="satellite__view_8cpp"/>
+      </node>
+      <node id="4">
+        <label>bgeigiezen_firmware/workers/navsat_collector.cpp</label>
+        <link refid="navsat__collector_8cpp"/>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/workers/navsat_collector.h</label>
+        <link refid="navsat__collector_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_navsat_data" prot="public">NavsatData</innerclass>
+    <innerclass refid="class_navsat_collector" prot="public">NavsatCollector</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>BGEIGIEZEN_NAVSAT_COLLECTOR_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BGEIGIEZEN_NAVSAT_COLLECTOR_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Worker.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;TeenyUbloxConnect.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="struct_navsat_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_navsat_data" kindref="compound">NavsatData</ref><sp/>{</highlight></codeline>
+<codeline lineno="10" refid="struct_navsat_data_1a5a335214c38e332ff8a75019d71118cc" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_navsat_data_1a5a335214c38e332ff8a75019d71118cc" kindref="member">available</ref>;</highlight></codeline>
+<codeline lineno="11" refid="struct_navsat_data_1ad365d447748874c3836e2ee15d002428" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ubloxNAVSATInfo_t</ref><sp/><ref refid="struct_navsat_data_1ad365d447748874c3836e2ee15d002428" kindref="member">navsat_info</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="class_navsat_collector" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_navsat_collector" kindref="compound">NavsatCollector</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Worker&lt;NavsatData&gt;<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_navsat_collector" kindref="compound">NavsatCollector</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TeenyUbloxConnect</ref>&amp;<sp/>_gnss);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="class_navsat_collector_1a5e705a554a6ea3a901e74d6446a2043f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_navsat_collector_1a5e705a554a6ea3a901e74d6446a2043f" kindref="member">~NavsatCollector</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_navsat_collector_1ad94174b1af2175c4c484cd3d8b0e1f2d" kindref="member">activate</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">retry</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_navsat_collector_1a89eb998ac1a3dda3f2ec94b3f50232ce" kindref="member">deactivate</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>int8_t<sp/><ref refid="class_navsat_collector_1a6a35cc446ad59a57f7fa243aa01b3e5c" kindref="member">produce_data</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TeenyUbloxConnect</ref>&amp;<sp/>_gnss;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//BGEIGIEZEN_NAVSAT_COLLECTOR_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/workers/navsat_collector.h"/>
+  </compounddef>
+</doxygen>

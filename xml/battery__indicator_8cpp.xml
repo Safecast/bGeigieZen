@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="battery__indicator_8cpp" kind="file" language="C++">
+    <compoundname>battery_indicator.cpp</compoundname>
+    <includes refid="battery__indicator_8h" local="yes">battery_indicator.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>bgeigiezen_firmware/workers/battery_indicator.cpp</label>
+        <link refid="battery__indicator_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>battery_indicator.h</label>
+        <link refid="battery__indicator_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="4">
+        <label>Worker.hpp</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="battery__indicator_8h" kindref="compound">battery_indicator.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3" refid="class_battery_indicator_1a62a7d0af06591a6aade8056cb34f77c9" refkind="member"><highlight class="normal"><ref refid="class_battery_indicator_1a62a7d0af06591a6aade8056cb34f77c9" kindref="member">BatteryIndicator::BatteryIndicator</ref>()<sp/>:<sp/>Worker&lt;<ref refid="struct_battery_status" kindref="compound">BatteryStatus</ref>&gt;(1000)<sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="class_battery_indicator_1a0ceaf9e9ee720fc1279838aeb4f8cf51" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_battery_indicator_1a0ceaf9e9ee720fc1279838aeb4f8cf51" kindref="member">BatteryIndicator::activate</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">retry</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>double<sp/>check<sp/>power<sp/>button<sp/>config,<sp/>can<sp/>now<sp/>do<sp/>through<sp/>M5<sp/>unified<sp/>lib</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="class_battery_indicator_1a2549ee1d50e87017b4b6067820d9518a" refkind="member"><highlight class="normal">int8_t<sp/><ref refid="class_battery_indicator_1a2549ee1d50e87017b4b6067820d9518a" kindref="member">BatteryIndicator::produce_data</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>data.<ref refid="struct_battery_status_1a1b9260c294cdd40365bf04d807146e86" kindref="member">isCharging</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Power.isCharging();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>data.percentage<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Power.getBatteryLevel();</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_worker_data_read</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/workers/battery_indicator.cpp"/>
+  </compounddef>
+</doxygen>

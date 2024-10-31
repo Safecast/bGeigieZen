@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_measurement_data" kind="struct" language="C++" prot="public">
+    <compoundname>MeasurementData</compoundname>
+    <derivedcompoundref refid="struct_g_p_s_data" prot="public" virt="non-virtual">GPSData</derivedcompoundref>
+    <derivedcompoundref refid="struct_g_p_s_data" prot="public" virt="non-virtual">GPSData</derivedcompoundref>
+    <includes refid="bgeigie__firmware_2measurements_8hpp" local="no">measurements.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_measurement_data_1a25308fdf55e553fc2a59a035c241cd1d" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool MeasurementData::fresh</definition>
+        <argsstring></argsstring>
+        <name>fresh</name>
+        <qualifiedname>MeasurementData::fresh</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/measurements.hpp" line="11" column="8" bodyfile="archive/bgeigie_firmware/measurements.hpp" bodystart="11" bodyend="-1"/>
+        <referencedby refid="class_g_p_s_thread_1aef0bf3ae06eff688503cfafe58cfe5f8" compoundref="bgeigie__firmware_2threaded__gps_8cpp" startline="27" endline="39">GPSThread::prepare_data</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>GPSData</label>
+        <link refid="struct_g_p_s_data"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>MeasurementData</label>
+        <link refid="struct_measurement_data"/>
+      </node>
+    </inheritancegraph>
+    <location file="archive/bgeigie_firmware/measurements.hpp" line="9" column="1" bodyfile="archive/bgeigie_firmware/measurements.hpp" bodystart="10" bodyend="12"/>
+    <listofallmembers>
+      <member refid="struct_measurement_data_1a25308fdf55e553fc2a59a035c241cd1d" prot="public" virt="non-virtual"><scope>MeasurementData</scope><name>fresh</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

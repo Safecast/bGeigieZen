@@ -1,0 +1,362 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="bgeigie__firmware_2patterns_8hpp" kind="file" language="C++">
+    <compoundname>patterns.hpp</compoundname>
+    <includes local="no">forward_list</includes>
+    <includedby refid="aggregator_8hpp" local="yes">archive/bgeigie_firmware/aggregator.hpp</includedby>
+    <includedby refid="bgeigie__firmware_2measurements_8hpp" local="yes">archive/bgeigie_firmware/measurements.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>archive/bgeigie_firmware/patterns.hpp</label>
+        <link refid="bgeigie__firmware_2patterns_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>forward_list</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>archive/bgeigie_firmware/aggregator.cpp</label>
+        <link refid="aggregator_8cpp"/>
+      </node>
+      <node id="2">
+        <label>archive/bgeigie_firmware/aggregator.hpp</label>
+        <link refid="aggregator_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>archive/bgeigie_firmware/measurements.hpp</label>
+        <link refid="bgeigie__firmware_2measurements_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>archive/bgeigie_firmware/patterns.hpp</label>
+        <link refid="bgeigie__firmware_2patterns_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>archive/bgeigie_firmware/threaded_gps.cpp</label>
+        <link refid="bgeigie__firmware_2threaded__gps_8cpp"/>
+      </node>
+      <node id="37">
+        <label>archive/bgeigie_firmware/threaded_gps.hpp</label>
+        <link refid="bgeigie__firmware_2threaded__gps_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>bgeigiezen_firmware/controller.cpp</label>
+        <link refid="controller_8cpp"/>
+      </node>
+      <node id="4">
+        <label>bgeigiezen_firmware/controller.h</label>
+        <link refid="controller_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>bgeigiezen_firmware/gfx_screen.cpp</label>
+        <link refid="gfx__screen_8cpp"/>
+      </node>
+      <node id="9">
+        <label>bgeigiezen_firmware/gfx_screen.h</label>
+        <link refid="gfx__screen_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>bgeigiezen_firmware/main.cpp</label>
+        <link refid="bgeigiezen__firmware_2main_8cpp"/>
+      </node>
+      <node id="10">
+        <label>bgeigiezen_firmware/screens/base_screen.cpp</label>
+        <link refid="base__screen_8cpp"/>
+      </node>
+      <node id="8">
+        <label>bgeigiezen_firmware/screens/base_screen.h</label>
+        <link refid="base__screen_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>bgeigiezen_firmware/screens/boot_screen.cpp</label>
+        <link refid="boot__screen_8cpp"/>
+      </node>
+      <node id="11">
+        <label>bgeigiezen_firmware/screens/boot_screen.h</label>
+        <link refid="boot__screen_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>bgeigiezen_firmware/screens/config_mode.cpp</label>
+        <link refid="config__mode_8cpp"/>
+      </node>
+      <node id="13">
+        <label>bgeigiezen_firmware/screens/config_mode.h</label>
+        <link refid="config__mode_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>bgeigiezen_firmware/screens/debug_mode.cpp</label>
+        <link refid="debug__mode_8cpp"/>
+      </node>
+      <node id="16">
+        <label>bgeigiezen_firmware/screens/debug_mode.h</label>
+        <link refid="debug__mode_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>bgeigiezen_firmware/screens/default_entry_screen.cpp</label>
+        <link refid="default__entry__screen_8cpp"/>
+      </node>
+      <node id="18">
+        <label>bgeigiezen_firmware/screens/default_entry_screen.h</label>
+        <link refid="default__entry__screen_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>bgeigiezen_firmware/screens/drive_mode.cpp</label>
+        <link refid="drive__mode_8cpp"/>
+      </node>
+      <node id="22">
+        <label>bgeigiezen_firmware/screens/drive_mode.h</label>
+        <link refid="drive__mode_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>bgeigiezen_firmware/screens/first_time_startup.cpp</label>
+        <link refid="first__time__startup_8cpp"/>
+      </node>
+      <node id="24">
+        <label>bgeigiezen_firmware/screens/first_time_startup.h</label>
+        <link refid="first__time__startup_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>bgeigiezen_firmware/screens/fixed_mode.cpp</label>
+        <link refid="fixed__mode_8cpp"/>
+      </node>
+      <node id="25">
+        <label>bgeigiezen_firmware/screens/fixed_mode.h</label>
+        <link refid="fixed__mode_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>bgeigiezen_firmware/screens/menu_window.cpp</label>
+        <link refid="menu__window_8cpp"/>
+      </node>
+      <node id="27">
+        <label>bgeigiezen_firmware/screens/menu_window.h</label>
+        <link refid="menu__window_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>bgeigiezen_firmware/screens/satellite_view.cpp</label>
+        <link refid="satellite__view_8cpp"/>
+      </node>
+      <node id="31">
+        <label>bgeigiezen_firmware/screens/satellite_view.h</label>
+        <link refid="satellite__view_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>bgeigiezen_firmware/screens/sd_message.cpp</label>
+        <link refid="sd__message_8cpp"/>
+      </node>
+      <node id="32">
+        <label>bgeigiezen_firmware/screens/sd_message.h</label>
+        <link refid="sd__message_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>bgeigiezen_firmware/screens/survery_mode.cpp</label>
+        <link refid="survery__mode_8cpp"/>
+      </node>
+      <node id="33">
+        <label>bgeigiezen_firmware/screens/survey_mode.h</label>
+        <link refid="survey__mode_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>bgeigiezen_firmware/screens/zen_info.cpp</label>
+        <link refid="zen__info_8cpp"/>
+      </node>
+      <node id="34">
+        <label>bgeigiezen_firmware/screens/zen_info.h</label>
+        <link refid="zen__info_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>bgeigiezen_firmware/workers/local_storage.cpp</label>
+        <link refid="local__storage_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_observer" prot="public">Observer</innerclass>
+    <innerclass refid="class_subject" prot="public">Subject</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__PATTERNS_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__PATTERNS_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;forward_list&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="class_observer" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_observer" kindref="compound">Observer</ref></highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="9" refid="class_observer_1ac75e4b339faeb3ea6fe0a01bf0b4a215" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_observer_1ac75e4b339faeb3ea6fe0a01bf0b4a215" kindref="member">update</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="class_subject" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_subject" kindref="compound">Subject</ref></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>std::forward_list&lt;Observer<sp/>*&gt;<sp/>observers;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="18" refid="class_subject_1a91cb4e6bb958acf74de6cf82142215f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_subject_1a91cb4e6bb958acf74de6cf82142215f8" kindref="member">register_observer</ref>(<ref refid="class_observer" kindref="compound">Observer</ref><sp/>*<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">obs</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>observers.push_front(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">obs</ref>);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>__PATTERNS_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="archive/bgeigie_firmware/patterns.hpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,425 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="survery__mode_8cpp" kind="file" language="C++">
+    <compoundname>survery_mode.cpp</compoundname>
+    <includes refid="sd__logger_8h" local="yes">handlers/sd_logger.h</includes>
+    <includes refid="identifiers_8h" local="yes">identifiers.h</includes>
+    <includes refid="menu__window_8h" local="yes">menu_window.h</includes>
+    <includes refid="survey__mode_8h" local="yes">survey_mode.h</includes>
+    <includes refid="gm__sensor_8h" local="yes">workers/gm_sensor.h</includes>
+    <includes refid="gps__connector_8h" local="yes">workers/gps_connector.h</includes>
+    <includes refid="zen__button_8h" local="yes">workers/zen_button.h</includes>
+    <incdepgraph>
+      <node id="23">
+        <label>TinyGPS.h</label>
+        <link refid="bgeigie__firmware_2_tiny_g_p_s_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>Aggregator.hpp</label>
+        <link refid="aggregator_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>measurements.hpp</label>
+        <link refid="bgeigie__firmware_2measurements_8hpp"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>patterns.hpp</label>
+        <link refid="bgeigie__firmware_2patterns_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>serial_source.hpp</label>
+        <link refid="bgeigie__firmware_2serial__source_8hpp"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>threaded_gps.hpp</label>
+        <link refid="bgeigie__firmware_2threaded__gps_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>controller.h</label>
+        <link refid="controller_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>handlers/sd_logger.h</label>
+        <link refid="sd__logger_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>identifiers.h</label>
+        <link refid="identifiers_8h"/>
+      </node>
+      <node id="11">
+        <label>base_screen.h</label>
+        <link refid="base__screen_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>menu_window.h</label>
+        <link refid="menu__window_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/screens/survery_mode.cpp</label>
+        <link refid="survery__mode_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>survey_mode.h</label>
+        <link refid="survey__mode_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>circular_buffer.h</label>
+        <link refid="circular__buffer_8h"/>
+      </node>
+      <node id="34">
+        <label>utils/hardware_counter.h</label>
+        <link refid="hardware__counter_8h"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>utils/sd_wrapper.h</label>
+        <link refid="sd__wrapper_8h"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>workers/gm_sensor.h</label>
+        <link refid="gm__sensor_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>workers/gps_connector.h</label>
+        <link refid="gps__connector_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>workers/local_storage.h</label>
+        <link refid="local__storage_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>workers/log_aggregator.h</label>
+        <link refid="log__aggregator_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>workers/zen_button.h</label>
+        <link refid="zen__button_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>Arduino.h</label>
+      </node>
+      <node id="3">
+        <label>Handler.hpp</label>
+      </node>
+      <node id="7">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="5">
+        <label>Preferences.h</label>
+      </node>
+      <node id="40">
+        <label>RBD_Timer.h</label>
+      </node>
+      <node id="31">
+        <label>SD.h</label>
+      </node>
+      <node id="12">
+        <label>Supervisor.hpp</label>
+      </node>
+      <node id="29">
+        <label>TeenyUbloxConnect.h</label>
+      </node>
+      <node id="36">
+        <label>Ticker.h</label>
+      </node>
+      <node id="15">
+        <label>Worker.hpp</label>
+      </node>
+      <node id="21">
+        <label>cstdint</label>
+      </node>
+      <node id="25">
+        <label>cstdio</label>
+      </node>
+      <node id="37">
+        <label>driver/pcnt.h</label>
+      </node>
+      <node id="18">
+        <label>forward_list</label>
+      </node>
+      <node id="35">
+        <label>limits</label>
+      </node>
+      <node id="22">
+        <label>mutex</label>
+      </node>
+      <node id="20">
+        <label>pthread.h</label>
+      </node>
+      <node id="27">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="survery__mode_8cpp_1a0a0b8dcabfce5b6df4104060ae19af90" prot="public" static="no" mutable="no">
+        <type><ref refid="class_survey_mode_screen" kindref="compound">SurveyModeScreen</ref></type>
+        <definition>SurveyModeScreen SurveyModeScreen_i</definition>
+        <argsstring></argsstring>
+        <name>SurveyModeScreen_i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/survery_mode.cpp" line="9" column="18" bodyfile="bgeigiezen_firmware/screens/survery_mode.cpp" bodystart="9" bodyend="-1"/>
+        <referencedby refid="class_default_entry_screen_1a06fd4454eff553465a74d30b02567a0f" compoundref="default__entry__screen_8cpp" startline="13" endline="28">DefaultEntryScreen::handle_input</referencedby>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="sd__logger_8h" kindref="compound">handlers/sd_logger.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="identifiers_8h" kindref="compound">identifiers.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="menu__window_8h" kindref="compound">menu_window.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="survey__mode_8h" kindref="compound">survey_mode.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gm__sensor_8h" kindref="compound">workers/gm_sensor.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gps__connector_8h" kindref="compound">workers/gps_connector.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="zen__button_8h" kindref="compound">workers/zen_button.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="survery__mode_8cpp_1a0a0b8dcabfce5b6df4104060ae19af90" refkind="member"><highlight class="normal"><ref refid="class_survey_mode_screen" kindref="compound">SurveyModeScreen</ref><sp/><ref refid="survery__mode_8cpp_1a0a0b8dcabfce5b6df4104060ae19af90" kindref="member">SurveyModeScreen_i</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="class_survey_mode_screen_1ab676a4806bb2cc10d1b5f9dd1e6c9448" refkind="member"><highlight class="normal"><ref refid="class_survey_mode_screen_1ab676a4806bb2cc10d1b5f9dd1e6c9448" kindref="member">SurveyModeScreen::SurveyModeScreen</ref>()<sp/>:<sp/><ref refid="class_base_screen" kindref="compound">BaseScreen</ref>(</highlight><highlight class="stringliteral">&quot;Survey&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">true</ref>),<sp/>_logging_available(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref>),<sp/>_currently_logging(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><ref refid="class_base_screen_1aaec338ea2e36bc2c621d3283ab345313" kindref="member">required_tube</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><ref refid="class_base_screen_1aa7ff73902ffb4869a7a1e4da7a004f86" kindref="member">required_gps</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><ref refid="class_base_screen_1a0ec50e2f5e767c49926acea4eff5d62a" kindref="member">required_sd</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="class_survey_mode_screen_1a2b1210c4b71c7b2da15777f7c8c677d0" refkind="member"><highlight class="normal"><ref refid="class_base_screen" kindref="compound">BaseScreen</ref>*<sp/><ref refid="class_survey_mode_screen_1a2b1210c4b71c7b2da15777f7c8c677d0" kindref="member">SurveyModeScreen::handle_input</ref>(<ref refid="class_controller" kindref="compound">Controller</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_button</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>.worker&lt;<ref refid="class_zen_button" kindref="compound">ZenButton</ref>&gt;(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa34908d3524a003a1a416f710d3bf096b" kindref="member">k_worker_button_1</ref>);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_logging_available<sp/>&amp;&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_button</ref>-&gt;is_fresh()<sp/>&amp;&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_button</ref>-&gt;get_data().shortPress)<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.set_handler_active(<ref refid="identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8a7353da73bc5b47b7d6668072f9626c07" kindref="member">k_handler_survey_logger</ref>,<sp/>!_currently_logging);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">menu_button</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>.worker&lt;<ref refid="class_zen_button" kindref="compound">ZenButton</ref>&gt;(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa824a84bb0222b57ea4966a17b90b110c" kindref="member">k_worker_button_3</ref>);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">menu_button</ref>-&gt;is_fresh()<sp/>&amp;&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">menu_button</ref>-&gt;get_data().shortPress)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;<ref refid="menu__window_8cpp_1a215e1e85bd83173d1f173f23151643f4" kindref="member">MenuWindow_i</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50" kindref="member">SurveyModeScreen::render</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">handler_map_t</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">handlers</ref>,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">force</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">controller_data</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>.worker&lt;<ref refid="class_controller" kindref="compound">Controller</ref>&gt;(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fad35320cf9c17965d52ea2427552a20f7" kindref="member">k_worker_device_state</ref>)-&gt;get_data();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>_logging_available<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">controller_data</ref>.local_available<sp/>&amp;&amp;<sp/><ref refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" kindref="member">SDInterface::i</ref>().<ref refid="class_s_d_interface_1abdd9e014e0bab83e0ab99c8807f2e5fd" kindref="member">status</ref>()<sp/>==<sp/><ref refid="class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50a4220a7d9f2295ecf4a6df95fc73de789" kindref="member">SDInterface::e_sd_config_status_ok</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">currently_logging</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">handlers</ref>.handler&lt;<ref refid="class_sd_logger" kindref="compound">SdLogger</ref>&gt;(<ref refid="identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8a7353da73bc5b47b7d6668072f9626c07" kindref="member">k_handler_survey_logger</ref>)-&gt;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">active</ref>();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_currently_logging<sp/>&amp;&amp;<sp/>!<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">currently_logging</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_base_screen_1ae483509d86c8f2ca88f5250180aefe1b" kindref="member">set_status_message</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">F</ref>(</highlight><highlight class="stringliteral">&quot;<sp/>COMPLETED<sp/>LOGGING<sp/>SURVEY<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!_currently_logging<sp/>&amp;&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">currently_logging</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_base_screen_1ae483509d86c8f2ca88f5250180aefe1b" kindref="member">set_status_message</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">F</ref>(</highlight><highlight class="stringliteral">&quot;<sp/>STARTED<sp/>LOGGING,<sp/>stay<sp/>safe!<sp/>&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>_currently_logging<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">currently_logging</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_logging_available<sp/>&amp;&amp;<sp/>_currently_logging)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Is<sp/>logging</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_base_screen_1abd62ea7f2f318142dde3d81f1a5e46a1" kindref="member">drawButton1</ref>(</highlight><highlight class="stringliteral">&quot;Stop<sp/>survey&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_base_screen_1abd62ea7f2f318142dde3d81f1a5e46a1" kindref="member">drawButton1</ref>(</highlight><highlight class="stringliteral">&quot;Start<sp/>survey&quot;</highlight><highlight class="normal">,<sp/>_logging_available<sp/>?<sp/><ref refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67" kindref="member">e_button_default</ref><sp/>:<sp/><ref refid="class_base_screen_1ad4a1248dca462731c78b423fcda99669aa1df192f7cb5a602ccdf145fb8e7bca2" kindref="member">e_button_disabled</ref>);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><ref refid="class_base_screen_1af5e00b4efc1ada7bb34cd0361b21397c" kindref="member">drawButton2</ref>(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="class_base_screen_1a13d1abed7e9ef452c950ee1a5af14860" kindref="member">drawButton3</ref>(</highlight><highlight class="stringliteral">&quot;Menu&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" kindref="member">gm_sensor</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>.worker&lt;<ref refid="class_geiger_counter" kindref="compound">GeigerCounter</ref>&gt;(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fadce40ed07be9b46afdd704f59b77a907" kindref="member">k_worker_gm_sensor</ref>);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" kindref="member">gps</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>.worker&lt;<ref refid="class_gps_connector" kindref="compound">GpsConnector</ref>&gt;(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211" kindref="member">k_worker_gps_connector</ref>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" kindref="member">gm_sensor</ref>-&gt;is_fresh()<sp/>||<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">force</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Display<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>.worker&lt;<ref refid="class_local_storage" kindref="compound">LocalStorage</ref>&gt;(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa5f34c7ca896fe335fe512801296de30c" kindref="member">k_worker_local_storage</ref>);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref>-&gt;<ref refid="class_local_storage_1a79a337d9f87106bc59e28a9f91796588" kindref="member">get_cpm_usvh</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Display<sp/>CPM<sp/>big,<sp/>usvh<sp/>small</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setTextColor(<ref refid="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" kindref="member">gm_sensor</ref>-&gt;get_data().<ref refid="class_geiger_counter_1a62c418e910486f29ef2b9c09b979756a" kindref="member">valid</ref><sp/>?<sp/><ref refid="user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62" kindref="member">LCD_COLOR_DEFAULT</ref><sp/>:<sp/><ref refid="user__config_8h_1aa2e906d0e32b57f0fa6a9aae19cee822" kindref="member">LCD_COLOR_STALE_INCOMPLETE</ref>,<sp/><ref refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" kindref="member">LCD_COLOR_BACKGROUND</ref>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">cpm_width</ref><sp/>=<sp/><ref refid="class_base_screen_1ae6e6ee7b78413b55d89fd192157ea9db" kindref="member">printIntFont</ref>(<ref refid="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" kindref="member">gm_sensor</ref>-&gt;get_data().cp5s,<sp/>0,<sp/>100,<sp/>&amp;fonts::Font7);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ush_width</ref><sp/>=<sp/><ref refid="class_base_screen_1acfec22b4351b13b4f0c6bd84254198ec" kindref="member">printFloatFont</ref>(<ref refid="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" kindref="member">gm_sensor</ref>-&gt;get_data().uSvh_5sec,<sp/>4,<sp/>0,<sp/>140,<sp/>&amp;fonts::Font4);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Display<sp/>unit<sp/>text<sp/>with<sp/>cleanup<sp/>(CPM<sp/>uSv/h)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setTextColor(<ref refid="user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62" kindref="member">LCD_COLOR_DEFAULT</ref>,<sp/><ref refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" kindref="member">LCD_COLOR_BACKGROUND</ref>);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.fillRect(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">cpm_width</ref>,<sp/>52,<sp/>320<sp/>-<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">cpm_width</ref>,<sp/>27,<sp/><ref refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" kindref="member">LCD_COLOR_BACKGROUND</ref>);<sp/></highlight><highlight class="comment">//<sp/>Prints<sp/>blanks<sp/>after<sp/>cpm<sp/>value,<sp/>above<sp/>CPM<sp/>text</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">cpm_width</ref><sp/>+=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.drawString(</highlight><highlight class="stringliteral">&quot;<sp/>CP5S&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">cpm_width</ref>,<sp/>105,<sp/>&amp;fonts::Font4);<sp/></highlight><highlight class="comment">//<sp/>Prints<sp/>after<sp/>cpm<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.fillRect(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">cpm_width</ref>,<sp/>74,<sp/>320<sp/>-<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">cpm_width</ref>,<sp/>26,<sp/><ref refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" kindref="member">LCD_COLOR_BACKGROUND</ref>);<sp/></highlight><highlight class="comment">//<sp/>Prints<sp/>blanks<sp/>after<sp/>CPM<sp/>text</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.drawString(</highlight><highlight class="stringliteral">&quot;<sp/>uSv/h<sp/><sp/><sp/>&quot;</highlight><highlight class="normal">,<sp/>0<sp/>+<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ush_width</ref>,<sp/>140,<sp/>&amp;fonts::Font4);<sp/></highlight><highlight class="comment">//<sp/>Prints<sp/>after<sp/>ush<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setTextColor(<ref refid="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" kindref="member">gm_sensor</ref>-&gt;get_data().<ref refid="class_geiger_counter_1a62c418e910486f29ef2b9c09b979756a" kindref="member">valid</ref><sp/>?<sp/><ref refid="user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62" kindref="member">LCD_COLOR_DEFAULT</ref><sp/>:<sp/><ref refid="user__config_8h_1aa2e906d0e32b57f0fa6a9aae19cee822" kindref="member">LCD_COLOR_STALE_INCOMPLETE</ref>,<sp/><ref refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" kindref="member">LCD_COLOR_BACKGROUND</ref>);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ush_width</ref><sp/>=<sp/><ref refid="class_base_screen_1acfec22b4351b13b4f0c6bd84254198ec" kindref="member">printFloatFont</ref>(<ref refid="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" kindref="member">gm_sensor</ref>-&gt;get_data().uSvh_5sec,<sp/>3,<sp/>0,<sp/>100,<sp/>&amp;fonts::Font7);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">cpm_width</ref><sp/>=<sp/><ref refid="class_base_screen_1ae6e6ee7b78413b55d89fd192157ea9db" kindref="member">printIntFont</ref>(<ref refid="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" kindref="member">gm_sensor</ref>-&gt;get_data().cp5s,<sp/>0,<sp/>140,<sp/>&amp;fonts::Font4);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Display<sp/>unit<sp/>text<sp/>with<sp/>cleanup<sp/>(CPM<sp/>uSv/h)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setTextColor(<ref refid="user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62" kindref="member">LCD_COLOR_DEFAULT</ref>,<sp/><ref refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" kindref="member">LCD_COLOR_BACKGROUND</ref>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.fillRect(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ush_width</ref>,<sp/>52,<sp/>320<sp/>-<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ush_width</ref>,<sp/>27,<sp/><ref refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" kindref="member">LCD_COLOR_BACKGROUND</ref>);<sp/></highlight><highlight class="comment">//<sp/>Prints<sp/>blanks<sp/>after<sp/>cpm<sp/>value,<sp/>above<sp/>CPM<sp/>text</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ush_width</ref><sp/>+=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.drawString(</highlight><highlight class="stringliteral">&quot;<sp/>uSv/h&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ush_width</ref>,<sp/>105,<sp/>&amp;fonts::Font4);<sp/></highlight><highlight class="comment">//<sp/>Prints<sp/>after<sp/>cpm<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.fillRect(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ush_width</ref>,<sp/>74,<sp/>320<sp/>-<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ush_width</ref>,<sp/>26,<sp/><ref refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" kindref="member">LCD_COLOR_BACKGROUND</ref>);<sp/></highlight><highlight class="comment">//<sp/>Prints<sp/>blanks<sp/>after<sp/>CPM<sp/>text</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.drawString(</highlight><highlight class="stringliteral">&quot;<sp/>CP5S<sp/><sp/><sp/>&quot;</highlight><highlight class="normal">,<sp/>0<sp/>+<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">cpm_width</ref>,<sp/>140,<sp/>&amp;fonts::Font4);<sp/></highlight><highlight class="comment">//<sp/>Prints<sp/>after<sp/>ush<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" kindref="member">gps</ref>-&gt;is_fresh()<sp/>||<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">force</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Print<sp/>location<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setCursor(170,<sp/>150);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setTextColor(<ref refid="user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62" kindref="member">LCD_COLOR_DEFAULT</ref>,<sp/><ref refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" kindref="member">LCD_COLOR_BACKGROUND</ref>);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.print(</highlight><highlight class="stringliteral">&quot;Latitude<sp/><sp/><sp/>:&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setTextColor(<ref refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" kindref="member">gps</ref>-&gt;get_data().location_valid<sp/>?<sp/><ref refid="user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62" kindref="member">LCD_COLOR_DEFAULT</ref><sp/>:<sp/><ref refid="user__config_8h_1aa2e906d0e32b57f0fa6a9aae19cee822" kindref="member">LCD_COLOR_STALE_INCOMPLETE</ref>,<sp/><ref refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" kindref="member">LCD_COLOR_BACKGROUND</ref>);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.printf(</highlight><highlight class="stringliteral">&quot;%0.6f<sp/><sp/>&quot;</highlight><highlight class="normal">,<sp/><ref refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" kindref="member">gps</ref>-&gt;get_data().latitude);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setCursor(170,<sp/>159);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setTextColor(<ref refid="user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62" kindref="member">LCD_COLOR_DEFAULT</ref>,<sp/><ref refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" kindref="member">LCD_COLOR_BACKGROUND</ref>);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.print(</highlight><highlight class="stringliteral">&quot;Longitude<sp/><sp/>:&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setTextColor(<ref refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" kindref="member">gps</ref>-&gt;get_data().location_valid<sp/>?<sp/><ref refid="user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62" kindref="member">LCD_COLOR_DEFAULT</ref><sp/>:<sp/><ref refid="user__config_8h_1aa2e906d0e32b57f0fa6a9aae19cee822" kindref="member">LCD_COLOR_STALE_INCOMPLETE</ref>,<sp/><ref refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" kindref="member">LCD_COLOR_BACKGROUND</ref>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.printf(</highlight><highlight class="stringliteral">&quot;%0.6f<sp/><sp/>&quot;</highlight><highlight class="normal">,<sp/><ref refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" kindref="member">gps</ref>-&gt;get_data().longitude);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setCursor(170,<sp/>168);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setTextColor(<ref refid="user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62" kindref="member">LCD_COLOR_DEFAULT</ref>,<sp/><ref refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" kindref="member">LCD_COLOR_BACKGROUND</ref>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.print(</highlight><highlight class="stringliteral">&quot;Altitude<sp/><sp/><sp/>:&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setTextColor(<ref refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" kindref="member">gps</ref>-&gt;get_data().location_valid<sp/>?<sp/><ref refid="user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62" kindref="member">LCD_COLOR_DEFAULT</ref><sp/>:<sp/><ref refid="user__config_8h_1aa2e906d0e32b57f0fa6a9aae19cee822" kindref="member">LCD_COLOR_STALE_INCOMPLETE</ref>,<sp/><ref refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" kindref="member">LCD_COLOR_BACKGROUND</ref>);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.printf(</highlight><highlight class="stringliteral">&quot;%0.2f<sp/><sp/><sp/><sp/>&quot;</highlight><highlight class="normal">,<sp/><ref refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" kindref="member">gps</ref>-&gt;get_data().altitudeMSL);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setCursor(170,<sp/>177);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setTextColor(<ref refid="user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62" kindref="member">LCD_COLOR_DEFAULT</ref>,<sp/><ref refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" kindref="member">LCD_COLOR_BACKGROUND</ref>);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.print(</highlight><highlight class="stringliteral">&quot;DOP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setTextColor(<ref refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" kindref="member">gps</ref>-&gt;get_data().location_valid<sp/>?<sp/><ref refid="user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62" kindref="member">LCD_COLOR_DEFAULT</ref><sp/>:<sp/><ref refid="user__config_8h_1aa2e906d0e32b57f0fa6a9aae19cee822" kindref="member">LCD_COLOR_STALE_INCOMPLETE</ref>,<sp/><ref refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" kindref="member">LCD_COLOR_BACKGROUND</ref>);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.printf(</highlight><highlight class="stringliteral">&quot;%0.2f<sp/><sp/><sp/><sp/>&quot;</highlight><highlight class="normal">,<sp/><ref refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" kindref="member">gps</ref>-&gt;get_data().pdop);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111" refid="class_survey_mode_screen_1a8f92dc2c5a954f6284517b39cb08db8e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_survey_mode_screen_1a8f92dc2c5a954f6284517b39cb08db8e" kindref="member">SurveyModeScreen::enter_screen</ref>(<ref refid="class_controller" kindref="compound">Controller</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.<ref refid="class_controller_1ad9039c060ff691a666a194add7ecc5c1" kindref="member">get_settings</ref>().<ref refid="class_local_storage_1a213ff59d5af95ac21edcded1dc8f2143" kindref="member">get_manual_logging</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Automatically<sp/>start<sp/>logging</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.set_handler_active(<ref refid="identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8a7353da73bc5b47b7d6668072f9626c07" kindref="member">k_handler_survey_logger</ref>,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="class_survey_mode_screen_1ab5e2b29f4e65d44fcd51be6f09d23fa9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_survey_mode_screen_1ab5e2b29f4e65d44fcd51be6f09d23fa9" kindref="member">SurveyModeScreen::leave_screen</ref>(<ref refid="class_controller" kindref="compound">Controller</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>close<sp/>logging<sp/>to<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>.set_handler_active(<ref refid="identifiers_8h_1a9ceb53a27f136be55a60d6c2fc728ed8a7353da73bc5b47b7d6668072f9626c07" kindref="member">k_handler_survey_logger</ref>,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/screens/survery_mode.cpp"/>
+  </compounddef>
+</doxygen>

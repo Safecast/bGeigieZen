@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="hardware__counter_8h" kind="file" language="C++">
+    <compoundname>hardware_counter.h</compoundname>
+    <includes local="no">limits</includes>
+    <includes local="no">Ticker.h</includes>
+    <includes local="no">driver/pcnt.h</includes>
+    <includes refid="user__config_8h" local="yes">user_config.h</includes>
+    <includes refid="circular__buffer_8h" local="yes">circular_buffer.h</includes>
+    <includedby refid="hardware__counter_8cpp" local="yes">bgeigiezen_firmware/utils/hardware_counter.cpp</includedby>
+    <includedby refid="gm__sensor_8h" local="no">bgeigiezen_firmware/workers/gm_sensor.h</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>circular_buffer.h</label>
+        <link refid="circular__buffer_8h"/>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/utils/hardware_counter.h</label>
+        <link refid="hardware__counter_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="3">
+        <label>Ticker.h</label>
+      </node>
+      <node id="4">
+        <label>driver/pcnt.h</label>
+      </node>
+      <node id="2">
+        <label>limits</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>bgeigiezen_firmware/gfx_screen.cpp</label>
+        <link refid="gfx__screen_8cpp"/>
+      </node>
+      <node id="5">
+        <label>bgeigiezen_firmware/main.cpp</label>
+        <link refid="bgeigiezen__firmware_2main_8cpp"/>
+      </node>
+      <node id="6">
+        <label>bgeigiezen_firmware/screens/base_screen.cpp</label>
+        <link refid="base__screen_8cpp"/>
+      </node>
+      <node id="7">
+        <label>bgeigiezen_firmware/screens/debug_mode.cpp</label>
+        <link refid="debug__mode_8cpp"/>
+      </node>
+      <node id="8">
+        <label>bgeigiezen_firmware/screens/drive_mode.cpp</label>
+        <link refid="drive__mode_8cpp"/>
+      </node>
+      <node id="9">
+        <label>bgeigiezen_firmware/screens/fixed_mode.cpp</label>
+        <link refid="fixed__mode_8cpp"/>
+      </node>
+      <node id="10">
+        <label>bgeigiezen_firmware/screens/survery_mode.cpp</label>
+        <link refid="survery__mode_8cpp"/>
+      </node>
+      <node id="2">
+        <label>bgeigiezen_firmware/utils/hardware_counter.cpp</label>
+        <link refid="hardware__counter_8cpp"/>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/utils/hardware_counter.h</label>
+        <link refid="hardware__counter_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>bgeigiezen_firmware/workers/gm_sensor.cpp</label>
+        <link refid="gm__sensor_8cpp"/>
+      </node>
+      <node id="3">
+        <label>bgeigiezen_firmware/workers/gm_sensor.h</label>
+        <link refid="gm__sensor_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>bgeigiezen_firmware/workers/log_aggregator.cpp</label>
+        <link refid="log__aggregator_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_hardware_counter" prot="public">HardwareCounter</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="hardware__counter_8h_1a6baeb703f2f3032bff39704cfaa2ce7b" prot="public" static="no">
+        <name>PULSE_COUNT_BUFFER_MAX</name>
+        <initializer>15</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/hardware_counter.h" line="15" column="9" bodyfile="bgeigiezen_firmware/utils/hardware_counter.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/>Provides<sp/>GeigerCounter,<sp/>a<sp/>class<sp/>that<sp/>wraps<sp/>around<sp/>the<sp/>ESP32<sp/>hardware<sp/>counter</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/>and<sp/>also<sp/>does<sp/>moving<sp/>average,<sp/>peak<sp/>detection,<sp/>CPM<sp/>conversion,<sp/>etc</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__HARDWARECOUNTER_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__HARDWARECOUNTER_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;limits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Ticker.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;driver/pcnt.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="user__config_8h" kindref="compound">user_config.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="circular__buffer_8h" kindref="compound">circular_buffer.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="hardware__counter_8h_1a6baeb703f2f3032bff39704cfaa2ce7b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PULSE_COUNT_BUFFER_MAX<sp/>15</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_hardware_counter" kindref="compound">HardwareCounter</ref><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="22" refid="class_hardware_counter_1a83b878ed339ece4944ac7a70b3324cbc" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_hardware_counter_1a83b878ed339ece4944ac7a70b3324cbc" kindref="member">HardwareCounter</ref>();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="class_hardware_counter_1ad8529a6e8473d44f214dd1649fed8c38" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="class_hardware_counter_1ad8529a6e8473d44f214dd1649fed8c38" kindref="member">get_last_count</ref>();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>sliding<sp/>windows<sp/>setup</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7" kindref="member">begin</ref>();</highlight></codeline>
+<codeline lineno="28" refid="class_hardware_counter_1aa7f151e2edd3d718edab3568ffc75dc4" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_hardware_counter_1aa7f151e2edd3d718edab3568ffc75dc4" kindref="member">reset</ref>();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_hardware_counter_1a8b1831862879280db14b8a7406169e7c" kindref="member">available</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>uint32_t<sp/>_get_count_reset();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>let<sp/>the<sp/>timer<sp/>interrupt<sp/>routine<sp/>be<sp/>a<sp/>friend<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_hardware_counter_1a50db37e683b37fc7c123c4a285237e18" kindref="member">timer_intr_handler</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">arg</ref>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Ticker</ref><sp/>_timer;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><ref refid="class_circular_buffer" kindref="compound">CircularBuffer&lt;uint32_t, PULSE_COUNT_BUFFER_MAX&gt;</ref><sp/>_count_buffer;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>uint32_t<sp/>_delay_s;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_gpio;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">pcnt_unit_t</ref><sp/>_unit;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int16_t<sp/>_max_value;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>uint32_t<sp/>_n_wraparound;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>uint32_t<sp/>_start_time;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_available;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>__HARDWARECOUNTER_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/utils/hardware_counter.h"/>
+  </compounddef>
+</doxygen>

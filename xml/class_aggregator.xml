@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_aggregator" kind="class" language="C++" prot="public">
+    <compoundname>Aggregator</compoundname>
+    <basecompoundref refid="class_observer" prot="public" virt="non-virtual">Observer</basecompoundref>
+    <derivedcompoundref refid="class_controller" prot="public" virt="non-virtual">Controller</derivedcompoundref>
+    <includes refid="aggregator_8hpp" local="no">aggregator.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_aggregator_1a2f73e1e060cc5bf2c764c5c63d6cbc15" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_data_stamp" kindref="compound">DataStamp</ref></type>
+        <definition>DataStamp Aggregator::_current_data</definition>
+        <argsstring></argsstring>
+        <name>_current_data</name>
+        <qualifiedname>Aggregator::_current_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/aggregator.hpp" line="20" column="15" bodyfile="archive/bgeigie_firmware/aggregator.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_aggregator_1a52e28fc7950a7a13d5c912151f44a1d5" prot="private" static="no" mutable="no">
+        <type><ref refid="class_g_p_s_thread" kindref="compound">GPSThread</ref> *</type>
+        <definition>GPSThread* Aggregator::_gps</definition>
+        <argsstring></argsstring>
+        <name>_gps</name>
+        <qualifiedname>Aggregator::_gps</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/aggregator.hpp" line="23" column="15" bodyfile="archive/bgeigie_firmware/aggregator.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_aggregator_1ac0edfeb45889b05da41f2f81a35476d8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Aggregator::Aggregator</definition>
+        <argsstring>(GPSThread *gps)</argsstring>
+        <name>Aggregator</name>
+        <qualifiedname>Aggregator::Aggregator</qualifiedname>
+        <param>
+          <type><ref refid="class_g_p_s_thread" kindref="compound">GPSThread</ref> *</type>
+          <declname>gps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/aggregator.hpp" line="26" column="5" bodyfile="archive/bgeigie_firmware/aggregator.hpp" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_aggregator_1a478d5a6fde05c6774759fd1c30df0bbe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual Aggregator::~Aggregator</definition>
+        <argsstring>()</argsstring>
+        <name>~Aggregator</name>
+        <qualifiedname>Aggregator::~Aggregator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/aggregator.hpp" line="27" column="13" bodyfile="archive/bgeigie_firmware/aggregator.hpp" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_aggregator_1a2715c67ec5ebc41a248dd22785ca6862" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Aggregator::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <qualifiedname>Aggregator::update</qualifiedname>
+        <reimplements refid="class_observer_1ac75e4b339faeb3ea6fe0a01bf0b4a215">update</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/aggregator.hpp" line="30" column="10" bodyfile="archive/bgeigie_firmware/aggregator.cpp" bodystart="4" bodyend="11"/>
+        <references refid="class_measurement_1a8019e4491efe1ec58a076e6b17272f6e" compoundref="bgeigie__firmware_2measurements_8hpp" startline="27" endline="27">Measurement&lt; T &gt;::available</references>
+        <references refid="class_measurement_1aabfa61bb1f0c3098635e6104ad8a95ad" compoundref="bgeigie__firmware_2measurements_8hpp" startline="36" endline="45">Measurement&lt; T &gt;::get_data</references>
+        <references refid="struct_data_stamp_1a14691686755ad569640d673ffe142a5a" compoundref="aggregator_8hpp" startline="11">DataStamp::gps</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Aggregator</label>
+        <link refid="class_aggregator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Controller</label>
+        <link refid="class_controller"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Observer</label>
+        <link refid="class_observer"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Aggregator</label>
+        <link refid="class_aggregator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Observer</label>
+        <link refid="class_observer"/>
+      </node>
+    </collaborationgraph>
+    <location file="archive/bgeigie_firmware/aggregator.hpp" line="17" column="1" bodyfile="archive/bgeigie_firmware/aggregator.hpp" bodystart="18" bodyend="31"/>
+    <listofallmembers>
+      <member refid="class_aggregator_1a2f73e1e060cc5bf2c764c5c63d6cbc15" prot="private" virt="non-virtual"><scope>Aggregator</scope><name>_current_data</name></member>
+      <member refid="class_aggregator_1a52e28fc7950a7a13d5c912151f44a1d5" prot="private" virt="non-virtual"><scope>Aggregator</scope><name>_gps</name></member>
+      <member refid="class_aggregator_1ac0edfeb45889b05da41f2f81a35476d8" prot="public" virt="non-virtual"><scope>Aggregator</scope><name>Aggregator</name></member>
+      <member refid="class_aggregator_1a2715c67ec5ebc41a248dd22785ca6862" prot="public" virt="virtual"><scope>Aggregator</scope><name>update</name></member>
+      <member refid="class_aggregator_1a478d5a6fde05c6774759fd1c30df0bbe" prot="public" virt="virtual"><scope>Aggregator</scope><name>~Aggregator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
