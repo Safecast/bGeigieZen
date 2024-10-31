@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_serial_sink" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>SerialSink</compoundname>
+    <includes refid="bgeigie__firmware_2serial__source_8hpp" local="no">serial_source.hpp</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_serial_sink_1a3c6298510ef39f03d390a0a0f765ebf8" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>size_t</type>
+        <definition>virtual size_t SerialSink::println</definition>
+        <argsstring>(char *buf)=0</argsstring>
+        <name>println</name>
+        <qualifiedname>SerialSink::println</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>buf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/serial_source.hpp" line="21" column="20"/>
+        <referencedby refid="class_g_p_s_thread_1aa519d5004c9b13c2ac4308b99324efd9" compoundref="bgeigie__firmware_2threaded__gps_8cpp" startline="12" endline="25">GPSThread::init</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_serial_sink_1a7d6324400e06dcf9fb966ecbb2ce25f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>size_t</type>
+        <definition>virtual size_t SerialSink::write</definition>
+        <argsstring>(char *buf)=0</argsstring>
+        <name>write</name>
+        <qualifiedname>SerialSink::write</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>buf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/serial_source.hpp" line="22" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_serial_sink_1a3c6298510ef39f03d390a0a0f765ebf8" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>size_t</type>
+        <definition>virtual size_t SerialSink::println</definition>
+        <argsstring>(char *buf)=0</argsstring>
+        <name>println</name>
+        <qualifiedname>SerialSink::println</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>buf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/serial_source.hpp" line="21" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_serial_sink_1a7d6324400e06dcf9fb966ecbb2ce25f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>size_t</type>
+        <definition>virtual size_t SerialSink::write</definition>
+        <argsstring>(char *buf)=0</argsstring>
+        <name>write</name>
+        <qualifiedname>SerialSink::write</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>buf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/serial_source.hpp" line="22" column="20"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="archive/bgeigie_firmware/serial_source.hpp" line="18" column="1" bodyfile="archive/bgeigie_firmware/serial_source.hpp" bodystart="19" bodyend="23"/>
+    <listofallmembers>
+      <member refid="class_serial_sink_1a3c6298510ef39f03d390a0a0f765ebf8" prot="public" virt="pure-virtual"><scope>SerialSink</scope><name>println</name></member>
+      <member refid="class_serial_sink_1a3c6298510ef39f03d390a0a0f765ebf8" prot="public" virt="pure-virtual"><scope>SerialSink</scope><name>println</name></member>
+      <member refid="class_serial_sink_1a7d6324400e06dcf9fb966ecbb2ce25f7" prot="public" virt="pure-virtual"><scope>SerialSink</scope><name>write</name></member>
+      <member refid="class_serial_sink_1a7d6324400e06dcf9fb966ecbb2ce25f7" prot="public" virt="pure-virtual"><scope>SerialSink</scope><name>write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

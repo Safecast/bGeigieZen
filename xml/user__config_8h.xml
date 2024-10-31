@@ -1,0 +1,1576 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="user__config_8h" kind="file" language="C++">
+    <compoundname>user_config.h</compoundname>
+    <includes local="no">M5Unified.hpp</includes>
+    <includedby refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" local="yes">archive/bgeigie_firmware_pio/src/configuration_server.cpp</includedby>
+    <includedby refid="api__connector_8h" local="yes">bgeigiezen_firmware/handlers/api_connector.h</includedby>
+    <includedby refid="sd__logger_8h" local="yes">bgeigiezen_firmware/handlers/sd_logger.h</includedby>
+    <includedby refid="base__screen_8h" local="yes">bgeigiezen_firmware/screens/base_screen.h</includedby>
+    <includedby refid="boot__screen_8cpp" local="yes">bgeigiezen_firmware/screens/boot_screen.cpp</includedby>
+    <includedby refid="config__mode_8cpp" local="yes">bgeigiezen_firmware/screens/config_mode.cpp</includedby>
+    <includedby refid="first__time__startup_8cpp" local="yes">bgeigiezen_firmware/screens/first_time_startup.cpp</includedby>
+    <includedby refid="fixed__mode_8cpp" local="yes">bgeigiezen_firmware/screens/fixed_mode.cpp</includedby>
+    <includedby refid="menu__window_8cpp" local="yes">bgeigiezen_firmware/screens/menu_window.cpp</includedby>
+    <includedby refid="zen__info_8cpp" local="yes">bgeigiezen_firmware/screens/zen_info.cpp</includedby>
+    <includedby refid="hardware__counter_8cpp" local="yes">bgeigiezen_firmware/utils/hardware_counter.cpp</includedby>
+    <includedby refid="hardware__counter_8h" local="yes">bgeigiezen_firmware/utils/hardware_counter.h</includedby>
+    <includedby refid="http__pages_8cpp" local="yes">bgeigiezen_firmware/utils/http_pages.cpp</includedby>
+    <includedby refid="sd__wrapper_8cpp" local="yes">bgeigiezen_firmware/utils/sd_wrapper.cpp</includedby>
+    <includedby refid="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" local="yes">bgeigiezen_firmware/utils/wifi_connection.cpp</includedby>
+    <includedby refid="bgeigiezen__firmware_2workers_2configuration__server_8cpp" local="yes">bgeigiezen_firmware/workers/configuration_server.cpp</includedby>
+    <includedby refid="gps__connector_8h" local="no">bgeigiezen_firmware/workers/gps_connector.h</includedby>
+    <includedby refid="log__aggregator_8h" local="yes">bgeigiezen_firmware/workers/log_aggregator.h</includedby>
+    <includedby refid="rtc__connector_8h" local="no">bgeigiezen_firmware/workers/rtc_connector.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>bgeigiezen_firmware/user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>M5Unified.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>archive/bgeigie_firmware_pio/src/configuration_server.cpp</label>
+        <link refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp"/>
+      </node>
+      <node id="13">
+        <label>bgeigiezen_firmware/gfx_screen.cpp</label>
+        <link refid="gfx__screen_8cpp"/>
+      </node>
+      <node id="12">
+        <label>bgeigiezen_firmware/gfx_screen.h</label>
+        <link refid="gfx__screen_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>bgeigiezen_firmware/handlers/api_connector.cpp</label>
+        <link refid="api__connector_8cpp"/>
+      </node>
+      <node id="3">
+        <label>bgeigiezen_firmware/handlers/api_connector.h</label>
+        <link refid="api__connector_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>bgeigiezen_firmware/handlers/bluetooth_reporter.cpp</label>
+        <link refid="bluetooth__reporter_8cpp"/>
+      </node>
+      <node id="51">
+        <label>bgeigiezen_firmware/handlers/bluetooth_reporter.h</label>
+        <link refid="bluetooth__reporter_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>bgeigiezen_firmware/handlers/sd_logger.cpp</label>
+        <link refid="sd__logger_8cpp"/>
+      </node>
+      <node id="7">
+        <label>bgeigiezen_firmware/handlers/sd_logger.h</label>
+        <link refid="sd__logger_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>bgeigiezen_firmware/main.cpp</label>
+        <link refid="bgeigiezen__firmware_2main_8cpp"/>
+      </node>
+      <node id="14">
+        <label>bgeigiezen_firmware/screens/base_screen.cpp</label>
+        <link refid="base__screen_8cpp"/>
+      </node>
+      <node id="11">
+        <label>bgeigiezen_firmware/screens/base_screen.h</label>
+        <link refid="base__screen_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>bgeigiezen_firmware/screens/boot_screen.cpp</label>
+        <link refid="boot__screen_8cpp"/>
+      </node>
+      <node id="15">
+        <label>bgeigiezen_firmware/screens/boot_screen.h</label>
+        <link refid="boot__screen_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>bgeigiezen_firmware/screens/config_mode.cpp</label>
+        <link refid="config__mode_8cpp"/>
+      </node>
+      <node id="17">
+        <label>bgeigiezen_firmware/screens/config_mode.h</label>
+        <link refid="config__mode_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>bgeigiezen_firmware/screens/debug_mode.cpp</label>
+        <link refid="debug__mode_8cpp"/>
+      </node>
+      <node id="20">
+        <label>bgeigiezen_firmware/screens/debug_mode.h</label>
+        <link refid="debug__mode_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>bgeigiezen_firmware/screens/default_entry_screen.cpp</label>
+        <link refid="default__entry__screen_8cpp"/>
+      </node>
+      <node id="22">
+        <label>bgeigiezen_firmware/screens/default_entry_screen.h</label>
+        <link refid="default__entry__screen_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>bgeigiezen_firmware/screens/drive_mode.cpp</label>
+        <link refid="drive__mode_8cpp"/>
+      </node>
+      <node id="26">
+        <label>bgeigiezen_firmware/screens/drive_mode.h</label>
+        <link refid="drive__mode_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>bgeigiezen_firmware/screens/first_time_startup.cpp</label>
+        <link refid="first__time__startup_8cpp"/>
+      </node>
+      <node id="27">
+        <label>bgeigiezen_firmware/screens/first_time_startup.h</label>
+        <link refid="first__time__startup_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>bgeigiezen_firmware/screens/fixed_mode.cpp</label>
+        <link refid="fixed__mode_8cpp"/>
+      </node>
+      <node id="28">
+        <label>bgeigiezen_firmware/screens/fixed_mode.h</label>
+        <link refid="fixed__mode_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>bgeigiezen_firmware/screens/menu_window.cpp</label>
+        <link refid="menu__window_8cpp"/>
+      </node>
+      <node id="29">
+        <label>bgeigiezen_firmware/screens/menu_window.h</label>
+        <link refid="menu__window_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>bgeigiezen_firmware/screens/satellite_view.cpp</label>
+        <link refid="satellite__view_8cpp"/>
+      </node>
+      <node id="32">
+        <label>bgeigiezen_firmware/screens/satellite_view.h</label>
+        <link refid="satellite__view_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>bgeigiezen_firmware/screens/sd_message.cpp</label>
+        <link refid="sd__message_8cpp"/>
+      </node>
+      <node id="33">
+        <label>bgeigiezen_firmware/screens/sd_message.h</label>
+        <link refid="sd__message_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>bgeigiezen_firmware/screens/survery_mode.cpp</label>
+        <link refid="survery__mode_8cpp"/>
+      </node>
+      <node id="34">
+        <label>bgeigiezen_firmware/screens/survey_mode.h</label>
+        <link refid="survey__mode_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>bgeigiezen_firmware/screens/zen_info.cpp</label>
+        <link refid="zen__info_8cpp"/>
+      </node>
+      <node id="35">
+        <label>bgeigiezen_firmware/screens/zen_info.h</label>
+        <link refid="zen__info_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>bgeigiezen_firmware/utils/hardware_counter.cpp</label>
+        <link refid="hardware__counter_8cpp"/>
+      </node>
+      <node id="37">
+        <label>bgeigiezen_firmware/utils/hardware_counter.h</label>
+        <link refid="hardware__counter_8h"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>bgeigiezen_firmware/utils/http_pages.cpp</label>
+        <link refid="http__pages_8cpp"/>
+      </node>
+      <node id="42">
+        <label>bgeigiezen_firmware/utils/sd_wrapper.cpp</label>
+        <link refid="sd__wrapper_8cpp"/>
+      </node>
+      <node id="43">
+        <label>bgeigiezen_firmware/utils/wifi_connection.cpp</label>
+        <link refid="bgeigiezen__firmware_2utils_2wifi__connection_8cpp"/>
+      </node>
+      <node id="44">
+        <label>bgeigiezen_firmware/workers/configuration_server.cpp</label>
+        <link refid="bgeigiezen__firmware_2workers_2configuration__server_8cpp"/>
+      </node>
+      <node id="39">
+        <label>bgeigiezen_firmware/workers/gm_sensor.cpp</label>
+        <link refid="gm__sensor_8cpp"/>
+      </node>
+      <node id="38">
+        <label>bgeigiezen_firmware/workers/gm_sensor.h</label>
+        <link refid="gm__sensor_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>bgeigiezen_firmware/workers/gps_connector.cpp</label>
+        <link refid="gps__connector_8cpp"/>
+      </node>
+      <node id="45">
+        <label>bgeigiezen_firmware/workers/gps_connector.h</label>
+        <link refid="gps__connector_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>bgeigiezen_firmware/workers/local_storage.cpp</label>
+        <link refid="local__storage_8cpp"/>
+      </node>
+      <node id="40">
+        <label>bgeigiezen_firmware/workers/log_aggregator.cpp</label>
+        <link refid="log__aggregator_8cpp"/>
+      </node>
+      <node id="50">
+        <label>bgeigiezen_firmware/workers/log_aggregator.h</label>
+        <link refid="log__aggregator_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>bgeigiezen_firmware/workers/rtc_connector.cpp</label>
+        <link refid="rtc__connector_8cpp"/>
+      </node>
+      <node id="49">
+        <label>bgeigiezen_firmware/workers/rtc_connector.h</label>
+        <link refid="rtc__connector_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="user__config_8h_1a432138093c53d7580af9ec5c5dca387f" prot="public" static="no">
+        <name>ENABLE_DEBUG</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>System config </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="7" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a18d295a837ac71add5578860b55e5502" prot="public" static="no">
+        <name>STR</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="user__config_8h_1a9063e80f8777300c93afde6e6f4c9cea" kindref="member">TOSTRING</ref>(x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="8" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a9063e80f8777300c93afde6e6f4c9cea" prot="public" static="no">
+        <name>TOSTRING</name>
+        <param><defname>x</defname></param>
+        <initializer>#x</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="9" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1affb1ffbd24de6be88bd8ac877aae1688" prot="public" static="no">
+        <name>VERSION_NUMBER</name>
+        <initializer><ref refid="user__config_8h_1a18d295a837ac71add5578860b55e5502" kindref="member">STR</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">MAJOR_VERSION</ref>) &quot;.&quot; <ref refid="user__config_8h_1a18d295a837ac71add5578860b55e5502" kindref="member">STR</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">MINOR_VERSION</ref>) &quot;.&quot; <ref refid="user__config_8h_1a18d295a837ac71add5578860b55e5502" kindref="member">STR</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">PATCH_VERSION</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="13" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a698acb89e1bf5837b33c30ef35c30044" prot="public" static="no">
+        <name>VERSION_STRING</name>
+        <initializer>&quot;bGeigieZen &quot; VERSION_NUMBER</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="14" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a5a3262b73772541f8d42a66de97909ed" prot="public" static="no">
+        <name>COPYRIGHT_YEAR</name>
+        <initializer>2024</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="18" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a77ba3a545a8a7ab2ce9c75c171b19f6f" prot="public" static="no">
+        <name>COPYRIGHT_YEAR_STRING</name>
+        <initializer><ref refid="user__config_8h_1a18d295a837ac71add5578860b55e5502" kindref="member">STR</ref>(<ref refid="user__config_8h_1a5a3262b73772541f8d42a66de97909ed" kindref="member">COPYRIGHT_YEAR</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="19" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" prot="public" static="no">
+        <name>LCD_COLOR_BACKGROUND</name>
+        <initializer><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TFT_BLACK</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="44" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62" prot="public" static="no">
+        <name>LCD_COLOR_DEFAULT</name>
+        <initializer><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TFT_WHITE</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="45" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1aa2e906d0e32b57f0fa6a9aae19cee822" prot="public" static="no">
+        <name>LCD_COLOR_STALE_INCOMPLETE</name>
+        <initializer><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TFT_ORANGE</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="46" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1ae0f8a87167f3f90938876248a8abb27b" prot="public" static="no">
+        <name>LCD_COLOR_ERROR</name>
+        <initializer><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TFT_RED</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="47" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a7513793964f7e96f4fbb7a2016f1336a" prot="public" static="no">
+        <name>LCD_COLOR_INACTIVE</name>
+        <initializer><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TFT_DARKGREY</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="48" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1adc1a58589cc01dd65c017cf116e5450e" prot="public" static="no">
+        <name>LCD_COLOR_ACTIVITY</name>
+        <initializer><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TFT_GREEN</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="49" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a583b0748ee647a56a2e607bfe09d13dd" prot="public" static="no">
+        <name>API_HOST</name>
+        <initializer>&quot;tt.safecast.org&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hardware pins settings API connector settings </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="90" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1ae7d310923399cda9586b4916f7070fc5" prot="public" static="no">
+        <name>API_MEASUREMENTS_ENDPOINT</name>
+        <initializer>&quot;http://&quot; API_HOST &quot;/measurements.json&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="91" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a688b2c08fbc53d20db8a5f829f372338" prot="public" static="no">
+        <name>HEADER_API_CONTENT_TYPE</name>
+        <initializer>&quot;application/<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">json&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="92" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a37ec0fa268fd3617f7d7f5ad0a2d463e" prot="public" static="no">
+        <name>HEADER_API_USER_AGENT</name>
+        <initializer>&quot;bGeigieZen/&quot; VERSION_NUMBER</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="93" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a61e55f831ccc0dca94bf0e0f121f2a7c" prot="public" static="no">
+        <name>ACCESS_POINT_SSID</name>
+        <initializer>&quot;bgeigiezen-%<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">d&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Access point settings </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="96" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a2e6a8253ab0bc7773cfccfb1ae8d5fbc" prot="public" static="no">
+        <name>SERVER_WIFI_PORT</name>
+        <initializer>80</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="97" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a4e96e371af8e34654cb0d5d7057e70c0" prot="public" static="no">
+        <name>ACCESS_POINT_IP</name>
+        <initializer>{192, 168, 5, 1}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="98" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a9d15ae2b09da9972e7498dfbd4645d0a" prot="public" static="no">
+        <name>ACCESS_POINT_NMASK</name>
+        <initializer>{255, 255, 255, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="99" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1ab5ab7140802b46e7db66cc9b92b61193" prot="public" static="no">
+        <name>D_DEVICE_ID</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default configurations </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="102" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1afe984c303d2eba85ae72ff51588906a3" prot="public" static="no">
+        <name>D_AP_PASSWORD</name>
+        <initializer>&quot;safecast&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="103" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1abe4c502e45b2b84c3b9667723c0ae81d" prot="public" static="no">
+        <name>D_ALARM_THRESHOLD</name>
+        <initializer>100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="104" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a6d846f28e6a66e8302af1f540172088c" prot="public" static="no">
+        <name>D_CPM_USVH</name>
+        <initializer><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="105" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1ae7bf88ff5fd9df66061edb486e907095" prot="public" static="no">
+        <name>D_MANUAL_LOGGING</name>
+        <initializer><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="106" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a840942ce392b3b068c4c5e7d988d04f4" prot="public" static="no">
+        <name>D_ENABLE_JOURNAL</name>
+        <initializer><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">true</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="107" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a19a12ae4d5d5474bc32dcfbde165cd92" prot="public" static="no">
+        <name>D_LOG_VOID</name>
+        <initializer><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="108" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a54f763f535840cffd2e25e33d8564d08" prot="public" static="no">
+        <name>D_DOP_MAX</name>
+        <initializer>500</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="109" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a1c2adcb1cfc54c4f8d58dd56b26a02c7" prot="public" static="no">
+        <name>D_SCREEN_DIM_TIMEOUT</name>
+        <initializer>60</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="110" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a25fad4438853d6fac0b0611b343bafd0" prot="public" static="no">
+        <name>D_SCREEN_OFF_TIMEOUT</name>
+        <initializer>600</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="111" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a8e1a5f4448f925e8cfb3878338eef85d" prot="public" static="no">
+        <name>D_ANIMATED_SCREENSAVER</name>
+        <initializer><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">true</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="112" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1aff876460366b50a61c98ba651c49adda" prot="public" static="no">
+        <name>D_WIFI_SSID</name>
+        <initializer>&quot;your <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">wifi</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ssid&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="113" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1ac2201e2757292b5e01d7fdaa4bd777be" prot="public" static="no">
+        <name>D_WIFI_PASSWORD</name>
+        <initializer>&quot;your <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">wifi</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">password&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="114" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1aaad540fec2007dfd02d97f3e4be96a69" prot="public" static="no">
+        <name>D_API_KEY</name>
+        <initializer>&quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="115" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a8f81e5d632bbab0ac6c1fc8f9feacf0d" prot="public" static="no">
+        <name>D_FIXED_LONGITUDE</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="116" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a096ffa00860e0db4fb97eaa690efac41" prot="public" static="no">
+        <name>D_FIXED_LATITUDE</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="117" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1ac7e9d55a764e6cbb6cd21cf207f6f03f" prot="public" static="no">
+        <name>D_FIXED_RANGE</name>
+        <initializer>0.2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="118" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a5d0564dc97326732724ee38b73560aee" prot="public" static="no">
+        <name>D_LAST_LONGITUDE</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="119" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="user__config_8h_1a94d2b7faaa3be93bb82004403ed74710" prot="public" static="no">
+        <name>D_LAST_LATITUDE</name>
+        <initializer>0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="120" column="9" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="120" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint8_t</type>
+        <definition>constexpr uint8_t GEIGER_AVERAGING_N_BINS</definition>
+        <argsstring></argsstring>
+        <name>GEIGER_AVERAGING_N_BINS</name>
+        <initializer>= 60</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="25" column="19" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1abc4b551efadb337a797bc9cc75d0d356" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>constexpr float GEIGER_SENSOR1_CPM_FACTOR</definition>
+        <argsstring></argsstring>
+        <name>GEIGER_SENSOR1_CPM_FACTOR</name>
+        <initializer>= 340.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="26" column="17" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a1ecad281135a3c0738229d664036ee71" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint8_t</type>
+        <definition>constexpr uint8_t GEIGER_AVERAGING_PERIOD_S</definition>
+        <argsstring></argsstring>
+        <name>GEIGER_AVERAGING_PERIOD_S</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="27" column="19" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1ada282fb1853fb43eb2b2d8906bc3b550" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>constexpr int GEIGER_PULSE_GPIO_CORE2</definition>
+        <argsstring></argsstring>
+        <name>GEIGER_PULSE_GPIO_CORE2</name>
+        <initializer>= 32</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="28" column="15" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1ac203be00d8a5f39435bde06e91823884" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>constexpr int GEIGER_PULSE_GPIO_COREBASIC</definition>
+        <argsstring></argsstring>
+        <name>GEIGER_PULSE_GPIO_COREBASIC</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="29" column="15" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a0f899b6069324a35491a45de99a37e1d" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>constexpr int GEIGER_PULSE_GPIO_CORES3SE</definition>
+        <argsstring></argsstring>
+        <name>GEIGER_PULSE_GPIO_CORES3SE</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="30" column="15" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a6c61ee83b606434cf5e6ed87f6f02e09" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint8_t</type>
+        <definition>constexpr uint8_t BM8563_I2C_SDA</definition>
+        <argsstring></argsstring>
+        <name>BM8563_I2C_SDA</name>
+        <initializer>= 21</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="33" column="19" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a26a621c06c2c56797a4cf3c278d54f75" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint8_t</type>
+        <definition>constexpr uint8_t BM8563_I2C_SCL</definition>
+        <argsstring></argsstring>
+        <name>BM8563_I2C_SCL</name>
+        <initializer>= 22</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="34" column="19" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a11d1627cb6b656d87bc98e89ee6c289f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint8_t</type>
+        <definition>constexpr uint8_t RTC_I2C_ADDRESS</definition>
+        <argsstring></argsstring>
+        <name>RTC_I2C_ADDRESS</name>
+        <initializer>= 0x51</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="35" column="19" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a0b6d3c410877eab2e3300a19df913ec9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>constexpr int GPS_SERIAL_NUM</definition>
+        <argsstring></argsstring>
+        <name>GPS_SERIAL_NUM</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="38" column="15" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint32_t</type>
+        <definition>constexpr uint32_t GPS_FIX_AGE_LIMIT</definition>
+        <argsstring></argsstring>
+        <name>GPS_FIX_AGE_LIMIT</name>
+        <initializer>= 4500</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="39" column="20" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a43cbffea60066e2efe91f3c374a131cc" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint32_t</type>
+        <definition>constexpr uint32_t LCD_REFRESH_RATE</definition>
+        <argsstring></argsstring>
+        <name>LCD_REFRESH_RATE</name>
+        <initializer>= 1000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="42" column="20" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a2f20082db3d979803dad0bad5c4f785b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint32_t</type>
+        <definition>constexpr uint32_t STATUS_MESSAGE_DURATION</definition>
+        <argsstring></argsstring>
+        <name>STATUS_MESSAGE_DURATION</name>
+        <initializer>= 5000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="43" column="20" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="43" bodyend="-1"/>
+        <referencedby refid="class_base_screen_1ac34eef3f7a364202d2399ce1b234bf04" compoundref="base__screen_8cpp" startline="139" endline="144">BaseScreen::get_status_message</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1aafc508d7a2df49fd453b2ad0fe9183a2" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint8_t</type>
+        <definition>constexpr uint8_t SD_CS_PIN</definition>
+        <argsstring></argsstring>
+        <name>SD_CS_PIN</name>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="52" column="19" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a01a5470ab05566cfd96f7d3f9f9d865b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>constexpr char SETUP_FILENAME[]</definition>
+        <argsstring>[]</argsstring>
+        <name>SETUP_FILENAME</name>
+        <initializer>= &quot;/SAFEZEN.txt&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="55" column="16" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a8640e19b0a934a2937951a06148f1f38" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>constexpr char TEST_FILENAME[]</definition>
+        <argsstring>[]</argsstring>
+        <name>TEST_FILENAME</name>
+        <initializer>= &quot;/.zen&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="56" column="16" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="56" bodyend="-1"/>
+        <referencedby refid="class_s_d_interface_1a809a47ce4ef0dc0ea1918552601cbbdd" compoundref="sd__wrapper_8cpp" startline="88" endline="105">SDInterface::begin</referencedby>
+        <referencedby refid="class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe" compoundref="sd__wrapper_8cpp" startline="69" endline="74">SDInterface::ready</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a2aa1fad3e1a6050d9f8f3c86a0b080d0" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>constexpr float SETUP_DEFAULT_USH_DIVIDER</definition>
+        <argsstring></argsstring>
+        <name>SETUP_DEFAULT_USH_DIVIDER</name>
+        <initializer>= 334.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="57" column="17" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1ab26b3dfb90d6765681099e737667c82a" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>constexpr float SETUP_DEFAULT_BQM2_FACTOR</definition>
+        <argsstring></argsstring>
+        <name>SETUP_DEFAULT_BQM2_FACTOR</name>
+        <initializer>= 37.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="58" column="17" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1ab7624ab834688b7fd335af2a43210451" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint32_t</type>
+        <definition>constexpr uint32_t SETUP_DEFAULT_ALERT_LEVEL</definition>
+        <argsstring></argsstring>
+        <name>SETUP_DEFAULT_ALERT_LEVEL</name>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="59" column="20" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a33f8f515cdf75dee7bf5f09aaecca794" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>constexpr char JOURNAL_LOG_DIRECTORY[]</definition>
+        <argsstring>[]</argsstring>
+        <name>JOURNAL_LOG_DIRECTORY</name>
+        <initializer>= &quot;/journals&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="62" column="16" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="62" bodyend="-1"/>
+        <referencedby refid="class_s_d_interface_1aa383b96a9103432407c022af1dc3d290" compoundref="sd__wrapper_8cpp" startline="107" endline="115">SDInterface::clear_all_logs</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a9a0d7b4ec2eb1af45cbacaeab2da6ee2" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>constexpr char DRIVE_LOG_DIRECTORY[]</definition>
+        <argsstring>[]</argsstring>
+        <name>DRIVE_LOG_DIRECTORY</name>
+        <initializer>= &quot;/drives&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="63" column="16" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="63" bodyend="-1"/>
+        <referencedby refid="class_s_d_interface_1aa383b96a9103432407c022af1dc3d290" compoundref="sd__wrapper_8cpp" startline="107" endline="115">SDInterface::clear_all_logs</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a7a6e0e8fefbe0f4672066c0ff34ef585" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>constexpr char SURVEY_LOG_DIRECTORY[]</definition>
+        <argsstring>[]</argsstring>
+        <name>SURVEY_LOG_DIRECTORY</name>
+        <initializer>= &quot;/surveys&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="64" column="16" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="64" bodyend="-1"/>
+        <referencedby refid="class_s_d_interface_1aa383b96a9103432407c022af1dc3d290" compoundref="sd__wrapper_8cpp" startline="107" endline="115">SDInterface::clear_all_logs</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1ab1a574e4608cb50f6d09c38514d5162f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>constexpr char LOG_HEADER_LINE1[]</definition>
+        <argsstring>[]</argsstring>
+        <name>LOG_HEADER_LINE1</name>
+        <initializer>= &quot;# NEW <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">LOG&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="65" column="16" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1ad5ecdf56523a4f08b9a950c49123853c" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>constexpr char LOG_HEADER_LINE2[]</definition>
+        <argsstring>[]</argsstring>
+        <name>LOG_HEADER_LINE2</name>
+        <initializer>= &quot;# format=&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="66" column="16" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a9315df8ddd1c7b2571a34d4bcfbe4088" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>constexpr char LOG_HEADER_LINE3[]</definition>
+        <argsstring>[]</argsstring>
+        <name>LOG_HEADER_LINE3</name>
+        <initializer>= &quot;# deadtime=<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">off&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="67" column="16" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1af4522a39d440e3c86985f3c84361a859" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>constexpr char DEVICE_HEADER[]</definition>
+        <argsstring>[]</argsstring>
+        <name>DEVICE_HEADER</name>
+        <initializer>= &quot;BNRDD&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="68" column="16" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a824f8066b841857f55c7498a2df980a4" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint8_t</type>
+        <definition>constexpr uint8_t LINE_BUFFER_SIZE</definition>
+        <argsstring></argsstring>
+        <name>LINE_BUFFER_SIZE</name>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="69" column="19" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a75f97d568a246165199355e9c8272011" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint8_t</type>
+        <definition>constexpr uint8_t LOG_FILENAME_SIZE</definition>
+        <argsstring></argsstring>
+        <name>LOG_FILENAME_SIZE</name>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="70" column="19" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="70" bodyend="-1"/>
+        <referencedby refid="class_sd_logger_1ab55fb4b592ef94b61f23d408aecd7ee1" compoundref="sd__logger_8cpp" startline="49" endline="86">SdLogger::handle_produced_work</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1afb83b2ca67699a83eeb905cbcc4c51a9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint8_t</type>
+        <definition>constexpr uint8_t MIN_LOG_LINES_FOR_KEEP</definition>
+        <argsstring></argsstring>
+        <name>MIN_LOG_LINES_FOR_KEEP</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="71" column="19" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="71" bodyend="-1"/>
+        <referencedby refid="class_sd_logger_1a8e8463c086ad85bd39a99bdbe2207cfa" compoundref="sd__logger_8cpp" startline="38" endline="47">SdLogger::deactivate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a8a21e517d3e43eb7ddb20594faffc7bb" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint8_t</type>
+        <definition>constexpr uint8_t LOG_SECONDS_DELAY</definition>
+        <argsstring></argsstring>
+        <name>LOG_SECONDS_DELAY</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="72" column="19" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a5adca5c7efa9bcb38ce5a52072c1c77b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint16_t</type>
+        <definition>constexpr uint16_t API_SEND_SECONDS_DELAY</definition>
+        <argsstring></argsstring>
+        <name>API_SEND_SECONDS_DELAY</name>
+        <initializer>= 300</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="73" column="20" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="73" bodyend="-1"/>
+        <referencedby refid="class_api_connector_1ae4158ccefdfdc7d83196cbdfe7af8d36" compoundref="api__connector_8cpp" startline="12" endline="17">ApiConnector::time_to_send</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a8c27197c9f3132c4da80fffaea1ee29f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint16_t</type>
+        <definition>constexpr uint16_t API_SEND_SECONDS_DELAY_ALERT</definition>
+        <argsstring></argsstring>
+        <name>API_SEND_SECONDS_DELAY_ALERT</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="74" column="20" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="74" bodyend="-1"/>
+        <referencedby refid="class_api_connector_1ae4158ccefdfdc7d83196cbdfe7af8d36" compoundref="api__connector_8cpp" startline="12" endline="17">ApiConnector::time_to_send</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a477dfdc37e6a7d2b70aa6766d6eafb3b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> uint16_t</type>
+        <definition>constexpr uint16_t API_SEND_SECONDS_DELAY_ROAMING</definition>
+        <argsstring></argsstring>
+        <name>API_SEND_SECONDS_DELAY_ROAMING</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="75" column="20" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="75" bodyend="-1"/>
+        <referencedby refid="class_api_connector_1ae4158ccefdfdc7d83196cbdfe7af8d36" compoundref="api__connector_8cpp" startline="12" endline="17">ApiConnector::time_to_send</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a4e090fd3ea86adaedebc598565d4473b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>constexpr char FIXED_MODE_GRAFANA_URL[]</definition>
+        <argsstring>[]</argsstring>
+        <name>FIXED_MODE_GRAFANA_URL</name>
+        <initializer>= &quot;https://<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">grafana.safecast.cc</ref>/<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">d</ref>/<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">DFSxrOLWk</ref>/<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">safecast</ref>-<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">device</ref>-<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">details</ref>?<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">from</ref>=<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">now</ref>-24<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">h</ref>&amp;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">to</ref>=<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">now</ref>&amp;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">refresh</ref>=5<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">m</ref>&amp;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">var</ref>-<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">device_urn</ref>=<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">geigiecast:</ref>%<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">d&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="77" column="16" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="77" bodyend="-1"/>
+        <referencedby refid="class_http_pages_1a2029cf0ccea4c0cf9497eb2b0a30f78a" compoundref="http__pages_8cpp" startline="69" endline="91">HttpPages::get_home_page</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af" compoundref="fixed__mode_8cpp" startline="26" endline="128">FixedModeScreen::render</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="user__config_8h_1a0ff5bd7e17a0227695cdee8ddc7342e9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>constexpr char SCREENSAVER_TEXT[]</definition>
+        <argsstring>[]</argsstring>
+        <name>SCREENSAVER_TEXT</name>
+        <initializer>= <ref refid="user__config_8h_1a698acb89e1bf5837b33c30ef35c30044" kindref="member">VERSION_STRING</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/user_config.h" line="80" column="16" bodyfile="bgeigiezen_firmware/user_config.h" bodystart="80" bodyend="-1"/>
+        <referencedby refid="class_g_f_x_screen_1a1f5f80dd70f0b3975746457fc3759b74" compoundref="gfx__screen_8cpp" startline="42" endline="57">GFXScreen::initialize</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>USER_CONFIG_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>USER_CONFIG_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;M5Unified.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="user__config_8h_1a432138093c53d7580af9ec5c5dca387f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ENABLE_DEBUG<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="user__config_8h_1a18d295a837ac71add5578860b55e5502" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>STR(x)<sp/>TOSTRING(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="user__config_8h_1a9063e80f8777300c93afde6e6f4c9cea" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOSTRING(x)<sp/>#x</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">/***<sp/>VERSION<sp/>***/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Version<sp/>defined<sp/>in<sp/>platformio.ini<sp/>in<sp/>[env]<sp/>build<sp/>flags</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="user__config_8h_1affb1ffbd24de6be88bd8ac877aae1688" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VERSION_NUMBER<sp/>STR(MAJOR_VERSION)<sp/>&quot;.&quot;<sp/>STR(MINOR_VERSION)<sp/>&quot;.&quot;<sp/>STR(PATCH_VERSION)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="user__config_8h_1a698acb89e1bf5837b33c30ef35c30044" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VERSION_STRING<sp/>&quot;bGeigieZen<sp/>&quot;<sp/>VERSION_NUMBER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/***<sp/>COPYRIGHT<sp/>***/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Copyright<sp/>year<sp/>for<sp/>screens</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="user__config_8h_1a5a3262b73772541f8d42a66de97909ed" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COPYRIGHT_YEAR<sp/>2024</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="user__config_8h_1a77ba3a545a8a7ab2ce9c75c171b19f6f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COPYRIGHT_YEAR_STRING<sp/>STR(COPYRIGHT_YEAR)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/***************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">/***<sp/>CONFIG<sp/>***/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>geiger<sp/>counter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="user__config_8h_1a8cf1f3a43d01956f9ee96e38fea06a2e" kindref="member">GEIGER_AVERAGING_N_BINS</ref><sp/>=<sp/>60;<sp/><sp/></highlight><highlight class="comment">//<sp/>60<sp/>x<sp/>1<sp/>s<sp/>==<sp/>1<sp/>min<sp/>moving<sp/>average</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="user__config_8h_1abc4b551efadb337a797bc9cc75d0d356" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1abc4b551efadb337a797bc9cc75d0d356" kindref="member">GEIGER_SENSOR1_CPM_FACTOR</ref><sp/>=<sp/>340.0;</highlight></codeline>
+<codeline lineno="27" refid="user__config_8h_1a1ecad281135a3c0738229d664036ee71" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="user__config_8h_1a1ecad281135a3c0738229d664036ee71" kindref="member">GEIGER_AVERAGING_PERIOD_S</ref><sp/>=<sp/>1;<sp/><sp/></highlight><highlight class="comment">//<sp/>1<sp/>s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="user__config_8h_1ada282fb1853fb43eb2b2d8906bc3b550" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1ada282fb1853fb43eb2b2d8906bc3b550" kindref="member">GEIGER_PULSE_GPIO_CORE2</ref><sp/>=<sp/>32;</highlight></codeline>
+<codeline lineno="29" refid="user__config_8h_1ac203be00d8a5f39435bde06e91823884" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1ac203be00d8a5f39435bde06e91823884" kindref="member">GEIGER_PULSE_GPIO_COREBASIC</ref><sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="30" refid="user__config_8h_1a0f899b6069324a35491a45de99a37e1d" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1a0f899b6069324a35491a45de99a37e1d" kindref="member">GEIGER_PULSE_GPIO_CORES3SE</ref><sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>RTC<sp/>BM8563<sp/>on<sp/>M5Stack<sp/>Core2<sp/>I2C<sp/>bus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="user__config_8h_1a6c61ee83b606434cf5e6ed87f6f02e09" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="user__config_8h_1a6c61ee83b606434cf5e6ed87f6f02e09" kindref="member">BM8563_I2C_SDA</ref><sp/>=<sp/>21;</highlight></codeline>
+<codeline lineno="34" refid="user__config_8h_1a26a621c06c2c56797a4cf3c278d54f75" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="user__config_8h_1a26a621c06c2c56797a4cf3c278d54f75" kindref="member">BM8563_I2C_SCL</ref><sp/>=<sp/>22;</highlight></codeline>
+<codeline lineno="35" refid="user__config_8h_1a11d1627cb6b656d87bc98e89ee6c289f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="user__config_8h_1a11d1627cb6b656d87bc98e89ee6c289f" kindref="member">RTC_I2C_ADDRESS</ref><sp/>=<sp/>0x51;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>GNSS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="user__config_8h_1a0b6d3c410877eab2e3300a19df913ec9" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1a0b6d3c410877eab2e3300a19df913ec9" kindref="member">GPS_SERIAL_NUM</ref><sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="39" refid="user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="user__config_8h_1acd99d84a76c8d01ea9d9ed3d53c44691" kindref="member">GPS_FIX_AGE_LIMIT</ref><sp/>=<sp/>4500;<sp/></highlight><highlight class="comment">//<sp/>ms<sp/>before<sp/>we<sp/>decide<sp/>the<sp/>fix<sp/>is<sp/>too<sp/>old.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>LCD<sp/>display</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="user__config_8h_1a43cbffea60066e2efe91f3c374a131cc" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="user__config_8h_1a43cbffea60066e2efe91f3c374a131cc" kindref="member">LCD_REFRESH_RATE</ref><sp/>=<sp/>1000;<sp/><sp/></highlight><highlight class="comment">//<sp/>1s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="user__config_8h_1a2f20082db3d979803dad0bad5c4f785b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="user__config_8h_1a2f20082db3d979803dad0bad5c4f785b" kindref="member">STATUS_MESSAGE_DURATION</ref><sp/>=<sp/>5000;<sp/><sp/></highlight><highlight class="comment">//<sp/>5s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="user__config_8h_1abda62c97ed73836f3749f74f4de6664a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LCD_COLOR_BACKGROUND<sp/>TFT_BLACK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LCD_COLOR_DEFAULT<sp/>TFT_WHITE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="user__config_8h_1aa2e906d0e32b57f0fa6a9aae19cee822" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LCD_COLOR_STALE_INCOMPLETE<sp/>TFT_ORANGE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="user__config_8h_1ae0f8a87167f3f90938876248a8abb27b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LCD_COLOR_ERROR<sp/>TFT_RED</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="user__config_8h_1a7513793964f7e96f4fbb7a2016f1336a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LCD_COLOR_INACTIVE<sp/>TFT_DARKGREY</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="user__config_8h_1adc1a58589cc01dd65c017cf116e5450e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LCD_COLOR_ACTIVITY<sp/>TFT_GREEN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>SD<sp/>card</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="user__config_8h_1aafc508d7a2df49fd453b2ad0fe9183a2" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="user__config_8h_1aafc508d7a2df49fd453b2ad0fe9183a2" kindref="member">SD_CS_PIN</ref><sp/>=<sp/>4;<sp/><sp/></highlight><highlight class="comment">//<sp/>GPIO<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>Setup</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="user__config_8h_1a01a5470ab05566cfd96f7d3f9f9d865b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1a01a5470ab05566cfd96f7d3f9f9d865b" kindref="member">SETUP_FILENAME</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;/SAFEZEN.txt&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56" refid="user__config_8h_1a8640e19b0a934a2937951a06148f1f38" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1a8640e19b0a934a2937951a06148f1f38" kindref="member">TEST_FILENAME</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;/.zen&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57" refid="user__config_8h_1a2aa1fad3e1a6050d9f8f3c86a0b080d0" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1a2aa1fad3e1a6050d9f8f3c86a0b080d0" kindref="member">SETUP_DEFAULT_USH_DIVIDER</ref><sp/>=<sp/>334.0;</highlight></codeline>
+<codeline lineno="58" refid="user__config_8h_1ab26b3dfb90d6765681099e737667c82a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1ab26b3dfb90d6765681099e737667c82a" kindref="member">SETUP_DEFAULT_BQM2_FACTOR</ref><sp/>=<sp/>37.0;</highlight></codeline>
+<codeline lineno="59" refid="user__config_8h_1ab7624ab834688b7fd335af2a43210451" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="user__config_8h_1ab7624ab834688b7fd335af2a43210451" kindref="member">SETUP_DEFAULT_ALERT_LEVEL</ref><sp/>=<sp/>100;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>Logging</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="user__config_8h_1a33f8f515cdf75dee7bf5f09aaecca794" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1a33f8f515cdf75dee7bf5f09aaecca794" kindref="member">JOURNAL_LOG_DIRECTORY</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;/journals&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="63" refid="user__config_8h_1a9a0d7b4ec2eb1af45cbacaeab2da6ee2" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1a9a0d7b4ec2eb1af45cbacaeab2da6ee2" kindref="member">DRIVE_LOG_DIRECTORY</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;/drives&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64" refid="user__config_8h_1a7a6e0e8fefbe0f4672066c0ff34ef585" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1a7a6e0e8fefbe0f4672066c0ff34ef585" kindref="member">SURVEY_LOG_DIRECTORY</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;/surveys&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65" refid="user__config_8h_1ab1a574e4608cb50f6d09c38514d5162f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1ab1a574e4608cb50f6d09c38514d5162f" kindref="member">LOG_HEADER_LINE1</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;#<sp/>NEW<sp/>LOG&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66" refid="user__config_8h_1ad5ecdf56523a4f08b9a950c49123853c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1ad5ecdf56523a4f08b9a950c49123853c" kindref="member">LOG_HEADER_LINE2</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;#<sp/>format=&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="67" refid="user__config_8h_1a9315df8ddd1c7b2571a34d4bcfbe4088" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1a9315df8ddd1c7b2571a34d4bcfbe4088" kindref="member">LOG_HEADER_LINE3</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;#<sp/>deadtime=off&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68" refid="user__config_8h_1af4522a39d440e3c86985f3c84361a859" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1af4522a39d440e3c86985f3c84361a859" kindref="member">DEVICE_HEADER</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;BNRDD&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69" refid="user__config_8h_1a824f8066b841857f55c7498a2df980a4" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="user__config_8h_1a824f8066b841857f55c7498a2df980a4" kindref="member">LINE_BUFFER_SIZE</ref><sp/>=<sp/>100;</highlight></codeline>
+<codeline lineno="70" refid="user__config_8h_1a75f97d568a246165199355e9c8272011" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="user__config_8h_1a75f97d568a246165199355e9c8272011" kindref="member">LOG_FILENAME_SIZE</ref><sp/>=<sp/>100;</highlight></codeline>
+<codeline lineno="71" refid="user__config_8h_1afb83b2ca67699a83eeb905cbcc4c51a9" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="user__config_8h_1afb83b2ca67699a83eeb905cbcc4c51a9" kindref="member">MIN_LOG_LINES_FOR_KEEP</ref><sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="72" refid="user__config_8h_1a8a21e517d3e43eb7ddb20594faffc7bb" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="user__config_8h_1a8a21e517d3e43eb7ddb20594faffc7bb" kindref="member">LOG_SECONDS_DELAY</ref><sp/>=<sp/>5;<sp/></highlight><highlight class="comment">//<sp/>Logs<sp/>every<sp/>5<sp/>seconds</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="user__config_8h_1a5adca5c7efa9bcb38ce5a52072c1c77b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint16_t<sp/><ref refid="user__config_8h_1a5adca5c7efa9bcb38ce5a52072c1c77b" kindref="member">API_SEND_SECONDS_DELAY</ref><sp/>=<sp/>300;<sp/></highlight><highlight class="comment">//<sp/>Posts<sp/>every<sp/>5<sp/>minute<sp/>by<sp/>default</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="user__config_8h_1a8c27197c9f3132c4da80fffaea1ee29f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint16_t<sp/><ref refid="user__config_8h_1a8c27197c9f3132c4da80fffaea1ee29f" kindref="member">API_SEND_SECONDS_DELAY_ALERT</ref><sp/>=<sp/>5;<sp/></highlight><highlight class="comment">//<sp/>Posts<sp/>every<sp/>5<sp/>seconds<sp/>when<sp/>alerted</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="user__config_8h_1a477dfdc37e6a7d2b70aa6766d6eafb3b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint16_t<sp/><ref refid="user__config_8h_1a477dfdc37e6a7d2b70aa6766d6eafb3b" kindref="member">API_SEND_SECONDS_DELAY_ROAMING</ref><sp/>=<sp/>5;<sp/></highlight><highlight class="comment">//<sp/>Posts<sp/>every<sp/>5<sp/>seconds<sp/>when<sp/>roaming</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="user__config_8h_1a4e090fd3ea86adaedebc598565d4473b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1a4e090fd3ea86adaedebc598565d4473b" kindref="member">FIXED_MODE_GRAFANA_URL</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;https://grafana.safecast.cc/d/DFSxrOLWk/safecast-device-details?from=now-24h&amp;to=now&amp;refresh=5m&amp;var-device_urn=geigiecast:%d&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Other</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="user__config_8h_1a0ff5bd7e17a0227695cdee8ddc7342e9" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1a0ff5bd7e17a0227695cdee8ddc7342e9" kindref="member">SCREENSAVER_TEXT</ref>[]<sp/>=<sp/><ref refid="user__config_8h_1a698acb89e1bf5837b33c30ef35c30044" kindref="member">VERSION_STRING</ref>;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">/**************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="user__config_8h_1a583b0748ee647a56a2e607bfe09d13dd" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>API_HOST<sp/>&quot;tt.safecast.org&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="user__config_8h_1ae7d310923399cda9586b4916f7070fc5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>API_MEASUREMENTS_ENDPOINT<sp/>&quot;http://&quot;<sp/>API_HOST<sp/>&quot;/measurements.json&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="user__config_8h_1a688b2c08fbc53d20db8a5f829f372338" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HEADER_API_CONTENT_TYPE<sp/>&quot;application/json&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="user__config_8h_1a37ec0fa268fd3617f7d7f5ad0a2d463e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HEADER_API_USER_AGENT<sp/>&quot;bGeigieZen/&quot;<sp/>VERSION_NUMBER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="user__config_8h_1a61e55f831ccc0dca94bf0e0f121f2a7c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ACCESS_POINT_SSID<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;bgeigiezen-%d&quot;<sp/></highlight><highlight class="comment">//<sp/>With<sp/>device<sp/>id</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="user__config_8h_1a2e6a8253ab0bc7773cfccfb1ae8d5fbc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SERVER_WIFI_PORT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>80</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98" refid="user__config_8h_1a4e96e371af8e34654cb0d5d7057e70c0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ACCESS_POINT_IP<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{192,<sp/>168,<sp/>5,<sp/>1}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="user__config_8h_1a9d15ae2b09da9972e7498dfbd4645d0a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ACCESS_POINT_NMASK<sp/><sp/><sp/><sp/><sp/><sp/>{255,<sp/>255,<sp/>255,<sp/>0}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="user__config_8h_1ab5ab7140802b46e7db66cc9b92b61193" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_DEVICE_ID<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103" refid="user__config_8h_1afe984c303d2eba85ae72ff51588906a3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_AP_PASSWORD<sp/>&quot;safecast&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="user__config_8h_1abe4c502e45b2b84c3b9667723c0ae81d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_ALARM_THRESHOLD<sp/>100</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="user__config_8h_1a6d846f28e6a66e8302af1f540172088c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_CPM_USVH<sp/>false</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="user__config_8h_1ae7bf88ff5fd9df66061edb486e907095" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_MANUAL_LOGGING<sp/>false</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="user__config_8h_1a840942ce392b3b068c4c5e7d988d04f4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_ENABLE_JOURNAL<sp/>true</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108" refid="user__config_8h_1a19a12ae4d5d5474bc32dcfbde165cd92" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_LOG_VOID<sp/>false</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="user__config_8h_1a54f763f535840cffd2e25e33d8564d08" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_DOP_MAX<sp/>500</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110" refid="user__config_8h_1a1c2adcb1cfc54c4f8d58dd56b26a02c7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_SCREEN_DIM_TIMEOUT<sp/>60</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111" refid="user__config_8h_1a25fad4438853d6fac0b0611b343bafd0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_SCREEN_OFF_TIMEOUT<sp/>600</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="user__config_8h_1a8e1a5f4448f925e8cfb3878338eef85d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_ANIMATED_SCREENSAVER<sp/>true</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113" refid="user__config_8h_1aff876460366b50a61c98ba651c49adda" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_WIFI_SSID<sp/>&quot;your<sp/>wifi<sp/>ssid&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="user__config_8h_1ac2201e2757292b5e01d7fdaa4bd777be" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_WIFI_PASSWORD<sp/>&quot;your<sp/>wifi<sp/>password&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="user__config_8h_1aaad540fec2007dfd02d97f3e4be96a69" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_API_KEY<sp/>&quot;&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="user__config_8h_1a8f81e5d632bbab0ac6c1fc8f9feacf0d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_FIXED_LONGITUDE<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117" refid="user__config_8h_1a096ffa00860e0db4fb97eaa690efac41" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_FIXED_LATITUDE<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118" refid="user__config_8h_1ac7e9d55a764e6cbb6cd21cf207f6f03f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_FIXED_RANGE<sp/>0.2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="user__config_8h_1a5d0564dc97326732724ee38b73560aee" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_LAST_LONGITUDE<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="user__config_8h_1a94d2b7faaa3be93bb82004403ed74710" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>D_LAST_LATITUDE<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/user_config.h"/>
+  </compounddef>
+</doxygen>

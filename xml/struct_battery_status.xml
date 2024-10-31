@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_battery_status" kind="struct" language="C++" prot="public">
+    <compoundname>BatteryStatus</compoundname>
+    <includes refid="battery__indicator_8h" local="no">battery_indicator.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_battery_status_1a63c092ae9f8f649c4ae3bf81ce6ff0dc" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t BatteryStatus::percentage</definition>
+        <argsstring></argsstring>
+        <name>percentage</name>
+        <qualifiedname>BatteryStatus::percentage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/battery_indicator.h" line="11" column="11" bodyfile="bgeigiezen_firmware/workers/battery_indicator.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_battery_status_1a1b9260c294cdd40365bf04d807146e86" prot="public" static="no" mutable="no">
+        <type>m5::Power_Class::is_charging_t</type>
+        <definition>m5::Power_Class::is_charging_t BatteryStatus::isCharging</definition>
+        <argsstring></argsstring>
+        <name>isCharging</name>
+        <qualifiedname>BatteryStatus::isCharging</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/battery_indicator.h" line="12" column="34" bodyfile="bgeigiezen_firmware/workers/battery_indicator.h" bodystart="12" bodyend="-1"/>
+        <referencedby refid="class_battery_indicator_1a2549ee1d50e87017b4b6067820d9518a" compoundref="battery__indicator_8cpp" startline="11" endline="16">BatteryIndicator::produce_data</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Relevant battery status </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>BatteryStatus</label>
+        <link refid="struct_battery_status"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>percentage</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>int32_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/workers/battery_indicator.h" line="10" column="1" bodyfile="bgeigiezen_firmware/workers/battery_indicator.h" bodystart="10" bodyend="13"/>
+    <listofallmembers>
+      <member refid="struct_battery_status_1a1b9260c294cdd40365bf04d807146e86" prot="public" virt="non-virtual"><scope>BatteryStatus</scope><name>isCharging</name></member>
+      <member refid="struct_battery_status_1a63c092ae9f8f649c4ae3bf81ce6ff0dc" prot="public" virt="non-virtual"><scope>BatteryStatus</scope><name>percentage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

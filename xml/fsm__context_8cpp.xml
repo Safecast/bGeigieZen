@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="fsm__context_8cpp" kind="file" language="C++">
+    <compoundname>fsm_context.cpp</compoundname>
+    <includes local="no">M5Core2.h</includes>
+    <includes refid="src_2fsm__context_8hpp" local="no">fsm_context.hpp</includes>
+    <incdepgraph>
+      <node id="16">
+        <label>TinyGPS++.h</label>
+        <link refid="src_2_tiny_g_p_s_09_09_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>battery.hpp</label>
+        <link refid="src_2battery_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>config.hpp</label>
+        <link refid="src_2config_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>display.hpp</label>
+        <link refid="src_2display_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/src/fsm_context.cpp</label>
+        <link refid="fsm__context_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>fsm_context.hpp</label>
+        <link refid="src_2fsm__context_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>fsm_state_base.hpp</label>
+        <link refid="src_2fsm__state__base_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>fsm_state_concrete.hpp</label>
+        <link refid="src_2fsm__state__concrete_8hpp"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>geiger_counter.hpp</label>
+        <link refid="src_2geiger__counter_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>gps.hpp</label>
+        <link refid="src_2gps_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>hardwarecounter.hpp</label>
+        <link refid="src_2hardwarecounter_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>logger.hpp</label>
+        <link refid="src_2logger_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>sd_wrapper.hpp</label>
+        <link refid="src_2sd__wrapper_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>setup.hpp</label>
+        <link refid="src_2setup_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>M5Core2.h</label>
+      </node>
+      <node id="8">
+        <label>M5Stack.h</label>
+      </node>
+      <node id="21">
+        <label>Preferences.h</label>
+      </node>
+      <node id="13">
+        <label>Ticker.h</label>
+      </node>
+      <node id="17">
+        <label>WProgram.h</label>
+      </node>
+      <node id="10">
+        <label>array</label>
+      </node>
+      <node id="5">
+        <label>cstdint</label>
+      </node>
+      <node id="24">
+        <label>cstdio</label>
+      </node>
+      <node id="6">
+        <label>cstdlib</label>
+      </node>
+      <node id="20">
+        <label>cstring</label>
+      </node>
+      <node id="14">
+        <label>driver/pcnt.h</label>
+      </node>
+      <node id="12">
+        <label>limits</label>
+      </node>
+      <node id="18">
+        <label>limits.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;M5Core2.h&gt;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>#include<sp/>&lt;M5Stack.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="src_2fsm__context_8hpp" kindref="compound">fsm_context.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="class_context_1ac449a249d2b16a40e2b154aa918267ac" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_context_1ac449a249d2b16a40e2b154aa918267ac" kindref="member">Context::begin</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><ref refid="class_context_1a33b213d58cb2d6bd4e2affdd5416e9be" kindref="member">transition_to</ref>(<ref refid="class_state_startup_1a4f51bf08ed5a31e78ddc0d2e778a8087" kindref="member">StateStartup::instance</ref>(),<sp/><ref refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785a04d407ea661493959d1c331f98bed756" kindref="member">bGeigieZen::Event::DEVICE_STARTED</ref>);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="class_context_1a78c450b80877fe560a2abe7a541a118c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_context_1a78c450b80877fe560a2abe7a541a118c" kindref="member">Context::loop</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.update();<sp/><sp/></highlight><highlight class="comment">//<sp/>updates<sp/>buttons<sp/>and<sp/>stuff</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><ref refid="class_context_1a0dbf6bc88a0646c37c8b53d7220d073e" kindref="member">geiger_count</ref>.<ref refid="class_geiger_counter_1af47906652803b0a81b3485ee19d1f7e6" kindref="member">update</ref>();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><ref refid="class_context_1acb802a2b6ddda206da0be0b1c78a371d" kindref="member">gps</ref>.<ref refid="class_g_p_s_sensor_1a70ffb7412fa7a4cc14cad2135b79c59e" kindref="member">update</ref>();<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>reads<sp/>from<sp/>the<sp/>GPS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><ref refid="class_context_1a9921e196f07be3a73b723f68f140b988" kindref="member">display</ref>.<ref refid="class_display_1ad2740b779d61e461c4dcaaf34f1fcd8f" kindref="member">update</ref>();<sp/><sp/></highlight><highlight class="comment">//<sp/>redraws<sp/>the<sp/>display<sp/>and<sp/>manages<sp/>the<sp/>states</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>current_state-&gt;<ref refid="class_state_1a82ef896916bba81b0c818d37af21bf3c" kindref="member">process</ref>();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="class_context_1ad6ab2ba0b337de2f0ff6ae764a4ee18a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_context_1ad6ab2ba0b337de2f0ff6ae764a4ee18a" kindref="member">Context::setup</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>put<sp/>a<sp/>delay<sp/>at<sp/>the<sp/>beginning<sp/>so<sp/>that<sp/>we<sp/>can<sp/>open<sp/>the<sp/>serial<sp/>for<sp/>debug</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">delay</ref>(100);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Serial<sp/>setup<sp/>for<sp/>M5Stack</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.begin();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.begin(115200);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Start<sp/>I2C<sp/>communications<sp/>for<sp/>battery<sp/>level<sp/>indicator</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Wire</ref>.begin();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>start<sp/>the<sp/>SD<sp/>card<sp/>for<sp/>the<sp/>logger<sp/>and<sp/>the<sp/>configuration<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ret</ref><sp/>=<sp/><ref refid="class_context_1a78bc5d216452fcaee033806fea777198" kindref="member">sd_wrapper</ref>.<ref refid="class_s_d_wrapper_1a3cf0aa59da68a1368b7f7ce0f6714676" kindref="member">begin</ref>();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ret</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(</highlight><highlight class="stringliteral">&quot;Error:&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(</highlight><highlight class="stringliteral">&quot;No<sp/>SDCARD<sp/>in<sp/>slot&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setCursor(10,<sp/>10);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setTextColor(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TFT_YELLOW</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TFT_BLACK</ref>);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.lcd.setRotation(3);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.drawString(</highlight><highlight class="stringliteral">&quot;No<sp/>SDCARD<sp/>in<sp/>slot&quot;</highlight><highlight class="normal">,<sp/>5,<sp/>50,<sp/>4);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setTextColor(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TFT_WHITE</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TFT_BLACK</ref>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.drawString(</highlight><highlight class="stringliteral">&quot;Insert<sp/>a<sp/>SDCARD<sp/>and<sp/>restart.&quot;</highlight><highlight class="normal">,<sp/>5,<sp/>90,<sp/>2);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//display<sp/>Safecast<sp/>copyright</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setTextColor(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TFT_WHITE</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TFT_BLACK</ref>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.drawString(</highlight><highlight class="stringliteral">&quot;SAFECAST&quot;</highlight><highlight class="normal">,<sp/>230,<sp/>215,<sp/>1);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.setTextColor(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TFT_ORANGE</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TFT_BLACK</ref>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5</ref>.Lcd.drawString(</highlight><highlight class="stringliteral">&quot;2023&quot;</highlight><highlight class="normal">,<sp/>285,<sp/>215,<sp/>1);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">delay</ref>(2000);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Once<sp/>we<sp/>have<sp/>initialized<sp/>the<sp/>SD<sp/>card,<sp/>we<sp/>can<sp/>read<sp/>the<sp/>configuration<sp/>of<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>device</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><ref refid="class_context_1a54e51afce0edd534d7f0950ad83986ec" kindref="member">device_setup</ref>.<ref refid="class_setup_1a4c4cdbea334ad453542eba54c846c98f" kindref="member">initialize</ref>();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_context_1a78bc5d216452fcaee033806fea777198" kindref="member">sd_wrapper</ref>.<ref refid="class_s_d_wrapper_1a98d58fcf2935bd08e8de1f8b46d2eab9" kindref="member">ready</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">success</ref><sp/>=<sp/><ref refid="class_context_1a54e51afce0edd534d7f0950ad83986ec" kindref="member">device_setup</ref>.<ref refid="class_setup_1aa70fc3ff2c0e8122f9dd60376066352d" kindref="member">load_from_file</ref>(<ref refid="include_2config_8hpp_1a8f8959f14b4d147636e897f57e4798f9" kindref="member">SETUP_FILENAME</ref>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">success</ref>)<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>read<sp/>config<sp/>from<sp/>file&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Now<sp/>we<sp/>can<sp/>setup<sp/>the<sp/>device<sp/>ID<sp/>in<sp/>the<sp/>logger</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><ref refid="class_context_1a0dbf6bc88a0646c37c8b53d7220d073e" kindref="member">geiger_count</ref>.<ref refid="class_geiger_counter_1ac068defdfdf364a2009891f736d45b76" kindref="member">configure</ref>(<ref refid="class_context_1a54e51afce0edd534d7f0950ad83986ec" kindref="member">device_setup</ref>.<ref refid="class_setup_1a973924be0fdd98b6e5a964a2416cf721" kindref="member">config</ref>().<ref refid="struct_config_data_1aa24c38bbf7f45bf50326d157831c89f5" kindref="member">cpm2ush_divider</ref>,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_context_1a54e51afce0edd534d7f0950ad83986ec" kindref="member">device_setup</ref>.<ref refid="class_setup_1a973924be0fdd98b6e5a964a2416cf721" kindref="member">config</ref>().<ref refid="struct_config_data_1aa5933f3b80cedf442c2e77e0b4f2bc21" kindref="member">cpm2bqm2_factor</ref>,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_context_1a54e51afce0edd534d7f0950ad83986ec" kindref="member">device_setup</ref>.<ref refid="class_setup_1a973924be0fdd98b6e5a964a2416cf721" kindref="member">config</ref>().<ref refid="struct_config_data_1a0926ea1423d747769c2c483cfe9e67d8" kindref="member">alarm_level</ref>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><ref refid="class_context_1abd136fe9e19e278ef2851d63f7313bf2" kindref="member">bgeigie_formatter</ref>.<ref refid="class_b_geigie_log_formatter_1aa9b91572348c098bb151e3662690a602" kindref="member">set_device_id</ref>(<ref refid="class_context_1a54e51afce0edd534d7f0950ad83986ec" kindref="member">device_setup</ref>.<ref refid="class_setup_1a973924be0fdd98b6e5a964a2416cf721" kindref="member">config</ref>().<ref refid="struct_config_data_1af4aa84fbef118fd20be9a243b4f1668f" kindref="member">device_id</ref>);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><ref refid="class_context_1a9921e196f07be3a73b723f68f140b988" kindref="member">display</ref>.<ref refid="class_display_1a6dfdf5e308b468964627eec5e6de802d" kindref="member">feed</ref>(<ref refid="class_context_1a54e51afce0edd534d7f0950ad83986ec" kindref="member">device_setup</ref>);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Reset<sp/>the<sp/>pulse<sp/>counter<sp/>before<sp/>starting</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><ref refid="class_context_1a0dbf6bc88a0646c37c8b53d7220d073e" kindref="member">geiger_count</ref>.<ref refid="class_geiger_counter_1a828539acf44e719d73716ff545bce51b" kindref="member">begin</ref>();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="class_context_1a508a6b9c7ed84ea20ef39bfa54607ad4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_context_1a508a6b9c7ed84ea20ef39bfa54607ad4" kindref="member">Context::on_geiger_counter_available</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>mark<sp/>the<sp/>Geiger<sp/>data<sp/>as<sp/>not<sp/>fresh</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><ref refid="class_context_1a0dbf6bc88a0646c37c8b53d7220d073e" kindref="member">geiger_count</ref>.<ref refid="class_geiger_counter_1a31310cb1270920b6bf8e183a6eb0ecb6" kindref="member">consume</ref>();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>immediately<sp/>update<sp/>the<sp/>data<sp/>consummers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><ref refid="class_context_1abd136fe9e19e278ef2851d63f7313bf2" kindref="member">bgeigie_formatter</ref>.<ref refid="class_b_geigie_log_formatter_1a1c9a69c9790a8bc038b157ced1fcdbe3" kindref="member">feed</ref>(<ref refid="class_context_1a0dbf6bc88a0646c37c8b53d7220d073e" kindref="member">geiger_count</ref>);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><ref refid="class_context_1a9921e196f07be3a73b723f68f140b988" kindref="member">display</ref>.<ref refid="class_display_1a6dfdf5e308b468964627eec5e6de802d" kindref="member">feed</ref>(<ref refid="class_context_1a0dbf6bc88a0646c37c8b53d7220d073e" kindref="member">geiger_count</ref>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><ref refid="class_context_1a9921e196f07be3a73b723f68f140b988" kindref="member">display</ref>.<ref refid="class_display_1a00504e9ba16dc10557125c9c8dbc6aa8" kindref="member">feed_battery_level</ref>(<ref refid="class_context_1a149d0ed1f90e574bffafcc60bad2e886" kindref="member">battery_monitor</ref>.GetBatteryLevel());</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="class_context_1a402bea63f404fae0790d6bb4f1a011f2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_context_1a402bea63f404fae0790d6bb4f1a011f2" kindref="member">Context::on_gps_available</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><ref refid="class_context_1a9921e196f07be3a73b723f68f140b988" kindref="member">display</ref>.<ref refid="class_display_1a6dfdf5e308b468964627eec5e6de802d" kindref="member">feed</ref>(<ref refid="class_context_1acb802a2b6ddda206da0be0b1c78a371d" kindref="member">gps</ref>);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><ref refid="class_context_1abd136fe9e19e278ef2851d63f7313bf2" kindref="member">bgeigie_formatter</ref>.<ref refid="class_b_geigie_log_formatter_1a1c9a69c9790a8bc038b157ced1fcdbe3" kindref="member">feed</ref>(<ref refid="class_context_1acb802a2b6ddda206da0be0b1c78a371d" kindref="member">gps</ref>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="class_context_1a33b213d58cb2d6bd4e2affdd5416e9be" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_context_1a33b213d58cb2d6bd4e2affdd5416e9be" kindref="member">Context::transition_to</ref>(<ref refid="class_state" kindref="compound">State</ref><sp/>*<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">next_state</ref>,<sp/><ref refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785" kindref="member">bGeigieZen::Event</ref><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(current_state<sp/>!=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">NULL</ref>)<sp/>current_state-&gt;<ref refid="class_state_1ae5e43afacaf6c1a35c07f0d3622f6e86" kindref="member">exit</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>current_state<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">next_state</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>current_state-&gt;<ref refid="class_state_1a3c1399d4cb6c84dfa4d8ba0ee71e2ce5" kindref="member">enter</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="archive/bgeigie_firmware_pio/src/fsm_context.cpp"/>
+  </compounddef>
+</doxygen>

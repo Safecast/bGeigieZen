@@ -1,0 +1,451 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_g_p_s_thread" kind="class" language="C++" prot="public">
+    <compoundname>GPSThread</compoundname>
+    <basecompoundref refid="class_measurement" prot="public" virt="non-virtual">Measurement&lt; GPSData &gt;</basecompoundref>
+    <basecompoundref refid="class_measurement" prot="public" virt="non-virtual">Measurement&lt; GPSData &gt;</basecompoundref>
+    <includes refid="bgeigie__firmware_2threaded__gps_8hpp" local="no">threaded_gps.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_g_p_s_thread_1acb4b16c06ab945e97ea71eef59b81287" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GPSThread::_ready</definition>
+        <argsstring></argsstring>
+        <name>_ready</name>
+        <qualifiedname>GPSThread::_ready</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="40" column="10" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_p_s_thread_1a6d69830d333d38088cb10bfc4400ca63" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex GPSThread::_update_mutex</definition>
+        <argsstring></argsstring>
+        <name>_update_mutex</name>
+        <qualifiedname>GPSThread::_update_mutex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="41" column="16" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_p_s_thread_1a3315b4ff0fee409cf6997cd65692acf5" prot="private" static="no" mutable="no">
+        <type><ref refid="class_tiny_g_p_s" kindref="compound">TinyGPS</ref></type>
+        <definition>TinyGPS GPSThread::_parser</definition>
+        <argsstring></argsstring>
+        <name>_parser</name>
+        <qualifiedname>GPSThread::_parser</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="42" column="13" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_p_s_thread_1a525048d5905753dfff6a9eb1691b172d" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GPSThread::_gps_fix_first</definition>
+        <argsstring></argsstring>
+        <name>_gps_fix_first</name>
+        <qualifiedname>GPSThread::_gps_fix_first</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">true</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="45" column="10" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_p_s_thread_1a4d366c4cb6ef8ef1fa4b1dce227dbde9" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GPSThread::_gps_last_lon</definition>
+        <argsstring></argsstring>
+        <name>_gps_last_lon</name>
+        <qualifiedname>GPSThread::_gps_last_lon</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="46" column="11" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_p_s_thread_1ad64d85c84a774e99f547aa61bdebe33b" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GPSThread::_gps_last_lat</definition>
+        <argsstring></argsstring>
+        <name>_gps_last_lat</name>
+        <qualifiedname>GPSThread::_gps_last_lat</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="46" column="26" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_p_s_thread_1a1354a5fbbeb612d39166de8621c83a9f" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">pthread_t</ref></type>
+        <definition>pthread_t GPSThread::_the_thread</definition>
+        <argsstring></argsstring>
+        <name>_the_thread</name>
+        <qualifiedname>GPSThread::_the_thread</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="48" column="15" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_p_s_thread_1aefb456d4b898bdd86e27d481ffcc8b92" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_g_p_s_data" kindref="compound">GPSData</ref></type>
+        <definition>GPSData GPSThread::_info</definition>
+        <argsstring></argsstring>
+        <name>_info</name>
+        <qualifiedname>GPSThread::_info</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="50" column="13" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_p_s_thread_1a8aff8db718440994212de0446b1dfd42" prot="private" static="no" mutable="no">
+        <type><ref refid="class_serial_source" kindref="compound">SerialSource</ref> *</type>
+        <definition>SerialSource * GPSThread::_serial_input</definition>
+        <argsstring></argsstring>
+        <name>_serial_input</name>
+        <qualifiedname>GPSThread::_serial_input</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="59" column="18" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_g_p_s_thread_1a3d97ebb127a805a4d430756a8e4e1d1e" prot="private" static="no" mutable="no">
+        <type><ref refid="class_serial_sink" kindref="compound">SerialSink</ref> *</type>
+        <definition>SerialSink * GPSThread::_serial_output</definition>
+        <argsstring></argsstring>
+        <name>_serial_output</name>
+        <qualifiedname>GPSThread::_serial_output</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="60" column="16" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_g_p_s_thread_1acfb4d79a958cddbe86822038a2702cd7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GPSThread::fill_info</definition>
+        <argsstring>()</argsstring>
+        <name>fill_info</name>
+        <qualifiedname>GPSThread::fill_info</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="53" column="10" bodyfile="archive/bgeigie_firmware/threaded_gps.cpp" bodystart="42" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_p_s_thread_1acfb4d79a958cddbe86822038a2702cd7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GPSThread::fill_info</definition>
+        <argsstring>()</argsstring>
+        <name>fill_info</name>
+        <qualifiedname>GPSThread::fill_info</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/threaded_gps.hpp" line="53" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_g_p_s_thread_1a1406f73ba29e08bbe4dd5602b714e645" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref> *</type>
+        <definition>void * GPSThread::update_loop</definition>
+        <argsstring>(void *)</argsstring>
+        <name>update_loop</name>
+        <qualifiedname>GPSThread::update_loop</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref> *</type>
+          <defname>param</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="56" column="17" bodyfile="archive/bgeigie_firmware/threaded_gps.cpp" bodystart="116" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_p_s_thread_1ae9fb70fb8662d356e7991cc124869ff4" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref> *</type>
+        <definition>static void * GPSThread::update_loop</definition>
+        <argsstring>(void *)</argsstring>
+        <name>update_loop</name>
+        <qualifiedname>GPSThread::update_loop</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/threaded_gps.hpp" line="56" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_g_p_s_thread_1a94581db30acf1ea26c48e5353259aaa5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GPSThread::GPSThread</definition>
+        <argsstring>(SerialSource *serial_in, SerialSink *serial_out)</argsstring>
+        <name>GPSThread</name>
+        <qualifiedname>GPSThread::GPSThread</qualifiedname>
+        <param>
+          <type><ref refid="class_serial_source" kindref="compound">SerialSource</ref> *</type>
+          <declname>serial_in</declname>
+        </param>
+        <param>
+          <type><ref refid="class_serial_sink" kindref="compound">SerialSink</ref> *</type>
+          <declname>serial_out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="64" column="5" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="64" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_p_s_thread_1aa519d5004c9b13c2ac4308b99324efd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GPSThread::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <qualifiedname>GPSThread::init</qualifiedname>
+        <reimplements refid="class_measurement_1a0794a0ebe788293db07255b822ca15c9">init</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="68" column="10" bodyfile="archive/bgeigie_firmware/threaded_gps.cpp" bodystart="12" bodyend="25"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_serial_sink_1a3c6298510ef39f03d390a0a0f765ebf8">SerialSink::println</references>
+      </memberdef>
+      <memberdef kind="function" id="class_g_p_s_thread_1aef0bf3ae06eff688503cfafe58cfe5f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GPSThread::prepare_data</definition>
+        <argsstring>(GPSData &amp;dest)</argsstring>
+        <name>prepare_data</name>
+        <qualifiedname>GPSThread::prepare_data</qualifiedname>
+        <reimplements refid="class_measurement_1acefa9e85f3dae6c2b81d68cc5dce9f82">prepare_data</reimplements>
+        <param>
+          <type><ref refid="struct_g_p_s_data" kindref="compound">GPSData</ref> &amp;</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="69" column="10" bodyfile="archive/bgeigie_firmware/threaded_gps.cpp" bodystart="27" bodyend="39"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="struct_measurement_data_1a25308fdf55e553fc2a59a035c241cd1d" compoundref="bgeigie__firmware_2measurements_8hpp" startline="11">MeasurementData::fresh</references>
+      </memberdef>
+      <memberdef kind="function" id="class_g_p_s_thread_1a2842ed18eb698595f3b0bf063e75863c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_serial_source" kindref="compound">SerialSource</ref> &amp;</type>
+        <definition>SerialSource &amp; GPSThread::serial_in</definition>
+        <argsstring>()</argsstring>
+        <name>serial_in</name>
+        <qualifiedname>GPSThread::serial_in</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="71" column="18" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_p_s_thread_1a94581db30acf1ea26c48e5353259aaa5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GPSThread::GPSThread</definition>
+        <argsstring>(SerialSource *serial_in, SerialSink *serial_out)</argsstring>
+        <name>GPSThread</name>
+        <qualifiedname>GPSThread::GPSThread</qualifiedname>
+        <param>
+          <type><ref refid="class_serial_source" kindref="compound">SerialSource</ref> *</type>
+          <declname>serial_in</declname>
+        </param>
+        <param>
+          <type><ref refid="class_serial_sink" kindref="compound">SerialSink</ref> *</type>
+          <declname>serial_out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/threaded_gps.hpp" line="64" column="5" bodyfile="archive/test/test_gpsthreaded/threaded_gps.hpp" bodystart="64" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_p_s_thread_1aa519d5004c9b13c2ac4308b99324efd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GPSThread::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <qualifiedname>GPSThread::init</qualifiedname>
+        <reimplements refid="class_measurement_1a0794a0ebe788293db07255b822ca15c9">init</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/threaded_gps.hpp" line="68" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_p_s_thread_1aef0bf3ae06eff688503cfafe58cfe5f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GPSThread::prepare_data</definition>
+        <argsstring>(GPSData &amp;dest)</argsstring>
+        <name>prepare_data</name>
+        <qualifiedname>GPSThread::prepare_data</qualifiedname>
+        <reimplements refid="class_measurement_1acefa9e85f3dae6c2b81d68cc5dce9f82">prepare_data</reimplements>
+        <param>
+          <type><ref refid="struct_g_p_s_data" kindref="compound">GPSData</ref> &amp;</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/threaded_gps.hpp" line="69" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_g_p_s_thread_1a2842ed18eb698595f3b0bf063e75863c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_serial_source" kindref="compound">SerialSource</ref> &amp;</type>
+        <definition>SerialSource &amp; GPSThread::serial_in</definition>
+        <argsstring>()</argsstring>
+        <name>serial_in</name>
+        <qualifiedname>GPSThread::serial_in</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/test/test_gpsthreaded/threaded_gps.hpp" line="71" column="18" bodyfile="archive/test/test_gpsthreaded/threaded_gps.hpp" bodystart="71" bodyend="71"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GPSThread</label>
+        <link refid="class_g_p_s_thread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Measurement&lt; GPSData &gt;</label>
+        <link refid="class_measurement"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Subject</label>
+        <link refid="class_subject"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GPSThread</label>
+        <link refid="class_g_p_s_thread"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Measurement&lt; GPSData &gt;</label>
+        <link refid="class_measurement"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Subject</label>
+        <link refid="class_subject"/>
+      </node>
+    </collaborationgraph>
+    <location file="archive/bgeigie_firmware/threaded_gps.hpp" line="36" column="1" bodyfile="archive/bgeigie_firmware/threaded_gps.hpp" bodystart="37" bodyend="72"/>
+    <listofallmembers>
+      <member refid="class_g_p_s_thread_1a525048d5905753dfff6a9eb1691b172d" prot="private" virt="non-virtual"><scope>GPSThread</scope><name>_gps_fix_first</name></member>
+      <member refid="class_g_p_s_thread_1ad64d85c84a774e99f547aa61bdebe33b" prot="private" virt="non-virtual"><scope>GPSThread</scope><name>_gps_last_lat</name></member>
+      <member refid="class_g_p_s_thread_1a4d366c4cb6ef8ef1fa4b1dce227dbde9" prot="private" virt="non-virtual"><scope>GPSThread</scope><name>_gps_last_lon</name></member>
+      <member refid="class_g_p_s_thread_1aefb456d4b898bdd86e27d481ffcc8b92" prot="private" virt="non-virtual"><scope>GPSThread</scope><name>_info</name></member>
+      <member refid="class_g_p_s_thread_1a3315b4ff0fee409cf6997cd65692acf5" prot="private" virt="non-virtual"><scope>GPSThread</scope><name>_parser</name></member>
+      <member refid="class_g_p_s_thread_1acb4b16c06ab945e97ea71eef59b81287" prot="private" virt="non-virtual"><scope>GPSThread</scope><name>_ready</name></member>
+      <member refid="class_g_p_s_thread_1a8aff8db718440994212de0446b1dfd42" prot="private" virt="non-virtual"><scope>GPSThread</scope><name>_serial_input</name></member>
+      <member refid="class_g_p_s_thread_1a3d97ebb127a805a4d430756a8e4e1d1e" prot="private" virt="non-virtual"><scope>GPSThread</scope><name>_serial_output</name></member>
+      <member refid="class_g_p_s_thread_1a1354a5fbbeb612d39166de8621c83a9f" prot="private" virt="non-virtual"><scope>GPSThread</scope><name>_the_thread</name></member>
+      <member refid="class_g_p_s_thread_1a6d69830d333d38088cb10bfc4400ca63" prot="private" virt="non-virtual"><scope>GPSThread</scope><name>_update_mutex</name></member>
+      <member refid="class_measurement_1a8019e4491efe1ec58a076e6b17272f6e" prot="public" virt="virtual"><scope>GPSThread</scope><name>available</name></member>
+      <member refid="class_measurement_1a8019e4491efe1ec58a076e6b17272f6e" prot="public" virt="virtual"><scope>GPSThread</scope><name>available</name></member>
+      <member refid="class_g_p_s_thread_1acfb4d79a958cddbe86822038a2702cd7" prot="private" virt="non-virtual"><scope>GPSThread</scope><name>fill_info</name></member>
+      <member refid="class_g_p_s_thread_1acfb4d79a958cddbe86822038a2702cd7" prot="private" virt="non-virtual"><scope>GPSThread</scope><name>fill_info</name></member>
+      <member refid="class_measurement_1aabfa61bb1f0c3098635e6104ad8a95ad" prot="public" virt="non-virtual"><scope>GPSThread</scope><name>get_data</name></member>
+      <member refid="class_measurement_1aabfa61bb1f0c3098635e6104ad8a95ad" prot="public" virt="non-virtual"><scope>GPSThread</scope><name>get_data</name></member>
+      <member refid="class_g_p_s_thread_1a94581db30acf1ea26c48e5353259aaa5" prot="public" virt="non-virtual"><scope>GPSThread</scope><name>GPSThread</name></member>
+      <member refid="class_g_p_s_thread_1a94581db30acf1ea26c48e5353259aaa5" prot="public" virt="non-virtual"><scope>GPSThread</scope><name>GPSThread</name></member>
+      <member refid="class_g_p_s_thread_1aa519d5004c9b13c2ac4308b99324efd9" prot="public" virt="virtual"><scope>GPSThread</scope><name>init</name></member>
+      <member refid="class_g_p_s_thread_1aa519d5004c9b13c2ac4308b99324efd9" prot="public" virt="virtual"><scope>GPSThread</scope><name>init</name></member>
+      <member refid="class_g_p_s_thread_1aef0bf3ae06eff688503cfafe58cfe5f8" prot="public" virt="virtual"><scope>GPSThread</scope><name>prepare_data</name></member>
+      <member refid="class_g_p_s_thread_1aef0bf3ae06eff688503cfafe58cfe5f8" prot="public" virt="virtual"><scope>GPSThread</scope><name>prepare_data</name></member>
+      <member refid="class_subject_1a91cb4e6bb958acf74de6cf82142215f8" prot="public" virt="non-virtual"><scope>GPSThread</scope><name>register_observer</name></member>
+      <member refid="class_subject_1a91cb4e6bb958acf74de6cf82142215f8" prot="public" virt="non-virtual"><scope>GPSThread</scope><name>register_observer</name></member>
+      <member refid="class_g_p_s_thread_1a2842ed18eb698595f3b0bf063e75863c" prot="public" virt="non-virtual"><scope>GPSThread</scope><name>serial_in</name></member>
+      <member refid="class_g_p_s_thread_1a2842ed18eb698595f3b0bf063e75863c" prot="public" virt="non-virtual"><scope>GPSThread</scope><name>serial_in</name></member>
+      <member refid="class_measurement_1a32dd364962c8b51cabc130bb6a8dbeab" prot="protected" virt="non-virtual"><scope>GPSThread</scope><name>set_avalaible</name></member>
+      <member refid="class_measurement_1a32dd364962c8b51cabc130bb6a8dbeab" prot="protected" virt="non-virtual"><scope>GPSThread</scope><name>set_avalaible</name></member>
+      <member refid="class_measurement_1ac0e479fd97b23c32f929602da6987b74" prot="protected" virt="non-virtual"><scope>GPSThread</scope><name>unset_avalaible</name></member>
+      <member refid="class_measurement_1ac0e479fd97b23c32f929602da6987b74" prot="protected" virt="non-virtual"><scope>GPSThread</scope><name>unset_avalaible</name></member>
+      <member refid="class_g_p_s_thread_1a1406f73ba29e08bbe4dd5602b714e645" prot="private" virt="non-virtual"><scope>GPSThread</scope><name>update_loop</name></member>
+      <member refid="class_g_p_s_thread_1ae9fb70fb8662d356e7991cc124869ff4" prot="private" virt="non-virtual"><scope>GPSThread</scope><name>update_loop</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

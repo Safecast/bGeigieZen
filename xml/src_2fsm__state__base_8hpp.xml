@@ -1,0 +1,277 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="src_2fsm__state__base_8hpp" kind="file" language="C++">
+    <compoundname>fsm_state_base.hpp</compoundname>
+    <includes refid="src_2fsm__context_8hpp" local="no">fsm_context.hpp</includes>
+    <includedby refid="src_2fsm__context_8hpp" local="no">archive/bgeigie_firmware_pio/src/fsm_context.hpp</includedby>
+    <includedby refid="src_2fsm__state__concrete_8hpp" local="no">archive/bgeigie_firmware_pio/src/fsm_state_concrete.hpp</includedby>
+    <incdepgraph>
+      <node id="15">
+        <label>TinyGPS++.h</label>
+        <link refid="src_2_tiny_g_p_s_09_09_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>battery.hpp</label>
+        <link refid="src_2battery_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>config.hpp</label>
+        <link refid="src_2config_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>display.hpp</label>
+        <link refid="src_2display_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>fsm_context.hpp</label>
+        <link refid="src_2fsm__context_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/src/fsm_state_base.hpp</label>
+        <link refid="src_2fsm__state__base_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>fsm_state_concrete.hpp</label>
+        <link refid="src_2fsm__state__concrete_8hpp"/>
+        <childnode refid="1" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>geiger_counter.hpp</label>
+        <link refid="src_2geiger__counter_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>gps.hpp</label>
+        <link refid="src_2gps_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>hardwarecounter.hpp</label>
+        <link refid="src_2hardwarecounter_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>logger.hpp</label>
+        <link refid="src_2logger_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>sd_wrapper.hpp</label>
+        <link refid="src_2sd__wrapper_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>setup.hpp</label>
+        <link refid="src_2setup_8hpp"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>M5Stack.h</label>
+      </node>
+      <node id="20">
+        <label>Preferences.h</label>
+      </node>
+      <node id="12">
+        <label>Ticker.h</label>
+      </node>
+      <node id="16">
+        <label>WProgram.h</label>
+      </node>
+      <node id="9">
+        <label>array</label>
+      </node>
+      <node id="4">
+        <label>cstdint</label>
+      </node>
+      <node id="23">
+        <label>cstdio</label>
+      </node>
+      <node id="5">
+        <label>cstdlib</label>
+      </node>
+      <node id="19">
+        <label>cstring</label>
+      </node>
+      <node id="13">
+        <label>driver/pcnt.h</label>
+      </node>
+      <node id="11">
+        <label>limits</label>
+      </node>
+      <node id="17">
+        <label>limits.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>archive/bgeigie_firmware_pio/src/fsm_context.cpp</label>
+        <link refid="fsm__context_8cpp"/>
+      </node>
+      <node id="2">
+        <label>archive/bgeigie_firmware_pio/src/fsm_context.hpp</label>
+        <link refid="src_2fsm__context_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="1" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/src/fsm_state_base.hpp</label>
+        <link refid="src_2fsm__state__base_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>archive/bgeigie_firmware_pio/src/fsm_state_concrete.cpp</label>
+        <link refid="fsm__state__concrete_8cpp"/>
+      </node>
+      <node id="5">
+        <label>archive/bgeigie_firmware_pio/src/fsm_state_concrete.hpp</label>
+        <link refid="src_2fsm__state__concrete_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>archive/bgeigie_firmware_pio/src/main.cpp</label>
+        <link refid="archive_2bgeigie__firmware__pio_2src_2main_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_state" prot="public">State</innerclass>
+    <innernamespace refid="namespaceb_geigie_zen">bGeigieZen</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__FSM_STATE_BASE_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__FSM_STATE_BASE_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="src_2fsm__context_8hpp" kindref="compound">fsm_context.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>preemptive<sp/>declaration</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_context" kindref="compound">Context</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceb_geigie_zen" kindref="compound">bGeigieZen</ref><sp/>{</highlight></codeline>
+<codeline lineno="10" refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785" kindref="member">Event</ref><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785a04d407ea661493959d1c331f98bed756" kindref="member">DEVICE_STARTED</ref>,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785a4848c03065b8bb108a0efd6a83bbb3e9" kindref="member">SETUP_FINISHED</ref>,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785ae55cc97e470ecc86576b6cb73b667b02" kindref="member">GPS_DATE_BECAME_CORRECT</ref>,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785a3f5d2a95c2ec206d15a3346d1085b461" kindref="member">LOG_FILE_CREATED</ref>,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785a722528bdd5b2cb2cf7b31d6c5e719aa3" kindref="member">GPS_GEIGER_COUNT_READY</ref>,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_state" kindref="compound">State</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_context" kindref="compound">Context</ref><sp/>*<ref refid="class_state_1a92a578f1318bfa1f095d00e8621f4d41" kindref="member">_ctx</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">NULL</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="23" refid="class_state_1ab91bb1dd5aa6260ab2a456581daf9ec2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_state_1ab91bb1dd5aa6260ab2a456581daf9ec2" kindref="member">State</ref>()<sp/>{}</highlight></codeline>
+<codeline lineno="24" refid="class_state_1a0d945aef6435c50896e9815b17a37e7c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_state_1a0d945aef6435c50896e9815b17a37e7c" kindref="member">enter</ref>(<ref refid="class_context" kindref="compound">Context</ref><sp/>*<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ctx</ref>,<sp/>Event<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_state_1a92a578f1318bfa1f095d00e8621f4d41" kindref="member">_ctx</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ctx</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_state_1afc63f032dab5bd57dc2a9570e7e0d57c" kindref="member">on_enter</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28" refid="class_state_1a795215fb9fb25a27292ea72b1ab989b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_state_1a795215fb9fb25a27292ea72b1ab989b9" kindref="member">exit</ref>(Event<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_state_1a1bfe3a368211f8722ba22dbab6dc1c68" kindref="member">on_exit</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_state_1a92a578f1318bfa1f095d00e8621f4d41" kindref="member">_ctx</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">NULL</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32" refid="class_state_1a90c1611b3f58be4640f75da32165bc29" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_state_1a90c1611b3f58be4640f75da32165bc29" kindref="member">on_enter</ref>(Event<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="33" refid="class_state_1a82ef896916bba81b0c818d37af21bf3c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_state_1a82ef896916bba81b0c818d37af21bf3c" kindref="member">process</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="34" refid="class_state_1a5b7bd02d54cb890342a6324439f6f2df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_state_1a5b7bd02d54cb890342a6324439f6f2df" kindref="member">on_exit</ref>(Event<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e</ref>)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>__FSM_STATE_BASE_HPP</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="archive/bgeigie_firmware_pio/src/fsm_state_base.hpp"/>
+  </compounddef>
+</doxygen>

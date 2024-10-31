@@ -1,0 +1,441 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_api_connector" kind="class" language="C++" prot="public">
+    <compoundname>ApiConnector</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Handler</basecompoundref>
+    <includes refid="api__connector_8h" local="no">api_connector.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ApiHandlerStatus</name>
+        <qualifiedname>ApiConnector::ApiHandlerStatus</qualifiedname>
+        <enumvalue id="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a5c6cf8f03d275050a7373e360dff0909" prot="public">
+          <name>e_api_reporter_send_success</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a29a3d191db6db09f7d4757322d81438d" prot="public">
+          <name>e_api_reporter_error_to_json</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717aeedeeef2ce17687fdcd6326db176b20a" prot="public">
+          <name>e_api_reporter_error_not_connected</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717abf2ec433e6a95b2c211e011517128471" prot="public">
+          <name>e_api_reporter_error_remote_not_available</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a0eb4fc88c576f048ed5f47be9da3be88" prot="public">
+          <name>e_api_reporter_error_server_rejected_post_400</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a41188ca61a8819bac63964431728fb19" prot="public">
+          <name>e_api_reporter_error_server_rejected_post_401</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a03c4f15d5aa2fc9ef5d3608eba481897" prot="public">
+          <name>e_api_reporter_error_server_rejected_post_403</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717ad7308ded852533ee42fbba18e1577f6b" prot="public">
+          <name>e_api_reporter_error_server_rejected_post_5xx</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Collection of statuses for the api data handling, default is idle. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.h" line="22" column="3" bodyfile="bgeigiezen_firmware/handlers/api_connector.h" bodystart="22" bodyend="31"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_api_connector_1a4fc0424aa7554f3c83461182ee65c2be" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HTTPClient</ref></type>
+        <definition>HTTPClient ApiConnector::_http_client</definition>
+        <argsstring></argsstring>
+        <name>_http_client</name>
+        <qualifiedname>ApiConnector::_http_client</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.h" line="68" column="14" bodyfile="bgeigiezen_firmware/handlers/api_connector.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_connector_1a599c1ddbbb188806f2cfe644b286bc71" prot="private" static="no" mutable="no">
+        <type><ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+        <definition>LocalStorage&amp; ApiConnector::_config</definition>
+        <argsstring></argsstring>
+        <name>_config</name>
+        <qualifiedname>ApiConnector::_config</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.h" line="69" column="16" bodyfile="bgeigiezen_firmware/handlers/api_connector.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_connector_1aef5547a3c0cd39c59dffe912a28afece" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char ApiConnector::_payload[200]</definition>
+        <argsstring>[200]</argsstring>
+        <name>_payload</name>
+        <qualifiedname>ApiConnector::_payload</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.h" line="70" column="8" bodyfile="bgeigiezen_firmware/handlers/api_connector.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_connector_1a8afa2c98e7b224ee9c28fe44121d7d43" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ApiConnector::_post_count</definition>
+        <argsstring></argsstring>
+        <name>_post_count</name>
+        <qualifiedname>ApiConnector::_post_count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.h" line="71" column="12" bodyfile="bgeigiezen_firmware/handlers/api_connector.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_api_connector_1a926b23d3ce538f903a597a47d2b52978" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ApiConnector::_last_post</definition>
+        <argsstring></argsstring>
+        <name>_last_post</name>
+        <qualifiedname>ApiConnector::_last_post</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.h" line="72" column="12" bodyfile="bgeigiezen_firmware/handlers/api_connector.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_api_connector_1abc35b6946aaa4ea60a97154beefa638b" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ApiConnector::ApiConnector</definition>
+        <argsstring>(LocalStorage &amp;config)</argsstring>
+        <name>ApiConnector</name>
+        <qualifiedname>ApiConnector::ApiConnector</qualifiedname>
+        <param>
+          <type><ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.h" line="33" column="12" bodyfile="bgeigiezen_firmware/handlers/api_connector.cpp" bodystart="9" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_connector_1a6303c60e2bc8e9d4abe610c9055cff68" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ApiConnector::~ApiConnector</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ApiConnector</name>
+        <qualifiedname>ApiConnector::~ApiConnector</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.h" line="34" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_api_connector_1a884e820440be9b962b9302b38b061c8e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ApiConnector::get_post_count</definition>
+        <argsstring>() const</argsstring>
+        <name>get_post_count</name>
+        <qualifiedname>ApiConnector::get_post_count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.h" line="36" column="12" bodyfile="bgeigiezen_firmware/handlers/api_connector.cpp" bodystart="95" bodyend="97"/>
+        <referencedby refid="class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af" compoundref="fixed__mode_8cpp" startline="26" endline="128">FixedModeScreen::render</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_api_connector_1ae4158ccefdfdc7d83196cbdfe7af8d36" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool ApiConnector::time_to_send</definition>
+        <argsstring>(bool in_fixed_range, bool alert) const</argsstring>
+        <name>time_to_send</name>
+        <qualifiedname>ApiConnector::time_to_send</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>in_fixed_range</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>alert</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check if enough time has passed to send the latest reading to api <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>in_fixed_range</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If within configured range, a different send frequency is used </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>alert</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If alerted, a different send frequency is used </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if time to send </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.h" line="46" column="8" bodyfile="bgeigiezen_firmware/handlers/api_connector.cpp" bodystart="12" bodyend="17"/>
+        <references refid="user__config_8h_1a5adca5c7efa9bcb38ce5a52072c1c77b" compoundref="user__config_8h" startline="73">API_SEND_SECONDS_DELAY</references>
+        <references refid="user__config_8h_1a8c27197c9f3132c4da80fffaea1ee29f" compoundref="user__config_8h" startline="74">API_SEND_SECONDS_DELAY_ALERT</references>
+        <references refid="user__config_8h_1a477dfdc37e6a7d2b70aa6766d6eafb3b" compoundref="user__config_8h" startline="75">API_SEND_SECONDS_DELAY_ROAMING</references>
+        <references refid="api__connector_8cpp_1ab2c6388751fbcb1117265b565e9b6c14" compoundref="api__connector_8cpp" startline="7">SEND_FREQUENCY</references>
+        <referencedby refid="class_api_connector_1a46089ea3e64a0c222657429e68c5beca" compoundref="api__connector_8cpp" startline="39" endline="74">handle_produced_work</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_api_connector_1a27801902e618afb9d835438d66ddec3c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool ApiConnector::activate</definition>
+        <argsstring>(bool retry) override</argsstring>
+        <name>activate</name>
+        <qualifiedname>ApiConnector::activate</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>retry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize the connection <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>initial</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>set to false if its for reconnect / connect in error </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if connection with the wifi was made </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.h" line="53" column="8" bodyfile="bgeigiezen_firmware/handlers/api_connector.cpp" bodystart="19" bodyend="32"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_wi_fi_wrapper_1ac2331e7155ee97b89214f721d91cd657" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="16" endline="42">WiFiWrapper::connect_wifi</references>
+        <references refid="class_local_storage_1a619ba1c828df4e5c97e7ac77115e72a2" compoundref="local__storage_8cpp" startline="133" endline="135">LocalStorage::get_wifi_password</references>
+        <references refid="class_local_storage_1a8d0807c2fad52121c446d91f85976856" compoundref="local__storage_8cpp" startline="129" endline="131">LocalStorage::get_wifi_ssid</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1ab28fa84742de00ea3342319de160ff37" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="10">RETRY_TIMEOUT</references>
+        <references refid="class_wi_fi_wrapper_1a37ba31d67d18f35822a2cda0b6b5bf48" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="49" endline="51">WiFiWrapper::wifi_connected</references>
+        <references refid="bgeigiezen__firmware_2utils_2wifi__connection_8cpp_1a8d10d559fa8c2d79262a08609d604700" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="9">WiFiWrapper_i</references>
+        <referencedby refid="class_api_connector_1a46089ea3e64a0c222657429e68c5beca" compoundref="api__connector_8cpp" startline="39" endline="74">handle_produced_work</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_api_connector_1a2f3ddac28265bde686f1d9e245b991eb" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void ApiConnector::deactivate</definition>
+        <argsstring>() override</argsstring>
+        <name>deactivate</name>
+        <qualifiedname>ApiConnector::deactivate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stop the connection </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.h" line="58" column="8" bodyfile="bgeigiezen_firmware/handlers/api_connector.cpp" bodystart="34" bodyend="37"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_wi_fi_wrapper_1ad3550ed2833397450e1a4c80cb5727cf" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="44" endline="47">WiFiWrapper::disconnect_wifi</references>
+        <references refid="bgeigiezen__firmware_2utils_2wifi__connection_8cpp_1a8d10d559fa8c2d79262a08609d604700" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="9">WiFiWrapper_i</references>
+      </memberdef>
+      <memberdef kind="function" id="class_api_connector_1a46089ea3e64a0c222657429e68c5beca" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t ApiConnector::handle_produced_work</definition>
+        <argsstring>(const worker_map_t &amp;workers) override</argsstring>
+        <name>handle_produced_work</name>
+        <qualifiedname>ApiConnector::handle_produced_work</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref> &amp;</type>
+          <declname>workers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.h" line="60" column="10" bodyfile="bgeigiezen_firmware/handlers/api_connector.cpp" bodystart="39" bodyend="74"/>
+        <references refid="class_api_connector_1a27801902e618afb9d835438d66ddec3c" compoundref="api__connector_8cpp" startline="19" endline="32">activate</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717aeedeeef2ce17687fdcd6326db176b20a" compoundref="api__connector_8h" startline="25">e_api_reporter_error_not_connected</references>
+        <references refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a29a3d191db6db09f7d4757322d81438d" compoundref="api__connector_8h" startline="24">e_api_reporter_error_to_json</references>
+        <references refid="class_local_storage_1a5434f10e036beedc21b5382f9234981a" compoundref="local__storage_8cpp" startline="93" endline="95">LocalStorage::get_alert_threshold</references>
+        <references refid="class_local_storage_1ad567a475a216fc14ab359b09b00c25de" compoundref="local__storage_8cpp" startline="85" endline="87">LocalStorage::get_fixed_device_id</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa40dd481c8643b09aff483e9f4f7c2006" compoundref="identifiers_8h" startline="16">k_worker_log_aggregator</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1a14fad6b96fd26bd4219043784815c08b">log_aggregator</references>
+        <references refid="class_api_connector_1ac19687cf6ae2d1d0bcb2e77ee9e8c539" compoundref="api__connector_8cpp" startline="76" endline="93">reading_to_json</references>
+        <references refid="class_api_connector_1ae4158ccefdfdc7d83196cbdfe7af8d36" compoundref="api__connector_8cpp" startline="12" endline="17">time_to_send</references>
+      </memberdef>
+      <memberdef kind="function" id="class_api_connector_1ac19687cf6ae2d1d0bcb2e77ee9e8c539" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool ApiConnector::reading_to_json</definition>
+        <argsstring>(const DataLine &amp;reading, char *out)</argsstring>
+        <name>reading_to_json</name>
+        <qualifiedname>ApiConnector::reading_to_json</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="struct_data_line" kindref="compound">DataLine</ref> &amp;</type>
+          <declname>reading</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.h" line="62" column="8" bodyfile="bgeigiezen_firmware/handlers/api_connector.cpp" bodystart="76" bodyend="93"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_local_storage_1ad567a475a216fc14ab359b09b00c25de" compoundref="local__storage_8cpp" startline="85" endline="87">LocalStorage::get_fixed_device_id</references>
+        <references refid="class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca" compoundref="local__storage_8cpp" startline="145" endline="147">LocalStorage::get_fixed_latitude</references>
+        <references refid="class_local_storage_1a2972e2632be5da773cfa65e23be878e5" compoundref="local__storage_8cpp" startline="141" endline="143">LocalStorage::get_fixed_longitude</references>
+        <referencedby refid="class_api_connector_1a46089ea3e64a0c222657429e68c5beca" compoundref="api__connector_8cpp" startline="39" endline="74">handle_produced_work</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_api_connector_1a8fc0aaa8a9cff66aef93d202a102d9ea" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t ApiConnector::handle_async</definition>
+        <argsstring>() override</argsstring>
+        <name>handle_async</name>
+        <qualifiedname>ApiConnector::handle_async</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/api_connector.h" line="64" column="10" bodyfile="bgeigiezen_firmware/handlers/api_connector.cpp" bodystart="99" bodyend="147"/>
+        <references refid="user__config_8h_1a583b0748ee647a56a2e607bfe09d13dd" compoundref="user__config_8h" startline="90">API_HOST</references>
+        <references refid="user__config_8h_1ae7d310923399cda9586b4916f7070fc5" compoundref="user__config_8h" startline="91">API_MEASUREMENTS_ENDPOINT</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717abf2ec433e6a95b2c211e011517128471" compoundref="api__connector_8h" startline="26">e_api_reporter_error_remote_not_available</references>
+        <references refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a0eb4fc88c576f048ed5f47be9da3be88" compoundref="api__connector_8h" startline="27">e_api_reporter_error_server_rejected_post_400</references>
+        <references refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a41188ca61a8819bac63964431728fb19" compoundref="api__connector_8h" startline="28">e_api_reporter_error_server_rejected_post_401</references>
+        <references refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a03c4f15d5aa2fc9ef5d3608eba481897" compoundref="api__connector_8h" startline="29">e_api_reporter_error_server_rejected_post_403</references>
+        <references refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717ad7308ded852533ee42fbba18e1577f6b" compoundref="api__connector_8h" startline="30">e_api_reporter_error_server_rejected_post_5xx</references>
+        <references refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a5c6cf8f03d275050a7373e360dff0909" compoundref="api__connector_8h" startline="23">e_api_reporter_send_success</references>
+        <references refid="class_local_storage_1a119e9cbf7e8edad53786b070ee2cb298" compoundref="local__storage_8cpp" startline="137" endline="139">LocalStorage::get_api_key</references>
+        <references refid="user__config_8h_1a688b2c08fbc53d20db8a5f829f372338" compoundref="user__config_8h" startline="92">HEADER_API_CONTENT_TYPE</references>
+        <references refid="user__config_8h_1a37ec0fa268fd3617f7d7f5ad0a2d463e" compoundref="user__config_8h" startline="93">HEADER_API_USER_AGENT</references>
+        <references refid="class_wi_fi_wrapper_1ad810fce36f8f603465f255fbd88dc5c9" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="99" endline="103">WiFiWrapper::update_active</references>
+        <references refid="bgeigiezen__firmware_2utils_2wifi__connection_8cpp_1a8d10d559fa8c2d79262a08609d604700" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="9">WiFiWrapper_i</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Connects over WiFi to the API to send readings </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ApiConnector</label>
+        <link refid="class_api_connector"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Handler</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ApiConnector</label>
+        <link refid="class_api_connector"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Handler</label>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/handlers/api_connector.h" line="17" column="1" bodyfile="bgeigiezen_firmware/handlers/api_connector.h" bodystart="17" bodyend="73"/>
+    <listofallmembers>
+      <member refid="class_api_connector_1a599c1ddbbb188806f2cfe644b286bc71" prot="private" virt="non-virtual"><scope>ApiConnector</scope><name>_config</name></member>
+      <member refid="class_api_connector_1a4fc0424aa7554f3c83461182ee65c2be" prot="private" virt="non-virtual"><scope>ApiConnector</scope><name>_http_client</name></member>
+      <member refid="class_api_connector_1a926b23d3ce538f903a597a47d2b52978" prot="private" virt="non-virtual"><scope>ApiConnector</scope><name>_last_post</name></member>
+      <member refid="class_api_connector_1aef5547a3c0cd39c59dffe912a28afece" prot="private" virt="non-virtual"><scope>ApiConnector</scope><name>_payload</name></member>
+      <member refid="class_api_connector_1a8afa2c98e7b224ee9c28fe44121d7d43" prot="private" virt="non-virtual"><scope>ApiConnector</scope><name>_post_count</name></member>
+      <member refid="class_api_connector_1a27801902e618afb9d835438d66ddec3c" prot="protected" virt="non-virtual"><scope>ApiConnector</scope><name>activate</name></member>
+      <member refid="class_api_connector_1abc35b6946aaa4ea60a97154beefa638b" prot="public" virt="non-virtual"><scope>ApiConnector</scope><name>ApiConnector</name></member>
+      <member refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717" prot="public" virt="non-virtual"><scope>ApiConnector</scope><name>ApiHandlerStatus</name></member>
+      <member refid="class_api_connector_1a2f3ddac28265bde686f1d9e245b991eb" prot="protected" virt="non-virtual"><scope>ApiConnector</scope><name>deactivate</name></member>
+      <member refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717aeedeeef2ce17687fdcd6326db176b20a" prot="public" virt="non-virtual"><scope>ApiConnector</scope><name>e_api_reporter_error_not_connected</name></member>
+      <member refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717abf2ec433e6a95b2c211e011517128471" prot="public" virt="non-virtual"><scope>ApiConnector</scope><name>e_api_reporter_error_remote_not_available</name></member>
+      <member refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a0eb4fc88c576f048ed5f47be9da3be88" prot="public" virt="non-virtual"><scope>ApiConnector</scope><name>e_api_reporter_error_server_rejected_post_400</name></member>
+      <member refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a41188ca61a8819bac63964431728fb19" prot="public" virt="non-virtual"><scope>ApiConnector</scope><name>e_api_reporter_error_server_rejected_post_401</name></member>
+      <member refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a03c4f15d5aa2fc9ef5d3608eba481897" prot="public" virt="non-virtual"><scope>ApiConnector</scope><name>e_api_reporter_error_server_rejected_post_403</name></member>
+      <member refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717ad7308ded852533ee42fbba18e1577f6b" prot="public" virt="non-virtual"><scope>ApiConnector</scope><name>e_api_reporter_error_server_rejected_post_5xx</name></member>
+      <member refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a29a3d191db6db09f7d4757322d81438d" prot="public" virt="non-virtual"><scope>ApiConnector</scope><name>e_api_reporter_error_to_json</name></member>
+      <member refid="class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a5c6cf8f03d275050a7373e360dff0909" prot="public" virt="non-virtual"><scope>ApiConnector</scope><name>e_api_reporter_send_success</name></member>
+      <member refid="class_api_connector_1a884e820440be9b962b9302b38b061c8e" prot="public" virt="non-virtual"><scope>ApiConnector</scope><name>get_post_count</name></member>
+      <member refid="class_api_connector_1a8fc0aaa8a9cff66aef93d202a102d9ea" prot="protected" virt="non-virtual"><scope>ApiConnector</scope><name>handle_async</name></member>
+      <member refid="class_api_connector_1a46089ea3e64a0c222657429e68c5beca" prot="protected" virt="non-virtual"><scope>ApiConnector</scope><name>handle_produced_work</name></member>
+      <member refid="class_api_connector_1ac19687cf6ae2d1d0bcb2e77ee9e8c539" prot="protected" virt="non-virtual"><scope>ApiConnector</scope><name>reading_to_json</name></member>
+      <member refid="class_api_connector_1ae4158ccefdfdc7d83196cbdfe7af8d36" prot="protected" virt="non-virtual"><scope>ApiConnector</scope><name>time_to_send</name></member>
+      <member refid="class_api_connector_1a6303c60e2bc8e9d4abe610c9055cff68" prot="public" virt="virtual"><scope>ApiConnector</scope><name>~ApiConnector</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

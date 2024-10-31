@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="src_2logger_8hpp" kind="file" language="C++">
+    <compoundname>logger.hpp</compoundname>
+    <includes local="no">M5Stack.h</includes>
+    <includes refid="src_2config_8hpp" local="no">config.hpp</includes>
+    <includes local="no">cstdio</includes>
+    <includes local="no">cstring</includes>
+    <includes refid="src_2gps_8hpp" local="no">gps.hpp</includes>
+    <includes refid="src_2geiger__counter_8hpp" local="no">geiger_counter.hpp</includes>
+    <includedby refid="src_2fsm__context_8hpp" local="no">archive/bgeigie_firmware_pio/src/fsm_context.hpp</includedby>
+    <includedby refid="logger_8cpp" local="no">archive/bgeigie_firmware_pio/src/logger.cpp</includedby>
+    <incdepgraph>
+      <node id="9">
+        <label>TinyGPS++.h</label>
+        <link refid="src_2_tiny_g_p_s_09_09_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>config.hpp</label>
+        <link refid="src_2config_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>geiger_counter.hpp</label>
+        <link refid="src_2geiger__counter_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>gps.hpp</label>
+        <link refid="src_2gps_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>hardwarecounter.hpp</label>
+        <link refid="src_2hardwarecounter_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/src/logger.hpp</label>
+        <link refid="src_2logger_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>M5Stack.h</label>
+      </node>
+      <node id="16">
+        <label>Ticker.h</label>
+      </node>
+      <node id="10">
+        <label>WProgram.h</label>
+      </node>
+      <node id="13">
+        <label>array</label>
+      </node>
+      <node id="4">
+        <label>cstdint</label>
+      </node>
+      <node id="6">
+        <label>cstdio</label>
+      </node>
+      <node id="5">
+        <label>cstdlib</label>
+      </node>
+      <node id="7">
+        <label>cstring</label>
+      </node>
+      <node id="17">
+        <label>driver/pcnt.h</label>
+      </node>
+      <node id="15">
+        <label>limits</label>
+      </node>
+      <node id="11">
+        <label>limits.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>archive/bgeigie_firmware_pio/src/fsm_context.cpp</label>
+        <link refid="fsm__context_8cpp"/>
+      </node>
+      <node id="2">
+        <label>archive/bgeigie_firmware_pio/src/fsm_context.hpp</label>
+        <link refid="src_2fsm__context_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>archive/bgeigie_firmware_pio/src/fsm_state_base.hpp</label>
+        <link refid="src_2fsm__state__base_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>archive/bgeigie_firmware_pio/src/fsm_state_concrete.cpp</label>
+        <link refid="fsm__state__concrete_8cpp"/>
+      </node>
+      <node id="5">
+        <label>archive/bgeigie_firmware_pio/src/fsm_state_concrete.hpp</label>
+        <link refid="src_2fsm__state__concrete_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>archive/bgeigie_firmware_pio/src/logger.cpp</label>
+        <link refid="logger_8cpp"/>
+      </node>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/src/logger.hpp</label>
+        <link refid="src_2logger_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>archive/bgeigie_firmware_pio/src/main.cpp</label>
+        <link refid="archive_2bgeigie__firmware__pio_2src_2main_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_b_geigie_log_formatter" prot="public">BGeigieLogFormatter</innerclass>
+    <innerclass refid="class_s_d_logger" prot="public">SDLogger</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__LOGGER_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__LOGGER_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;M5Stack.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="src_2config_8hpp" kindref="compound">config.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdio&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstring&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="src_2gps_8hpp" kindref="compound">gps.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="src_2geiger__counter_8hpp" kindref="compound">geiger_counter.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_b_geigie_log_formatter" kindref="compound">BGeigieLogFormatter</ref><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>buffer<sp/>to<sp/>store<sp/>one<sp/>line<sp/>of<sp/>the<sp/>log</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>_buffer[<ref refid="include_2config_8hpp_1a17871a57cec4c4717bd53399af95ca5e" kindref="member">LOG_BUFFER_SIZE</ref>];</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_device_id;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_geiger_fresh<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/>_gps_fresh<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Geiger<sp/>stuff</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/>uint32_t<sp/>_cpm,<sp/>_cpb,<sp/>_total_count;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>_geiger_status;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>GPS<sp/>stuff</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_year,<sp/>_month,<sp/>_day,<sp/>_hour,<sp/>_minute,<sp/>_second;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>_lat[10],<sp/>_NS,<sp/>_lon[11],<sp/>_WE;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_altitude,<sp/>_precision;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_satellites;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>_gps_status;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="31" refid="class_b_geigie_log_formatter_1aab3ecfeec59796d260ad30cc1b330d1f" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_b_geigie_log_formatter_1aab3ecfeec59796d260ad30cc1b330d1f" kindref="member">BGeigieLogFormatter</ref>(uint32_t<sp/>device_id)<sp/>:<sp/>_device_id(device_id)<sp/>{}</highlight></codeline>
+<codeline lineno="32" refid="class_b_geigie_log_formatter_1a5a7b0bd7e99af0b0e08791621ad56f90" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_b_geigie_log_formatter_1a5a7b0bd7e99af0b0e08791621ad56f90" kindref="member">BGeigieLogFormatter</ref>()<sp/>:<sp/>_device_id(<ref refid="include_2config_8hpp_1a84c783b401aa6af2b28edfc527c2f226" kindref="member">SETUP_DEFAULT_DEVICE_ID</ref>)<sp/>{}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="class_b_geigie_log_formatter_1aa9b91572348c098bb151e3662690a602" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_b_geigie_log_formatter_1aa9b91572348c098bb151e3662690a602" kindref="member">set_device_id</ref>(uint32_t<sp/>device_id)<sp/>{<sp/>_device_id<sp/>=<sp/>device_id;<sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="class_b_geigie_log_formatter_1a1c9a69c9790a8bc038b157ced1fcdbe3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_b_geigie_log_formatter_1a1c9a69c9790a8bc038b157ced1fcdbe3" kindref="member">feed</ref>(<ref refid="class_g_p_s_sensor" kindref="compound">GPSSensor</ref><sp/>&amp;<ref refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" kindref="member">gps</ref>);</highlight></codeline>
+<codeline lineno="37" refid="class_b_geigie_log_formatter_1accfbb55ef326bf6483157ff01d40a9ae" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_b_geigie_log_formatter_1accfbb55ef326bf6483157ff01d40a9ae" kindref="member">feed</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_geiger_counter" kindref="compound">GeigerCounter</ref><sp/>&amp;geiger_count);</highlight></codeline>
+<codeline lineno="38" refid="class_b_geigie_log_formatter_1a1a53d87a30121624a61a5a32e359b535" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_b_geigie_log_formatter_1a1a53d87a30121624a61a5a32e359b535" kindref="member">ready</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_geiger_fresh<sp/>&amp;&amp;<sp/>_gps_fresh;<sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="class_b_geigie_log_formatter_1a73f74383a11aa5e2d1c7ddafbeb3f708" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="class_b_geigie_log_formatter_1a73f74383a11aa5e2d1c7ddafbeb3f708" kindref="member">format</ref>();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_s_d_logger" kindref="compound">SDLogger</ref><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_folder_created<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_logfile_created<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_ready<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>filename_maxlen<sp/>=<sp/>32;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>_filename[filename_maxlen]<sp/>=<sp/>{0};</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="52" refid="class_s_d_logger_1a38d05d38170d08f0a15b9537340e9d97" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_s_d_logger_1a38d05d38170d08f0a15b9537340e9d97" kindref="member">SDLogger</ref>()<sp/>{};</highlight></codeline>
+<codeline lineno="53" refid="class_s_d_logger_1af2514db995481908f4821ff13c76635b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_s_d_logger_1af2514db995481908f4821ff13c76635b" kindref="member">start</ref>(uint32_t<sp/>device_id,<sp/>uint16_t<sp/>year,<sp/>uint8_t<sp/>month,<sp/>uint8_t<sp/>day);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="class_s_d_logger_1a5389d9735705f04a9ee50121975543c2" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_s_d_logger_1a5389d9735705f04a9ee50121975543c2" kindref="member">ready</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_folder_created<sp/>&amp;&amp;<sp/>_logfile_created;<sp/>}</highlight></codeline>
+<codeline lineno="56" refid="class_s_d_logger_1a31da366d921e759f5c78253a9cb21a2e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_s_d_logger_1a31da366d921e759f5c78253a9cb21a2e" kindref="member">folder_created</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_folder_created;<sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="class_s_d_logger_1ae96cd0c7555285c7191193be27c52d42" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_s_d_logger_1ae96cd0c7555285c7191193be27c52d42" kindref="member">log</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_line</ref>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>__LOGGER_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="archive/bgeigie_firmware_pio/src/logger.hpp"/>
+  </compounddef>
+</doxygen>

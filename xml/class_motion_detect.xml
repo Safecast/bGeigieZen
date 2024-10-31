@@ -1,0 +1,472 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_motion_detect" kind="class" language="C++" prot="public">
+    <compoundname>MotionDetect</compoundname>
+    <includes refid="motion_8hpp" local="no">motion.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_motion_detect_1a2d0530064032138dde8f0c458238f2ec" prot="private" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t MotionDetect::accel_threshold</definition>
+        <argsstring></argsstring>
+        <name>accel_threshold</name>
+        <qualifiedname>MotionDetect::accel_threshold</qualifiedname>
+        <initializer>= <ref refid="motion_8hpp_1a12de8a0a8e6ada14f8628606d3b38462" kindref="member">ACCEL_THRESHOLD_DEFAULT</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="18" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_motion_detect_1a5fa2fdbec5cd528c59b391e98933ebe4" prot="private" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t MotionDetect::gyro_threshold</definition>
+        <argsstring></argsstring>
+        <name>gyro_threshold</name>
+        <qualifiedname>MotionDetect::gyro_threshold</qualifiedname>
+        <initializer>= <ref refid="motion_8hpp_1a129b7eca484d5da61720b7932edd46c3" kindref="member">GYRO_THRESHOLD_DEFAULT</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="19" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_motion_detect_1a72fbe84787afbe305705e069386ffd24" prot="private" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t MotionDetect::ax</definition>
+        <argsstring></argsstring>
+        <name>ax</name>
+        <qualifiedname>MotionDetect::ax</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="20" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_motion_detect_1a3c37698c73dd63e6d77706e717e22bf5" prot="private" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t MotionDetect::ay</definition>
+        <argsstring></argsstring>
+        <name>ay</name>
+        <qualifiedname>MotionDetect::ay</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="21" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_motion_detect_1a2fb44f05f3981230946479f2325567b6" prot="private" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t MotionDetect::az</definition>
+        <argsstring></argsstring>
+        <name>az</name>
+        <qualifiedname>MotionDetect::az</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="22" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_motion_detect_1a6957f08276e9b86b1f4f84fb753e5d76" prot="private" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t MotionDetect::prev_ax</definition>
+        <argsstring></argsstring>
+        <name>prev_ax</name>
+        <qualifiedname>MotionDetect::prev_ax</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="23" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_motion_detect_1a7b5854636062310de6862302821dbfa4" prot="private" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t MotionDetect::prev_ay</definition>
+        <argsstring></argsstring>
+        <name>prev_ay</name>
+        <qualifiedname>MotionDetect::prev_ay</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="24" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_motion_detect_1a00be3c00e47cd9f83944c816a512618d" prot="private" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t MotionDetect::prev_az</definition>
+        <argsstring></argsstring>
+        <name>prev_az</name>
+        <qualifiedname>MotionDetect::prev_az</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="25" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_motion_detect_1a19e9514baab8db3209b6c78421b2d4a6" prot="private" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t MotionDetect::gx</definition>
+        <argsstring></argsstring>
+        <name>gx</name>
+        <qualifiedname>MotionDetect::gx</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="26" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_motion_detect_1abb1d1522b91dd6bb119a69ed2ef1b569" prot="private" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t MotionDetect::gy</definition>
+        <argsstring></argsstring>
+        <name>gy</name>
+        <qualifiedname>MotionDetect::gy</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="27" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_motion_detect_1a8a4c139e2dd0bfc6c572ce52f4d76a80" prot="private" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t MotionDetect::gz</definition>
+        <argsstring></argsstring>
+        <name>gz</name>
+        <qualifiedname>MotionDetect::gz</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="28" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_motion_detect_1a9610ca7278e5673d92062c553915d720" prot="private" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t MotionDetect::prev_gx</definition>
+        <argsstring></argsstring>
+        <name>prev_gx</name>
+        <qualifiedname>MotionDetect::prev_gx</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="29" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_motion_detect_1aab4c50c78d25a4a6b8e185a794c7a3f9" prot="private" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t MotionDetect::prev_gy</definition>
+        <argsstring></argsstring>
+        <name>prev_gy</name>
+        <qualifiedname>MotionDetect::prev_gy</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="30" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_motion_detect_1a5a78c3d8b83eb1cd3f366495ba9460e0" prot="private" static="no" mutable="no">
+        <type>int16_t</type>
+        <definition>int16_t MotionDetect::prev_gz</definition>
+        <argsstring></argsstring>
+        <name>prev_gz</name>
+        <qualifiedname>MotionDetect::prev_gz</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="31" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_motion_detect_1a709e9ca3b0f8b09d3223ed0fe7d280cb" prot="private" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t MotionDetect::sum_accel_deltas</definition>
+        <argsstring></argsstring>
+        <name>sum_accel_deltas</name>
+        <qualifiedname>MotionDetect::sum_accel_deltas</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="32" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_motion_detect_1a357280490458767ee4bc9057d31532b8" prot="private" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t MotionDetect::sum_gyro_deltas</definition>
+        <argsstring></argsstring>
+        <name>sum_gyro_deltas</name>
+        <qualifiedname>MotionDetect::sum_gyro_deltas</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="33" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_motion_detect_1a3683dd2db2822398820562e7774adc61" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool MotionDetect::detected</definition>
+        <argsstring></argsstring>
+        <name>detected</name>
+        <qualifiedname>MotionDetect::detected</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="34" column="10" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_motion_detect_1ab91532044758e729ca50c4265bbb64d1" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">MPU6886</ref></type>
+        <definition>MPU6886 MotionDetect::mpu</definition>
+        <argsstring></argsstring>
+        <name>mpu</name>
+        <qualifiedname>MotionDetect::mpu</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="36" column="13" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="36" bodyend="36"/>
+        <referencedby refid="class_motion_detect_1a45bf353f17123a6bfcc6c155ff7e2528" compoundref="motion_8cpp" startline="4" endline="16">update</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_motion_detect_1a45bf353f17123a6bfcc6c155ff7e2528" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void MotionDetect::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <qualifiedname>MotionDetect::update</qualifiedname>
+        <briefdescription>
+<para>Force a re-read of the IMU, update motion. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="37" column="10" bodyfile="archive/bgeigie_firmware_pio/src/motion.cpp" bodystart="4" bodyend="16"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_motion_detect_1ab91532044758e729ca50c4265bbb64d1" compoundref="motion_8hpp" startline="36" endline="36">mpu</references>
+        <referencedby refid="class_motion_detect_1a66e4b850e0423024661a6f766a40fcea" compoundref="motion_8cpp" startline="26" endline="31">motionDetected</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_motion_detect_1a84843d51e012fc8833a6a4af4016925c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t MotionDetect::motion</definition>
+        <argsstring>()</argsstring>
+        <name>motion</name>
+        <qualifiedname>MotionDetect::motion</qualifiedname>
+        <briefdescription>
+<para>Sum of <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">abs()</ref> of component deltas. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>int32_t sum </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="38" column="13" bodyfile="archive/bgeigie_firmware_pio/src/motion.cpp" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_motion_detect_1a66e4b850e0423024661a6f766a40fcea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool MotionDetect::motionDetected</definition>
+        <argsstring>()</argsstring>
+        <name>motionDetected</name>
+        <qualifiedname>MotionDetect::motionDetected</qualifiedname>
+        <briefdescription>
+<para>One-shot check that motion exceeded threshold since last update. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true if motion &gt; threshold, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="39" column="10" bodyfile="archive/bgeigie_firmware_pio/src/motion.cpp" bodystart="26" bodyend="31"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_motion_detect_1a45bf353f17123a6bfcc6c155ff7e2528" compoundref="motion_8cpp" startline="4" endline="16">update</references>
+        <referencedby refid="class_display_1ad2740b779d61e461c4dcaaf34f1fcd8f" compoundref="display_8cpp" startline="89" endline="234">Display::update</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_motion_detect_1ae3c0a68a8577f39b8ff85e16152f0434" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t MotionDetect::getAccelThreshold</definition>
+        <argsstring>()</argsstring>
+        <name>getAccelThreshold</name>
+        <qualifiedname>MotionDetect::getAccelThreshold</qualifiedname>
+        <briefdescription>
+<para>Return the current acceleration detection threshold. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>int32_t threshold </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="40" column="13" bodyfile="archive/bgeigie_firmware_pio/src/motion.cpp" bodystart="35" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_motion_detect_1a231122ac7625e220a34f9cee6a23f307" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void MotionDetect::setAccelThreshold</definition>
+        <argsstring>(const int32_t threshold)</argsstring>
+        <name>setAccelThreshold</name>
+        <qualifiedname>MotionDetect::setAccelThreshold</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> int32_t</type>
+          <declname>threshold</declname>
+        </param>
+        <briefdescription>
+<para>Set motion detection threshold. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>threshold</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><linebreak/>
+ </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="41" column="10" bodyfile="archive/bgeigie_firmware_pio/src/motion.cpp" bodystart="41" bodyend="43"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="class_motion_detect_1ac50b23a2e64efc02206f53b080307175" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t MotionDetect::getGyroThreshold</definition>
+        <argsstring>()</argsstring>
+        <name>getGyroThreshold</name>
+        <qualifiedname>MotionDetect::getGyroThreshold</qualifiedname>
+        <briefdescription>
+<para>Return the current motion detection threshold. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>int32_t gyro_threshold </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="42" column="13" bodyfile="archive/bgeigie_firmware_pio/src/motion.cpp" bodystart="47" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_motion_detect_1a63ae13c4e24e9140a1f2f01ce0188649" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void MotionDetect::setGyroThreshold</definition>
+        <argsstring>(const int32_t threshold)</argsstring>
+        <name>setGyroThreshold</name>
+        <qualifiedname>MotionDetect::setGyroThreshold</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> int32_t</type>
+          <declname>threshold</declname>
+        </param>
+        <briefdescription>
+<para>Set motion detection threshold. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>threshold</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><linebreak/>
+ </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="43" column="10" bodyfile="archive/bgeigie_firmware_pio/src/motion.cpp" bodystart="53" bodyend="55"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Use MPU6886 IMU to detect motion for wake-on-motion. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="16" column="1" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="16" bodyend="45"/>
+    <listofallmembers>
+      <member refid="class_motion_detect_1a2d0530064032138dde8f0c458238f2ec" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>accel_threshold</name></member>
+      <member refid="class_motion_detect_1a72fbe84787afbe305705e069386ffd24" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>ax</name></member>
+      <member refid="class_motion_detect_1a3c37698c73dd63e6d77706e717e22bf5" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>ay</name></member>
+      <member refid="class_motion_detect_1a2fb44f05f3981230946479f2325567b6" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>az</name></member>
+      <member refid="class_motion_detect_1a3683dd2db2822398820562e7774adc61" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>detected</name></member>
+      <member refid="class_motion_detect_1ae3c0a68a8577f39b8ff85e16152f0434" prot="public" virt="non-virtual"><scope>MotionDetect</scope><name>getAccelThreshold</name></member>
+      <member refid="class_motion_detect_1ac50b23a2e64efc02206f53b080307175" prot="public" virt="non-virtual"><scope>MotionDetect</scope><name>getGyroThreshold</name></member>
+      <member refid="class_motion_detect_1a19e9514baab8db3209b6c78421b2d4a6" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>gx</name></member>
+      <member refid="class_motion_detect_1abb1d1522b91dd6bb119a69ed2ef1b569" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>gy</name></member>
+      <member refid="class_motion_detect_1a5fa2fdbec5cd528c59b391e98933ebe4" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>gyro_threshold</name></member>
+      <member refid="class_motion_detect_1a8a4c139e2dd0bfc6c572ce52f4d76a80" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>gz</name></member>
+      <member refid="class_motion_detect_1a84843d51e012fc8833a6a4af4016925c" prot="public" virt="non-virtual"><scope>MotionDetect</scope><name>motion</name></member>
+      <member refid="class_motion_detect_1a66e4b850e0423024661a6f766a40fcea" prot="public" virt="non-virtual"><scope>MotionDetect</scope><name>motionDetected</name></member>
+      <member refid="class_motion_detect_1ab91532044758e729ca50c4265bbb64d1" prot="public" virt="non-virtual"><scope>MotionDetect</scope><name>mpu</name></member>
+      <member refid="class_motion_detect_1a6957f08276e9b86b1f4f84fb753e5d76" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>prev_ax</name></member>
+      <member refid="class_motion_detect_1a7b5854636062310de6862302821dbfa4" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>prev_ay</name></member>
+      <member refid="class_motion_detect_1a00be3c00e47cd9f83944c816a512618d" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>prev_az</name></member>
+      <member refid="class_motion_detect_1a9610ca7278e5673d92062c553915d720" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>prev_gx</name></member>
+      <member refid="class_motion_detect_1aab4c50c78d25a4a6b8e185a794c7a3f9" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>prev_gy</name></member>
+      <member refid="class_motion_detect_1a5a78c3d8b83eb1cd3f366495ba9460e0" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>prev_gz</name></member>
+      <member refid="class_motion_detect_1a231122ac7625e220a34f9cee6a23f307" prot="public" virt="non-virtual"><scope>MotionDetect</scope><name>setAccelThreshold</name></member>
+      <member refid="class_motion_detect_1a63ae13c4e24e9140a1f2f01ce0188649" prot="public" virt="non-virtual"><scope>MotionDetect</scope><name>setGyroThreshold</name></member>
+      <member refid="class_motion_detect_1a709e9ca3b0f8b09d3223ed0fe7d280cb" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>sum_accel_deltas</name></member>
+      <member refid="class_motion_detect_1a357280490458767ee4bc9057d31532b8" prot="private" virt="non-virtual"><scope>MotionDetect</scope><name>sum_gyro_deltas</name></member>
+      <member refid="class_motion_detect_1a45bf353f17123a6bfcc6c155ff7e2528" prot="public" virt="non-virtual"><scope>MotionDetect</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

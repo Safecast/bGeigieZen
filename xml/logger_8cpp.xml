@@ -1,0 +1,283 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="logger_8cpp" kind="file" language="C++">
+    <compoundname>logger.cpp</compoundname>
+    <includes local="no">M5Core2.h</includes>
+    <includes refid="src_2logger_8hpp" local="no">logger.hpp</includes>
+    <incdepgraph>
+      <node id="11">
+        <label>TinyGPS++.h</label>
+        <link refid="src_2_tiny_g_p_s_09_09_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>config.hpp</label>
+        <link refid="src_2config_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>geiger_counter.hpp</label>
+        <link refid="src_2geiger__counter_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>gps.hpp</label>
+        <link refid="src_2gps_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>hardwarecounter.hpp</label>
+        <link refid="src_2hardwarecounter_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/src/logger.cpp</label>
+        <link refid="logger_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>logger.hpp</label>
+        <link refid="src_2logger_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>M5Core2.h</label>
+      </node>
+      <node id="4">
+        <label>M5Stack.h</label>
+      </node>
+      <node id="18">
+        <label>Ticker.h</label>
+      </node>
+      <node id="12">
+        <label>WProgram.h</label>
+      </node>
+      <node id="15">
+        <label>array</label>
+      </node>
+      <node id="6">
+        <label>cstdint</label>
+      </node>
+      <node id="8">
+        <label>cstdio</label>
+      </node>
+      <node id="7">
+        <label>cstdlib</label>
+      </node>
+      <node id="9">
+        <label>cstring</label>
+      </node>
+      <node id="19">
+        <label>driver/pcnt.h</label>
+      </node>
+      <node id="17">
+        <label>limits</label>
+      </node>
+      <node id="13">
+        <label>limits.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="logger_8cpp_1a77b34e269d2a6500076f032667578f0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char checksum</definition>
+        <argsstring>(char *s, int N)</argsstring>
+        <name>checksum</name>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/logger.cpp" line="6" column="6" bodyfile="archive/bgeigie_firmware_pio/src/logger.cpp" bodystart="6" bodyend="13"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_b_geigie_log_formatter_1a73f74383a11aa5e2d1c7ddafbeb3f708" compoundref="logger_8cpp" startline="46" endline="75">BGeigieLogFormatter::format</referencedby>
+        <referencedby refid="class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494" compoundref="log__aggregator_8cpp" startline="44" endline="128">LogAggregator::produce_data</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;M5Core2.h&gt;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>#include<sp/>&lt;M5Stack.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="src_2logger_8hpp" kindref="compound">logger.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>compute<sp/>check<sp/>sum<sp/>of<sp/>N<sp/>bytes<sp/>in<sp/>array<sp/>s<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="logger_8cpp_1a77b34e269d2a6500076f032667578f0b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="logger_8cpp_1a77b34e269d2a6500076f032667578f0b" kindref="member">checksum</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">s</ref>,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">N</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">chk</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">s</ref>[0];</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>1;<sp/>i<sp/>&lt;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">N</ref>;<sp/>i++)<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">chk</ref><sp/>^=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">s</ref>[i];</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">chk</ref>;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="class_b_geigie_log_formatter_1accfbb55ef326bf6483157ff01d40a9ae" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_b_geigie_log_formatter_1a1c9a69c9790a8bc038b157ced1fcdbe3" kindref="member">BGeigieLogFormatter::feed</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_geiger_counter" kindref="compound">GeigerCounter</ref><sp/>&amp;geiger_count)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>_cpm<sp/>=<sp/>geiger_count.<ref refid="class_geiger_counter_1aa43acb94f31899c5ca5859f7d1f616cf" kindref="member">per_minute_raw</ref>();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>_cpb<sp/>=<sp/>geiger_count.<ref refid="class_geiger_counter_1ab594033dc6831e26aeee3fb6db67d5fb" kindref="member">per_bin</ref>();</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>_total_count<sp/>=<sp/>geiger_count.<ref refid="class_geiger_counter_1ad3dd76831d8afa748a17c4319ad42463" kindref="member">total</ref>();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>_geiger_status<sp/>=<sp/>geiger_count.<ref refid="class_geiger_counter_1a62c418e910486f29ef2b9c09b979756a" kindref="member">valid</ref>()<sp/>?<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;V&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>_geiger_fresh<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="class_b_geigie_log_formatter_1a1c9a69c9790a8bc038b157ced1fcdbe3" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_b_geigie_log_formatter_1a1c9a69c9790a8bc038b157ced1fcdbe3" kindref="member">BGeigieLogFormatter::feed</ref>(<ref refid="class_g_p_s_sensor" kindref="compound">GPSSensor</ref><sp/>&amp;<ref refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" kindref="member">gps</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref><sp/>=<sp/><ref refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" kindref="member">gps</ref>.data();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>_year<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.date.year();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>_month<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.date.month();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>_day<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.date.day();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/>_hour<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.time.hour();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>_minute<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.time.minute();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/>_second<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.time.second();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">strcpy</ref>(_lat,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.location.rawLatStr());</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>_NS<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.location.rawLat().negative<sp/>?<sp/></highlight><highlight class="charliteral">&apos;S&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;N&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">strcpy</ref>(_lon,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.location.rawLngStr());</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>_WE<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.location.rawLng().negative<sp/>?<sp/></highlight><highlight class="charliteral">&apos;W&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;E&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>_altitude<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.altitude.meters();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>_satellites<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.satellites.isValid()<sp/>?<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.satellites.value()<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>_precision<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.hdop.isValid()<sp/>?<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.hdop.value()<sp/>:<sp/>0.0;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>_gps_status<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.location.isValid()<sp/>?<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;V&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>_gps_fresh<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="class_b_geigie_log_formatter_1a73f74383a11aa5e2d1c7ddafbeb3f708" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="class_b_geigie_log_formatter_1a73f74383a11aa5e2d1c7ddafbeb3f708" kindref="member">BGeigieLogFormatter::format</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">len</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>std::memset(_buffer,<sp/>0,<sp/><ref refid="include_2config_8hpp_1a17871a57cec4c4717bd53399af95ca5e" kindref="member">LOG_BUFFER_SIZE</ref>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>std::sprintf(</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_buffer,</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;$%s,%04d,%02d-%02d-%02dT%02d:%02d:%02dZ,%ld,%ld,%ld,%c,%s,%c,%s,&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;%c,%.1f,%c,%d,%.1f&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="include_2config_8hpp_1a13b51bdb19001339023a073629d0d18e" kindref="member">DEVICE_HEADER</ref>,<sp/>_device_id,<sp/>_year,<sp/>_month,<sp/>_day,<sp/>_hour,<sp/>_minute,<sp/>_second,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)_cpm,<sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)_cpb,<sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal">)_total_count,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_geiger_status,<sp/>_lat,<sp/>_NS,<sp/>_lon,<sp/>_WE,<sp/>_altitude,<sp/>_gps_status,<sp/>_satellites,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_precision);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">len</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">strlen</ref>(_buffer);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>_buffer[<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">len</ref>]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>generate<sp/>checksum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">chk</ref><sp/>=<sp/><ref refid="logger_8cpp_1a77b34e269d2a6500076f032667578f0b" kindref="member">checksum</ref>(_buffer<sp/>+<sp/>1,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">len</ref>);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>add<sp/>checksum<sp/>to<sp/>end<sp/>of<sp/>line<sp/>before<sp/>sending</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">chk</ref><sp/>&lt;<sp/>16)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sprintf</ref>(_buffer<sp/>+<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">len</ref>,<sp/></highlight><highlight class="stringliteral">&quot;*0%X&quot;</highlight><highlight class="normal">,<sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">chk</ref>);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sprintf</ref>(_buffer<sp/>+<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">len</ref>,<sp/></highlight><highlight class="stringliteral">&quot;*%X&quot;</highlight><highlight class="normal">,<sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">chk</ref>);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>the<sp/>data<sp/>to<sp/>consummed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>_gps_fresh<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>_geiger_fresh<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_buffer;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="class_s_d_logger_1af2514db995481908f4821ff13c76635b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_s_d_logger_1af2514db995481908f4821ff13c76635b" kindref="member">SDLogger::start</ref>(uint32_t<sp/>device_id,<sp/>uint16_t<sp/>year,<sp/>uint8_t<sp/>month,</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>day)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;YYYY/BBBBMMDD.LOG&quot;,<sp/>18<sp/>charachters,<sp/>including<sp/>terminating<sp/>NULL</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Y:<sp/>year,<sp/>M:<sp/>month,<sp/>D:<sp/>day,<sp/>B:<sp/>device<sp/>id</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(year<sp/>&gt;<sp/>9999)<sp/>year<sp/>=<sp/>9999;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(day<sp/>&gt;<sp/>31)<sp/>day<sp/>=<sp/>31;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(month<sp/>&gt;<sp/>12)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>month<sp/>=<sp/>12;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(month<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>month<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(device_id<sp/>&gt;<sp/>9999)<sp/>device_id<sp/>=<sp/>9999;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sprintf</ref>(_filename,<sp/></highlight><highlight class="stringliteral">&quot;/%04d/%04d%02d%02d.log&quot;</highlight><highlight class="normal">,<sp/>year,<sp/>device_id,<sp/>month,<sp/>day);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.print(</highlight><highlight class="stringliteral">&quot;The<sp/>filename<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(_filename);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>the<sp/>sub-folder</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">folder</ref>[6];</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sprintf</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">folder</ref>,<sp/></highlight><highlight class="stringliteral">&quot;/%04d&quot;</highlight><highlight class="normal">,<sp/>year);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">SD</ref>.exists(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">folder</ref>))</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>_folder_created<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>_folder_created<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">SD</ref>.mkdir(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">folder</ref>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!_folder_created)<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.print(</highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>create<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Serial</ref>.println(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">folder</ref>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Open<sp/>the<sp/>file<sp/>and<sp/>print<sp/>the<sp/>firmware<sp/>version</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_folder_created)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">header_l2</ref>[9<sp/>+<sp/>4<sp/>+<sp/>1<sp/>+<sp/>4<sp/>+<sp/>1<sp/>+<sp/>4<sp/>+<sp/>+<sp/>3<sp/>+<sp/>1];</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">maj</ref><sp/>=<sp/><ref refid="include_2config_8hpp_1ab976d08f8762ed4298848ae330237a90" kindref="member">MAJOR</ref><sp/>&gt;<sp/>9999<sp/>?<sp/>9999<sp/>:<sp/><ref refid="include_2config_8hpp_1ab976d08f8762ed4298848ae330237a90" kindref="member">MAJOR</ref>;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">min</ref><sp/>=<sp/><ref refid="include_2config_8hpp_1ab28fb130c702bd359f772132957f38f3" kindref="member">MINOR</ref><sp/>&gt;<sp/>9999<sp/>?<sp/>9999<sp/>:<sp/><ref refid="include_2config_8hpp_1ab28fb130c702bd359f772132957f38f3" kindref="member">MINOR</ref>;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">pat</ref><sp/>=<sp/><ref refid="include_2config_8hpp_1aabe4b3e1826d9969ffdbce0a856bff5c" kindref="member">PATCH</ref><sp/>&gt;<sp/>9999<sp/>?<sp/>9999<sp/>:<sp/><ref refid="include_2config_8hpp_1aabe4b3e1826d9969ffdbce0a856bff5c" kindref="member">PATCH</ref>;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sprintf</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">header_l2</ref>,<sp/></highlight><highlight class="stringliteral">&quot;%s%d.%d.%d%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="include_2config_8hpp_1a512c9567b6eb82a4cd574e527c911ef5" kindref="member">LOG_HEADER_LINE2</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">maj</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">min</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">pat</ref>,<sp/><ref refid="include_2config_8hpp_1a5f8b2d16c907ca3ebbc69f0f4491ab8a" kindref="member">device_nickname</ref>);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>_logfile_created<sp/>=<sp/><ref refid="class_s_d_logger_1ae96cd0c7555285c7191193be27c52d42" kindref="member">log</ref>(<ref refid="include_2config_8hpp_1a6ece29d27b64e8d45ba35ad8768004fd" kindref="member">LOG_HEADER_LINE1</ref>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>_logfile_created<sp/>=<sp/><ref refid="class_s_d_logger_1ae96cd0c7555285c7191193be27c52d42" kindref="member">log</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">header_l2</ref>);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>_logfile_created<sp/>=<sp/><ref refid="class_s_d_logger_1ae96cd0c7555285c7191193be27c52d42" kindref="member">log</ref>(<ref refid="include_2config_8hpp_1a77e3330c0e698251fcc72973de75f5ae" kindref="member">LOG_HEADER_LINE3</ref>);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_s_d_logger_1a5389d9735705f04a9ee50121975543c2" kindref="member">ready</ref>();</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="class_s_d_logger_1ae96cd0c7555285c7191193be27c52d42" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_s_d_logger_1ae96cd0c7555285c7191193be27c52d42" kindref="member">SDLogger::log</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_line</ref>)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">my_file</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">SD</ref>.open(_filename,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">FILE_APPEND</ref>);<sp/><sp/></highlight><highlight class="comment">//<sp/>opens<sp/>in<sp/>append<sp/>mode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">my_file</ref>)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">my_file</ref>.println(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_line</ref>);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">my_file</ref>.close();</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="archive/bgeigie_firmware_pio/src/logger.cpp"/>
+  </compounddef>
+</doxygen>

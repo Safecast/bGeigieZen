@@ -1,0 +1,433 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_tiny_g_p_s_date" kind="struct" language="C++" prot="public">
+    <compoundname>TinyGPSDate</compoundname>
+    <includes refid="include_2_tiny_g_p_s_09_09_8h" local="no">TinyGPS++.h</includes>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="struct_tiny_g_p_s_date_1a2bcf8d5290fbef8c44b415e281b8c6f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">class</ref></type>
+        <definition>TinyGPSPlus</definition>
+        <argsstring></argsstring>
+        <name>TinyGPSPlus</name>
+        <qualifiedname>TinyGPSDate::TinyGPSPlus</qualifiedname>
+        <param>
+          <type><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="85" column="17" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="struct_tiny_g_p_s_date_1a6b312ccebe3537eb9687211622bc5f26" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSDate::valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <qualifiedname>TinyGPSDate::valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="100" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_date_1af92ee9facc35b637b589320ddffcce32" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSDate::updated</definition>
+        <argsstring></argsstring>
+        <name>updated</name>
+        <qualifiedname>TinyGPSDate::updated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="100" column="15" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_date_1ab141f37e0dda429ad041f9a951564677" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSDate::date</definition>
+        <argsstring></argsstring>
+        <name>date</name>
+        <qualifiedname>TinyGPSDate::date</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="101" column="13" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_date_1a81d6d90be898cf44e804e86a2f4a3d2d" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSDate::newDate</definition>
+        <argsstring></argsstring>
+        <name>newDate</name>
+        <qualifiedname>TinyGPSDate::newDate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="101" column="18" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_date_1acbece939f279507806570bb108311a88" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSDate::lastCommitTime</definition>
+        <argsstring></argsstring>
+        <name>lastCommitTime</name>
+        <qualifiedname>TinyGPSDate::lastCommitTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="102" column="13" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1a3ae7825f840ef4ba0ecddbc22f741817" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSDate::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>TinyGPSDate::isValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="87" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="87" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1a1b913837130bb49ecd309eaf6bc205b1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSDate::isUpdated</definition>
+        <argsstring>() const</argsstring>
+        <name>isUpdated</name>
+        <qualifiedname>TinyGPSDate::isUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="88" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="88" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1af8b9c057a28dcb490081fcfde2a0ee11" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSDate::age</definition>
+        <argsstring>() const</argsstring>
+        <name>age</name>
+        <qualifiedname>TinyGPSDate::age</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="89" column="13" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="89" bodyend="89"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1a718150ae16f68afa9ae81f9d1b3ce3f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSDate::value</definition>
+        <argsstring>()</argsstring>
+        <name>value</name>
+        <qualifiedname>TinyGPSDate::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="91" column="13" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="91" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1ae2cc914fec377b429d99f01204f50d60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t TinyGPSDate::year</definition>
+        <argsstring>()</argsstring>
+        <name>year</name>
+        <qualifiedname>TinyGPSDate::year</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="92" column="13" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="399" bodyend="404"/>
+        <references refid="struct_tiny_g_p_s_date_1ae2cc914fec377b429d99f01204f50d60" compoundref="_tiny_g_p_s_09_09_8cpp" startline="399" endline="404">year</references>
+        <referencedby refid="class_state_wait_g_p_s_time_1a5afbcebf690e8a8eadc30a7795d9a907" compoundref="fsm__state__concrete_8cpp" startline="35" endline="45">StateWaitGPSTime::on_exit</referencedby>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+        <referencedby refid="struct_tiny_g_p_s_date_1ae2cc914fec377b429d99f01204f50d60" compoundref="_tiny_g_p_s_09_09_8cpp" startline="399" endline="404">year</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1a6f3c5b4e72ef28b010f94ac9016315f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t TinyGPSDate::month</definition>
+        <argsstring>()</argsstring>
+        <name>month</name>
+        <qualifiedname>TinyGPSDate::month</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="93" column="12" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="406" bodyend="410"/>
+        <referencedby refid="class_state_wait_g_p_s_time_1a5afbcebf690e8a8eadc30a7795d9a907" compoundref="fsm__state__concrete_8cpp" startline="35" endline="45">StateWaitGPSTime::on_exit</referencedby>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1ae8cc5f80c49e328f792d168a44062000" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t TinyGPSDate::day</definition>
+        <argsstring>()</argsstring>
+        <name>day</name>
+        <qualifiedname>TinyGPSDate::day</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="94" column="12" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="412" bodyend="416"/>
+        <referencedby refid="class_state_wait_g_p_s_time_1a5afbcebf690e8a8eadc30a7795d9a907" compoundref="fsm__state__concrete_8cpp" startline="35" endline="45">StateWaitGPSTime::on_exit</referencedby>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1a4d5f23eb008cbfd385343687bf902003" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TinyGPSDate::TinyGPSDate</definition>
+        <argsstring>()</argsstring>
+        <name>TinyGPSDate</name>
+        <qualifiedname>TinyGPSDate::TinyGPSDate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="96" column="4" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="96" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1a3ae7825f840ef4ba0ecddbc22f741817" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSDate::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>TinyGPSDate::isValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="87" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="87" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1a1b913837130bb49ecd309eaf6bc205b1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSDate::isUpdated</definition>
+        <argsstring>() const</argsstring>
+        <name>isUpdated</name>
+        <qualifiedname>TinyGPSDate::isUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="88" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="88" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1af8b9c057a28dcb490081fcfde2a0ee11" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSDate::age</definition>
+        <argsstring>() const</argsstring>
+        <name>age</name>
+        <qualifiedname>TinyGPSDate::age</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="89" column="13" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="89" bodyend="89"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1a718150ae16f68afa9ae81f9d1b3ce3f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSDate::value</definition>
+        <argsstring>()</argsstring>
+        <name>value</name>
+        <qualifiedname>TinyGPSDate::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="91" column="13" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="91" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1ae2cc914fec377b429d99f01204f50d60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t TinyGPSDate::year</definition>
+        <argsstring>()</argsstring>
+        <name>year</name>
+        <qualifiedname>TinyGPSDate::year</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="92" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1a6f3c5b4e72ef28b010f94ac9016315f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t TinyGPSDate::month</definition>
+        <argsstring>()</argsstring>
+        <name>month</name>
+        <qualifiedname>TinyGPSDate::month</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="93" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1ae8cc5f80c49e328f792d168a44062000" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t TinyGPSDate::day</definition>
+        <argsstring>()</argsstring>
+        <name>day</name>
+        <qualifiedname>TinyGPSDate::day</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="94" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1a4d5f23eb008cbfd385343687bf902003" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TinyGPSDate::TinyGPSDate</definition>
+        <argsstring>()</argsstring>
+        <name>TinyGPSDate</name>
+        <qualifiedname>TinyGPSDate::TinyGPSDate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="96" column="4" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="96" bodyend="97"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1af5b0da173842da219e7c90d16e54c3e2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSDate::commit</definition>
+        <argsstring>()</argsstring>
+        <name>commit</name>
+        <qualifiedname>TinyGPSDate::commit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="103" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="375" bodyend="380"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1a2ff2893de6b59fd4dcf828c6296e2e2e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSDate::setDate</definition>
+        <argsstring>(const char *term)</argsstring>
+        <name>setDate</name>
+        <qualifiedname>TinyGPSDate::setDate</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>term</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="104" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="394" bodyend="397"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1af5b0da173842da219e7c90d16e54c3e2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSDate::commit</definition>
+        <argsstring>()</argsstring>
+        <name>commit</name>
+        <qualifiedname>TinyGPSDate::commit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="103" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_date_1a2ff2893de6b59fd4dcf828c6296e2e2e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSDate::setDate</definition>
+        <argsstring>(const char *term)</argsstring>
+        <name>setDate</name>
+        <qualifiedname>TinyGPSDate::setDate</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>term</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="104" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="83" column="1" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="84" bodyend="105"/>
+    <listofallmembers>
+      <member refid="struct_tiny_g_p_s_date_1af8b9c057a28dcb490081fcfde2a0ee11" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>age</name></member>
+      <member refid="struct_tiny_g_p_s_date_1af8b9c057a28dcb490081fcfde2a0ee11" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>age</name></member>
+      <member refid="struct_tiny_g_p_s_date_1af5b0da173842da219e7c90d16e54c3e2" prot="private" virt="non-virtual"><scope>TinyGPSDate</scope><name>commit</name></member>
+      <member refid="struct_tiny_g_p_s_date_1af5b0da173842da219e7c90d16e54c3e2" prot="private" virt="non-virtual"><scope>TinyGPSDate</scope><name>commit</name></member>
+      <member refid="struct_tiny_g_p_s_date_1ab141f37e0dda429ad041f9a951564677" prot="private" virt="non-virtual"><scope>TinyGPSDate</scope><name>date</name></member>
+      <member refid="struct_tiny_g_p_s_date_1ae8cc5f80c49e328f792d168a44062000" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>day</name></member>
+      <member refid="struct_tiny_g_p_s_date_1ae8cc5f80c49e328f792d168a44062000" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>day</name></member>
+      <member refid="struct_tiny_g_p_s_date_1a1b913837130bb49ecd309eaf6bc205b1" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>isUpdated</name></member>
+      <member refid="struct_tiny_g_p_s_date_1a1b913837130bb49ecd309eaf6bc205b1" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>isUpdated</name></member>
+      <member refid="struct_tiny_g_p_s_date_1a3ae7825f840ef4ba0ecddbc22f741817" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>isValid</name></member>
+      <member refid="struct_tiny_g_p_s_date_1a3ae7825f840ef4ba0ecddbc22f741817" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>isValid</name></member>
+      <member refid="struct_tiny_g_p_s_date_1acbece939f279507806570bb108311a88" prot="private" virt="non-virtual"><scope>TinyGPSDate</scope><name>lastCommitTime</name></member>
+      <member refid="struct_tiny_g_p_s_date_1a6f3c5b4e72ef28b010f94ac9016315f3" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>month</name></member>
+      <member refid="struct_tiny_g_p_s_date_1a6f3c5b4e72ef28b010f94ac9016315f3" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>month</name></member>
+      <member refid="struct_tiny_g_p_s_date_1a81d6d90be898cf44e804e86a2f4a3d2d" prot="private" virt="non-virtual"><scope>TinyGPSDate</scope><name>newDate</name></member>
+      <member refid="struct_tiny_g_p_s_date_1a2ff2893de6b59fd4dcf828c6296e2e2e" prot="private" virt="non-virtual"><scope>TinyGPSDate</scope><name>setDate</name></member>
+      <member refid="struct_tiny_g_p_s_date_1a2ff2893de6b59fd4dcf828c6296e2e2e" prot="private" virt="non-virtual"><scope>TinyGPSDate</scope><name>setDate</name></member>
+      <member refid="struct_tiny_g_p_s_date_1a4d5f23eb008cbfd385343687bf902003" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>TinyGPSDate</name></member>
+      <member refid="struct_tiny_g_p_s_date_1a4d5f23eb008cbfd385343687bf902003" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>TinyGPSDate</name></member>
+      <member refid="struct_tiny_g_p_s_date_1a2bcf8d5290fbef8c44b415e281b8c6f2" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>TinyGPSPlus</name></member>
+      <member refid="struct_tiny_g_p_s_date_1af92ee9facc35b637b589320ddffcce32" prot="private" virt="non-virtual"><scope>TinyGPSDate</scope><name>updated</name></member>
+      <member refid="struct_tiny_g_p_s_date_1a6b312ccebe3537eb9687211622bc5f26" prot="private" virt="non-virtual"><scope>TinyGPSDate</scope><name>valid</name></member>
+      <member refid="struct_tiny_g_p_s_date_1a718150ae16f68afa9ae81f9d1b3ce3f4" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>value</name></member>
+      <member refid="struct_tiny_g_p_s_date_1a718150ae16f68afa9ae81f9d1b3ce3f4" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>value</name></member>
+      <member refid="struct_tiny_g_p_s_date_1ae2cc914fec377b429d99f01204f50d60" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>year</name></member>
+      <member refid="struct_tiny_g_p_s_date_1ae2cc914fec377b429d99f01204f50d60" prot="public" virt="non-virtual"><scope>TinyGPSDate</scope><name>year</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

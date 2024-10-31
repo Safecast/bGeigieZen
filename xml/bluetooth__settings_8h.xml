@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="bluetooth__settings_8h" kind="file" language="C++">
+    <compoundname>bluetooth_settings.h</compoundname>
+    <includedby refid="bluetooth__reporter_8h" local="yes">bgeigiezen_firmware/handlers/bluetooth_reporter.h</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>bgeigiezen_firmware/gfx_screen.cpp</label>
+        <link refid="gfx__screen_8cpp"/>
+      </node>
+      <node id="4">
+        <label>bgeigiezen_firmware/handlers/bluetooth_reporter.cpp</label>
+        <link refid="bluetooth__reporter_8cpp"/>
+      </node>
+      <node id="2">
+        <label>bgeigiezen_firmware/handlers/bluetooth_reporter.h</label>
+        <link refid="bluetooth__reporter_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>bgeigiezen_firmware/main.cpp</label>
+        <link refid="bgeigiezen__firmware_2main_8cpp"/>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/utils/bluetooth_settings.h</label>
+        <link refid="bluetooth__settings_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="bluetooth__settings_8h_1a041eba1dcd086f9b96f1276a20f0ff46" prot="public" static="no">
+        <name>BLE_DATA_ADDR_SIZE</name>
+        <initializer>6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="4" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1a49db92ab6ff81545d15bf8dedc5f41d1" prot="public" static="no">
+        <name>BLE_DATA_ADDR</name>
+        <initializer>{0x88, 0x6B, 0x0F, 0x09, 0x7C, 0x9A}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="5" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1ab154e3d90168b1e072abf1bc47e3f834" prot="public" static="no">
+        <name>BLE_PROFILE_NAME</name>
+        <initializer>&quot;bGeigie <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">advanced</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">module&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="7" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1a27a1dcdc78d6e3428cbb87a3f4a5099e" prot="public" static="no">
+        <name>BLE_DEVICE_INFO_MANUFACTURER</name>
+        <initializer>&quot;Safecast&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="9" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1aed9fb2a82708a94b08eae9af058c3464" prot="public" static="no">
+        <name>BLE_DEVICE_INFO_MODEL</name>
+        <initializer>&quot;bGeigieNano <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ESP32&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="10" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1a811d72a5d1679c378be10fcf9218cb2a" prot="public" static="no">
+        <name>BLE_DEVICE_INFO_FIRMWARE_REVISION</name>
+        <initializer>&quot;1.0.0&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="11" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1a9c45a4a0a556a1fc53f05d4b45d5851b" prot="public" static="no">
+        <name>BLE_DEVICE_INFO_HARDWARE_REVISION</name>
+        <initializer>&quot;1.0.0 REV-<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">A&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="12" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1a90a3ef3bd58a248e476f1f3be3ddbb52" prot="public" static="no">
+        <name>SERVICE_PROFILE_UUID</name>
+        <initializer>&quot;1800&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="14" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1a5cb5232a755401b676ca4226bfbc630c" prot="public" static="no">
+        <name>CHARACTERISTIC_PROFILE_NAME_UUID</name>
+        <initializer>&quot;2a00&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="15" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1a21a88651f42a8a7478c80233ce1fa09a" prot="public" static="no">
+        <name>CHARACTERISTIC_PROFILE_APPEARANCE_UUID</name>
+        <initializer>&quot;2a01&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="16" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1a5250794891dcef66de810c415423b99c" prot="public" static="no">
+        <name>SERVICE_DEVICE_UUID</name>
+        <initializer>&quot;180A&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="18" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1ac61d2647caedf5bd2489844ca9e4765c" prot="public" static="no">
+        <name>CHARACTERISTIC_DEVICE_MANUFACTURER_UUID</name>
+        <initializer>&quot;2a29&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="19" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1a3196ee0950589226e460597e04c5da13" prot="public" static="no">
+        <name>CHARACTERISTIC_DEVICE_MODEL_UUID</name>
+        <initializer>&quot;2a24&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="20" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1a310f01ca63431c35e6c4e002d975ab88" prot="public" static="no">
+        <name>CHARACTERISTIC_DEVICE_FIRMWARE_UUID</name>
+        <initializer>&quot;2a26&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="21" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1a173552332550777bd3c1e9f50c893fe1" prot="public" static="no">
+        <name>CHARACTERISTIC_DEVICE_REVISION_UUID</name>
+        <initializer>&quot;2a27&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="22" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1affd01cdf182aa884be43d5db5a742a6c" prot="public" static="no">
+        <name>SERVICE_DATA_UUID</name>
+        <initializer>&quot;EF080D8C-<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">C3BE</ref>-41<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">FF</ref>-<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">BD3F</ref>-05<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">A5F4795D7F&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="24" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1a797689b683ef8b5eb602232e73553070" prot="public" static="no">
+        <name>CHARACTERISTIC_DATA_BDADDR_UUID</name>
+        <initializer>&quot;38117F3C-28<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">AB</ref>-4718-<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">AB95</ref>-172<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">B363F2AE0&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="25" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1a83195297eba0885643c34be60cee1c79" prot="public" static="no">
+        <name>CHARACTERISTIC_DATA_BAUD_UUID</name>
+        <initializer>&quot;2FBC0F31-726<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">A</ref>-4014-<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">B9FE</ref>-<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">C8BE0652E982&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="26" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1af77cea89f6d779be568e67b03d385bc5" prot="public" static="no">
+        <name>CHARACTERISTIC_DATA_RX_UUID</name>
+        <initializer>&quot;A1E8F5B1-696<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">B</ref>-4<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">E4C</ref>-87<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">C6</ref>-69<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">DFE0B0093B&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="27" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="bluetooth__settings_8h_1aa24574c6c21e93db279e78f8c50fa51b" prot="public" static="no">
+        <name>CHARACTERISTIC_DATA_TX_UUID</name>
+        <initializer>&quot;1494440E-9<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">A58</ref>-4<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">CC0</ref>-81<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">E4</ref>-<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">DDEA7F74F623&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/bluetooth_settings.h" line="28" column="9" bodyfile="bgeigiezen_firmware/utils/bluetooth_settings.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>BGEIGIEZEN_BLUETOOTH_SETTINGS_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BGEIGIEZEN_BLUETOOTH_SETTINGS_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="bluetooth__settings_8h_1a041eba1dcd086f9b96f1276a20f0ff46" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLE_DATA_ADDR_SIZE<sp/><sp/><sp/><sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="bluetooth__settings_8h_1a49db92ab6ff81545d15bf8dedc5f41d1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLE_DATA_ADDR<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{0x88,<sp/>0x6B,<sp/>0x0F,<sp/>0x09,<sp/>0x7C,<sp/>0x9A}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="bluetooth__settings_8h_1ab154e3d90168b1e072abf1bc47e3f834" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLE_PROFILE_NAME<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;bGeigie<sp/>advanced<sp/>module&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="bluetooth__settings_8h_1a27a1dcdc78d6e3428cbb87a3f4a5099e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLE_DEVICE_INFO_MANUFACTURER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Safecast&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="bluetooth__settings_8h_1aed9fb2a82708a94b08eae9af058c3464" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLE_DEVICE_INFO_MODEL<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;bGeigieNano<sp/>ESP32&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="bluetooth__settings_8h_1a811d72a5d1679c378be10fcf9218cb2a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLE_DEVICE_INFO_FIRMWARE_REVISION<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;1.0.0&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="bluetooth__settings_8h_1a9c45a4a0a556a1fc53f05d4b45d5851b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BLE_DEVICE_INFO_HARDWARE_REVISION<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;1.0.0<sp/>REV-A&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="bluetooth__settings_8h_1a90a3ef3bd58a248e476f1f3be3ddbb52" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SERVICE_PROFILE_UUID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;1800&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="bluetooth__settings_8h_1a5cb5232a755401b676ca4226bfbc630c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CHARACTERISTIC_PROFILE_NAME_UUID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;2a00&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="bluetooth__settings_8h_1a21a88651f42a8a7478c80233ce1fa09a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CHARACTERISTIC_PROFILE_APPEARANCE_UUID<sp/><sp/><sp/><sp/><sp/><sp/>&quot;2a01&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="bluetooth__settings_8h_1a5250794891dcef66de810c415423b99c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SERVICE_DEVICE_UUID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;180A&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="bluetooth__settings_8h_1ac61d2647caedf5bd2489844ca9e4765c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CHARACTERISTIC_DEVICE_MANUFACTURER_UUID<sp/><sp/><sp/><sp/><sp/>&quot;2a29&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="bluetooth__settings_8h_1a3196ee0950589226e460597e04c5da13" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CHARACTERISTIC_DEVICE_MODEL_UUID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;2a24&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="bluetooth__settings_8h_1a310f01ca63431c35e6c4e002d975ab88" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CHARACTERISTIC_DEVICE_FIRMWARE_UUID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;2a26&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="bluetooth__settings_8h_1a173552332550777bd3c1e9f50c893fe1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CHARACTERISTIC_DEVICE_REVISION_UUID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;2a27&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="bluetooth__settings_8h_1affd01cdf182aa884be43d5db5a742a6c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SERVICE_DATA_UUID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;EF080D8C-C3BE-41FF-BD3F-05A5F4795D7F&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="bluetooth__settings_8h_1a797689b683ef8b5eb602232e73553070" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CHARACTERISTIC_DATA_BDADDR_UUID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;38117F3C-28AB-4718-AB95-172B363F2AE0&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="bluetooth__settings_8h_1a83195297eba0885643c34be60cee1c79" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CHARACTERISTIC_DATA_BAUD_UUID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;2FBC0F31-726A-4014-B9FE-C8BE0652E982&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="bluetooth__settings_8h_1af77cea89f6d779be568e67b03d385bc5" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CHARACTERISTIC_DATA_RX_UUID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;A1E8F5B1-696B-4E4C-87C6-69DFE0B0093B&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="bluetooth__settings_8h_1aa24574c6c21e93db279e78f8c50fa51b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CHARACTERISTIC_DATA_TX_UUID<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;1494440E-9A58-4CC0-81E4-DDEA7F74F623&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//BGEIGIEZEN_BLUETOOTH_SETTINGS_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/utils/bluetooth_settings.h"/>
+  </compounddef>
+</doxygen>

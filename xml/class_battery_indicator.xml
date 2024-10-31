@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_battery_indicator" kind="class" language="C++" prot="public">
+    <compoundname>BatteryIndicator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Worker&lt; BatteryStatus &gt;</basecompoundref>
+    <includes refid="battery__indicator_8h" local="no">battery_indicator.h</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_battery_indicator_1a62a7d0af06591a6aade8056cb34f77c9" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BatteryIndicator::BatteryIndicator</definition>
+        <argsstring>()</argsstring>
+        <name>BatteryIndicator</name>
+        <qualifiedname>BatteryIndicator::BatteryIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/battery_indicator.h" line="20" column="12" bodyfile="bgeigiezen_firmware/workers/battery_indicator.cpp" bodystart="3" bodyend="4"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_indicator_1a15ad00b7baa3ee3da9d45524c0da2a3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual BatteryIndicator::~BatteryIndicator</definition>
+        <argsstring>()=default</argsstring>
+        <name>~BatteryIndicator</name>
+        <qualifiedname>BatteryIndicator::~BatteryIndicator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/battery_indicator.h" line="21" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_indicator_1a0ceaf9e9ee720fc1279838aeb4f8cf51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool BatteryIndicator::activate</definition>
+        <argsstring>(bool retry) override</argsstring>
+        <name>activate</name>
+        <qualifiedname>BatteryIndicator::activate</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>retry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/battery_indicator.h" line="23" column="8" bodyfile="bgeigiezen_firmware/workers/battery_indicator.cpp" bodystart="6" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_indicator_1a2549ee1d50e87017b4b6067820d9518a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t BatteryIndicator::produce_data</definition>
+        <argsstring>() override</argsstring>
+        <name>produce_data</name>
+        <qualifiedname>BatteryIndicator::produce_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/battery_indicator.h" line="25" column="10" bodyfile="bgeigiezen_firmware/workers/battery_indicator.cpp" bodystart="11" bodyend="16"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="struct_battery_status_1a1b9260c294cdd40365bf04d807146e86" compoundref="battery__indicator_8h" startline="12">BatteryStatus::isCharging</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Battery indicator worker, uses the M5 library to check up on the battery and charging status </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BatteryIndicator</label>
+        <link refid="class_battery_indicator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Worker&lt; BatteryStatus &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BatteryIndicator</label>
+        <link refid="class_battery_indicator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Worker&lt; BatteryStatus &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/workers/battery_indicator.h" line="18" column="1" bodyfile="bgeigiezen_firmware/workers/battery_indicator.h" bodystart="18" bodyend="29"/>
+    <listofallmembers>
+      <member refid="class_battery_indicator_1a0ceaf9e9ee720fc1279838aeb4f8cf51" prot="public" virt="non-virtual"><scope>BatteryIndicator</scope><name>activate</name></member>
+      <member refid="class_battery_indicator_1a62a7d0af06591a6aade8056cb34f77c9" prot="public" virt="non-virtual"><scope>BatteryIndicator</scope><name>BatteryIndicator</name></member>
+      <member refid="class_battery_indicator_1a2549ee1d50e87017b4b6067820d9518a" prot="public" virt="non-virtual"><scope>BatteryIndicator</scope><name>produce_data</name></member>
+      <member refid="class_battery_indicator_1a15ad00b7baa3ee3da9d45524c0da2a3a" prot="public" virt="virtual"><scope>BatteryIndicator</scope><name>~BatteryIndicator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

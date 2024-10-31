@@ -1,0 +1,630 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_tiny_g_p_s_location" kind="struct" language="C++" prot="public">
+    <compoundname>TinyGPSLocation</compoundname>
+    <includes refid="include_2_tiny_g_p_s_09_09_8h" local="no">TinyGPS++.h</includes>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="struct_tiny_g_p_s_location_1a2bcf8d5290fbef8c44b415e281b8c6f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">class</ref></type>
+        <definition>TinyGPSPlus</definition>
+        <argsstring></argsstring>
+        <name>TinyGPSPlus</name>
+        <qualifiedname>TinyGPSLocation::TinyGPSPlus</qualifiedname>
+        <param>
+          <type><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="58" column="17" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="struct_tiny_g_p_s_location_1a891189d63dcd66e2c6be467bab3ff71f" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSLocation::valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <qualifiedname>TinyGPSLocation::valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="74" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_location_1a6e80ce526dff7b9ac38fea8044baf16f" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSLocation::updated</definition>
+        <argsstring></argsstring>
+        <name>updated</name>
+        <qualifiedname>TinyGPSLocation::updated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="74" column="15" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_location_1a05f5e708acc18037290aa7da4287845f" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_raw_degrees" kindref="compound">RawDegrees</ref></type>
+        <definition>RawDegrees TinyGPSLocation::rawLatData</definition>
+        <argsstring></argsstring>
+        <name>rawLatData</name>
+        <qualifiedname>TinyGPSLocation::rawLatData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="75" column="15" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_location_1a76809e2b20ccb0722886093eb230bf29" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_raw_degrees" kindref="compound">RawDegrees</ref></type>
+        <definition>RawDegrees TinyGPSLocation::rawLngData</definition>
+        <argsstring></argsstring>
+        <name>rawLngData</name>
+        <qualifiedname>TinyGPSLocation::rawLngData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="75" column="26" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_location_1a5c75e48c14bbdabef12f157634d9d96d" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_raw_degrees" kindref="compound">RawDegrees</ref></type>
+        <definition>RawDegrees TinyGPSLocation::rawNewLatData</definition>
+        <argsstring></argsstring>
+        <name>rawNewLatData</name>
+        <qualifiedname>TinyGPSLocation::rawNewLatData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="75" column="37" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_location_1a198d72c29f14b74d72460adcdc4e30f8" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_raw_degrees" kindref="compound">RawDegrees</ref></type>
+        <definition>RawDegrees TinyGPSLocation::rawNewLngData</definition>
+        <argsstring></argsstring>
+        <name>rawNewLngData</name>
+        <qualifiedname>TinyGPSLocation::rawNewLngData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="75" column="51" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_location_1a0de4f12984462e82776004ddacef4647" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char TinyGPSLocation::rawLatStrData</definition>
+        <argsstring>[10]</argsstring>
+        <name>rawLatStrData</name>
+        <qualifiedname>TinyGPSLocation::rawLatStrData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="76" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_location_1a7a46796ee385e36647001bf1d5df7e06" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char TinyGPSLocation::rawNewLatStrData</definition>
+        <argsstring>[10]</argsstring>
+        <name>rawNewLatStrData</name>
+        <qualifiedname>TinyGPSLocation::rawNewLatStrData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="76" column="23" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_location_1a7269c625f890dbc49a5f52a211c0da91" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char TinyGPSLocation::rawLngStrData</definition>
+        <argsstring>[11]</argsstring>
+        <name>rawLngStrData</name>
+        <qualifiedname>TinyGPSLocation::rawLngStrData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="76" column="40" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_location_1ac369dbbce464aed9898cc9fa0b4a0bb6" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char TinyGPSLocation::rawNewLngStrData</definition>
+        <argsstring>[11]</argsstring>
+        <name>rawNewLngStrData</name>
+        <qualifiedname>TinyGPSLocation::rawNewLngStrData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="76" column="54" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_tiny_g_p_s_location_1a190521e30929eed4edc5288346646f16" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSLocation::lastCommitTime</definition>
+        <argsstring></argsstring>
+        <name>lastCommitTime</name>
+        <qualifiedname>TinyGPSLocation::lastCommitTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="77" column="13" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1aa5182c29798506eb727058d884f20633" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSLocation::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>TinyGPSLocation::isValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="60" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="60" bodyend="60"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="_raku__code_8cpp_1afe461d27b9c48d5921c00d521181f12f" compoundref="_raku__code_8cpp" startline="485" endline="582">loop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1a905822cea7a00e550d29d037acdde549" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSLocation::isUpdated</definition>
+        <argsstring>() const</argsstring>
+        <name>isUpdated</name>
+        <qualifiedname>TinyGPSLocation::isUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="61" column="9" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1ae5da08aba335d0515b7a84ce57b80179" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSLocation::age</definition>
+        <argsstring>() const</argsstring>
+        <name>age</name>
+        <qualifiedname>TinyGPSLocation::age</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="62" column="13" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="62" bodyend="62"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1abe5f28b0d636a1031af3cd98af863af6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="struct_raw_degrees" kindref="compound">RawDegrees</ref> &amp;</type>
+        <definition>const RawDegrees &amp; TinyGPSLocation::rawLat</definition>
+        <argsstring>()</argsstring>
+        <name>rawLat</name>
+        <qualifiedname>TinyGPSLocation::rawLat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="63" column="21" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1a4e20b4067a448ca0003fc65a3d3864d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="struct_raw_degrees" kindref="compound">RawDegrees</ref> &amp;</type>
+        <definition>const RawDegrees &amp; TinyGPSLocation::rawLng</definition>
+        <argsstring>()</argsstring>
+        <name>rawLng</name>
+        <qualifiedname>TinyGPSLocation::rawLng</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="64" column="21" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1a6b596b17737bd93b662481c4af9511ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * TinyGPSLocation::rawLatStr</definition>
+        <argsstring>()</argsstring>
+        <name>rawLatStr</name>
+        <qualifiedname>TinyGPSLocation::rawLatStr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="65" column="15" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1a71140428381c5c38e901cc602ef47f68" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * TinyGPSLocation::rawLngStr</definition>
+        <argsstring>()</argsstring>
+        <name>rawLngStr</name>
+        <qualifiedname>TinyGPSLocation::rawLngStr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="66" column="15" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1a86c3acea4f317b427eebb667e4d05a49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double TinyGPSLocation::lat</definition>
+        <argsstring>()</argsstring>
+        <name>lat</name>
+        <qualifiedname>TinyGPSLocation::lat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="67" column="11" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="361" bodyend="366"/>
+        <references refid="struct_raw_degrees_1a13564009c60e20dbf03b158114d1c0e2" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="49">RawDegrees::billionths</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="struct_raw_degrees_1a11831d9220f303bd716d9412af28e84e" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="48">RawDegrees::deg</references>
+        <references refid="struct_raw_degrees_1a39c31d2d0332155a4d2c975cec0a796f" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="50">RawDegrees::negative</references>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="_raku__code_8cpp_1afe461d27b9c48d5921c00d521181f12f" compoundref="_raku__code_8cpp" startline="485" endline="582">loop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1a544e9009a5580b2fd5466821a5e5b782" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double TinyGPSLocation::lng</definition>
+        <argsstring>()</argsstring>
+        <name>lng</name>
+        <qualifiedname>TinyGPSLocation::lng</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="68" column="11" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="368" bodyend="373"/>
+        <references refid="struct_raw_degrees_1a13564009c60e20dbf03b158114d1c0e2" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="49">RawDegrees::billionths</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="struct_raw_degrees_1a11831d9220f303bd716d9412af28e84e" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="48">RawDegrees::deg</references>
+        <references refid="struct_raw_degrees_1a39c31d2d0332155a4d2c975cec0a796f" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="50">RawDegrees::negative</references>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">Display::draw_main</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">Display::draw_survey</referencedby>
+        <referencedby refid="_raku__code_8cpp_1afe461d27b9c48d5921c00d521181f12f" compoundref="_raku__code_8cpp" startline="485" endline="582">loop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1a9bc435af16c3c5224fcd4b5c40d0c70f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TinyGPSLocation::TinyGPSLocation</definition>
+        <argsstring>()</argsstring>
+        <name>TinyGPSLocation</name>
+        <qualifiedname>TinyGPSLocation::TinyGPSLocation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="70" column="4" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="70" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1aa5182c29798506eb727058d884f20633" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSLocation::isValid</definition>
+        <argsstring>() const</argsstring>
+        <name>isValid</name>
+        <qualifiedname>TinyGPSLocation::isValid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="60" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1a905822cea7a00e550d29d037acdde549" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool TinyGPSLocation::isUpdated</definition>
+        <argsstring>() const</argsstring>
+        <name>isUpdated</name>
+        <qualifiedname>TinyGPSLocation::isUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="61" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1ae5da08aba335d0515b7a84ce57b80179" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t TinyGPSLocation::age</definition>
+        <argsstring>() const</argsstring>
+        <name>age</name>
+        <qualifiedname>TinyGPSLocation::age</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="62" column="13" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="62" bodyend="62"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1abe5f28b0d636a1031af3cd98af863af6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="struct_raw_degrees" kindref="compound">RawDegrees</ref> &amp;</type>
+        <definition>const RawDegrees &amp; TinyGPSLocation::rawLat</definition>
+        <argsstring>()</argsstring>
+        <name>rawLat</name>
+        <qualifiedname>TinyGPSLocation::rawLat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="63" column="21" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1a4e20b4067a448ca0003fc65a3d3864d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="struct_raw_degrees" kindref="compound">RawDegrees</ref> &amp;</type>
+        <definition>const RawDegrees &amp; TinyGPSLocation::rawLng</definition>
+        <argsstring>()</argsstring>
+        <name>rawLng</name>
+        <qualifiedname>TinyGPSLocation::rawLng</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="64" column="21" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1a6b596b17737bd93b662481c4af9511ec" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * TinyGPSLocation::rawLatStr</definition>
+        <argsstring>()</argsstring>
+        <name>rawLatStr</name>
+        <qualifiedname>TinyGPSLocation::rawLatStr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="65" column="15" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1a71140428381c5c38e901cc602ef47f68" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * TinyGPSLocation::rawLngStr</definition>
+        <argsstring>()</argsstring>
+        <name>rawLngStr</name>
+        <qualifiedname>TinyGPSLocation::rawLngStr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="66" column="15" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1a86c3acea4f317b427eebb667e4d05a49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double TinyGPSLocation::lat</definition>
+        <argsstring>()</argsstring>
+        <name>lat</name>
+        <qualifiedname>TinyGPSLocation::lat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="67" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1a544e9009a5580b2fd5466821a5e5b782" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double TinyGPSLocation::lng</definition>
+        <argsstring>()</argsstring>
+        <name>lng</name>
+        <qualifiedname>TinyGPSLocation::lng</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="68" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1a9bc435af16c3c5224fcd4b5c40d0c70f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TinyGPSLocation::TinyGPSLocation</definition>
+        <argsstring>()</argsstring>
+        <name>TinyGPSLocation</name>
+        <qualifiedname>TinyGPSLocation::TinyGPSLocation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="70" column="4" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.h" bodystart="70" bodyend="71"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1aa642f1dcad561199ec404129abbebbba" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSLocation::commit</definition>
+        <argsstring>()</argsstring>
+        <name>commit</name>
+        <qualifiedname>TinyGPSLocation::commit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="78" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="337" bodyend="345"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1abacba4b118a3351fed607874c85b747c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSLocation::setLatitude</definition>
+        <argsstring>(const char *term)</argsstring>
+        <name>setLatitude</name>
+        <qualifiedname>TinyGPSLocation::setLatitude</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>term</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="79" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="347" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1ac55555d5765570efadfe1846d60b32e1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSLocation::setLongitude</definition>
+        <argsstring>(const char *term)</argsstring>
+        <name>setLongitude</name>
+        <qualifiedname>TinyGPSLocation::setLongitude</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>term</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="80" column="9" bodyfile="archive/bgeigie_firmware_pio/src/TinyGPS++.cpp" bodystart="354" bodyend="359"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1aa642f1dcad561199ec404129abbebbba" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSLocation::commit</definition>
+        <argsstring>()</argsstring>
+        <name>commit</name>
+        <qualifiedname>TinyGPSLocation::commit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="78" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1abacba4b118a3351fed607874c85b747c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSLocation::setLatitude</definition>
+        <argsstring>(const char *term)</argsstring>
+        <name>setLatitude</name>
+        <qualifiedname>TinyGPSLocation::setLatitude</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>term</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="79" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_tiny_g_p_s_location_1ac55555d5765570efadfe1846d60b32e1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void TinyGPSLocation::setLongitude</definition>
+        <argsstring>(const char *term)</argsstring>
+        <name>setLongitude</name>
+        <qualifiedname>TinyGPSLocation::setLongitude</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>term</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/TinyGPS++.h" line="80" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="archive/bgeigie_firmware_pio/include/TinyGPS++.h" line="56" column="1" bodyfile="archive/bgeigie_firmware_pio/include/TinyGPS++.h" bodystart="57" bodyend="81"/>
+    <listofallmembers>
+      <member refid="struct_tiny_g_p_s_location_1ae5da08aba335d0515b7a84ce57b80179" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>age</name></member>
+      <member refid="struct_tiny_g_p_s_location_1ae5da08aba335d0515b7a84ce57b80179" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>age</name></member>
+      <member refid="struct_tiny_g_p_s_location_1aa642f1dcad561199ec404129abbebbba" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>commit</name></member>
+      <member refid="struct_tiny_g_p_s_location_1aa642f1dcad561199ec404129abbebbba" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>commit</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a905822cea7a00e550d29d037acdde549" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>isUpdated</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a905822cea7a00e550d29d037acdde549" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>isUpdated</name></member>
+      <member refid="struct_tiny_g_p_s_location_1aa5182c29798506eb727058d884f20633" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>isValid</name></member>
+      <member refid="struct_tiny_g_p_s_location_1aa5182c29798506eb727058d884f20633" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>isValid</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a190521e30929eed4edc5288346646f16" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>lastCommitTime</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a86c3acea4f317b427eebb667e4d05a49" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>lat</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a86c3acea4f317b427eebb667e4d05a49" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>lat</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a544e9009a5580b2fd5466821a5e5b782" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>lng</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a544e9009a5580b2fd5466821a5e5b782" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>lng</name></member>
+      <member refid="struct_tiny_g_p_s_location_1abe5f28b0d636a1031af3cd98af863af6" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>rawLat</name></member>
+      <member refid="struct_tiny_g_p_s_location_1abe5f28b0d636a1031af3cd98af863af6" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>rawLat</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a05f5e708acc18037290aa7da4287845f" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>rawLatData</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a6b596b17737bd93b662481c4af9511ec" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>rawLatStr</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a6b596b17737bd93b662481c4af9511ec" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>rawLatStr</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a0de4f12984462e82776004ddacef4647" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>rawLatStrData</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a4e20b4067a448ca0003fc65a3d3864d2" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>rawLng</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a4e20b4067a448ca0003fc65a3d3864d2" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>rawLng</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a76809e2b20ccb0722886093eb230bf29" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>rawLngData</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a71140428381c5c38e901cc602ef47f68" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>rawLngStr</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a71140428381c5c38e901cc602ef47f68" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>rawLngStr</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a7269c625f890dbc49a5f52a211c0da91" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>rawLngStrData</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a5c75e48c14bbdabef12f157634d9d96d" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>rawNewLatData</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a7a46796ee385e36647001bf1d5df7e06" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>rawNewLatStrData</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a198d72c29f14b74d72460adcdc4e30f8" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>rawNewLngData</name></member>
+      <member refid="struct_tiny_g_p_s_location_1ac369dbbce464aed9898cc9fa0b4a0bb6" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>rawNewLngStrData</name></member>
+      <member refid="struct_tiny_g_p_s_location_1abacba4b118a3351fed607874c85b747c" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>setLatitude</name></member>
+      <member refid="struct_tiny_g_p_s_location_1abacba4b118a3351fed607874c85b747c" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>setLatitude</name></member>
+      <member refid="struct_tiny_g_p_s_location_1ac55555d5765570efadfe1846d60b32e1" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>setLongitude</name></member>
+      <member refid="struct_tiny_g_p_s_location_1ac55555d5765570efadfe1846d60b32e1" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>setLongitude</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a9bc435af16c3c5224fcd4b5c40d0c70f" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>TinyGPSLocation</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a9bc435af16c3c5224fcd4b5c40d0c70f" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>TinyGPSLocation</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a2bcf8d5290fbef8c44b415e281b8c6f2" prot="public" virt="non-virtual"><scope>TinyGPSLocation</scope><name>TinyGPSPlus</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a6e80ce526dff7b9ac38fea8044baf16f" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>updated</name></member>
+      <member refid="struct_tiny_g_p_s_location_1a891189d63dcd66e2c6be467bab3ff71f" prot="private" virt="non-virtual"><scope>TinyGPSLocation</scope><name>valid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

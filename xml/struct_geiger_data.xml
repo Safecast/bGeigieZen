@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_geiger_data" kind="struct" language="C++" prot="public">
+    <compoundname>GeigerData</compoundname>
+    <includes refid="gm__sensor_8h" local="no">gm_sensor.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_geiger_data_1ace47dff387083abff03224021c8e1217" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GeigerData::valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <qualifiedname>GeigerData::valid</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="8" column="8" bodyfile="bgeigiezen_firmware/workers/gm_sensor.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_geiger_data_1a40aef9acd9b1827fd55584dd266de524" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t GeigerData::cps</definition>
+        <argsstring></argsstring>
+        <name>cps</name>
+        <qualifiedname>GeigerData::cps</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="9" column="12" bodyfile="bgeigiezen_firmware/workers/gm_sensor.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_geiger_data_1a5bfc9af14c14579f884bbf5ce6edc68f" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t GeigerData::cp5s</definition>
+        <argsstring></argsstring>
+        <name>cp5s</name>
+        <qualifiedname>GeigerData::cp5s</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="10" column="12" bodyfile="bgeigiezen_firmware/workers/gm_sensor.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_geiger_data_1a66f2c59cb6b786c5d40baf2f533a790b" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerData::cpm_raw</definition>
+        <argsstring></argsstring>
+        <name>cpm_raw</name>
+        <qualifiedname>GeigerData::cpm_raw</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="11" column="12" bodyfile="bgeigiezen_firmware/workers/gm_sensor.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_geiger_data_1acde146c506e543a976f3684bacac78e9" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerData::cpm_comp</definition>
+        <argsstring></argsstring>
+        <name>cpm_comp</name>
+        <qualifiedname>GeigerData::cpm_comp</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="12" column="12" bodyfile="bgeigiezen_firmware/workers/gm_sensor.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_geiger_data_1a80b52486d7bf6a78d91e8a371c8e249f" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerData::cpm_comp_peak</definition>
+        <argsstring></argsstring>
+        <name>cpm_comp_peak</name>
+        <qualifiedname>GeigerData::cpm_comp_peak</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="13" column="12" bodyfile="bgeigiezen_firmware/workers/gm_sensor.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_geiger_data_1aa064d0894267741ccf9608ba920c7db8" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerData::total</definition>
+        <argsstring></argsstring>
+        <name>total</name>
+        <qualifiedname>GeigerData::total</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="14" column="12" bodyfile="bgeigiezen_firmware/workers/gm_sensor.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_geiger_data_1a8be97af73c436bf33d562af811f1218c" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerData::uSvh</definition>
+        <argsstring></argsstring>
+        <name>uSvh</name>
+        <qualifiedname>GeigerData::uSvh</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="15" column="9" bodyfile="bgeigiezen_firmware/workers/gm_sensor.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_geiger_data_1a2bcd68de2b048b085cd1a35a4648ff15" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerData::Bqm2</definition>
+        <argsstring></argsstring>
+        <name>Bqm2</name>
+        <qualifiedname>GeigerData::Bqm2</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="16" column="9" bodyfile="bgeigiezen_firmware/workers/gm_sensor.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_geiger_data_1a7f2852eec45590b5729be23798ecc111" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerData::uSvh_5sec</definition>
+        <argsstring></argsstring>
+        <name>uSvh_5sec</name>
+        <qualifiedname>GeigerData::uSvh_5sec</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="17" column="9" bodyfile="bgeigiezen_firmware/workers/gm_sensor.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_geiger_data_1a534aff9ab3721280a60b60fcee99aebc" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerData::Bqm2_5sec</definition>
+        <argsstring></argsstring>
+        <name>Bqm2_5sec</name>
+        <qualifiedname>GeigerData::Bqm2_5sec</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="18" column="9" bodyfile="bgeigiezen_firmware/workers/gm_sensor.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_geiger_data_1ae88406bbe767571e0d180c93d2a77fa7" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GeigerData::alert</definition>
+        <argsstring></argsstring>
+        <name>alert</name>
+        <qualifiedname>GeigerData::alert</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="19" column="8" bodyfile="bgeigiezen_firmware/workers/gm_sensor.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GeigerData</label>
+        <link refid="struct_geiger_data"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>cp5s</edgelabel>
+          <edgelabel>cps</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>cpm_comp</edgelabel>
+          <edgelabel>cpm_comp_peak</edgelabel>
+          <edgelabel>cpm_raw</edgelabel>
+          <edgelabel>total</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>uint16_t</label>
+      </node>
+      <node id="3">
+        <label>uint32_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="7" column="1" bodyfile="bgeigiezen_firmware/workers/gm_sensor.h" bodystart="7" bodyend="20"/>
+    <listofallmembers>
+      <member refid="struct_geiger_data_1ae88406bbe767571e0d180c93d2a77fa7" prot="public" virt="non-virtual"><scope>GeigerData</scope><name>alert</name></member>
+      <member refid="struct_geiger_data_1a2bcd68de2b048b085cd1a35a4648ff15" prot="public" virt="non-virtual"><scope>GeigerData</scope><name>Bqm2</name></member>
+      <member refid="struct_geiger_data_1a534aff9ab3721280a60b60fcee99aebc" prot="public" virt="non-virtual"><scope>GeigerData</scope><name>Bqm2_5sec</name></member>
+      <member refid="struct_geiger_data_1a5bfc9af14c14579f884bbf5ce6edc68f" prot="public" virt="non-virtual"><scope>GeigerData</scope><name>cp5s</name></member>
+      <member refid="struct_geiger_data_1acde146c506e543a976f3684bacac78e9" prot="public" virt="non-virtual"><scope>GeigerData</scope><name>cpm_comp</name></member>
+      <member refid="struct_geiger_data_1a80b52486d7bf6a78d91e8a371c8e249f" prot="public" virt="non-virtual"><scope>GeigerData</scope><name>cpm_comp_peak</name></member>
+      <member refid="struct_geiger_data_1a66f2c59cb6b786c5d40baf2f533a790b" prot="public" virt="non-virtual"><scope>GeigerData</scope><name>cpm_raw</name></member>
+      <member refid="struct_geiger_data_1a40aef9acd9b1827fd55584dd266de524" prot="public" virt="non-virtual"><scope>GeigerData</scope><name>cps</name></member>
+      <member refid="struct_geiger_data_1aa064d0894267741ccf9608ba920c7db8" prot="public" virt="non-virtual"><scope>GeigerData</scope><name>total</name></member>
+      <member refid="struct_geiger_data_1a8be97af73c436bf33d562af811f1218c" prot="public" virt="non-virtual"><scope>GeigerData</scope><name>uSvh</name></member>
+      <member refid="struct_geiger_data_1a7f2852eec45590b5729be23798ecc111" prot="public" virt="non-virtual"><scope>GeigerData</scope><name>uSvh_5sec</name></member>
+      <member refid="struct_geiger_data_1ace47dff387083abff03224021c8e1217" prot="public" virt="non-virtual"><scope>GeigerData</scope><name>valid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

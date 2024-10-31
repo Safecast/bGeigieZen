@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="gm__sensor_8h" kind="file" language="C++">
+    <compoundname>gm_sensor.h</compoundname>
+    <includes local="no">Worker.hpp</includes>
+    <includes refid="hardware__counter_8h" local="no">utils/hardware_counter.h</includes>
+    <includedby refid="gfx__screen_8cpp" local="yes">bgeigiezen_firmware/gfx_screen.cpp</includedby>
+    <includedby refid="bgeigiezen__firmware_2main_8cpp" local="yes">bgeigiezen_firmware/main.cpp</includedby>
+    <includedby refid="base__screen_8cpp" local="yes">bgeigiezen_firmware/screens/base_screen.cpp</includedby>
+    <includedby refid="debug__mode_8cpp" local="yes">bgeigiezen_firmware/screens/debug_mode.cpp</includedby>
+    <includedby refid="drive__mode_8cpp" local="yes">bgeigiezen_firmware/screens/drive_mode.cpp</includedby>
+    <includedby refid="fixed__mode_8cpp" local="yes">bgeigiezen_firmware/screens/fixed_mode.cpp</includedby>
+    <includedby refid="survery__mode_8cpp" local="yes">bgeigiezen_firmware/screens/survery_mode.cpp</includedby>
+    <includedby refid="gm__sensor_8cpp" local="yes">bgeigiezen_firmware/workers/gm_sensor.cpp</includedby>
+    <includedby refid="log__aggregator_8cpp" local="yes">bgeigiezen_firmware/workers/log_aggregator.cpp</includedby>
+    <incdepgraph>
+      <node id="7">
+        <label>user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>circular_buffer.h</label>
+        <link refid="circular__buffer_8h"/>
+      </node>
+      <node id="3">
+        <label>utils/hardware_counter.h</label>
+        <link refid="hardware__counter_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/workers/gm_sensor.h</label>
+        <link refid="gm__sensor_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="5">
+        <label>Ticker.h</label>
+      </node>
+      <node id="2">
+        <label>Worker.hpp</label>
+      </node>
+      <node id="6">
+        <label>driver/pcnt.h</label>
+      </node>
+      <node id="4">
+        <label>limits</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>bgeigiezen_firmware/gfx_screen.cpp</label>
+        <link refid="gfx__screen_8cpp"/>
+      </node>
+      <node id="3">
+        <label>bgeigiezen_firmware/main.cpp</label>
+        <link refid="bgeigiezen__firmware_2main_8cpp"/>
+      </node>
+      <node id="4">
+        <label>bgeigiezen_firmware/screens/base_screen.cpp</label>
+        <link refid="base__screen_8cpp"/>
+      </node>
+      <node id="5">
+        <label>bgeigiezen_firmware/screens/debug_mode.cpp</label>
+        <link refid="debug__mode_8cpp"/>
+      </node>
+      <node id="6">
+        <label>bgeigiezen_firmware/screens/drive_mode.cpp</label>
+        <link refid="drive__mode_8cpp"/>
+      </node>
+      <node id="7">
+        <label>bgeigiezen_firmware/screens/fixed_mode.cpp</label>
+        <link refid="fixed__mode_8cpp"/>
+      </node>
+      <node id="8">
+        <label>bgeigiezen_firmware/screens/survery_mode.cpp</label>
+        <link refid="survery__mode_8cpp"/>
+      </node>
+      <node id="9">
+        <label>bgeigiezen_firmware/workers/gm_sensor.cpp</label>
+        <link refid="gm__sensor_8cpp"/>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/workers/gm_sensor.h</label>
+        <link refid="gm__sensor_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>bgeigiezen_firmware/workers/log_aggregator.cpp</label>
+        <link refid="log__aggregator_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_geiger_data" prot="public">GeigerData</innerclass>
+    <innerclass refid="class_geiger_counter" prot="public">GeigerCounter</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>BGEIGIEZEN_GEIGER_COUNTER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BGEIGIEZEN_GEIGER_COUNTER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Worker.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="hardware__counter_8h" kindref="compound">utils/hardware_counter.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="struct_geiger_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_geiger_data" kindref="compound">GeigerData</ref><sp/>{</highlight></codeline>
+<codeline lineno="8" refid="struct_geiger_data_1ace47dff387083abff03224021c8e1217" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_geiger_data_1ace47dff387083abff03224021c8e1217" kindref="member">valid</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>True<sp/>if<sp/>accumulated<sp/>data<sp/>over<sp/>1+<sp/>minute</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="struct_geiger_data_1a40aef9acd9b1827fd55584dd266de524" refkind="member"><highlight class="normal"><sp/><sp/>uint16_t<sp/><ref refid="struct_geiger_data_1a40aef9acd9b1827fd55584dd266de524" kindref="member">cps</ref><sp/>=<sp/>0;<sp/><sp/></highlight><highlight class="comment">//<sp/>Past<sp/>second</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="struct_geiger_data_1a5bfc9af14c14579f884bbf5ce6edc68f" refkind="member"><highlight class="normal"><sp/><sp/>uint16_t<sp/><ref refid="struct_geiger_data_1a5bfc9af14c14579f884bbf5ce6edc68f" kindref="member">cp5s</ref><sp/>=<sp/>0;<sp/><sp/></highlight><highlight class="comment">//<sp/>Past<sp/>5<sp/>seconds</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="struct_geiger_data_1a66f2c59cb6b786c5d40baf2f533a790b" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="struct_geiger_data_1a66f2c59cb6b786c5d40baf2f533a790b" kindref="member">cpm_raw</ref><sp/>=<sp/>0;<sp/><sp/></highlight><highlight class="comment">//<sp/>Past<sp/>minute</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="struct_geiger_data_1acde146c506e543a976f3684bacac78e9" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="struct_geiger_data_1acde146c506e543a976f3684bacac78e9" kindref="member">cpm_comp</ref><sp/>=<sp/>0;<sp/><sp/></highlight><highlight class="comment">//<sp/>cpm_raw<sp/>compensated<sp/>for<sp/>medcom<sp/>deadtime</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="struct_geiger_data_1a80b52486d7bf6a78d91e8a371c8e249f" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="struct_geiger_data_1a80b52486d7bf6a78d91e8a371c8e249f" kindref="member">cpm_comp_peak</ref><sp/>=<sp/>0;<sp/><sp/></highlight><highlight class="comment">//<sp/>highest<sp/>cpm_comp<sp/>recorded</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="struct_geiger_data_1aa064d0894267741ccf9608ba920c7db8" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="struct_geiger_data_1aa064d0894267741ccf9608ba920c7db8" kindref="member">total</ref><sp/>=<sp/>0;<sp/><sp/></highlight><highlight class="comment">//<sp/>Total<sp/>since<sp/>initialization</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="struct_geiger_data_1a8be97af73c436bf33d562af811f1218c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_geiger_data_1a8be97af73c436bf33d562af811f1218c" kindref="member">uSvh</ref><sp/>=<sp/>0.0;<sp/><sp/></highlight><highlight class="comment">//<sp/>uSv/h<sp/>based<sp/>on<sp/>the<sp/>last<sp/>minute<sp/>(using<sp/>cpm_comp)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="struct_geiger_data_1a2bcd68de2b048b085cd1a35a4648ff15" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_geiger_data_1a2bcd68de2b048b085cd1a35a4648ff15" kindref="member">Bqm2</ref><sp/>=<sp/>0.0;<sp/><sp/></highlight><highlight class="comment">//<sp/>Bq/m²<sp/>based<sp/>on<sp/>the<sp/>last<sp/>minute<sp/>(using<sp/>cpm_comp)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="struct_geiger_data_1a7f2852eec45590b5729be23798ecc111" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_geiger_data_1a7f2852eec45590b5729be23798ecc111" kindref="member">uSvh_5sec</ref><sp/>=<sp/>0.0;<sp/><sp/></highlight><highlight class="comment">//<sp/>uSv/h<sp/>based<sp/>on<sp/>the<sp/>last<sp/>5<sp/>sec<sp/>(using<sp/>cp5s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="struct_geiger_data_1a534aff9ab3721280a60b60fcee99aebc" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_geiger_data_1a534aff9ab3721280a60b60fcee99aebc" kindref="member">Bqm2_5sec</ref><sp/>=<sp/>0.0;<sp/><sp/></highlight><highlight class="comment">//<sp/>Bq/m²<sp/>based<sp/>on<sp/>the<sp/>last<sp/>5<sp/>sec<sp/>(using<sp/>cp5s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="struct_geiger_data_1ae88406bbe767571e0d180c93d2a77fa7" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_geiger_data_1ae88406bbe767571e0d180c93d2a77fa7" kindref="member">alert</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>cpm_comp<sp/>&gt;<sp/>alert<sp/>level</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_geiger_counter" kindref="compound">GeigerCounter</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Worker&lt;GeigerData&gt;<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_geiger_counter_1aa91591f3424f247fd3e7f856839284e7" kindref="member">GeigerCounter</ref>();</highlight></codeline>
+<codeline lineno="28" refid="class_geiger_counter_1ad04e18dfaf857c1af8d0d182e67e1b29" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_geiger_counter_1ad04e18dfaf857c1af8d0d182e67e1b29" kindref="member">~GeigerCounter</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_geiger_counter_1a20619a3dcabbac2b7595322d283ccb72" kindref="member">activate</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">retry</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>int8_t<sp/><ref refid="class_geiger_counter_1ad27d8d0865e390e098d762e7a1d3de73" kindref="member">produce_data</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><ref refid="class_hardware_counter" kindref="compound">HardwareCounter</ref><sp/>pulse_counter;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_ush_factor<sp/>=<sp/>1.0<sp/>/<sp/><ref refid="include_2config_8hpp_1a107643ea05cf125d833475198786ad3d" kindref="member">SETUP_DEFAULT_USH_DIVIDER</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_bqm2_factor<sp/>=<sp/><ref refid="include_2config_8hpp_1a335bd0ef57c435bba8aa8e944345a9ba" kindref="member">SETUP_DEFAULT_BQM2_FACTOR</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>default<sp/>factor<sp/>for<sp/>surface<sp/>measurements</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>uint32_t<sp/>_cpm_alert_level<sp/>=<sp/><ref refid="user__config_8h_1ab7624ab834688b7fd335af2a43210451" kindref="member">SETUP_DEFAULT_ALERT_LEVEL</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_pos<sp/>=<sp/>0;<sp/><sp/></highlight><highlight class="comment">//<sp/>current<sp/>position<sp/>in<sp/>shift<sp/>register</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/>std::array&lt;uint32_t,<sp/>GEIGER_AVERAGING_N_BINS&gt;<sp/>_shift_reg;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//BGEIGIEZEN_GEIGER_COUNTER_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/workers/gm_sensor.h"/>
+  </compounddef>
+</doxygen>

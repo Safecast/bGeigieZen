@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="include_2gps_8hpp" kind="file" language="C++">
+    <compoundname>gps.hpp</compoundname>
+    <includes local="no">M5Core2.h</includes>
+    <includes refid="include_2_tiny_g_p_s_09_09_8h" local="no">TinyGPS++.h</includes>
+    <includes refid="include_2config_8hpp" local="no">config.hpp</includes>
+    <includedby refid="include_2display_8hpp" local="no">archive/bgeigie_firmware_pio/include/display.hpp</includedby>
+    <includedby refid="include_2fsm__context_8hpp" local="no">archive/bgeigie_firmware_pio/include/fsm_context.hpp</includedby>
+    <includedby refid="include_2logger_8hpp" local="no">archive/bgeigie_firmware_pio/include/logger.hpp</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>TinyGPS++.h</label>
+        <link refid="include_2_tiny_g_p_s_09_09_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>config.hpp</label>
+        <link refid="include_2config_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/include/gps.hpp</label>
+        <link refid="include_2gps_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>M5Core2.h</label>
+      </node>
+      <node id="4">
+        <label>WProgram.h</label>
+      </node>
+      <node id="9">
+        <label>WiFi.h</label>
+      </node>
+      <node id="7">
+        <label>cstdint</label>
+      </node>
+      <node id="8">
+        <label>cstdlib</label>
+      </node>
+      <node id="5">
+        <label>limits.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>archive/bgeigie_firmware_pio/include/configuration_server.hpp</label>
+        <link refid="configuration__server_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>archive/bgeigie_firmware_pio/include/display.hpp</label>
+        <link refid="include_2display_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>archive/bgeigie_firmware_pio/include/fsm_context.hpp</label>
+        <link refid="include_2fsm__context_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>archive/bgeigie_firmware_pio/include/fsm_state_base.hpp</label>
+        <link refid="include_2fsm__state__base_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>archive/bgeigie_firmware_pio/include/fsm_state_concrete.hpp</label>
+        <link refid="include_2fsm__state__concrete_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/include/gps.hpp</label>
+        <link refid="include_2gps_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>archive/bgeigie_firmware_pio/include/logger.hpp</label>
+        <link refid="include_2logger_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>archive/bgeigie_firmware_pio/include/menu.hpp</label>
+        <link refid="menu_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>archive/bgeigie_firmware_pio/src/configuration_server.cpp</label>
+        <link refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp"/>
+      </node>
+      <node id="9">
+        <label>archive/bgeigie_firmware_pio/src/display.cpp</label>
+        <link refid="display_8cpp"/>
+      </node>
+      <node id="10">
+        <label>archive/bgeigie_firmware_pio/src/menu.cpp</label>
+        <link refid="menu_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_g_p_s_sensor" prot="public">GPSSensor</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>GPSState</name>
+        <enumvalue id="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344fad8e8425d09d2255581e6b3eaabfe6ac1" prot="public">
+          <name>GPS_Startup</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344fa01bfd562f237c68255a61d9ada715cd4" prot="public">
+          <name>GPS_Wait_GPGGA_Wait_GPRMC</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344facddb3dad3c491d3d11f4d8686c149b12" prot="public">
+          <name>GPS_Got_GPGGA_Wait_GPRMC</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344fadc7d06af1660e029172824e99c6bb5d8" prot="public">
+          <name>GPS_Got_GPRMC_Wait_GPGGA</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344fa7ae05b303dc667638e6df44e83c5144a" prot="public">
+          <name>GPS_Idle</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/gps.hpp" line="18" column="1" bodyfile="archive/bgeigie_firmware_pio/include/gps.hpp" bodystart="18" bodyend="24"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__GPS_HPP__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__GPS_HPP__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;M5Core2.h&gt;</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>#include<sp/>&lt;M5Stack.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="src_2_tiny_g_p_s_09_09_8h" kindref="compound">TinyGPS++.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="src_2config_8hpp" kindref="compound">config.hpp</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>We<sp/>need<sp/>a<sp/>state<sp/>machine<sp/>to<sp/>ensure<sp/>that<sp/>we<sp/>always<sp/>receive</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>both<sp/>GGA<sp/>and<sp/>RMC<sp/>sentences<sp/>before<sp/>we<sp/>consume<sp/>the<sp/>GPS<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>If<sp/>we<sp/>do<sp/>not<sp/>do<sp/>that,<sp/>there<sp/>are<sp/>rare<sp/>cases<sp/>where<sp/>the<sp/>GPS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>data<sp/>is<sp/>access<sp/>between<sp/>we<sp/>receive<sp/>the<sp/>two<sp/>sentences</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Since<sp/>only<sp/>RMC<sp/>contains<sp/>the<sp/>date,<sp/>it<sp/>may<sp/>happen<sp/>that<sp/>an</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>incoherent<sp/>state<sp/>appear<sp/>during<sp/>the<sp/>first<sp/>update<sp/>after<sp/>midnight</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/>GGA<sp/>updates<sp/>the<sp/>time<sp/>to<sp/>00:00,<sp/>but<sp/>the<sp/>date<sp/>is<sp/>still<sp/>that<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>the<sp/>previous<sp/>day<sp/>for<sp/>a<sp/>brief<sp/>instant</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>If<sp/>an<sp/>update<sp/>during<sp/>that<sp/>time,<sp/>the<sp/>measurement<sp/>will<sp/>appear<sp/>to<sp/>be</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/>from<sp/>24<sp/>hours<sp/>in<sp/>the<sp/>past</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344f" kindref="member">GPSState</ref><sp/>{</highlight></codeline>
+<codeline lineno="19" refid="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344fad8e8425d09d2255581e6b3eaabfe6ac1" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344fad8e8425d09d2255581e6b3eaabfe6ac1" kindref="member">GPS_Startup</ref>,</highlight></codeline>
+<codeline lineno="20" refid="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344fa01bfd562f237c68255a61d9ada715cd4" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344fa01bfd562f237c68255a61d9ada715cd4" kindref="member">GPS_Wait_GPGGA_Wait_GPRMC</ref>,</highlight></codeline>
+<codeline lineno="21" refid="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344facddb3dad3c491d3d11f4d8686c149b12" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344facddb3dad3c491d3d11f4d8686c149b12" kindref="member">GPS_Got_GPGGA_Wait_GPRMC</ref>,</highlight></codeline>
+<codeline lineno="22" refid="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344fadc7d06af1660e029172824e99c6bb5d8" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344fadc7d06af1660e029172824e99c6bb5d8" kindref="member">GPS_Got_GPRMC_Wait_GPGGA</ref>,</highlight></codeline>
+<codeline lineno="23" refid="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344fa7ae05b303dc667638e6df44e83c5144a" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="include_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344fa7ae05b303dc667638e6df44e83c5144a" kindref="member">GPS_Idle</ref>,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="class_g_p_s_sensor" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_g_p_s_sensor" kindref="compound">GPSSensor</ref><sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>timeout<sp/>when<sp/>waiting<sp/>for<sp/>the<sp/>second<sp/>GPS<sp/>sentence.<sp/>The<sp/>current<sp/>value</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>of<sp/>500<sp/>ms<sp/>assumes<sp/>we<sp/>are<sp/>receiving<sp/>updates<sp/>at<sp/>1<sp/>s<sp/>intervals.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>_timeout<sp/>=<sp/>500;<sp/><sp/></highlight><highlight class="comment">//<sp/>milliseconds</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">HardwareSerial</ref><sp/>ss;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref><sp/>_data;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><ref refid="src_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344f" kindref="member">GPSState</ref><sp/>_state<sp/>=<sp/><ref refid="src_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344fad8e8425d09d2255581e6b3eaabfe6ac1" kindref="member">GPS_Startup</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_available<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>uint32_t<sp/>_last_update_millis<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_never_fixed<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_has_fix<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_time_valid<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>_update_fix_metadata()<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>_has_fix<sp/>=<sp/>_data.<ref refid="class_tiny_g_p_s_plus_1a886255f412f8e01f84e5104d36315fb3" kindref="member">location</ref>.<ref refid="struct_tiny_g_p_s_location_1aa5182c29798506eb727058d884f20633" kindref="member">isValid</ref>();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_never_fixed)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_never_fixed<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>_time_valid<sp/>=<sp/>_data.<ref refid="class_tiny_g_p_s_plus_1a83a70812b432d7f51c7c735bfe7be0f0" kindref="member">date</ref>.<ref refid="struct_tiny_g_p_s_date_1a3ae7825f840ef4ba0ecddbc22f741817" kindref="member">isValid</ref>()<sp/>&amp;&amp;<sp/>_data.<ref refid="class_tiny_g_p_s_plus_1a83a70812b432d7f51c7c735bfe7be0f0" kindref="member">date</ref>.<ref refid="struct_tiny_g_p_s_date_1ae2cc914fec377b429d99f01204f50d60" kindref="member">year</ref>()<sp/>&gt;<sp/><ref refid="gps__connector_8cpp_1a6bd854d2104015e821eeed7a174ff783" kindref="member">GPS_INVALID_YEAR</ref>;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="52" refid="class_g_p_s_sensor_1a5cfcf8d5d4fc804efc918269cab7ef32" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_g_p_s_sensor_1a5cfcf8d5d4fc804efc918269cab7ef32" kindref="member">GPSSensor</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">serial_number</ref>,<sp/>uint32_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">baud_rate</ref>)<sp/>:<sp/><ref refid="_raku__code_8cpp_1a394143630abaa8f8ef03caeab8d8c5e5" kindref="member">ss</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">serial_number</ref>),<sp/>_last_update_millis(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_raku__code_8cpp_1a394143630abaa8f8ef03caeab8d8c5e5" kindref="member">ss</ref>.begin(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">baud_rate</ref>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="class_g_p_s_sensor_1a1f2097cc5d1642b86a0fb996d8223382" refkind="member"><highlight class="normal"><sp/><sp/>uint32_t<sp/><ref refid="class_g_p_s_sensor_1a1f2097cc5d1642b86a0fb996d8223382" kindref="member">age_ms</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">now</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">millis</ref>();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">now</ref><sp/>&gt;=<sp/>_last_update_millis)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">now</ref><sp/>-<sp/>_last_update_millis;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">ULONG_MAX</ref><sp/>+<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">now</ref><sp/>-<sp/>_last_update_millis;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="class_g_p_s_sensor_1a115623cc516cf8effa449d9ac8605e92" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_g_p_s_sensor_1a115623cc516cf8effa449d9ac8605e92" kindref="member">has_started</ref><sp/>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_state<sp/>!=<sp/><ref refid="src_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344fad8e8425d09d2255581e6b3eaabfe6ac1" kindref="member">GPS_Startup</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="65" refid="class_g_p_s_sensor_1a65ee246d6ac4c070e983c8673b1b24a5" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_g_p_s_sensor_1a65ee246d6ac4c070e983c8673b1b24a5" kindref="member">is_updating</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_state<sp/>!=<sp/><ref refid="src_2gps_8hpp_1a0b8277c2fe19ebf1012c8af7ab33344fa7ae05b303dc667638e6df44e83c5144a" kindref="member">GPS_Idle</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Indicates<sp/>fresh<sp/>data<sp/>is<sp/>available</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="class_g_p_s_sensor_1a2da4cc0a0f3314a2721dfe75e668c46e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_g_p_s_sensor_1a2da4cc0a0f3314a2721dfe75e668c46e" kindref="member">available</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_available;<sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>main<sp/>routine<sp/>processing<sp/>GPS<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_g_p_s_sensor_1a70ffb7412fa7a4cc14cad2135b79c59e" kindref="member">update</ref>();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Accessors<sp/>for<sp/>the<sp/>GPS<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="class_g_p_s_sensor_1a5b64435e02d96b9a036bb8dfae2ddc28" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_g_p_s_sensor_1a5b64435e02d96b9a036bb8dfae2ddc28" kindref="member">has_fix</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_has_fix;<sp/>}</highlight></codeline>
+<codeline lineno="75" refid="class_g_p_s_sensor_1a9dea482f3a1214e3fc5b0556edea84bf" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_g_p_s_sensor_1a9dea482f3a1214e3fc5b0556edea84bf" kindref="member">never_fixed</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_never_fixed;<sp/>}</highlight></codeline>
+<codeline lineno="76" refid="class_g_p_s_sensor_1adc9f7a612b2a58ea7ee04b89b39d3d01" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_g_p_s_sensor_1adc9f7a612b2a58ea7ee04b89b39d3d01" kindref="member">time_valid</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_time_valid;<sp/>}</highlight></codeline>
+<codeline lineno="77" refid="class_g_p_s_sensor_1a0e3ebafd25a7d5197ddfdcbc5053a260" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref><sp/>&amp;<ref refid="class_g_p_s_sensor_1a0e3ebafd25a7d5197ddfdcbc5053a260" kindref="member">data</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>_available<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>mark<sp/>data<sp/>as<sp/>consumed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_data;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81" refid="class_g_p_s_sensor_1adcc10dea210894a35616510ff01ff834" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_tiny_g_p_s_plus" kindref="compound">TinyGPSPlus</ref><sp/>&amp;<ref refid="class_g_p_s_sensor_1adcc10dea210894a35616510ff01ff834" kindref="member">data</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_g_p_s_sensor_1adcc10dea210894a35616510ff01ff834" kindref="member">data</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>__GPS_HPP__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="archive/bgeigie_firmware_pio/include/gps.hpp"/>
+  </compounddef>
+</doxygen>

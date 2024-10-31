@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_menu_state" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>MenuState</compoundname>
+    <derivedcompoundref refid="class_config_state" prot="public" virt="non-virtual">ConfigState</derivedcompoundref>
+    <derivedcompoundref refid="class_inactive_state" prot="public" virt="non-virtual">InactiveState</derivedcompoundref>
+    <derivedcompoundref refid="class_init_state" prot="public" virt="non-virtual">InitState</derivedcompoundref>
+    <includes refid="menu_8hpp" local="no">menu.hpp</includes>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_menu_state_1a2890e7397a2c06403b61204bf946525a" prot="protected" static="no" mutable="no">
+        <type><ref refid="class_menu_context" kindref="compound">MenuContext</ref> *</type>
+        <definition>MenuContext* MenuState::mcontext_</definition>
+        <argsstring></argsstring>
+        <name>mcontext_</name>
+        <qualifiedname>MenuState::mcontext_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/menu.hpp" line="34" column="17" bodyfile="archive/bgeigie_firmware_pio/include/menu.hpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_menu_state_1abbd5869601cb7673c38e9deb44b4342a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual MenuState::~MenuState</definition>
+        <argsstring>()</argsstring>
+        <name>~MenuState</name>
+        <qualifiedname>MenuState::~MenuState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/menu.hpp" line="36" column="13" bodyfile="archive/bgeigie_firmware_pio/include/menu.hpp" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="class_menu_state_1a0ffb3360e91b86375dc079ceed77b67b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void MenuState::set_context</definition>
+        <argsstring>(MenuContext *context)</argsstring>
+        <name>set_context</name>
+        <qualifiedname>MenuState::set_context</qualifiedname>
+        <param>
+          <type><ref refid="class_menu_context" kindref="compound">MenuContext</ref> *</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/menu.hpp" line="37" column="10" bodyfile="archive/bgeigie_firmware_pio/include/menu.hpp" bodystart="37" bodyend="39"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2main_8cpp_1af73e715b5b0bbc5ea42336c758ceda5f" compoundref="archive_2bgeigie__firmware__pio_2src_2main_8cpp" startline="7">context</references>
+      </memberdef>
+      <memberdef kind="function" id="class_menu_state_1acd29e722c964ac3926c9042b15fd9712" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>virtual void MenuState::on_entry</definition>
+        <argsstring>(MenuContext *context)=0</argsstring>
+        <name>on_entry</name>
+        <qualifiedname>MenuState::on_entry</qualifiedname>
+        <reimplementedby refid="class_init_state_1aa9862d3b06712801c7971dfb4f6d7b6f">on_entry</reimplementedby>
+        <reimplementedby refid="class_config_state_1a0499ab1fa14a0bcadd22aed8762b8d39">on_entry</reimplementedby>
+        <reimplementedby refid="class_inactive_state_1ae1a44d6fe70ddb074a71bf82fca37c36">on_entry</reimplementedby>
+        <param>
+          <type><ref refid="class_menu_context" kindref="compound">MenuContext</ref> *</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/menu.hpp" line="40" column="18"/>
+        <referencedby refid="class_menu_context_1a0a1ab3078ac31ef2189fa43c43bdee7c" compoundref="menu_8cpp" startline="23" endline="31">MenuContext::goto_state</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_menu_state_1a1a4c87b679b923de723deaad8ed03361" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>virtual void MenuState::on_exit</definition>
+        <argsstring>(MenuContext *context)=0</argsstring>
+        <name>on_exit</name>
+        <qualifiedname>MenuState::on_exit</qualifiedname>
+        <reimplementedby refid="class_init_state_1a55d3c6ca4119b23a0ce079116b3be7ac">on_exit</reimplementedby>
+        <reimplementedby refid="class_config_state_1a756b421f6964fd7316a748d124ccdd90">on_exit</reimplementedby>
+        <reimplementedby refid="class_inactive_state_1ab042e2afb4770b3bea596880dee7fe88">on_exit</reimplementedby>
+        <param>
+          <type><ref refid="class_menu_context" kindref="compound">MenuContext</ref> *</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/menu.hpp" line="41" column="18"/>
+        <referencedby refid="class_menu_context_1a0a1ab3078ac31ef2189fa43c43bdee7c" compoundref="menu_8cpp" startline="23" endline="31">MenuContext::goto_state</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_menu_state_1ade23ec3aca339602fc6145ca7594b69b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>virtual void MenuState::update</definition>
+        <argsstring>(MenuContext *context)=0</argsstring>
+        <name>update</name>
+        <qualifiedname>MenuState::update</qualifiedname>
+        <reimplementedby refid="class_init_state_1a872bd60375e54093bc025337998ef08c">update</reimplementedby>
+        <reimplementedby refid="class_config_state_1a5a3820e43e02aff4bdebfa4664462377">update</reimplementedby>
+        <reimplementedby refid="class_inactive_state_1a18d2cb4e31bccd5769d7a746a08c812f">update</reimplementedby>
+        <param>
+          <type><ref refid="class_menu_context" kindref="compound">MenuContext</ref> *</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/menu.hpp" line="42" column="18"/>
+        <referencedby refid="class_menu_context_1a5101ae5be4d87102d5d143ea5ccdae12" compoundref="menu_8cpp" startline="33" endline="37">MenuContext::update</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ConfigState</label>
+        <link refid="class_config_state"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>InactiveState</label>
+        <link refid="class_inactive_state"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>InitState</label>
+        <link refid="class_init_state"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>MenuState</label>
+        <link refid="class_menu_state"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="17">
+        <label>ConfigWebServer</label>
+        <link refid="class_config_web_server"/>
+        <childnode refid="18" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>DimBlankTiming</label>
+        <link refid="class_dim_blank_timing"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>delay_blanking</edgelabel>
+          <edgelabel>delay_dimming</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Display</label>
+        <link refid="class_display"/>
+        <childnode refid="6" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>wificonn</edgelabel>
+        </childnode>
+        <childnode refid="17" relation="usage">
+          <edgelabel>webserver</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>DisplayData</label>
+        <link refid="struct_display_data"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>device_id</edgelabel>
+          <edgelabel>geiger_cpm</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>gps_satellites</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>gps_altitude</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>gps_speed</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>gps_course</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>gps_location</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>gps_time</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>gps_date</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>battery_level</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MenuContext</label>
+        <link refid="class_menu_context"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>dimblank_choices</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>main_display</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>MenuState</label>
+        <link refid="class_menu_state"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>mcontext_</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>TinyGPSAltitude</label>
+        <link refid="struct_tiny_g_p_s_altitude"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>TinyGPSCourse</label>
+        <link refid="struct_tiny_g_p_s_course"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>TinyGPSDate</label>
+        <link refid="struct_tiny_g_p_s_date"/>
+      </node>
+      <node id="9">
+        <label>TinyGPSDecimal</label>
+        <link refid="struct_tiny_g_p_s_decimal"/>
+      </node>
+      <node id="7">
+        <label>TinyGPSInteger</label>
+        <link refid="struct_tiny_g_p_s_integer"/>
+      </node>
+      <node id="12">
+        <label>TinyGPSLocation</label>
+        <link refid="struct_tiny_g_p_s_location"/>
+      </node>
+      <node id="10">
+        <label>TinyGPSSpeed</label>
+        <link refid="struct_tiny_g_p_s_speed"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>TinyGPSTime</label>
+        <link refid="struct_tiny_g_p_s_time"/>
+      </node>
+      <node id="16">
+        <label>WiFiConnection</label>
+        <link refid="class_wi_fi_connection"/>
+      </node>
+      <node id="18">
+        <label>Worker&lt; ServerStatus &gt;</label>
+      </node>
+      <node id="15">
+        <label>int8_t</label>
+      </node>
+      <node id="4">
+        <label>uint32_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="archive/bgeigie_firmware_pio/include/menu.hpp" line="32" column="1" bodyfile="archive/bgeigie_firmware_pio/include/menu.hpp" bodystart="32" bodyend="43"/>
+    <listofallmembers>
+      <member refid="class_menu_state_1a2890e7397a2c06403b61204bf946525a" prot="protected" virt="non-virtual"><scope>MenuState</scope><name>mcontext_</name></member>
+      <member refid="class_menu_state_1acd29e722c964ac3926c9042b15fd9712" prot="public" virt="pure-virtual"><scope>MenuState</scope><name>on_entry</name></member>
+      <member refid="class_menu_state_1a1a4c87b679b923de723deaad8ed03361" prot="public" virt="pure-virtual"><scope>MenuState</scope><name>on_exit</name></member>
+      <member refid="class_menu_state_1a0ffb3360e91b86375dc079ceed77b67b" prot="public" virt="non-virtual"><scope>MenuState</scope><name>set_context</name></member>
+      <member refid="class_menu_state_1ade23ec3aca339602fc6145ca7594b69b" prot="public" virt="pure-virtual"><scope>MenuState</scope><name>update</name></member>
+      <member refid="class_menu_state_1abbd5869601cb7673c38e9deb44b4342a" prot="public" virt="virtual"><scope>MenuState</scope><name>~MenuState</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

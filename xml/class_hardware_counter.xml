@@ -1,0 +1,579 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_hardware_counter" kind="class" language="C++" prot="public">
+    <compoundname>HardwareCounter</compoundname>
+    <includes refid="include_2hardwarecounter_8hpp" local="no">hardwarecounter.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_hardware_counter_1a932078842d62af42407b868a4d1c4012" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t HardwareCounter::_delay_s</definition>
+        <argsstring></argsstring>
+        <name>_delay_s</name>
+        <qualifiedname>HardwareCounter::_delay_s</qualifiedname>
+        <initializer>= <ref refid="include_2config_8hpp_1ad4f6757e97b449f1d666cb645f7c3b0b" kindref="member">GEIGER_AVERAGING_PERIOD_S</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="18" column="12" bodyfile="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hardware_counter_1abe656c96548f9ecaffb91628515571e0" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>int HardwareCounter::_gpio</definition>
+        <argsstring></argsstring>
+        <name>_gpio</name>
+        <qualifiedname>HardwareCounter::_gpio</qualifiedname>
+        <initializer>= <ref refid="include_2config_8hpp_1a4d1e4f44b01dca70b038d11aa8791da7" kindref="member">GEIGER_PULSE_GPIO</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="19" column="7" bodyfile="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hardware_counter_1ad1256555da688c60a12db13f4dcb8640" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">pcnt_unit_t</ref></type>
+        <definition>pcnt_unit_t HardwareCounter::_unit</definition>
+        <argsstring></argsstring>
+        <name>_unit</name>
+        <qualifiedname>HardwareCounter::_unit</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">PCNT_UNIT_0</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="20" column="15" bodyfile="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hardware_counter_1a4811c09891b6399b0dd5e6be8379f441" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> int16_t</type>
+        <definition>const int16_t HardwareCounter::_max_value</definition>
+        <argsstring></argsstring>
+        <name>_max_value</name>
+        <qualifiedname>HardwareCounter::_max_value</qualifiedname>
+        <initializer>= std::numeric_limits&lt;int16_t&gt;<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">::max</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="22" column="17" bodyfile="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hardware_counter_1a1cd30845b40a1c30c748110a08ff8c64" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t HardwareCounter::_n_wraparound</definition>
+        <argsstring></argsstring>
+        <name>_n_wraparound</name>
+        <qualifiedname>HardwareCounter::_n_wraparound</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="24" column="12" bodyfile="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hardware_counter_1a5f9a8c44b0119c6745060787978d8e51" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t HardwareCounter::_start_time</definition>
+        <argsstring></argsstring>
+        <name>_start_time</name>
+        <qualifiedname>HardwareCounter::_start_time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="26" column="12" bodyfile="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hardware_counter_1a1cac55ce831c74e331567301bd8cc0d4" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t HardwareCounter::_last_count</definition>
+        <argsstring></argsstring>
+        <name>_last_count</name>
+        <qualifiedname>HardwareCounter::_last_count</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="27" column="12" bodyfile="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hardware_counter_1a63eff5047f1a0dce28d565bd95000235" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool HardwareCounter::_available</definition>
+        <argsstring></argsstring>
+        <name>_available</name>
+        <qualifiedname>HardwareCounter::_available</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="29" column="8" bodyfile="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hardware_counter_1ac3af085f4befb2079e8afd1296dca134" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Ticker</ref></type>
+        <definition>Ticker HardwareCounter::_timer</definition>
+        <argsstring></argsstring>
+        <name>_timer</name>
+        <qualifiedname>HardwareCounter::_timer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="31" column="10" bodyfile="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_hardware_counter_1aa97018b496233a4b4ae74d5bbf19bca8" prot="private" static="no" mutable="no">
+        <type><ref refid="class_circular_buffer" kindref="compound">CircularBuffer</ref>&lt; uint32_t, <ref refid="hardware__counter_8h_1a6baeb703f2f3032bff39704cfaa2ce7b" kindref="member">PULSE_COUNT_BUFFER_MAX</ref> &gt;</type>
+        <definition>CircularBuffer&lt;uint32_t, PULSE_COUNT_BUFFER_MAX&gt; HardwareCounter::_count_buffer</definition>
+        <argsstring></argsstring>
+        <name>_count_buffer</name>
+        <qualifiedname>HardwareCounter::_count_buffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/hardware_counter.h" line="39" column="18" bodyfile="bgeigiezen_firmware/utils/hardware_counter.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_hardware_counter_1af2af092e162fe9f626c508b2aac35a43" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t HardwareCounter::_get_count_reset</definition>
+        <argsstring>()</argsstring>
+        <name>_get_count_reset</name>
+        <qualifiedname>HardwareCounter::_get_count_reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="32" column="19" bodyfile="archive/bgeigie_firmware_pio/src/hardwarecounter.cpp" bodystart="84" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1af2af092e162fe9f626c508b2aac35a43" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t HardwareCounter::_get_count_reset</definition>
+        <argsstring>()</argsstring>
+        <name>_get_count_reset</name>
+        <qualifiedname>HardwareCounter::_get_count_reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/hardwarecounter.hpp" line="32" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1af2af092e162fe9f626c508b2aac35a43" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t HardwareCounter::_get_count_reset</definition>
+        <argsstring>()</argsstring>
+        <name>_get_count_reset</name>
+        <qualifiedname>HardwareCounter::_get_count_reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/hardware_counter.h" line="32" column="19"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="class_hardware_counter_1a50db37e683b37fc7c123c4a285237e18" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void timer_intr_handler</definition>
+        <argsstring>(void *arg)</argsstring>
+        <name>timer_intr_handler</name>
+        <qualifiedname>HardwareCounter::timer_intr_handler</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref> *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="35" column="15" bodyfile="archive/bgeigie_firmware_pio/src/hardwarecounter.cpp" bodystart="16" bodyend="20"/>
+        <referencedby refid="class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7" compoundref="hardwarecounter_8cpp" startline="22" endline="68">begin</referencedby>
+      </memberdef>
+      <memberdef kind="friend" id="class_hardware_counter_1a50db37e683b37fc7c123c4a285237e18" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void timer_intr_handler</definition>
+        <argsstring>(void *arg)</argsstring>
+        <name>timer_intr_handler</name>
+        <qualifiedname>HardwareCounter::timer_intr_handler</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref> *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/hardwarecounter.hpp" line="35" column="15" bodyfile="archive/bgeigie_firmware_pio/src/hardwarecounter.cpp" bodystart="16" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="friend" id="class_hardware_counter_1a50db37e683b37fc7c123c4a285237e18" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void timer_intr_handler</definition>
+        <argsstring>(void *arg)</argsstring>
+        <name>timer_intr_handler</name>
+        <qualifiedname>HardwareCounter::timer_intr_handler</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref> *</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/hardware_counter.h" line="35" column="15" bodyfile="archive/bgeigie_firmware_pio/src/hardwarecounter.cpp" bodystart="16" bodyend="20"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_hardware_counter_1a83b878ed339ece4944ac7a70b3324cbc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>HardwareCounter::HardwareCounter</definition>
+        <argsstring>()</argsstring>
+        <name>HardwareCounter</name>
+        <qualifiedname>HardwareCounter::HardwareCounter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="38" column="3" bodyfile="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1ae8c29f68e125bb9529e72e796c9c5e78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>HardwareCounter::HardwareCounter</definition>
+        <argsstring>(uint32_t delay_s, int gpio, pcnt_unit_t unit=PCNT_UNIT_0)</argsstring>
+        <name>HardwareCounter</name>
+        <qualifiedname>HardwareCounter::HardwareCounter</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>delay_s</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+          <declname>gpio</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">pcnt_unit_t</ref></type>
+          <declname>unit</declname>
+          <defval><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">PCNT_UNIT_0</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="39" column="3" bodyfile="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" bodystart="39" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1ad8529a6e8473d44f214dd1649fed8c38" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t HardwareCounter::get_last_count</definition>
+        <argsstring>()</argsstring>
+        <name>get_last_count</name>
+        <qualifiedname>HardwareCounter::get_last_count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="42" column="12" bodyfile="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" bodystart="42" bodyend="45"/>
+        <referencedby refid="class_geiger_counter_1a20619a3dcabbac2b7595322d283ccb72" compoundref="gm__sensor_8cpp" startline="8" endline="19">GeigerCounter::activate</referencedby>
+        <referencedby refid="class_geiger_counter_1ad27d8d0865e390e098d762e7a1d3de73" compoundref="gm__sensor_8cpp" startline="21" endline="73">GeigerCounter::produce_data</referencedby>
+        <referencedby refid="class_geiger_counter_1af47906652803b0a81b3485ee19d1f7e6" compoundref="geiger__counter_8cpp" startline="5" endline="36">GeigerCounter::update</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void HardwareCounter::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <qualifiedname>HardwareCounter::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="48" column="8" bodyfile="archive/bgeigie_firmware_pio/src/hardwarecounter.cpp" bodystart="22" bodyend="68"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="hardwarecounter_8cpp_1a90ea1c07ae1f9c94a7c3ad2139f4ebb6" compoundref="hardwarecounter_8cpp" startline="7" endline="10">pcnt_intr_handler</references>
+        <references refid="class_hardware_counter_1aa7f151e2edd3d718edab3568ffc75dc4" compoundref="hardwarecounter_8cpp" startline="70" endline="82">reset</references>
+        <references refid="class_hardware_counter_1a50db37e683b37fc7c123c4a285237e18" compoundref="hardwarecounter_8cpp" startline="16" endline="20">timer_intr_handler</references>
+        <referencedby refid="class_geiger_counter_1a20619a3dcabbac2b7595322d283ccb72" compoundref="gm__sensor_8cpp" startline="8" endline="19">GeigerCounter::activate</referencedby>
+        <referencedby refid="class_geiger_counter_1a828539acf44e719d73716ff545bce51b" compoundref="include_2geiger__counter_8hpp" startline="53" endline="53">GeigerCounter::begin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1aa7f151e2edd3d718edab3568ffc75dc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void HardwareCounter::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>HardwareCounter::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="49" column="8" bodyfile="archive/bgeigie_firmware_pio/src/hardwarecounter.cpp" bodystart="70" bodyend="82"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7" compoundref="hardwarecounter_8cpp" startline="22" endline="68">begin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1a8b1831862879280db14b8a7406169e7c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool HardwareCounter::available</definition>
+        <argsstring>()</argsstring>
+        <name>available</name>
+        <qualifiedname>HardwareCounter::available</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="50" column="8" bodyfile="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" bodystart="50" bodyend="50"/>
+        <referencedby refid="class_geiger_counter_1a20619a3dcabbac2b7595322d283ccb72" compoundref="gm__sensor_8cpp" startline="8" endline="19">GeigerCounter::activate</referencedby>
+        <referencedby refid="class_geiger_counter_1ad27d8d0865e390e098d762e7a1d3de73" compoundref="gm__sensor_8cpp" startline="21" endline="73">GeigerCounter::produce_data</referencedby>
+        <referencedby refid="class_geiger_counter_1af47906652803b0a81b3485ee19d1f7e6" compoundref="geiger__counter_8cpp" startline="5" endline="36">GeigerCounter::update</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1a83b878ed339ece4944ac7a70b3324cbc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>HardwareCounter::HardwareCounter</definition>
+        <argsstring>()</argsstring>
+        <name>HardwareCounter</name>
+        <qualifiedname>HardwareCounter::HardwareCounter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/hardwarecounter.hpp" line="38" column="3" bodyfile="archive/bgeigie_firmware_pio/src/hardwarecounter.hpp" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1ae8c29f68e125bb9529e72e796c9c5e78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>HardwareCounter::HardwareCounter</definition>
+        <argsstring>(uint32_t delay_s, int gpio, pcnt_unit_t unit=PCNT_UNIT_0)</argsstring>
+        <name>HardwareCounter</name>
+        <qualifiedname>HardwareCounter::HardwareCounter</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>delay_s</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+          <declname>gpio</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">pcnt_unit_t</ref></type>
+          <declname>unit</declname>
+          <defval><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">PCNT_UNIT_0</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/hardwarecounter.hpp" line="39" column="3" bodyfile="archive/bgeigie_firmware_pio/src/hardwarecounter.hpp" bodystart="39" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1ad8529a6e8473d44f214dd1649fed8c38" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t HardwareCounter::get_last_count</definition>
+        <argsstring>()</argsstring>
+        <name>get_last_count</name>
+        <qualifiedname>HardwareCounter::get_last_count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/hardwarecounter.hpp" line="42" column="12" bodyfile="archive/bgeigie_firmware_pio/src/hardwarecounter.hpp" bodystart="42" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void HardwareCounter::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <qualifiedname>HardwareCounter::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/hardwarecounter.hpp" line="48" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1aa7f151e2edd3d718edab3568ffc75dc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void HardwareCounter::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>HardwareCounter::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/hardwarecounter.hpp" line="49" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1a8b1831862879280db14b8a7406169e7c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool HardwareCounter::available</definition>
+        <argsstring>()</argsstring>
+        <name>available</name>
+        <qualifiedname>HardwareCounter::available</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/hardwarecounter.hpp" line="50" column="8" bodyfile="archive/bgeigie_firmware_pio/src/hardwarecounter.hpp" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1a83b878ed339ece4944ac7a70b3324cbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>HardwareCounter::HardwareCounter</definition>
+        <argsstring>()</argsstring>
+        <name>HardwareCounter</name>
+        <qualifiedname>HardwareCounter::HardwareCounter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/hardware_counter.h" line="22" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1ad8529a6e8473d44f214dd1649fed8c38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t HardwareCounter::get_last_count</definition>
+        <argsstring>()</argsstring>
+        <name>get_last_count</name>
+        <qualifiedname>HardwareCounter::get_last_count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/hardware_counter.h" line="24" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void HardwareCounter::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <qualifiedname>HardwareCounter::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/hardware_counter.h" line="27" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1aa7f151e2edd3d718edab3568ffc75dc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void HardwareCounter::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>HardwareCounter::reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/hardware_counter.h" line="28" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_hardware_counter_1a0993c664a4e77d31ff2556e9f6143021" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool HardwareCounter::available</definition>
+        <argsstring>() const</argsstring>
+        <name>available</name>
+        <qualifiedname>HardwareCounter::available</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/hardware_counter.h" line="29" column="8" bodyfile="bgeigiezen_firmware/utils/hardware_counter.cpp" bodystart="33" bodyend="35"/>
+        <references refid="class_circular_buffer_1a1d3a28b8a5f3236ca01a50ad9ca9ffec" compoundref="circular__buffer_8h" startline="46" endline="48">CircularBuffer&lt; T, max &gt;::empty</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Counts pulses coming in over gpio </para>
+    </detaileddescription>
+    <location file="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" line="16" column="1" bodyfile="archive/bgeigie_firmware_pio/include/hardwarecounter.hpp" bodystart="16" bodyend="51"/>
+    <listofallmembers>
+      <member refid="class_hardware_counter_1a63eff5047f1a0dce28d565bd95000235" prot="private" virt="non-virtual"><scope>HardwareCounter</scope><name>_available</name></member>
+      <member refid="class_hardware_counter_1aa97018b496233a4b4ae74d5bbf19bca8" prot="private" virt="non-virtual"><scope>HardwareCounter</scope><name>_count_buffer</name></member>
+      <member refid="class_hardware_counter_1a932078842d62af42407b868a4d1c4012" prot="private" virt="non-virtual"><scope>HardwareCounter</scope><name>_delay_s</name></member>
+      <member refid="class_hardware_counter_1af2af092e162fe9f626c508b2aac35a43" prot="private" virt="non-virtual"><scope>HardwareCounter</scope><name>_get_count_reset</name></member>
+      <member refid="class_hardware_counter_1af2af092e162fe9f626c508b2aac35a43" prot="private" virt="non-virtual"><scope>HardwareCounter</scope><name>_get_count_reset</name></member>
+      <member refid="class_hardware_counter_1af2af092e162fe9f626c508b2aac35a43" prot="private" virt="non-virtual"><scope>HardwareCounter</scope><name>_get_count_reset</name></member>
+      <member refid="class_hardware_counter_1abe656c96548f9ecaffb91628515571e0" prot="private" virt="non-virtual"><scope>HardwareCounter</scope><name>_gpio</name></member>
+      <member refid="class_hardware_counter_1a1cac55ce831c74e331567301bd8cc0d4" prot="private" virt="non-virtual"><scope>HardwareCounter</scope><name>_last_count</name></member>
+      <member refid="class_hardware_counter_1a4811c09891b6399b0dd5e6be8379f441" prot="private" virt="non-virtual"><scope>HardwareCounter</scope><name>_max_value</name></member>
+      <member refid="class_hardware_counter_1a1cd30845b40a1c30c748110a08ff8c64" prot="private" virt="non-virtual"><scope>HardwareCounter</scope><name>_n_wraparound</name></member>
+      <member refid="class_hardware_counter_1a5f9a8c44b0119c6745060787978d8e51" prot="private" virt="non-virtual"><scope>HardwareCounter</scope><name>_start_time</name></member>
+      <member refid="class_hardware_counter_1ac3af085f4befb2079e8afd1296dca134" prot="private" virt="non-virtual"><scope>HardwareCounter</scope><name>_timer</name></member>
+      <member refid="class_hardware_counter_1ad1256555da688c60a12db13f4dcb8640" prot="private" virt="non-virtual"><scope>HardwareCounter</scope><name>_unit</name></member>
+      <member refid="class_hardware_counter_1a8b1831862879280db14b8a7406169e7c" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>available</name></member>
+      <member refid="class_hardware_counter_1a8b1831862879280db14b8a7406169e7c" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>available</name></member>
+      <member refid="class_hardware_counter_1a0993c664a4e77d31ff2556e9f6143021" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>available</name></member>
+      <member refid="class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>begin</name></member>
+      <member refid="class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>begin</name></member>
+      <member refid="class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>begin</name></member>
+      <member refid="class_hardware_counter_1ad8529a6e8473d44f214dd1649fed8c38" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>get_last_count</name></member>
+      <member refid="class_hardware_counter_1ad8529a6e8473d44f214dd1649fed8c38" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>get_last_count</name></member>
+      <member refid="class_hardware_counter_1ad8529a6e8473d44f214dd1649fed8c38" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>get_last_count</name></member>
+      <member refid="class_hardware_counter_1a83b878ed339ece4944ac7a70b3324cbc" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>HardwareCounter</name></member>
+      <member refid="class_hardware_counter_1ae8c29f68e125bb9529e72e796c9c5e78" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>HardwareCounter</name></member>
+      <member refid="class_hardware_counter_1a83b878ed339ece4944ac7a70b3324cbc" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>HardwareCounter</name></member>
+      <member refid="class_hardware_counter_1ae8c29f68e125bb9529e72e796c9c5e78" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>HardwareCounter</name></member>
+      <member refid="class_hardware_counter_1a83b878ed339ece4944ac7a70b3324cbc" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>HardwareCounter</name></member>
+      <member refid="class_hardware_counter_1aa7f151e2edd3d718edab3568ffc75dc4" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>reset</name></member>
+      <member refid="class_hardware_counter_1aa7f151e2edd3d718edab3568ffc75dc4" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>reset</name></member>
+      <member refid="class_hardware_counter_1aa7f151e2edd3d718edab3568ffc75dc4" prot="public" virt="non-virtual"><scope>HardwareCounter</scope><name>reset</name></member>
+      <member refid="class_hardware_counter_1a50db37e683b37fc7c123c4a285237e18" prot="private" virt="non-virtual"><scope>HardwareCounter</scope><name>timer_intr_handler</name></member>
+      <member refid="class_hardware_counter_1a50db37e683b37fc7c123c4a285237e18" prot="private" virt="non-virtual"><scope>HardwareCounter</scope><name>timer_intr_handler</name></member>
+      <member refid="class_hardware_counter_1a50db37e683b37fc7c123c4a285237e18" prot="private" virt="non-virtual"><scope>HardwareCounter</scope><name>timer_intr_handler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

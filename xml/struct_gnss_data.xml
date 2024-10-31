@@ -1,0 +1,423 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_gnss_data" kind="struct" language="C++" prot="public">
+    <compoundname>GnssData</compoundname>
+    <includes refid="gps__connector_8h" local="no">gps_connector.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcab" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Heading</name>
+        <qualifiedname>GnssData::Heading</qualifiedname>
+        <enumvalue id="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabaf944ece0444554e52923b0637a96e96c" prot="public">
+          <name>UNKNOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba4da3c06fe6c911023224dae72dbdad61" prot="public">
+          <name>NORTH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabacfd7d0af2deacc4d633d98eaa83619fb" prot="public">
+          <name>NORTHEAST</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabac59171f32d388e75c92c0898cb44bc15" prot="public">
+          <name>EAST</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba14b6d0ef04f8f7d52d377b04d4335194" prot="public">
+          <name>SOUTHEAST</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcababcc52805fa984d5c3f174295df0b3461" prot="public">
+          <name>SOUTH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba77bc8bd9de96e62e1247652bc0923398" prot="public">
+          <name>SOUTHWEST</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba5215b2609bd9d9ba6d84fbf741c70ad5" prot="public">
+          <name>WEST</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabacc2c1d688ba66385c9a84718f3d97800" prot="public">
+          <name>NORTHWEST</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="36" column="3" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="36" bodyend="46"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_gnss_data_1a6912d592ab6fe6edce0f30c25601b947" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GnssData::location_valid</definition>
+        <argsstring></argsstring>
+        <name>location_valid</name>
+        <qualifiedname>GnssData::location_valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="28" column="8" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="28" bodyend="-1"/>
+        <referencedby refid="struct_gnss_data_1aedd0b5e4e6a8b73715ec2a5f97b97401" compoundref="gps__connector_8h" startline="32" endline="34">valid</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a2dfadddc5f94b12baa0cf2ac3ccc1fd8" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GnssData::date_valid</definition>
+        <argsstring></argsstring>
+        <name>date_valid</name>
+        <qualifiedname>GnssData::date_valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="29" column="8" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="29" bodyend="-1"/>
+        <referencedby refid="struct_gnss_data_1aedd0b5e4e6a8b73715ec2a5f97b97401" compoundref="gps__connector_8h" startline="32" endline="34">valid</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a44dce35e9d2ff7e54fe1a5daaafeb7e0" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GnssData::time_valid</definition>
+        <argsstring></argsstring>
+        <name>time_valid</name>
+        <qualifiedname>GnssData::time_valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="30" column="8" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="30" bodyend="-1"/>
+        <referencedby refid="struct_gnss_data_1aedd0b5e4e6a8b73715ec2a5f97b97401" compoundref="gps__connector_8h" startline="32" endline="34">valid</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a81efa192d3bc42bba228fb66e0322f57" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double GnssData::latitude</definition>
+        <argsstring></argsstring>
+        <name>latitude</name>
+        <qualifiedname>GnssData::latitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="49" column="10" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a3869e76ad6bc7e1da392f31a620467aa" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double GnssData::longitude</definition>
+        <argsstring></argsstring>
+        <name>longitude</name>
+        <qualifiedname>GnssData::longitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="50" column="10" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a76141979345be47d549b4b573e2f02ee" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double GnssData::altitudeMSL</definition>
+        <argsstring></argsstring>
+        <name>altitudeMSL</name>
+        <qualifiedname>GnssData::altitudeMSL</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="51" column="10" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a673e52bd09d1d40d5975614427235dc3" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double GnssData::heading_degree</definition>
+        <argsstring></argsstring>
+        <name>heading_degree</name>
+        <qualifiedname>GnssData::heading_degree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="52" column="10" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a165a4bfdf7b6754eb9b58744de3fba6d" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcab" kindref="member">Heading</ref></type>
+        <definition>Heading GnssData::heading</definition>
+        <argsstring></argsstring>
+        <name>heading</name>
+        <qualifiedname>GnssData::heading</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="53" column="11" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a5c0549e186eda2349ba05c53ea33fb71" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GnssData::satsInView</definition>
+        <argsstring></argsstring>
+        <name>satsInView</name>
+        <qualifiedname>GnssData::satsInView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="56" column="11" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a2ee43d23d2c3727d123bc3b4f07ccd57" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double GnssData::pdop</definition>
+        <argsstring></argsstring>
+        <name>pdop</name>
+        <qualifiedname>GnssData::pdop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="57" column="10" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a3ea97efe2658783303e9567d6ff79ff1" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t GnssData::year</definition>
+        <argsstring></argsstring>
+        <name>year</name>
+        <qualifiedname>GnssData::year</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="60" column="12" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a43b69cd3cf4afbbd71a2b6574b33e487" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GnssData::month</definition>
+        <argsstring></argsstring>
+        <name>month</name>
+        <qualifiedname>GnssData::month</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="61" column="11" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a6851119d66adbff10f39148a71a51a51" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GnssData::day</definition>
+        <argsstring></argsstring>
+        <name>day</name>
+        <qualifiedname>GnssData::day</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="62" column="11" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a7b758dda23019c4603a07046b252e9b8" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GnssData::hour</definition>
+        <argsstring></argsstring>
+        <name>hour</name>
+        <qualifiedname>GnssData::hour</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="63" column="11" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a21f857584d5627b3a01fc775dbe66691" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GnssData::minute</definition>
+        <argsstring></argsstring>
+        <name>minute</name>
+        <qualifiedname>GnssData::minute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="64" column="11" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a2d68cd9dd5fb0405a7c507a318ccfaf1" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GnssData::second</definition>
+        <argsstring></argsstring>
+        <name>second</name>
+        <qualifiedname>GnssData::second</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="65" column="11" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a1076f9d397f084801bbd44a1930be6a4" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GnssData::protocolVersionHigh</definition>
+        <argsstring></argsstring>
+        <name>protocolVersionHigh</name>
+        <qualifiedname>GnssData::protocolVersionHigh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="68" column="11" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_gnss_data_1a6d275d6e30b32fd83e8b25256dbf07e1" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t GnssData::protocolVersionLow</definition>
+        <argsstring></argsstring>
+        <name>protocolVersionLow</name>
+        <qualifiedname>GnssData::protocolVersionLow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="69" column="11" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_gnss_data_1aedd0b5e4e6a8b73715ec2a5f97b97401" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GnssData::valid</definition>
+        <argsstring>() const</argsstring>
+        <name>valid</name>
+        <qualifiedname>GnssData::valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gps_connector.h" line="32" column="8" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="32" bodyend="34"/>
+        <references refid="struct_gnss_data_1a2dfadddc5f94b12baa0cf2ac3ccc1fd8" compoundref="gps__connector_8h" startline="29">date_valid</references>
+        <references refid="struct_gnss_data_1a6912d592ab6fe6edce0f30c25601b947" compoundref="gps__connector_8h" startline="28">location_valid</references>
+        <references refid="struct_gnss_data_1a44dce35e9d2ff7e54fe1a5daaafeb7e0" compoundref="gps__connector_8h" startline="30">time_valid</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Manage position fix and date-time from GNSS receiver. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Based on u-blox 8 receiver integrated Beitian BN-880 module, using the UBX communications protocol instead of the usual NMEA-183. The problem with NMEA is that it was really designed for boats, where close enough to see with binoculars was good enough (well, not really but it makes for a good story). The real issue is that it&apos;s hard to get consistent fix and time data by parsing NMEA sentences. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GnssData</label>
+        <link refid="struct_gnss_data"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>day</edgelabel>
+          <edgelabel>hour</edgelabel>
+          <edgelabel>minute</edgelabel>
+          <edgelabel>month</edgelabel>
+          <edgelabel>protocolVersionHigh</edgelabel>
+          <edgelabel>protocolVersionLow</edgelabel>
+          <edgelabel>satsInView</edgelabel>
+          <edgelabel>second</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>year</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>uint16_t</label>
+      </node>
+      <node id="2">
+        <label>uint8_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/workers/gps_connector.h" line="22" column="1" bodyfile="bgeigiezen_firmware/workers/gps_connector.h" bodystart="22" bodyend="71"/>
+    <listofallmembers>
+      <member refid="struct_gnss_data_1a76141979345be47d549b4b573e2f02ee" prot="public" virt="non-virtual"><scope>GnssData</scope><name>altitudeMSL</name></member>
+      <member refid="struct_gnss_data_1a2dfadddc5f94b12baa0cf2ac3ccc1fd8" prot="public" virt="non-virtual"><scope>GnssData</scope><name>date_valid</name></member>
+      <member refid="struct_gnss_data_1a6851119d66adbff10f39148a71a51a51" prot="public" virt="non-virtual"><scope>GnssData</scope><name>day</name></member>
+      <member refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabac59171f32d388e75c92c0898cb44bc15" prot="public" virt="non-virtual"><scope>GnssData</scope><name>EAST</name></member>
+      <member refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcab" prot="public" virt="non-virtual"><scope>GnssData</scope><name>Heading</name></member>
+      <member refid="struct_gnss_data_1a165a4bfdf7b6754eb9b58744de3fba6d" prot="public" virt="non-virtual"><scope>GnssData</scope><name>heading</name></member>
+      <member refid="struct_gnss_data_1a673e52bd09d1d40d5975614427235dc3" prot="public" virt="non-virtual"><scope>GnssData</scope><name>heading_degree</name></member>
+      <member refid="struct_gnss_data_1a7b758dda23019c4603a07046b252e9b8" prot="public" virt="non-virtual"><scope>GnssData</scope><name>hour</name></member>
+      <member refid="struct_gnss_data_1a81efa192d3bc42bba228fb66e0322f57" prot="public" virt="non-virtual"><scope>GnssData</scope><name>latitude</name></member>
+      <member refid="struct_gnss_data_1a6912d592ab6fe6edce0f30c25601b947" prot="public" virt="non-virtual"><scope>GnssData</scope><name>location_valid</name></member>
+      <member refid="struct_gnss_data_1a3869e76ad6bc7e1da392f31a620467aa" prot="public" virt="non-virtual"><scope>GnssData</scope><name>longitude</name></member>
+      <member refid="struct_gnss_data_1a21f857584d5627b3a01fc775dbe66691" prot="public" virt="non-virtual"><scope>GnssData</scope><name>minute</name></member>
+      <member refid="struct_gnss_data_1a43b69cd3cf4afbbd71a2b6574b33e487" prot="public" virt="non-virtual"><scope>GnssData</scope><name>month</name></member>
+      <member refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba4da3c06fe6c911023224dae72dbdad61" prot="public" virt="non-virtual"><scope>GnssData</scope><name>NORTH</name></member>
+      <member refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabacfd7d0af2deacc4d633d98eaa83619fb" prot="public" virt="non-virtual"><scope>GnssData</scope><name>NORTHEAST</name></member>
+      <member refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabacc2c1d688ba66385c9a84718f3d97800" prot="public" virt="non-virtual"><scope>GnssData</scope><name>NORTHWEST</name></member>
+      <member refid="struct_gnss_data_1a2ee43d23d2c3727d123bc3b4f07ccd57" prot="public" virt="non-virtual"><scope>GnssData</scope><name>pdop</name></member>
+      <member refid="struct_gnss_data_1a1076f9d397f084801bbd44a1930be6a4" prot="public" virt="non-virtual"><scope>GnssData</scope><name>protocolVersionHigh</name></member>
+      <member refid="struct_gnss_data_1a6d275d6e30b32fd83e8b25256dbf07e1" prot="public" virt="non-virtual"><scope>GnssData</scope><name>protocolVersionLow</name></member>
+      <member refid="struct_gnss_data_1a5c0549e186eda2349ba05c53ea33fb71" prot="public" virt="non-virtual"><scope>GnssData</scope><name>satsInView</name></member>
+      <member refid="struct_gnss_data_1a2d68cd9dd5fb0405a7c507a318ccfaf1" prot="public" virt="non-virtual"><scope>GnssData</scope><name>second</name></member>
+      <member refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcababcc52805fa984d5c3f174295df0b3461" prot="public" virt="non-virtual"><scope>GnssData</scope><name>SOUTH</name></member>
+      <member refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba14b6d0ef04f8f7d52d377b04d4335194" prot="public" virt="non-virtual"><scope>GnssData</scope><name>SOUTHEAST</name></member>
+      <member refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba77bc8bd9de96e62e1247652bc0923398" prot="public" virt="non-virtual"><scope>GnssData</scope><name>SOUTHWEST</name></member>
+      <member refid="struct_gnss_data_1a44dce35e9d2ff7e54fe1a5daaafeb7e0" prot="public" virt="non-virtual"><scope>GnssData</scope><name>time_valid</name></member>
+      <member refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcabaf944ece0444554e52923b0637a96e96c" prot="public" virt="non-virtual"><scope>GnssData</scope><name>UNKNOWN</name></member>
+      <member refid="struct_gnss_data_1aedd0b5e4e6a8b73715ec2a5f97b97401" prot="public" virt="non-virtual"><scope>GnssData</scope><name>valid</name></member>
+      <member refid="struct_gnss_data_1a4203a9fd1df828c5764f8d03c6cfbcaba5215b2609bd9d9ba6d84fbf741c70ad5" prot="public" virt="non-virtual"><scope>GnssData</scope><name>WEST</name></member>
+      <member refid="struct_gnss_data_1a3ea97efe2658783303e9567d6ff79ff1" prot="public" virt="non-virtual"><scope>GnssData</scope><name>year</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

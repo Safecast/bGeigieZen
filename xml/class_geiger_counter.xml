@@ -1,0 +1,1065 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_geiger_counter" kind="class" language="C++" prot="public">
+    <compoundname>GeigerCounter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Worker&lt; GeigerData &gt;</basecompoundref>
+    <includes refid="include_2geiger__counter_8hpp" local="no">geiger_counter.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_geiger_counter_1a29e971faa75053042af1ac953c28d026" prot="private" static="no" mutable="no">
+        <type><ref refid="class_hardware_counter" kindref="compound">HardwareCounter</ref></type>
+        <definition>HardwareCounter GeigerCounter::pulse_counter</definition>
+        <argsstring></argsstring>
+        <name>pulse_counter</name>
+        <qualifiedname>GeigerCounter::pulse_counter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="13" column="19" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_geiger_counter_1a2bad444ae5bc7c46886639c596da8a09" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerCounter::_ush_factor</definition>
+        <argsstring></argsstring>
+        <name>_ush_factor</name>
+        <qualifiedname>GeigerCounter::_ush_factor</qualifiedname>
+        <initializer>= 1.0 / <ref refid="include_2config_8hpp_1a107643ea05cf125d833475198786ad3d" kindref="member">SETUP_DEFAULT_USH_DIVIDER</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="14" column="9" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_geiger_counter_1a74f1ec849d1463796f3901626c3a9f09" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerCounter::_bqm2_factor</definition>
+        <argsstring></argsstring>
+        <name>_bqm2_factor</name>
+        <qualifiedname>GeigerCounter::_bqm2_factor</qualifiedname>
+        <initializer>=
+      <ref refid="include_2config_8hpp_1a335bd0ef57c435bba8aa8e944345a9ba" kindref="member">SETUP_DEFAULT_BQM2_FACTOR</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="15" column="9" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_geiger_counter_1a18afa727a44e87177aafd9b8ba0c9129" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerCounter::_cpm2ush_divider</definition>
+        <argsstring></argsstring>
+        <name>_cpm2ush_divider</name>
+        <qualifiedname>GeigerCounter::_cpm2ush_divider</qualifiedname>
+        <initializer>= <ref refid="include_2config_8hpp_1a107643ea05cf125d833475198786ad3d" kindref="member">SETUP_DEFAULT_USH_DIVIDER</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="17" column="9" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_geiger_counter_1af7fa4def237091866b6d3cbcac81474b" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::_cpm_alarm_level</definition>
+        <argsstring></argsstring>
+        <name>_cpm_alarm_level</name>
+        <qualifiedname>GeigerCounter::_cpm_alarm_level</qualifiedname>
+        <initializer>= <ref refid="include_2config_8hpp_1a59a0c2ce5ef2a55d3c7f0bef8516c5bf" kindref="member">SETUP_DEFAULT_ALARM_LEVEL</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="18" column="12" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_geiger_counter_1ad456987ac086723d43dde68f2b47d302" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>int GeigerCounter::_pos</definition>
+        <argsstring></argsstring>
+        <name>_pos</name>
+        <qualifiedname>GeigerCounter::_pos</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="20" column="7" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_geiger_counter_1abcdf2f450f3e34449692b63e6ac3aad6" prot="private" static="no" mutable="no">
+        <type>std::array&lt; uint32_t, <ref refid="include_2config_8hpp_1a0db50eb988f899005fd044aa495de6e2" kindref="member">GEIGER_AVERAGING_N_BINS</ref> &gt;</type>
+        <definition>std::array&lt; uint32_t, GEIGER_AVERAGING_N_BINS &gt; GeigerCounter::_shift_reg</definition>
+        <argsstring></argsstring>
+        <name>_shift_reg</name>
+        <qualifiedname>GeigerCounter::_shift_reg</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="21" column="14" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_geiger_counter_1acc8c4f0f8d58f44795d56bf54bd31096" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GeigerCounter::_available</definition>
+        <argsstring></argsstring>
+        <name>_available</name>
+        <qualifiedname>GeigerCounter::_available</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="23" column="8" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_geiger_counter_1a2cb7b3cd33e66f5b3426e712938de2df" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GeigerCounter::_valid</definition>
+        <argsstring></argsstring>
+        <name>_valid</name>
+        <qualifiedname>GeigerCounter::_valid</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="24" column="8" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_geiger_counter_1a844558412744aeb2bd424d226b6a1981" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::_cpb</definition>
+        <argsstring></argsstring>
+        <name>_cpb</name>
+        <qualifiedname>GeigerCounter::_cpb</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="25" column="12" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_geiger_counter_1a760d92120bd6b24d718f5c8c1fc26c81" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::_cpm_raw</definition>
+        <argsstring></argsstring>
+        <name>_cpm_raw</name>
+        <qualifiedname>GeigerCounter::_cpm_raw</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="26" column="12" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_geiger_counter_1a1c8a6c72e007f9d03aea74ab490b4d67" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::_cpm_comp</definition>
+        <argsstring></argsstring>
+        <name>_cpm_comp</name>
+        <qualifiedname>GeigerCounter::_cpm_comp</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="27" column="12" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_geiger_counter_1a78b9abd928f20142a93067e41988bb6b" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::_cpm_comp_peak</definition>
+        <argsstring></argsstring>
+        <name>_cpm_comp_peak</name>
+        <qualifiedname>GeigerCounter::_cpm_comp_peak</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="28" column="12" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_geiger_counter_1ab03ba0e7805e7be2ea8ff548112ec3a3" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::_total</definition>
+        <argsstring></argsstring>
+        <name>_total</name>
+        <qualifiedname>GeigerCounter::_total</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="29" column="12" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_geiger_counter_1a983872b524a5664832bce6418aad0c4b" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerCounter::_uSv</definition>
+        <argsstring></argsstring>
+        <name>_uSv</name>
+        <qualifiedname>GeigerCounter::_uSv</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="30" column="9" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_geiger_counter_1afdf324f02cc6349c225c3b4b60c3946c" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerCounter::_Bqm2</definition>
+        <argsstring></argsstring>
+        <name>_Bqm2</name>
+        <qualifiedname>GeigerCounter::_Bqm2</qualifiedname>
+        <initializer>= 0.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="31" column="9" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_geiger_counter_1a7f79f90596836f4df8b1b02ff5a91ced" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::_cpm_alert_level</definition>
+        <argsstring></argsstring>
+        <name>_cpm_alert_level</name>
+        <qualifiedname>GeigerCounter::_cpm_alert_level</qualifiedname>
+        <initializer>= <ref refid="user__config_8h_1ab7624ab834688b7fd335af2a43210451" kindref="member">SETUP_DEFAULT_ALERT_LEVEL</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="38" column="12" bodyfile="bgeigiezen_firmware/workers/gm_sensor.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_geiger_counter_1a3d63626a9b3525e3ba07b82571311fbe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GeigerCounter::GeigerCounter</definition>
+        <argsstring>(uint32_t time_interval, int gpio, float cpm2ush_divider, float bqm2_factor, uint32_t cpm_alarm_level)</argsstring>
+        <name>GeigerCounter</name>
+        <qualifiedname>GeigerCounter::GeigerCounter</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>time_interval</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+          <declname>gpio</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+          <declname>cpm2ush_divider</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+          <declname>bqm2_factor</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>cpm_alarm_level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="34" column="3" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="34" bodyend="40"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_geiger_counter_1ac068defdfdf364a2009891f736d45b76" compoundref="include_2geiger__counter_8hpp" startline="45" endline="51">configure</references>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a51239c654fe322bd4fe3525d3f7c454b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GeigerCounter::GeigerCounter</definition>
+        <argsstring>(uint32_t time_interval, int gpio)</argsstring>
+        <name>GeigerCounter</name>
+        <qualifiedname>GeigerCounter::GeigerCounter</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>time_interval</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+          <declname>gpio</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="41" column="3" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="41" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1ac068defdfdf364a2009891f736d45b76" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GeigerCounter::configure</definition>
+        <argsstring>(float cpm2ush_divider, float bqm2_factor, uint32_t cpm_alarm_level)</argsstring>
+        <name>configure</name>
+        <qualifiedname>GeigerCounter::configure</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+          <declname>cpm2ush_divider</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+          <declname>bqm2_factor</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>cpm_alarm_level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="45" column="8" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="45" bodyend="51"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_geiger_counter_1a3d63626a9b3525e3ba07b82571311fbe" compoundref="include_2geiger__counter_8hpp" startline="34" endline="40">GeigerCounter</referencedby>
+        <referencedby refid="class_context_1ad6ab2ba0b337de2f0ff6ae764a4ee18a" compoundref="fsm__context_8cpp" startline="19" endline="67">Context::setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a828539acf44e719d73716ff545bce51b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GeigerCounter::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <qualifiedname>GeigerCounter::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="53" column="8" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="53" bodyend="53"/>
+        <references refid="class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7" compoundref="hardwarecounter_8cpp" startline="22" endline="68">HardwareCounter::begin</references>
+        <referencedby refid="class_context_1ad6ab2ba0b337de2f0ff6ae764a4ee18a" compoundref="fsm__context_8cpp" startline="19" endline="67">Context::setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1ab594033dc6831e26aeee3fb6db67d5fb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::per_bin</definition>
+        <argsstring>() const</argsstring>
+        <name>per_bin</name>
+        <qualifiedname>GeigerCounter::per_bin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="55" column="12" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="55" bodyend="55"/>
+        <referencedby refid="class_b_geigie_log_formatter_1accfbb55ef326bf6483157ff01d40a9ae" compoundref="logger_8cpp" startline="15" endline="21">BGeigieLogFormatter::feed</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1ad3dd76831d8afa748a17c4319ad42463" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::total</definition>
+        <argsstring>() const</argsstring>
+        <name>total</name>
+        <qualifiedname>GeigerCounter::total</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="56" column="12" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="56" bodyend="56"/>
+        <referencedby refid="class_b_geigie_log_formatter_1accfbb55ef326bf6483157ff01d40a9ae" compoundref="logger_8cpp" startline="15" endline="21">BGeigieLogFormatter::feed</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1ae7790a96d26f2eac8c1f7b9d538b2bac" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::peak_per_minute</definition>
+        <argsstring>() const</argsstring>
+        <name>peak_per_minute</name>
+        <qualifiedname>GeigerCounter::peak_per_minute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="57" column="12" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1aa43acb94f31899c5ca5859f7d1f616cf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::per_minute_raw</definition>
+        <argsstring>() const</argsstring>
+        <name>per_minute_raw</name>
+        <qualifiedname>GeigerCounter::per_minute_raw</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="58" column="12" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="58" bodyend="58"/>
+        <referencedby refid="class_b_geigie_log_formatter_1accfbb55ef326bf6483157ff01d40a9ae" compoundref="logger_8cpp" startline="15" endline="21">BGeigieLogFormatter::feed</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1ae659bb900adc79be6557b668b292175e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::per_minute</definition>
+        <argsstring>() const</argsstring>
+        <name>per_minute</name>
+        <qualifiedname>GeigerCounter::per_minute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="59" column="12" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="59" bodyend="59"/>
+        <referencedby refid="class_display_1a6dfdf5e308b468964627eec5e6de802d" compoundref="display_8cpp" startline="396" endline="401">Display::feed</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1ae9c292a7188081224cfcd29b7ba070cd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerCounter::uSv</definition>
+        <argsstring>() const</argsstring>
+        <name>uSv</name>
+        <qualifiedname>GeigerCounter::uSv</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="60" column="9" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="60" bodyend="60"/>
+        <referencedby refid="class_display_1a6dfdf5e308b468964627eec5e6de802d" compoundref="display_8cpp" startline="396" endline="401">Display::feed</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1ac65bd57546760fddb2820d439b647893" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerCounter::uSv_single_bin</definition>
+        <argsstring>() const</argsstring>
+        <name>uSv_single_bin</name>
+        <qualifiedname>GeigerCounter::uSv_single_bin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="61" column="9" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a1826fda8e7aab647006f0d7b96828248" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerCounter::Bqm2</definition>
+        <argsstring>() const</argsstring>
+        <name>Bqm2</name>
+        <qualifiedname>GeigerCounter::Bqm2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="62" column="9" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="62" bodyend="62"/>
+        <referencedby refid="class_debug_mode_screen_1af5a52170b297c87f33e5eea935f8ca04" compoundref="debug__mode_8cpp" startline="16" endline="102">DebugModeScreen::render</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1af54557c3687d33988011526787e4727b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerCounter::Bqm2_single_bin</definition>
+        <argsstring>() const</argsstring>
+        <name>Bqm2_single_bin</name>
+        <qualifiedname>GeigerCounter::Bqm2_single_bin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="63" column="9" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a6a95adaf1a2cf5d2723a1de22464649e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GeigerCounter::alarm</definition>
+        <argsstring>() const</argsstring>
+        <name>alarm</name>
+        <qualifiedname>GeigerCounter::alarm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="65" column="8" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a691c9d8c265c49ba7f5e494639eee6fa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GeigerCounter::n_bins</definition>
+        <argsstring>() const</argsstring>
+        <name>n_bins</name>
+        <qualifiedname>GeigerCounter::n_bins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="67" column="10" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a62c418e910486f29ef2b9c09b979756a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GeigerCounter::valid</definition>
+        <argsstring>() const</argsstring>
+        <name>valid</name>
+        <qualifiedname>GeigerCounter::valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="69" column="8" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="69" bodyend="69"/>
+        <referencedby refid="class_display_1a6dfdf5e308b468964627eec5e6de802d" compoundref="display_8cpp" startline="396" endline="401">Display::feed</referencedby>
+        <referencedby refid="class_b_geigie_log_formatter_1accfbb55ef326bf6483157ff01d40a9ae" compoundref="logger_8cpp" startline="15" endline="21">BGeigieLogFormatter::feed</referencedby>
+        <referencedby refid="class_debug_mode_screen_1af5a52170b297c87f33e5eea935f8ca04" compoundref="debug__mode_8cpp" startline="16" endline="102">DebugModeScreen::render</referencedby>
+        <referencedby refid="class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85" compoundref="drive__mode_8cpp" startline="37" endline="156">DriveModeScreen::render</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af" compoundref="fixed__mode_8cpp" startline="26" endline="128">FixedModeScreen::render</referencedby>
+        <referencedby refid="class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50" compoundref="survery__mode_8cpp" startline="30" endline="109">SurveyModeScreen::render</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a5dc123770811652688f7c8fd1658f381" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GeigerCounter::available</definition>
+        <argsstring>() const</argsstring>
+        <name>available</name>
+        <qualifiedname>GeigerCounter::available</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="70" column="8" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="70" bodyend="70"/>
+        <referencedby refid="class_state_wait_g_p_s_time_1a6953188f692b1a2d0e8d6ab42f6b7685" compoundref="fsm__state__concrete_8cpp" startline="25" endline="34">StateWaitGPSTime::process</referencedby>
+        <referencedby refid="class_state_logging_1a5faae5932def9ccdde10205947ee931f" compoundref="fsm__state__concrete_8cpp" startline="55" endline="78">StateLogging::process</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a31310cb1270920b6bf8e183a6eb0ecb6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GeigerCounter::consume</definition>
+        <argsstring>()</argsstring>
+        <name>consume</name>
+        <qualifiedname>GeigerCounter::consume</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="71" column="8" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="71" bodyend="71"/>
+        <referencedby refid="class_context_1a508a6b9c7ed84ea20ef39bfa54607ad4" compoundref="fsm__context_8cpp" startline="69" endline="77">Context::on_geiger_counter_available</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1af47906652803b0a81b3485ee19d1f7e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GeigerCounter::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <qualifiedname>GeigerCounter::update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="72" column="8" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.cpp" bodystart="5" bodyend="36"/>
+        <references refid="class_hardware_counter_1a8b1831862879280db14b8a7406169e7c" compoundref="include_2hardwarecounter_8hpp" startline="50" endline="50">HardwareCounter::available</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_hardware_counter_1ad8529a6e8473d44f214dd1649fed8c38" compoundref="include_2hardwarecounter_8hpp" startline="42" endline="45">HardwareCounter::get_last_count</references>
+        <referencedby refid="class_context_1a78c450b80877fe560a2abe7a541a118c" compoundref="fsm__context_8cpp" startline="10" endline="17">Context::loop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a3d63626a9b3525e3ba07b82571311fbe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GeigerCounter::GeigerCounter</definition>
+        <argsstring>(uint32_t time_interval, int gpio, float cpm2ush_divider, float bqm2_factor, uint32_t cpm_alarm_level)</argsstring>
+        <name>GeigerCounter</name>
+        <qualifiedname>GeigerCounter::GeigerCounter</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>time_interval</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+          <declname>gpio</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+          <declname>cpm2ush_divider</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+          <declname>bqm2_factor</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>cpm_alarm_level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="34" column="3" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="34" bodyend="40"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_geiger_counter_1ac068defdfdf364a2009891f736d45b76" compoundref="include_2geiger__counter_8hpp" startline="45" endline="51">configure</references>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a51239c654fe322bd4fe3525d3f7c454b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GeigerCounter::GeigerCounter</definition>
+        <argsstring>(uint32_t time_interval, int gpio)</argsstring>
+        <name>GeigerCounter</name>
+        <qualifiedname>GeigerCounter::GeigerCounter</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>time_interval</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+          <declname>gpio</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="41" column="3" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="41" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1ac068defdfdf364a2009891f736d45b76" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GeigerCounter::configure</definition>
+        <argsstring>(float cpm2ush_divider, float bqm2_factor, uint32_t cpm_alarm_level)</argsstring>
+        <name>configure</name>
+        <qualifiedname>GeigerCounter::configure</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+          <declname>cpm2ush_divider</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+          <declname>bqm2_factor</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>cpm_alarm_level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="45" column="8" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="45" bodyend="51"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a828539acf44e719d73716ff545bce51b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GeigerCounter::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <qualifiedname>GeigerCounter::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="53" column="8" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="53" bodyend="53"/>
+        <references refid="class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7" compoundref="hardwarecounter_8cpp" startline="22" endline="68">HardwareCounter::begin</references>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1ab594033dc6831e26aeee3fb6db67d5fb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::per_bin</definition>
+        <argsstring>() const</argsstring>
+        <name>per_bin</name>
+        <qualifiedname>GeigerCounter::per_bin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="55" column="12" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1ad3dd76831d8afa748a17c4319ad42463" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::total</definition>
+        <argsstring>() const</argsstring>
+        <name>total</name>
+        <qualifiedname>GeigerCounter::total</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="56" column="12" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1ae7790a96d26f2eac8c1f7b9d538b2bac" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::peak_per_minute</definition>
+        <argsstring>() const</argsstring>
+        <name>peak_per_minute</name>
+        <qualifiedname>GeigerCounter::peak_per_minute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="57" column="12" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1aa43acb94f31899c5ca5859f7d1f616cf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::per_minute_raw</definition>
+        <argsstring>() const</argsstring>
+        <name>per_minute_raw</name>
+        <qualifiedname>GeigerCounter::per_minute_raw</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="58" column="12" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1ae659bb900adc79be6557b668b292175e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t GeigerCounter::per_minute</definition>
+        <argsstring>() const</argsstring>
+        <name>per_minute</name>
+        <qualifiedname>GeigerCounter::per_minute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="59" column="12" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1ae9c292a7188081224cfcd29b7ba070cd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerCounter::uSv</definition>
+        <argsstring>() const</argsstring>
+        <name>uSv</name>
+        <qualifiedname>GeigerCounter::uSv</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="60" column="9" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1ac65bd57546760fddb2820d439b647893" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerCounter::uSv_single_bin</definition>
+        <argsstring>() const</argsstring>
+        <name>uSv_single_bin</name>
+        <qualifiedname>GeigerCounter::uSv_single_bin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="61" column="9" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a1826fda8e7aab647006f0d7b96828248" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerCounter::Bqm2</definition>
+        <argsstring>() const</argsstring>
+        <name>Bqm2</name>
+        <qualifiedname>GeigerCounter::Bqm2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="62" column="9" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1af54557c3687d33988011526787e4727b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>float GeigerCounter::Bqm2_single_bin</definition>
+        <argsstring>() const</argsstring>
+        <name>Bqm2_single_bin</name>
+        <qualifiedname>GeigerCounter::Bqm2_single_bin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="63" column="9" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a6a95adaf1a2cf5d2723a1de22464649e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GeigerCounter::alarm</definition>
+        <argsstring>() const</argsstring>
+        <name>alarm</name>
+        <qualifiedname>GeigerCounter::alarm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="65" column="8" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a691c9d8c265c49ba7f5e494639eee6fa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t GeigerCounter::n_bins</definition>
+        <argsstring>() const</argsstring>
+        <name>n_bins</name>
+        <qualifiedname>GeigerCounter::n_bins</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="67" column="10" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a62c418e910486f29ef2b9c09b979756a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GeigerCounter::valid</definition>
+        <argsstring>() const</argsstring>
+        <name>valid</name>
+        <qualifiedname>GeigerCounter::valid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="69" column="8" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a5dc123770811652688f7c8fd1658f381" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GeigerCounter::available</definition>
+        <argsstring>() const</argsstring>
+        <name>available</name>
+        <qualifiedname>GeigerCounter::available</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="70" column="8" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a31310cb1270920b6bf8e183a6eb0ecb6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GeigerCounter::consume</definition>
+        <argsstring>()</argsstring>
+        <name>consume</name>
+        <qualifiedname>GeigerCounter::consume</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="71" column="8" bodyfile="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1af47906652803b0a81b3485ee19d1f7e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void GeigerCounter::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <qualifiedname>GeigerCounter::update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/geiger_counter.hpp" line="72" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1aa91591f3424f247fd3e7f856839284e7" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GeigerCounter::GeigerCounter</definition>
+        <argsstring>()</argsstring>
+        <name>GeigerCounter</name>
+        <qualifiedname>GeigerCounter::GeigerCounter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="27" column="12" bodyfile="bgeigiezen_firmware/workers/gm_sensor.cpp" bodystart="4" bodyend="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1ad04e18dfaf857c1af8d0d182e67e1b29" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual GeigerCounter::~GeigerCounter</definition>
+        <argsstring>()=default</argsstring>
+        <name>~GeigerCounter</name>
+        <qualifiedname>GeigerCounter::~GeigerCounter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="28" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1a20619a3dcabbac2b7595322d283ccb72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool GeigerCounter::activate</definition>
+        <argsstring>(bool retry) override</argsstring>
+        <name>activate</name>
+        <qualifiedname>GeigerCounter::activate</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>retry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="30" column="8" bodyfile="bgeigiezen_firmware/workers/gm_sensor.cpp" bodystart="8" bodyend="19"/>
+        <references refid="class_hardware_counter_1a8b1831862879280db14b8a7406169e7c" compoundref="include_2hardwarecounter_8hpp" startline="50" endline="50">HardwareCounter::available</references>
+        <references refid="class_hardware_counter_1a8fea25ffc725082777e559bca13f5db7" compoundref="hardwarecounter_8cpp" startline="22" endline="68">HardwareCounter::begin</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_hardware_counter_1ad8529a6e8473d44f214dd1649fed8c38" compoundref="include_2hardwarecounter_8hpp" startline="42" endline="45">HardwareCounter::get_last_count</references>
+      </memberdef>
+      <memberdef kind="function" id="class_geiger_counter_1ad27d8d0865e390e098d762e7a1d3de73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t GeigerCounter::produce_data</definition>
+        <argsstring>() override</argsstring>
+        <name>produce_data</name>
+        <qualifiedname>GeigerCounter::produce_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/gm_sensor.h" line="32" column="10" bodyfile="bgeigiezen_firmware/workers/gm_sensor.cpp" bodystart="21" bodyend="73"/>
+        <references refid="class_hardware_counter_1a8b1831862879280db14b8a7406169e7c" compoundref="include_2hardwarecounter_8hpp" startline="50" endline="50">HardwareCounter::available</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="include_2config_8hpp_1a0db50eb988f899005fd044aa495de6e2" compoundref="include_2config_8hpp" startline="30">GEIGER_AVERAGING_N_BINS</references>
+        <references refid="class_hardware_counter_1ad8529a6e8473d44f214dd1649fed8c38" compoundref="include_2hardwarecounter_8hpp" startline="42" endline="45">HardwareCounter::get_last_count</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Geiger counter worker, produces CPM among other data (See <ref refid="struct_geiger_data" kindref="compound">GeigerData</ref>). </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GeigerCounter</label>
+        <link refid="class_geiger_counter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Worker&lt; GeigerData &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GeigerCounter</label>
+        <link refid="class_geiger_counter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Worker&lt; GeigerData &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" line="11" column="1" bodyfile="archive/bgeigie_firmware_pio/include/geiger_counter.hpp" bodystart="11" bodyend="73"/>
+    <listofallmembers>
+      <member refid="class_geiger_counter_1acc8c4f0f8d58f44795d56bf54bd31096" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>_available</name></member>
+      <member refid="class_geiger_counter_1afdf324f02cc6349c225c3b4b60c3946c" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>_Bqm2</name></member>
+      <member refid="class_geiger_counter_1a74f1ec849d1463796f3901626c3a9f09" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>_bqm2_factor</name></member>
+      <member refid="class_geiger_counter_1a844558412744aeb2bd424d226b6a1981" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>_cpb</name></member>
+      <member refid="class_geiger_counter_1a18afa727a44e87177aafd9b8ba0c9129" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>_cpm2ush_divider</name></member>
+      <member refid="class_geiger_counter_1af7fa4def237091866b6d3cbcac81474b" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>_cpm_alarm_level</name></member>
+      <member refid="class_geiger_counter_1a7f79f90596836f4df8b1b02ff5a91ced" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>_cpm_alert_level</name></member>
+      <member refid="class_geiger_counter_1a1c8a6c72e007f9d03aea74ab490b4d67" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>_cpm_comp</name></member>
+      <member refid="class_geiger_counter_1a78b9abd928f20142a93067e41988bb6b" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>_cpm_comp_peak</name></member>
+      <member refid="class_geiger_counter_1a760d92120bd6b24d718f5c8c1fc26c81" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>_cpm_raw</name></member>
+      <member refid="class_geiger_counter_1ad456987ac086723d43dde68f2b47d302" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>_pos</name></member>
+      <member refid="class_geiger_counter_1abcdf2f450f3e34449692b63e6ac3aad6" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>_shift_reg</name></member>
+      <member refid="class_geiger_counter_1ab03ba0e7805e7be2ea8ff548112ec3a3" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>_total</name></member>
+      <member refid="class_geiger_counter_1a2bad444ae5bc7c46886639c596da8a09" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>_ush_factor</name></member>
+      <member refid="class_geiger_counter_1a983872b524a5664832bce6418aad0c4b" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>_uSv</name></member>
+      <member refid="class_geiger_counter_1a2cb7b3cd33e66f5b3426e712938de2df" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>_valid</name></member>
+      <member refid="class_geiger_counter_1a20619a3dcabbac2b7595322d283ccb72" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>activate</name></member>
+      <member refid="class_geiger_counter_1a6a95adaf1a2cf5d2723a1de22464649e" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>alarm</name></member>
+      <member refid="class_geiger_counter_1a6a95adaf1a2cf5d2723a1de22464649e" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>alarm</name></member>
+      <member refid="class_geiger_counter_1a5dc123770811652688f7c8fd1658f381" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>available</name></member>
+      <member refid="class_geiger_counter_1a5dc123770811652688f7c8fd1658f381" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>available</name></member>
+      <member refid="class_geiger_counter_1a828539acf44e719d73716ff545bce51b" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>begin</name></member>
+      <member refid="class_geiger_counter_1a828539acf44e719d73716ff545bce51b" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>begin</name></member>
+      <member refid="class_geiger_counter_1a1826fda8e7aab647006f0d7b96828248" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>Bqm2</name></member>
+      <member refid="class_geiger_counter_1a1826fda8e7aab647006f0d7b96828248" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>Bqm2</name></member>
+      <member refid="class_geiger_counter_1af54557c3687d33988011526787e4727b" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>Bqm2_single_bin</name></member>
+      <member refid="class_geiger_counter_1af54557c3687d33988011526787e4727b" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>Bqm2_single_bin</name></member>
+      <member refid="class_geiger_counter_1ac068defdfdf364a2009891f736d45b76" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>configure</name></member>
+      <member refid="class_geiger_counter_1ac068defdfdf364a2009891f736d45b76" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>configure</name></member>
+      <member refid="class_geiger_counter_1a31310cb1270920b6bf8e183a6eb0ecb6" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>consume</name></member>
+      <member refid="class_geiger_counter_1a31310cb1270920b6bf8e183a6eb0ecb6" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>consume</name></member>
+      <member refid="class_geiger_counter_1a3d63626a9b3525e3ba07b82571311fbe" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>GeigerCounter</name></member>
+      <member refid="class_geiger_counter_1a51239c654fe322bd4fe3525d3f7c454b" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>GeigerCounter</name></member>
+      <member refid="class_geiger_counter_1a3d63626a9b3525e3ba07b82571311fbe" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>GeigerCounter</name></member>
+      <member refid="class_geiger_counter_1a51239c654fe322bd4fe3525d3f7c454b" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>GeigerCounter</name></member>
+      <member refid="class_geiger_counter_1aa91591f3424f247fd3e7f856839284e7" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>GeigerCounter</name></member>
+      <member refid="class_geiger_counter_1a691c9d8c265c49ba7f5e494639eee6fa" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>n_bins</name></member>
+      <member refid="class_geiger_counter_1a691c9d8c265c49ba7f5e494639eee6fa" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>n_bins</name></member>
+      <member refid="class_geiger_counter_1ae7790a96d26f2eac8c1f7b9d538b2bac" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>peak_per_minute</name></member>
+      <member refid="class_geiger_counter_1ae7790a96d26f2eac8c1f7b9d538b2bac" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>peak_per_minute</name></member>
+      <member refid="class_geiger_counter_1ab594033dc6831e26aeee3fb6db67d5fb" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>per_bin</name></member>
+      <member refid="class_geiger_counter_1ab594033dc6831e26aeee3fb6db67d5fb" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>per_bin</name></member>
+      <member refid="class_geiger_counter_1ae659bb900adc79be6557b668b292175e" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>per_minute</name></member>
+      <member refid="class_geiger_counter_1ae659bb900adc79be6557b668b292175e" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>per_minute</name></member>
+      <member refid="class_geiger_counter_1aa43acb94f31899c5ca5859f7d1f616cf" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>per_minute_raw</name></member>
+      <member refid="class_geiger_counter_1aa43acb94f31899c5ca5859f7d1f616cf" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>per_minute_raw</name></member>
+      <member refid="class_geiger_counter_1ad27d8d0865e390e098d762e7a1d3de73" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>produce_data</name></member>
+      <member refid="class_geiger_counter_1a29e971faa75053042af1ac953c28d026" prot="private" virt="non-virtual"><scope>GeigerCounter</scope><name>pulse_counter</name></member>
+      <member refid="class_geiger_counter_1ad3dd76831d8afa748a17c4319ad42463" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>total</name></member>
+      <member refid="class_geiger_counter_1ad3dd76831d8afa748a17c4319ad42463" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>total</name></member>
+      <member refid="class_geiger_counter_1af47906652803b0a81b3485ee19d1f7e6" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>update</name></member>
+      <member refid="class_geiger_counter_1af47906652803b0a81b3485ee19d1f7e6" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>update</name></member>
+      <member refid="class_geiger_counter_1ae9c292a7188081224cfcd29b7ba070cd" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>uSv</name></member>
+      <member refid="class_geiger_counter_1ae9c292a7188081224cfcd29b7ba070cd" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>uSv</name></member>
+      <member refid="class_geiger_counter_1ac65bd57546760fddb2820d439b647893" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>uSv_single_bin</name></member>
+      <member refid="class_geiger_counter_1ac65bd57546760fddb2820d439b647893" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>uSv_single_bin</name></member>
+      <member refid="class_geiger_counter_1a62c418e910486f29ef2b9c09b979756a" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>valid</name></member>
+      <member refid="class_geiger_counter_1a62c418e910486f29ef2b9c09b979756a" prot="public" virt="non-virtual"><scope>GeigerCounter</scope><name>valid</name></member>
+      <member refid="class_geiger_counter_1ad04e18dfaf857c1af8d0d182e67e1b29" prot="public" virt="virtual"><scope>GeigerCounter</scope><name>~GeigerCounter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

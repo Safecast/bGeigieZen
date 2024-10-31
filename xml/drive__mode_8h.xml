@@ -1,0 +1,265 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="drive__mode_8h" kind="file" language="C++">
+    <compoundname>drive_mode.h</compoundname>
+    <includes refid="base__screen_8h" local="yes">base_screen.h</includes>
+    <includedby refid="gfx__screen_8cpp" local="yes">bgeigiezen_firmware/gfx_screen.cpp</includedby>
+    <includedby refid="default__entry__screen_8cpp" local="yes">bgeigiezen_firmware/screens/default_entry_screen.cpp</includedby>
+    <includedby refid="drive__mode_8cpp" local="yes">bgeigiezen_firmware/screens/drive_mode.cpp</includedby>
+    <includedby refid="menu__window_8cpp" local="yes">bgeigiezen_firmware/screens/menu_window.cpp</includedby>
+    <includedby refid="sd__message_8cpp" local="yes">bgeigiezen_firmware/screens/sd_message.cpp</includedby>
+    <incdepgraph>
+      <node id="16">
+        <label>TinyGPS.h</label>
+        <link refid="bgeigie__firmware_2_tiny_g_p_s_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Aggregator.hpp</label>
+        <link refid="aggregator_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>measurements.hpp</label>
+        <link refid="bgeigie__firmware_2measurements_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>patterns.hpp</label>
+        <link refid="bgeigie__firmware_2patterns_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>serial_source.hpp</label>
+        <link refid="bgeigie__firmware_2serial__source_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>threaded_gps.hpp</label>
+        <link refid="bgeigie__firmware_2threaded__gps_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>controller.h</label>
+        <link refid="controller_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>base_screen.h</label>
+        <link refid="base__screen_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/screens/drive_mode.h</label>
+        <link refid="drive__mode_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>utils/sd_wrapper.h</label>
+        <link refid="sd__wrapper_8h"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>workers/local_storage.h</label>
+        <link refid="local__storage_8h"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>workers/zen_button.h</label>
+        <link refid="zen__button_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Arduino.h</label>
+      </node>
+      <node id="22">
+        <label>Handler.hpp</label>
+      </node>
+      <node id="3">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="27">
+        <label>Preferences.h</label>
+      </node>
+      <node id="25">
+        <label>SD.h</label>
+      </node>
+      <node id="4">
+        <label>Supervisor.hpp</label>
+      </node>
+      <node id="23">
+        <label>TeenyUbloxConnect.h</label>
+      </node>
+      <node id="7">
+        <label>Worker.hpp</label>
+      </node>
+      <node id="14">
+        <label>cstdint</label>
+      </node>
+      <node id="18">
+        <label>cstdio</label>
+      </node>
+      <node id="11">
+        <label>forward_list</label>
+      </node>
+      <node id="15">
+        <label>mutex</label>
+      </node>
+      <node id="13">
+        <label>pthread.h</label>
+      </node>
+      <node id="20">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>bgeigiezen_firmware/gfx_screen.cpp</label>
+        <link refid="gfx__screen_8cpp"/>
+      </node>
+      <node id="3">
+        <label>bgeigiezen_firmware/screens/default_entry_screen.cpp</label>
+        <link refid="default__entry__screen_8cpp"/>
+      </node>
+      <node id="4">
+        <label>bgeigiezen_firmware/screens/drive_mode.cpp</label>
+        <link refid="drive__mode_8cpp"/>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/screens/drive_mode.h</label>
+        <link refid="drive__mode_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>bgeigiezen_firmware/screens/menu_window.cpp</label>
+        <link refid="menu__window_8cpp"/>
+      </node>
+      <node id="6">
+        <label>bgeigiezen_firmware/screens/sd_message.cpp</label>
+        <link refid="sd__message_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_drive_mode_screen" prot="public">DriveModeScreen</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="drive__mode_8h_1a55dd664ce7148bd9ba5556188ca39417" prot="public" static="no" extern="yes" mutable="no">
+        <type><ref refid="class_drive_mode_screen" kindref="compound">DriveModeScreen</ref></type>
+        <definition>DriveModeScreen DriveModeScreen_i</definition>
+        <argsstring></argsstring>
+        <name>DriveModeScreen_i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/drive_mode.h" line="24" column="24" bodyfile="bgeigiezen_firmware/screens/drive_mode.cpp" bodystart="10" bodyend="-1" declfile="bgeigiezen_firmware/screens/drive_mode.h" declline="24" declcolumn="24"/>
+        <referencedby refid="class_default_entry_screen_1a06fd4454eff553465a74d30b02567a0f" compoundref="default__entry__screen_8cpp" startline="13" endline="28">DefaultEntryScreen::handle_input</referencedby>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>SCREENS_DRIVE_SCREEN_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SCREENS_DRIVE_SCREEN_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="base__screen_8h" kindref="compound">base_screen.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="class_drive_mode_screen" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_drive_mode_screen" kindref="compound">DriveModeScreen</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_base_screen" kindref="compound">BaseScreen</ref><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_drive_mode_screen_1a3b3cf7ae50441e51ffe7d95f7d058069" kindref="member">DriveModeScreen</ref>();</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><ref refid="class_base_screen" kindref="compound">BaseScreen</ref>*<sp/><ref refid="class_drive_mode_screen_1a69c70a1c35f362131345ecd652cd4416" kindref="member">handle_input</ref>(<ref refid="class_controller" kindref="compound">Controller</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_drive_mode_screen_1a5b274abdc3e6d98c004fda8bb7ec90c0" kindref="member">enter_screen</ref>(<ref refid="class_controller" kindref="compound">Controller</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_drive_mode_screen_1ac0c53ec7f983bfd75c289db8291d5aa3" kindref="member">leave_screen</ref>(<ref refid="class_controller" kindref="compound">Controller</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85" kindref="member">render</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">handler_map_t</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">handlers</ref>,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">force</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_logging_available;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_currently_logging;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_distance_start;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="class_drive_mode_screen" kindref="compound">DriveModeScreen</ref><sp/><ref refid="drive__mode_8h_1a55dd664ce7148bd9ba5556188ca39417" kindref="member">DriveModeScreen_i</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//SCREENS_DRIVE_SCREEN_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/screens/drive_mode.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,393 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_config_web_server" kind="class" language="C++" prot="public">
+    <compoundname>ConfigWebServer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Worker&lt; ServerStatus &gt;</basecompoundref>
+    <includes refid="configuration__server_8hpp" local="no">configuration_server.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_config_web_server_1a69f18c3d29fafb2c4749f3717c5bcbc9" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">WebServer</ref></type>
+        <definition>WebServer ConfigWebServer::_server</definition>
+        <argsstring></argsstring>
+        <name>_server</name>
+        <qualifiedname>ConfigWebServer::_server</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/configuration_server.hpp" line="63" column="13" bodyfile="archive/bgeigie_firmware_pio/include/configuration_server.hpp" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_config_web_server_1a757a30df9077db858a9a895b6d548abd" prot="private" static="no" mutable="no">
+        <type><ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+        <definition>LocalStorage&amp; ConfigWebServer::_config</definition>
+        <argsstring></argsstring>
+        <name>_config</name>
+        <qualifiedname>ConfigWebServer::_config</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/configuration_server.h" line="63" column="16" bodyfile="bgeigiezen_firmware/workers/configuration_server.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_config_web_server_1a55e76eaabff9fd5bee9505c3c4b0d515" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool ConfigWebServer::_handled_client</definition>
+        <argsstring></argsstring>
+        <name>_handled_client</name>
+        <qualifiedname>ConfigWebServer::_handled_client</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/configuration_server.h" line="64" column="8" bodyfile="bgeigiezen_firmware/workers/configuration_server.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_config_web_server_1a7e951751a94a176867f7443e24545987" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ConfigWebServer::ConfigWebServer</definition>
+        <argsstring>(Display &amp;display)</argsstring>
+        <name>ConfigWebServer</name>
+        <qualifiedname>ConfigWebServer::ConfigWebServer</qualifiedname>
+        <param>
+          <type><ref refid="class_display" kindref="compound">Display</ref> &amp;</type>
+          <declname>display</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/configuration_server.hpp" line="23" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_config_web_server_1a25c459b986060d38b5557e1eb42a0f4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ConfigWebServer::~ConfigWebServer</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ConfigWebServer</name>
+        <qualifiedname>ConfigWebServer::~ConfigWebServer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/configuration_server.hpp" line="24" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_config_web_server_1a5466445c2a77e40eba794ba0ac2f809f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t ConfigWebServer::produce_data</definition>
+        <argsstring>()</argsstring>
+        <name>produce_data</name>
+        <qualifiedname>ConfigWebServer::produce_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if there are requests and handles them </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/configuration_server.hpp" line="29" column="10" bodyfile="archive/bgeigie_firmware_pio/src/configuration_server.cpp" bodystart="49" bodyend="56"/>
+        <references refid="class_http_pages_1a9d1744128b715be721740fe9783a3b98" compoundref="http__pages_8h" startline="99">HttpPages::internet_access</references>
+        <references refid="configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aa4b8c7d857d90208a15c3af10b3eaf36a" compoundref="configuration__server_8h" startline="14">k_server_status_offline</references>
+        <references refid="configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aae66ec56782b751934b4ae350253e524c" compoundref="configuration__server_8h" startline="16">k_server_status_running_access_point</references>
+        <references refid="configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aacdcee34b8952d730fe2ec62d29195b4c" compoundref="configuration__server_8h" startline="15">k_server_status_running_wifi</references>
+      </memberdef>
+      <memberdef kind="function" id="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void ConfigWebServer::add_urls</definition>
+        <argsstring>()</argsstring>
+        <name>add_urls</name>
+        <qualifiedname>ConfigWebServer::add_urls</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize the web server and endpoints </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/configuration_server.hpp" line="34" column="8" bodyfile="archive/bgeigie_firmware_pio/src/configuration_server.cpp" bodystart="58" bodyend="155"/>
+        <references refid="class_http_pages_1a9be2569908780465b83751bc08251a61" compoundref="http__pages_8h" startline="596" endline="641">HttpPages::favicon</references>
+        <references refid="http__pages_8h_1abc7068a1efb6caca697cbfa09cb56f32" compoundref="http__pages_8h" startline="10">FAVICON_SIZE</references>
+        <references refid="class_local_storage_1a3cc3942e1b3d46088e4ec092dd9b5034" compoundref="local__storage_8cpp" startline="89" endline="91">LocalStorage::get_ap_password</references>
+        <references refid="class_local_storage_1a119e9cbf7e8edad53786b070ee2cb298" compoundref="local__storage_8cpp" startline="137" endline="139">LocalStorage::get_api_key</references>
+        <references refid="class_http_pages_1a64735f36d77809ba60b69d33ad6c0003" compoundref="http__pages_8cpp" startline="249" endline="299">HttpPages::get_config_connection_page</references>
+        <references refid="class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4" compoundref="http__pages_8cpp" startline="93" endline="190">HttpPages::get_config_device_page</references>
+        <references refid="class_http_pages_1a74d1994442f6781235fa7d76a9c7c36a" compoundref="http__pages_8cpp" startline="192" endline="247">HttpPages::get_config_location_page</references>
+        <references refid="class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65" compoundref="local__storage_8cpp" startline="81" endline="83">LocalStorage::get_device_id</references>
+        <references refid="class_http_pages_1a2029cf0ccea4c0cf9497eb2b0a30f78a" compoundref="http__pages_8cpp" startline="69" endline="91">HttpPages::get_home_page</references>
+        <references refid="class_local_storage_1a9aa6633c81709db989f2bf3ea1f21521" compoundref="local__storage_8cpp" startline="157" endline="159">LocalStorage::get_last_latitude</references>
+        <references refid="class_local_storage_1a120a3285914a098837bb4d3b8be20d0b" compoundref="local__storage_8cpp" startline="153" endline="155">LocalStorage::get_last_longitude</references>
+        <references refid="class_local_storage_1a619ba1c828df4e5c97e7ac77115e72a2" compoundref="local__storage_8cpp" startline="133" endline="135">LocalStorage::get_wifi_password</references>
+        <references refid="class_local_storage_1a8d0807c2fad52121c446d91f85976856" compoundref="local__storage_8cpp" startline="129" endline="131">LocalStorage::get_wifi_ssid</references>
+        <references refid="class_http_pages_1a4a7f7da507251011076206062a49e0af" compoundref="http__pages_8h" startline="347" endline="594">HttpPages::pure_css</references>
+        <references refid="http__pages_8h_1ada5878d891f82a42326746c9dbe6b9a6" compoundref="http__pages_8h" startline="9">PURE_CSS_SIZE</references>
+        <referencedby refid="class_config_web_server_1a001c5b747ffda5655ffa7828efe7a83b" compoundref="bgeigiezen__firmware_2workers_2configuration__server_8cpp" startline="13" endline="19">ConfigWebServer</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_config_web_server_1a001c5b747ffda5655ffa7828efe7a83b" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ConfigWebServer::ConfigWebServer</definition>
+        <argsstring>(LocalStorage &amp;config)</argsstring>
+        <name>ConfigWebServer</name>
+        <qualifiedname>ConfigWebServer::ConfigWebServer</qualifiedname>
+        <param>
+          <type><ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/configuration_server.h" line="25" column="12" bodyfile="bgeigiezen_firmware/workers/configuration_server.cpp" bodystart="13" bodyend="19"/>
+        <references refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="58" endline="155">add_urls</references>
+      </memberdef>
+      <memberdef kind="function" id="class_config_web_server_1a25c459b986060d38b5557e1eb42a0f4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ConfigWebServer::~ConfigWebServer</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ConfigWebServer</name>
+        <qualifiedname>ConfigWebServer::~ConfigWebServer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/configuration_server.h" line="26" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_config_web_server_1a1275de30c892a8fc52e64f958732ac91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t ConfigWebServer::produce_data</definition>
+        <argsstring>() override</argsstring>
+        <name>produce_data</name>
+        <qualifiedname>ConfigWebServer::produce_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if there are requests and handles them </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/configuration_server.h" line="31" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void ConfigWebServer::add_urls</definition>
+        <argsstring>()</argsstring>
+        <name>add_urls</name>
+        <qualifiedname>ConfigWebServer::add_urls</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize the web server and endpoints </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/configuration_server.h" line="36" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_config_web_server_1a5fba48f2cf78029036a923eb27bc0674" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool ConfigWebServer::activate</definition>
+        <argsstring>(bool retry) override</argsstring>
+        <name>activate</name>
+        <qualifiedname>ConfigWebServer::activate</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>retry</declname>
+        </param>
+        <initializer>{
+  <ref refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" kindref="member">add_urls</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize the web server, does nothing if it is already initialized. <simplesect kind="return"><para>true if initialization was success </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/configuration_server.hpp" line="43" column="8" bodyfile="archive/bgeigie_firmware_pio/src/configuration_server.cpp" bodystart="25" bodyend="41"/>
+        <references refid="user__config_8h_1a61e55f831ccc0dca94bf0e0f121f2a7c" compoundref="user__config_8h" startline="96">ACCESS_POINT_SSID</references>
+        <references refid="class_wi_fi_connection_1a81c1171ee44b4fcea512384f9fd1a986" compoundref="archive_2bgeigie__firmware__pio_2src_2wifi__connection_8cpp" startline="58" endline="60">WiFiConnection::ap_server_up</references>
+        <references refid="class_http_pages_1a9d1744128b715be721740fe9783a3b98" compoundref="http__pages_8h" startline="99">HttpPages::internet_access</references>
+        <references refid="user__config_8h_1a2e6a8253ab0bc7773cfccfb1ae8d5fbc" compoundref="user__config_8h" startline="97">SERVER_WIFI_PORT</references>
+        <references refid="class_wi_fi_connection_1a4458679fcc6f69033124d451ec873bb5" compoundref="archive_2bgeigie__firmware__pio_2src_2wifi__connection_8cpp" startline="62" endline="64">WiFiConnection::set_hostname</references>
+        <references refid="class_wi_fi_connection_1a36ce5e5b17827a41862c5d16746a74b9" compoundref="archive_2bgeigie__firmware__pio_2src_2wifi__connection_8cpp" startline="33" endline="35">WiFiConnection::wifi_connected</references>
+      </memberdef>
+      <memberdef kind="function" id="class_config_web_server_1ac0bce5e4a438388e030c21d56243c643" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void ConfigWebServer::deactivate</definition>
+        <argsstring>() override</argsstring>
+        <name>deactivate</name>
+        <qualifiedname>ConfigWebServer::deactivate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stops the web server </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/configuration_server.hpp" line="49" column="8" bodyfile="archive/bgeigie_firmware_pio/src/configuration_server.cpp" bodystart="43" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_config_web_server_1a5fba48f2cf78029036a923eb27bc0674" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool ConfigWebServer::activate</definition>
+        <argsstring>(bool retry) override</argsstring>
+        <name>activate</name>
+        <qualifiedname>ConfigWebServer::activate</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>retry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize the web server, does nothing if it is already initialized. <simplesect kind="return"><para>true if initialization was success </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/configuration_server.h" line="43" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_config_web_server_1ac0bce5e4a438388e030c21d56243c643" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void ConfigWebServer::deactivate</definition>
+        <argsstring>() override</argsstring>
+        <name>deactivate</name>
+        <qualifiedname>ConfigWebServer::deactivate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stops the web server </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/configuration_server.h" line="48" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_config_web_server_1a2724137e949b1024215262cfdc1c7580" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void ConfigWebServer::handle_save</definition>
+        <argsstring>()</argsstring>
+        <name>handle_save</name>
+        <qualifiedname>ConfigWebServer::handle_save</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handles request for <computeroutput>/save</computeroutput> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/configuration_server.hpp" line="56" column="8" bodyfile="archive/bgeigie_firmware_pio/src/configuration_server.cpp" bodystart="157" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="class_config_web_server_1a1a58748c583f6aea94041e3ad7a68d15" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void ConfigWebServer::handle_update_uploading</definition>
+        <argsstring>()</argsstring>
+        <name>handle_update_uploading</name>
+        <qualifiedname>ConfigWebServer::handle_update_uploading</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handles request for <computeroutput>/update</computeroutput> post </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/configuration_server.hpp" line="61" column="8" bodyfile="archive/bgeigie_firmware_pio/src/configuration_server.cpp" bodystart="194" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="class_config_web_server_1a2724137e949b1024215262cfdc1c7580" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void ConfigWebServer::handle_save</definition>
+        <argsstring>()</argsstring>
+        <name>handle_save</name>
+        <qualifiedname>ConfigWebServer::handle_save</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handles request for <computeroutput>/save</computeroutput> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/configuration_server.h" line="55" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_config_web_server_1a1a58748c583f6aea94041e3ad7a68d15" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void ConfigWebServer::handle_update_uploading</definition>
+        <argsstring>()</argsstring>
+        <name>handle_update_uploading</name>
+        <qualifiedname>ConfigWebServer::handle_update_uploading</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handles request for <computeroutput>/update</computeroutput> post </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/configuration_server.h" line="60" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Class to host a web server for configuring the ESP32. Will set up an access point based on config.hpp &quot;Access point settings&quot;.</para>
+<para>Class to host a web server for configuring the ESP32. Will set up an access point based on <ref refid="user__config_8h" kindref="compound">user_config.h</ref> &quot;Access point settings&quot;. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ConfigWebServer</label>
+        <link refid="class_config_web_server"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Worker&lt; ServerStatus &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ConfigWebServer</label>
+        <link refid="class_config_web_server"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Worker&lt; ServerStatus &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="archive/bgeigie_firmware_pio/include/configuration_server.hpp" line="21" column="1" bodyfile="archive/bgeigie_firmware_pio/include/configuration_server.hpp" bodystart="21" bodyend="65"/>
+    <listofallmembers>
+      <member refid="class_config_web_server_1a757a30df9077db858a9a895b6d548abd" prot="private" virt="non-virtual"><scope>ConfigWebServer</scope><name>_config</name></member>
+      <member refid="class_config_web_server_1a55e76eaabff9fd5bee9505c3c4b0d515" prot="private" virt="non-virtual"><scope>ConfigWebServer</scope><name>_handled_client</name></member>
+      <member refid="class_config_web_server_1a69f18c3d29fafb2c4749f3717c5bcbc9" prot="private" virt="non-virtual"><scope>ConfigWebServer</scope><name>_server</name></member>
+      <member refid="class_config_web_server_1a5fba48f2cf78029036a923eb27bc0674" prot="protected" virt="non-virtual"><scope>ConfigWebServer</scope><name>activate</name></member>
+      <member refid="class_config_web_server_1a5fba48f2cf78029036a923eb27bc0674" prot="protected" virt="non-virtual"><scope>ConfigWebServer</scope><name>activate</name></member>
+      <member refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" prot="public" virt="non-virtual"><scope>ConfigWebServer</scope><name>add_urls</name></member>
+      <member refid="class_config_web_server_1a35c4374f69f6421d8c2ec61934f2c092" prot="public" virt="non-virtual"><scope>ConfigWebServer</scope><name>add_urls</name></member>
+      <member refid="class_config_web_server_1a7e951751a94a176867f7443e24545987" prot="public" virt="non-virtual"><scope>ConfigWebServer</scope><name>ConfigWebServer</name></member>
+      <member refid="class_config_web_server_1a001c5b747ffda5655ffa7828efe7a83b" prot="public" virt="non-virtual"><scope>ConfigWebServer</scope><name>ConfigWebServer</name></member>
+      <member refid="class_config_web_server_1ac0bce5e4a438388e030c21d56243c643" prot="protected" virt="non-virtual"><scope>ConfigWebServer</scope><name>deactivate</name></member>
+      <member refid="class_config_web_server_1ac0bce5e4a438388e030c21d56243c643" prot="protected" virt="non-virtual"><scope>ConfigWebServer</scope><name>deactivate</name></member>
+      <member refid="class_config_web_server_1a2724137e949b1024215262cfdc1c7580" prot="private" virt="non-virtual"><scope>ConfigWebServer</scope><name>handle_save</name></member>
+      <member refid="class_config_web_server_1a2724137e949b1024215262cfdc1c7580" prot="private" virt="non-virtual"><scope>ConfigWebServer</scope><name>handle_save</name></member>
+      <member refid="class_config_web_server_1a1a58748c583f6aea94041e3ad7a68d15" prot="private" virt="non-virtual"><scope>ConfigWebServer</scope><name>handle_update_uploading</name></member>
+      <member refid="class_config_web_server_1a1a58748c583f6aea94041e3ad7a68d15" prot="private" virt="non-virtual"><scope>ConfigWebServer</scope><name>handle_update_uploading</name></member>
+      <member refid="class_config_web_server_1a5466445c2a77e40eba794ba0ac2f809f" prot="public" virt="non-virtual"><scope>ConfigWebServer</scope><name>produce_data</name></member>
+      <member refid="class_config_web_server_1a1275de30c892a8fc52e64f958732ac91" prot="public" virt="non-virtual"><scope>ConfigWebServer</scope><name>produce_data</name></member>
+      <member refid="class_config_web_server_1a25c459b986060d38b5557e1eb42a0f4f" prot="public" virt="virtual"><scope>ConfigWebServer</scope><name>~ConfigWebServer</name></member>
+      <member refid="class_config_web_server_1a25c459b986060d38b5557e1eb42a0f4f" prot="public" virt="virtual"><scope>ConfigWebServer</scope><name>~ConfigWebServer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,448 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_state_wait_g_p_s_time" kind="class" language="C++" prot="public">
+    <compoundname>StateWaitGPSTime</compoundname>
+    <basecompoundref refid="class_state" prot="public" virt="non-virtual">State</basecompoundref>
+    <basecompoundref refid="class_state" prot="public" virt="non-virtual">State</basecompoundref>
+    <includes refid="include_2fsm__state__concrete_8hpp" local="no">fsm_state_concrete.hpp</includes>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_state_wait_g_p_s_time_1a0d2c83c666454843895fd02886f2c09d" prot="private" static="yes" mutable="no">
+        <type><ref refid="class_state_wait_g_p_s_time" kindref="compound">StateWaitGPSTime</ref> *</type>
+        <definition>static StateWaitGPSTime * StateWaitGPSTime::_instance</definition>
+        <argsstring></argsstring>
+        <name>_instance</name>
+        <qualifiedname>StateWaitGPSTime::_instance</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">NULL</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_state_concrete.hpp" line="22" column="27" bodyfile="archive/bgeigie_firmware_pio/include/fsm_state_concrete.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_state_wait_g_p_s_time_1a9f3d157569d70006bfa1e434c7dfe69b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>StateWaitGPSTime::StateWaitGPSTime</definition>
+        <argsstring>()</argsstring>
+        <name>StateWaitGPSTime</name>
+        <qualifiedname>StateWaitGPSTime::StateWaitGPSTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_state_concrete.hpp" line="25" column="3" bodyfile="archive/bgeigie_firmware_pio/include/fsm_state_concrete.hpp" bodystart="25" bodyend="25"/>
+        <referencedby refid="class_state_wait_g_p_s_time_1aa9295818f9d5ab901714999a47050819" compoundref="fsm__state__concrete_8cpp" startline="18" endline="23">instance</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_state_wait_g_p_s_time_1a9f3d157569d70006bfa1e434c7dfe69b" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>StateWaitGPSTime::StateWaitGPSTime</definition>
+        <argsstring>()</argsstring>
+        <name>StateWaitGPSTime</name>
+        <qualifiedname>StateWaitGPSTime::StateWaitGPSTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_state_concrete.hpp" line="25" column="3" bodyfile="archive/bgeigie_firmware_pio/src/fsm_state_concrete.hpp" bodystart="25" bodyend="25"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_state_wait_g_p_s_time_1ae7e0b7274b8bacc1c930e003ae929dec" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void StateWaitGPSTime::on_enter</definition>
+        <argsstring>(bGeigieZen::Event e)</argsstring>
+        <name>on_enter</name>
+        <qualifiedname>StateWaitGPSTime::on_enter</qualifiedname>
+        <reimplements refid="class_state_1afc63f032dab5bd57dc2a9570e7e0d57c">on_enter</reimplements>
+        <param>
+          <type><ref refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785" kindref="member">bGeigieZen::Event</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_state_concrete.hpp" line="28" column="8" bodyfile="archive/bgeigie_firmware_pio/src/fsm_state_concrete.cpp" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_state_wait_g_p_s_time_1a6953188f692b1a2d0e8d6ab42f6b7685" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void StateWaitGPSTime::process</definition>
+        <argsstring>()</argsstring>
+        <name>process</name>
+        <qualifiedname>StateWaitGPSTime::process</qualifiedname>
+        <reimplements refid="class_state_1a82ef896916bba81b0c818d37af21bf3c">process</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_state_concrete.hpp" line="29" column="8" bodyfile="archive/bgeigie_firmware_pio/src/fsm_state_concrete.cpp" bodystart="25" bodyend="34"/>
+        <references refid="class_state_1a92a578f1318bfa1f095d00e8621f4d41" compoundref="include_2fsm__state__base_8hpp" startline="21">State::_ctx</references>
+        <references refid="class_geiger_counter_1a5dc123770811652688f7c8fd1658f381" compoundref="include_2geiger__counter_8hpp" startline="70" endline="70">GeigerCounter::available</references>
+        <references refid="class_g_p_s_sensor_1a2da4cc0a0f3314a2721dfe75e668c46e" compoundref="include_2gps_8hpp" startline="68" endline="68">GPSSensor::available</references>
+        <references refid="class_context_1a0dbf6bc88a0646c37c8b53d7220d073e" compoundref="include_2fsm__context_8hpp" startline="34" endline="34">Context::geiger_count</references>
+        <references refid="class_context_1acb802a2b6ddda206da0be0b1c78a371d" compoundref="include_2fsm__context_8hpp" startline="35" endline="35">Context::gps</references>
+        <references refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785ae55cc97e470ecc86576b6cb73b667b02">bGeigieZen::GPS_DATE_BECAME_CORRECT</references>
+        <references refid="class_state_logging_1a4708a1ec561acf6890c4b922f7c41b1d" compoundref="fsm__state__concrete_8cpp" startline="47" endline="52">StateLogging::instance</references>
+        <references refid="class_context_1a508a6b9c7ed84ea20ef39bfa54607ad4" compoundref="fsm__context_8cpp" startline="69" endline="77">Context::on_geiger_counter_available</references>
+        <references refid="class_context_1a402bea63f404fae0790d6bb4f1a011f2" compoundref="fsm__context_8cpp" startline="79" endline="82">Context::on_gps_available</references>
+        <references refid="class_g_p_s_sensor_1adc9f7a612b2a58ea7ee04b89b39d3d01" compoundref="include_2gps_8hpp" startline="76" endline="76">GPSSensor::time_valid</references>
+        <references refid="class_context_1a33b213d58cb2d6bd4e2affdd5416e9be" compoundref="fsm__context_8cpp" startline="84" endline="88">Context::transition_to</references>
+      </memberdef>
+      <memberdef kind="function" id="class_state_wait_g_p_s_time_1a5afbcebf690e8a8eadc30a7795d9a907" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void StateWaitGPSTime::on_exit</definition>
+        <argsstring>(bGeigieZen::Event e)</argsstring>
+        <name>on_exit</name>
+        <qualifiedname>StateWaitGPSTime::on_exit</qualifiedname>
+        <reimplements refid="class_state_1a1bfe3a368211f8722ba22dbab6dc1c68">on_exit</reimplements>
+        <param>
+          <type><ref refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785" kindref="member">bGeigieZen::Event</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_state_concrete.hpp" line="30" column="8" bodyfile="archive/bgeigie_firmware_pio/src/fsm_state_concrete.cpp" bodystart="35" bodyend="45"/>
+        <references refid="class_state_1a92a578f1318bfa1f095d00e8621f4d41" compoundref="include_2fsm__state__base_8hpp" startline="21">State::_ctx</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_setup_1a973924be0fdd98b6e5a964a2416cf721" compoundref="include_2setup_8hpp" startline="120" endline="120">Setup::config</references>
+        <references refid="class_g_p_s_sensor_1a0e3ebafd25a7d5197ddfdcbc5053a260" compoundref="include_2gps_8hpp" startline="77" endline="80">GPSSensor::data</references>
+        <references refid="class_tiny_g_p_s_plus_1a83a70812b432d7f51c7c735bfe7be0f0" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="235">TinyGPSPlus::date</references>
+        <references refid="struct_tiny_g_p_s_date_1ae8cc5f80c49e328f792d168a44062000" compoundref="_tiny_g_p_s_09_09_8cpp" startline="412" endline="416">TinyGPSDate::day</references>
+        <references refid="struct_config_data_1af4aa84fbef118fd20be9a243b4f1668f" compoundref="include_2setup_8hpp" startline="84">ConfigData::device_id</references>
+        <references refid="class_context_1a54e51afce0edd534d7f0950ad83986ec" compoundref="include_2fsm__context_8hpp" startline="33">Context::device_setup</references>
+        <references refid="class_context_1acb802a2b6ddda206da0be0b1c78a371d" compoundref="include_2fsm__context_8hpp" startline="35" endline="35">Context::gps</references>
+        <references refid="namespaceb_geigie_zen_1a394a946cd0cac5a720f888da6b9cc785ae55cc97e470ecc86576b6cb73b667b02">bGeigieZen::GPS_DATE_BECAME_CORRECT</references>
+        <references refid="class_context_1a365a2efa8a9dca76082a3b03bd6579dd" compoundref="include_2fsm__context_8hpp" startline="41">Context::logger</references>
+        <references refid="struct_tiny_g_p_s_date_1a6f3c5b4e72ef28b010f94ac9016315f3" compoundref="_tiny_g_p_s_09_09_8cpp" startline="406" endline="410">TinyGPSDate::month</references>
+        <references refid="class_s_d_logger_1af2514db995481908f4821ff13c76635b" compoundref="logger_8cpp" startline="77" endline="118">SDLogger::start</references>
+        <references refid="struct_tiny_g_p_s_date_1ae2cc914fec377b429d99f01204f50d60" compoundref="_tiny_g_p_s_09_09_8cpp" startline="399" endline="404">TinyGPSDate::year</references>
+      </memberdef>
+      <memberdef kind="function" id="class_state_wait_g_p_s_time_1a57115a2417eace7cb3c097ad107eb16d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void StateWaitGPSTime::on_enter</definition>
+        <argsstring>(Event e)</argsstring>
+        <name>on_enter</name>
+        <qualifiedname>StateWaitGPSTime::on_enter</qualifiedname>
+        <reimplements refid="class_state_1a90c1611b3f58be4640f75da32165bc29">on_enter</reimplements>
+        <param>
+          <type>Event</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_state_concrete.hpp" line="28" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_state_wait_g_p_s_time_1a6953188f692b1a2d0e8d6ab42f6b7685" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void StateWaitGPSTime::process</definition>
+        <argsstring>()</argsstring>
+        <name>process</name>
+        <qualifiedname>StateWaitGPSTime::process</qualifiedname>
+        <reimplements refid="class_state_1a82ef896916bba81b0c818d37af21bf3c">process</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_state_concrete.hpp" line="29" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_state_wait_g_p_s_time_1aa4c8c32275103c24931f768fca870f49" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void StateWaitGPSTime::on_exit</definition>
+        <argsstring>(Event e)</argsstring>
+        <name>on_exit</name>
+        <qualifiedname>StateWaitGPSTime::on_exit</qualifiedname>
+        <reimplements refid="class_state_1a5b7bd02d54cb890342a6324439f6f2df">on_exit</reimplements>
+        <param>
+          <type>Event</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_state_concrete.hpp" line="30" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_state_wait_g_p_s_time_1aa9295818f9d5ab901714999a47050819" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_state_wait_g_p_s_time" kindref="compound">StateWaitGPSTime</ref> *</type>
+        <definition>StateWaitGPSTime * StateWaitGPSTime::instance</definition>
+        <argsstring>()</argsstring>
+        <name>instance</name>
+        <qualifiedname>StateWaitGPSTime::instance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/fsm_state_concrete.hpp" line="31" column="27" bodyfile="archive/bgeigie_firmware_pio/src/fsm_state_concrete.cpp" bodystart="18" bodyend="23"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_state_wait_g_p_s_time_1a9f3d157569d70006bfa1e434c7dfe69b" compoundref="include_2fsm__state__concrete_8hpp" startline="25" endline="25">StateWaitGPSTime</references>
+        <referencedby refid="class_state_startup_1aa18d08fdc8b18a4b9711a10075d992f8" compoundref="fsm__state__concrete_8cpp" startline="10" endline="13">StateStartup::on_enter</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_state_wait_g_p_s_time_1a9f8b0e049aeb6c1d85312aed1375280c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_state_wait_g_p_s_time" kindref="compound">StateWaitGPSTime</ref> *</type>
+        <definition>static StateWaitGPSTime * StateWaitGPSTime::instance</definition>
+        <argsstring>()</argsstring>
+        <name>instance</name>
+        <qualifiedname>StateWaitGPSTime::instance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/fsm_state_concrete.hpp" line="31" column="27"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>State</label>
+        <link refid="class_state"/>
+      </node>
+      <node id="1">
+        <label>StateWaitGPSTime</label>
+        <link refid="class_state_wait_g_p_s_time"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="9">
+        <label>BGeigieLogFormatter</label>
+        <link refid="class_b_geigie_log_formatter"/>
+      </node>
+      <node id="8">
+        <label>BatteryMonitorIP5306</label>
+        <link refid="class_battery_monitor_i_p5306"/>
+      </node>
+      <node id="25">
+        <label>ConfigWebServer</label>
+        <link refid="class_config_web_server"/>
+        <childnode refid="26" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Context</label>
+        <link refid="class_context"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>device_setup</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>geiger_count</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>gps</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>battery_monitor</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>bgeigie_formatter</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>sd_wrapper</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>logger</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>display</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Display</label>
+        <link refid="class_display"/>
+        <childnode refid="13" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+        <childnode refid="24" relation="usage">
+          <edgelabel>wificonn</edgelabel>
+        </childnode>
+        <childnode refid="25" relation="usage">
+          <edgelabel>webserver</edgelabel>
+        </childnode>
+      </node>
+      <node id="13">
+        <label>DisplayData</label>
+        <link refid="struct_display_data"/>
+        <childnode refid="14" relation="usage">
+          <edgelabel>device_id</edgelabel>
+          <edgelabel>geiger_cpm</edgelabel>
+        </childnode>
+        <childnode refid="15" relation="usage">
+          <edgelabel>gps_satellites</edgelabel>
+        </childnode>
+        <childnode refid="16" relation="usage">
+          <edgelabel>gps_altitude</edgelabel>
+        </childnode>
+        <childnode refid="18" relation="usage">
+          <edgelabel>gps_speed</edgelabel>
+        </childnode>
+        <childnode refid="19" relation="usage">
+          <edgelabel>gps_course</edgelabel>
+        </childnode>
+        <childnode refid="20" relation="usage">
+          <edgelabel>gps_location</edgelabel>
+        </childnode>
+        <childnode refid="21" relation="usage">
+          <edgelabel>gps_time</edgelabel>
+        </childnode>
+        <childnode refid="22" relation="usage">
+          <edgelabel>gps_date</edgelabel>
+        </childnode>
+        <childnode refid="23" relation="usage">
+          <edgelabel>battery_level</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>GPSSensor</label>
+        <link refid="class_g_p_s_sensor"/>
+      </node>
+      <node id="5">
+        <label>GeigerCounter</label>
+        <link refid="class_geiger_counter"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>SDLogger</label>
+        <link refid="class_s_d_logger"/>
+      </node>
+      <node id="10">
+        <label>SDWrapper</label>
+        <link refid="class_s_d_wrapper"/>
+      </node>
+      <node id="4">
+        <label>Setup</label>
+        <link refid="class_setup"/>
+      </node>
+      <node id="2">
+        <label>State</label>
+        <link refid="class_state"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>_ctx</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>StateWaitGPSTime</label>
+        <link refid="class_state_wait_g_p_s_time"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>TinyGPSAltitude</label>
+        <link refid="struct_tiny_g_p_s_altitude"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>TinyGPSCourse</label>
+        <link refid="struct_tiny_g_p_s_course"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>TinyGPSDate</label>
+        <link refid="struct_tiny_g_p_s_date"/>
+      </node>
+      <node id="17">
+        <label>TinyGPSDecimal</label>
+        <link refid="struct_tiny_g_p_s_decimal"/>
+      </node>
+      <node id="15">
+        <label>TinyGPSInteger</label>
+        <link refid="struct_tiny_g_p_s_integer"/>
+      </node>
+      <node id="20">
+        <label>TinyGPSLocation</label>
+        <link refid="struct_tiny_g_p_s_location"/>
+      </node>
+      <node id="18">
+        <label>TinyGPSSpeed</label>
+        <link refid="struct_tiny_g_p_s_speed"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>TinyGPSTime</label>
+        <link refid="struct_tiny_g_p_s_time"/>
+      </node>
+      <node id="24">
+        <label>WiFiConnection</label>
+        <link refid="class_wi_fi_connection"/>
+      </node>
+      <node id="6">
+        <label>Worker&lt; GeigerData &gt;</label>
+      </node>
+      <node id="26">
+        <label>Worker&lt; ServerStatus &gt;</label>
+      </node>
+      <node id="23">
+        <label>int8_t</label>
+      </node>
+      <node id="14">
+        <label>uint32_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="archive/bgeigie_firmware_pio/include/fsm_state_concrete.hpp" line="20" column="1" bodyfile="archive/bgeigie_firmware_pio/include/fsm_state_concrete.hpp" bodystart="20" bodyend="32"/>
+    <listofallmembers>
+      <member refid="class_state_1a92a578f1318bfa1f095d00e8621f4d41" prot="protected" virt="non-virtual"><scope>StateWaitGPSTime</scope><name>_ctx</name></member>
+      <member refid="class_state_wait_g_p_s_time_1a0d2c83c666454843895fd02886f2c09d" prot="private" virt="non-virtual"><scope>StateWaitGPSTime</scope><name>_instance</name></member>
+      <member refid="class_state_1a3c1399d4cb6c84dfa4d8ba0ee71e2ce5" prot="public" virt="non-virtual"><scope>StateWaitGPSTime</scope><name>enter</name></member>
+      <member refid="class_state_1a0d945aef6435c50896e9815b17a37e7c" prot="public" virt="non-virtual"><scope>StateWaitGPSTime</scope><name>enter</name></member>
+      <member refid="class_state_1ae5e43afacaf6c1a35c07f0d3622f6e86" prot="public" virt="non-virtual"><scope>StateWaitGPSTime</scope><name>exit</name></member>
+      <member refid="class_state_1a795215fb9fb25a27292ea72b1ab989b9" prot="public" virt="non-virtual"><scope>StateWaitGPSTime</scope><name>exit</name></member>
+      <member refid="class_state_wait_g_p_s_time_1aa9295818f9d5ab901714999a47050819" prot="public" virt="non-virtual"><scope>StateWaitGPSTime</scope><name>instance</name></member>
+      <member refid="class_state_wait_g_p_s_time_1a9f8b0e049aeb6c1d85312aed1375280c" prot="public" virt="non-virtual"><scope>StateWaitGPSTime</scope><name>instance</name></member>
+      <member refid="class_state_wait_g_p_s_time_1ae7e0b7274b8bacc1c930e003ae929dec" prot="public" virt="virtual"><scope>StateWaitGPSTime</scope><name>on_enter</name></member>
+      <member refid="class_state_wait_g_p_s_time_1a57115a2417eace7cb3c097ad107eb16d" prot="public" virt="virtual"><scope>StateWaitGPSTime</scope><name>on_enter</name></member>
+      <member refid="class_state_wait_g_p_s_time_1a5afbcebf690e8a8eadc30a7795d9a907" prot="public" virt="virtual"><scope>StateWaitGPSTime</scope><name>on_exit</name></member>
+      <member refid="class_state_wait_g_p_s_time_1aa4c8c32275103c24931f768fca870f49" prot="public" virt="virtual"><scope>StateWaitGPSTime</scope><name>on_exit</name></member>
+      <member refid="class_state_wait_g_p_s_time_1a6953188f692b1a2d0e8d6ab42f6b7685" prot="public" virt="virtual"><scope>StateWaitGPSTime</scope><name>process</name></member>
+      <member refid="class_state_wait_g_p_s_time_1a6953188f692b1a2d0e8d6ab42f6b7685" prot="public" virt="virtual"><scope>StateWaitGPSTime</scope><name>process</name></member>
+      <member refid="class_state_1ab91bb1dd5aa6260ab2a456581daf9ec2" prot="public" virt="non-virtual"><scope>StateWaitGPSTime</scope><name>State</name></member>
+      <member refid="class_state_1ab91bb1dd5aa6260ab2a456581daf9ec2" prot="public" virt="non-virtual"><scope>StateWaitGPSTime</scope><name>State</name></member>
+      <member refid="class_state_wait_g_p_s_time_1a9f3d157569d70006bfa1e434c7dfe69b" prot="protected" virt="non-virtual"><scope>StateWaitGPSTime</scope><name>StateWaitGPSTime</name></member>
+      <member refid="class_state_wait_g_p_s_time_1a9f3d157569d70006bfa1e434c7dfe69b" prot="protected" virt="non-virtual"><scope>StateWaitGPSTime</scope><name>StateWaitGPSTime</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

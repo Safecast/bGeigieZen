@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_sd_logger" kind="class" language="C++" prot="public">
+    <compoundname>SdLogger</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Handler</basecompoundref>
+    <includes refid="sd__logger_8h" local="no">sd_logger.h</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>LogType</name>
+        <qualifiedname>SdLogger::LogType</qualifiedname>
+        <enumvalue id="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44bab545cc1bdb3f42f80a36701d68555ff1" prot="public">
+          <name>journal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44ba7c405a0c04deffbf82e78a0f9765614a" prot="public">
+          <name>survey</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44ba53399929e212628cffd59c173abb1094" prot="public">
+          <name>drive</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44baec4026695297a2544dde006c3115edd7" prot="public">
+          <name>error</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/sd_logger.h" line="15" column="3" bodyfile="bgeigiezen_firmware/handlers/sd_logger.h" bodystart="15" bodyend="20"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_sd_logger_1a13e03d3d4f75b47aa96442f842df1c6d" prot="private" static="no" mutable="no">
+        <type><ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+        <definition>LocalStorage&amp; SdLogger::_config</definition>
+        <argsstring></argsstring>
+        <name>_config</name>
+        <qualifiedname>SdLogger::_config</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/sd_logger.h" line="33" column="16" bodyfile="bgeigiezen_firmware/handlers/sd_logger.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sd_logger_1ac5da1b6d76bb9c189148a4ac73c7a622" prot="private" static="no" mutable="no">
+        <type><ref refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44b" kindref="member">LogType</ref></type>
+        <definition>LogType SdLogger::_log_type</definition>
+        <argsstring></argsstring>
+        <name>_log_type</name>
+        <qualifiedname>SdLogger::_log_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/sd_logger.h" line="34" column="11" bodyfile="bgeigiezen_firmware/handlers/sd_logger.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sd_logger_1a3a45b16a4493fb485d00cedd50f60424" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char SdLogger::_logging_to[LOG_FILENAME_SIZE]</definition>
+        <argsstring>[LOG_FILENAME_SIZE]</argsstring>
+        <name>_logging_to</name>
+        <qualifiedname>SdLogger::_logging_to</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/sd_logger.h" line="36" column="8" bodyfile="bgeigiezen_firmware/handlers/sd_logger.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sd_logger_1a4ae93674f59bcfe06a74cfdf3893d17f" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SdLogger::_is_temp</definition>
+        <argsstring></argsstring>
+        <name>_is_temp</name>
+        <qualifiedname>SdLogger::_is_temp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/sd_logger.h" line="37" column="8" bodyfile="bgeigiezen_firmware/handlers/sd_logger.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_sd_logger_1a4cb16e3c0134228f5aae67ecc89ac965" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t SdLogger::_total</definition>
+        <argsstring></argsstring>
+        <name>_total</name>
+        <qualifiedname>SdLogger::_total</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/sd_logger.h" line="38" column="12" bodyfile="bgeigiezen_firmware/handlers/sd_logger.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_sd_logger_1aa295d7f7824cac1cfe336ac3e9b27f3a" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SdLogger::SdLogger</definition>
+        <argsstring>(LocalStorage &amp;config, LogType type)</argsstring>
+        <name>SdLogger</name>
+        <qualifiedname>SdLogger::SdLogger</qualifiedname>
+        <param>
+          <type><ref refid="class_local_storage" kindref="compound">LocalStorage</ref> &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type><ref refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44b" kindref="member">LogType</ref></type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/sd_logger.h" line="22" column="12" bodyfile="bgeigiezen_firmware/handlers/sd_logger.cpp" bodystart="12" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_sd_logger_1af7b5361e519fc8ad83c39b5a43aef02d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual SdLogger::~SdLogger</definition>
+        <argsstring>()=default</argsstring>
+        <name>~SdLogger</name>
+        <qualifiedname>SdLogger::~SdLogger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/sd_logger.h" line="23" column="11"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="class_sd_logger_1a03701029b7b1906ff9e910c79d509585" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool SdLogger::activate</definition>
+        <argsstring>(bool retry) override</argsstring>
+        <name>activate</name>
+        <qualifiedname>SdLogger::activate</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>retry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/sd_logger.h" line="26" column="8" bodyfile="bgeigiezen_firmware/handlers/sd_logger.cpp" bodystart="15" bodyend="36"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" compoundref="sd__wrapper_8h" startline="39" endline="42">SDInterface::i</references>
+        <references refid="include_2config_8hpp_1a6ece29d27b64e8d45ba35ad8768004fd" compoundref="include_2config_8hpp" startline="44">LOG_HEADER_LINE1</references>
+        <references refid="include_2config_8hpp_1a512c9567b6eb82a4cd574e527c911ef5" compoundref="include_2config_8hpp" startline="45">LOG_HEADER_LINE2</references>
+        <references refid="include_2config_8hpp_1a77e3330c0e698251fcc72973de75f5ae" compoundref="include_2config_8hpp" startline="46">LOG_HEADER_LINE3</references>
+        <references refid="class_s_d_interface_1a77a1a4519025efa2ff17c99f2c3e7d67" compoundref="sd__wrapper_8cpp" startline="126" endline="149">SDInterface::log_println</references>
+        <references refid="sd__logger_8cpp_1adda90f7a3ee0d880dda2b16bcdf26cdf" compoundref="sd__logger_8cpp" startline="7">TEMP_LOG_NAME_F</references>
+      </memberdef>
+      <memberdef kind="function" id="class_sd_logger_1a8e8463c086ad85bd39a99bdbe2207cfa" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void SdLogger::deactivate</definition>
+        <argsstring>() override</argsstring>
+        <name>deactivate</name>
+        <qualifiedname>SdLogger::deactivate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/sd_logger.h" line="27" column="8" bodyfile="bgeigiezen_firmware/handlers/sd_logger.cpp" bodystart="38" bodyend="47"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_s_d_interface_1aabe6178f355242e557c214581eba395f" compoundref="sd__wrapper_8cpp" startline="508" endline="514">SDInterface::delete_log</references>
+        <references refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" compoundref="sd__wrapper_8h" startline="39" endline="42">SDInterface::i</references>
+        <references refid="user__config_8h_1afb83b2ca67699a83eeb905cbcc4c51a9" compoundref="user__config_8h" startline="71">MIN_LOG_LINES_FOR_KEEP</references>
+      </memberdef>
+      <memberdef kind="function" id="class_sd_logger_1ab55fb4b592ef94b61f23d408aecd7ee1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t SdLogger::handle_produced_work</definition>
+        <argsstring>(const worker_map_t &amp;workers) override</argsstring>
+        <name>handle_produced_work</name>
+        <qualifiedname>SdLogger::handle_produced_work</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref> &amp;</type>
+          <declname>workers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/sd_logger.h" line="28" column="10" bodyfile="bgeigiezen_firmware/handlers/sd_logger.cpp" bodystart="49" bodyend="86"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="sd__logger_8cpp_1aae7fefe1f9ad1232cbd3825665be63b7" compoundref="sd__logger_8cpp" startline="9">DATED_LOG_NAME_F</references>
+        <references refid="class_local_storage_1adba9d64409a8a882f4cd36b92e01342b" compoundref="local__storage_8cpp" startline="109" endline="111">LocalStorage::get_log_void</references>
+        <references refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" compoundref="sd__wrapper_8h" startline="39" endline="42">SDInterface::i</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa5f34c7ca896fe335fe512801296de30c" compoundref="identifiers_8h" startline="19">k_worker_local_storage</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa40dd481c8643b09aff483e9f4f7c2006" compoundref="identifiers_8h" startline="16">k_worker_log_aggregator</references>
+        <references refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa84141b7b60c4055e432a1f28ae9aa98b" compoundref="identifiers_8h" startline="15">k_worker_rtc_connector</references>
+        <references refid="user__config_8h_1a75f97d568a246165199355e9c8272011" compoundref="user__config_8h" startline="70">LOG_FILENAME_SIZE</references>
+        <references refid="class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe" compoundref="sd__wrapper_8cpp" startline="69" endline="74">SDInterface::ready</references>
+        <references refid="class_s_d_interface_1a9579c7433715db5ea05b8190b8f9ee13" compoundref="sd__wrapper_8cpp" startline="497" endline="506">SDInterface::rename_log</references>
+        <references refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" compoundref="bgeigiezen__firmware_2main_8cpp" startline="65">settings</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_sd_logger_1a6f38a3135f3eb6ccddaab61dc2ccb121" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * SdLogger::get_dir</definition>
+        <argsstring>() const</argsstring>
+        <name>get_dir</name>
+        <qualifiedname>SdLogger::get_dir</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/sd_logger.h" line="31" column="14" bodyfile="bgeigiezen_firmware/handlers/sd_logger.cpp" bodystart="88" bodyend="99"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Setups up bluetooth endpoint for the device, allowing it to send readings over bluetooth </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Handler</label>
+      </node>
+      <node id="1">
+        <label>SdLogger</label>
+        <link refid="class_sd_logger"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Handler</label>
+      </node>
+      <node id="1">
+        <label>SdLogger</label>
+        <link refid="class_sd_logger"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/handlers/sd_logger.h" line="13" column="1" bodyfile="bgeigiezen_firmware/handlers/sd_logger.h" bodystart="13" bodyend="40"/>
+    <listofallmembers>
+      <member refid="class_sd_logger_1a13e03d3d4f75b47aa96442f842df1c6d" prot="private" virt="non-virtual"><scope>SdLogger</scope><name>_config</name></member>
+      <member refid="class_sd_logger_1a4ae93674f59bcfe06a74cfdf3893d17f" prot="private" virt="non-virtual"><scope>SdLogger</scope><name>_is_temp</name></member>
+      <member refid="class_sd_logger_1ac5da1b6d76bb9c189148a4ac73c7a622" prot="private" virt="non-virtual"><scope>SdLogger</scope><name>_log_type</name></member>
+      <member refid="class_sd_logger_1a3a45b16a4493fb485d00cedd50f60424" prot="private" virt="non-virtual"><scope>SdLogger</scope><name>_logging_to</name></member>
+      <member refid="class_sd_logger_1a4cb16e3c0134228f5aae67ecc89ac965" prot="private" virt="non-virtual"><scope>SdLogger</scope><name>_total</name></member>
+      <member refid="class_sd_logger_1a03701029b7b1906ff9e910c79d509585" prot="protected" virt="non-virtual"><scope>SdLogger</scope><name>activate</name></member>
+      <member refid="class_sd_logger_1a8e8463c086ad85bd39a99bdbe2207cfa" prot="protected" virt="non-virtual"><scope>SdLogger</scope><name>deactivate</name></member>
+      <member refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44ba53399929e212628cffd59c173abb1094" prot="public" virt="non-virtual"><scope>SdLogger</scope><name>drive</name></member>
+      <member refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44baec4026695297a2544dde006c3115edd7" prot="public" virt="non-virtual"><scope>SdLogger</scope><name>error</name></member>
+      <member refid="class_sd_logger_1a6f38a3135f3eb6ccddaab61dc2ccb121" prot="private" virt="non-virtual"><scope>SdLogger</scope><name>get_dir</name></member>
+      <member refid="class_sd_logger_1ab55fb4b592ef94b61f23d408aecd7ee1" prot="protected" virt="non-virtual"><scope>SdLogger</scope><name>handle_produced_work</name></member>
+      <member refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44bab545cc1bdb3f42f80a36701d68555ff1" prot="public" virt="non-virtual"><scope>SdLogger</scope><name>journal</name></member>
+      <member refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44b" prot="public" virt="non-virtual"><scope>SdLogger</scope><name>LogType</name></member>
+      <member refid="class_sd_logger_1aa295d7f7824cac1cfe336ac3e9b27f3a" prot="public" virt="non-virtual"><scope>SdLogger</scope><name>SdLogger</name></member>
+      <member refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44ba7c405a0c04deffbf82e78a0f9765614a" prot="public" virt="non-virtual"><scope>SdLogger</scope><name>survey</name></member>
+      <member refid="class_sd_logger_1af7b5361e519fc8ad83c39b5a43aef02d" prot="public" virt="virtual"><scope>SdLogger</scope><name>~SdLogger</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

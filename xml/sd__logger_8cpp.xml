@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="sd__logger_8cpp" kind="file" language="C++">
+    <compoundname>sd_logger.cpp</compoundname>
+    <includes refid="sd__logger_8h" local="yes">sd_logger.h</includes>
+    <includes refid="identifiers_8h" local="yes">identifiers.h</includes>
+    <includes refid="sd__wrapper_8h" local="yes">utils/sd_wrapper.h</includes>
+    <includes refid="rtc__connector_8h" local="yes">workers/rtc_connector.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>bgeigiezen_firmware/handlers/sd_logger.cpp</label>
+        <link refid="sd__logger_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sd_logger.h</label>
+        <link refid="sd__logger_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>identifiers.h</label>
+        <link refid="identifiers_8h"/>
+      </node>
+      <node id="6">
+        <label>user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>utils/sd_wrapper.h</label>
+        <link refid="sd__wrapper_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>gps_connector.h</label>
+        <link refid="gps__connector_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>workers/local_storage.h</label>
+        <link refid="local__storage_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>workers/log_aggregator.h</label>
+        <link refid="log__aggregator_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>workers/rtc_connector.h</label>
+        <link refid="rtc__connector_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>Arduino.h</label>
+      </node>
+      <node id="3">
+        <label>Handler.hpp</label>
+      </node>
+      <node id="7">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="5">
+        <label>Preferences.h</label>
+      </node>
+      <node id="15">
+        <label>RBD_Timer.h</label>
+      </node>
+      <node id="11">
+        <label>SD.h</label>
+      </node>
+      <node id="17">
+        <label>TeenyUbloxConnect.h</label>
+      </node>
+      <node id="16">
+        <label>Worker.hpp</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="sd__logger_8cpp_1adda90f7a3ee0d880dda2b16bcdf26cdf" prot="public" static="no">
+        <name>TEMP_LOG_NAME_F</name>
+        <initializer>&quot;%s/<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">latest.log&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/sd_logger.cpp" line="7" column="9" bodyfile="bgeigiezen_firmware/handlers/sd_logger.cpp" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="sd__logger_8cpp_1aae7fefe1f9ad1232cbd3825665be63b7" prot="public" static="no">
+        <name>DATED_LOG_NAME_F</name>
+        <initializer>&quot;%s/%04<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">d</ref>-%02<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">d</ref>-%02<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">d_</ref>%02<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">d</ref>%02<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">d.log&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/handlers/sd_logger.cpp" line="9" column="9" bodyfile="bgeigiezen_firmware/handlers/sd_logger.cpp" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="sd__logger_8h" kindref="compound">sd_logger.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="identifiers_8h" kindref="compound">identifiers.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="sd__wrapper_8h" kindref="compound">utils/sd_wrapper.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="rtc__connector_8h" kindref="compound">workers/rtc_connector.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>e.g.<sp/>/drives/latest.log</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="sd__logger_8cpp_1adda90f7a3ee0d880dda2b16bcdf26cdf" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TEMP_LOG_NAME_F<sp/>&quot;%s/latest.log&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>e.g.<sp/>/drives/2023-11-20_1230.log</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="sd__logger_8cpp_1aae7fefe1f9ad1232cbd3825665be63b7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DATED_LOG_NAME_F<sp/>&quot;%s/%04d-%02d-%02d_%02d%02d.log&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="class_sd_logger_1aa295d7f7824cac1cfe336ac3e9b27f3a" refkind="member"><highlight class="normal"><ref refid="class_sd_logger_1aa295d7f7824cac1cfe336ac3e9b27f3a" kindref="member">SdLogger::SdLogger</ref>(<ref refid="class_local_storage" kindref="compound">LocalStorage</ref>&amp;<sp/>config,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44b" kindref="member">LogType</ref><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_type</ref>)<sp/>:<sp/>Handler(),<sp/>_config(config),<sp/>_log_type(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_type</ref>),<sp/>_logging_to(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">),<sp/>_is_temp(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">true</ref>),<sp/>_total(0)<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="class_sd_logger_1a03701029b7b1906ff9e910c79d509585" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_sd_logger_1a03701029b7b1906ff9e910c79d509585" kindref="member">SdLogger::activate</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>SD<sp/>readiness</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" kindref="member">SDInterface::i</ref>().can_write_logs())<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>temporary<sp/>log<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sprintf</ref>(_logging_to,<sp/><ref refid="sd__logger_8cpp_1adda90f7a3ee0d880dda2b16bcdf26cdf" kindref="member">TEMP_LOG_NAME_F</ref>,<sp/>get_dir());</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" kindref="member">SDInterface::i</ref>().setup_log(get_dir(),<sp/>_logging_to,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">header_l2</ref>[100];</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>e.g.<sp/>#<sp/>format=1.2.3-zen/drives</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sprintf</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">header_l2</ref>,<sp/></highlight><highlight class="stringliteral">&quot;%s%d.%d.%d-zen%s&quot;</highlight><highlight class="normal">,<sp/><ref refid="include_2config_8hpp_1a512c9567b6eb82a4cd574e527c911ef5" kindref="member">LOG_HEADER_LINE2</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">MAJOR_VERSION</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">MINOR_VERSION</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">PATCH_VERSION</ref>,<sp/>get_dir());</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">success</ref><sp/>=<sp/><ref refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" kindref="member">SDInterface::i</ref>().<ref refid="class_s_d_interface_1a77a1a4519025efa2ff17c99f2c3e7d67" kindref="member">log_println</ref>(_logging_to,<sp/><ref refid="include_2config_8hpp_1a6ece29d27b64e8d45ba35ad8768004fd" kindref="member">LOG_HEADER_LINE1</ref>)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&amp;&amp;<sp/><ref refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" kindref="member">SDInterface::i</ref>().<ref refid="class_s_d_interface_1a77a1a4519025efa2ff17c99f2c3e7d67" kindref="member">log_println</ref>(_logging_to,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">header_l2</ref>)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&amp;&amp;<sp/><ref refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" kindref="member">SDInterface::i</ref>().<ref refid="class_s_d_interface_1a77a1a4519025efa2ff17c99f2c3e7d67" kindref="member">log_println</ref>(_logging_to,<sp/><ref refid="include_2config_8hpp_1a77e3330c0e698251fcc72973de75f5ae" kindref="member">LOG_HEADER_LINE3</ref>);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>_is_temp<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>_total<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;Started<sp/>new<sp/>log<sp/>&apos;%s&apos;.&quot;</highlight><highlight class="normal">,<sp/>_logging_to);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">success</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="class_sd_logger_1a8e8463c086ad85bd39a99bdbe2207cfa" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_sd_logger_1a8e8463c086ad85bd39a99bdbe2207cfa" kindref="member">SdLogger::deactivate</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_total<sp/>&lt;<sp/><ref refid="user__config_8h_1afb83b2ca67699a83eeb905cbcc4c51a9" kindref="member">MIN_LOG_LINES_FOR_KEEP</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Delete</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;End<sp/>logging<sp/>to<sp/>&apos;%s&apos;,<sp/>deleting<sp/>file<sp/>due<sp/>to<sp/>insufficient<sp/>lines<sp/>(%d).&quot;</highlight><highlight class="normal">,<sp/>_logging_to,<sp/>_total);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" kindref="member">SDInterface::i</ref>().<ref refid="class_s_d_interface_1aabe6178f355242e557c214581eba395f" kindref="member">delete_log</ref>(_logging_to);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;End<sp/>logging<sp/>to<sp/>&apos;%s&apos;,<sp/>total<sp/>of<sp/>%d<sp/>lines<sp/>logged.&quot;</highlight><highlight class="normal">,<sp/>_logging_to,<sp/>_total);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">strcpy</ref>(_logging_to,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="class_sd_logger_1ab55fb4b592ef94b61f23d408aecd7ee1" refkind="member"><highlight class="normal">int8_t<sp/><ref refid="class_sd_logger_1ab55fb4b592ef94b61f23d408aecd7ee1" kindref="member">SdLogger::handle_produced_work</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_data</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>.worker&lt;<ref refid="class_log_aggregator" kindref="compound">LogAggregator</ref>&gt;(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa40dd481c8643b09aff483e9f4f7c2006" kindref="member">k_worker_log_aggregator</ref>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>.worker&lt;<ref refid="class_local_storage" kindref="compound">LocalStorage</ref>&gt;(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa5f34c7ca896fe335fe512801296de30c" kindref="member">k_worker_local_storage</ref>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_data</ref>-&gt;is_fresh())<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" kindref="member">SDInterface::i</ref>().<ref refid="class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe" kindref="member">ready</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;Abrupt<sp/>stop<sp/>logging<sp/>&apos;%s&apos;,<sp/>sd<sp/>card<sp/>not<sp/>ready.&quot;</highlight><highlight class="normal">,<sp/>_logging_to);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_handler_error</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_is_temp)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>RTC<sp/>for<sp/>time<sp/>to<sp/>rename<sp/>log<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">rtc_data</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>.worker&lt;<ref refid="class_date_time_provider" kindref="compound">DateTimeProvider</ref>&gt;(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa84141b7b60c4055e432a1f28ae9aa98b" kindref="member">k_worker_rtc_connector</ref>)-&gt;get_data();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">rtc_data</ref>.valid)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Renaming<sp/>the<sp/>log<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">new_name</ref>[<ref refid="user__config_8h_1a75f97d568a246165199355e9c8272011" kindref="member">LOG_FILENAME_SIZE</ref>];</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sprintf</ref>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">new_name</ref>,<sp/><ref refid="sd__logger_8cpp_1aae7fefe1f9ad1232cbd3825665be63b7" kindref="member">DATED_LOG_NAME_F</ref>,<sp/>get_dir(),<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">rtc_data</ref>.year,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">rtc_data</ref>.month,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">rtc_data</ref>.day,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">rtc_data</ref>.hour,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">rtc_data</ref>.minute);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" kindref="member">SDInterface::i</ref>().<ref refid="class_s_d_interface_1a9579c7433715db5ea05b8190b8f9ee13" kindref="member">rename_log</ref>(_logging_to,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">new_name</ref>);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">strcpy</ref>(_logging_to,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">new_name</ref>);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;Updated<sp/>log<sp/>name<sp/>to<sp/>&apos;%s&apos;.&quot;</highlight><highlight class="normal">,<sp/>_logging_to);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_is_temp<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_data</ref>-&gt;get_data().valid()<sp/>||<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref>-&gt;<ref refid="class_local_storage_1adba9d64409a8a882f4cd36b92e01342b" kindref="member">get_log_void</ref>())<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Line<sp/>is<sp/>valid<sp/>OR<sp/>we<sp/>are<sp/>logging<sp/>void<sp/>lines</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f" kindref="member">SDInterface::i</ref>().log_println(_logging_to,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">log_data</ref>-&gt;get_data().log_string))<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Line<sp/>written<sp/>to<sp/>SD<sp/>card<sp/>log<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_total++;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_handler_data_handled</ref>;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Something<sp/>went<sp/>wrong<sp/>writing<sp/>to<sp/>the<sp/>sd<sp/>card<sp/>log<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_handler_error</ref>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//No<sp/>data<sp/>handled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_handler_idle</ref>;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>SdLogger::get_dir()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(_log_type)<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44bab545cc1bdb3f42f80a36701d68555ff1" kindref="member">journal</ref>:</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1a33f8f515cdf75dee7bf5f09aaecca794" kindref="member">JOURNAL_LOG_DIRECTORY</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44ba53399929e212628cffd59c173abb1094" kindref="member">drive</ref>:</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1a9a0d7b4ec2eb1af45cbacaeab2da6ee2" kindref="member">DRIVE_LOG_DIRECTORY</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="class_sd_logger_1a582caf905698caa5c984fc98a2ffc44ba7c405a0c04deffbf82e78a0f9765614a" kindref="member">survey</ref>:</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="user__config_8h_1a7a6e0e8fefbe0f4672066c0ff34ef585" kindref="member">SURVEY_LOG_DIRECTORY</ref>;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;unknown&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/handlers/sd_logger.cpp"/>
+  </compounddef>
+</doxygen>

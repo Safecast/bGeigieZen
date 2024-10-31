@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="zen__button_8cpp" kind="file" language="C++">
+    <compoundname>zen_button.cpp</compoundname>
+    <includes refid="zen__button_8h" local="yes">zen_button.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>bgeigiezen_firmware/workers/zen_button.cpp</label>
+        <link refid="zen__button_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>zen_button.h</label>
+        <link refid="zen__button_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Arduino.h</label>
+      </node>
+      <node id="3">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="5">
+        <label>Worker.hpp</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="zen__button_8cpp_1a50c404c8a57ddadcf9f4fa17c8296fff" prot="public" static="no">
+        <name>SHORT_PRESS_DURATION</name>
+        <initializer>10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/zen_button.cpp" line="3" column="9" bodyfile="bgeigiezen_firmware/workers/zen_button.cpp" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="zen__button_8cpp_1ab8f614352fd0896fdf646f9bf413607a" prot="public" static="no">
+        <name>LONG_PRESS_DURATION</name>
+        <initializer>2400</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/zen_button.cpp" line="4" column="9" bodyfile="bgeigiezen_firmware/workers/zen_button.cpp" bodystart="4" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="zen__button_8h" kindref="compound">zen_button.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3" refid="zen__button_8cpp_1a50c404c8a57ddadcf9f4fa17c8296fff" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SHORT_PRESS_DURATION<sp/>10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="zen__button_8cpp_1ab8f614352fd0896fdf646f9bf413607a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LONG_PRESS_DURATION<sp/>2400</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="class_zen_button_1a2557c87250ed797d65d4cf12cc4d1756" refkind="member"><highlight class="normal"><ref refid="class_zen_button_1a2557c87250ed797d65d4cf12cc4d1756" kindref="member">ZenButton::ZenButton</ref>(m5::Button_Class&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">m5_button</ref>)<sp/>:<sp/>Worker&lt;<ref refid="struct_button_state" kindref="compound">ButtonState</ref>&gt;({</highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">}),</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_m5_button(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">m5_button</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="class_zen_button_1a6b64fd909123b406f36c6c30c1913f9f" refkind="member"><highlight class="normal"><ref refid="class_zen_button_1a6b64fd909123b406f36c6c30c1913f9f" kindref="member">ZenButton::~ZenButton</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="class_zen_button_1ac2bffe99f5706bfe1d6def23bdfdb87c" refkind="member"><highlight class="normal">int8_t<sp/><ref refid="class_zen_button_1ac2bffe99f5706bfe1d6def23bdfdb87c" kindref="member">ZenButton::produce_data</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/>data.<ref refid="struct_button_state_1a71d4a6d2b43596aad74784f39f2f459d" kindref="member">longPress</ref><sp/>=<sp/>data.currentlyPressed<sp/>&amp;&amp;<sp/>_m5_button.wasReleaseFor(<ref refid="zen__button_8cpp_1ab8f614352fd0896fdf646f9bf413607a" kindref="member">LONG_PRESS_DURATION</ref>);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>data.shortPress<sp/>=<sp/>data.currentlyPressed<sp/>&amp;&amp;<sp/>_m5_button.wasReleaseFor(<ref refid="zen__button_8cpp_1a50c404c8a57ddadcf9f4fa17c8296fff" kindref="member">SHORT_PRESS_DURATION</ref>)<sp/>&amp;&amp;<sp/>!data.longPress;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>data.currentlyPressed<sp/>=<sp/>_m5_button.pressedFor(<ref refid="zen__button_8cpp_1a50c404c8a57ddadcf9f4fa17c8296fff" kindref="member">SHORT_PRESS_DURATION</ref>);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data.longPress<sp/>||<sp/>data.shortPress)<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">M5_LOGD</ref>(</highlight><highlight class="stringliteral">&quot;Button<sp/>pressed&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_worker_data_read</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_worker_idle</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/workers/zen_button.cpp"/>
+  </compounddef>
+</doxygen>

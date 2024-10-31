@@ -1,0 +1,2340 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_battery_monitor_i_p5306" kind="class" language="C++" prot="public">
+    <compoundname>BatteryMonitorIP5306</compoundname>
+    <includes refid="include_2battery_8hpp" local="no">battery.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_battery_monitor_i_p5306_1a656f9e4a42dffa00ae8d7c239e7e9316" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t BatteryMonitorIP5306::IP5306_I2C_ADDR</definition>
+        <argsstring></argsstring>
+        <name>IP5306_I2C_ADDR</name>
+        <qualifiedname>BatteryMonitorIP5306::IP5306_I2C_ADDR</qualifiedname>
+        <initializer>= 0x75</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="39" column="17" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_battery_monitor_i_p5306_1a25481aa868e0e4422d0e481c6ab557b4" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t BatteryMonitorIP5306::IP5306_REG_SYS_0</definition>
+        <argsstring></argsstring>
+        <name>IP5306_REG_SYS_0</name>
+        <qualifiedname>BatteryMonitorIP5306::IP5306_REG_SYS_0</qualifiedname>
+        <initializer>= 0x00</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="40" column="17" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_battery_monitor_i_p5306_1af90e482d2275702d658fbd46a84f8857" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t BatteryMonitorIP5306::IP5306_REG_SYS_1</definition>
+        <argsstring></argsstring>
+        <name>IP5306_REG_SYS_1</name>
+        <qualifiedname>BatteryMonitorIP5306::IP5306_REG_SYS_1</qualifiedname>
+        <initializer>= 0x01</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="41" column="17" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_battery_monitor_i_p5306_1a441a83ac65a8ef6d91746fa61cb97a74" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t BatteryMonitorIP5306::IP5306_REG_SYS_2</definition>
+        <argsstring></argsstring>
+        <name>IP5306_REG_SYS_2</name>
+        <qualifiedname>BatteryMonitorIP5306::IP5306_REG_SYS_2</qualifiedname>
+        <initializer>= 0x02</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="42" column="17" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_battery_monitor_i_p5306_1a21f86b1c6a488b509a573c10c9f4e68d" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t BatteryMonitorIP5306::IP5306_REG_CHG_0</definition>
+        <argsstring></argsstring>
+        <name>IP5306_REG_CHG_0</name>
+        <qualifiedname>BatteryMonitorIP5306::IP5306_REG_CHG_0</qualifiedname>
+        <initializer>= 0x20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="43" column="17" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_battery_monitor_i_p5306_1a3d284c4d69c958e6e15ec65e66836a17" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t BatteryMonitorIP5306::IP5306_REG_CHG_1</definition>
+        <argsstring></argsstring>
+        <name>IP5306_REG_CHG_1</name>
+        <qualifiedname>BatteryMonitorIP5306::IP5306_REG_CHG_1</qualifiedname>
+        <initializer>= 0x21</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="44" column="17" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_battery_monitor_i_p5306_1a45f501576e85e82a660398964fed55bc" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t BatteryMonitorIP5306::IP5306_REG_CHG_2</definition>
+        <argsstring></argsstring>
+        <name>IP5306_REG_CHG_2</name>
+        <qualifiedname>BatteryMonitorIP5306::IP5306_REG_CHG_2</qualifiedname>
+        <initializer>= 0x22</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="45" column="17" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_battery_monitor_i_p5306_1a865b44a84c46cc24195d91fd03b7c67b" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t BatteryMonitorIP5306::IP5306_REG_CHG_3</definition>
+        <argsstring></argsstring>
+        <name>IP5306_REG_CHG_3</name>
+        <qualifiedname>BatteryMonitorIP5306::IP5306_REG_CHG_3</qualifiedname>
+        <initializer>= 0x23</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="46" column="17" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_battery_monitor_i_p5306_1ac3379588b78db26182749d23c1ab45ff" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t BatteryMonitorIP5306::IP5306_REG_CHG_4</definition>
+        <argsstring></argsstring>
+        <name>IP5306_REG_CHG_4</name>
+        <qualifiedname>BatteryMonitorIP5306::IP5306_REG_CHG_4</qualifiedname>
+        <initializer>= 0x24</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="47" column="17" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_battery_monitor_i_p5306_1a106805f7024fca19472ffb7894d23a57" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t BatteryMonitorIP5306::IP5306_REG_READ_0</definition>
+        <argsstring></argsstring>
+        <name>IP5306_REG_READ_0</name>
+        <qualifiedname>BatteryMonitorIP5306::IP5306_REG_READ_0</qualifiedname>
+        <initializer>= 0x70</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="48" column="17" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_battery_monitor_i_p5306_1a24dc3a8a364d306af3a75ac259072c5e" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t BatteryMonitorIP5306::IP5306_REG_READ_1</definition>
+        <argsstring></argsstring>
+        <name>IP5306_REG_READ_1</name>
+        <qualifiedname>BatteryMonitorIP5306::IP5306_REG_READ_1</qualifiedname>
+        <initializer>= 0x71</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="49" column="17" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_battery_monitor_i_p5306_1af78972808d2f1e069b20beca3df57947" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t BatteryMonitorIP5306::IP5306_REG_READ_2</definition>
+        <argsstring></argsstring>
+        <name>IP5306_REG_READ_2</name>
+        <qualifiedname>BatteryMonitorIP5306::IP5306_REG_READ_2</qualifiedname>
+        <initializer>= 0x72</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="50" column="17" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_battery_monitor_i_p5306_1af71c56448e85ed35b889695b71155a30" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t BatteryMonitorIP5306::IP5306_REG_READ_3</definition>
+        <argsstring></argsstring>
+        <name>IP5306_REG_READ_3</name>
+        <qualifiedname>BatteryMonitorIP5306::IP5306_REG_READ_3</qualifiedname>
+        <initializer>= 0x77</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="51" column="17" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_battery_monitor_i_p5306_1a5d4296182f858109494bbf637a081d5d" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t BatteryMonitorIP5306::IP5306_REG_READ_4</definition>
+        <argsstring></argsstring>
+        <name>IP5306_REG_READ_4</name>
+        <qualifiedname>BatteryMonitorIP5306::IP5306_REG_READ_4</qualifiedname>
+        <initializer>= 0x78</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="52" column="17" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1af23dd2cf946e2cfb396d78d228e26b99" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::get_bits</definition>
+        <argsstring>(uint8_t reg, uint8_t index, uint8_t bits)</argsstring>
+        <name>get_bits</name>
+        <qualifiedname>BatteryMonitorIP5306::get_bits</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>bits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="54" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.cpp" bodystart="46" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1af22da6da89236fb63cd53f97628ea9ed" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::set_bits</definition>
+        <argsstring>(uint8_t reg, uint8_t index, uint8_t bits, uint8_t value)</argsstring>
+        <name>set_bits</name>
+        <qualifiedname>BatteryMonitorIP5306::set_bits</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>bits</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="55" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.cpp" bodystart="56" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a911c18ad44d2fc8ac7b66362acdc83d9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>int BatteryMonitorIP5306::get_reg</definition>
+        <argsstring>(uint8_t reg)</argsstring>
+        <name>get_reg</name>
+        <qualifiedname>BatteryMonitorIP5306::get_reg</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="56" column="7" bodyfile="archive/bgeigie_firmware_pio/src/battery.cpp" bodystart="27" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a7dc350d25c819fd350b2a5b12ed8785b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>int BatteryMonitorIP5306::set_reg</definition>
+        <argsstring>(uint8_t reg, uint8_t value)</argsstring>
+        <name>set_reg</name>
+        <qualifiedname>BatteryMonitorIP5306::set_reg</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="57" column="7" bodyfile="archive/bgeigie_firmware_pio/src/battery.cpp" bodystart="36" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1af23dd2cf946e2cfb396d78d228e26b99" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::get_bits</definition>
+        <argsstring>(uint8_t reg, uint8_t index, uint8_t bits)</argsstring>
+        <name>get_bits</name>
+        <qualifiedname>BatteryMonitorIP5306::get_bits</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>bits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="49" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1af22da6da89236fb63cd53f97628ea9ed" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::set_bits</definition>
+        <argsstring>(uint8_t reg, uint8_t index, uint8_t bits, uint8_t value)</argsstring>
+        <name>set_bits</name>
+        <qualifiedname>BatteryMonitorIP5306::set_bits</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>bits</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="50" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a911c18ad44d2fc8ac7b66362acdc83d9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>int BatteryMonitorIP5306::get_reg</definition>
+        <argsstring>(uint8_t reg)</argsstring>
+        <name>get_reg</name>
+        <qualifiedname>BatteryMonitorIP5306::get_reg</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="51" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a7dc350d25c819fd350b2a5b12ed8785b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>int BatteryMonitorIP5306::set_reg</definition>
+        <argsstring>(uint8_t reg, uint8_t value)</argsstring>
+        <name>set_reg</name>
+        <qualifiedname>BatteryMonitorIP5306::set_reg</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>reg</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="52" column="7"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a58b80285e63a797c3ce3bfa2dbd5bbad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BatteryMonitorIP5306::BatteryMonitorIP5306</definition>
+        <argsstring>()</argsstring>
+        <name>BatteryMonitorIP5306</name>
+        <qualifiedname>BatteryMonitorIP5306::BatteryMonitorIP5306</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="60" column="3" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a9ba36679ebdb7aa7981ec20997cf633e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::print_stats</definition>
+        <argsstring>()</argsstring>
+        <name>print_stats</name>
+        <qualifiedname>BatteryMonitorIP5306::print_stats</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="61" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.cpp" bodystart="71" bodyend="79"/>
+        <references refid="class_battery_monitor_i_p5306_1a6413320a32fcfb0719775aa337c623af" compoundref="include_2battery_8hpp" startline="188" endline="190">GetBatteryFull</references>
+        <references refid="class_battery_monitor_i_p5306_1a67f88c317296c06f2da5b21e125c860a" compoundref="include_2battery_8hpp" startline="194" endline="197">GetLevelLeds</references>
+        <references refid="class_battery_monitor_i_p5306_1a99ad3de534d1057a062e20c9ec8f92cb" compoundref="include_2battery_8hpp" startline="185" endline="187">GetPowerSource</references>
+        <references refid="class_battery_monitor_i_p5306_1a5199ced92607ac2497862ab961413dbd" compoundref="include_2battery_8hpp" startline="199" endline="202">LEDS2PCT</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::print_settings</definition>
+        <argsstring>()</argsstring>
+        <name>print_settings</name>
+        <qualifiedname>BatteryMonitorIP5306::print_settings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="62" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.cpp" bodystart="81" bodyend="115"/>
+        <references refid="class_battery_monitor_i_p5306_1a6356c27e4d203947e4150381898476ea" compoundref="include_2battery_8hpp" startline="95" endline="95">GetBoostAfterVin</references>
+        <references refid="class_battery_monitor_i_p5306_1a2c0682f3cde08d31099e0349a2f1276d" compoundref="include_2battery_8hpp" startline="85" endline="85">GetBoostEnabled</references>
+        <references refid="class_battery_monitor_i_p5306_1a6e0de4defa8b69fa6bf6588f7ad47ffb" compoundref="include_2battery_8hpp" startline="112" endline="112">GetBoostOffClicks</references>
+        <references refid="class_battery_monitor_i_p5306_1ab52fd285234f666a5d82298df5ec925d" compoundref="include_2battery_8hpp" startline="70" endline="70">GetBoostOutputEnabled</references>
+        <references refid="class_battery_monitor_i_p5306_1a2b01125fd4de2b1720ca2846f068a382" compoundref="include_2battery_8hpp" startline="162" endline="162">GetChargeCCLoop</references>
+        <references refid="class_battery_monitor_i_p5306_1a99b9c7839eb529f657d28d66db747585" compoundref="include_2battery_8hpp" startline="157" endline="157">GetChargeCutoffVoltage</references>
+        <references refid="class_battery_monitor_i_p5306_1a6c18cb94b4cad66e6537a296a94656ff" compoundref="include_2battery_8hpp" startline="80" endline="80">GetChargerEnabled</references>
+        <references refid="class_battery_monitor_i_p5306_1ad20b056000b247c1c34954152c38329c" compoundref="include_2battery_8hpp" startline="135" endline="137">GetChargeUnderVoltageLoop</references>
+        <references refid="class_battery_monitor_i_p5306_1af0b2a429f78b97318f681dfe292913aa" compoundref="include_2battery_8hpp" startline="127" endline="129">GetChargingFullStopVoltage</references>
+        <references refid="class_battery_monitor_i_p5306_1aa47f221ba19afd92d43f962e65c0f1ca" compoundref="include_2battery_8hpp" startline="145" endline="147">GetEndChargeCurrentDetection</references>
+        <references refid="class_battery_monitor_i_p5306_1ada48f8e65388377c2851f8e554022f2f" compoundref="include_2battery_8hpp" startline="107" endline="107">GetFlashlightClicks</references>
+        <references refid="class_battery_monitor_i_p5306_1a420e6c360cc165aea2b36a4b9741b000" compoundref="include_2battery_8hpp" startline="65" endline="65">GetKeyOffEnabled</references>
+        <references refid="class_battery_monitor_i_p5306_1a45c617ffc00f8bba438b887736c4e03b" compoundref="include_2battery_8hpp" startline="117" endline="119">GetLightLoadShutdownTime</references>
+        <references refid="class_battery_monitor_i_p5306_1a8f88f1f3bf79fbbb898b28f66f14bfd8" compoundref="include_2battery_8hpp" startline="124" endline="124">GetLongPressTime</references>
+        <references refid="class_battery_monitor_i_p5306_1aab866ae063659ef9ac8fb3d233e2d4b0" compoundref="include_2battery_8hpp" startline="90" endline="90">GetLowBatShutdownEnable</references>
+        <references refid="class_battery_monitor_i_p5306_1a218dbfbcc26a1dc0221525b7b5786f11" compoundref="include_2battery_8hpp" startline="75" endline="75">GetPowerOnLoadEnabled</references>
+        <references refid="class_battery_monitor_i_p5306_1abb40866ea15e89872fe0e6389624ffbe" compoundref="include_2battery_8hpp" startline="100" endline="102">GetShortPressBoostSwitchEnable</references>
+        <references refid="class_battery_monitor_i_p5306_1aea3e63b1cdfa33925565b814197cdd5a" compoundref="include_2battery_8hpp" startline="167" endline="167">GetVinCurrent</references>
+        <references refid="class_battery_monitor_i_p5306_1a721ffbaad88f2d6c26326c600a3eb514" compoundref="include_2battery_8hpp" startline="152" endline="152">GetVoltagePressure</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1ab5616a0155f8597f584077c2adb3e6fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t BatteryMonitorIP5306::get_level</definition>
+        <argsstring>()</argsstring>
+        <name>get_level</name>
+        <qualifiedname>BatteryMonitorIP5306::get_level</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><xrefsect id="todo_1_todo000002"><xreftitle>Todo</xreftitle><xrefdescription><para>IP5306 is replaced by AXP192 in the M5 Core2, this file serves no purpose. </para>
+</xrefdescription></xrefsect></para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="63" column="10" bodyfile="archive/bgeigie_firmware_pio/src/battery.cpp" bodystart="7" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a420e6c360cc165aea2b36a4b9741b000" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetKeyOffEnabled</definition>
+        <argsstring>()</argsstring>
+        <name>GetKeyOffEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::GetKeyOffEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="65" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="65" bodyend="65"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a33f6f9b67b30d941cb0673561e1fc929" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetKeyOffEnabled</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetKeyOffEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::SetKeyOffEnabled</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="66" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="66" bodyend="68"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1ab52fd285234f666a5d82298df5ec925d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetBoostOutputEnabled</definition>
+        <argsstring>()</argsstring>
+        <name>GetBoostOutputEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::GetBoostOutputEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="70" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="70" bodyend="70"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a079fb5956a9d50ad73006de2e920b7eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetBoostOutputEnabled</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetBoostOutputEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::SetBoostOutputEnabled</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="71" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="71" bodyend="73"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a218dbfbcc26a1dc0221525b7b5786f11" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetPowerOnLoadEnabled</definition>
+        <argsstring>()</argsstring>
+        <name>GetPowerOnLoadEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::GetPowerOnLoadEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="75" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="75" bodyend="75"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a43d3e4dd2716e5fcea8596e1e9a78e08" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetPowerOnLoadEnabled</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetPowerOnLoadEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::SetPowerOnLoadEnabled</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="76" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="76" bodyend="78"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a6c18cb94b4cad66e6537a296a94656ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetChargerEnabled</definition>
+        <argsstring>()</argsstring>
+        <name>GetChargerEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::GetChargerEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="80" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="80" bodyend="80"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a3cd8d83e1efe69dc21ed096ff006a240" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetChargerEnabled</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetChargerEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::SetChargerEnabled</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="81" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="81" bodyend="83"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a2c0682f3cde08d31099e0349a2f1276d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetBoostEnabled</definition>
+        <argsstring>()</argsstring>
+        <name>GetBoostEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::GetBoostEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="85" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="85" bodyend="85"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a4ef873ad6b79dea475c53d8295e6276b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetBoostEnabled</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetBoostEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::SetBoostEnabled</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="86" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="86" bodyend="88"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1aab866ae063659ef9ac8fb3d233e2d4b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetLowBatShutdownEnable</definition>
+        <argsstring>()</argsstring>
+        <name>GetLowBatShutdownEnable</name>
+        <qualifiedname>BatteryMonitorIP5306::GetLowBatShutdownEnable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="90" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="90" bodyend="90"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1aad5b08604e19a0e8d67d3828b096a60e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetLowBatShutdownEnable</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetLowBatShutdownEnable</name>
+        <qualifiedname>BatteryMonitorIP5306::SetLowBatShutdownEnable</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="91" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="91" bodyend="93"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a6356c27e4d203947e4150381898476ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetBoostAfterVin</definition>
+        <argsstring>()</argsstring>
+        <name>GetBoostAfterVin</name>
+        <qualifiedname>BatteryMonitorIP5306::GetBoostAfterVin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="95" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="95" bodyend="95"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1aeee24d6bf7aad853f8752ebc18598fc6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetBoostAfterVin</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetBoostAfterVin</name>
+        <qualifiedname>BatteryMonitorIP5306::SetBoostAfterVin</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="96" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="96" bodyend="98"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1abb40866ea15e89872fe0e6389624ffbe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetShortPressBoostSwitchEnable</definition>
+        <argsstring>()</argsstring>
+        <name>GetShortPressBoostSwitchEnable</name>
+        <qualifiedname>BatteryMonitorIP5306::GetShortPressBoostSwitchEnable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="100" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="100" bodyend="102"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1ab1560604e6efaed287be9310b8d3ee76" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetShortPressBoostSwitchEnable</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetShortPressBoostSwitchEnable</name>
+        <qualifiedname>BatteryMonitorIP5306::SetShortPressBoostSwitchEnable</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="103" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="103" bodyend="105"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1ada48f8e65388377c2851f8e554022f2f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetFlashlightClicks</definition>
+        <argsstring>()</argsstring>
+        <name>GetFlashlightClicks</name>
+        <qualifiedname>BatteryMonitorIP5306::GetFlashlightClicks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="107" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="107" bodyend="107"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1aa0c48894ada79d7dd13ba2641c363ada" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetFlashlightClicks</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetFlashlightClicks</name>
+        <qualifiedname>BatteryMonitorIP5306::SetFlashlightClicks</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="108" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="108" bodyend="110"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a6e0de4defa8b69fa6bf6588f7ad47ffb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetBoostOffClicks</definition>
+        <argsstring>()</argsstring>
+        <name>GetBoostOffClicks</name>
+        <qualifiedname>BatteryMonitorIP5306::GetBoostOffClicks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="112" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="112" bodyend="112"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a192a48940113ec78c5dc7db11ccc7b17" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetBoostOffClicks</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetBoostOffClicks</name>
+        <qualifiedname>BatteryMonitorIP5306::SetBoostOffClicks</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="113" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="113" bodyend="115"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a45c617ffc00f8bba438b887736c4e03b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetLightLoadShutdownTime</definition>
+        <argsstring>()</argsstring>
+        <name>GetLightLoadShutdownTime</name>
+        <qualifiedname>BatteryMonitorIP5306::GetLightLoadShutdownTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="117" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="117" bodyend="119"/>
+        <references refid="_raku__code_8cpp_1a1dcf9c7fa92ac9f7694fdba445cb2f2e" compoundref="_raku__code_8cpp" startline="277">IP5306_REG_SYS_2</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a248b6bfbe78800b20571b953834c0731" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetLightLoadShutdownTime</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetLightLoadShutdownTime</name>
+        <qualifiedname>BatteryMonitorIP5306::SetLightLoadShutdownTime</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="120" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="120" bodyend="122"/>
+        <references refid="_raku__code_8cpp_1a1dcf9c7fa92ac9f7694fdba445cb2f2e" compoundref="_raku__code_8cpp" startline="277">IP5306_REG_SYS_2</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a8f88f1f3bf79fbbb898b28f66f14bfd8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetLongPressTime</definition>
+        <argsstring>()</argsstring>
+        <name>GetLongPressTime</name>
+        <qualifiedname>BatteryMonitorIP5306::GetLongPressTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="124" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="124" bodyend="124"/>
+        <references refid="_raku__code_8cpp_1a1dcf9c7fa92ac9f7694fdba445cb2f2e" compoundref="_raku__code_8cpp" startline="277">IP5306_REG_SYS_2</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1aaf620b57858560bc6538902a94fe062c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetLongPressTime</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetLongPressTime</name>
+        <qualifiedname>BatteryMonitorIP5306::SetLongPressTime</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="125" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="125" bodyend="125"/>
+        <references refid="_raku__code_8cpp_1a1dcf9c7fa92ac9f7694fdba445cb2f2e" compoundref="_raku__code_8cpp" startline="277">IP5306_REG_SYS_2</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1af0b2a429f78b97318f681dfe292913aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetChargingFullStopVoltage</definition>
+        <argsstring>()</argsstring>
+        <name>GetChargingFullStopVoltage</name>
+        <qualifiedname>BatteryMonitorIP5306::GetChargingFullStopVoltage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="127" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="127" bodyend="129"/>
+        <references refid="_raku__code_8cpp_1aec16dc8fcc856455557a20afa608f556" compoundref="_raku__code_8cpp" startline="278">IP5306_REG_CHG_0</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a4054137d95122944853155fe30f4cfc0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetChargingFullStopVoltage</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetChargingFullStopVoltage</name>
+        <qualifiedname>BatteryMonitorIP5306::SetChargingFullStopVoltage</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="130" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="130" bodyend="132"/>
+        <references refid="_raku__code_8cpp_1aec16dc8fcc856455557a20afa608f556" compoundref="_raku__code_8cpp" startline="278">IP5306_REG_CHG_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1ad20b056000b247c1c34954152c38329c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetChargeUnderVoltageLoop</definition>
+        <argsstring>()</argsstring>
+        <name>GetChargeUnderVoltageLoop</name>
+        <qualifiedname>BatteryMonitorIP5306::GetChargeUnderVoltageLoop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="135" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="135" bodyend="137"/>
+        <references refid="_raku__code_8cpp_1ac1257d0bb86a45034ff87510273047a8" compoundref="_raku__code_8cpp" startline="279">IP5306_REG_CHG_1</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1ac98cf932c29c06c3baeecd8d82bd81f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetChargeUnderVoltageLoop</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetChargeUnderVoltageLoop</name>
+        <qualifiedname>BatteryMonitorIP5306::SetChargeUnderVoltageLoop</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="139" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="139" bodyend="141"/>
+        <references refid="_raku__code_8cpp_1ac1257d0bb86a45034ff87510273047a8" compoundref="_raku__code_8cpp" startline="279">IP5306_REG_CHG_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1aa47f221ba19afd92d43f962e65c0f1ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetEndChargeCurrentDetection</definition>
+        <argsstring>()</argsstring>
+        <name>GetEndChargeCurrentDetection</name>
+        <qualifiedname>BatteryMonitorIP5306::GetEndChargeCurrentDetection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="145" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="145" bodyend="147"/>
+        <references refid="_raku__code_8cpp_1ac1257d0bb86a45034ff87510273047a8" compoundref="_raku__code_8cpp" startline="279">IP5306_REG_CHG_1</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a7521aec3dd736021d6d2c60221e8fcd9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetEndChargeCurrentDetection</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetEndChargeCurrentDetection</name>
+        <qualifiedname>BatteryMonitorIP5306::SetEndChargeCurrentDetection</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="148" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="148" bodyend="150"/>
+        <references refid="_raku__code_8cpp_1ac1257d0bb86a45034ff87510273047a8" compoundref="_raku__code_8cpp" startline="279">IP5306_REG_CHG_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a721ffbaad88f2d6c26326c600a3eb514" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetVoltagePressure</definition>
+        <argsstring>()</argsstring>
+        <name>GetVoltagePressure</name>
+        <qualifiedname>BatteryMonitorIP5306::GetVoltagePressure</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="152" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="152" bodyend="152"/>
+        <references refid="_raku__code_8cpp_1a55004a97094593141a67a14631a57798" compoundref="_raku__code_8cpp" startline="280">IP5306_REG_CHG_2</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a796f0fee0bb896ec4f5e7ad745e53413" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetVoltagePressure</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetVoltagePressure</name>
+        <qualifiedname>BatteryMonitorIP5306::SetVoltagePressure</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="153" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="153" bodyend="155"/>
+        <references refid="_raku__code_8cpp_1a55004a97094593141a67a14631a57798" compoundref="_raku__code_8cpp" startline="280">IP5306_REG_CHG_2</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a99b9c7839eb529f657d28d66db747585" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetChargeCutoffVoltage</definition>
+        <argsstring>()</argsstring>
+        <name>GetChargeCutoffVoltage</name>
+        <qualifiedname>BatteryMonitorIP5306::GetChargeCutoffVoltage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="157" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="157" bodyend="157"/>
+        <references refid="_raku__code_8cpp_1a55004a97094593141a67a14631a57798" compoundref="_raku__code_8cpp" startline="280">IP5306_REG_CHG_2</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1ac163647a0244d17a05642a18207aace9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetChargeCutoffVoltage</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetChargeCutoffVoltage</name>
+        <qualifiedname>BatteryMonitorIP5306::SetChargeCutoffVoltage</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="158" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="158" bodyend="160"/>
+        <references refid="_raku__code_8cpp_1a55004a97094593141a67a14631a57798" compoundref="_raku__code_8cpp" startline="280">IP5306_REG_CHG_2</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a2b01125fd4de2b1720ca2846f068a382" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetChargeCCLoop</definition>
+        <argsstring>()</argsstring>
+        <name>GetChargeCCLoop</name>
+        <qualifiedname>BatteryMonitorIP5306::GetChargeCCLoop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="162" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="162" bodyend="162"/>
+        <references refid="_raku__code_8cpp_1af2e09d465f7474fe892e3a606d0bbc41" compoundref="_raku__code_8cpp" startline="281">IP5306_REG_CHG_3</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a20e6cd2e68338ab191a6fedd9d7f725b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetChargeCCLoop</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetChargeCCLoop</name>
+        <qualifiedname>BatteryMonitorIP5306::SetChargeCCLoop</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="163" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="163" bodyend="165"/>
+        <references refid="_raku__code_8cpp_1af2e09d465f7474fe892e3a606d0bbc41" compoundref="_raku__code_8cpp" startline="281">IP5306_REG_CHG_3</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1aea3e63b1cdfa33925565b814197cdd5a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetVinCurrent</definition>
+        <argsstring>()</argsstring>
+        <name>GetVinCurrent</name>
+        <qualifiedname>BatteryMonitorIP5306::GetVinCurrent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="167" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="167" bodyend="167"/>
+        <references refid="_raku__code_8cpp_1abeb4a1461a14c309e0a45646864346b9" compoundref="_raku__code_8cpp" startline="282">IP5306_REG_CHG_4</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" compoundref="battery_8cpp" startline="81" endline="115">print_settings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a9d2992bb24c6e92634114fb889f61ce1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetVinCurrent</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetVinCurrent</name>
+        <qualifiedname>BatteryMonitorIP5306::SetVinCurrent</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="168" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="168" bodyend="170"/>
+        <references refid="_raku__code_8cpp_1abeb4a1461a14c309e0a45646864346b9" compoundref="_raku__code_8cpp" startline="282">IP5306_REG_CHG_4</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a27cc4a409326efbfd0c743938d7a1afb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetShortPressDetected</definition>
+        <argsstring>()</argsstring>
+        <name>GetShortPressDetected</name>
+        <qualifiedname>BatteryMonitorIP5306::GetShortPressDetected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="172" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="172" bodyend="172"/>
+        <references refid="_raku__code_8cpp_1ab6d1ec81892b43e71c7bc2b552565935" compoundref="_raku__code_8cpp" startline="286">IP5306_REG_READ_3</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a0da333f3c366186d180a20312b1481e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::ClearShortPressDetected</definition>
+        <argsstring>()</argsstring>
+        <name>ClearShortPressDetected</name>
+        <qualifiedname>BatteryMonitorIP5306::ClearShortPressDetected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="173" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="173" bodyend="175"/>
+        <references refid="_raku__code_8cpp_1ab6d1ec81892b43e71c7bc2b552565935" compoundref="_raku__code_8cpp" startline="286">IP5306_REG_READ_3</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a0faa5db1daafb3256381e0b0bf5ca2df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetLongPressDetected</definition>
+        <argsstring>()</argsstring>
+        <name>GetLongPressDetected</name>
+        <qualifiedname>BatteryMonitorIP5306::GetLongPressDetected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="177" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="177" bodyend="177"/>
+        <references refid="_raku__code_8cpp_1ab6d1ec81892b43e71c7bc2b552565935" compoundref="_raku__code_8cpp" startline="286">IP5306_REG_READ_3</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a9300aba905989e6a5dfb9ee927120ee2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::ClearLongPressDetected</definition>
+        <argsstring>()</argsstring>
+        <name>ClearLongPressDetected</name>
+        <qualifiedname>BatteryMonitorIP5306::ClearLongPressDetected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="178" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="178" bodyend="178"/>
+        <references refid="_raku__code_8cpp_1ab6d1ec81892b43e71c7bc2b552565935" compoundref="_raku__code_8cpp" startline="286">IP5306_REG_READ_3</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a90efbdc7a22541ecfe3cb2cfb319365f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetDoubleClickDetected</definition>
+        <argsstring>()</argsstring>
+        <name>GetDoubleClickDetected</name>
+        <qualifiedname>BatteryMonitorIP5306::GetDoubleClickDetected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="180" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="180" bodyend="180"/>
+        <references refid="_raku__code_8cpp_1ab6d1ec81892b43e71c7bc2b552565935" compoundref="_raku__code_8cpp" startline="286">IP5306_REG_READ_3</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a3dd4a87f6bd529e881d68866ba73fa22" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::ClearDoubleClickDetected</definition>
+        <argsstring>()</argsstring>
+        <name>ClearDoubleClickDetected</name>
+        <qualifiedname>BatteryMonitorIP5306::ClearDoubleClickDetected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="181" column="8" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="181" bodyend="183"/>
+        <references refid="_raku__code_8cpp_1ab6d1ec81892b43e71c7bc2b552565935" compoundref="_raku__code_8cpp" startline="286">IP5306_REG_READ_3</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a99ad3de534d1057a062e20c9ec8f92cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetPowerSource</definition>
+        <argsstring>()</argsstring>
+        <name>GetPowerSource</name>
+        <qualifiedname>BatteryMonitorIP5306::GetPowerSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="185" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="185" bodyend="187"/>
+        <references refid="_raku__code_8cpp_1abf4d68176448c43972c23895913b317c" compoundref="_raku__code_8cpp" startline="283">IP5306_REG_READ_0</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a9ba36679ebdb7aa7981ec20997cf633e" compoundref="battery_8cpp" startline="71" endline="79">print_stats</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a6413320a32fcfb0719775aa337c623af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetBatteryFull</definition>
+        <argsstring>()</argsstring>
+        <name>GetBatteryFull</name>
+        <qualifiedname>BatteryMonitorIP5306::GetBatteryFull</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="188" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="188" bodyend="190"/>
+        <references refid="_raku__code_8cpp_1a26152fdd6754672e7f3a0732b710c330" compoundref="_raku__code_8cpp" startline="284">IP5306_REG_READ_1</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a9ba36679ebdb7aa7981ec20997cf633e" compoundref="battery_8cpp" startline="71" endline="79">print_stats</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1ae70d8925c7b83e361a74f74eaf85ee07" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetOutputLoad</definition>
+        <argsstring>()</argsstring>
+        <name>GetOutputLoad</name>
+        <qualifiedname>BatteryMonitorIP5306::GetOutputLoad</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="191" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="191" bodyend="193"/>
+        <references refid="_raku__code_8cpp_1a14917c59853385e27422a4db6573c616" compoundref="_raku__code_8cpp" startline="285">IP5306_REG_READ_2</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a67f88c317296c06f2da5b21e125c860a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetLevelLeds</definition>
+        <argsstring>()</argsstring>
+        <name>GetLevelLeds</name>
+        <qualifiedname>BatteryMonitorIP5306::GetLevelLeds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="194" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="194" bodyend="197"/>
+        <references refid="_raku__code_8cpp_1a1670b51bccc8ee4ba15334afb55b165f" compoundref="_raku__code_8cpp" startline="287">IP5306_REG_READ_4</references>
+        <referencedby refid="class_battery_monitor_i_p5306_1a9ba36679ebdb7aa7981ec20997cf633e" compoundref="battery_8cpp" startline="71" endline="79">print_stats</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a5199ced92607ac2497862ab961413dbd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::LEDS2PCT</definition>
+        <argsstring>(uint8_t byte)</argsstring>
+        <name>LEDS2PCT</name>
+        <qualifiedname>BatteryMonitorIP5306::LEDS2PCT</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>byte</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="199" column="11" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="199" bodyend="202"/>
+        <referencedby refid="class_battery_monitor_i_p5306_1a9ba36679ebdb7aa7981ec20997cf633e" compoundref="battery_8cpp" startline="71" endline="79">print_stats</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a58b80285e63a797c3ce3bfa2dbd5bbad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BatteryMonitorIP5306::BatteryMonitorIP5306</definition>
+        <argsstring>()</argsstring>
+        <name>BatteryMonitorIP5306</name>
+        <qualifiedname>BatteryMonitorIP5306::BatteryMonitorIP5306</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="55" column="3" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a9ba36679ebdb7aa7981ec20997cf633e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::print_stats</definition>
+        <argsstring>()</argsstring>
+        <name>print_stats</name>
+        <qualifiedname>BatteryMonitorIP5306::print_stats</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="56" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::print_settings</definition>
+        <argsstring>()</argsstring>
+        <name>print_settings</name>
+        <qualifiedname>BatteryMonitorIP5306::print_settings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="57" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1ab5616a0155f8597f584077c2adb3e6fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t BatteryMonitorIP5306::get_level</definition>
+        <argsstring>()</argsstring>
+        <name>get_level</name>
+        <qualifiedname>BatteryMonitorIP5306::get_level</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="58" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a420e6c360cc165aea2b36a4b9741b000" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetKeyOffEnabled</definition>
+        <argsstring>()</argsstring>
+        <name>GetKeyOffEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::GetKeyOffEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="60" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="60" bodyend="60"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a33f6f9b67b30d941cb0673561e1fc929" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetKeyOffEnabled</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetKeyOffEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::SetKeyOffEnabled</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="61" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="61" bodyend="63"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1ab52fd285234f666a5d82298df5ec925d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetBoostOutputEnabled</definition>
+        <argsstring>()</argsstring>
+        <name>GetBoostOutputEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::GetBoostOutputEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="65" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="65" bodyend="65"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a079fb5956a9d50ad73006de2e920b7eb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetBoostOutputEnabled</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetBoostOutputEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::SetBoostOutputEnabled</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="66" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="66" bodyend="68"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a218dbfbcc26a1dc0221525b7b5786f11" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetPowerOnLoadEnabled</definition>
+        <argsstring>()</argsstring>
+        <name>GetPowerOnLoadEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::GetPowerOnLoadEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="70" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="70" bodyend="70"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a43d3e4dd2716e5fcea8596e1e9a78e08" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetPowerOnLoadEnabled</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetPowerOnLoadEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::SetPowerOnLoadEnabled</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="71" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="71" bodyend="73"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a6c18cb94b4cad66e6537a296a94656ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetChargerEnabled</definition>
+        <argsstring>()</argsstring>
+        <name>GetChargerEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::GetChargerEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="75" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="75" bodyend="75"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a3cd8d83e1efe69dc21ed096ff006a240" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetChargerEnabled</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetChargerEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::SetChargerEnabled</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="76" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="76" bodyend="78"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a2c0682f3cde08d31099e0349a2f1276d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetBoostEnabled</definition>
+        <argsstring>()</argsstring>
+        <name>GetBoostEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::GetBoostEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="80" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="80" bodyend="80"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a4ef873ad6b79dea475c53d8295e6276b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetBoostEnabled</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetBoostEnabled</name>
+        <qualifiedname>BatteryMonitorIP5306::SetBoostEnabled</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="81" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="81" bodyend="83"/>
+        <references refid="_raku__code_8cpp_1a9ba45af7468de51ba7f89fffa7fb5e61" compoundref="_raku__code_8cpp" startline="275">IP5306_REG_SYS_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1aab866ae063659ef9ac8fb3d233e2d4b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetLowBatShutdownEnable</definition>
+        <argsstring>()</argsstring>
+        <name>GetLowBatShutdownEnable</name>
+        <qualifiedname>BatteryMonitorIP5306::GetLowBatShutdownEnable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="85" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="85" bodyend="85"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1aad5b08604e19a0e8d67d3828b096a60e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetLowBatShutdownEnable</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetLowBatShutdownEnable</name>
+        <qualifiedname>BatteryMonitorIP5306::SetLowBatShutdownEnable</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="86" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="86" bodyend="88"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a6356c27e4d203947e4150381898476ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetBoostAfterVin</definition>
+        <argsstring>()</argsstring>
+        <name>GetBoostAfterVin</name>
+        <qualifiedname>BatteryMonitorIP5306::GetBoostAfterVin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="90" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="90" bodyend="90"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1aeee24d6bf7aad853f8752ebc18598fc6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetBoostAfterVin</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetBoostAfterVin</name>
+        <qualifiedname>BatteryMonitorIP5306::SetBoostAfterVin</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="91" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="91" bodyend="93"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1abb40866ea15e89872fe0e6389624ffbe" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetShortPressBoostSwitchEnable</definition>
+        <argsstring>()</argsstring>
+        <name>GetShortPressBoostSwitchEnable</name>
+        <qualifiedname>BatteryMonitorIP5306::GetShortPressBoostSwitchEnable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="95" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="95" bodyend="97"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1ab1560604e6efaed287be9310b8d3ee76" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetShortPressBoostSwitchEnable</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetShortPressBoostSwitchEnable</name>
+        <qualifiedname>BatteryMonitorIP5306::SetShortPressBoostSwitchEnable</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="98" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="98" bodyend="100"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1ada48f8e65388377c2851f8e554022f2f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetFlashlightClicks</definition>
+        <argsstring>()</argsstring>
+        <name>GetFlashlightClicks</name>
+        <qualifiedname>BatteryMonitorIP5306::GetFlashlightClicks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="102" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="102" bodyend="102"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1aa0c48894ada79d7dd13ba2641c363ada" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetFlashlightClicks</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetFlashlightClicks</name>
+        <qualifiedname>BatteryMonitorIP5306::SetFlashlightClicks</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="103" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="103" bodyend="105"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a6e0de4defa8b69fa6bf6588f7ad47ffb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetBoostOffClicks</definition>
+        <argsstring>()</argsstring>
+        <name>GetBoostOffClicks</name>
+        <qualifiedname>BatteryMonitorIP5306::GetBoostOffClicks</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="107" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="107" bodyend="107"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a192a48940113ec78c5dc7db11ccc7b17" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetBoostOffClicks</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetBoostOffClicks</name>
+        <qualifiedname>BatteryMonitorIP5306::SetBoostOffClicks</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="108" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="108" bodyend="110"/>
+        <references refid="_raku__code_8cpp_1a2d89a1896ab0f29a0aa0aee5eabf19d6" compoundref="_raku__code_8cpp" startline="276">IP5306_REG_SYS_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a45c617ffc00f8bba438b887736c4e03b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetLightLoadShutdownTime</definition>
+        <argsstring>()</argsstring>
+        <name>GetLightLoadShutdownTime</name>
+        <qualifiedname>BatteryMonitorIP5306::GetLightLoadShutdownTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="112" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="112" bodyend="114"/>
+        <references refid="_raku__code_8cpp_1a1dcf9c7fa92ac9f7694fdba445cb2f2e" compoundref="_raku__code_8cpp" startline="277">IP5306_REG_SYS_2</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a248b6bfbe78800b20571b953834c0731" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetLightLoadShutdownTime</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetLightLoadShutdownTime</name>
+        <qualifiedname>BatteryMonitorIP5306::SetLightLoadShutdownTime</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="115" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="115" bodyend="117"/>
+        <references refid="_raku__code_8cpp_1a1dcf9c7fa92ac9f7694fdba445cb2f2e" compoundref="_raku__code_8cpp" startline="277">IP5306_REG_SYS_2</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a8f88f1f3bf79fbbb898b28f66f14bfd8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetLongPressTime</definition>
+        <argsstring>()</argsstring>
+        <name>GetLongPressTime</name>
+        <qualifiedname>BatteryMonitorIP5306::GetLongPressTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="119" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="119" bodyend="119"/>
+        <references refid="_raku__code_8cpp_1a1dcf9c7fa92ac9f7694fdba445cb2f2e" compoundref="_raku__code_8cpp" startline="277">IP5306_REG_SYS_2</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1aaf620b57858560bc6538902a94fe062c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetLongPressTime</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetLongPressTime</name>
+        <qualifiedname>BatteryMonitorIP5306::SetLongPressTime</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="120" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="120" bodyend="120"/>
+        <references refid="_raku__code_8cpp_1a1dcf9c7fa92ac9f7694fdba445cb2f2e" compoundref="_raku__code_8cpp" startline="277">IP5306_REG_SYS_2</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1af0b2a429f78b97318f681dfe292913aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetChargingFullStopVoltage</definition>
+        <argsstring>()</argsstring>
+        <name>GetChargingFullStopVoltage</name>
+        <qualifiedname>BatteryMonitorIP5306::GetChargingFullStopVoltage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="122" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="122" bodyend="124"/>
+        <references refid="_raku__code_8cpp_1aec16dc8fcc856455557a20afa608f556" compoundref="_raku__code_8cpp" startline="278">IP5306_REG_CHG_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a4054137d95122944853155fe30f4cfc0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetChargingFullStopVoltage</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetChargingFullStopVoltage</name>
+        <qualifiedname>BatteryMonitorIP5306::SetChargingFullStopVoltage</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="125" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="125" bodyend="127"/>
+        <references refid="_raku__code_8cpp_1aec16dc8fcc856455557a20afa608f556" compoundref="_raku__code_8cpp" startline="278">IP5306_REG_CHG_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1ad20b056000b247c1c34954152c38329c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetChargeUnderVoltageLoop</definition>
+        <argsstring>()</argsstring>
+        <name>GetChargeUnderVoltageLoop</name>
+        <qualifiedname>BatteryMonitorIP5306::GetChargeUnderVoltageLoop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="130" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="130" bodyend="132"/>
+        <references refid="_raku__code_8cpp_1ac1257d0bb86a45034ff87510273047a8" compoundref="_raku__code_8cpp" startline="279">IP5306_REG_CHG_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1ac98cf932c29c06c3baeecd8d82bd81f4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetChargeUnderVoltageLoop</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetChargeUnderVoltageLoop</name>
+        <qualifiedname>BatteryMonitorIP5306::SetChargeUnderVoltageLoop</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="134" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="134" bodyend="136"/>
+        <references refid="_raku__code_8cpp_1ac1257d0bb86a45034ff87510273047a8" compoundref="_raku__code_8cpp" startline="279">IP5306_REG_CHG_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1aa47f221ba19afd92d43f962e65c0f1ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetEndChargeCurrentDetection</definition>
+        <argsstring>()</argsstring>
+        <name>GetEndChargeCurrentDetection</name>
+        <qualifiedname>BatteryMonitorIP5306::GetEndChargeCurrentDetection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="140" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="140" bodyend="142"/>
+        <references refid="_raku__code_8cpp_1ac1257d0bb86a45034ff87510273047a8" compoundref="_raku__code_8cpp" startline="279">IP5306_REG_CHG_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a7521aec3dd736021d6d2c60221e8fcd9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetEndChargeCurrentDetection</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetEndChargeCurrentDetection</name>
+        <qualifiedname>BatteryMonitorIP5306::SetEndChargeCurrentDetection</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="143" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="143" bodyend="145"/>
+        <references refid="_raku__code_8cpp_1ac1257d0bb86a45034ff87510273047a8" compoundref="_raku__code_8cpp" startline="279">IP5306_REG_CHG_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a721ffbaad88f2d6c26326c600a3eb514" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetVoltagePressure</definition>
+        <argsstring>()</argsstring>
+        <name>GetVoltagePressure</name>
+        <qualifiedname>BatteryMonitorIP5306::GetVoltagePressure</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="147" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="147" bodyend="147"/>
+        <references refid="_raku__code_8cpp_1a55004a97094593141a67a14631a57798" compoundref="_raku__code_8cpp" startline="280">IP5306_REG_CHG_2</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a796f0fee0bb896ec4f5e7ad745e53413" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetVoltagePressure</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetVoltagePressure</name>
+        <qualifiedname>BatteryMonitorIP5306::SetVoltagePressure</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="148" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="148" bodyend="150"/>
+        <references refid="_raku__code_8cpp_1a55004a97094593141a67a14631a57798" compoundref="_raku__code_8cpp" startline="280">IP5306_REG_CHG_2</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a99b9c7839eb529f657d28d66db747585" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetChargeCutoffVoltage</definition>
+        <argsstring>()</argsstring>
+        <name>GetChargeCutoffVoltage</name>
+        <qualifiedname>BatteryMonitorIP5306::GetChargeCutoffVoltage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="152" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="152" bodyend="152"/>
+        <references refid="_raku__code_8cpp_1a55004a97094593141a67a14631a57798" compoundref="_raku__code_8cpp" startline="280">IP5306_REG_CHG_2</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1ac163647a0244d17a05642a18207aace9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetChargeCutoffVoltage</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetChargeCutoffVoltage</name>
+        <qualifiedname>BatteryMonitorIP5306::SetChargeCutoffVoltage</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="153" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="153" bodyend="155"/>
+        <references refid="_raku__code_8cpp_1a55004a97094593141a67a14631a57798" compoundref="_raku__code_8cpp" startline="280">IP5306_REG_CHG_2</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a2b01125fd4de2b1720ca2846f068a382" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetChargeCCLoop</definition>
+        <argsstring>()</argsstring>
+        <name>GetChargeCCLoop</name>
+        <qualifiedname>BatteryMonitorIP5306::GetChargeCCLoop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="157" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="157" bodyend="157"/>
+        <references refid="_raku__code_8cpp_1af2e09d465f7474fe892e3a606d0bbc41" compoundref="_raku__code_8cpp" startline="281">IP5306_REG_CHG_3</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a20e6cd2e68338ab191a6fedd9d7f725b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetChargeCCLoop</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetChargeCCLoop</name>
+        <qualifiedname>BatteryMonitorIP5306::SetChargeCCLoop</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="158" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="158" bodyend="160"/>
+        <references refid="_raku__code_8cpp_1af2e09d465f7474fe892e3a606d0bbc41" compoundref="_raku__code_8cpp" startline="281">IP5306_REG_CHG_3</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1aea3e63b1cdfa33925565b814197cdd5a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetVinCurrent</definition>
+        <argsstring>()</argsstring>
+        <name>GetVinCurrent</name>
+        <qualifiedname>BatteryMonitorIP5306::GetVinCurrent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="162" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="162" bodyend="162"/>
+        <references refid="_raku__code_8cpp_1abeb4a1461a14c309e0a45646864346b9" compoundref="_raku__code_8cpp" startline="282">IP5306_REG_CHG_4</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a9d2992bb24c6e92634114fb889f61ce1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::SetVinCurrent</definition>
+        <argsstring>(uint8_t v)</argsstring>
+        <name>SetVinCurrent</name>
+        <qualifiedname>BatteryMonitorIP5306::SetVinCurrent</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="163" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="163" bodyend="165"/>
+        <references refid="_raku__code_8cpp_1abeb4a1461a14c309e0a45646864346b9" compoundref="_raku__code_8cpp" startline="282">IP5306_REG_CHG_4</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a27cc4a409326efbfd0c743938d7a1afb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetShortPressDetected</definition>
+        <argsstring>()</argsstring>
+        <name>GetShortPressDetected</name>
+        <qualifiedname>BatteryMonitorIP5306::GetShortPressDetected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="167" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="167" bodyend="167"/>
+        <references refid="_raku__code_8cpp_1ab6d1ec81892b43e71c7bc2b552565935" compoundref="_raku__code_8cpp" startline="286">IP5306_REG_READ_3</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a0da333f3c366186d180a20312b1481e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::ClearShortPressDetected</definition>
+        <argsstring>()</argsstring>
+        <name>ClearShortPressDetected</name>
+        <qualifiedname>BatteryMonitorIP5306::ClearShortPressDetected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="168" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="168" bodyend="170"/>
+        <references refid="_raku__code_8cpp_1ab6d1ec81892b43e71c7bc2b552565935" compoundref="_raku__code_8cpp" startline="286">IP5306_REG_READ_3</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a0faa5db1daafb3256381e0b0bf5ca2df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetLongPressDetected</definition>
+        <argsstring>()</argsstring>
+        <name>GetLongPressDetected</name>
+        <qualifiedname>BatteryMonitorIP5306::GetLongPressDetected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="172" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="172" bodyend="172"/>
+        <references refid="_raku__code_8cpp_1ab6d1ec81892b43e71c7bc2b552565935" compoundref="_raku__code_8cpp" startline="286">IP5306_REG_READ_3</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a9300aba905989e6a5dfb9ee927120ee2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::ClearLongPressDetected</definition>
+        <argsstring>()</argsstring>
+        <name>ClearLongPressDetected</name>
+        <qualifiedname>BatteryMonitorIP5306::ClearLongPressDetected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="173" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="173" bodyend="173"/>
+        <references refid="_raku__code_8cpp_1ab6d1ec81892b43e71c7bc2b552565935" compoundref="_raku__code_8cpp" startline="286">IP5306_REG_READ_3</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a90efbdc7a22541ecfe3cb2cfb319365f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetDoubleClickDetected</definition>
+        <argsstring>()</argsstring>
+        <name>GetDoubleClickDetected</name>
+        <qualifiedname>BatteryMonitorIP5306::GetDoubleClickDetected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="175" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="175" bodyend="175"/>
+        <references refid="_raku__code_8cpp_1ab6d1ec81892b43e71c7bc2b552565935" compoundref="_raku__code_8cpp" startline="286">IP5306_REG_READ_3</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a3dd4a87f6bd529e881d68866ba73fa22" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void BatteryMonitorIP5306::ClearDoubleClickDetected</definition>
+        <argsstring>()</argsstring>
+        <name>ClearDoubleClickDetected</name>
+        <qualifiedname>BatteryMonitorIP5306::ClearDoubleClickDetected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="176" column="8" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="176" bodyend="178"/>
+        <references refid="_raku__code_8cpp_1ab6d1ec81892b43e71c7bc2b552565935" compoundref="_raku__code_8cpp" startline="286">IP5306_REG_READ_3</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a99ad3de534d1057a062e20c9ec8f92cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetPowerSource</definition>
+        <argsstring>()</argsstring>
+        <name>GetPowerSource</name>
+        <qualifiedname>BatteryMonitorIP5306::GetPowerSource</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="180" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="180" bodyend="182"/>
+        <references refid="_raku__code_8cpp_1abf4d68176448c43972c23895913b317c" compoundref="_raku__code_8cpp" startline="283">IP5306_REG_READ_0</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a6413320a32fcfb0719775aa337c623af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetBatteryFull</definition>
+        <argsstring>()</argsstring>
+        <name>GetBatteryFull</name>
+        <qualifiedname>BatteryMonitorIP5306::GetBatteryFull</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="183" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="183" bodyend="185"/>
+        <references refid="_raku__code_8cpp_1a26152fdd6754672e7f3a0732b710c330" compoundref="_raku__code_8cpp" startline="284">IP5306_REG_READ_1</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1ae70d8925c7b83e361a74f74eaf85ee07" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetOutputLoad</definition>
+        <argsstring>()</argsstring>
+        <name>GetOutputLoad</name>
+        <qualifiedname>BatteryMonitorIP5306::GetOutputLoad</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="186" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="186" bodyend="188"/>
+        <references refid="_raku__code_8cpp_1a14917c59853385e27422a4db6573c616" compoundref="_raku__code_8cpp" startline="285">IP5306_REG_READ_2</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a67f88c317296c06f2da5b21e125c860a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::GetLevelLeds</definition>
+        <argsstring>()</argsstring>
+        <name>GetLevelLeds</name>
+        <qualifiedname>BatteryMonitorIP5306::GetLevelLeds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="189" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="189" bodyend="192"/>
+        <references refid="_raku__code_8cpp_1a1670b51bccc8ee4ba15334afb55b165f" compoundref="_raku__code_8cpp" startline="287">IP5306_REG_READ_4</references>
+      </memberdef>
+      <memberdef kind="function" id="class_battery_monitor_i_p5306_1a5199ced92607ac2497862ab961413dbd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t BatteryMonitorIP5306::LEDS2PCT</definition>
+        <argsstring>(uint8_t byte)</argsstring>
+        <name>LEDS2PCT</name>
+        <qualifiedname>BatteryMonitorIP5306::LEDS2PCT</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>byte</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/battery.hpp" line="194" column="11" bodyfile="archive/bgeigie_firmware_pio/src/battery.hpp" bodystart="194" bodyend="197"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><xrefsect id="todo_1_todo000001"><xreftitle>Todo</xreftitle><xrefdescription><para>IP5306 is replaced by AXP192 in the M5 Core2, this file serves no purpose. </para>
+</xrefdescription></xrefsect></para>
+    </detaileddescription>
+    <location file="archive/bgeigie_firmware_pio/include/battery.hpp" line="37" column="1" bodyfile="archive/bgeigie_firmware_pio/include/battery.hpp" bodystart="37" bodyend="203"/>
+    <listofallmembers>
+      <member refid="class_battery_monitor_i_p5306_1a58b80285e63a797c3ce3bfa2dbd5bbad" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>BatteryMonitorIP5306</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a58b80285e63a797c3ce3bfa2dbd5bbad" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>BatteryMonitorIP5306</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a3dd4a87f6bd529e881d68866ba73fa22" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>ClearDoubleClickDetected</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a3dd4a87f6bd529e881d68866ba73fa22" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>ClearDoubleClickDetected</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a9300aba905989e6a5dfb9ee927120ee2" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>ClearLongPressDetected</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a9300aba905989e6a5dfb9ee927120ee2" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>ClearLongPressDetected</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a0da333f3c366186d180a20312b1481e7" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>ClearShortPressDetected</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a0da333f3c366186d180a20312b1481e7" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>ClearShortPressDetected</name></member>
+      <member refid="class_battery_monitor_i_p5306_1af23dd2cf946e2cfb396d78d228e26b99" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>get_bits</name></member>
+      <member refid="class_battery_monitor_i_p5306_1af23dd2cf946e2cfb396d78d228e26b99" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>get_bits</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ab5616a0155f8597f584077c2adb3e6fc" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>get_level</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ab5616a0155f8597f584077c2adb3e6fc" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>get_level</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a911c18ad44d2fc8ac7b66362acdc83d9" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>get_reg</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a911c18ad44d2fc8ac7b66362acdc83d9" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>get_reg</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a6413320a32fcfb0719775aa337c623af" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetBatteryFull</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a6413320a32fcfb0719775aa337c623af" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetBatteryFull</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a6356c27e4d203947e4150381898476ea" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetBoostAfterVin</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a6356c27e4d203947e4150381898476ea" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetBoostAfterVin</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a2c0682f3cde08d31099e0349a2f1276d" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetBoostEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a2c0682f3cde08d31099e0349a2f1276d" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetBoostEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a6e0de4defa8b69fa6bf6588f7ad47ffb" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetBoostOffClicks</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a6e0de4defa8b69fa6bf6588f7ad47ffb" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetBoostOffClicks</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ab52fd285234f666a5d82298df5ec925d" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetBoostOutputEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ab52fd285234f666a5d82298df5ec925d" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetBoostOutputEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a2b01125fd4de2b1720ca2846f068a382" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetChargeCCLoop</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a2b01125fd4de2b1720ca2846f068a382" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetChargeCCLoop</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a99b9c7839eb529f657d28d66db747585" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetChargeCutoffVoltage</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a99b9c7839eb529f657d28d66db747585" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetChargeCutoffVoltage</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a6c18cb94b4cad66e6537a296a94656ff" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetChargerEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a6c18cb94b4cad66e6537a296a94656ff" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetChargerEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ad20b056000b247c1c34954152c38329c" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetChargeUnderVoltageLoop</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ad20b056000b247c1c34954152c38329c" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetChargeUnderVoltageLoop</name></member>
+      <member refid="class_battery_monitor_i_p5306_1af0b2a429f78b97318f681dfe292913aa" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetChargingFullStopVoltage</name></member>
+      <member refid="class_battery_monitor_i_p5306_1af0b2a429f78b97318f681dfe292913aa" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetChargingFullStopVoltage</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a90efbdc7a22541ecfe3cb2cfb319365f" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetDoubleClickDetected</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a90efbdc7a22541ecfe3cb2cfb319365f" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetDoubleClickDetected</name></member>
+      <member refid="class_battery_monitor_i_p5306_1aa47f221ba19afd92d43f962e65c0f1ca" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetEndChargeCurrentDetection</name></member>
+      <member refid="class_battery_monitor_i_p5306_1aa47f221ba19afd92d43f962e65c0f1ca" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetEndChargeCurrentDetection</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ada48f8e65388377c2851f8e554022f2f" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetFlashlightClicks</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ada48f8e65388377c2851f8e554022f2f" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetFlashlightClicks</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a420e6c360cc165aea2b36a4b9741b000" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetKeyOffEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a420e6c360cc165aea2b36a4b9741b000" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetKeyOffEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a67f88c317296c06f2da5b21e125c860a" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetLevelLeds</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a67f88c317296c06f2da5b21e125c860a" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetLevelLeds</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a45c617ffc00f8bba438b887736c4e03b" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetLightLoadShutdownTime</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a45c617ffc00f8bba438b887736c4e03b" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetLightLoadShutdownTime</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a0faa5db1daafb3256381e0b0bf5ca2df" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetLongPressDetected</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a0faa5db1daafb3256381e0b0bf5ca2df" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetLongPressDetected</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a8f88f1f3bf79fbbb898b28f66f14bfd8" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetLongPressTime</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a8f88f1f3bf79fbbb898b28f66f14bfd8" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetLongPressTime</name></member>
+      <member refid="class_battery_monitor_i_p5306_1aab866ae063659ef9ac8fb3d233e2d4b0" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetLowBatShutdownEnable</name></member>
+      <member refid="class_battery_monitor_i_p5306_1aab866ae063659ef9ac8fb3d233e2d4b0" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetLowBatShutdownEnable</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ae70d8925c7b83e361a74f74eaf85ee07" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetOutputLoad</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ae70d8925c7b83e361a74f74eaf85ee07" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetOutputLoad</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a218dbfbcc26a1dc0221525b7b5786f11" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetPowerOnLoadEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a218dbfbcc26a1dc0221525b7b5786f11" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetPowerOnLoadEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a99ad3de534d1057a062e20c9ec8f92cb" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetPowerSource</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a99ad3de534d1057a062e20c9ec8f92cb" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetPowerSource</name></member>
+      <member refid="class_battery_monitor_i_p5306_1abb40866ea15e89872fe0e6389624ffbe" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetShortPressBoostSwitchEnable</name></member>
+      <member refid="class_battery_monitor_i_p5306_1abb40866ea15e89872fe0e6389624ffbe" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetShortPressBoostSwitchEnable</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a27cc4a409326efbfd0c743938d7a1afb" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetShortPressDetected</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a27cc4a409326efbfd0c743938d7a1afb" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetShortPressDetected</name></member>
+      <member refid="class_battery_monitor_i_p5306_1aea3e63b1cdfa33925565b814197cdd5a" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetVinCurrent</name></member>
+      <member refid="class_battery_monitor_i_p5306_1aea3e63b1cdfa33925565b814197cdd5a" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetVinCurrent</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a721ffbaad88f2d6c26326c600a3eb514" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetVoltagePressure</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a721ffbaad88f2d6c26326c600a3eb514" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>GetVoltagePressure</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a656f9e4a42dffa00ae8d7c239e7e9316" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>IP5306_I2C_ADDR</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a21f86b1c6a488b509a573c10c9f4e68d" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>IP5306_REG_CHG_0</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a3d284c4d69c958e6e15ec65e66836a17" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>IP5306_REG_CHG_1</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a45f501576e85e82a660398964fed55bc" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>IP5306_REG_CHG_2</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a865b44a84c46cc24195d91fd03b7c67b" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>IP5306_REG_CHG_3</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ac3379588b78db26182749d23c1ab45ff" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>IP5306_REG_CHG_4</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a106805f7024fca19472ffb7894d23a57" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>IP5306_REG_READ_0</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a24dc3a8a364d306af3a75ac259072c5e" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>IP5306_REG_READ_1</name></member>
+      <member refid="class_battery_monitor_i_p5306_1af78972808d2f1e069b20beca3df57947" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>IP5306_REG_READ_2</name></member>
+      <member refid="class_battery_monitor_i_p5306_1af71c56448e85ed35b889695b71155a30" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>IP5306_REG_READ_3</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a5d4296182f858109494bbf637a081d5d" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>IP5306_REG_READ_4</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a25481aa868e0e4422d0e481c6ab557b4" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>IP5306_REG_SYS_0</name></member>
+      <member refid="class_battery_monitor_i_p5306_1af90e482d2275702d658fbd46a84f8857" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>IP5306_REG_SYS_1</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a441a83ac65a8ef6d91746fa61cb97a74" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>IP5306_REG_SYS_2</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a5199ced92607ac2497862ab961413dbd" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>LEDS2PCT</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a5199ced92607ac2497862ab961413dbd" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>LEDS2PCT</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>print_settings</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a3a5d92d19046bffb068d349dd59b7927" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>print_settings</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a9ba36679ebdb7aa7981ec20997cf633e" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>print_stats</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a9ba36679ebdb7aa7981ec20997cf633e" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>print_stats</name></member>
+      <member refid="class_battery_monitor_i_p5306_1af22da6da89236fb63cd53f97628ea9ed" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>set_bits</name></member>
+      <member refid="class_battery_monitor_i_p5306_1af22da6da89236fb63cd53f97628ea9ed" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>set_bits</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a7dc350d25c819fd350b2a5b12ed8785b" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>set_reg</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a7dc350d25c819fd350b2a5b12ed8785b" prot="private" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>set_reg</name></member>
+      <member refid="class_battery_monitor_i_p5306_1aeee24d6bf7aad853f8752ebc18598fc6" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetBoostAfterVin</name></member>
+      <member refid="class_battery_monitor_i_p5306_1aeee24d6bf7aad853f8752ebc18598fc6" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetBoostAfterVin</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a4ef873ad6b79dea475c53d8295e6276b" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetBoostEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a4ef873ad6b79dea475c53d8295e6276b" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetBoostEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a192a48940113ec78c5dc7db11ccc7b17" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetBoostOffClicks</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a192a48940113ec78c5dc7db11ccc7b17" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetBoostOffClicks</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a079fb5956a9d50ad73006de2e920b7eb" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetBoostOutputEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a079fb5956a9d50ad73006de2e920b7eb" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetBoostOutputEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a20e6cd2e68338ab191a6fedd9d7f725b" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetChargeCCLoop</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a20e6cd2e68338ab191a6fedd9d7f725b" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetChargeCCLoop</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ac163647a0244d17a05642a18207aace9" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetChargeCutoffVoltage</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ac163647a0244d17a05642a18207aace9" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetChargeCutoffVoltage</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a3cd8d83e1efe69dc21ed096ff006a240" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetChargerEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a3cd8d83e1efe69dc21ed096ff006a240" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetChargerEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ac98cf932c29c06c3baeecd8d82bd81f4" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetChargeUnderVoltageLoop</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ac98cf932c29c06c3baeecd8d82bd81f4" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetChargeUnderVoltageLoop</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a4054137d95122944853155fe30f4cfc0" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetChargingFullStopVoltage</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a4054137d95122944853155fe30f4cfc0" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetChargingFullStopVoltage</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a7521aec3dd736021d6d2c60221e8fcd9" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetEndChargeCurrentDetection</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a7521aec3dd736021d6d2c60221e8fcd9" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetEndChargeCurrentDetection</name></member>
+      <member refid="class_battery_monitor_i_p5306_1aa0c48894ada79d7dd13ba2641c363ada" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetFlashlightClicks</name></member>
+      <member refid="class_battery_monitor_i_p5306_1aa0c48894ada79d7dd13ba2641c363ada" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetFlashlightClicks</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a33f6f9b67b30d941cb0673561e1fc929" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetKeyOffEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a33f6f9b67b30d941cb0673561e1fc929" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetKeyOffEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a248b6bfbe78800b20571b953834c0731" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetLightLoadShutdownTime</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a248b6bfbe78800b20571b953834c0731" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetLightLoadShutdownTime</name></member>
+      <member refid="class_battery_monitor_i_p5306_1aaf620b57858560bc6538902a94fe062c" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetLongPressTime</name></member>
+      <member refid="class_battery_monitor_i_p5306_1aaf620b57858560bc6538902a94fe062c" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetLongPressTime</name></member>
+      <member refid="class_battery_monitor_i_p5306_1aad5b08604e19a0e8d67d3828b096a60e" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetLowBatShutdownEnable</name></member>
+      <member refid="class_battery_monitor_i_p5306_1aad5b08604e19a0e8d67d3828b096a60e" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetLowBatShutdownEnable</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a43d3e4dd2716e5fcea8596e1e9a78e08" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetPowerOnLoadEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a43d3e4dd2716e5fcea8596e1e9a78e08" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetPowerOnLoadEnabled</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ab1560604e6efaed287be9310b8d3ee76" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetShortPressBoostSwitchEnable</name></member>
+      <member refid="class_battery_monitor_i_p5306_1ab1560604e6efaed287be9310b8d3ee76" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetShortPressBoostSwitchEnable</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a9d2992bb24c6e92634114fb889f61ce1" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetVinCurrent</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a9d2992bb24c6e92634114fb889f61ce1" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetVinCurrent</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a796f0fee0bb896ec4f5e7ad745e53413" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetVoltagePressure</name></member>
+      <member refid="class_battery_monitor_i_p5306_1a796f0fee0bb896ec4f5e7ad745e53413" prot="public" virt="non-virtual"><scope>BatteryMonitorIP5306</scope><name>SetVoltagePressure</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

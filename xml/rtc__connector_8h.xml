@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="rtc__connector_8h" kind="file" language="C++">
+    <compoundname>rtc_connector.h</compoundname>
+    <includes refid="gps__connector_8h" local="yes">gps_connector.h</includes>
+    <includes local="no">Worker.hpp</includes>
+    <includes refid="user__config_8h" local="no">user_config.h</includes>
+    <includedby refid="gfx__screen_8cpp" local="yes">bgeigiezen_firmware/gfx_screen.cpp</includedby>
+    <includedby refid="sd__logger_8cpp" local="yes">bgeigiezen_firmware/handlers/sd_logger.cpp</includedby>
+    <includedby refid="bgeigiezen__firmware_2main_8cpp" local="yes">bgeigiezen_firmware/main.cpp</includedby>
+    <includedby refid="debug__mode_8cpp" local="yes">bgeigiezen_firmware/screens/debug_mode.cpp</includedby>
+    <includedby refid="rtc__connector_8cpp" local="yes">bgeigiezen_firmware/workers/rtc_connector.cpp</includedby>
+    <incdepgraph>
+      <node id="6">
+        <label>user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>gps_connector.h</label>
+        <link refid="gps__connector_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/workers/rtc_connector.h</label>
+        <link refid="rtc__connector_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Arduino.h</label>
+      </node>
+      <node id="7">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="4">
+        <label>RBD_Timer.h</label>
+      </node>
+      <node id="8">
+        <label>TeenyUbloxConnect.h</label>
+      </node>
+      <node id="5">
+        <label>Worker.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>bgeigiezen_firmware/gfx_screen.cpp</label>
+        <link refid="gfx__screen_8cpp"/>
+      </node>
+      <node id="3">
+        <label>bgeigiezen_firmware/handlers/sd_logger.cpp</label>
+        <link refid="sd__logger_8cpp"/>
+      </node>
+      <node id="4">
+        <label>bgeigiezen_firmware/main.cpp</label>
+        <link refid="bgeigiezen__firmware_2main_8cpp"/>
+      </node>
+      <node id="5">
+        <label>bgeigiezen_firmware/screens/debug_mode.cpp</label>
+        <link refid="debug__mode_8cpp"/>
+      </node>
+      <node id="6">
+        <label>bgeigiezen_firmware/workers/rtc_connector.cpp</label>
+        <link refid="rtc__connector_8cpp"/>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/workers/rtc_connector.h</label>
+        <link refid="rtc__connector_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_rtc_data" prot="public">RtcData</innerclass>
+    <innerclass refid="class_date_time_provider" prot="public">DateTimeProvider</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>BGEIGIEZEN_RTC_CONNECTOR_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BGEIGIEZEN_RTC_CONNECTOR_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gps__connector_8h" kindref="compound">gps_connector.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Worker.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="user__config_8h" kindref="compound">user_config.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="struct_rtc_data" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_rtc_data" kindref="compound">RtcData</ref><sp/>{</highlight></codeline>
+<codeline lineno="25" refid="struct_rtc_data_1a1157fdeb5f292af4257fbb1fa0932ce6" refkind="member"><highlight class="normal"><sp/><sp/>uint16_t<sp/><ref refid="struct_rtc_data_1a1157fdeb5f292af4257fbb1fa0932ce6" kindref="member">year</ref>;</highlight></codeline>
+<codeline lineno="26" refid="struct_rtc_data_1a230c62e521a3ab94d729ae331f85c04b" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_rtc_data_1a230c62e521a3ab94d729ae331f85c04b" kindref="member">month</ref>;</highlight></codeline>
+<codeline lineno="27" refid="struct_rtc_data_1abf6e0ad5c3c6a406493cb2414e746be7" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_rtc_data_1abf6e0ad5c3c6a406493cb2414e746be7" kindref="member">day</ref>;</highlight></codeline>
+<codeline lineno="28" refid="struct_rtc_data_1a0f7e13b451b5bd15c98216ee3bc05d7c" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_rtc_data_1a0f7e13b451b5bd15c98216ee3bc05d7c" kindref="member">hour</ref>;</highlight></codeline>
+<codeline lineno="29" refid="struct_rtc_data_1aeae2e5f4a2d8e20ca8cb421ac9dc867c" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_rtc_data_1aeae2e5f4a2d8e20ca8cb421ac9dc867c" kindref="member">minute</ref>;</highlight></codeline>
+<codeline lineno="30" refid="struct_rtc_data_1aa3895ed98a0af367c9e8cb2d54c98285" refkind="member"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="struct_rtc_data_1aa3895ed98a0af367c9e8cb2d54c98285" kindref="member">second</ref>;</highlight></codeline>
+<codeline lineno="31" refid="struct_rtc_data_1ac0e78219a91cfc4f3277078aba82ad1c" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_rtc_data_1ac0e78219a91cfc4f3277078aba82ad1c" kindref="member">valid</ref>;</highlight></codeline>
+<codeline lineno="32" refid="struct_rtc_data_1a69b2b4d393d30fae77d7fcde1000dd83" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_rtc_data_1a69b2b4d393d30fae77d7fcde1000dd83" kindref="member">gps_confirmed</ref>;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="class_date_time_provider" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_date_time_provider" kindref="compound">DateTimeProvider</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ProcessWorker&lt;RtcData&gt;<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_date_time_provider_1a472459daf693401f0036829c537a87bd" kindref="member">DateTimeProvider</ref>();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="class_date_time_provider_1a21cfbde559de40acb433c416003ed4fd" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="class_date_time_provider_1a21cfbde559de40acb433c416003ed4fd" kindref="member">~DateTimeProvider</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_date_time_provider_1a4d3939b1215f619cc267afcb57d306f9" kindref="member">activate</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">retry</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>int8_t<sp/><ref refid="class_date_time_provider_1a998e11085139dd50ddf440c701ea3409" kindref="member">produce_data</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>dt:<sp/>System<sp/>-&gt;<sp/>Data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>system_to_data();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>save<sp/>dt:<sp/>GPS<sp/>/<sp/>RTC<sp/>-&gt;<sp/>System<sp/>(-&gt;<sp/>RTC)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>gps_to_system(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_gnss_data" kindref="compound">GnssData</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>rtc_to_system();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>save_to_system(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">tm</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sys_time</ref>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>system_to_rtc();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>invalidate_sys_time();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">tm</ref><sp/>_sys_time;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>uint32_t<sp/>_last_sys_set;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//BGEIGIEZEN_RTC_CONNECTOR_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/workers/rtc_connector.h"/>
+  </compounddef>
+</doxygen>

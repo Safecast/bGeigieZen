@@ -1,0 +1,358 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="log__aggregator_8cpp" kind="file" language="C++">
+    <compoundname>log_aggregator.cpp</compoundname>
+    <includes refid="functions_8h" local="yes">utils/functions.h</includes>
+    <includes refid="log__aggregator_8h" local="yes">log_aggregator.h</includes>
+    <includes refid="battery__indicator_8h" local="yes">battery_indicator.h</includes>
+    <includes refid="gm__sensor_8h" local="yes">gm_sensor.h</includes>
+    <includes refid="gps__connector_8h" local="yes">gps_connector.h</includes>
+    <includes refid="identifiers_8h" local="yes">identifiers.h</includes>
+    <incdepgraph>
+      <node id="22">
+        <label>identifiers.h</label>
+        <link refid="identifiers_8h"/>
+      </node>
+      <node id="8">
+        <label>user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>circular_buffer.h</label>
+        <link refid="circular__buffer_8h"/>
+      </node>
+      <node id="2">
+        <label>utils/functions.h</label>
+        <link refid="functions_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>utils/hardware_counter.h</label>
+        <link refid="hardware__counter_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>battery_indicator.h</label>
+        <link refid="battery__indicator_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>gm_sensor.h</label>
+        <link refid="gm__sensor_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>gps_connector.h</label>
+        <link refid="gps__connector_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>local_storage.h</label>
+        <link refid="local__storage_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/workers/log_aggregator.cpp</label>
+        <link refid="log__aggregator_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>log_aggregator.h</label>
+        <link refid="log__aggregator_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>Arduino.h</label>
+      </node>
+      <node id="7">
+        <label>Handler.hpp</label>
+      </node>
+      <node id="3">
+        <label>M5Unified.h</label>
+      </node>
+      <node id="9">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="6">
+        <label>Preferences.h</label>
+      </node>
+      <node id="20">
+        <label>RBD_Timer.h</label>
+      </node>
+      <node id="21">
+        <label>TeenyUbloxConnect.h</label>
+      </node>
+      <node id="15">
+        <label>Ticker.h</label>
+      </node>
+      <node id="11">
+        <label>Worker.hpp</label>
+      </node>
+      <node id="16">
+        <label>driver/pcnt.h</label>
+      </node>
+      <node id="14">
+        <label>limits</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="log__aggregator_8cpp_1a321e36bd633edf2b39a21cb7b3241360" prot="public" static="no">
+        <name>LOG_SECOND_TO_TIMEOUT</name>
+        <param><defname>sec</defname></param>
+        <initializer>((<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sec</ref> * 1000) - 100)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.cpp" line="8" column="9" bodyfile="bgeigiezen_firmware/workers/log_aggregator.cpp" bodystart="8" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="log__aggregator_8cpp_1a2a3c66cbe993c2d69da64f0576581018" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+        <definition>double dd_to_dm</definition>
+        <argsstring>(double dd)</argsstring>
+        <name>dd_to_dm</name>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">double</ref></type>
+          <declname>dd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Convert degree degree to decimal minutes for log line <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>dm </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.cpp" line="15" column="8" bodyfile="bgeigiezen_firmware/workers/log_aggregator.cpp" bodystart="15" bodyend="19"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494" compoundref="log__aggregator_8cpp" startline="44" endline="128">LogAggregator::produce_data</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="log__aggregator_8cpp_1a59f30f324b3fc88c68fd16abc2d95d41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char checksum</definition>
+        <argsstring>(const char *s, size_t N)</argsstring>
+        <name>checksum</name>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>N</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compute check sum of N bytes in array s <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>N</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>size of s </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>checksum </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/log_aggregator.cpp" line="28" column="6" bodyfile="bgeigiezen_firmware/workers/log_aggregator.cpp" bodystart="28" bodyend="36"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="functions_8h" kindref="compound">utils/functions.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="log__aggregator_8h" kindref="compound">log_aggregator.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="battery__indicator_8h" kindref="compound">battery_indicator.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gm__sensor_8h" kindref="compound">gm_sensor.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="gps__connector_8h" kindref="compound">gps_connector.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="identifiers_8h" kindref="compound">identifiers.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="log__aggregator_8cpp_1a321e36bd633edf2b39a21cb7b3241360" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>LOG_SECOND_TO_TIMEOUT(sec)<sp/>((sec<sp/>*<sp/>1000)<sp/>-<sp/>100)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="log__aggregator_8cpp_1a2a3c66cbe993c2d69da64f0576581018" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="log__aggregator_8cpp_1a2a3c66cbe993c2d69da64f0576581018" kindref="member">dd_to_dm</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">dd</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">degrees</ref><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">dd</ref>);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">minutes</ref><sp/>=<sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">dd</ref><sp/>-<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">degrees</ref>)<sp/>*<sp/>60;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">degrees</ref>)<sp/>*<sp/>100<sp/>+<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">minutes</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>*/</highlight></codeline>
+<codeline lineno="28" refid="log__aggregator_8cpp_1a59f30f324b3fc88c68fd16abc2d95d41" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="log__aggregator_8cpp_1a59f30f324b3fc88c68fd16abc2d95d41" kindref="member">checksum</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">s</ref>,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">N</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">chk</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">s</ref>[i];</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>1;<sp/>i<sp/>&lt;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">N</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">chk</ref><sp/>^=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">s</ref>[i];</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">chk</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="class_log_aggregator_1a8579c4b144649166f3689c9177c8f3e9" refkind="member"><highlight class="normal"><ref refid="class_log_aggregator_1a8579c4b144649166f3689c9177c8f3e9" kindref="member">LogAggregator::LogAggregator</ref>(<ref refid="class_local_storage" kindref="compound">LocalStorage</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref>)<sp/>:<sp/>ProcessWorker&lt;<ref refid="struct_data_line" kindref="compound">DataLine</ref>&gt;(<ref refid="log__aggregator_8cpp_1a321e36bd633edf2b39a21cb7b3241360" kindref="member">LOG_SECOND_TO_TIMEOUT</ref>(<ref refid="user__config_8h_1a8a21e517d3e43eb7ddb20594faffc7bb" kindref="member">LOG_SECONDS_DELAY</ref>)),<sp/>_settings(<ref refid="bgeigiezen__firmware_2main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17" kindref="member">settings</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494" refkind="member"><highlight class="normal">int8_t<sp/><ref refid="class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494" kindref="member">LogAggregator::produce_data</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">WorkerMap</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" kindref="member">gm_sensor</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>.worker&lt;<ref refid="class_geiger_counter" kindref="compound">GeigerCounter</ref>&gt;(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fadce40ed07be9b46afdd704f59b77a907" kindref="member">k_worker_gm_sensor</ref>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" kindref="member">gm_sensor</ref>-&gt;is_fresh())<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>No<sp/>fresh<sp/>data<sp/>yet,<sp/>log<sp/>only<sp/>once<sp/>every<sp/>5<sp/>seconds</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_worker_idle</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gm_sensor_data</ref><sp/>=<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b" kindref="member">gm_sensor</ref>-&gt;get_data();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>.worker&lt;<ref refid="class_gps_connector" kindref="compound">GpsConnector</ref>&gt;(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211" kindref="member">k_worker_gps_connector</ref>)-&gt;get_data();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">battery_data</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>.worker&lt;<ref refid="class_battery_indicator" kindref="compound">BatteryIndicator</ref>&gt;(<ref refid="identifiers_8h_1a817945491edcfa653f61f26e522cd76fa6daa8cab2f33582eddf479bf8dc018d9" kindref="member">k_worker_battery_indicator</ref>)-&gt;get_data();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>data.cpm<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gm_sensor_data</ref>.cpm_comp;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>data.latitude<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.latitude;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>data.longitude<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.longitude;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>data.altitude<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.altitudeMSL;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>log<sp/>line<sp/>(for<sp/>logging<sp/>and<sp/>sending<sp/>over<sp/>bluetooth</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>uint16_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">latitude_dm</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>uint16_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">latitude_s</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>NS<sp/>=<sp/></highlight><highlight class="charliteral">&apos;N&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>uint16_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">longitude_dm</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>uint16_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">longitude_s</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>WE<sp/>=<sp/></highlight><highlight class="charliteral">&apos;E&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.valid())<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_settings.<ref refid="class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca" kindref="member">get_fixed_latitude</ref>()<sp/>!=<sp/>0<sp/>&amp;&amp;<sp/>_settings.<ref refid="class_local_storage_1a2972e2632be5da773cfa65e23be878e5" kindref="member">get_fixed_longitude</ref>()<sp/>!=<sp/>0<sp/>&amp;&amp;<sp/>_settings.<ref refid="class_local_storage_1aac7014bfb52a62f890592c21ed41c968" kindref="member">get_fixed_range</ref>()<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.in_fixed_range<sp/>=<sp/><ref refid="functions_8h_1a9b1d6cb0ae5f9e0e2eb8547c8d1fa038" kindref="member">haversine_km</ref>(data.latitude,<sp/>data.longitude,<sp/>_settings.<ref refid="class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca" kindref="member">get_fixed_latitude</ref>(),<sp/>_settings.<ref refid="class_local_storage_1a2972e2632be5da773cfa65e23be878e5" kindref="member">get_fixed_longitude</ref>())<sp/>&lt;<sp/>_settings.<ref refid="class_local_storage_1aac7014bfb52a62f890592c21ed41c968" kindref="member">get_fixed_range</ref>();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.in_fixed_range<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">_last_latitude &lt; 0 || _last_latitude &gt;</ref><sp/>0)<sp/>&amp;&amp;<sp/>(<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">_last_longitude &lt; 0 || _last_longitude &gt;</ref><sp/>0))<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">plus_distance</ref><sp/>=<sp/><ref refid="functions_8h_1a9b1d6cb0ae5f9e0e2eb8547c8d1fa038" kindref="member">haversine_km</ref>(data.latitude,<sp/>data.longitude,<sp/>_last_latitude,<sp/>_last_longitude);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.distance<sp/>+=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">plus_distance</ref>;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>M5_LOGD(&quot;Distance<sp/>%f<sp/>=<sp/>haversine_km(%f,<sp/>%f,<sp/>%f,<sp/>%f)&quot;,<sp/>plus_distance,<sp/>data.latitude,<sp/>data.longitude,<sp/>_last_latitude,<sp/>_last_longitude);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>_last_latitude<sp/>=<sp/>data.latitude;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>_last_longitude<sp/>=<sp/>data.longitude;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>NS<sp/>=<sp/>data.latitude<sp/>&lt;<sp/>0<sp/>?<sp/></highlight><highlight class="charliteral">&apos;S&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;N&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>WE<sp/>=<sp/>data.longitude<sp/>&lt;<sp/>0<sp/>?<sp/></highlight><highlight class="charliteral">&apos;W&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;E&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>latitude<sp/>=<sp/><ref refid="log__aggregator_8cpp_1a2a3c66cbe993c2d69da64f0576581018" kindref="member">dd_to_dm</ref>(data.latitude<sp/>&lt;<sp/>0<sp/>?<sp/>data.latitude<sp/>*<sp/>-1<sp/>:<sp/>data.latitude);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>longitude<sp/>=<sp/><ref refid="log__aggregator_8cpp_1a2a3c66cbe993c2d69da64f0576581018" kindref="member">dd_to_dm</ref>(data.longitude<sp/>&lt;<sp/>0<sp/>?<sp/>data.longitude<sp/>*<sp/>-1<sp/>:<sp/>data.longitude);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">latitude_dm</ref><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint32_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(latitude);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">latitude_s</ref><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint32_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">((latitude<sp/>-<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">latitude_dm</ref>)<sp/>*<sp/>1<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e4</ref>);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">longitude_dm</ref><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint32_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(longitude);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">longitude_s</ref><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint32_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">((longitude<sp/>-<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">longitude_dm</ref>)<sp/>*<sp/>1<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e4</ref>);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>gps_valid<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.valid();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>dop_valid<sp/>=<sp/>gps_valid<sp/>&amp;&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.pdop<sp/>*<sp/>100<sp/>&lt;<sp/>_settings.<ref refid="class_local_storage_1a90c32142b83907cfd9acba79c8221c63" kindref="member">get_dop_max</ref>();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sprintf</ref>(</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.timestamp,</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;%04d-%02d-%02dT%02d:%02d:%02dZ&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.year,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.month,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.day,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.hour,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.minute,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.second);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sprintf</ref>(</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.log_string,</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;$%s,%04d,%s,%u,%u,%u,%c,%04d.%04d,%c,%04d.%04d,%c,%.1f,%c,%d,%d&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="include_2config_8hpp_1a13b51bdb19001339023a073629d0d18e" kindref="member">DEVICE_HEADER</ref>,<sp/>_settings.<ref refid="class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65" kindref="member">get_device_id</ref>(),</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>data.timestamp,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gm_sensor_data</ref>.cpm_comp,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gm_sensor_data</ref>.cp5s,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gm_sensor_data</ref>.total,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gm_sensor_data</ref>.valid<sp/>?<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;V&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">latitude_dm</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">latitude_s</ref>,<sp/>NS,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">longitude_dm</ref>,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">longitude_s</ref>,<sp/>WE,<sp/>data.altitude,<sp/>gps_valid<sp/>?<sp/></highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="charliteral">&apos;V&apos;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.satsInView,</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(100<sp/>*<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.pdop));<sp/><sp/></highlight><highlight class="comment">//<sp/>DOP<sp/>logged<sp/>as<sp/>integer,<sp/>displayed<sp/>as<sp/>float<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">len</ref><sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">strlen</ref>(data.log_string);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>data.log_string[<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">len</ref>]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\0&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>generate<sp/>checksum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>uint8_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">chk</ref><sp/>=<sp/><ref refid="logger_8cpp_1a77b34e269d2a6500076f032667578f0b" kindref="member">checksum</ref>(data.log_string<sp/>+<sp/>1,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">len</ref>);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>add<sp/>checksum<sp/>to<sp/>end<sp/>of<sp/>line</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">sprintf</ref>(data.log_string<sp/>+<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">len</ref>,<sp/></highlight><highlight class="stringliteral">&quot;*%02X&quot;</highlight><highlight class="normal">,<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">chk</ref>);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>data.gps_valid<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gps_data</ref>.valid();</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>data.gm_valid<sp/>=<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">gm_sensor_data</ref>.valid;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>data.dop_valid<sp/>=<sp/>dop_valid;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">e_worker_data_read</ref>;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/workers/log_aggregator.cpp"/>
+  </compounddef>
+</doxygen>

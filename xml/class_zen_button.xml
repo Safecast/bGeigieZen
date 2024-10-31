@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_zen_button" kind="class" language="C++" prot="public">
+    <compoundname>ZenButton</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Worker&lt; ButtonState &gt;</basecompoundref>
+    <includes refid="zen__button_8h" local="no">zen_button.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_zen_button_1abeead8beafdb48b28980f42bfb87986b" prot="private" static="no" mutable="no">
+        <type>m5::Button_Class &amp;</type>
+        <definition>m5::Button_Class&amp; ZenButton::_m5_button</definition>
+        <argsstring></argsstring>
+        <name>_m5_button</name>
+        <qualifiedname>ZenButton::_m5_button</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/zen_button.h" line="27" column="20" bodyfile="bgeigiezen_firmware/workers/zen_button.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_zen_button_1a2557c87250ed797d65d4cf12cc4d1756" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ZenButton::ZenButton</definition>
+        <argsstring>(m5::Button_Class &amp;m5_button)</argsstring>
+        <name>ZenButton</name>
+        <qualifiedname>ZenButton::ZenButton</qualifiedname>
+        <param>
+          <type>m5::Button_Class &amp;</type>
+          <declname>m5_button</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/zen_button.h" line="20" column="12" bodyfile="bgeigiezen_firmware/workers/zen_button.cpp" bodystart="6" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_zen_button_1a6b64fd909123b406f36c6c30c1913f9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>ZenButton::~ZenButton</definition>
+        <argsstring>()</argsstring>
+        <name>~ZenButton</name>
+        <qualifiedname>ZenButton::~ZenButton</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/zen_button.h" line="22" column="11" bodyfile="bgeigiezen_firmware/workers/zen_button.cpp" bodystart="10" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_zen_button_1ac2bffe99f5706bfe1d6def23bdfdb87c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int8_t</type>
+        <definition>int8_t ZenButton::produce_data</definition>
+        <argsstring>() override</argsstring>
+        <name>produce_data</name>
+        <qualifiedname>ZenButton::produce_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/workers/zen_button.h" line="24" column="10" bodyfile="bgeigiezen_firmware/workers/zen_button.cpp" bodystart="13" bodyend="22"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="zen__button_8cpp_1ab8f614352fd0896fdf646f9bf413607a" compoundref="zen__button_8cpp" startline="4">LONG_PRESS_DURATION</references>
+        <references refid="struct_button_state_1a71d4a6d2b43596aad74784f39f2f459d" compoundref="zen__button_8h" startline="12">ButtonState::longPress</references>
+        <references refid="zen__button_8cpp_1a50c404c8a57ddadcf9f4fa17c8296fff" compoundref="zen__button_8cpp" startline="3">SHORT_PRESS_DURATION</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>M5 button wrapper as worker </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Worker&lt; ButtonState &gt;</label>
+      </node>
+      <node id="1">
+        <label>ZenButton</label>
+        <link refid="class_zen_button"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Worker&lt; ButtonState &gt;</label>
+      </node>
+      <node id="1">
+        <label>ZenButton</label>
+        <link refid="class_zen_button"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="bgeigiezen_firmware/workers/zen_button.h" line="18" column="1" bodyfile="bgeigiezen_firmware/workers/zen_button.h" bodystart="18" bodyend="28"/>
+    <listofallmembers>
+      <member refid="class_zen_button_1abeead8beafdb48b28980f42bfb87986b" prot="private" virt="non-virtual"><scope>ZenButton</scope><name>_m5_button</name></member>
+      <member refid="class_zen_button_1ac2bffe99f5706bfe1d6def23bdfdb87c" prot="public" virt="non-virtual"><scope>ZenButton</scope><name>produce_data</name></member>
+      <member refid="class_zen_button_1a2557c87250ed797d65d4cf12cc4d1756" prot="public" virt="non-virtual"><scope>ZenButton</scope><name>ZenButton</name></member>
+      <member refid="class_zen_button_1a6b64fd909123b406f36c6c30c1913f9f" prot="public" virt="virtual"><scope>ZenButton</scope><name>~ZenButton</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="md_archive_2bgeigie__firmware__pio_2_r_e_a_d_m_e" kind="page">
+    <compoundname>md_archive_2bgeigie__firmware__pio_2_r_e_a_d_m_e</compoundname>
+    <title>bGeigie-Zen firmware (ESP32)</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<sect1 id="md_archive_2bgeigie__firmware__pio_2_r_e_a_d_m_e_1autotoc_md0">
+<title>Quick Start</title>
+<para>Pre-requisites: python3</para>
+<para><orderedlist>
+<listitem><para>Install <ulink url="https://docs.platformio.org/en/latest/core/installation.html">Platform IO CLI</ulink> <verbatim> python3 -c &quot;$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)&quot;
+</verbatim> I haven&apos;t tried this step myself, but if it fails, try to follow the instructions on platform.io&apos;s website. Rob is using platform.io within VS Code. The link for that is <ulink url="https://docs.platformio.org/en/latest/integration/ide/vscode.html#quick-start">here</ulink></para>
+</listitem><listitem><para>Clone the repository <verbatim> git clone git@github.com:Safecast/bGeigiezen.git
+</verbatim></para>
+</listitem><listitem><para>Change branch to Robin dev <verbatim> cd bGeigiezen
+ git checkout robin/M5Stack_bGeigieRaku_V2.0
+</verbatim></para>
+</listitem><listitem><para>Change directory <verbatim> cd bgeigie_firmware_pio
+</verbatim></para>
+</listitem><listitem><para>Connect the device using USB, compile, and upload <verbatim> pio run -t upload
+</verbatim> </para>
+</listitem></orderedlist>
+</para>
+</sect1>
+    </detaileddescription>
+    <location file="archive/bgeigie_firmware_pio/README.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,700 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="src_2config_8hpp" kind="file" language="C++">
+    <compoundname>config.hpp</compoundname>
+    <includes local="no">cstdint</includes>
+    <includes local="no">cstdlib</includes>
+    <includedby refid="src_2display_8hpp" local="no">archive/bgeigie_firmware_pio/src/display.hpp</includedby>
+    <includedby refid="src_2fsm__context_8hpp" local="no">archive/bgeigie_firmware_pio/src/fsm_context.hpp</includedby>
+    <includedby refid="src_2geiger__counter_8hpp" local="no">archive/bgeigie_firmware_pio/src/geiger_counter.hpp</includedby>
+    <includedby refid="src_2gps_8hpp" local="no">archive/bgeigie_firmware_pio/src/gps.hpp</includedby>
+    <includedby refid="src_2hardwarecounter_8hpp" local="no">archive/bgeigie_firmware_pio/src/hardwarecounter.hpp</includedby>
+    <includedby refid="src_2logger_8hpp" local="no">archive/bgeigie_firmware_pio/src/logger.hpp</includedby>
+    <includedby refid="src_2sd__wrapper_8hpp" local="no">archive/bgeigie_firmware_pio/src/sd_wrapper.hpp</includedby>
+    <includedby refid="setup_8cpp" local="no">archive/bgeigie_firmware_pio/src/setup.cpp</includedby>
+    <includedby refid="src_2setup_8hpp" local="no">archive/bgeigie_firmware_pio/src/setup.hpp</includedby>
+    <includedby refid="archive_2bgeigie__firmware__pio_2src_2wifi__connection_8cpp" local="no">archive/bgeigie_firmware_pio/src/wifi_connection.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/src/config.hpp</label>
+        <link refid="src_2config_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>cstdint</label>
+      </node>
+      <node id="3">
+        <label>cstdlib</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/src/config.hpp</label>
+        <link refid="src_2config_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>archive/bgeigie_firmware_pio/src/display.cpp</label>
+        <link refid="display_8cpp"/>
+      </node>
+      <node id="2">
+        <label>archive/bgeigie_firmware_pio/src/display.hpp</label>
+        <link refid="src_2display_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>archive/bgeigie_firmware_pio/src/fsm_context.cpp</label>
+        <link refid="fsm__context_8cpp"/>
+      </node>
+      <node id="4">
+        <label>archive/bgeigie_firmware_pio/src/fsm_context.hpp</label>
+        <link refid="src_2fsm__context_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>archive/bgeigie_firmware_pio/src/fsm_state_base.hpp</label>
+        <link refid="src_2fsm__state__base_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>archive/bgeigie_firmware_pio/src/fsm_state_concrete.cpp</label>
+        <link refid="fsm__state__concrete_8cpp"/>
+      </node>
+      <node id="7">
+        <label>archive/bgeigie_firmware_pio/src/fsm_state_concrete.hpp</label>
+        <link refid="src_2fsm__state__concrete_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>archive/bgeigie_firmware_pio/src/geiger_counter.cpp</label>
+        <link refid="geiger__counter_8cpp"/>
+      </node>
+      <node id="11">
+        <label>archive/bgeigie_firmware_pio/src/geiger_counter.hpp</label>
+        <link refid="src_2geiger__counter_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>archive/bgeigie_firmware_pio/src/gps.cpp</label>
+        <link refid="gps_8cpp"/>
+      </node>
+      <node id="15">
+        <label>archive/bgeigie_firmware_pio/src/gps.hpp</label>
+        <link refid="src_2gps_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>archive/bgeigie_firmware_pio/src/hardwarecounter.cpp</label>
+        <link refid="hardwarecounter_8cpp"/>
+      </node>
+      <node id="17">
+        <label>archive/bgeigie_firmware_pio/src/hardwarecounter.hpp</label>
+        <link refid="src_2hardwarecounter_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>archive/bgeigie_firmware_pio/src/logger.cpp</label>
+        <link refid="logger_8cpp"/>
+      </node>
+      <node id="13">
+        <label>archive/bgeigie_firmware_pio/src/logger.hpp</label>
+        <link refid="src_2logger_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>archive/bgeigie_firmware_pio/src/main.cpp</label>
+        <link refid="archive_2bgeigie__firmware__pio_2src_2main_8cpp"/>
+      </node>
+      <node id="10">
+        <label>archive/bgeigie_firmware_pio/src/menu.cpp</label>
+        <link refid="menu_8cpp"/>
+      </node>
+      <node id="19">
+        <label>archive/bgeigie_firmware_pio/src/sd_wrapper.hpp</label>
+        <link refid="src_2sd__wrapper_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>archive/bgeigie_firmware_pio/src/setup.cpp</label>
+        <link refid="setup_8cpp"/>
+      </node>
+      <node id="21">
+        <label>archive/bgeigie_firmware_pio/src/setup.hpp</label>
+        <link refid="src_2setup_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>archive/bgeigie_firmware_pio/src/wifi_connection.cpp</label>
+        <link refid="archive_2bgeigie__firmware__pio_2src_2wifi__connection_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="src_2config_8hpp_1ab976d08f8762ed4298848ae330237a90" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint16_t</type>
+        <definition>const uint16_t MAJOR</definition>
+        <argsstring></argsstring>
+        <name>MAJOR</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="15" column="16" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1ab28fb130c702bd359f772132957f38f3" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint16_t</type>
+        <definition>const uint16_t MINOR</definition>
+        <argsstring></argsstring>
+        <name>MINOR</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="16" column="16" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1aabe4b3e1826d9969ffdbce0a856bff5c" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint16_t</type>
+        <definition>const uint16_t PATCH</definition>
+        <argsstring></argsstring>
+        <name>PATCH</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="17" column="16" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a5f8b2d16c907ca3ebbc69f0f4491ab8a" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>const char device_nickname[]</definition>
+        <argsstring>[]</argsstring>
+        <name>device_nickname</name>
+        <initializer>= &quot;zen&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="18" column="12" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a13b51bdb19001339023a073629d0d18e" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>const char DEVICE_HEADER[]</definition>
+        <argsstring>[]</argsstring>
+        <name>DEVICE_HEADER</name>
+        <initializer>= &quot;BNRDD&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="23" column="12" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a17871a57cec4c4717bd53399af95ca5e" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> size_t</type>
+        <definition>const size_t LOG_BUFFER_SIZE</definition>
+        <argsstring></argsstring>
+        <name>LOG_BUFFER_SIZE</name>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="25" column="14" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1ad4f6757e97b449f1d666cb645f7c3b0b" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> size_t</type>
+        <definition>const size_t GEIGER_AVERAGING_PERIOD_S</definition>
+        <argsstring></argsstring>
+        <name>GEIGER_AVERAGING_PERIOD_S</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="27" column="14" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a4d1e4f44b01dca70b038d11aa8791da7" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>const int GEIGER_PULSE_GPIO</definition>
+        <argsstring></argsstring>
+        <name>GEIGER_PULSE_GPIO</name>
+        <initializer>= 32</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="28" column="11" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a0db50eb988f899005fd044aa495de6e2" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> size_t</type>
+        <definition>const size_t GEIGER_AVERAGING_N_BINS</definition>
+        <argsstring></argsstring>
+        <name>GEIGER_AVERAGING_N_BINS</name>
+        <initializer>= 12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="29" column="14" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1ada8ab9c1c37ffcc920dbaba93a5001ed" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>const float GEIGER_SENSOR1_CPM_FACTOR</definition>
+        <argsstring></argsstring>
+        <name>GEIGER_SENSOR1_CPM_FACTOR</name>
+        <initializer>= 340.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="30" column="13" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a2080a9b9250553498c56afc1e18b3caa" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>const int GPS_SERIAL_NUM</definition>
+        <argsstring></argsstring>
+        <name>GPS_SERIAL_NUM</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="32" column="11" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a3f0796531188fce47f3b5c0e87688f34" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint32_t</type>
+        <definition>const uint32_t GPS_BAUD_RATE</definition>
+        <argsstring></argsstring>
+        <name>GPS_BAUD_RATE</name>
+        <initializer>= 9600</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="33" column="16" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a2d81c8a9cedc51ab3ccca3eac17a236a" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint16_t</type>
+        <definition>const uint16_t GPS_INVALID_YEAR</definition>
+        <argsstring></argsstring>
+        <name>GPS_INVALID_YEAR</name>
+        <initializer>= 2000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="34" column="16" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a2daf29815f1eb8bce357ffde5c694343" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint32_t</type>
+        <definition>const uint32_t LCD_REFRESH_RATE</definition>
+        <argsstring></argsstring>
+        <name>LCD_REFRESH_RATE</name>
+        <initializer>= 1000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="36" column="16" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a587c91dc29e14d8227957fbe22af6f45" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t SD_CS_PIN</definition>
+        <argsstring></argsstring>
+        <name>SD_CS_PIN</name>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="38" column="15" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1abce19322f5c54bf596c47078d910f71e" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>const char QR_CODE_URL_BASE[]</definition>
+        <argsstring>[]</argsstring>
+        <name>QR_CODE_URL_BASE</name>
+        <initializer>= &quot;http://<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">tt.safecast.org</ref>/<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">id</ref>/<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">geigiecast:&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="40" column="12" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a19f748654b4acf1e8460dd5537c05abd" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> size_t</type>
+        <definition>const size_t QR_CODE_DEV_ID_NDIGITS</definition>
+        <argsstring></argsstring>
+        <name>QR_CODE_DEV_ID_NDIGITS</name>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="41" column="14" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a6ece29d27b64e8d45ba35ad8768004fd" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>const char LOG_HEADER_LINE1[]</definition>
+        <argsstring>[]</argsstring>
+        <name>LOG_HEADER_LINE1</name>
+        <initializer>= &quot;# NEW <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">LOG&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="43" column="12" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a512c9567b6eb82a4cd574e527c911ef5" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>const char LOG_HEADER_LINE2[]</definition>
+        <argsstring>[]</argsstring>
+        <name>LOG_HEADER_LINE2</name>
+        <initializer>= &quot;# format=&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="44" column="12" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a77e3330c0e698251fcc72973de75f5ae" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>const char LOG_HEADER_LINE3[]</definition>
+        <argsstring>[]</argsstring>
+        <name>LOG_HEADER_LINE3</name>
+        <initializer>= &quot;# deadtime=<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">off&quot;</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="45" column="12" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a8f8959f14b4d147636e897f57e4798f9" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>const char SETUP_FILENAME[]</definition>
+        <argsstring>[]</argsstring>
+        <name>SETUP_FILENAME</name>
+        <initializer>= &quot;/SAFECAST.txt&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="47" column="12" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1abc2d032c4f9f0bce67c20d49d4b397f4" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> size_t</type>
+        <definition>const size_t SETUP_FILE_PARSE_BUFFER_SIZE</definition>
+        <argsstring></argsstring>
+        <name>SETUP_FILE_PARSE_BUFFER_SIZE</name>
+        <initializer>= 102</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="48" column="14" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a84c783b401aa6af2b28edfc527c2f226" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint32_t</type>
+        <definition>const uint32_t SETUP_DEFAULT_DEVICE_ID</definition>
+        <argsstring></argsstring>
+        <name>SETUP_DEFAULT_DEVICE_ID</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="49" column="16" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a50ca9e33b6057d7fc20a964b6811eb93" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> size_t</type>
+        <definition>const size_t SETUP_USERNAME_MAXLEN</definition>
+        <argsstring></argsstring>
+        <name>SETUP_USERNAME_MAXLEN</name>
+        <initializer>= 15</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="50" column="14" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a107643ea05cf125d833475198786ad3d" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>const float SETUP_DEFAULT_USH_DIVIDER</definition>
+        <argsstring></argsstring>
+        <name>SETUP_DEFAULT_USH_DIVIDER</name>
+        <initializer>= 334.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="51" column="13" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a335bd0ef57c435bba8aa8e944345a9ba" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+        <definition>const float SETUP_DEFAULT_BQM2_FACTOR</definition>
+        <argsstring></argsstring>
+        <name>SETUP_DEFAULT_BQM2_FACTOR</name>
+        <initializer>= 37.0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="52" column="13" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a2783fe3face44b94bc95810aa7e880f4" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint32_t</type>
+        <definition>const uint32_t SETUP_DEFAULT_SENSOR_HEIGHT</definition>
+        <argsstring></argsstring>
+        <name>SETUP_DEFAULT_SENSOR_HEIGHT</name>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="53" column="16" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a79f9da3755693d5acec3bb7fd2cc3b2c" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t SETUP_DEFAULT_CPM_WINDOW</definition>
+        <argsstring></argsstring>
+        <name>SETUP_DEFAULT_CPM_WINDOW</name>
+        <initializer>= 60</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="54" column="15" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a59a0c2ce5ef2a55d3c7f0bef8516c5bf" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint32_t</type>
+        <definition>const uint32_t SETUP_DEFAULT_ALARM_LEVEL</definition>
+        <argsstring></argsstring>
+        <name>SETUP_DEFAULT_ALARM_LEVEL</name>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="55" column="16" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1aa31b585084f13a60ac6961c26cfcf498" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>const char SETUP_DEFAULT_COUNTRY_CODE[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>SETUP_DEFAULT_COUNTRY_CODE</name>
+        <initializer>= &quot;JPN&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="56" column="12" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="src_2config_8hpp_1a1c6afeea01e41eeab258c096afa9bee8" prot="public" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> uint8_t</type>
+        <definition>const uint8_t SETUP_DEFAULT_TIMEZONE</definition>
+        <argsstring></argsstring>
+        <name>SETUP_DEFAULT_TIMEZONE</name>
+        <initializer>= 9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/config.hpp" line="57" column="15" bodyfile="archive/bgeigie_firmware_pio/src/config.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__CONFIG_HPP__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__CONFIG_HPP__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdlib&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">std::uint8_t;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">std::uint16_t;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">std::uint32_t;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">std::int8_t;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">std::int16_t;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">std::int32_t;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">std::size_t;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">/***<sp/>VERSION<sp/>***/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="src_2config_8hpp_1ab976d08f8762ed4298848ae330237a90" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/><ref refid="src_2config_8hpp_1ab976d08f8762ed4298848ae330237a90" kindref="member">MAJOR</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="16" refid="src_2config_8hpp_1ab28fb130c702bd359f772132957f38f3" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/><ref refid="src_2config_8hpp_1ab28fb130c702bd359f772132957f38f3" kindref="member">MINOR</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="17" refid="src_2config_8hpp_1aabe4b3e1826d9969ffdbce0a856bff5c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/><ref refid="src_2config_8hpp_1aabe4b3e1826d9969ffdbce0a856bff5c" kindref="member">PATCH</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="18" refid="src_2config_8hpp_1a5f8b2d16c907ca3ebbc69f0f4491ab8a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1a5f8b2d16c907ca3ebbc69f0f4491ab8a" kindref="member">device_nickname</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;zen&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">/***************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/***<sp/>CONFIG<sp/>***/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>log<sp/>format<sp/>header</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="src_2config_8hpp_1a13b51bdb19001339023a073629d0d18e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1a13b51bdb19001339023a073629d0d18e" kindref="member">DEVICE_HEADER</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;BNRDD&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>maximum<sp/>length<sp/>of<sp/>buffer<sp/>for<sp/>the<sp/>bGeigie<sp/>log</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="src_2config_8hpp_1a17871a57cec4c4717bd53399af95ca5e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1a17871a57cec4c4717bd53399af95ca5e" kindref="member">LOG_BUFFER_SIZE</ref><sp/>=<sp/>100;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>geiger<sp/>counter</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="src_2config_8hpp_1ad4f6757e97b449f1d666cb645f7c3b0b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1ad4f6757e97b449f1d666cb645f7c3b0b" kindref="member">GEIGER_AVERAGING_PERIOD_S</ref><sp/>=<sp/>5;<sp/><sp/></highlight><highlight class="comment">//<sp/>5<sp/>s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="src_2config_8hpp_1a4d1e4f44b01dca70b038d11aa8791da7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1a4d1e4f44b01dca70b038d11aa8791da7" kindref="member">GEIGER_PULSE_GPIO</ref><sp/>=<sp/>32;</highlight></codeline>
+<codeline lineno="29" refid="src_2config_8hpp_1a0db50eb988f899005fd044aa495de6e2" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1a0db50eb988f899005fd044aa495de6e2" kindref="member">GEIGER_AVERAGING_N_BINS</ref><sp/>=<sp/>12;<sp/><sp/></highlight><highlight class="comment">//<sp/>12<sp/>x<sp/>5<sp/>s<sp/>==<sp/>1<sp/>min<sp/>moving<sp/>average</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="src_2config_8hpp_1ada8ab9c1c37ffcc920dbaba93a5001ed" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1ada8ab9c1c37ffcc920dbaba93a5001ed" kindref="member">GEIGER_SENSOR1_CPM_FACTOR</ref><sp/>=<sp/>340.0;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>gps</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="src_2config_8hpp_1a2080a9b9250553498c56afc1e18b3caa" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1a2080a9b9250553498c56afc1e18b3caa" kindref="member">GPS_SERIAL_NUM</ref><sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="33" refid="src_2config_8hpp_1a3f0796531188fce47f3b5c0e87688f34" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="src_2config_8hpp_1a3f0796531188fce47f3b5c0e87688f34" kindref="member">GPS_BAUD_RATE</ref><sp/>=<sp/>9600;</highlight></codeline>
+<codeline lineno="34" refid="src_2config_8hpp_1a2d81c8a9cedc51ab3ccca3eac17a236a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint16_t<sp/><ref refid="src_2config_8hpp_1a2d81c8a9cedc51ab3ccca3eac17a236a" kindref="member">GPS_INVALID_YEAR</ref><sp/>=<sp/>2000;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>LCD<sp/>display</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="src_2config_8hpp_1a2daf29815f1eb8bce357ffde5c694343" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="src_2config_8hpp_1a2daf29815f1eb8bce357ffde5c694343" kindref="member">LCD_REFRESH_RATE</ref><sp/>=<sp/>1000;<sp/><sp/></highlight><highlight class="comment">//<sp/>1s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>SD<sp/>card</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="src_2config_8hpp_1a587c91dc29e14d8227957fbe22af6f45" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="src_2config_8hpp_1a587c91dc29e14d8227957fbe22af6f45" kindref="member">SD_CS_PIN</ref><sp/>=<sp/>4;<sp/><sp/></highlight><highlight class="comment">//<sp/>GPIO<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>URL<sp/>for<sp/>the<sp/>QR<sp/>code,<sp/>the<sp/>device<sp/>number<sp/>should<sp/>be<sp/>added<sp/>at<sp/>the<sp/>end</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="src_2config_8hpp_1abce19322f5c54bf596c47078d910f71e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1abce19322f5c54bf596c47078d910f71e" kindref="member">QR_CODE_URL_BASE</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;http://tt.safecast.org/id/geigiecast:&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41" refid="src_2config_8hpp_1a19f748654b4acf1e8460dd5537c05abd" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1a19f748654b4acf1e8460dd5537c05abd" kindref="member">QR_CODE_DEV_ID_NDIGITS</ref><sp/>=<sp/>4;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>HEADER<sp/>string<sp/>for<sp/>the<sp/>log<sp/>file</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="src_2config_8hpp_1a6ece29d27b64e8d45ba35ad8768004fd" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1a6ece29d27b64e8d45ba35ad8768004fd" kindref="member">LOG_HEADER_LINE1</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;#<sp/>NEW<sp/>LOG&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44" refid="src_2config_8hpp_1a512c9567b6eb82a4cd574e527c911ef5" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1a512c9567b6eb82a4cd574e527c911ef5" kindref="member">LOG_HEADER_LINE2</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;#<sp/>format=&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45" refid="src_2config_8hpp_1a77e3330c0e698251fcc72973de75f5ae" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1a77e3330c0e698251fcc72973de75f5ae" kindref="member">LOG_HEADER_LINE3</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;#<sp/>deadtime=off&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>Setup</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="src_2config_8hpp_1a8f8959f14b4d147636e897f57e4798f9" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1a8f8959f14b4d147636e897f57e4798f9" kindref="member">SETUP_FILENAME</ref>[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;/SAFECAST.txt&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48" refid="src_2config_8hpp_1abc2d032c4f9f0bce67c20d49d4b397f4" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1abc2d032c4f9f0bce67c20d49d4b397f4" kindref="member">SETUP_FILE_PARSE_BUFFER_SIZE</ref><sp/>=<sp/>102;</highlight></codeline>
+<codeline lineno="49" refid="src_2config_8hpp_1a84c783b401aa6af2b28edfc527c2f226" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="src_2config_8hpp_1a84c783b401aa6af2b28edfc527c2f226" kindref="member">SETUP_DEFAULT_DEVICE_ID</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="50" refid="src_2config_8hpp_1a50ca9e33b6057d7fc20a964b6811eb93" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1a50ca9e33b6057d7fc20a964b6811eb93" kindref="member">SETUP_USERNAME_MAXLEN</ref><sp/>=<sp/>15;</highlight></codeline>
+<codeline lineno="51" refid="src_2config_8hpp_1a107643ea05cf125d833475198786ad3d" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1a107643ea05cf125d833475198786ad3d" kindref="member">SETUP_DEFAULT_USH_DIVIDER</ref><sp/>=<sp/>334.0;</highlight></codeline>
+<codeline lineno="52" refid="src_2config_8hpp_1a335bd0ef57c435bba8aa8e944345a9ba" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1a335bd0ef57c435bba8aa8e944345a9ba" kindref="member">SETUP_DEFAULT_BQM2_FACTOR</ref><sp/>=<sp/>37.0;</highlight></codeline>
+<codeline lineno="53" refid="src_2config_8hpp_1a2783fe3face44b94bc95810aa7e880f4" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="src_2config_8hpp_1a2783fe3face44b94bc95810aa7e880f4" kindref="member">SETUP_DEFAULT_SENSOR_HEIGHT</ref><sp/>=<sp/>100;</highlight></codeline>
+<codeline lineno="54" refid="src_2config_8hpp_1a79f9da3755693d5acec3bb7fd2cc3b2c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="src_2config_8hpp_1a79f9da3755693d5acec3bb7fd2cc3b2c" kindref="member">SETUP_DEFAULT_CPM_WINDOW</ref><sp/>=<sp/>60;</highlight></codeline>
+<codeline lineno="55" refid="src_2config_8hpp_1a59a0c2ce5ef2a55d3c7f0bef8516c5bf" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/><ref refid="src_2config_8hpp_1a59a0c2ce5ef2a55d3c7f0bef8516c5bf" kindref="member">SETUP_DEFAULT_ALARM_LEVEL</ref><sp/>=<sp/>100;</highlight></codeline>
+<codeline lineno="56" refid="src_2config_8hpp_1aa31b585084f13a60ac6961c26cfcf498" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="src_2config_8hpp_1aa31b585084f13a60ac6961c26cfcf498" kindref="member">SETUP_DEFAULT_COUNTRY_CODE</ref>[4]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;JPN&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57" refid="src_2config_8hpp_1a1c6afeea01e41eeab258c096afa9bee8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/><ref refid="src_2config_8hpp_1a1c6afeea01e41eeab258c096afa9bee8" kindref="member">SETUP_DEFAULT_TIMEZONE</ref><sp/>=<sp/>9;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">/**************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>__CONFIG_HPP__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="archive/bgeigie_firmware_pio/src/config.hpp"/>
+  </compounddef>
+</doxygen>

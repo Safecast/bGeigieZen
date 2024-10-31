@@ -1,0 +1,330 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="menu__window_8h" kind="file" language="C++">
+    <compoundname>menu_window.h</compoundname>
+    <includes refid="base__screen_8h" local="yes">base_screen.h</includes>
+    <includedby refid="gfx__screen_8h" local="yes">bgeigiezen_firmware/gfx_screen.h</includedby>
+    <includedby refid="config__mode_8cpp" local="yes">bgeigiezen_firmware/screens/config_mode.cpp</includedby>
+    <includedby refid="debug__mode_8cpp" local="yes">bgeigiezen_firmware/screens/debug_mode.cpp</includedby>
+    <includedby refid="drive__mode_8cpp" local="yes">bgeigiezen_firmware/screens/drive_mode.cpp</includedby>
+    <includedby refid="fixed__mode_8cpp" local="yes">bgeigiezen_firmware/screens/fixed_mode.cpp</includedby>
+    <includedby refid="menu__window_8cpp" local="yes">bgeigiezen_firmware/screens/menu_window.cpp</includedby>
+    <includedby refid="satellite__view_8cpp" local="yes">bgeigiezen_firmware/screens/satellite_view.cpp</includedby>
+    <includedby refid="sd__message_8cpp" local="yes">bgeigiezen_firmware/screens/sd_message.cpp</includedby>
+    <includedby refid="survery__mode_8cpp" local="yes">bgeigiezen_firmware/screens/survery_mode.cpp</includedby>
+    <includedby refid="zen__info_8cpp" local="yes">bgeigiezen_firmware/screens/zen_info.cpp</includedby>
+    <incdepgraph>
+      <node id="16">
+        <label>TinyGPS.h</label>
+        <link refid="bgeigie__firmware_2_tiny_g_p_s_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Aggregator.hpp</label>
+        <link refid="aggregator_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>measurements.hpp</label>
+        <link refid="bgeigie__firmware_2measurements_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>patterns.hpp</label>
+        <link refid="bgeigie__firmware_2patterns_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>serial_source.hpp</label>
+        <link refid="bgeigie__firmware_2serial__source_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>threaded_gps.hpp</label>
+        <link refid="bgeigie__firmware_2threaded__gps_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>controller.h</label>
+        <link refid="controller_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>base_screen.h</label>
+        <link refid="base__screen_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/screens/menu_window.h</label>
+        <link refid="menu__window_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>user_config.h</label>
+        <link refid="user__config_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>utils/sd_wrapper.h</label>
+        <link refid="sd__wrapper_8h"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>workers/local_storage.h</label>
+        <link refid="local__storage_8h"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>workers/zen_button.h</label>
+        <link refid="zen__button_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Arduino.h</label>
+      </node>
+      <node id="22">
+        <label>Handler.hpp</label>
+      </node>
+      <node id="3">
+        <label>M5Unified.hpp</label>
+      </node>
+      <node id="27">
+        <label>Preferences.h</label>
+      </node>
+      <node id="25">
+        <label>SD.h</label>
+      </node>
+      <node id="4">
+        <label>Supervisor.hpp</label>
+      </node>
+      <node id="23">
+        <label>TeenyUbloxConnect.h</label>
+      </node>
+      <node id="7">
+        <label>Worker.hpp</label>
+      </node>
+      <node id="14">
+        <label>cstdint</label>
+      </node>
+      <node id="18">
+        <label>cstdio</label>
+      </node>
+      <node id="11">
+        <label>forward_list</label>
+      </node>
+      <node id="15">
+        <label>mutex</label>
+      </node>
+      <node id="13">
+        <label>pthread.h</label>
+      </node>
+      <node id="20">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>bgeigiezen_firmware/gfx_screen.cpp</label>
+        <link refid="gfx__screen_8cpp"/>
+      </node>
+      <node id="2">
+        <label>bgeigiezen_firmware/gfx_screen.h</label>
+        <link refid="gfx__screen_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>bgeigiezen_firmware/main.cpp</label>
+        <link refid="bgeigiezen__firmware_2main_8cpp"/>
+      </node>
+      <node id="5">
+        <label>bgeigiezen_firmware/screens/config_mode.cpp</label>
+        <link refid="config__mode_8cpp"/>
+      </node>
+      <node id="6">
+        <label>bgeigiezen_firmware/screens/debug_mode.cpp</label>
+        <link refid="debug__mode_8cpp"/>
+      </node>
+      <node id="7">
+        <label>bgeigiezen_firmware/screens/drive_mode.cpp</label>
+        <link refid="drive__mode_8cpp"/>
+      </node>
+      <node id="8">
+        <label>bgeigiezen_firmware/screens/fixed_mode.cpp</label>
+        <link refid="fixed__mode_8cpp"/>
+      </node>
+      <node id="9">
+        <label>bgeigiezen_firmware/screens/menu_window.cpp</label>
+        <link refid="menu__window_8cpp"/>
+      </node>
+      <node id="1">
+        <label>bgeigiezen_firmware/screens/menu_window.h</label>
+        <link refid="menu__window_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>bgeigiezen_firmware/screens/satellite_view.cpp</label>
+        <link refid="satellite__view_8cpp"/>
+      </node>
+      <node id="11">
+        <label>bgeigiezen_firmware/screens/sd_message.cpp</label>
+        <link refid="sd__message_8cpp"/>
+      </node>
+      <node id="12">
+        <label>bgeigiezen_firmware/screens/survery_mode.cpp</label>
+        <link refid="survery__mode_8cpp"/>
+      </node>
+      <node id="13">
+        <label>bgeigiezen_firmware/screens/zen_info.cpp</label>
+        <link refid="zen__info_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_menu_window" prot="public">MenuWindow</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="menu__window_8h_1a49d7ec5b9cdcf0958e338c2ad85bed4c" prot="public" static="no">
+        <name>MAIN_MENU_MAX</name>
+        <initializer>8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/menu_window.h" line="6" column="9" bodyfile="bgeigiezen_firmware/screens/menu_window.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="menu__window_8h_1a215e1e85bd83173d1f173f23151643f4" prot="public" static="no" extern="yes" mutable="no">
+        <type><ref refid="class_menu_window" kindref="compound">MenuWindow</ref></type>
+        <definition>MenuWindow MenuWindow_i</definition>
+        <argsstring></argsstring>
+        <name>MenuWindow_i</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/screens/menu_window.h" line="27" column="19" bodyfile="bgeigiezen_firmware/screens/menu_window.cpp" bodystart="28" bodyend="-1" declfile="bgeigiezen_firmware/screens/menu_window.h" declline="27" declcolumn="19"/>
+        <referencedby refid="class_config_mode_screen_1a7fcba3bb1764bd72b76c1f80f1f6a762" compoundref="config__mode_8cpp" startline="27" endline="91">ConfigModeScreen::handle_input</referencedby>
+        <referencedby refid="class_debug_mode_screen_1a74b4a2f357094dcda42fffe968067b28" compoundref="debug__mode_8cpp" startline="104" endline="110">DebugModeScreen::handle_input</referencedby>
+        <referencedby refid="class_drive_mode_screen_1a69c70a1c35f362131345ecd652cd4416" compoundref="drive__mode_8cpp" startline="18" endline="35">DriveModeScreen::handle_input</referencedby>
+        <referencedby refid="class_fixed_mode_screen_1afb1295bc1c4272752239f7ea2ee111a4" compoundref="fixed__mode_8cpp" startline="18" endline="24">FixedModeScreen::handle_input</referencedby>
+        <referencedby refid="class_satellite_view_screen_1a14b2221b6c62c0bf858f9f8816140b96" compoundref="satellite__view_8cpp" startline="32" endline="78">SatelliteViewScreen::handle_input</referencedby>
+        <referencedby refid="class_survey_mode_screen_1a2b1210c4b71c7b2da15777f7c8c677d0" compoundref="survery__mode_8cpp" startline="17" endline="28">SurveyModeScreen::handle_input</referencedby>
+        <referencedby refid="class_zen_info_screen_1a786b973c3a31797c902d23dfcb44fe7a" compoundref="zen__info_8cpp" startline="12" endline="23">ZenInfoScreen::handle_input</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>BGEIGIEZEN_BGEIGIEZEN_FIRMWARE_SCREENS_MENU_ITEMS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BGEIGIEZEN_BGEIGIEZEN_FIRMWARE_SCREENS_MENU_ITEMS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="base__screen_8h" kindref="compound">base_screen.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="menu__window_8h_1a49d7ec5b9cdcf0958e338c2ad85bed4c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAIN_MENU_MAX<sp/>8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="class_menu_window" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_menu_window" kindref="compound">MenuWindow</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_base_screen_with_menu" kindref="compound">BaseScreenWithMenu</ref><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="class_menu_window_1a5d6d7e0556d7a3089f2db77258d00659" kindref="member">MenuWindow</ref>();</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><ref refid="class_base_screen" kindref="compound">BaseScreen</ref>*<sp/><ref refid="class_menu_window_1afe3cdb7f44d6d7a534044abc6b4e1b92" kindref="member">handle_input</ref>(<ref refid="class_controller" kindref="compound">Controller</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_menu_window_1a2971f694878323174c931b8a466c5e82" kindref="member">enter_screen</ref>(<ref refid="class_controller" kindref="compound">Controller</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_menu_window_1a2c5ae75df9da64b970dcbd408efc17ae" kindref="member">leave_screen</ref>(<ref refid="class_controller" kindref="compound">Controller</ref>&amp;<sp/><ref refid="bgeigiezen__firmware_2main_8cpp_1a1eaea7d30fb1aec4bced535709104e57" kindref="member">controller</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_menu_window_1a668a8a350e49de44844d8d06d0032938" kindref="member">render</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">worker_map_t</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">workers</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">handler_map_t</ref>&amp;<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">handlers</ref>,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">force</ref>)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="class_menu_window" kindref="compound">MenuWindow</ref><sp/><ref refid="menu__window_8h_1a215e1e85bd83173d1f173f23151643f4" kindref="member">MenuWindow_i</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//BGEIGIEZEN_BGEIGIEZEN_FIRMWARE_SCREENS_MENU_ITEMS_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="bgeigiezen_firmware/screens/menu_window.h"/>
+  </compounddef>
+</doxygen>

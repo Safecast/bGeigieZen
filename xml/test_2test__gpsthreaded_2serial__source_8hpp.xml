@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="test_2test__gpsthreaded_2serial__source_8hpp" kind="file" language="C++">
+    <compoundname>serial_source.hpp</compoundname>
+    <includes local="no">cstdio</includes>
+    <includedby refid="test_2test__gpsthreaded_2threaded__gps_8hpp" local="yes">archive/test/test_gpsthreaded/threaded_gps.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>archive/test/test_gpsthreaded/serial_source.hpp</label>
+        <link refid="test_2test__gpsthreaded_2serial__source_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>cstdio</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>archive/test/test_gpsthreaded/serial_source.hpp</label>
+        <link refid="test_2test__gpsthreaded_2serial__source_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>archive/test/test_gpsthreaded/threaded_gps.cpp</label>
+        <link refid="test_2test__gpsthreaded_2threaded__gps_8cpp"/>
+      </node>
+      <node id="2">
+        <label>archive/test/test_gpsthreaded/threaded_gps.hpp</label>
+        <link refid="test_2test__gpsthreaded_2threaded__gps_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_serial_source" prot="public">SerialSource</innerclass>
+    <innerclass refid="class_serial_sink" prot="public">SerialSink</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>This<sp/>class<sp/>should<sp/>wrap<sp/>around<sp/>hardware<sp/>serial<sp/>interfaces.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>By<sp/>having<sp/>such<sp/>a<sp/>class,<sp/>we<sp/>can<sp/>create<sp/>virtual<sp/>devices<sp/>for<sp/>simulation</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__SERIAL_SOURCE_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__SERIAL_SOURCE_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdio&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_serial_source" kindref="compound">SerialSource</ref></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="14" refid="class_serial_source_1a9d76c6b6c16e36293627c709a8769331" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_serial_source_1a9d76c6b6c16e36293627c709a8769331" kindref="member">available</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="15" refid="class_serial_source_1a723eb9dfd3bc0d012ae59a92463957f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="class_serial_source_1a723eb9dfd3bc0d012ae59a92463957f1" kindref="member">read</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_serial_sink" kindref="compound">SerialSink</ref></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="21" refid="class_serial_sink_1a3c6298510ef39f03d390a0a0f765ebf8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="class_serial_sink_1a3c6298510ef39f03d390a0a0f765ebf8" kindref="member">println</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">buf</ref>)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="22" refid="class_serial_sink_1a7d6324400e06dcf9fb966ecbb2ce25f7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="class_serial_sink_1a7d6324400e06dcf9fb966ecbb2ce25f7" kindref="member">write</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">buf</ref>)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="archive/test/test_gpsthreaded/serial_source.hpp"/>
+  </compounddef>
+</doxygen>

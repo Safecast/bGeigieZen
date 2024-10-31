@@ -1,0 +1,325 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_wi_fi_wrapper" kind="class" language="C++" prot="public">
+    <compoundname>WiFiWrapper</compoundname>
+    <includes refid="wifi__connection_8h" local="no">wifi_connection.h</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_wi_fi_wrapper_1ac2f9259f1dd31b83a43abe00984b8ba8" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref></type>
+        <definition>char WiFiWrapper::_hostname[20]</definition>
+        <argsstring>[20]</argsstring>
+        <name>_hostname</name>
+        <qualifiedname>WiFiWrapper::_hostname</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/wifi_connection.h" line="59" column="8" bodyfile="bgeigiezen_firmware/utils/wifi_connection.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_wi_fi_wrapper_1a953fa525de106feccf67fea15cca7a47" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t WiFiWrapper::_last_activity</definition>
+        <argsstring></argsstring>
+        <name>_last_activity</name>
+        <qualifiedname>WiFiWrapper::_last_activity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/wifi_connection.h" line="60" column="12" bodyfile="bgeigiezen_firmware/utils/wifi_connection.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_wi_fi_wrapper_1a6c74268bfdfe20d75bc9e277d2588480" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>WiFiWrapper::WiFiWrapper</definition>
+        <argsstring>()</argsstring>
+        <name>WiFiWrapper</name>
+        <qualifiedname>WiFiWrapper::WiFiWrapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/wifi_connection.h" line="6" column="3" bodyfile="bgeigiezen_firmware/utils/wifi_connection.cpp" bodystart="12" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_wi_fi_wrapper_1ac2331e7155ee97b89214f721d91cd657" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool WiFiWrapper::connect_wifi</definition>
+        <argsstring>(const char *ssid, const char *password=nullptr, bool first_time=false)</argsstring>
+        <name>connect_wifi</name>
+        <qualifiedname>WiFiWrapper::connect_wifi</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>ssid</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>password</declname>
+          <defval><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">nullptr</ref></defval>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>first_time</declname>
+          <defval><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Connect to wifi endpoint <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ssid</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>password</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if connected </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/wifi_connection.h" line="13" column="8" bodyfile="bgeigiezen_firmware/utils/wifi_connection.cpp" bodystart="16" bodyend="42"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_wi_fi_wrapper_1ad810fce36f8f603465f255fbd88dc5c9" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="99" endline="103">update_active</references>
+        <references refid="class_wi_fi_wrapper_1a37ba31d67d18f35822a2cda0b6b5bf48" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="49" endline="51">wifi_connected</references>
+        <referencedby refid="class_api_connector_1a27801902e618afb9d835438d66ddec3c" compoundref="api__connector_8cpp" startline="19" endline="32">ApiConnector::activate</referencedby>
+        <referencedby refid="class_config_mode_screen_1a63e57a291d31fc8974e1801314b0c75b" compoundref="config__mode_8cpp" startline="218" endline="255">ConfigModeScreen::enter_screen</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_wi_fi_wrapper_1ad3550ed2833397450e1a4c80cb5727cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void WiFiWrapper::disconnect_wifi</definition>
+        <argsstring>()</argsstring>
+        <name>disconnect_wifi</name>
+        <qualifiedname>WiFiWrapper::disconnect_wifi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>disconnect from wifi endpoint </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/wifi_connection.h" line="18" column="8" bodyfile="bgeigiezen_firmware/utils/wifi_connection.cpp" bodystart="44" bodyend="47"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_api_connector_1a2f3ddac28265bde686f1d9e245b991eb" compoundref="api__connector_8cpp" startline="34" endline="37">ApiConnector::deactivate</referencedby>
+        <referencedby refid="class_config_mode_screen_1a6d5e41de275a9ff08fa50351a20c3190" compoundref="config__mode_8cpp" startline="257" endline="274">ConfigModeScreen::leave_screen</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_wi_fi_wrapper_1a37ba31d67d18f35822a2cda0b6b5bf48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool WiFiWrapper::wifi_connected</definition>
+        <argsstring>()</argsstring>
+        <name>wifi_connected</name>
+        <qualifiedname>WiFiWrapper::wifi_connected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check if wifi is connected <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/wifi_connection.h" line="24" column="8" bodyfile="bgeigiezen_firmware/utils/wifi_connection.cpp" bodystart="49" bodyend="51"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_api_connector_1a27801902e618afb9d835438d66ddec3c" compoundref="api__connector_8cpp" startline="19" endline="32">ApiConnector::activate</referencedby>
+        <referencedby refid="class_wi_fi_wrapper_1ac2331e7155ee97b89214f721d91cd657" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="16" endline="42">connect_wifi</referencedby>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+        <referencedby refid="class_wi_fi_wrapper_1ad810fce36f8f603465f255fbd88dc5c9" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="99" endline="103">update_active</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_wi_fi_wrapper_1aa58f85290d8055a08f88918aed43a044" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint8_t</type>
+        <definition>uint8_t WiFiWrapper::status</definition>
+        <argsstring>()</argsstring>
+        <name>status</name>
+        <qualifiedname>WiFiWrapper::status</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check if wifi is connected <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/wifi_connection.h" line="30" column="11" bodyfile="bgeigiezen_firmware/utils/wifi_connection.cpp" bodystart="53" bodyend="55"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_base_screen_1a34ca21425e8a0306c8b28669b35216e6" compoundref="base__screen_8cpp" startline="116" endline="137">BaseScreen::get_error_message</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_wi_fi_wrapper_1a512f805886a687ffa3bd8137a385467a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool WiFiWrapper::start_ap_server</definition>
+        <argsstring>(uint16_t device_id, const char *password)</argsstring>
+        <name>start_ap_server</name>
+        <qualifiedname>WiFiWrapper::start_ap_server</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>device_id</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>password</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Start access point server <simplesect kind="return"><para>true if up </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/wifi_connection.h" line="36" column="8" bodyfile="bgeigiezen_firmware/utils/wifi_connection.cpp" bodystart="57" bodyend="72"/>
+        <references refid="user__config_8h_1a4e96e371af8e34654cb0d5d7057e70c0" compoundref="user__config_8h" startline="98">ACCESS_POINT_IP</references>
+        <references refid="user__config_8h_1a9d15ae2b09da9972e7498dfbd4645d0a" compoundref="user__config_8h" startline="99">ACCESS_POINT_NMASK</references>
+        <references refid="user__config_8h_1a61e55f831ccc0dca94bf0e0f121f2a7c" compoundref="user__config_8h" startline="96">ACCESS_POINT_SSID</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_config_mode_screen_1a63e57a291d31fc8974e1801314b0c75b" compoundref="config__mode_8cpp" startline="218" endline="255">ConfigModeScreen::enter_screen</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_wi_fi_wrapper_1aa9ca9b276121fdd25b8a88c1a59ecf26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void WiFiWrapper::stop_ap_server</definition>
+        <argsstring>()</argsstring>
+        <name>stop_ap_server</name>
+        <qualifiedname>WiFiWrapper::stop_ap_server</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Stop access point server </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/wifi_connection.h" line="41" column="8" bodyfile="bgeigiezen_firmware/utils/wifi_connection.cpp" bodystart="74" bodyend="79"/>
+        <references refid="class_wi_fi_wrapper_1ab5bf49473b1e795db44475daf860d7c8" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="81" endline="83">ap_server_up</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_config_mode_screen_1a6d5e41de275a9ff08fa50351a20c3190" compoundref="config__mode_8cpp" startline="257" endline="274">ConfigModeScreen::leave_screen</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_wi_fi_wrapper_1ab5bf49473b1e795db44475daf860d7c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool WiFiWrapper::ap_server_up</definition>
+        <argsstring>()</argsstring>
+        <name>ap_server_up</name>
+        <qualifiedname>WiFiWrapper::ap_server_up</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>check if wifi is connected <simplesect kind="return"><para></para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/wifi_connection.h" line="47" column="8" bodyfile="bgeigiezen_firmware/utils/wifi_connection.cpp" bodystart="81" bodyend="83"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_wi_fi_wrapper_1aa9ca9b276121fdd25b8a88c1a59ecf26" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="74" endline="79">stop_ap_server</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_wi_fi_wrapper_1aedbee9ee2641c2a5036cbeed9b9045f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void WiFiWrapper::set_hostname</definition>
+        <argsstring>(const char *hostname, bool ap_mode)</argsstring>
+        <name>set_hostname</name>
+        <qualifiedname>WiFiWrapper::set_hostname</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>hostname</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+          <declname>ap_mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set wifi hostname </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/wifi_connection.h" line="52" column="8" bodyfile="bgeigiezen_firmware/utils/wifi_connection.cpp" bodystart="85" bodyend="93"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="class_wi_fi_wrapper_1a7c56f4e5dfdeb01c6df3d54741a7d00a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+        <definition>const char * WiFiWrapper::get_hostname</definition>
+        <argsstring>() const</argsstring>
+        <name>get_hostname</name>
+        <qualifiedname>WiFiWrapper::get_hostname</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/wifi_connection.h" line="53" column="14" bodyfile="bgeigiezen_firmware/utils/wifi_connection.cpp" bodystart="95" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_wi_fi_wrapper_1ad810fce36f8f603465f255fbd88dc5c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void WiFiWrapper::update_active</definition>
+        <argsstring>()</argsstring>
+        <name>update_active</name>
+        <qualifiedname>WiFiWrapper::update_active</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/wifi_connection.h" line="55" column="8" bodyfile="bgeigiezen_firmware/utils/wifi_connection.cpp" bodystart="99" bodyend="103"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_wi_fi_wrapper_1a37ba31d67d18f35822a2cda0b6b5bf48" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="49" endline="51">wifi_connected</references>
+        <referencedby refid="class_wi_fi_wrapper_1ac2331e7155ee97b89214f721d91cd657" compoundref="bgeigiezen__firmware_2utils_2wifi__connection_8cpp" startline="16" endline="42">connect_wifi</referencedby>
+        <referencedby refid="class_api_connector_1a8fc0aaa8a9cff66aef93d202a102d9ea" compoundref="api__connector_8cpp" startline="99" endline="147">ApiConnector::handle_async</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_wi_fi_wrapper_1a47e4ba98a6816444c9e52d35ed62df6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool WiFiWrapper::was_active</definition>
+        <argsstring>()</argsstring>
+        <name>was_active</name>
+        <qualifiedname>WiFiWrapper::was_active</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="bgeigiezen_firmware/utils/wifi_connection.h" line="56" column="8" bodyfile="bgeigiezen_firmware/utils/wifi_connection.cpp" bodystart="105" bodyend="107"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_g_f_x_screen_1aea8f5b94e15d3fcc53790cf1df9d915a" compoundref="gfx__screen_8cpp" startline="124" endline="325">GFXScreen::handle_report</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="bgeigiezen_firmware/utils/wifi_connection.h" line="4" column="1" bodyfile="bgeigiezen_firmware/utils/wifi_connection.h" bodystart="4" bodyend="61"/>
+    <listofallmembers>
+      <member refid="class_wi_fi_wrapper_1ac2f9259f1dd31b83a43abe00984b8ba8" prot="private" virt="non-virtual"><scope>WiFiWrapper</scope><name>_hostname</name></member>
+      <member refid="class_wi_fi_wrapper_1a953fa525de106feccf67fea15cca7a47" prot="private" virt="non-virtual"><scope>WiFiWrapper</scope><name>_last_activity</name></member>
+      <member refid="class_wi_fi_wrapper_1ab5bf49473b1e795db44475daf860d7c8" prot="public" virt="non-virtual"><scope>WiFiWrapper</scope><name>ap_server_up</name></member>
+      <member refid="class_wi_fi_wrapper_1ac2331e7155ee97b89214f721d91cd657" prot="public" virt="non-virtual"><scope>WiFiWrapper</scope><name>connect_wifi</name></member>
+      <member refid="class_wi_fi_wrapper_1ad3550ed2833397450e1a4c80cb5727cf" prot="public" virt="non-virtual"><scope>WiFiWrapper</scope><name>disconnect_wifi</name></member>
+      <member refid="class_wi_fi_wrapper_1a7c56f4e5dfdeb01c6df3d54741a7d00a" prot="public" virt="non-virtual"><scope>WiFiWrapper</scope><name>get_hostname</name></member>
+      <member refid="class_wi_fi_wrapper_1aedbee9ee2641c2a5036cbeed9b9045f2" prot="public" virt="non-virtual"><scope>WiFiWrapper</scope><name>set_hostname</name></member>
+      <member refid="class_wi_fi_wrapper_1a512f805886a687ffa3bd8137a385467a" prot="public" virt="non-virtual"><scope>WiFiWrapper</scope><name>start_ap_server</name></member>
+      <member refid="class_wi_fi_wrapper_1aa58f85290d8055a08f88918aed43a044" prot="public" virt="non-virtual"><scope>WiFiWrapper</scope><name>status</name></member>
+      <member refid="class_wi_fi_wrapper_1aa9ca9b276121fdd25b8a88c1a59ecf26" prot="public" virt="non-virtual"><scope>WiFiWrapper</scope><name>stop_ap_server</name></member>
+      <member refid="class_wi_fi_wrapper_1ad810fce36f8f603465f255fbd88dc5c9" prot="public" virt="non-virtual"><scope>WiFiWrapper</scope><name>update_active</name></member>
+      <member refid="class_wi_fi_wrapper_1a47e4ba98a6816444c9e52d35ed62df6f" prot="public" virt="non-virtual"><scope>WiFiWrapper</scope><name>was_active</name></member>
+      <member refid="class_wi_fi_wrapper_1a37ba31d67d18f35822a2cda0b6b5bf48" prot="public" virt="non-virtual"><scope>WiFiWrapper</scope><name>wifi_connected</name></member>
+      <member refid="class_wi_fi_wrapper_1a6c74268bfdfe20d75bc9e277d2588480" prot="public" virt="non-virtual"><scope>WiFiWrapper</scope><name>WiFiWrapper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

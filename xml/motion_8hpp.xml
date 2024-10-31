@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="motion_8hpp" kind="file" language="C++">
+    <compoundname>motion.hpp</compoundname>
+    <includes local="no">M5Core2.h</includes>
+    <includes local="no">utility/MPU6886.h</includes>
+    <includedby refid="include_2display_8hpp" local="no">archive/bgeigie_firmware_pio/include/display.hpp</includedby>
+    <includedby refid="motion_8cpp" local="no">archive/bgeigie_firmware_pio/src/motion.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/include/motion.hpp</label>
+        <link refid="motion_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>M5Core2.h</label>
+      </node>
+      <node id="3">
+        <label>utility/MPU6886.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>archive/bgeigie_firmware_pio/include/configuration_server.hpp</label>
+        <link refid="configuration__server_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>archive/bgeigie_firmware_pio/include/display.hpp</label>
+        <link refid="include_2display_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>archive/bgeigie_firmware_pio/include/fsm_context.hpp</label>
+        <link refid="include_2fsm__context_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>archive/bgeigie_firmware_pio/include/fsm_state_base.hpp</label>
+        <link refid="include_2fsm__state__base_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>archive/bgeigie_firmware_pio/include/fsm_state_concrete.hpp</label>
+        <link refid="include_2fsm__state__concrete_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>archive/bgeigie_firmware_pio/include/menu.hpp</label>
+        <link refid="menu_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>archive/bgeigie_firmware_pio/include/motion.hpp</label>
+        <link refid="motion_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>archive/bgeigie_firmware_pio/src/configuration_server.cpp</label>
+        <link refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp"/>
+      </node>
+      <node id="9">
+        <label>archive/bgeigie_firmware_pio/src/display.cpp</label>
+        <link refid="display_8cpp"/>
+      </node>
+      <node id="10">
+        <label>archive/bgeigie_firmware_pio/src/menu.cpp</label>
+        <link refid="menu_8cpp"/>
+      </node>
+      <node id="11">
+        <label>archive/bgeigie_firmware_pio/src/motion.cpp</label>
+        <link refid="motion_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_motion_detect" prot="public">MotionDetect</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="motion_8hpp_1a12de8a0a8e6ada14f8628606d3b38462" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> int32_t</type>
+        <definition>constexpr int32_t ACCEL_THRESHOLD_DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>ACCEL_THRESHOLD_DEFAULT</name>
+        <initializer>= 2000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="12" column="19" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="motion_8hpp_1a129b7eca484d5da61720b7932edd46c3" prot="public" static="no" constexpr="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">constexpr</ref> int32_t</type>
+        <definition>constexpr int32_t GYRO_THRESHOLD_DEFAULT</definition>
+        <argsstring></argsstring>
+        <name>GYRO_THRESHOLD_DEFAULT</name>
+        <initializer>= 800</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/motion.hpp" line="13" column="19" bodyfile="archive/bgeigie_firmware_pio/include/motion.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__MOTION_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__MOTION_H__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;M5Core2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;utility/MPU6886.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Accel.<sp/>and<sp/>gyro.<sp/>thresholds<sp/>based<sp/>on<sp/>MPU6886.h<sp/>full<sp/>scale<sp/>defaults:</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>Gyscale<sp/>=<sp/>GFS_2000DPS;<sp/>(2000<sp/>degrees<sp/>per<sp/>second)</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>Acscale<sp/>=<sp/>AFS_8G;<sp/>(8G)</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>Adjust<sp/>for<sp/>practical<sp/>values.</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="motion_8hpp_1a12de8a0a8e6ada14f8628606d3b38462" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>int32_t<sp/><ref refid="motion_8hpp_1a12de8a0a8e6ada14f8628606d3b38462" kindref="member">ACCEL_THRESHOLD_DEFAULT</ref><sp/>=<sp/>2000;</highlight></codeline>
+<codeline lineno="13" refid="motion_8hpp_1a129b7eca484d5da61720b7932edd46c3" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>int32_t<sp/><ref refid="motion_8hpp_1a129b7eca484d5da61720b7932edd46c3" kindref="member">GYRO_THRESHOLD_DEFAULT</ref><sp/>=<sp/>800;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16" refid="class_motion_detect" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_motion_detect" kindref="compound">MotionDetect</ref><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/>accel_threshold<sp/>=<sp/><ref refid="motion_8hpp_1a12de8a0a8e6ada14f8628606d3b38462" kindref="member">ACCEL_THRESHOLD_DEFAULT</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/>gyro_threshold<sp/>=<sp/><ref refid="motion_8hpp_1a129b7eca484d5da61720b7932edd46c3" kindref="member">GYRO_THRESHOLD_DEFAULT</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>ax<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>ay<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>az<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>prev_ax<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>prev_ay<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>prev_az<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>gx<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>gy<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>gz<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>prev_gx<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>prev_gy<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>int16_t<sp/>prev_gz<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/>sum_accel_deltas<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/>sum_gyro_deltas<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>detected<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="36" refid="class_motion_detect_1ab91532044758e729ca50c4265bbb64d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">MPU6886</ref><sp/><ref refid="class_motion_detect_1ab91532044758e729ca50c4265bbb64d1" kindref="member">mpu</ref>{};<sp/><sp/></highlight><highlight class="comment">//<sp/>public,<sp/>available<sp/>for<sp/>other<sp/>applications</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_motion_detect_1a45bf353f17123a6bfcc6c155ff7e2528" kindref="member">update</ref>();<sp/><sp/></highlight><highlight class="comment">//<sp/>read<sp/>the<sp/>IMU,<sp/>update<sp/>internal<sp/>variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/><ref refid="class_motion_detect_1a84843d51e012fc8833a6a4af4016925c" kindref="member">motion</ref>();<sp/><sp/></highlight><highlight class="comment">//<sp/>Sum<sp/>of<sp/>abs()<sp/>of<sp/>component<sp/>deltas<sp/>(accel<sp/>+<sp/>gyro)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_motion_detect_1a66e4b850e0423024661a6f766a40fcea" kindref="member">motionDetected</ref>();<sp/><sp/></highlight><highlight class="comment">//<sp/>true<sp/>if<sp/>motion<sp/>&gt;<sp/>thresholds</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/><ref refid="class_motion_detect_1ae3c0a68a8577f39b8ff85e16152f0434" kindref="member">getAccelThreshold</ref>();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_motion_detect_1a231122ac7625e220a34f9cee6a23f307" kindref="member">setAccelThreshold</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int32_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">threshold</ref>);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>int32_t<sp/><ref refid="class_motion_detect_1ac50b23a2e64efc02206f53b080307175" kindref="member">getGyroThreshold</ref>();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_motion_detect_1a63ae13c4e24e9140a1f2f01ce0188649" kindref="member">setGyroThreshold</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int32_t<sp/><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">threshold</ref>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>__MOTION_H__</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="archive/bgeigie_firmware_pio/include/motion.hpp"/>
+  </compounddef>
+</doxygen>

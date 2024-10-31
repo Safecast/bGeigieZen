@@ -1,0 +1,1083 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_display" kind="class" language="C++" prot="public">
+    <compoundname>Display</compoundname>
+    <includes refid="include_2display_8hpp" local="no">display.hpp</includes>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_display_1afd186e7a237a2fcbdb6bd9be3b958288" prot="private" static="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>static const int Display::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>Display::width</qualifiedname>
+        <initializer>= 320</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="84" column="20" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_display_1ad05bc3e14d78a9568abeecd4337563d6" prot="private" static="yes" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">int</ref></type>
+        <definition>static const int Display::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>Display::height</qualifiedname>
+        <initializer>= 240</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="85" column="20" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="85" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_display_1aefb71af876b5d0c0e35f4909fec9a333" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t Display::_refresh_period_ms</definition>
+        <argsstring></argsstring>
+        <name>_refresh_period_ms</name>
+        <qualifiedname>Display::_refresh_period_ms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="86" column="12" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_display_1aed758d41eb02a4275f350438a886e09a" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool Display::dimming_enabled</definition>
+        <argsstring></argsstring>
+        <name>dimming_enabled</name>
+        <qualifiedname>Display::dimming_enabled</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">true</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="89" column="8" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_display_1a4680c3b24229f47983c24c5c9e2b4899" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">bool</ref></type>
+        <definition>bool Display::display_dimmed</definition>
+        <argsstring></argsstring>
+        <name>display_dimmed</name>
+        <qualifiedname>Display::display_dimmed</qualifiedname>
+        <initializer>= <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="90" column="8" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_display_1a1844062ab291ef78b4ecc66bc67ce29b" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t Display::delay_dimming</definition>
+        <argsstring></argsstring>
+        <name>delay_dimming</name>
+        <qualifiedname>Display::delay_dimming</qualifiedname>
+        <initializer>= <ref refid="include_2display_8hpp_1a4256977aa9391b88ea98dada6a3c4920" kindref="member">DELAY_DIMMING_DEFAULT</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="91" column="12" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_display_1a1ca6a1167ab1c1e9c89d1481b5d12d09" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t Display::delay_blanking</definition>
+        <argsstring></argsstring>
+        <name>delay_blanking</name>
+        <qualifiedname>Display::delay_blanking</qualifiedname>
+        <initializer>= <ref refid="include_2display_8hpp_1a3eb042b7ff47676e57938c9f54ef9017" kindref="member">DELAY_BLANKING_DEFAULT</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="92" column="12" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_display_1a9a38a34aa7170077115a834432104ec2" prot="private" static="no" mutable="no">
+        <type>RBD::Timer</type>
+        <definition>RBD::Timer Display::timer_dimming</definition>
+        <argsstring></argsstring>
+        <name>timer_dimming</name>
+        <qualifiedname>Display::timer_dimming</qualifiedname>
+        <initializer>{<ref refid="include_2display_8hpp_1a4256977aa9391b88ea98dada6a3c4920" kindref="member">DELAY_DIMMING_DEFAULT</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="93" column="14" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="93" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_display_1a7e05244caff7c376bd1c21dfea5b009a" prot="private" static="no" mutable="no">
+        <type>RBD::Timer</type>
+        <definition>RBD::Timer Display::timer_blanking</definition>
+        <argsstring></argsstring>
+        <name>timer_blanking</name>
+        <qualifiedname>Display::timer_blanking</qualifiedname>
+        <initializer>{<ref refid="include_2display_8hpp_1a3eb042b7ff47676e57938c9f54ef9017" kindref="member">DELAY_BLANKING_DEFAULT</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="94" column="14" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="94" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_display_1af597c405eff098c90d8d486f3cdde107" prot="private" static="no" mutable="no">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Button</ref></type>
+        <definition>Button Display::dimmingButton</definition>
+        <argsstring></argsstring>
+        <name>dimmingButton</name>
+        <qualifiedname>Display::dimmingButton</qualifiedname>
+        <initializer>{265, 45, 55, 25, <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">false</ref>, &quot;DIMMING&quot;, {<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">BLACK</ref>, <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TFT_ORANGE</ref>, <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">TFT_ORANGE</ref>}}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="95" column="10" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="95" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_display_1aecef50416db9d41bfec0d3e8111c6d9b" prot="private" static="no" mutable="no">
+        <type><ref refid="namespaceb_geigie_zen_1a482a0e89f9349c1957603fccb9a26b0b" kindref="member">bGeigieZen::DisplayState</ref></type>
+        <definition>bGeigieZen::DisplayState Display::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>Display::state</qualifiedname>
+        <initializer>{<ref refid="namespaceb_geigie_zen_1a482a0e89f9349c1957603fccb9a26b0ba43b749da270a0fed7a726e45e1e1174e" kindref="member">bGeigieZen::S_STARTUP</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="97" column="28" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="97" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_display_1aa9d56a921bbd3a4d457f4d454cc4c8e8" prot="private" static="no" mutable="no">
+        <type><ref refid="class_motion_detect" kindref="compound">MotionDetect</ref></type>
+        <definition>MotionDetect Display::mpu</definition>
+        <argsstring></argsstring>
+        <name>mpu</name>
+        <qualifiedname>Display::mpu</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="99" column="16" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="99" bodyend="99"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_display_1a6c2a1387cfc7630af1a5a0abbd8c12ef" prot="public" static="no" mutable="no">
+        <type><ref refid="struct_display_data" kindref="compound">DisplayData</ref></type>
+        <definition>DisplayData Display::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>Display::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="102" column="15" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="102" bodyend="-1"/>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">draw_main</referencedby>
+        <referencedby refid="class_display_1a4e1b7f010db6d39b421560b24550fdf1" compoundref="display_8cpp" startline="382" endline="394">draw_menu</referencedby>
+        <referencedby refid="class_display_1aadce78ab84e53b437eedf6cc2d941a3a" compoundref="display_8cpp" startline="236" endline="249">draw_qrcode</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">draw_survey</referencedby>
+        <referencedby refid="class_display_1a6dfdf5e308b468964627eec5e6de802d" compoundref="display_8cpp" startline="396" endline="401">feed</referencedby>
+        <referencedby refid="class_display_1af015ee8348feb81297c6af96595f6b40" compoundref="include_2display_8hpp" startline="114" endline="116">feed</referencedby>
+        <referencedby refid="class_display_1a79b95e2561ff7d142363f89a41ca543c" compoundref="display_8cpp" startline="403" endline="415">feed</referencedby>
+        <referencedby refid="class_display_1a00504e9ba16dc10557125c9c8dbc6aa8" compoundref="include_2display_8hpp" startline="117" endline="117">feed_battery_level</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_display_1a0f93068663afcd6cbb5804ab10dbe3cc" prot="public" static="no" mutable="no">
+        <type><ref refid="class_wi_fi_connection" kindref="compound">WiFiConnection</ref></type>
+        <definition>WiFiConnection Display::wificonn</definition>
+        <argsstring></argsstring>
+        <name>wificonn</name>
+        <qualifiedname>Display::wificonn</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="103" column="18" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_display_1a6525280e93dd9296bb80d06b3044f05e" prot="public" static="no" mutable="no">
+        <type><ref refid="class_config_web_server" kindref="compound">ConfigWebServer</ref></type>
+        <definition>ConfigWebServer Display::webserver</definition>
+        <argsstring></argsstring>
+        <name>webserver</name>
+        <qualifiedname>Display::webserver</qualifiedname>
+        <initializer>{<ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">this</ref>&amp;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="104" column="19" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="104" bodyend="104"/>
+        <referencedby refid="class_config_state_1a0499ab1fa14a0bcadd22aed8762b8d39" compoundref="menu_8cpp" startline="130" endline="162">ConfigState::on_entry</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_display_1a68ea14e4cecbdbce79dab91ac9154d9e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Display::Display</definition>
+        <argsstring>(uint32_t refresh_period_ms)</argsstring>
+        <name>Display</name>
+        <qualifiedname>Display::Display</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>refresh_period_ms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="106" column="3" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="106" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1a14242933dd00fc1d50f9ae70d5121d14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>Display::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="111" column="8" bodyfile="archive/bgeigie_firmware_pio/src/display.cpp" bodystart="43" bodyend="62"/>
+        <references refid="class_menu_context_1aea934e4ce5d032074e2fb45da126256e" compoundref="menu_8hpp" startline="90" endline="90">MenuContext::button_config_network</references>
+        <references refid="class_menu_context_1a231ec9911cd839ffa36fb4ef89f68b1b" compoundref="menu_8hpp" startline="89" endline="89">MenuContext::button_dimblank</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="display_8cpp_1aa80b8dc616dd7cd22263440802492d75" compoundref="display_8cpp" startline="8" endline="35">core2Brightness</references>
+        <references refid="include_2display_8hpp_1aae9c03a669cbd8169afea57d8c92dd02" compoundref="include_2display_8hpp" startline="19">LEVEL_BRIGHT</references>
+        <references refid="display_8cpp_1a99e64c5e9c926350cc08eba04207c88f" compoundref="display_8cpp" startline="40" endline="40">mcontext</references>
+        <referencedby refid="class_display_1ad2740b779d61e461c4dcaaf34f1fcd8f" compoundref="display_8cpp" startline="89" endline="234">update</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1a6dfdf5e308b468964627eec5e6de802d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::feed</definition>
+        <argsstring>(const GeigerCounter &amp;geiger_count)</argsstring>
+        <name>feed</name>
+        <qualifiedname>Display::feed</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="class_geiger_counter" kindref="compound">GeigerCounter</ref> &amp;</type>
+          <declname>geiger_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="112" column="8" bodyfile="archive/bgeigie_firmware_pio/src/display.cpp" bodystart="396" bodyend="401"/>
+        <references refid="class_display_1a6c2a1387cfc7630af1a5a0abbd8c12ef" compoundref="include_2display_8hpp" startline="102">data</references>
+        <references refid="struct_display_data_1a43705d7afd5dba6f06af94c49cd1d376" compoundref="include_2display_8hpp" startline="59">DisplayData::geiger_cpm</references>
+        <references refid="struct_display_data_1ad9962eb3cbb4b794a5c38c920c3c9a00" compoundref="include_2display_8hpp" startline="57">DisplayData::geiger_fresh</references>
+        <references refid="struct_display_data_1ae21a0c925831e6cf20d98fc964979c3f" compoundref="include_2display_8hpp" startline="60">DisplayData::geiger_uSv</references>
+        <references refid="struct_display_data_1acd3b4d9a44a06151b1970687266a0709" compoundref="include_2display_8hpp" startline="58">DisplayData::geiger_valid</references>
+        <references refid="class_geiger_counter_1ae659bb900adc79be6557b668b292175e" compoundref="include_2geiger__counter_8hpp" startline="59" endline="59">GeigerCounter::per_minute</references>
+        <references refid="class_geiger_counter_1ae9c292a7188081224cfcd29b7ba070cd" compoundref="include_2geiger__counter_8hpp" startline="60" endline="60">GeigerCounter::uSv</references>
+        <references refid="class_geiger_counter_1a62c418e910486f29ef2b9c09b979756a" compoundref="include_2geiger__counter_8hpp" startline="69" endline="69">GeigerCounter::valid</references>
+        <referencedby refid="class_context_1a508a6b9c7ed84ea20ef39bfa54607ad4" compoundref="fsm__context_8cpp" startline="69" endline="77">Context::on_geiger_counter_available</referencedby>
+        <referencedby refid="class_context_1a402bea63f404fae0790d6bb4f1a011f2" compoundref="fsm__context_8cpp" startline="79" endline="82">Context::on_gps_available</referencedby>
+        <referencedby refid="class_context_1ad6ab2ba0b337de2f0ff6ae764a4ee18a" compoundref="fsm__context_8cpp" startline="19" endline="67">Context::setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1a79b95e2561ff7d142363f89a41ca543c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::feed</definition>
+        <argsstring>(GPSSensor &amp;geiger_count)</argsstring>
+        <name>feed</name>
+        <qualifiedname>Display::feed</qualifiedname>
+        <param>
+          <type><ref refid="class_g_p_s_sensor" kindref="compound">GPSSensor</ref> &amp;</type>
+          <declname>geiger_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="113" column="8" bodyfile="archive/bgeigie_firmware_pio/src/display.cpp" bodystart="403" bodyend="415"/>
+        <references refid="class_tiny_g_p_s_plus_1a0b3451a4ee75e5880ffd88c3038eacf8" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="239">TinyGPSPlus::altitude</references>
+        <references refid="class_tiny_g_p_s_plus_1ad7800d3decbe58e355f5229bba231868" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="238">TinyGPSPlus::course</references>
+        <references refid="class_display_1a6c2a1387cfc7630af1a5a0abbd8c12ef" compoundref="include_2display_8hpp" startline="102">data</references>
+        <references refid="class_tiny_g_p_s_plus_1a83a70812b432d7f51c7c735bfe7be0f0" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="235">TinyGPSPlus::date</references>
+        <references refid="_raku__code_8cpp_1a169c53997a7da1d0fb99aec1b4675ce8" compoundref="_raku__code_8cpp" startline="48">gps</references>
+        <references refid="struct_display_data_1a8555fc6952471b16e281a0b13727d26c" compoundref="include_2display_8hpp" startline="66">DisplayData::gps_altitude</references>
+        <references refid="struct_display_data_1a28bd33d4f4bcecdb08f7b76bd3454cb1" compoundref="include_2display_8hpp" startline="68">DisplayData::gps_course</references>
+        <references refid="struct_display_data_1aec3b9d0e45566e975f37e91d7c409877" compoundref="include_2display_8hpp" startline="71">DisplayData::gps_date</references>
+        <references refid="struct_display_data_1a7ec2ff9538503735617327db18d35c48" compoundref="include_2display_8hpp" startline="64">DisplayData::gps_fresh</references>
+        <references refid="struct_display_data_1a22e3ebee0a003f41d98a34d38a632335" compoundref="include_2display_8hpp" startline="69">DisplayData::gps_location</references>
+        <references refid="struct_display_data_1a46aff8bdb1baf8f0f8fcb52860f2a6ce" compoundref="include_2display_8hpp" startline="65">DisplayData::gps_satellites</references>
+        <references refid="struct_display_data_1a4bda74f0875dd000136c419e3cb3a1a8" compoundref="include_2display_8hpp" startline="67">DisplayData::gps_speed</references>
+        <references refid="struct_display_data_1ac18f89b50f66be4928873d3ee1a4b7d0" compoundref="include_2display_8hpp" startline="70">DisplayData::gps_time</references>
+        <references refid="class_tiny_g_p_s_plus_1a886255f412f8e01f84e5104d36315fb3" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="234">TinyGPSPlus::location</references>
+        <references refid="class_tiny_g_p_s_plus_1a5fb47066d1d03f4bb5853529053aab48" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="240">TinyGPSPlus::satellites</references>
+        <references refid="class_tiny_g_p_s_plus_1aa085c3e72a399a829dd92af52b373404" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="237">TinyGPSPlus::speed</references>
+        <references refid="class_tiny_g_p_s_plus_1a377c975527fa24b45fb86356505eb134" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="236">TinyGPSPlus::time</references>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1af015ee8348feb81297c6af96595f6b40" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::feed</definition>
+        <argsstring>(const Setup &amp;device_setup)</argsstring>
+        <name>feed</name>
+        <qualifiedname>Display::feed</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="class_setup" kindref="compound">Setup</ref> &amp;</type>
+          <declname>device_setup</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="114" column="8" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="114" bodyend="116"/>
+        <references refid="class_setup_1a973924be0fdd98b6e5a964a2416cf721" compoundref="include_2setup_8hpp" startline="120" endline="120">Setup::config</references>
+        <references refid="class_display_1a6c2a1387cfc7630af1a5a0abbd8c12ef" compoundref="include_2display_8hpp" startline="102">data</references>
+        <references refid="struct_display_data_1a18f85013bc2db1d5db55d87eded63633" compoundref="include_2display_8hpp" startline="54">DisplayData::device_id</references>
+        <references refid="struct_config_data_1af4aa84fbef118fd20be9a243b4f1668f" compoundref="include_2setup_8hpp" startline="84">ConfigData::device_id</references>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1a00504e9ba16dc10557125c9c8dbc6aa8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::feed_battery_level</definition>
+        <argsstring>(int8_t level)</argsstring>
+        <name>feed_battery_level</name>
+        <qualifiedname>Display::feed_battery_level</qualifiedname>
+        <param>
+          <type>int8_t</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="117" column="8" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="117" bodyend="117"/>
+        <references refid="struct_display_data_1a4a74edd66f777279b57275ce42120a41" compoundref="include_2display_8hpp" startline="74">DisplayData::battery_level</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_display_1a6c2a1387cfc7630af1a5a0abbd8c12ef" compoundref="include_2display_8hpp" startline="102">data</references>
+        <referencedby refid="class_context_1a508a6b9c7ed84ea20ef39bfa54607ad4" compoundref="fsm__context_8cpp" startline="69" endline="77">Context::on_geiger_counter_available</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1ad2740b779d61e461c4dcaaf34f1fcd8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <qualifiedname>Display::update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="120" column="8" bodyfile="archive/bgeigie_firmware_pio/src/display.cpp" bodystart="89" bodyend="234"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_display_1a14242933dd00fc1d50f9ae70d5121d14" compoundref="display_8cpp" startline="43" endline="62">clear</references>
+        <references refid="display_8cpp_1aa80b8dc616dd7cd22263440802492d75" compoundref="display_8cpp" startline="8" endline="35">core2Brightness</references>
+        <references refid="class_display_1aa64573075ec3f5141cb7906c9cbb4ad1" compoundref="display_8cpp" startline="64" endline="71">draw_base</references>
+        <references refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">draw_main</references>
+        <references refid="class_display_1aadce78ab84e53b437eedf6cc2d941a3a" compoundref="display_8cpp" startline="236" endline="249">draw_qrcode</references>
+        <references refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">draw_survey</references>
+        <references refid="class_menu_context_1af3449484c482bc70d7d15023e047a84a" compoundref="menu_8cpp" startline="18" endline="21">MenuContext::goto_state</references>
+        <references refid="display_8cpp_1a9bf3bbd4d7cf789924e6ccec4ec52c05" compoundref="display_8cpp" startline="39" endline="39">inactivestate</references>
+        <references refid="include_2display_8hpp_1a99f03452271085c255a32b0047ceee14" compoundref="include_2display_8hpp" startline="21">LEVEL_BLANKED</references>
+        <references refid="include_2display_8hpp_1aae9c03a669cbd8169afea57d8c92dd02" compoundref="include_2display_8hpp" startline="19">LEVEL_BRIGHT</references>
+        <references refid="include_2display_8hpp_1aec0640acbc1dd58df8966976e8fa10e1" compoundref="include_2display_8hpp" startline="20">LEVEL_DIMMED</references>
+        <references refid="display_8cpp_1a99e64c5e9c926350cc08eba04207c88f" compoundref="display_8cpp" startline="40" endline="40">mcontext</references>
+        <references refid="class_motion_detect_1a66e4b850e0423024661a6f766a40fcea" compoundref="motion_8cpp" startline="26" endline="31">MotionDetect::motionDetected</references>
+        <references refid="display_8cpp_1a23d7806f9c3c2d1b85f66215fb6806fd" compoundref="display_8cpp" startline="38" endline="38">mstate</references>
+        <references refid="namespaceb_geigie_zen_1a482a0e89f9349c1957603fccb9a26b0ba3e02d6ad7952cdba20e4368747ba6c2e" compoundref="include_2display_8hpp" startline="45">bGeigieZen::S_BLANKED</references>
+        <references refid="namespaceb_geigie_zen_1a482a0e89f9349c1957603fccb9a26b0ba7812e5e25173f4fc32054b96f924c04e" compoundref="include_2display_8hpp" startline="39">bGeigieZen::S_MAIN_DRAW</references>
+        <references refid="namespaceb_geigie_zen_1a482a0e89f9349c1957603fccb9a26b0baff702bebd0893c22296fd0243024c75f" compoundref="include_2display_8hpp" startline="40">bGeigieZen::S_MAIN_SHOW</references>
+        <references refid="namespaceb_geigie_zen_1a482a0e89f9349c1957603fccb9a26b0bab34982e945d56ffb3887dcc5c96ef521" compoundref="include_2display_8hpp" startline="47">bGeigieZen::S_MENU_DRAW</references>
+        <references refid="namespaceb_geigie_zen_1a482a0e89f9349c1957603fccb9a26b0bad29dc3641c6de054382b486cd48c685e" compoundref="include_2display_8hpp" startline="48">bGeigieZen::S_MENU_SHOW</references>
+        <references refid="namespaceb_geigie_zen_1a482a0e89f9349c1957603fccb9a26b0ba66977e4befc56d5b131b75640867ec34" compoundref="include_2display_8hpp" startline="41">bGeigieZen::S_QRCODE_DRAW</references>
+        <references refid="namespaceb_geigie_zen_1a482a0e89f9349c1957603fccb9a26b0bab10ecccdb4c66f3bdac7ef8734d453f5" compoundref="include_2display_8hpp" startline="42">bGeigieZen::S_QRCODE_SHOW</references>
+        <references refid="namespaceb_geigie_zen_1a482a0e89f9349c1957603fccb9a26b0ba43b749da270a0fed7a726e45e1e1174e" compoundref="include_2display_8hpp" startline="38">bGeigieZen::S_STARTUP</references>
+        <references refid="namespaceb_geigie_zen_1a482a0e89f9349c1957603fccb9a26b0bac8d2b4760057b762e49ca4e2590a5406" compoundref="include_2display_8hpp" startline="46">bGeigieZen::S_SURVEY_BLANKED</references>
+        <references refid="namespaceb_geigie_zen_1a482a0e89f9349c1957603fccb9a26b0ba2bb8bc5f35e87de328260f494f5e1ca1" compoundref="include_2display_8hpp" startline="43">bGeigieZen::S_SURVEY_DRAW</references>
+        <references refid="namespaceb_geigie_zen_1a482a0e89f9349c1957603fccb9a26b0bab816ff562a637892cadac240396778a7" compoundref="include_2display_8hpp" startline="44">bGeigieZen::S_SURVEY_SHOW</references>
+        <references refid="class_menu_context_1a5101ae5be4d87102d5d143ea5ccdae12" compoundref="menu_8cpp" startline="33" endline="37">MenuContext::update</references>
+        <referencedby refid="class_context_1a78c450b80877fe560a2abe7a541a118c" compoundref="fsm__context_8cpp" startline="10" endline="17">Context::loop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1aa64573075ec3f5141cb7906c9cbb4ad1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::draw_base</definition>
+        <argsstring>()</argsstring>
+        <name>draw_base</name>
+        <qualifiedname>Display::draw_base</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="123" column="8" bodyfile="archive/bgeigie_firmware_pio/src/display.cpp" bodystart="64" bodyend="71"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_display_1ad2740b779d61e461c4dcaaf34f1fcd8f" compoundref="display_8cpp" startline="89" endline="234">update</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1a75180c9b967a0126ce3b01a7ce6623b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::draw_navbar</definition>
+        <argsstring>(const char *A, const char *B, const char *C)</argsstring>
+        <name>draw_navbar</name>
+        <qualifiedname>Display::draw_navbar</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>B</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>C</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="124" column="8" bodyfile="archive/bgeigie_firmware_pio/src/display.cpp" bodystart="73" bodyend="79"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_display_1abe6a389bd196987cdc01967c1657b597" compoundref="display_8cpp" startline="81" endline="87">draw_navbar_label</references>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">draw_main</referencedby>
+        <referencedby refid="class_display_1a4e1b7f010db6d39b421560b24550fdf1" compoundref="display_8cpp" startline="382" endline="394">draw_menu</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">draw_survey</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1abe6a389bd196987cdc01967c1657b597" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::draw_navbar_label</definition>
+        <argsstring>(const char *s, const Button &amp;b)</argsstring>
+        <name>draw_navbar_label</name>
+        <qualifiedname>Display::draw_navbar_label</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">Button</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="125" column="8" bodyfile="archive/bgeigie_firmware_pio/src/display.cpp" bodystart="81" bodyend="87"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_display_1a75180c9b967a0126ce3b01a7ce6623b5" compoundref="display_8cpp" startline="73" endline="79">draw_navbar</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1a67f2a955b6ece55b0523c08cac84653e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::draw_main</definition>
+        <argsstring>()</argsstring>
+        <name>draw_main</name>
+        <qualifiedname>Display::draw_main</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="126" column="8" bodyfile="archive/bgeigie_firmware_pio/src/display.cpp" bodystart="251" bodyend="311"/>
+        <references refid="struct_display_data_1a4a74edd66f777279b57275ce42120a41" compoundref="include_2display_8hpp" startline="74">DisplayData::battery_level</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_display_1a6c2a1387cfc7630af1a5a0abbd8c12ef" compoundref="include_2display_8hpp" startline="102">data</references>
+        <references refid="struct_tiny_g_p_s_course_1a76dc8ae6c2fe5ead9b44c8d53a3272ca" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="182" endline="182">TinyGPSCourse::deg</references>
+        <references refid="struct_display_data_1a18f85013bc2db1d5db55d87eded63633" compoundref="include_2display_8hpp" startline="54">DisplayData::device_id</references>
+        <references refid="class_display_1a75180c9b967a0126ce3b01a7ce6623b5" compoundref="display_8cpp" startline="73" endline="79">draw_navbar</references>
+        <references refid="struct_display_data_1a43705d7afd5dba6f06af94c49cd1d376" compoundref="include_2display_8hpp" startline="59">DisplayData::geiger_cpm</references>
+        <references refid="struct_display_data_1ad9962eb3cbb4b794a5c38c920c3c9a00" compoundref="include_2display_8hpp" startline="57">DisplayData::geiger_fresh</references>
+        <references refid="struct_display_data_1ae21a0c925831e6cf20d98fc964979c3f" compoundref="include_2display_8hpp" startline="60">DisplayData::geiger_uSv</references>
+        <references refid="struct_display_data_1acd3b4d9a44a06151b1970687266a0709" compoundref="include_2display_8hpp" startline="58">DisplayData::geiger_valid</references>
+        <references refid="struct_display_data_1a8555fc6952471b16e281a0b13727d26c" compoundref="include_2display_8hpp" startline="66">DisplayData::gps_altitude</references>
+        <references refid="struct_display_data_1a28bd33d4f4bcecdb08f7b76bd3454cb1" compoundref="include_2display_8hpp" startline="68">DisplayData::gps_course</references>
+        <references refid="struct_display_data_1aec3b9d0e45566e975f37e91d7c409877" compoundref="include_2display_8hpp" startline="71">DisplayData::gps_date</references>
+        <references refid="struct_display_data_1a7ec2ff9538503735617327db18d35c48" compoundref="include_2display_8hpp" startline="64">DisplayData::gps_fresh</references>
+        <references refid="struct_display_data_1a22e3ebee0a003f41d98a34d38a632335" compoundref="include_2display_8hpp" startline="69">DisplayData::gps_location</references>
+        <references refid="struct_display_data_1a46aff8bdb1baf8f0f8fcb52860f2a6ce" compoundref="include_2display_8hpp" startline="65">DisplayData::gps_satellites</references>
+        <references refid="struct_display_data_1a4bda74f0875dd000136c419e3cb3a1a8" compoundref="include_2display_8hpp" startline="67">DisplayData::gps_speed</references>
+        <references refid="struct_display_data_1ac18f89b50f66be4928873d3ee1a4b7d0" compoundref="include_2display_8hpp" startline="70">DisplayData::gps_time</references>
+        <references refid="struct_tiny_g_p_s_location_1aa5182c29798506eb727058d884f20633" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="60" endline="60">TinyGPSLocation::isValid</references>
+        <references refid="struct_tiny_g_p_s_decimal_1a34e6448314c198fa204dfb22cd24fc7e" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="136" endline="136">TinyGPSDecimal::isValid</references>
+        <references refid="struct_tiny_g_p_s_integer_1a3a76131645f7604b3f3e759b90f9373f" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="156" endline="156">TinyGPSInteger::isValid</references>
+        <references refid="struct_tiny_g_p_s_speed_1a7fee3c8f9f2fcc5f4a517bd6108f79dd" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="177" endline="177">TinyGPSSpeed::kmph</references>
+        <references refid="struct_tiny_g_p_s_location_1a86c3acea4f317b427eebb667e4d05a49" compoundref="_tiny_g_p_s_09_09_8cpp" startline="361" endline="366">TinyGPSLocation::lat</references>
+        <references refid="struct_tiny_g_p_s_location_1a544e9009a5580b2fd5466821a5e5b782" compoundref="_tiny_g_p_s_09_09_8cpp" startline="368" endline="373">TinyGPSLocation::lng</references>
+        <references refid="struct_tiny_g_p_s_altitude_1a5a39d145bb1778814007206c765189f7" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="187" endline="187">TinyGPSAltitude::meters</references>
+        <references refid="src_2display_8hpp_1a926cd9ce500f615f3624c657c59d7153" compoundref="display_8cpp" startline="500" endline="510">printDate</references>
+        <references refid="src_2display_8hpp_1a257d550e178a981f697d51a2a1695892" compoundref="display_8cpp" startline="441" endline="453">printFloat</references>
+        <references refid="src_2display_8hpp_1a1cd111cb4e208d401902c3ae1eed3b59" compoundref="display_8cpp" startline="455" endline="474">printFloatFont</references>
+        <references refid="src_2display_8hpp_1a98b4b70aadeb673bcc1d2d3739a5a814" compoundref="display_8cpp" startline="477" endline="485">printInt</references>
+        <references refid="src_2display_8hpp_1ac3f9cc9b5e5a3d4ede89be90682c1acb" compoundref="display_8cpp" startline="488" endline="497">printIntFont</references>
+        <references refid="src_2display_8hpp_1ae52b907c706dbf05bd97198c296ec5cc" compoundref="display_8cpp" startline="513" endline="522">printTime</references>
+        <references refid="class_display_1aa7b36908fb46ec9bf36366c8d9119f30" compoundref="display_8cpp" startline="426" endline="439">showBatteryLevel</references>
+        <references refid="class_display_1a0b6dd251c800397e9b9522483eb9c233" compoundref="display_8cpp" startline="417" endline="424">showDeviceId</references>
+        <references refid="struct_tiny_g_p_s_integer_1a67de7e76d61dbd25eb32f701d8ce867b" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="159" endline="159">TinyGPSInteger::value</references>
+        <referencedby refid="class_display_1ad2740b779d61e461c4dcaaf34f1fcd8f" compoundref="display_8cpp" startline="89" endline="234">update</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1aadce78ab84e53b437eedf6cc2d941a3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::draw_qrcode</definition>
+        <argsstring>()</argsstring>
+        <name>draw_qrcode</name>
+        <qualifiedname>Display::draw_qrcode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="127" column="8" bodyfile="archive/bgeigie_firmware_pio/src/display.cpp" bodystart="236" bodyend="249"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_display_1a6c2a1387cfc7630af1a5a0abbd8c12ef" compoundref="include_2display_8hpp" startline="102">data</references>
+        <references refid="struct_display_data_1a18f85013bc2db1d5db55d87eded63633" compoundref="include_2display_8hpp" startline="54">DisplayData::device_id</references>
+        <references refid="include_2config_8hpp_1a19f748654b4acf1e8460dd5537c05abd" compoundref="include_2config_8hpp" startline="42">QR_CODE_DEV_ID_NDIGITS</references>
+        <references refid="include_2config_8hpp_1abce19322f5c54bf596c47078d910f71e" compoundref="include_2config_8hpp" startline="41">QR_CODE_URL_BASE</references>
+        <referencedby refid="class_display_1ad2740b779d61e461c4dcaaf34f1fcd8f" compoundref="display_8cpp" startline="89" endline="234">update</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1ae560cdb07a616ef351214a053b018128" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::draw_survey</definition>
+        <argsstring>()</argsstring>
+        <name>draw_survey</name>
+        <qualifiedname>Display::draw_survey</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="128" column="8" bodyfile="archive/bgeigie_firmware_pio/src/display.cpp" bodystart="313" bodyend="380"/>
+        <references refid="struct_display_data_1a4a74edd66f777279b57275ce42120a41" compoundref="include_2display_8hpp" startline="74">DisplayData::battery_level</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_display_1a6c2a1387cfc7630af1a5a0abbd8c12ef" compoundref="include_2display_8hpp" startline="102">data</references>
+        <references refid="struct_display_data_1a18f85013bc2db1d5db55d87eded63633" compoundref="include_2display_8hpp" startline="54">DisplayData::device_id</references>
+        <references refid="class_display_1a75180c9b967a0126ce3b01a7ce6623b5" compoundref="display_8cpp" startline="73" endline="79">draw_navbar</references>
+        <references refid="struct_display_data_1a2fc0df40c42e1f7b7399633fb8e45a36" compoundref="include_2display_8hpp" startline="61">DisplayData::geiger_bqm2</references>
+        <references refid="struct_display_data_1a43705d7afd5dba6f06af94c49cd1d376" compoundref="include_2display_8hpp" startline="59">DisplayData::geiger_cpm</references>
+        <references refid="struct_display_data_1ad9962eb3cbb4b794a5c38c920c3c9a00" compoundref="include_2display_8hpp" startline="57">DisplayData::geiger_fresh</references>
+        <references refid="struct_display_data_1ae21a0c925831e6cf20d98fc964979c3f" compoundref="include_2display_8hpp" startline="60">DisplayData::geiger_uSv</references>
+        <references refid="struct_display_data_1acd3b4d9a44a06151b1970687266a0709" compoundref="include_2display_8hpp" startline="58">DisplayData::geiger_valid</references>
+        <references refid="struct_display_data_1a8555fc6952471b16e281a0b13727d26c" compoundref="include_2display_8hpp" startline="66">DisplayData::gps_altitude</references>
+        <references refid="struct_display_data_1aec3b9d0e45566e975f37e91d7c409877" compoundref="include_2display_8hpp" startline="71">DisplayData::gps_date</references>
+        <references refid="struct_display_data_1a7ec2ff9538503735617327db18d35c48" compoundref="include_2display_8hpp" startline="64">DisplayData::gps_fresh</references>
+        <references refid="struct_display_data_1a22e3ebee0a003f41d98a34d38a632335" compoundref="include_2display_8hpp" startline="69">DisplayData::gps_location</references>
+        <references refid="struct_display_data_1a46aff8bdb1baf8f0f8fcb52860f2a6ce" compoundref="include_2display_8hpp" startline="65">DisplayData::gps_satellites</references>
+        <references refid="struct_display_data_1ac18f89b50f66be4928873d3ee1a4b7d0" compoundref="include_2display_8hpp" startline="70">DisplayData::gps_time</references>
+        <references refid="struct_tiny_g_p_s_location_1aa5182c29798506eb727058d884f20633" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="60" endline="60">TinyGPSLocation::isValid</references>
+        <references refid="struct_tiny_g_p_s_decimal_1a34e6448314c198fa204dfb22cd24fc7e" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="136" endline="136">TinyGPSDecimal::isValid</references>
+        <references refid="struct_tiny_g_p_s_integer_1a3a76131645f7604b3f3e759b90f9373f" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="156" endline="156">TinyGPSInteger::isValid</references>
+        <references refid="struct_tiny_g_p_s_location_1a86c3acea4f317b427eebb667e4d05a49" compoundref="_tiny_g_p_s_09_09_8cpp" startline="361" endline="366">TinyGPSLocation::lat</references>
+        <references refid="struct_tiny_g_p_s_location_1a544e9009a5580b2fd5466821a5e5b782" compoundref="_tiny_g_p_s_09_09_8cpp" startline="368" endline="373">TinyGPSLocation::lng</references>
+        <references refid="struct_tiny_g_p_s_altitude_1a5a39d145bb1778814007206c765189f7" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="187" endline="187">TinyGPSAltitude::meters</references>
+        <references refid="src_2display_8hpp_1a926cd9ce500f615f3624c657c59d7153" compoundref="display_8cpp" startline="500" endline="510">printDate</references>
+        <references refid="src_2display_8hpp_1a257d550e178a981f697d51a2a1695892" compoundref="display_8cpp" startline="441" endline="453">printFloat</references>
+        <references refid="src_2display_8hpp_1a1cd111cb4e208d401902c3ae1eed3b59" compoundref="display_8cpp" startline="455" endline="474">printFloatFont</references>
+        <references refid="src_2display_8hpp_1a98b4b70aadeb673bcc1d2d3739a5a814" compoundref="display_8cpp" startline="477" endline="485">printInt</references>
+        <references refid="src_2display_8hpp_1ac3f9cc9b5e5a3d4ede89be90682c1acb" compoundref="display_8cpp" startline="488" endline="497">printIntFont</references>
+        <references refid="src_2display_8hpp_1ae52b907c706dbf05bd97198c296ec5cc" compoundref="display_8cpp" startline="513" endline="522">printTime</references>
+        <references refid="class_display_1aa7b36908fb46ec9bf36366c8d9119f30" compoundref="display_8cpp" startline="426" endline="439">showBatteryLevel</references>
+        <references refid="class_display_1a0b6dd251c800397e9b9522483eb9c233" compoundref="display_8cpp" startline="417" endline="424">showDeviceId</references>
+        <references refid="struct_tiny_g_p_s_integer_1a67de7e76d61dbd25eb32f701d8ce867b" compoundref="include_2_tiny_g_p_s_09_09_8h" startline="159" endline="159">TinyGPSInteger::value</references>
+        <referencedby refid="class_display_1ad2740b779d61e461c4dcaaf34f1fcd8f" compoundref="display_8cpp" startline="89" endline="234">update</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1a4e1b7f010db6d39b421560b24550fdf1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::draw_menu</definition>
+        <argsstring>()</argsstring>
+        <name>draw_menu</name>
+        <qualifiedname>Display::draw_menu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="129" column="8" bodyfile="archive/bgeigie_firmware_pio/src/display.cpp" bodystart="382" bodyend="394"/>
+        <references refid="struct_display_data_1a4a74edd66f777279b57275ce42120a41" compoundref="include_2display_8hpp" startline="74">DisplayData::battery_level</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_display_1a6c2a1387cfc7630af1a5a0abbd8c12ef" compoundref="include_2display_8hpp" startline="102">data</references>
+        <references refid="struct_display_data_1a18f85013bc2db1d5db55d87eded63633" compoundref="include_2display_8hpp" startline="54">DisplayData::device_id</references>
+        <references refid="class_display_1a75180c9b967a0126ce3b01a7ce6623b5" compoundref="display_8cpp" startline="73" endline="79">draw_navbar</references>
+        <references refid="class_display_1aa7b36908fb46ec9bf36366c8d9119f30" compoundref="display_8cpp" startline="426" endline="439">showBatteryLevel</references>
+        <references refid="class_display_1a0b6dd251c800397e9b9522483eb9c233" compoundref="display_8cpp" startline="417" endline="424">showDeviceId</references>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1a0b6dd251c800397e9b9522483eb9c233" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::showDeviceId</definition>
+        <argsstring>(uint32_t id, int16_t x=10, int16_t y=30)</argsstring>
+        <name>showDeviceId</name>
+        <qualifiedname>Display::showDeviceId</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>int16_t</type>
+          <declname>x</declname>
+          <defval>10</defval>
+        </param>
+        <param>
+          <type>int16_t</type>
+          <declname>y</declname>
+          <defval>30</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="132" column="8" bodyfile="archive/bgeigie_firmware_pio/src/display.cpp" bodystart="417" bodyend="424"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">draw_main</referencedby>
+        <referencedby refid="class_display_1a4e1b7f010db6d39b421560b24550fdf1" compoundref="display_8cpp" startline="382" endline="394">draw_menu</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">draw_survey</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1aa7b36908fb46ec9bf36366c8d9119f30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::showBatteryLevel</definition>
+        <argsstring>(float level, int16_t x=270, int16_t y=30)</argsstring>
+        <name>showBatteryLevel</name>
+        <qualifiedname>Display::showBatteryLevel</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">float</ref></type>
+          <declname>level</declname>
+        </param>
+        <param>
+          <type>int16_t</type>
+          <declname>x</declname>
+          <defval>270</defval>
+        </param>
+        <param>
+          <type>int16_t</type>
+          <declname>y</declname>
+          <defval>30</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="133" column="8" bodyfile="archive/bgeigie_firmware_pio/src/display.cpp" bodystart="426" bodyend="439"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <referencedby refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" compoundref="display_8cpp" startline="251" endline="311">draw_main</referencedby>
+        <referencedby refid="class_display_1a4e1b7f010db6d39b421560b24550fdf1" compoundref="display_8cpp" startline="382" endline="394">draw_menu</referencedby>
+        <referencedby refid="class_display_1ae560cdb07a616ef351214a053b018128" compoundref="display_8cpp" startline="313" endline="380">draw_survey</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1aa655e7414171658b1b51f4c830e09546" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::set_dimblank_delays</definition>
+        <argsstring>(uint32_t dimdelay, uint32_t blankdelay)</argsstring>
+        <name>set_dimblank_delays</name>
+        <qualifiedname>Display::set_dimblank_delays</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>dimdelay</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>blankdelay</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="136" column="8" bodyfile="archive/bgeigie_firmware_pio/src/display.cpp" bodystart="525" bodyend="539"/>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1a68ea14e4cecbdbce79dab91ac9154d9e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Display::Display</definition>
+        <argsstring>(uint32_t refresh_period_ms)</argsstring>
+        <name>Display</name>
+        <qualifiedname>Display::Display</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>refresh_period_ms</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/display.hpp" line="67" column="3" bodyfile="archive/bgeigie_firmware_pio/src/display.hpp" bodystart="67" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1a14242933dd00fc1d50f9ae70d5121d14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>Display::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/display.hpp" line="69" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1a6dfdf5e308b468964627eec5e6de802d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::feed</definition>
+        <argsstring>(const GeigerCounter &amp;geiger_count)</argsstring>
+        <name>feed</name>
+        <qualifiedname>Display::feed</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="class_geiger_counter" kindref="compound">GeigerCounter</ref> &amp;</type>
+          <declname>geiger_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/display.hpp" line="70" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1a79b95e2561ff7d142363f89a41ca543c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::feed</definition>
+        <argsstring>(GPSSensor &amp;geiger_count)</argsstring>
+        <name>feed</name>
+        <qualifiedname>Display::feed</qualifiedname>
+        <param>
+          <type><ref refid="class_g_p_s_sensor" kindref="compound">GPSSensor</ref> &amp;</type>
+          <declname>geiger_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/display.hpp" line="71" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1af015ee8348feb81297c6af96595f6b40" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::feed</definition>
+        <argsstring>(const Setup &amp;device_setup)</argsstring>
+        <name>feed</name>
+        <qualifiedname>Display::feed</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="class_setup" kindref="compound">Setup</ref> &amp;</type>
+          <declname>device_setup</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/display.hpp" line="72" column="8" bodyfile="archive/bgeigie_firmware_pio/src/display.hpp" bodystart="72" bodyend="74"/>
+        <references refid="class_setup_1a973924be0fdd98b6e5a964a2416cf721" compoundref="include_2setup_8hpp" startline="120" endline="120">Setup::config</references>
+        <references refid="class_display_1a6c2a1387cfc7630af1a5a0abbd8c12ef" compoundref="include_2display_8hpp" startline="102">data</references>
+        <references refid="struct_display_data_1a18f85013bc2db1d5db55d87eded63633" compoundref="include_2display_8hpp" startline="54">DisplayData::device_id</references>
+        <references refid="struct_config_data_1af4aa84fbef118fd20be9a243b4f1668f" compoundref="include_2setup_8hpp" startline="84">ConfigData::device_id</references>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1a00504e9ba16dc10557125c9c8dbc6aa8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::feed_battery_level</definition>
+        <argsstring>(int8_t level)</argsstring>
+        <name>feed_battery_level</name>
+        <qualifiedname>Display::feed_battery_level</qualifiedname>
+        <param>
+          <type>int8_t</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/display.hpp" line="75" column="8" bodyfile="archive/bgeigie_firmware_pio/src/display.hpp" bodystart="75" bodyend="75"/>
+        <references refid="struct_display_data_1a4a74edd66f777279b57275ce42120a41" compoundref="include_2display_8hpp" startline="74">DisplayData::battery_level</references>
+        <references refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" compoundref="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp" startline="13" endline="16">clamp</references>
+        <references refid="class_display_1a6c2a1387cfc7630af1a5a0abbd8c12ef" compoundref="include_2display_8hpp" startline="102">data</references>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1ad2740b779d61e461c4dcaaf34f1fcd8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <qualifiedname>Display::update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/display.hpp" line="78" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1aa64573075ec3f5141cb7906c9cbb4ad1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::draw_base</definition>
+        <argsstring>()</argsstring>
+        <name>draw_base</name>
+        <qualifiedname>Display::draw_base</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/display.hpp" line="81" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1a75180c9b967a0126ce3b01a7ce6623b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::draw_navbar</definition>
+        <argsstring>(const char *A, const char *B, const char *C)</argsstring>
+        <name>draw_navbar</name>
+        <qualifiedname>Display::draw_navbar</qualifiedname>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>B</declname>
+        </param>
+        <param>
+          <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">const</ref> <ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">char</ref> *</type>
+          <declname>C</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/display.hpp" line="82" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1a67f2a955b6ece55b0523c08cac84653e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::draw_main</definition>
+        <argsstring>()</argsstring>
+        <name>draw_main</name>
+        <qualifiedname>Display::draw_main</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/display.hpp" line="83" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_display_1aadce78ab84e53b437eedf6cc2d941a3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp_1aed8613cf8a8e4ab677db757821414653" kindref="member">void</ref></type>
+        <definition>void Display::draw_qrcode</definition>
+        <argsstring>()</argsstring>
+        <name>draw_qrcode</name>
+        <qualifiedname>Display::draw_qrcode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="archive/bgeigie_firmware_pio/src/display.hpp" line="84" column="8"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="14">
+        <label>ConfigWebServer</label>
+        <link refid="class_config_web_server"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Display</label>
+        <link refid="class_display"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>data</edgelabel>
+        </childnode>
+        <childnode refid="13" relation="usage">
+          <edgelabel>wificonn</edgelabel>
+        </childnode>
+        <childnode refid="14" relation="usage">
+          <edgelabel>webserver</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DisplayData</label>
+        <link refid="struct_display_data"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>device_id</edgelabel>
+          <edgelabel>geiger_cpm</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>gps_satellites</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>gps_altitude</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>gps_speed</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>gps_course</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>gps_location</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>gps_time</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>gps_date</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>battery_level</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>TinyGPSAltitude</label>
+        <link refid="struct_tiny_g_p_s_altitude"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>TinyGPSCourse</label>
+        <link refid="struct_tiny_g_p_s_course"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>TinyGPSDate</label>
+        <link refid="struct_tiny_g_p_s_date"/>
+      </node>
+      <node id="6">
+        <label>TinyGPSDecimal</label>
+        <link refid="struct_tiny_g_p_s_decimal"/>
+      </node>
+      <node id="4">
+        <label>TinyGPSInteger</label>
+        <link refid="struct_tiny_g_p_s_integer"/>
+      </node>
+      <node id="9">
+        <label>TinyGPSLocation</label>
+        <link refid="struct_tiny_g_p_s_location"/>
+      </node>
+      <node id="7">
+        <label>TinyGPSSpeed</label>
+        <link refid="struct_tiny_g_p_s_speed"/>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>TinyGPSTime</label>
+        <link refid="struct_tiny_g_p_s_time"/>
+      </node>
+      <node id="13">
+        <label>WiFiConnection</label>
+        <link refid="class_wi_fi_connection"/>
+      </node>
+      <node id="15">
+        <label>Worker&lt; ServerStatus &gt;</label>
+      </node>
+      <node id="12">
+        <label>int8_t</label>
+      </node>
+      <node id="3">
+        <label>uint32_t</label>
+      </node>
+    </collaborationgraph>
+    <location file="archive/bgeigie_firmware_pio/include/display.hpp" line="81" column="1" bodyfile="archive/bgeigie_firmware_pio/include/display.hpp" bodystart="81" bodyend="137"/>
+    <listofallmembers>
+      <member refid="class_display_1aefb71af876b5d0c0e35f4909fec9a333" prot="private" virt="non-virtual"><scope>Display</scope><name>_refresh_period_ms</name></member>
+      <member refid="class_display_1a14242933dd00fc1d50f9ae70d5121d14" prot="public" virt="non-virtual"><scope>Display</scope><name>clear</name></member>
+      <member refid="class_display_1a14242933dd00fc1d50f9ae70d5121d14" prot="public" virt="non-virtual"><scope>Display</scope><name>clear</name></member>
+      <member refid="class_display_1a6c2a1387cfc7630af1a5a0abbd8c12ef" prot="public" virt="non-virtual"><scope>Display</scope><name>data</name></member>
+      <member refid="class_display_1a1ca6a1167ab1c1e9c89d1481b5d12d09" prot="private" virt="non-virtual"><scope>Display</scope><name>delay_blanking</name></member>
+      <member refid="class_display_1a1844062ab291ef78b4ecc66bc67ce29b" prot="private" virt="non-virtual"><scope>Display</scope><name>delay_dimming</name></member>
+      <member refid="class_display_1aed758d41eb02a4275f350438a886e09a" prot="private" virt="non-virtual"><scope>Display</scope><name>dimming_enabled</name></member>
+      <member refid="class_display_1af597c405eff098c90d8d486f3cdde107" prot="private" virt="non-virtual"><scope>Display</scope><name>dimmingButton</name></member>
+      <member refid="class_display_1a68ea14e4cecbdbce79dab91ac9154d9e" prot="public" virt="non-virtual"><scope>Display</scope><name>Display</name></member>
+      <member refid="class_display_1a68ea14e4cecbdbce79dab91ac9154d9e" prot="public" virt="non-virtual"><scope>Display</scope><name>Display</name></member>
+      <member refid="class_display_1a4680c3b24229f47983c24c5c9e2b4899" prot="private" virt="non-virtual"><scope>Display</scope><name>display_dimmed</name></member>
+      <member refid="class_display_1aa64573075ec3f5141cb7906c9cbb4ad1" prot="public" virt="non-virtual"><scope>Display</scope><name>draw_base</name></member>
+      <member refid="class_display_1aa64573075ec3f5141cb7906c9cbb4ad1" prot="public" virt="non-virtual"><scope>Display</scope><name>draw_base</name></member>
+      <member refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" prot="public" virt="non-virtual"><scope>Display</scope><name>draw_main</name></member>
+      <member refid="class_display_1a67f2a955b6ece55b0523c08cac84653e" prot="public" virt="non-virtual"><scope>Display</scope><name>draw_main</name></member>
+      <member refid="class_display_1a4e1b7f010db6d39b421560b24550fdf1" prot="public" virt="non-virtual"><scope>Display</scope><name>draw_menu</name></member>
+      <member refid="class_display_1a75180c9b967a0126ce3b01a7ce6623b5" prot="public" virt="non-virtual"><scope>Display</scope><name>draw_navbar</name></member>
+      <member refid="class_display_1a75180c9b967a0126ce3b01a7ce6623b5" prot="public" virt="non-virtual"><scope>Display</scope><name>draw_navbar</name></member>
+      <member refid="class_display_1abe6a389bd196987cdc01967c1657b597" prot="public" virt="non-virtual"><scope>Display</scope><name>draw_navbar_label</name></member>
+      <member refid="class_display_1aadce78ab84e53b437eedf6cc2d941a3a" prot="public" virt="non-virtual"><scope>Display</scope><name>draw_qrcode</name></member>
+      <member refid="class_display_1aadce78ab84e53b437eedf6cc2d941a3a" prot="public" virt="non-virtual"><scope>Display</scope><name>draw_qrcode</name></member>
+      <member refid="class_display_1ae560cdb07a616ef351214a053b018128" prot="public" virt="non-virtual"><scope>Display</scope><name>draw_survey</name></member>
+      <member refid="class_display_1a6dfdf5e308b468964627eec5e6de802d" prot="public" virt="non-virtual"><scope>Display</scope><name>feed</name></member>
+      <member refid="class_display_1a79b95e2561ff7d142363f89a41ca543c" prot="public" virt="non-virtual"><scope>Display</scope><name>feed</name></member>
+      <member refid="class_display_1af015ee8348feb81297c6af96595f6b40" prot="public" virt="non-virtual"><scope>Display</scope><name>feed</name></member>
+      <member refid="class_display_1a6dfdf5e308b468964627eec5e6de802d" prot="public" virt="non-virtual"><scope>Display</scope><name>feed</name></member>
+      <member refid="class_display_1a79b95e2561ff7d142363f89a41ca543c" prot="public" virt="non-virtual"><scope>Display</scope><name>feed</name></member>
+      <member refid="class_display_1af015ee8348feb81297c6af96595f6b40" prot="public" virt="non-virtual"><scope>Display</scope><name>feed</name></member>
+      <member refid="class_display_1a00504e9ba16dc10557125c9c8dbc6aa8" prot="public" virt="non-virtual"><scope>Display</scope><name>feed_battery_level</name></member>
+      <member refid="class_display_1a00504e9ba16dc10557125c9c8dbc6aa8" prot="public" virt="non-virtual"><scope>Display</scope><name>feed_battery_level</name></member>
+      <member refid="class_display_1ad05bc3e14d78a9568abeecd4337563d6" prot="private" virt="non-virtual"><scope>Display</scope><name>height</name></member>
+      <member refid="class_display_1aa9d56a921bbd3a4d457f4d454cc4c8e8" prot="private" virt="non-virtual"><scope>Display</scope><name>mpu</name></member>
+      <member refid="class_display_1aa655e7414171658b1b51f4c830e09546" prot="public" virt="non-virtual"><scope>Display</scope><name>set_dimblank_delays</name></member>
+      <member refid="class_display_1aa7b36908fb46ec9bf36366c8d9119f30" prot="public" virt="non-virtual"><scope>Display</scope><name>showBatteryLevel</name></member>
+      <member refid="class_display_1a0b6dd251c800397e9b9522483eb9c233" prot="public" virt="non-virtual"><scope>Display</scope><name>showDeviceId</name></member>
+      <member refid="class_display_1aecef50416db9d41bfec0d3e8111c6d9b" prot="private" virt="non-virtual"><scope>Display</scope><name>state</name></member>
+      <member refid="class_display_1a7e05244caff7c376bd1c21dfea5b009a" prot="private" virt="non-virtual"><scope>Display</scope><name>timer_blanking</name></member>
+      <member refid="class_display_1a9a38a34aa7170077115a834432104ec2" prot="private" virt="non-virtual"><scope>Display</scope><name>timer_dimming</name></member>
+      <member refid="class_display_1ad2740b779d61e461c4dcaaf34f1fcd8f" prot="public" virt="non-virtual"><scope>Display</scope><name>update</name></member>
+      <member refid="class_display_1ad2740b779d61e461c4dcaaf34f1fcd8f" prot="public" virt="non-virtual"><scope>Display</scope><name>update</name></member>
+      <member refid="class_display_1a6525280e93dd9296bb80d06b3044f05e" prot="public" virt="non-virtual"><scope>Display</scope><name>webserver</name></member>
+      <member refid="class_display_1afd186e7a237a2fcbdb6bd9be3b958288" prot="private" virt="non-virtual"><scope>Display</scope><name>width</name></member>
+      <member refid="class_display_1a0f93068663afcd6cbb5804ab10dbe3cc" prot="public" virt="non-virtual"><scope>Display</scope><name>wificonn</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
