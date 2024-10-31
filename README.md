@@ -26,7 +26,7 @@ bGeigieZen is a portable radiation monitoring device that combines precision sen
 
 ## Software Setup
 
-. **Install Required Development environment**:
+1. **Install Required Development environment**
    - VS Code with PlatformIO or PlatformIO standalone
 
 2. **Install Required Libraries**:
