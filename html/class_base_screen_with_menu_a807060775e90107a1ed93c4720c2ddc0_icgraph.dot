@@ -1,0 +1,15 @@
+digraph "BaseScreenWithMenu::render_menu"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="BaseScreenWithMenu\l::render_menu",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="ConfigModeScreen::render",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_config_mode_screen.html#a5878db5e53f53183144488937f6657e9",tooltip=" "];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="MenuWindow::render",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_menu_window.html#a668a8a350e49de44844d8d06d0032938",tooltip=" "];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="SatelliteViewScreen\l::render",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_satellite_view_screen.html#a480ec31a9de82c4f9e8ee3228d870f65",tooltip=" "];
+}

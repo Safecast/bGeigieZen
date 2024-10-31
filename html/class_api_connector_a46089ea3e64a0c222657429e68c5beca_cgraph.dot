@@ -1,0 +1,43 @@
+digraph "ApiConnector::handle_produced_work"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="ApiConnector::handle\l_produced_work",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="ApiConnector::activate",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_api_connector.html#a27801902e618afb9d835438d66ddec3c",tooltip=" "];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="clamp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$archive_2bgeigie__firmware__pio_2src_2configuration__server_8cpp.html#aed8613cf8a8e4ab677db757821414653",tooltip=" "];
+  Node2 -> Node4 [id="edge3_Node000002_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="WiFiWrapper::connect_wifi",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_wi_fi_wrapper.html#ac2331e7155ee97b89214f721d91cd657",tooltip=" "];
+  Node4 -> Node3 [id="edge4_Node000004_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node4 -> Node5 [id="edge5_Node000004_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="WiFiWrapper::update\l_active",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_wi_fi_wrapper.html#ad810fce36f8f603465f255fbd88dc5c9",tooltip=" "];
+  Node5 -> Node3 [id="edge6_Node000005_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node5 -> Node6 [id="edge7_Node000005_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="WiFiWrapper::wifi_connected",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_wi_fi_wrapper.html#a37ba31d67d18f35822a2cda0b6b5bf48",tooltip=" "];
+  Node6 -> Node3 [id="edge8_Node000006_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node4 -> Node6 [id="edge9_Node000004_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node2 -> Node7 [id="edge10_Node000002_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="LocalStorage::get_wifi\l_password",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_local_storage.html#a619ba1c828df4e5c97e7ac77115e72a2",tooltip=" "];
+  Node2 -> Node8 [id="edge11_Node000002_Node000008",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="LocalStorage::get_wifi_ssid",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_local_storage.html#a8d0807c2fad52121c446d91f85976856",tooltip=" "];
+  Node2 -> Node6 [id="edge12_Node000002_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node3 [id="edge13_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node9 [id="edge14_Node000001_Node000009",color="steelblue1",style="solid",tooltip=" "];
+  Node9 [id="Node000009",label="LocalStorage::get_alert\l_threshold",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_local_storage.html#a5434f10e036beedc21b5382f9234981a",tooltip=" "];
+  Node1 -> Node10 [id="edge15_Node000001_Node000010",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="LocalStorage::get_fixed\l_device_id",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_local_storage.html#ad567a475a216fc14ab359b09b00c25de",tooltip=" "];
+  Node1 -> Node11 [id="edge16_Node000001_Node000011",color="steelblue1",style="solid",tooltip=" "];
+  Node11 [id="Node000011",label="ApiConnector::reading\l_to_json",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_api_connector.html#ac19687cf6ae2d1d0bcb2e77ee9e8c539",tooltip=" "];
+  Node11 -> Node3 [id="edge17_Node000011_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node11 -> Node10 [id="edge18_Node000011_Node000010",color="steelblue1",style="solid",tooltip=" "];
+  Node11 -> Node12 [id="edge19_Node000011_Node000012",color="steelblue1",style="solid",tooltip=" "];
+  Node12 [id="Node000012",label="LocalStorage::get_fixed\l_latitude",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_local_storage.html#a2366a6a1473c708580e4b9ad1d92f3ca",tooltip=" "];
+  Node11 -> Node13 [id="edge20_Node000011_Node000013",color="steelblue1",style="solid",tooltip=" "];
+  Node13 [id="Node000013",label="LocalStorage::get_fixed\l_longitude",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_local_storage.html#a2972e2632be5da773cfa65e23be878e5",tooltip=" "];
+  Node1 -> Node14 [id="edge21_Node000001_Node000014",color="steelblue1",style="solid",tooltip=" "];
+  Node14 [id="Node000014",label="ApiConnector::time\l_to_send",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_api_connector.html#ae4158ccefdfdc7d83196cbdfe7af8d36",tooltip=" "];
+}
