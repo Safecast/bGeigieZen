@@ -26,19 +26,23 @@ bGeigieZen is a portable radiation monitoring device that combines precision sen
 
 ## Software Setup
 
-1. **Install Required Libraries**:
-   - M5Unified
-   - TinyGPS++
-   - ArduinoJSON
+1. **Install Required Development Environment **:
+   - VS Code with PlatformIO or PlatformIO standalone
 
-2. **Clone the Repository**:
+2. **Install Required Libraries**:
+   - m5stack/M5Unified
+   - claypuppet/SensorReporter
+   - beakes/TeenyUbloxConnect
+   - alextaujenis/RBD_Timer
+
+3. **Clone the Repository**:
    ```bash
    git clone https://github.com/Safecast/bGeigieZen.git
    ```
 
 ## Building and Flashing
 
-1. Open the project in Arduino IDE or PlatformIO.
+1. Open the project in VS Code with PlatformIO, or invoke PlatformIO from the shell/CMD.
 2. Select your M5Stack board.
 3. Compile and upload.
 
