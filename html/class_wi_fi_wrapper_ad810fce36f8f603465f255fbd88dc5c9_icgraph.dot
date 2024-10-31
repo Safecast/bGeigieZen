@@ -1,0 +1,19 @@
+digraph "WiFiWrapper::update_active"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="WiFiWrapper::update\l_active",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="WiFiWrapper::connect_wifi",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_wi_fi_wrapper.html#ac2331e7155ee97b89214f721d91cd657",tooltip=" "];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="ApiConnector::activate",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_api_connector.html#a27801902e618afb9d835438d66ddec3c",tooltip=" "];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="ApiConnector::handle\l_produced_work",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_api_connector.html#a46089ea3e64a0c222657429e68c5beca",tooltip=" "];
+  Node2 -> Node5 [id="edge4_Node000002_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="ConfigModeScreen::enter\l_screen",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_config_mode_screen.html#a63e57a291d31fc8974e1801314b0c75b",tooltip=" "];
+  Node1 -> Node6 [id="edge5_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="ApiConnector::handle\l_async",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_api_connector.html#a8fc0aaa8a9cff66aef93d202a102d9ea",tooltip=" "];
+}

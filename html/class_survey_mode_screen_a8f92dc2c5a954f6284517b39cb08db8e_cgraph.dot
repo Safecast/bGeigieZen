@@ -1,0 +1,13 @@
+digraph "SurveyModeScreen::enter_screen"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="SurveyModeScreen::enter\l_screen",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="LocalStorage::get_manual\l_logging",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_local_storage.html#a213ff59d5af95ac21edcded1dc8f2143",tooltip=" "];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="Controller::get_settings",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_controller.html#ad9039c060ff691a666a194add7ecc5c1",tooltip=" "];
+}
