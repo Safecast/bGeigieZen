@@ -93,7 +93,7 @@ bool GpsConnector::activate(bool retry) {
     _tried_9600_at = millis();
     _serial_conn.updateBaudRate(9600);
     M5_LOGD("GNSS: Try at 9600 baud");
-    if (_gnss.begin(_serial_conn, 500)) {
+    if (_gnss.begin(_serial_conn, 1000)) {
       M5_LOGD("GNSS: connected at 9600 baud, switching to 38400");
       _gnss.setSerialRate(38400);
       delay(100); // recovery time for gnss module baud rate change
