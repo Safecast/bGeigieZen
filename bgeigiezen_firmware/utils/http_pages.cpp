@@ -69,7 +69,7 @@ const char* base_page_format_end =
 const char* HttpPages::get_home_page(const LocalStorage& settings) {
 
   char grafana_url[130];
-  sprintf(grafana_url, FIXED_MODE_GRAFANA_URL, settings.get_fixed_device_id());
+  sprintf(grafana_url, FIXED_MODE_GRAFANA_URL, settings.get_fixed_device_id(), settings.get_fixed_device_id());
 
   return render_full_page(
       settings.get_device_id(),
