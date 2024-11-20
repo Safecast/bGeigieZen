@@ -121,7 +121,7 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     char qr_url[130];
     const auto& config = workers.worker<LocalStorage>(k_worker_local_storage);
-    sprintf(qr_url, FIXED_MODE_GRAFANA_URL, config->get_fixed_device_id());
+    sprintf(qr_url, FIXED_MODE_GRAFANA_URL, config->get_fixed_device_id(), config->get_fixed_device_id());
     M5.Lcd.qrcode(qr_url, 220, 40, 90);
   }
 
