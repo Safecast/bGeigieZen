@@ -74,7 +74,7 @@ constexpr uint16_t API_SEND_SECONDS_DELAY = 300; // Posts every 5 minute by defa
 constexpr uint16_t API_SEND_SECONDS_DELAY_ALERT = 5; // Posts every 5 seconds when alerted
 constexpr uint16_t API_SEND_SECONDS_DELAY_ROAMING = 5; // Posts every 5 seconds when roaming
 
-constexpr char FIXED_MODE_GRAFANA_URL[] = "https://grafana.safecast.cc/d/DFSxrOLWk/safecast-device-details?from=now-24h&to=now&refresh=5m&var-device_urn=geigiecast:%d";
+constexpr char FIXED_MODE_GRAFANA_URL[] = "https://grafana.safecast.jp/d/fe1c7kugohlogc/safecast-radiation-devices?var-device_filename=geigiecast-zen_%d.json&var-device_urn=geigiecast-zen:%d";
 
 // Other
 constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
