@@ -97,13 +97,13 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
   bool gps_valid = gps_data.valid();
   bool dop_valid = gps_valid && gps_data.pdop * 100 < _settings.get_dop_max();
 
-  sprintf(
-      data.timestamp,
+  snprintf(
+      data.timestamp, sizeof(data.timestamp),
       "%04d-%02d-%02dT%02d:%02d:%02dZ",
       gps_data.year, gps_data.month, gps_data.day, gps_data.hour, gps_data.minute, gps_data.second);
 
-  sprintf(
-      data.log_string,
+  snprintf(
+      data.log_working_string, sizeof(data.log_string),
       "$%s,%04d,%s,%u,%u,%u,%c,%04d.%04d,%c,%04d.%04d,%c,%.1f,%c,%d,%d",
       DEVICE_HEADER, _settings.get_device_id(),
       data.timestamp,
@@ -111,14 +111,40 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
       latitude_dm, latitude_s, NS, longitude_dm, longitude_s, WE, data.altitude, gps_valid ? 'A' : 'V', gps_data.satsInView,
       static_cast<int>(100 * gps_data.pdop));  // DOP logged as integer, displayed as float 
 
-  size_t len = strlen(data.log_string);
-  data.log_string[len] = '\0';
+  size_t len = strlen(data.log_working_string);
+  // This is redundant now that snprintf() is used.
+  // data.log_string[len] = '\0';
 
-  // generate checksum
+  // generate checksum and format the end of the line
   uint8_t chk = checksum(data.log_string + 1, len);
+  snprintf(data.log_chksum_string, sizeof(data.log_chksum_string), "*%02X", chk);
 
-  // add checksum to end of line
-  sprintf(data.log_string + len, "*%02X", chk);
+  /*** 
+   * Second line of log for extra troubleshooting info
+   * Prefix $BNXNAV BgeigieNanoeXtraNAV info
+   * ***/
+  snprintf(
+    data.log_secondary_string, sizeof(data.log_secondary_string),
+    "$BNXNAV,%u,%u,%d,%d,%d,%d,%d,%u,%u,%c",
+    gps_data.hAcc,  // mm Horizontal accuracy estimate for Long/Lat
+    gps_data.vAcc,  // mm Vertical accuracy estimate for Long/Lat
+    gps_data.velN,  // mm/s NED north velocity
+    gps_data.velE,  // mm/s NED east velocity
+    gps_data.velD,  // mm/s NED down velocity
+    gps_data.gSpeed,  // Ground Speed (2-D)
+    gps_data.headMot,  // Heading of motion (2-D)
+    gps_data.sAcc,
+    gps_data.headAcc,
+    gps_data.invalidLlh?'1':'0'  // NAVPVT[78] flags3 bit 0
+    );
+
+  // Put it all together
+  snprintf(data.log_string, sizeof(data.log_string),
+        "%s%s\n%s",
+        data.log_working_string,
+        data.log_chksum_string,
+        data.log_secondary_string
+        );
 
   data.gps_valid = gps_data.valid();
   data.gm_valid = gm_sensor_data.valid;

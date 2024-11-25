@@ -141,9 +141,15 @@ int8_t GpsConnector::produce_data() {
   if (_gnss.getPVT()) {
     // M5_LOGD("[%d] _gnss.getPVT() is true.", millis());
 
+    // Satellites (SVs) in view not same as SVs used in fix.
+    // satsInView should come from NavSat.
+    // For now, keep satsInView = _gnss.getSIV()
+    // but eventually make the distinction
     data.satsInView = _gnss.getSIV(); // Satellites In View
-
-    if (_gnss.getFixType() == 2 || _gnss.getFixType() == 3) {
+    data.numSV = _gnss.getSIV(); // Satellites used in fix
+  
+    data.fixType = _gnss.getFixType();
+    if (data.fixType == 2 || data.fixType == 3) {
       // M5_LOGD("[%d] fix type is 2D or 3D.", millis());
       data.pdop = _gnss.getPDOP() * 1e-2; // Position Dilution of Precision
       _last_latitude = data.latitude;
@@ -175,9 +181,23 @@ int8_t GpsConnector::produce_data() {
       if (data.heading_degree >= WNW || data.heading_degree < NNW) {
         data.heading = GnssData::NORTHWEST;
       }
-      data.altitudeMSL = _gnss.getFixType() == 3 ? _gnss.getAltitudeMSL() * 1e-3 : 0; // Above MSL (not ellipsoid)
+      data.altitudeMSL = data.fixType == 3 ? _gnss.getAltitudeMSL() * 1e-3 : 0; // Above MSL (not ellipsoid)
       const auto distance_step = haversine_km(data.latitude, data.longitude, _last_latitude, _last_longitude);
+
+      // Retrieve extra confidence indicators from NavPvt
+      data.hAcc = _gnss.getHorizontalAccEst();  // mm Horizontal accuracy estimate for Long/Lat
+      data.vAcc = _gnss.getVerticalAccEst();  // mm Vertical accuracy estimate for Long/Lat
+      data.velN = _gnss.getVelN();  // mm/s NED north velocity
+      data.velE = _gnss.getVelE();  // mm/s NED east velocity
+      data.velD = _gnss.getVelD();  // mm/s NED down velocity
+      data.gSpeed = _gnss.getGroundSpeed();  // Ground Speed (2-D)
+      data.headMot = _gnss.getHeading();  // Heading of motion (2-D)
+      data.sAcc = _gnss.getSpeedAccEst();
+      data.headAcc = _gnss.getHeadingAccEst();
+
+      // Apply sanity checks here (TBD)
       data.location_valid = _gnss.getGnssFixOk() && distance_step < 0.5; // Airplanes fly at 255m per second, 500 meter check is good enough
+
       location_timer.restart();
       ret_status = e_worker_data_read;
       // DEBUG: Compare PDOP from NAV-PVT and HDOP from NAV-DOP
