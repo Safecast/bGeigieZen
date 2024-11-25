@@ -74,7 +74,7 @@ constexpr uint16_t API_SEND_SECONDS_DELAY = 300; // Posts every 5 minute by defa
 constexpr uint16_t API_SEND_SECONDS_DELAY_ALERT = 5; // Posts every 5 seconds when alerted
 constexpr uint16_t API_SEND_SECONDS_DELAY_ROAMING = 5; // Posts every 5 seconds when roaming
 
-constexpr char FIXED_MODE_GRAFANA_URL[] = "https://rb.gy/p041v8?var-device_filename=geigiecast-zen_%d.json&var-device_urn=geigiecast-zen:%d";
+constexpr char FIXED_MODE_GRAFANA_URL[] = "https://tinyurl.com/34yr2tzv?var-device_urn_name=geigiecast-zen:%d";
 
 // Other
 constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
