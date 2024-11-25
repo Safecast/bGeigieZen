@@ -5,13 +5,18 @@
 #include "user_config.h"
 #include <Handler.hpp>
 
+// Need room for two consecutive lines to the log file
+#define ACTUAL_LINE_BUFFER_SIZE (2*LINE_BUFFER_SIZE)
 /**
  * Data collection
  */
 struct DataLine {
   bool gps_valid = false;
   bool gm_valid = false;
-  char log_string[LINE_BUFFER_SIZE] = "";
+  char log_string[ACTUAL_LINE_BUFFER_SIZE] = "";
+  char log_working_string[LINE_BUFFER_SIZE] = "";
+  char log_chksum_string[LINE_BUFFER_SIZE] = "";
+  char log_secondary_string[LINE_BUFFER_SIZE] = "";
 
   bool valid() const {
     return gps_valid && gm_valid && dop_valid;

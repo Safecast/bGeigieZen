@@ -12,6 +12,13 @@
 SdLogger::SdLogger(LocalStorage& config, const LogType log_type) : Handler(), _config(config), _log_type(log_type), _logging_to(""), _is_temp(true), _total(0) {
 }
 
+/**
+ * @todo
+ * Additional header lines for the GNSS flight recorder:
+ *  GNSS configuration: constellations and frequency bands
+ *  Flight recorder record format and headings
+ * Others???
+ */
 bool SdLogger::activate(bool) {
   // Check SD readiness
   if (!SDInterface::i().can_write_logs()) {
@@ -23,11 +30,14 @@ bool SdLogger::activate(bool) {
     return false;
   }
   char header_l2[100];
+  char header_l_gnss[100];
   // e.g. # format=1.2.3-zen/drives
   sprintf(header_l2, "%s%d.%d.%d-zen%s", LOG_HEADER_LINE2, MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION, get_dir());
+  snprintf(header_l_gnss, 100, "# hAcc,vAcc,velN,velE,velD,gSpeed,headMot,sAcc,headAcc,invalidLlh");
   bool success = SDInterface::i().log_println(_logging_to, LOG_HEADER_LINE1)
       && SDInterface::i().log_println(_logging_to, header_l2)
-      && SDInterface::i().log_println(_logging_to, LOG_HEADER_LINE3);
+      && SDInterface::i().log_println(_logging_to, LOG_HEADER_LINE3)
+      && SDInterface::i().log_println(_logging_to, header_l_gnss);
 
   _is_temp = true;
   _total = 0;
