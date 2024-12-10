@@ -50,6 +50,7 @@
 #include "handlers/api_connector.h"
 #include "handlers/bluetooth_reporter.h"
 #include "handlers/sd_logger.h"
+#include "handlers/debug_logger.h"
 #include "identifiers.h"
 #include "workers/battery_indicator.h"
 #include "workers/configuration_server.h"
@@ -82,6 +83,7 @@ ConfigWebServer config_server(settings);
 SdLogger journal_logger(settings, SdLogger::journal);
 SdLogger drive_logger(settings, SdLogger::drive);
 SdLogger survey_logger(settings, SdLogger::survey);
+GpsDebugLogger gps_debug_logger(settings);
 BluetoothReporter bt_connector(settings);
 ApiConnector api_connector(settings);
 
@@ -117,6 +119,7 @@ void setup() {
   controller.register_handler(k_handler_journal_logger, journal_logger);
   controller.register_handler(k_handler_drive_logger, drive_logger);
   controller.register_handler(k_handler_survey_logger, survey_logger);
+  controller.register_handler(k_handler_gps_debug_logger, gps_debug_logger);
   controller.register_handler(k_handler_bluetooth_reporter, bt_connector);
   controller.register_handler(k_handler_api_reporter, api_connector);
 

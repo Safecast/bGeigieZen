@@ -128,6 +128,7 @@ class SDInterface {
   void delete_directory(const char* dirPath);
 
   SdStatus _status;
+  bool _busy;
   uint32_t _device_id;
   uint32_t _last_read;
   uint32_t _last_write;

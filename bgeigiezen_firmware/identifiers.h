@@ -27,6 +27,7 @@ enum DataHandlers {
   k_handler_journal_logger = 0,
   k_handler_drive_logger,
   k_handler_survey_logger,
+  k_handler_gps_debug_logger,
   k_handler_bluetooth_reporter,
   k_handler_api_reporter,
 };
