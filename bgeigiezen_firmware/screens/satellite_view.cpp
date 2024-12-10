@@ -63,6 +63,7 @@ BaseScreen* SatelliteViewScreen::handle_input(Controller& controller, const work
           controller.set_worker_active(k_worker_navsat_collector, false);
           controller.set_worker_active(k_worker_gps_connector, false);
           controller.set_worker_active(k_worker_gps_connector, true);
+          controller.set_worker_active(k_worker_navsat_collector, true);
           force_next_render();
           break;
         default:
@@ -220,5 +221,5 @@ void SatelliteViewScreen::enter_screen(Controller& controller) {
 }
 
 void SatelliteViewScreen::leave_screen(Controller& controller) {
-  controller.set_worker_active(k_worker_navsat_collector, false);
+//  controller.set_worker_active(k_worker_navsat_collector, false);
 }

@@ -63,10 +63,13 @@ constexpr char sd_config_fixed_range_f[] = SD_CONFIG_FIELD_FIXED_RANGE"=%f";
 constexpr char sd_config_dop_max_f[] = SD_CONFIG_FIELD_DOP_MAX "=%hu";
 
 
-SDInterface::SDInterface() : _status(SdStatus::e_sd_config_status_not_ready), _last_read(0), _last_write(0), _last_try(0) {
+SDInterface::SDInterface() : _status(SdStatus::e_sd_config_status_not_ready), _busy(false), _last_read(0), _last_write(0), _last_try(0) {
 }
 
 bool SDInterface::ready() {
+  if (_busy) {
+    return false;
+  }
   if (_status != e_sd_config_status_not_ready && !SD.exists(TEST_FILENAME)) {
     end();
   }
