@@ -100,7 +100,7 @@ int8_t ApiConnector::handle_async() {
   const unsigned long time_at_send = millis();
 
   char url[100];
-  sprintf(url, "%s?api_key=%s&", API_MEASUREMENTS_ENDPOINT, _config.get_api_key());
+  sprintf(url, "%s?api_key=%s&", TTSERVE_MEASUREMENTS_ENDPOINT, _config.get_api_key());
 
   //Specify destination for HTTP request
   if (!_http_client.begin(url)) {
@@ -114,8 +114,8 @@ int8_t ApiConnector::handle_async() {
   sprintf(content_length, "%d", strlen(_payload));
 
   _http_client.setUserAgent(HEADER_API_USER_AGENT);
-  _http_client.addHeader("Host", API_HOST);
-  _http_client.addHeader("Content-Type", HEADER_API_CONTENT_TYPE);
+  _http_client.addHeader("Host", TTSERVE_HOST);
+  _http_client.addHeader("Content-Type", "application/json");
   _http_client.addHeader("Content-Length", content_length);
 
   int httpResponseCode = _http_client.POST(_payload);
