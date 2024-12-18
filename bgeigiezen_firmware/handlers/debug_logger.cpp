@@ -46,6 +46,12 @@ bool BaseDebugLogger::activate(bool) {
   if (!SDInterface::i().setup_log(DEBUG_LOG_DIRECTORY, _logging_to, true)) {
     return false;
   }
+  char header_l2[100];
+  // e.g. # format=1.2.3-zen/drives
+  sprintf(header_l2, "%s%d.%d.%d-zen%s", LOG_HEADER_LINE2, MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION, DEBUG_LOG_DIRECTORY);
+  SDInterface::i().log_println(_logging_to, "# NEW DEBUG LOG");
+  SDInterface::i().log_println(_logging_to, header_l2);
+
   _is_temp = true;
   _total = 0;
   M5_LOGD("Started new debug log '%s'.", _logging_to);
@@ -125,7 +131,25 @@ bool GpsDebugLogger::write_line(const worker_map_t& workers) {
 
   if (gps->active() && navsat->active()) {
     char log_string[200];
-    sprintf(log_string, "format here"); // Format data from gps / navsat workers
+
+    /***
+     * Second line of log for extra troubleshooting info
+     * Prefix $BNXNAV BgeigieNanoeXtraNAV info
+     * ***/
+    snprintf(
+        log_string, 200,
+        "$BNXNAV,%u,%u,%d,%d,%d,%d,%d,%u,%u,%c",
+        gps->get_data().hAcc,  // mm Horizontal accuracy estimate for Long/Lat
+        gps->get_data().vAcc,  // mm Vertical accuracy estimate for Long/Lat
+        gps->get_data().velN,  // mm/s NED north velocity
+        gps->get_data().velE,  // mm/s NED east velocity
+        gps->get_data().velD,  // mm/s NED down velocity
+        gps->get_data().gSpeed,  // Ground Speed (2-D)
+        gps->get_data().headMot,  // Heading of motion (2-D)
+        gps->get_data().sAcc,
+        gps->get_data().headAcc,
+        gps->get_data().invalidLlh ? '1':'0'  // NAVPVT[78] flags3 bit 0
+    );
 
     return SDInterface::i().log_println(_logging_to, log_string);
   }

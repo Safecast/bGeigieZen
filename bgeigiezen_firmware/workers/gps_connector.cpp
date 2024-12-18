@@ -177,6 +177,19 @@ int8_t GpsConnector::produce_data() {
       }
       data.altitudeMSL = _gnss.getFixType() == 3 ? _gnss.getAltitudeMSL() * 1e-3 : 0; // Above MSL (not ellipsoid)
       const auto distance_step = haversine_km(data.latitude, data.longitude, _last_latitude, _last_longitude);
+
+
+      // Retrieve extra confidence indicators from NavPvt
+      data.hAcc = _gnss.getHorizontalAccEst();  // mm Horizontal accuracy estimate for Long/Lat
+      data.vAcc = _gnss.getVerticalAccEst();  // mm Vertical accuracy estimate for Long/Lat
+      data.velN = _gnss.getVelN();  // mm/s NED north velocity
+      data.velE = _gnss.getVelE();  // mm/s NED east velocity
+      data.velD = _gnss.getVelD();  // mm/s NED down velocity
+      data.gSpeed = _gnss.getGroundSpeed();  // Ground Speed (2-D)
+      data.headMot = _gnss.getHeading();  // Heading of motion (2-D)
+      data.sAcc = _gnss.getSpeedAccEst();
+      data.headAcc = _gnss.getHeadingAccEst();
+
       data.location_valid = _gnss.getGnssFixOk() && distance_step < 0.5; // Airplanes fly at 255m per second, 500 meter check is good enough
       location_timer.restart();
       ret_status = e_worker_data_read;

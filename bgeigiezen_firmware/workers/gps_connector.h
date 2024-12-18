@@ -53,8 +53,20 @@ struct GnssData {
   Heading heading;
 
   // Confidence
-  uint8_t satsInView;  // satellites used to calculate fix
+  uint8_t satsInView;  // (NavSat) satellites used to calculate fix
+  uint8_t  numSV;  // (NavPvt) Number of satellites used in Nav Solution
   double pdop;  // position dilution of precision (not horizontal)
+  uint32_t hAcc;  // mm Horizontal accuracy estimate for Long/Lat
+  uint32_t vAcc;  // mm Vertical accuracy estimate for Long/Lat
+  int32_t  velN;  // mm/s NED north velocity
+  int32_t  velE;  // mm/s NED east velocity
+  int32_t  velD;  // mm/s NED down velocity
+  int32_t  gSpeed;  // Ground Speed (2-D)
+  int32_t  headMot;  // Heading of motion (2-D)
+  uint32_t sAcc;
+  uint32_t headAcc;
+  bool invalidLlh;  // NAVPVT[78] flags3 bit 0
+
 
   // Date & Time
   uint16_t year;

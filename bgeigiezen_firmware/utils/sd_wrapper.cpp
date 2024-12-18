@@ -571,3 +571,7 @@ void SDInterface::delete_directory(const char* dirPath) {
     M5_LOGD("Failed to delete the directory: %s", dirPath);
   }
 }
+
+File SDInterface::get_file(const char* log_name) {
+  return SD.open(log_name, FILE_READ);
+}

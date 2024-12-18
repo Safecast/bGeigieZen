@@ -21,6 +21,22 @@ class LogViewerScreen : public BaseScreen {
     e_log_survey_view,
   };
 
+  struct Timestamp {
+    uint16_t year = 0;
+    uint8_t month = 0;
+    uint8_t day = 0;
+    uint8_t hour = 0;
+    uint8_t minute = 0;
+
+    void clear() {
+      year = 0;
+      month = 0;
+      day = 0;
+      hour = 0;
+      minute = 0;
+    }
+  };
+
   void enter_detail(const char* log_name);
   void leave_detail();
 
@@ -31,11 +47,14 @@ class LogViewerScreen : public BaseScreen {
   void render_survey_log_list(const worker_map_t& workers, const handler_map_t& handlers, bool force);
   void render_log_detail(const worker_map_t& workers, const handler_map_t& handlers, bool force);
 
+  void upload_detail(const LocalStorage& config);
+
   LogView _current_view;
+  char _detail_log_file_path[LOG_FILENAME_SIZE];
   char _detail_log_file_name[LOG_FILENAME_SIZE];
-  char _detail_log_timestamp[20];
-  char _detail_log_uploaded_timestamp[20];
-  uint32_t _detail_log_uploaded_id;
+  Timestamp _detail_log_timestamp;
+  Timestamp _detail_upload_timestamp;
+  uint32_t _detail_log_upload_id;
 
 };
 
