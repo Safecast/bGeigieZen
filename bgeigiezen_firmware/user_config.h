@@ -4,7 +4,6 @@
 #include <M5Unified.hpp>
 
 /** System config **/
-#define ENABLE_DEBUG 1
 #define STR(x) TOSTRING(x)
 #define TOSTRING(x) #x
 
@@ -23,7 +22,6 @@
 /*** CONFIG ***/
 // - geiger counter
 constexpr uint8_t GEIGER_AVERAGING_N_BINS = 60;  // 60 x 1 s == 1 min moving average
-constexpr float GEIGER_SENSOR1_CPM_FACTOR = 340.0;
 constexpr uint8_t GEIGER_AVERAGING_PERIOD_S = 1;  // 1 s
 constexpr int GEIGER_PULSE_GPIO_CORE2 = 32;
 constexpr int GEIGER_PULSE_GPIO_COREBASIC = 2;
@@ -68,7 +66,7 @@ constexpr char LOG_HEADER_LINE2[] = "# format=";
 constexpr char LOG_HEADER_LINE3[] = "# deadtime=off";
 constexpr char DEVICE_HEADER[] = "BNRDD";
 constexpr uint8_t LINE_BUFFER_SIZE = 100;
-constexpr uint8_t LOG_FILENAME_SIZE = 100;
+constexpr uint8_t LOG_FILENAME_SIZE = 255;
 constexpr uint8_t MIN_LOG_LINES_FOR_KEEP = 2;
 constexpr uint8_t LOG_SECONDS_DELAY = 5; // Logs every 5 seconds
 constexpr uint16_t API_SEND_SECONDS_DELAY = 300; // Posts every 5 minute by default
@@ -87,10 +85,11 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 /** Hardware pins settings **/
 // TODO
 
-/** API connector settings **/
-#define API_HOST "tt.safecast.org"
-#define API_MEASUREMENTS_ENDPOINT "http://" API_HOST "/measurements.json"
-#define HEADER_API_CONTENT_TYPE "application/json"
+/** API settings **/
+#define TTSERVE_HOST "tt.safecast.org"
+#define API_HOST "api.safecast.org"
+#define TTSERVE_MEASUREMENTS_ENDPOINT "http://" TTSERVE_HOST "/measurements.json"
+#define API_LOGFILE_ENDPOINT "http://" API_HOST "/bgeigie_imports.json"
 #define HEADER_API_USER_AGENT "bGeigieZen/" VERSION_NUMBER
 
 /** Access point settings **/

@@ -98,6 +98,8 @@ class SDInterface {
    */
   bool log_println(const char* log_name, const char* data);
 
+  File get_file(const char* log_name);
+
   /**
    * Get device id from SAFEZEN.txt file on the SD card
    * @return device id if available, else 0
