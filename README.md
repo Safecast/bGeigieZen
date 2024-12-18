@@ -76,6 +76,11 @@ This project is licensed under [appropriate license].
 Developed and maintained by the Safecast community.
 
 This repo is for development of the bGeigieZen.
+<<<<<<< HEAD
 Specs can be found at https://github.com/Safecast/bGeigieZen/wiki/Specification
-Current version is V3.2.4
+Current version is V3.2.8
 
+
+=======
+Much more information and documentation for the bGeigieZen is at https://bgeigiezen.safecast.jp
+>>>>>>> 8a74fa1dd69e9fbded959640454040d8eae6f473
