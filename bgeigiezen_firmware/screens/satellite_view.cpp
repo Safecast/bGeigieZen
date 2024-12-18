@@ -91,6 +91,8 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
   const auto gps = workers.worker<GpsConnector>(k_worker_gps_connector);
   const auto navsat = workers.worker<NavsatCollector>(k_worker_navsat_collector);
 
+  M5_LOGD("NAVSAT RENDER %d %d", navsat->active(), navsat->is_fresh());
+
   if (force || (navsat && navsat->is_fresh())) {
 
     int16_t  compAngle = 0;
