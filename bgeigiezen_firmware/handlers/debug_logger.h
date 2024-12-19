@@ -12,7 +12,7 @@
  */
 class BaseDebugLogger : public Handler {
  public:
-  explicit BaseDebugLogger(LocalStorage& config, const char* logging_name);
+  explicit BaseDebugLogger(LocalStorage& config, const char* logging_name, const char* line_format_info);
   virtual ~BaseDebugLogger() = default;
 
  protected:
@@ -25,6 +25,7 @@ class BaseDebugLogger : public Handler {
   LocalStorage& _config;
 
   char _logging_name[20];
+  char _line_format_info[120];
   char _logging_to[LOG_FILENAME_SIZE];
   bool _is_temp;
   uint32_t _total;
@@ -34,7 +35,7 @@ class BaseDebugLogger : public Handler {
 
 class GpsDebugLogger : public BaseDebugLogger {
  public:
-  explicit GpsDebugLogger(LocalStorage& config) : BaseDebugLogger(config, "gps") {};
+  explicit GpsDebugLogger(LocalStorage& config) : BaseDebugLogger(config, "gps", "# hAcc,vAcc,velN,velE,velD,gSpeed,headMot,sAcc,headAcc,invalidLlh") {};
 
  protected:
   bool write_line(const worker_map_t& workers) override;
