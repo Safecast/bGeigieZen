@@ -21,8 +21,9 @@
  * Note that this constructor is protected, meaning that it can only be called
  * from the constructors of derived classes.
  */
-BaseDebugLogger::BaseDebugLogger(LocalStorage& config, const char* logging_name) : Handler(), _config(config), _logging_name(""), _logging_to(""), _is_temp(true), _total(0) {
+BaseDebugLogger::BaseDebugLogger(LocalStorage& config, const char* logging_name, const char* line_format_info) : Handler(), _config(config), _logging_name(""), _logging_to(""), _is_temp(true), _total(0) {
   strcpy(_logging_name, logging_name);
+  strcpy(_line_format_info, line_format_info);
 }
 
 /**
@@ -51,6 +52,7 @@ bool BaseDebugLogger::activate(bool) {
   sprintf(header_l2, "%s%d.%d.%d-zen%s", LOG_HEADER_LINE2, MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION, DEBUG_LOG_DIRECTORY);
   SDInterface::i().log_println(_logging_to, "# NEW DEBUG LOG");
   SDInterface::i().log_println(_logging_to, header_l2);
+  SDInterface::i().log_println(_logging_to, _line_format_info);
 
   _is_temp = true;
   _total = 0;
