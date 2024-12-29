@@ -36,7 +36,7 @@ BaseDebugLogger::BaseDebugLogger(LocalStorage& config, const char* logging_name)
  *
  * @return true if the logger was activated, false otherwise.
  */
-bool BaseDebugLogger::activate(bool) {
+bool BaseDebugLogger::activate(bool retry) {
   // Check SD readiness
   if (!SDInterface::i().can_write_logs()) {
     return false;
