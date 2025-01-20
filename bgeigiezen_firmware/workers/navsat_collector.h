@@ -13,7 +13,7 @@ struct NavsatData {
 };
 
 /**
- * GPS device worker, produces the current GPS location.
+ * GPS device NAV-SAT worker, produces the list of current GNSS SVs.
  */
 class NavsatCollector : public Worker<NavsatData> {
  public:
