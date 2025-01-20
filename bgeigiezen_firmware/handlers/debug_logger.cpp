@@ -9,6 +9,7 @@
 // e.g. /debug/gps-2023-11-20_1230.log
 #define DATED_LOG_NAME_F "%s/%s-%04d-%02d-%02d_%02d%02d.log"
 
+#define LOGLINE_STR_SIZE 400  // The debug line could be quite long!
 
 /// BaseDebugLogger
 
@@ -121,7 +122,7 @@ int8_t BaseDebugLogger::handle_produced_work(const worker_map_t& workers) {
 
 void GpsDebugLogger::write_initial_lines() {
   // Write log format when creating a new log
-  SDInterface::i().log_println(_logging_to,  "# hAcc,vAcc,velN,velE,velD,gSpeed,headMot,sAcc,headAcc,invalidLlh");
+  SDInterface::i().log_println(_logging_to,  "# yyyy-mm-ddThh:mm:ssZ,lat,long,hAcc,vAcc,velN,velE,velD,gSpeed,headMot,sAcc,headAcc,invalidLlh,numSvsUsed,avgCno,minCno,maxCno");
 }
 
 /**
@@ -136,15 +137,64 @@ bool GpsDebugLogger::write_line(const worker_map_t& workers) {
   const auto& navsat = workers.worker<NavsatCollector>(k_worker_navsat_collector);
 
   if (gps->active() && navsat->active()) {
-    char log_string[200];
+    char log_string[LOGLINE_STR_SIZE];
+    char stamp_string[200];
+    char navsat_string[200];
+
+    snprintf(
+      stamp_string, sizeof(stamp_string),
+      "%04u-%02u-%02uT%02u:%02u:%02uZ,%f,%f",
+      gps->get_data().year,
+      gps->get_data().month,  // date, time, lat, long to relate to the logged data
+      gps->get_data().day,
+      gps->get_data().hour,
+      gps->get_data().minute,
+      gps->get_data().second,
+      gps->get_data().latitude,
+      gps->get_data().longitude);
+
+    /**
+     * Capture the carrier-to-noise ratio (CNO) for the SVs used
+     * to compute the current fix from the UBX-NAV-SAT packet.
+    */
+    uint8_t numSvsUsed = 0;
+    uint16_t sumCno = 0;
+    uint16_t numCno = 0;
+    uint16_t avgCno = 0;
+    uint16_t minCno = UINT16_MAX;
+    uint16_t maxCno = 0;
+
+    if(navsat->get_data().available) {
+      // Number of SVs
+      numSvsUsed = navsat->get_data().navsat_info.numSvs;
+      uint16_t sumCno = 0;
+      uint16_t numCno = 0;
+      // Extract Carrier-to-Noise (CNO) ratio from each SV.
+      for( uint8_t i; i < numSvsUsed; ++i) {
+        auto svinfo = navsat->get_data().navsat_info.svSortList[i];
+        if(svinfo.svUsed) {
+          sumCno += svinfo.cno;
+          numCno += 1;
+          if(svinfo.cno < minCno) minCno = svinfo.cno;
+          if(svinfo.cno > maxCno) maxCno = svinfo.cno;
+        }
+        avgCno = numCno > 0 ? sumCno / numCno : 0;  // mean CNO of SVs used.
+    }
+
+    snprintf(
+        navsat_string, sizeof(navsat_string),
+        "%d,%d,%d,%d",
+        numSvsUsed, avgCno, minCno, maxCno);
+    }
 
     /***
-     * Second line of log for extra troubleshooting info
+     * Extra troubleshooting info in separate debug file
      * Prefix $BNXNAV BgeigieNanoeXtraNAV info
      * ***/
     snprintf(
-        log_string, 200,
-        "$BNXNAV,%u,%u,%d,%d,%d,%d,%d,%u,%u,%c",
+        log_string, sizeof(log_string),
+        "$BNXNAV,%s,%u,%u,%d,%d,%d,%d,%d,%u,%u,%c,%s",
+        stamp_string,
         gps->get_data().hAcc,  // mm Horizontal accuracy estimate for Long/Lat
         gps->get_data().vAcc,  // mm Vertical accuracy estimate for Long/Lat
         gps->get_data().velN,  // mm/s NED north velocity
@@ -154,10 +204,13 @@ bool GpsDebugLogger::write_line(const worker_map_t& workers) {
         gps->get_data().headMot,  // Heading of motion (2-D)
         gps->get_data().sAcc,
         gps->get_data().headAcc,
-        gps->get_data().invalidLlh ? '1':'0'  // NAVPVT[78] flags3 bit 0
+        gps->get_data().invalidLlh ? '1':'0',  // NAVPVT[78] flags3 bit 0
+        navsat_string  // NAV-SAT CNO values already formatted into a string
     );
 
-    return SDInterface::i().log_println(_logging_to, log_string);
+    bool return_status = SDInterface::i().log_println(_logging_to, log_string);
+
+
   }
   return false;
 }
