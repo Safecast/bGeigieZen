@@ -70,15 +70,6 @@ void Display::draw_base() {
   M5.Lcd.drawString("2025", 285, 215, 1);
 }
 
-/*************  ✨ Codeium Command ⭐  *************/
-  /**
-   * Draw the navbar buttons with the given labels.
-   *
-   * @param A Button A label
-   * @param B Button B label
-   * @param C Button C label
-   */
-/******  674ef19c-1e47-40d3-a6f6-1efd58968c38  *******/
 void Display::draw_navbar(const char *A, const char *B, const char *C) {
   M5.Lcd.setTextColor(TFT_YELLOW, TFT_BLACK);
   // Reference the button coordinates
