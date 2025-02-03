@@ -14,7 +14,7 @@
 
 /*** COPYRIGHT ***/
 // Copyright year for screens
-#define COPYRIGHT_YEAR 2024
+#define COPYRIGHT_YEAR 2025
 #define COPYRIGHT_YEAR_STRING STR(COPYRIGHT_YEAR)
 
 /***************/
