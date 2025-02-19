@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_satellite__view_8h_source" xml:lang="en-US">
+<title>satellite_view.h</title>
+<indexterm><primary>bgeigiezen_firmware/screens/satellite_view.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_satellite__view_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;SCREENS_SATELLITE_VIEW_H</emphasis>
+<anchor xml:id="_satellite__view_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;SCREENS_SATELLITE_VIEW_H</emphasis>
+<anchor xml:id="_satellite__view_8h_source_1l00003"/>00003 
+<anchor xml:id="_satellite__view_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_base__screen_8h">base_screen.h</link>&quot;</emphasis>
+<anchor xml:id="_satellite__view_8h_source_1l00005"/>00005 
+<anchor xml:id="_satellite__view_8h_source_1l00006"/><link linkend="_class_satellite_view_screen">00006</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_satellite_view_screen_1a1a4a737a2f4de7fdce55488ab20c596d">SatelliteViewScreen</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_base_screen_with_menu_1a3272290433007bd0aebc4d1858c7d08b">BaseScreenWithMenu</link>&#32;{
+<anchor xml:id="_satellite__view_8h_source_1l00007"/>00007 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_satellite__view_8h_source_1l00008"/>00008 
+<anchor xml:id="_satellite__view_8h_source_1l00009"/><link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872f">00009</link> &#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872f">SatellitePage</link>&#32;{
+<anchor xml:id="_satellite__view_8h_source_1l00010"/><link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872faf0d5e81914125bd8a47c36c5c021e18b">00010</link> &#32;&#32;&#32;&#32;<link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872faf0d5e81914125bd8a47c36c5c021e18b">e_satellite_page_main</link>,
+<anchor xml:id="_satellite__view_8h_source_1l00011"/><link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fafa4f1b80ca57fcc5dae6296566888bd2">00011</link> &#32;&#32;&#32;&#32;<link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fafa4f1b80ca57fcc5dae6296566888bd2">e_satellite_page_set_default_config</link>,
+<anchor xml:id="_satellite__view_8h_source_1l00012"/><link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa7a5838af6cea35a4e56ecc13ba1eda27">00012</link> &#32;&#32;&#32;&#32;<link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa7a5838af6cea35a4e56ecc13ba1eda27">e_satellite_page_set_na_config</link>,
+<anchor xml:id="_satellite__view_8h_source_1l00013"/><link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa0451cc8809c7438309d6b09a7389e40c">00013</link> &#32;&#32;&#32;&#32;<link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa0451cc8809c7438309d6b09a7389e40c">e_satellite_page_set_eu_config</link>,
+<anchor xml:id="_satellite__view_8h_source_1l00014"/><link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa88d422b980de55ca0917116e7dfa8ffd">00014</link> &#32;&#32;&#32;&#32;<link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa88d422b980de55ca0917116e7dfa8ffd">e_satellite_page_set_asia_config</link>,
+<anchor xml:id="_satellite__view_8h_source_1l00015"/><link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fad289ab4d4c5e909be171ccc40d603af6">00015</link> &#32;&#32;&#32;&#32;<link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fad289ab4d4c5e909be171ccc40d603af6">e_satellite_page_cold_start</link>,
+<anchor xml:id="_satellite__view_8h_source_1l00016"/><link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa4cbd62bdd17cd6622a81b9d313d4a8f1">00016</link> &#32;&#32;&#32;&#32;<link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa4cbd62bdd17cd6622a81b9d313d4a8f1">e_satellite_page_factory_reset</link>,
+<anchor xml:id="_satellite__view_8h_source_1l00017"/><link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa7e77bdd29011695074cdf7082f4cd6a5">00017</link> &#32;&#32;&#32;&#32;<link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa7e77bdd29011695074cdf7082f4cd6a5">e_satellite_MENU_MAX</link>,
+<anchor xml:id="_satellite__view_8h_source_1l00018"/>00018 &#32;&#32;};
+<anchor xml:id="_satellite__view_8h_source_1l00019"/>00019 
+<anchor xml:id="_satellite__view_8h_source_1l00020"/>00020 &#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_class_satellite_view_screen_1a1a4a737a2f4de7fdce55488ab20c596d">SatelliteViewScreen</link>();
+<anchor xml:id="_satellite__view_8h_source_1l00021"/>00021 
+<anchor xml:id="_satellite__view_8h_source_1l00022"/>00022 &#32;&#32;<link linkend="_class_base_screen">BaseScreen</link>*&#32;<link linkend="_class_satellite_view_screen_1a14b2221b6c62c0bf858f9f8816140b96">handle_input</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</link>,&#32;<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_satellite__view_8h_source_1l00023"/>00023 
+<anchor xml:id="_satellite__view_8h_source_1l00024"/>00024 &#32;<emphasis role="keyword">protected</emphasis>:
+<anchor xml:id="_satellite__view_8h_source_1l00025"/>00025 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_satellite_view_screen_1a480ec31a9de82c4f9e8ee3228d870f65">render</link>(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers,&#32;<emphasis role="keyword">const</emphasis>&#32;handler_map_t&amp;&#32;handlers,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_satellite__view_8h_source_1l00026"/>00026 
+<anchor xml:id="_satellite__view_8h_source_1l00027"/>00027 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_satellite__view_8h_source_1l00028"/>00028 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_satellite_view_screen_1aca0938985e81a83c6817a7d9de94df26">enter_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</link>)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_satellite__view_8h_source_1l00029"/>00029 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_satellite_view_screen_1a6df05f5f59dc13460099b08fdbb05b86">leave_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</link>)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_satellite__view_8h_source_1l00030"/>00030 
+<anchor xml:id="_satellite__view_8h_source_1l00031"/>00031 &#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_satellite__view_8h_source_1l00032"/>00032 };
+<anchor xml:id="_satellite__view_8h_source_1l00033"/>00033 
+<anchor xml:id="_satellite__view_8h_source_1l00034"/>00034 <emphasis role="keyword">extern</emphasis>&#32;<link linkend="_class_satellite_view_screen">SatelliteViewScreen</link>&#32;<link linkend="_satellite__view_8cpp_1ab7705c5a76518b7896cd0baf3b287962">SatelliteViewScreen_i</link>;
+<anchor xml:id="_satellite__view_8h_source_1l00035"/>00035 
+<anchor xml:id="_satellite__view_8h_source_1l00036"/>00036 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//SCREENS_SATELLITE_VIEW_H</emphasis>
+</programlisting></section>

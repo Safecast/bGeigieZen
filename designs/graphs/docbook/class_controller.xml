@@ -26,7 +26,7 @@ Collaboration diagram for Controller:<para>
 <simplesect>
     <title>Public Member Functions    </title>
         <itemizedlist>
-            <listitem><para><link linkend="_class_controller_1a1a4894b2d26fdfe064d979fe08cdbcee">Controller</link> (<link linkend="_class_local_storage">LocalStorage</link> &amp;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)</para>
+            <listitem><para><link linkend="_class_controller_1a85706375f24761ac50d35e7ea880b184">Controller</link> (<link linkend="_class_local_storage">LocalStorage</link> &amp;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>, TeenyUbloxConnect &amp;<link linkend="_main_8cpp_1a658cddeb4423ca050427704c6761e2e3">gnss</link>)</para>
 </listitem>
             <listitem><para>virtual <link linkend="_class_controller_1a8d16a7a97c266dc0d5aa5685c4dcdd89">~Controller</link> ()=default</para>
 </listitem>
@@ -34,9 +34,17 @@ Collaboration diagram for Controller:<para>
 </listitem>
             <listitem><para>void <link linkend="_class_controller_1a772a3f581d1741f01044e1c581139924">start_default_workers</link> ()</para>
 </listitem>
-            <listitem><para>void <link linkend="_class_controller_1a625bc0caffeed2079d81f64a9e558182">create_dummy_settings</link> ()</para>
+            <listitem><para>bool <link linkend="_class_controller_1aebc7292ba3c56fbd1402ca76f7a34281">load_sd_config</link> ()</para>
 </listitem>
-            <listitem><para>void <link linkend="_class_controller_1a324f4a9b815a8d420a83f426a759a78a">load_sd_config</link> ()</para>
+            <listitem><para>bool <link linkend="_class_controller_1aec53fb71b003add1ecb4fb57df080925">write_sd_config</link> ()</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_controller_1af1a46a7c8a34f04e6551a977580ede91">factory_reset</link> ()</para>
+</listitem>
+            <listitem><para>TeenyUbloxConnect &amp; <link linkend="_class_controller_1a545437e762645e1241b6d4848385d75d">get_gnss</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_controller_1a1f2a8e25a98c49de20f09472fb8d5c16">reset_settings</link> ()</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_local_storage">LocalStorage</link> &amp; <link linkend="_class_controller_1ad9039c060ff691a666a194add7ecc5c1">get_settings</link> () const</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -45,16 +53,16 @@ Collaboration diagram for Controller:<para>
 
 <para>Main controller for the system, implements state machine to run </para>
 <para>
-Definition at line <link linkend="_controller_8h_source_1l00028">28</link> of file <link linkend="_controller_8h_source">controller.h</link>.</para>
+Definition at line <link linkend="_controller_8h_source_1l00029">29</link> of file <link linkend="_controller_8h_source">controller.h</link>.</para>
 </section>
 <section>
 <title>Constructor &amp; Destructor Documentation</title>
-<anchor xml:id="_class_controller_1a1a4894b2d26fdfe064d979fe08cdbcee"/><section>
+<anchor xml:id="_class_controller_1a85706375f24761ac50d35e7ea880b184"/><section>
     <title>Controller()</title>
 <indexterm><primary>Controller</primary><secondary>Controller</secondary></indexterm>
 <indexterm><primary>Controller</primary><secondary>Controller</secondary></indexterm>
-<para><computeroutput>Controller::Controller (<link linkend="_class_local_storage">LocalStorage</link> &amp; settings)</computeroutput></para><para>
-Definition at line <link linkend="_controller_8cpp_source_1l00008">8</link> of file <link linkend="_controller_8cpp_source">controller.cpp</link>.</para>
+<para><computeroutput>Controller::Controller (<link linkend="_class_local_storage">LocalStorage</link> &amp; settings, TeenyUbloxConnect &amp; gnss)</computeroutput></para><para>
+Definition at line <link linkend="_controller_8cpp_source_1l00007">7</link> of file <link linkend="_controller_8cpp_source">controller.cpp</link>.</para>
 </section>
 <anchor xml:id="_class_controller_1a8d16a7a97c266dc0d5aa5685c4dcdd89"/><section>
     <title>~Controller()</title>
@@ -64,32 +72,39 @@ Definition at line <link linkend="_controller_8cpp_source_1l00008">8</link> of f
 </section>
 <section>
 <title>Member Function Documentation</title>
-<anchor xml:id="_class_controller_1a625bc0caffeed2079d81f64a9e558182"/><section>
-    <title>create_dummy_settings()</title>
-<indexterm><primary>create_dummy_settings</primary><secondary>Controller</secondary></indexterm>
-<indexterm><primary>Controller</primary><secondary>create_dummy_settings</secondary></indexterm>
-<para><computeroutput>void Controller::create_dummy_settings ( )</computeroutput></para>
-<para>Create dummy settings local and sd card </para>
+<anchor xml:id="_class_controller_1af1a46a7c8a34f04e6551a977580ede91"/><section>
+    <title>factory_reset()</title>
+<indexterm><primary>factory_reset</primary><secondary>Controller</secondary></indexterm>
+<indexterm><primary>Controller</primary><secondary>factory_reset</secondary></indexterm>
+<para><computeroutput>bool Controller::factory_reset ( )</computeroutput></para>
+<para>Clears device memory, clears settings on the SD card, clears log files </para>
 <para>
-Definition at line <link linkend="_controller_8cpp_source_1l00079">79</link> of file <link linkend="_controller_8cpp_source">controller.cpp</link>.</para>
+Definition at line <link linkend="_controller_8cpp_source_1l00092">92</link> of file <link linkend="_controller_8cpp_source">controller.cpp</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_controller_a625bc0caffeed2079d81f64a9e558182_cgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_controller_af1a46a7c8a34f04e6551a977580ede91_cgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
 </para>
-Here is the caller graph for this function:<para>
-    <informalfigure>
-        <mediaobject>
-            <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_controller_a625bc0caffeed2079d81f64a9e558182_icgraph.jpg"></imagedata>
-            </imageobject>
-        </mediaobject>
-    </informalfigure>
-</para>
+</section>
+<anchor xml:id="_class_controller_1a545437e762645e1241b6d4848385d75d"/><section>
+    <title>get_gnss()</title>
+<indexterm><primary>get_gnss</primary><secondary>Controller</secondary></indexterm>
+<indexterm><primary>Controller</primary><secondary>get_gnss</secondary></indexterm>
+<para><computeroutput>TeenyUbloxConnect &amp; Controller::get_gnss ( )</computeroutput></para>
+<para>get GNSS instance </para>
+<para>
+Definition at line <link linkend="_controller_8cpp_source_1l00099">99</link> of file <link linkend="_controller_8cpp_source">controller.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_controller_1ad9039c060ff691a666a194add7ecc5c1"/><section>
+    <title>get_settings()</title>
+<indexterm><primary>get_settings</primary><secondary>Controller</secondary></indexterm>
+<indexterm><primary>Controller</primary><secondary>get_settings</secondary></indexterm>
+<para><computeroutput>const <link linkend="_class_local_storage">LocalStorage</link> &amp; Controller::get_settings ( ) const</computeroutput></para><para>
+Definition at line <link linkend="_controller_8cpp_source_1l00107">107</link> of file <link linkend="_controller_8cpp_source">controller.cpp</link>.</para>
 </section>
 <anchor xml:id="_class_controller_1a4887c880538456e58174886b91a6a1b7"/><section>
     <title>initialize()</title>
@@ -98,11 +113,11 @@ Here is the caller graph for this function:<para>
 <para><computeroutput>void Controller::initialize ( )<computeroutput>[override]</computeroutput></computeroutput></para><para>
 Definition at line <link linkend="_controller_8cpp_source_1l00015">15</link> of file <link linkend="_controller_8cpp_source">controller.cpp</link>.</para>
 </section>
-<anchor xml:id="_class_controller_1a324f4a9b815a8d420a83f426a759a78a"/><section>
+<anchor xml:id="_class_controller_1aebc7292ba3c56fbd1402ca76f7a34281"/><section>
     <title>load_sd_config()</title>
 <indexterm><primary>load_sd_config</primary><secondary>Controller</secondary></indexterm>
 <indexterm><primary>Controller</primary><secondary>load_sd_config</secondary></indexterm>
-<para><computeroutput>void Controller::load_sd_config ( )</computeroutput></para>
+<para><computeroutput>bool Controller::load_sd_config ( )</computeroutput></para>
 <para>Load SD config into device memory </para>
 <para>
 Definition at line <link linkend="_controller_8cpp_source_1l00084">84</link> of file <link linkend="_controller_8cpp_source">controller.cpp</link>.</para>
@@ -110,7 +125,25 @@ Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_controller_a324f4a9b815a8d420a83f426a759a78a_cgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_controller_aebc7292ba3c56fbd1402ca76f7a34281_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_controller_1a1f2a8e25a98c49de20f09472fb8d5c16"/><section>
+    <title>reset_settings()</title>
+<indexterm><primary>reset_settings</primary><secondary>Controller</secondary></indexterm>
+<indexterm><primary>Controller</primary><secondary>reset_settings</secondary></indexterm>
+<para><computeroutput>void Controller::reset_settings ( )</computeroutput></para>
+<para>Reset memory settings and restart system </para>
+<para>
+Definition at line <link linkend="_controller_8cpp_source_1l00103">103</link> of file <link linkend="_controller_8cpp_source">controller.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_controller_a1f2a8e25a98c49de20f09472fb8d5c16_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
@@ -124,11 +157,20 @@ Here is the call graph for this function:<para>
 <para>Starts default workers and handlers, loads SD </para>
 <para>
 Definition at line <link linkend="_controller_8cpp_source_1l00019">19</link> of file <link linkend="_controller_8cpp_source">controller.cpp</link>.</para>
-Here is the caller graph for this function:<para>
+</section>
+<anchor xml:id="_class_controller_1aec53fb71b003add1ecb4fb57df080925"/><section>
+    <title>write_sd_config()</title>
+<indexterm><primary>write_sd_config</primary><secondary>Controller</secondary></indexterm>
+<indexterm><primary>Controller</primary><secondary>write_sd_config</secondary></indexterm>
+<para><computeroutput>bool Controller::write_sd_config ( )</computeroutput></para>
+<para>Writes device settings onto SD </para>
+<para>
+Definition at line <link linkend="_controller_8cpp_source_1l00088">88</link> of file <link linkend="_controller_8cpp_source">controller.cpp</link>.</para>
+Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_controller_a772a3f581d1741f01044e1c581139924_icgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_controller_aec53fb71b003add1ecb4fb57df080925_cgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>

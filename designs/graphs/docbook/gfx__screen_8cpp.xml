@@ -2,7 +2,7 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_gfx__screen_8cpp" xml:lang="en-US">
 <title>bgeigiezen_firmware/gfx_screen.cpp File Reference</title>
 <indexterm><primary>bgeigiezen_firmware/gfx_screen.cpp</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &quot;gfx_screen.h&quot;<?linebreak?>#include &quot;identifiers.h&quot;<?linebreak?>#include &quot;controller.h&quot;<?linebreak?>#include &quot;debugger.h&quot;<?linebreak?>#include &quot;screens/boot_screen.h&quot;<?linebreak?></programlisting>Include dependency graph for gfx_screen.cpp:<para>
+<programlisting linenumbering="unnumbered">#include &lt;M5Unified.hpp&gt;<?linebreak?>#include &quot;controller.h&quot;<?linebreak?>#include &quot;gfx_screen.h&quot;<?linebreak?>#include &quot;handlers/bluetooth_reporter.h&quot;<?linebreak?>#include &quot;identifiers.h&quot;<?linebreak?>#include &quot;screens/boot_screen.h&quot;<?linebreak?>#include &quot;screens/default_entry_screen.h&quot;<?linebreak?>#include &quot;screens/drive_mode.h&quot;<?linebreak?>#include &quot;screens/fixed_mode.h&quot;<?linebreak?>#include &quot;screens/satellite_view.h&quot;<?linebreak?>#include &quot;screens/survey_mode.h&quot;<?linebreak?>#include &quot;utils/wifi_connection.h&quot;<?linebreak?>#include &quot;workers/battery_indicator.h&quot;<?linebreak?>#include &quot;workers/gm_sensor.h&quot;<?linebreak?>#include &quot;workers/rtc_connector.h&quot;<?linebreak?>#include &quot;workers/zen_button.h&quot;<?linebreak?></programlisting>Include dependency graph for gfx_screen.cpp:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
@@ -11,4 +11,31 @@
         </mediaobject>
     </informalfigure>
 </para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_gfx__screen_8cpp_1a8aae1f9bdeaaa5978bca037bfef6e70f">SCREENSAVER_TEXT_LENGTH</link>&#160;&#160;&#160;(strlen(<link linkend="_user__config_8h_1a0ff5bd7e17a0227695cdee8ddc7342e9">SCREENSAVER_TEXT</link>) * 6)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_gfx__screen_8cpp_1a8125c17a66a45ad8dffd7dbf4b610207">TIMEOUT_PASSED</link>(timeout,  last_interaction)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_gfx__screen_8cpp_1a8aae1f9bdeaaa5978bca037bfef6e70f"/><section>
+    <title>SCREENSAVER_TEXT_LENGTH</title>
+<indexterm><primary>SCREENSAVER_TEXT_LENGTH</primary><secondary>gfx_screen.cpp</secondary></indexterm>
+<indexterm><primary>gfx_screen.cpp</primary><secondary>SCREENSAVER_TEXT_LENGTH</secondary></indexterm>
+<para><computeroutput>#define SCREENSAVER_TEXT_LENGTH&#160;&#160;&#160;(strlen(<link linkend="_user__config_8h_1a0ff5bd7e17a0227695cdee8ddc7342e9">SCREENSAVER_TEXT</link>) * 6)</computeroutput></para><para>
+Definition at line <link linkend="_gfx__screen_8cpp_source_1l00019">19</link> of file <link linkend="_gfx__screen_8cpp_source">gfx_screen.cpp</link>.</para>
+</section>
+<anchor xml:id="_gfx__screen_8cpp_1a8125c17a66a45ad8dffd7dbf4b610207"/><section>
+    <title>TIMEOUT_PASSED</title>
+<indexterm><primary>TIMEOUT_PASSED</primary><secondary>gfx_screen.cpp</secondary></indexterm>
+<indexterm><primary>gfx_screen.cpp</primary><secondary>TIMEOUT_PASSED</secondary></indexterm>
+<para><computeroutput>#define TIMEOUT_PASSED( timeout,  last_interaction)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting linenumbering="unnumbered">(timeout&#32;&amp;&amp;&#32;(millis()&#32;-&#32;last_interaction)&#32;&gt;&#32;(timeout&#32;*&#32;1000))
+</programlisting><para>
+Definition at line <link linkend="_gfx__screen_8cpp_source_1l00020">20</link> of file <link linkend="_gfx__screen_8cpp_source">gfx_screen.cpp</link>.</para>
+</section>
+</section>
 </section>

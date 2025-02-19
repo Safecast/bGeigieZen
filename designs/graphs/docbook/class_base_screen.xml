@@ -27,11 +27,11 @@ Inheritance diagram for BaseScreen:<para>
 <simplesect>
     <title>Public Member Functions    </title>
         <itemizedlist>
-            <listitem><para>virtual <link linkend="_class_base_screen">BaseScreen</link> * <link linkend="_class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57">handle_input</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>, const worker_map_t &amp;workers)=0</para>
+            <listitem><para>virtual <link linkend="_class_base_screen">BaseScreen</link> * <link linkend="_class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57">handle_input</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</link>, const worker_map_t &amp;workers)=0</para>
 </listitem>
-            <listitem><para>virtual void <link linkend="_class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea">enter_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)</para>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea">enter_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</link>)</para>
 </listitem>
-            <listitem><para>virtual void <link linkend="_class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1">leave_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)</para>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1">leave_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</link>)</para>
 </listitem>
             <listitem><para>virtual void <link linkend="_class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98">do_render</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers) final</para>
 </listitem>
@@ -40,6 +40,20 @@ Inheritance diagram for BaseScreen:<para>
             <listitem><para>virtual const char * <link linkend="_class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42">get_title</link> () const</para>
 </listitem>
             <listitem><para>virtual bool <link linkend="_class_base_screen_1a2b0ff8ed2e49c96fa6e8d3e158d6db13">has_status_bar</link> () const</para>
+</listitem>
+            <listitem><para>virtual const __FlashStringHelper * <link linkend="_class_base_screen_1a34ca21425e8a0306c8b28669b35216e6">get_error_message</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers) const</para>
+</listitem>
+            <listitem><para>virtual const __FlashStringHelper * <link linkend="_class_base_screen_1ac34eef3f7a364202d2399ce1b234bf04">get_status_message</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers) const</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1ab4a9e852483065ab2ad6a86955985e90">has_required_gps</link> () const</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1a02551c85c014f0c35c0a887cdaad2e3e">has_required_sd</link> () const</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1abaf330fe58d138607d7eddafec78d2bc">has_required_tube</link> () const</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1a2062532ed7e5f3fa63be92c2d04c7a66">has_required_wifi</link> () const</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1a5757931996557c8d7ec0ab352abc6e3e">has_required_ble</link> () const</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -50,24 +64,48 @@ Inheritance diagram for BaseScreen:<para>
 </listitem>
             <listitem><para>virtual <link linkend="_class_base_screen_1a86234c33321bb25d534c0347a946b084">~BaseScreen</link> ()=default</para>
 </listitem>
-            <listitem><para>virtual void <link linkend="_class_base_screen_1aca89a9c227f03adadb7022eb63ee3685">render</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers, bool force)=0</para>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1a4a44081a61a095ce9cb8d086525d42b0">render</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers, bool force)</para>
 </listitem>
-            <listitem><para>void <link linkend="_class_base_screen_1ac4042332f3362042ed3390297c8f1ea1">drawButton1</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>)</para>
+            <listitem><para>void <link linkend="_class_base_screen_1abd62ea7f2f318142dde3d81f1a5e46a1">drawButton1</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>) const</para>
 </listitem>
-            <listitem><para>void <link linkend="_class_base_screen_1ad7040cea50962276539e67ac129d5c7c">drawButton2</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>)</para>
+            <listitem><para>void <link linkend="_class_base_screen_1af5e00b4efc1ada7bb34cd0361b21397c">drawButton2</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>) const</para>
 </listitem>
-            <listitem><para>void <link linkend="_class_base_screen_1a00da29022f614d7e72fd218ba1dcf747">drawButton3</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>)</para>
+            <listitem><para>void <link linkend="_class_base_screen_1a13d1abed7e9ef452c950ee1a5af14860">drawButton3</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>) const</para>
 </listitem>
-            <listitem><para>int16_t <link linkend="_class_base_screen_1a1129827abdd844b136988965ae4a72ba">printFloatFont</link> (float val, int prec, int x, int y, int font)</para>
+            <listitem><para>void <link linkend="_class_base_screen_1a0302e81913f193447bcbd63fc5dc1621">clear_screen_content</link> ()</para>
 </listitem>
-            <listitem><para>int16_t <link linkend="_class_base_screen_1a7e56deb842ae278490c70910023eb8c8">printIntFont</link> (unsigned long val, int x, int y, int font)</para>
+            <listitem><para>void <link linkend="_class_base_screen_1ae483509d86c8f2ca88f5250180aefe1b">set_status_message</link> (const __FlashStringHelper *message)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static size_t <link linkend="_class_base_screen_1acfec22b4351b13b4f0c6bd84254198ec">printFloatFont</link> (float val, int prec, int x, int y, const lgfx::IFont *font)</para>
+</listitem>
+            <listitem><para>static size_t <link linkend="_class_base_screen_1ae6e6ee7b78413b55d89fd192157ea9db">printIntFont</link> (unsigned long val, int x, int y, const lgfx::IFont *font)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_class_base_screen_1aa7ff73902ffb4869a7a1e4da7a004f86">required_gps</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1a0ec50e2f5e767c49926acea4eff5d62a">required_sd</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1aaec338ea2e36bc2c621d3283ab345313">required_tube</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1a1aca75e6183b4428be7008ae8cdae37e">required_wifi</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1a4519670c7f1d8995d30f441f473c4e1d">required_ble</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>
 <section>
 <title>Detailed Description</title>
 <para>
-Definition at line <link linkend="_base__screen_8h_source_1l00013">13</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+Definition at line <link linkend="_base__screen_8h_source_1l00020">20</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
 </section>
 <section>
 <title>Member Enumeration Documentation</title>
@@ -91,7 +129,7 @@ Definition at line <link linkend="_base__screen_8h_source_1l00013">13</link> of 
     </tgroup>
 </informaltable>
 <para>
-Definition at line <link linkend="_base__screen_8h_source_1l00015">15</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+Definition at line <link linkend="_base__screen_8h_source_1l00022">22</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
 </section>
 </section>
 <section>
@@ -101,7 +139,16 @@ Definition at line <link linkend="_base__screen_8h_source_1l00015">15</link> of 
 <indexterm><primary>BaseScreen</primary><secondary>BaseScreen</secondary></indexterm>
 <indexterm><primary>BaseScreen</primary><secondary>BaseScreen</secondary></indexterm>
 <para><computeroutput>BaseScreen::BaseScreen (const char * title, bool status_bar)<computeroutput>[explicit]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_base__screen_8cpp_source_1l00006">6</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00011">11</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a2e28e5b4ef3027c3c4392dfb4a6c3ff8_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
 </section>
 <anchor xml:id="_class_base_screen_1a86234c33321bb25d534c0347a946b084"/><section>
     <title>~BaseScreen()</title>
@@ -111,6 +158,24 @@ Definition at line <link linkend="_base__screen_8cpp_source_1l00006">6</link> of
 </section>
 <section>
 <title>Member Function Documentation</title>
+<anchor xml:id="_class_base_screen_1a0302e81913f193447bcbd63fc5dc1621"/><section>
+    <title>clear_screen_content()</title>
+<indexterm><primary>clear_screen_content</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>clear_screen_content</secondary></indexterm>
+<para><computeroutput>void BaseScreen::clear_screen_content ( )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Clears page content area (NOT the buttons, status message and status bar) </para>
+<para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00151">151</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a0302e81913f193447bcbd63fc5dc1621_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
 <anchor xml:id="_class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98"/><section>
     <title>do_render()</title>
 <indexterm><primary>do_render</primary><secondary>BaseScreen</secondary></indexterm>
@@ -143,7 +208,7 @@ Parameters</title>
                 </formalpara>
                 </para>
 <para>
-Definition at line <link linkend="_base__screen_8cpp_source_1l00104">104</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00107">107</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -153,62 +218,53 @@ Here is the call graph for this function:<para>
         </mediaobject>
     </informalfigure>
 </para>
-Here is the caller graph for this function:<para>
-    <informalfigure>
-        <mediaobject>
-            <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_abaa4b23c1f7314cdce0ddea7e7a8ed98_icgraph.jpg"></imagedata>
-            </imageobject>
-        </mediaobject>
-    </informalfigure>
-</para>
 </section>
-<anchor xml:id="_class_base_screen_1ac4042332f3362042ed3390297c8f1ea1"/><section>
+<anchor xml:id="_class_base_screen_1abd62ea7f2f318142dde3d81f1a5e46a1"/><section>
     <title>drawButton1()</title>
 <indexterm><primary>drawButton1</primary><secondary>BaseScreen</secondary></indexterm>
 <indexterm><primary>BaseScreen</primary><secondary>drawButton1</secondary></indexterm>
 <para><computeroutput>void BaseScreen::drawButton1 (const char * text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state = <computeroutput><link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link></computeroutput>
-)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_base__screen_8cpp_source_1l00051">51</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+) const<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00063">63</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_ac4042332f3362042ed3390297c8f1ea1_icgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_abd62ea7f2f318142dde3d81f1a5e46a1_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
 </para>
 </section>
-<anchor xml:id="_class_base_screen_1ad7040cea50962276539e67ac129d5c7c"/><section>
+<anchor xml:id="_class_base_screen_1af5e00b4efc1ada7bb34cd0361b21397c"/><section>
     <title>drawButton2()</title>
 <indexterm><primary>drawButton2</primary><secondary>BaseScreen</secondary></indexterm>
 <indexterm><primary>BaseScreen</primary><secondary>drawButton2</secondary></indexterm>
 <para><computeroutput>void BaseScreen::drawButton2 (const char * text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state = <computeroutput><link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link></computeroutput>
-)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_base__screen_8cpp_source_1l00059">59</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
-Here is the caller graph for this function:<para>
-    <informalfigure>
-        <mediaobject>
-            <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_ad7040cea50962276539e67ac129d5c7c_icgraph.jpg"></imagedata>
-            </imageobject>
-        </mediaobject>
-    </informalfigure>
-</para>
-</section>
-<anchor xml:id="_class_base_screen_1a00da29022f614d7e72fd218ba1dcf747"/><section>
-    <title>drawButton3()</title>
-<indexterm><primary>drawButton3</primary><secondary>BaseScreen</secondary></indexterm>
-<indexterm><primary>BaseScreen</primary><secondary>drawButton3</secondary></indexterm>
-<para><computeroutput>void BaseScreen::drawButton3 (const char * text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state = <computeroutput><link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link></computeroutput>
-)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+) const<computeroutput>[protected]</computeroutput></computeroutput></para><para>
 Definition at line <link linkend="_base__screen_8cpp_source_1l00067">67</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a00da29022f614d7e72fd218ba1dcf747_icgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_af5e00b4efc1ada7bb34cd0361b21397c_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_screen_1a13d1abed7e9ef452c950ee1a5af14860"/><section>
+    <title>drawButton3()</title>
+<indexterm><primary>drawButton3</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>drawButton3</secondary></indexterm>
+<para><computeroutput>void BaseScreen::drawButton3 (const char * text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state = <computeroutput><link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link></computeroutput>
+) const<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00071">71</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a13d1abed7e9ef452c950ee1a5af14860_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
@@ -241,7 +297,7 @@ Parameters</title>
                 </formalpara>
                 </para>
 <para>
-Reimplemented in <link linkend="_class_boot_screen_1af19273a9e16613f547b44773b1761fae">BootScreen</link>, <link linkend="_class_config_mode_screen_1a63e57a291d31fc8974e1801314b0c75b">ConfigModeScreen</link>, <link linkend="_class_first_time_startup_screen_1a6fe45b4d763b2e2a36bef931d0a6fb98">FirstTimeStartupScreen</link>, <link linkend="_class_fixed_mode_screen_1ac6674655b2713b9cf9194eada7424ddd">FixedModeScreen</link>, <link linkend="_class_menu_window_1a2971f694878323174c931b8a466c5e82">MenuWindow</link>, <link linkend="_class_sd_message_screen_1a37d7575e04491ff6fedae89389694248">SdMessageScreen</link>, and <link linkend="_class_survey_mode_screen_1a8f92dc2c5a954f6284517b39cb08db8e">SurveyModeScreen</link>.</para>
+Reimplemented in <link linkend="_class_boot_screen_1af19273a9e16613f547b44773b1761fae">BootScreen</link>, <link linkend="_class_config_mode_screen_1a63e57a291d31fc8974e1801314b0c75b">ConfigModeScreen</link>, <link linkend="_class_drive_mode_screen_1a5b274abdc3e6d98c004fda8bb7ec90c0">DriveModeScreen</link>, <link linkend="_class_first_time_startup_screen_1a6fe45b4d763b2e2a36bef931d0a6fb98">FirstTimeStartupScreen</link>, <link linkend="_class_fixed_mode_screen_1ac6674655b2713b9cf9194eada7424ddd">FixedModeScreen</link>, <link linkend="_class_log_viewer_screen_1a4325d20b964c93c9ebee36bab87d22b7">LogViewerScreen</link>, <link linkend="_class_menu_window_1a2971f694878323174c931b8a466c5e82">MenuWindow</link>, <link linkend="_class_satellite_view_screen_1aca0938985e81a83c6817a7d9de94df26">SatelliteViewScreen</link>, <link linkend="_class_sd_message_screen_1a37d7575e04491ff6fedae89389694248">SdMessageScreen</link>, <link linkend="_class_survey_mode_screen_1a8f92dc2c5a954f6284517b39cb08db8e">SurveyModeScreen</link>, and <link linkend="_class_zen_info_screen_1ab3f312ea8678af3a5d339d781f241da8">ZenInfoScreen</link>.</para>
 <para>
 Definition at line <link linkend="_base__screen_8cpp_source_1l00090">90</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
 Here is the caller graph for this function:<para>
@@ -286,7 +342,69 @@ Parameters</title>
                 </formalpara>
                 </para>
 <para>
-Definition at line <link linkend="_base__screen_8cpp_source_1l00109">109</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00112">112</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a475d077e56c80429539f9c8a973752dd_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_screen_1a34ca21425e8a0306c8b28669b35216e6"/><section>
+    <title>get_error_message()</title>
+<indexterm><primary>get_error_message</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>get_error_message</secondary></indexterm>
+<para><computeroutput>const __FlashStringHelper * BaseScreen::get_error_message (const worker_map_t &amp; workers, const handler_map_t &amp; handlers) const<computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Get screen error message (if available), else nullptr <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00116">116</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a34ca21425e8a0306c8b28669b35216e6_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a34ca21425e8a0306c8b28669b35216e6_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_screen_1ac34eef3f7a364202d2399ce1b234bf04"/><section>
+    <title>get_status_message()</title>
+<indexterm><primary>get_status_message</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>get_status_message</secondary></indexterm>
+<para><computeroutput>const __FlashStringHelper * BaseScreen::get_status_message (const worker_map_t &amp; workers, const handler_map_t &amp; handlers) const<computeroutput>[virtual]</computeroutput></computeroutput></para>
+<para>Get screen status message (if available), else nullptr <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00139">139</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_ac34eef3f7a364202d2399ce1b234bf04_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
 </section>
 <anchor xml:id="_class_base_screen_1a8369a625bf2c71807b5cf2b98527fb42"/><section>
     <title>get_title()</title>
@@ -315,7 +433,16 @@ Here is the caller graph for this function:<para>
 <indexterm><primary>handle_input</primary><secondary>BaseScreen</secondary></indexterm>
 <indexterm><primary>BaseScreen</primary><secondary>handle_input</secondary></indexterm>
 <para><computeroutput>virtual <link linkend="_class_base_screen">BaseScreen</link> * BaseScreen::handle_input (<link linkend="_class_controller">Controller</link> &amp; controller, const worker_map_t &amp; workers)<computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
-Implemented in <link linkend="_class_boot_screen_1a1d605b7d6ed086214a7f1a0bcd3d1fe2">BootScreen</link>, <link linkend="_class_config_mode_screen_1a7fcba3bb1764bd72b76c1f80f1f6a762">ConfigModeScreen</link>, <link linkend="_class_debug_mode_screen_1a74b4a2f357094dcda42fffe968067b28">DebugModeScreen</link>, <link linkend="_class_drive_mode_screen_1a69c70a1c35f362131345ecd652cd4416">DriveModeScreen</link>, <link linkend="_class_first_time_startup_screen_1a5247fbb47d0d251542376a1199c48684">FirstTimeStartupScreen</link>, <link linkend="_class_fixed_mode_screen_1afb1295bc1c4272752239f7ea2ee111a4">FixedModeScreen</link>, <link linkend="_class_menu_window_1afe3cdb7f44d6d7a534044abc6b4e1b92">MenuWindow</link>, <link linkend="_class_sd_message_screen_1aa6f1495614e3c8a88dfe30920fcd5b8d">SdMessageScreen</link>, and <link linkend="_class_survey_mode_screen_1a2b1210c4b71c7b2da15777f7c8c677d0">SurveyModeScreen</link>.</para>
+Implemented in <link linkend="_class_boot_screen_1a1d605b7d6ed086214a7f1a0bcd3d1fe2">BootScreen</link>, <link linkend="_class_config_mode_screen_1a7fcba3bb1764bd72b76c1f80f1f6a762">ConfigModeScreen</link>, <link linkend="_class_debug_mode_screen_1a74b4a2f357094dcda42fffe968067b28">DebugModeScreen</link>, <link linkend="_class_default_entry_screen_1a06fd4454eff553465a74d30b02567a0f">DefaultEntryScreen</link>, <link linkend="_class_drive_mode_screen_1a69c70a1c35f362131345ecd652cd4416">DriveModeScreen</link>, <link linkend="_class_first_time_startup_screen_1a5247fbb47d0d251542376a1199c48684">FirstTimeStartupScreen</link>, <link linkend="_class_fixed_mode_screen_1afb1295bc1c4272752239f7ea2ee111a4">FixedModeScreen</link>, <link linkend="_class_log_viewer_screen_1a71060914d92a91fc2ed3c4d5cdf16590">LogViewerScreen</link>, <link linkend="_class_menu_window_1afe3cdb7f44d6d7a534044abc6b4e1b92">MenuWindow</link>, <link linkend="_class_satellite_view_screen_1a14b2221b6c62c0bf858f9f8816140b96">SatelliteViewScreen</link>, <link linkend="_class_sd_message_screen_1aa6f1495614e3c8a88dfe30920fcd5b8d">SdMessageScreen</link>, <link linkend="_class_survey_mode_screen_1a2b1210c4b71c7b2da15777f7c8c677d0">SurveyModeScreen</link>, and <link linkend="_class_zen_info_screen_1a786b973c3a31797c902d23dfcb44fe7a">ZenInfoScreen</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_adfb9afa5102a23f608d0db4d95bd6d57_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -325,6 +452,59 @@ Here is the caller graph for this function:<para>
         </mediaobject>
     </informalfigure>
 </para>
+</section>
+<anchor xml:id="_class_base_screen_1a5757931996557c8d7ec0ab352abc6e3e"/><section>
+    <title>has_required_ble()</title>
+<indexterm><primary>has_required_ble</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>has_required_ble</secondary></indexterm>
+<para><computeroutput>bool BaseScreen::has_required_ble ( ) const<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8h_source_1l00083">83</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+</section>
+<anchor xml:id="_class_base_screen_1ab4a9e852483065ab2ad6a86955985e90"/><section>
+    <title>has_required_gps()</title>
+<indexterm><primary>has_required_gps</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>has_required_gps</secondary></indexterm>
+<para><computeroutput>bool BaseScreen::has_required_gps ( ) const<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8h_source_1l00079">79</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_ab4a9e852483065ab2ad6a86955985e90_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_ab4a9e852483065ab2ad6a86955985e90_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_screen_1a02551c85c014f0c35c0a887cdaad2e3e"/><section>
+    <title>has_required_sd()</title>
+<indexterm><primary>has_required_sd</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>has_required_sd</secondary></indexterm>
+<para><computeroutput>bool BaseScreen::has_required_sd ( ) const<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8h_source_1l00080">80</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+</section>
+<anchor xml:id="_class_base_screen_1abaf330fe58d138607d7eddafec78d2bc"/><section>
+    <title>has_required_tube()</title>
+<indexterm><primary>has_required_tube</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>has_required_tube</secondary></indexterm>
+<para><computeroutput>bool BaseScreen::has_required_tube ( ) const<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8h_source_1l00081">81</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+</section>
+<anchor xml:id="_class_base_screen_1a2062532ed7e5f3fa63be92c2d04c7a66"/><section>
+    <title>has_required_wifi()</title>
+<indexterm><primary>has_required_wifi</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>has_required_wifi</secondary></indexterm>
+<para><computeroutput>bool BaseScreen::has_required_wifi ( ) const<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8h_source_1l00082">82</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
 </section>
 <anchor xml:id="_class_base_screen_1a2b0ff8ed2e49c96fa6e8d3e158d6db13"/><section>
     <title>has_status_bar()</title>
@@ -375,7 +555,7 @@ Parameters</title>
                 </formalpara>
                 </para>
 <para>
-Reimplemented in <link linkend="_class_boot_screen_1a7703ae6ca965fa5481870a087976e7e8">BootScreen</link>, <link linkend="_class_config_mode_screen_1a6d5e41de275a9ff08fa50351a20c3190">ConfigModeScreen</link>, <link linkend="_class_drive_mode_screen_1ac0c53ec7f983bfd75c289db8291d5aa3">DriveModeScreen</link>, <link linkend="_class_first_time_startup_screen_1ab95f489f1cf846027d46333ba16b21d1">FirstTimeStartupScreen</link>, <link linkend="_class_fixed_mode_screen_1afcdf6db54b6e44220c39b0b0dfbcf162">FixedModeScreen</link>, <link linkend="_class_menu_window_1a2c5ae75df9da64b970dcbd408efc17ae">MenuWindow</link>, <link linkend="_class_sd_message_screen_1a80f1af31e6f9a40d9587ca86bee2220f">SdMessageScreen</link>, and <link linkend="_class_survey_mode_screen_1ab5e2b29f4e65d44fcd51be6f09d23fa9">SurveyModeScreen</link>.</para>
+Reimplemented in <link linkend="_class_boot_screen_1a7703ae6ca965fa5481870a087976e7e8">BootScreen</link>, <link linkend="_class_config_mode_screen_1a6d5e41de275a9ff08fa50351a20c3190">ConfigModeScreen</link>, <link linkend="_class_drive_mode_screen_1ac0c53ec7f983bfd75c289db8291d5aa3">DriveModeScreen</link>, <link linkend="_class_fixed_mode_screen_1afcdf6db54b6e44220c39b0b0dfbcf162">FixedModeScreen</link>, <link linkend="_class_log_viewer_screen_1aa738fd59d28dfb11e6e2b2a1418bee67">LogViewerScreen</link>, <link linkend="_class_menu_window_1a2c5ae75df9da64b970dcbd408efc17ae">MenuWindow</link>, <link linkend="_class_satellite_view_screen_1a6df05f5f59dc13460099b08fdbb05b86">SatelliteViewScreen</link>, <link linkend="_class_sd_message_screen_1a80f1af31e6f9a40d9587ca86bee2220f">SdMessageScreen</link>, and <link linkend="_class_survey_mode_screen_1ab5e2b29f4e65d44fcd51be6f09d23fa9">SurveyModeScreen</link>.</para>
 <para>
 Definition at line <link linkend="_base__screen_8cpp_source_1l00093">93</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
 Here is the caller graph for this function:<para>
@@ -388,43 +568,43 @@ Here is the caller graph for this function:<para>
     </informalfigure>
 </para>
 </section>
-<anchor xml:id="_class_base_screen_1a1129827abdd844b136988965ae4a72ba"/><section>
+<anchor xml:id="_class_base_screen_1acfec22b4351b13b4f0c6bd84254198ec"/><section>
     <title>printFloatFont()</title>
 <indexterm><primary>printFloatFont</primary><secondary>BaseScreen</secondary></indexterm>
 <indexterm><primary>BaseScreen</primary><secondary>printFloatFont</secondary></indexterm>
-<para><computeroutput>int16_t BaseScreen::printFloatFont (float val, int prec, int x, int y, int font)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+<para><computeroutput>size_t BaseScreen::printFloatFont (float val, int prec, int x, int y, const lgfx::IFont * font)<computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
 Definition at line <link linkend="_base__screen_8cpp_source_1l00075">75</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a1129827abdd844b136988965ae4a72ba_icgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_acfec22b4351b13b4f0c6bd84254198ec_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
 </para>
 </section>
-<anchor xml:id="_class_base_screen_1a7e56deb842ae278490c70910023eb8c8"/><section>
+<anchor xml:id="_class_base_screen_1ae6e6ee7b78413b55d89fd192157ea9db"/><section>
     <title>printIntFont()</title>
 <indexterm><primary>printIntFont</primary><secondary>BaseScreen</secondary></indexterm>
 <indexterm><primary>BaseScreen</primary><secondary>printIntFont</secondary></indexterm>
-<para><computeroutput>int16_t BaseScreen::printIntFont (unsigned long val, int x, int y, int font)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+<para><computeroutput>size_t BaseScreen::printIntFont (unsigned long val, int x, int y, const lgfx::IFont * font)<computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
 Definition at line <link linkend="_base__screen_8cpp_source_1l00084">84</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a7e56deb842ae278490c70910023eb8c8_icgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_ae6e6ee7b78413b55d89fd192157ea9db_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
 </para>
 </section>
-<anchor xml:id="_class_base_screen_1aca89a9c227f03adadb7022eb63ee3685"/><section>
+<anchor xml:id="_class_base_screen_1a4a44081a61a095ce9cb8d086525d42b0"/><section>
     <title>render()</title>
 <indexterm><primary>render</primary><secondary>BaseScreen</secondary></indexterm>
 <indexterm><primary>BaseScreen</primary><secondary>render</secondary></indexterm>
-<para><computeroutput>virtual void BaseScreen::render (const worker_map_t &amp; workers, const handler_map_t &amp; handlers, bool force)<computeroutput>[protected]</computeroutput>, <computeroutput>[pure virtual]</computeroutput></computeroutput></para>
+<para><computeroutput>void BaseScreen::render (const worker_map_t &amp; workers, const handler_map_t &amp; handlers, bool force)<computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para>
 <para>Render the screen with latest data 
                 <formalpara>
                     <title>
@@ -452,16 +632,72 @@ Parameters</title>
                 </formalpara>
                 </para>
 <para>
-Implemented in <link linkend="_class_boot_screen_1ae251e91a0e4a84ef9b6739ed928ef3c5">BootScreen</link>, <link linkend="_class_config_mode_screen_1a5878db5e53f53183144488937f6657e9">ConfigModeScreen</link>, <link linkend="_class_debug_mode_screen_1af5a52170b297c87f33e5eea935f8ca04">DebugModeScreen</link>, <link linkend="_class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85">DriveModeScreen</link>, <link linkend="_class_first_time_startup_screen_1a1f5c80b0f1a40f208787e6b27a1b34c7">FirstTimeStartupScreen</link>, <link linkend="_class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af">FixedModeScreen</link>, <link linkend="_class_menu_window_1a668a8a350e49de44844d8d06d0032938">MenuWindow</link>, <link linkend="_class_sd_message_screen_1a2c75124920b18c3d29c65887cbe404c7">SdMessageScreen</link>, and <link linkend="_class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50">SurveyModeScreen</link>.</para>
+Reimplemented in <link linkend="_class_boot_screen_1ae251e91a0e4a84ef9b6739ed928ef3c5">BootScreen</link>, <link linkend="_class_config_mode_screen_1a5878db5e53f53183144488937f6657e9">ConfigModeScreen</link>, <link linkend="_class_debug_mode_screen_1af5a52170b297c87f33e5eea935f8ca04">DebugModeScreen</link>, <link linkend="_class_drive_mode_screen_1a536a027601cda1dbbd3ff95324e08c85">DriveModeScreen</link>, <link linkend="_class_first_time_startup_screen_1a1f5c80b0f1a40f208787e6b27a1b34c7">FirstTimeStartupScreen</link>, <link linkend="_class_fixed_mode_screen_1a765438b789be58d1b2a14e3180c350af">FixedModeScreen</link>, <link linkend="_class_log_viewer_screen_1a508fb3668b1d79326c60d34f487252d2">LogViewerScreen</link>, <link linkend="_class_menu_window_1a668a8a350e49de44844d8d06d0032938">MenuWindow</link>, <link linkend="_class_satellite_view_screen_1a480ec31a9de82c4f9e8ee3228d870f65">SatelliteViewScreen</link>, <link linkend="_class_sd_message_screen_1a2c75124920b18c3d29c65887cbe404c7">SdMessageScreen</link>, <link linkend="_class_survey_mode_screen_1ac54402c816303e47b5aa189cb2123b50">SurveyModeScreen</link>, and <link linkend="_class_zen_info_screen_1ac6aeca5cbd35b67bfb60f3c39a26e010">ZenInfoScreen</link>.</para>
+<para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00104">104</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_aca89a9c227f03adadb7022eb63ee3685_icgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_a4a44081a61a095ce9cb8d086525d42b0_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
 </para>
+</section>
+<anchor xml:id="_class_base_screen_1ae483509d86c8f2ca88f5250180aefe1b"/><section>
+    <title>set_status_message()</title>
+<indexterm><primary>set_status_message</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>set_status_message</secondary></indexterm>
+<para><computeroutput>void BaseScreen::set_status_message (const __FlashStringHelper * message)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8cpp_source_1l00146">146</link> of file <link linkend="_base__screen_8cpp_source">base_screen.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_screen_ae483509d86c8f2ca88f5250180aefe1b_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_base_screen_1a4519670c7f1d8995d30f441f473c4e1d"/><section>
+    <title>required_ble</title>
+<indexterm><primary>required_ble</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>required_ble</secondary></indexterm>
+<para><computeroutput>bool BaseScreen::required_ble<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8h_source_1l00115">115</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+</section>
+<anchor xml:id="_class_base_screen_1aa7ff73902ffb4869a7a1e4da7a004f86"/><section>
+    <title>required_gps</title>
+<indexterm><primary>required_gps</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>required_gps</secondary></indexterm>
+<para><computeroutput>bool BaseScreen::required_gps<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8h_source_1l00111">111</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+</section>
+<anchor xml:id="_class_base_screen_1a0ec50e2f5e767c49926acea4eff5d62a"/><section>
+    <title>required_sd</title>
+<indexterm><primary>required_sd</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>required_sd</secondary></indexterm>
+<para><computeroutput>bool BaseScreen::required_sd<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8h_source_1l00112">112</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+</section>
+<anchor xml:id="_class_base_screen_1aaec338ea2e36bc2c621d3283ab345313"/><section>
+    <title>required_tube</title>
+<indexterm><primary>required_tube</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>required_tube</secondary></indexterm>
+<para><computeroutput>bool BaseScreen::required_tube<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8h_source_1l00113">113</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+</section>
+<anchor xml:id="_class_base_screen_1a1aca75e6183b4428be7008ae8cdae37e"/><section>
+    <title>required_wifi</title>
+<indexterm><primary>required_wifi</primary><secondary>BaseScreen</secondary></indexterm>
+<indexterm><primary>BaseScreen</primary><secondary>required_wifi</secondary></indexterm>
+<para><computeroutput>bool BaseScreen::required_wifi<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8h_source_1l00114">114</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
 </section>
 <para>
 The documentation for this class was generated from the following files:</para>
