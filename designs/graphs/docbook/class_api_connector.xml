@@ -26,20 +26,14 @@ Collaboration diagram for ApiConnector:<para>
 <simplesect>
     <title>Public Types    </title>
         <itemizedlist>
-            <listitem><para>enum <link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717">ApiHandlerStatus</link> { <?linebreak?><link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717ada9c4157d7bd03f7071d415f99f273d2">e_api_reporter_idle</link>
-, <link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a5c6cf8f03d275050a7373e360dff0909">e_api_reporter_send_success</link>
+            <listitem><para>enum <link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717">ApiHandlerStatus</link> { <?linebreak?><link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a5c6cf8f03d275050a7373e360dff0909">e_api_reporter_send_success</link>
 , <link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a29a3d191db6db09f7d4757322d81438d">e_api_reporter_error_to_json</link>
 , <link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717aeedeeef2ce17687fdcd6326db176b20a">e_api_reporter_error_not_connected</link>
-, <?linebreak?><link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717abf2ec433e6a95b2c211e011517128471">e_api_reporter_error_remote_not_available</link>
-, <link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a0eb4fc88c576f048ed5f47be9da3be88">e_api_reporter_error_server_rejected_post_400</link>
+, <link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717abf2ec433e6a95b2c211e011517128471">e_api_reporter_error_remote_not_available</link>
+, <?linebreak?><link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a0eb4fc88c576f048ed5f47be9da3be88">e_api_reporter_error_server_rejected_post_400</link>
 , <link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a41188ca61a8819bac63964431728fb19">e_api_reporter_error_server_rejected_post_401</link>
 , <link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a03c4f15d5aa2fc9ef5d3608eba481897">e_api_reporter_error_server_rejected_post_403</link>
-, <?linebreak?><link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717ad7308ded852533ee42fbba18e1577f6b">e_api_reporter_error_server_rejected_post_5xx</link>
- }</para>
-</listitem>
-            <listitem><para>enum <link linkend="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4">SendFrequency</link> { <link linkend="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4ae695d59916bd6aa20cbd36b3e9e43486">e_api_send_frequency_5_sec</link>
-, <link linkend="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4aeeb7d9827cf810be5f209638a7e56c33">e_api_send_frequency_1_min</link>
-, <link linkend="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4a55fc1e5ea7d88d8095033d37c67d52a4">e_api_send_frequency_5_min</link>
+, <link linkend="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717ad7308ded852533ee42fbba18e1577f6b">e_api_reporter_error_server_rejected_post_5xx</link>
  }</para>
 </listitem>
         </itemizedlist>
@@ -51,12 +45,14 @@ Collaboration diagram for ApiConnector:<para>
 </listitem>
             <listitem><para>virtual <link linkend="_class_api_connector_1a6303c60e2bc8e9d4abe610c9055cff68">~ApiConnector</link> ()=default</para>
 </listitem>
+            <listitem><para>uint32_t <link linkend="_class_api_connector_1a884e820440be9b962b9302b38b061c8e">get_post_count</link> () const</para>
+</listitem>
         </itemizedlist>
 </simplesect>
 <simplesect>
     <title>Protected Member Functions    </title>
         <itemizedlist>
-            <listitem><para>bool <link linkend="_class_api_connector_1af62308ca3c907717f3217491b7a6612c">time_to_send</link> (unsigned offset=1000) const</para>
+            <listitem><para>bool <link linkend="_class_api_connector_1ae4158ccefdfdc7d83196cbdfe7af8d36">time_to_send</link> (bool in_fixed_range, bool alert) const</para>
 </listitem>
             <listitem><para>bool <link linkend="_class_api_connector_1a27801902e618afb9d835438d66ddec3c">activate</link> (bool retry) override</para>
 </listitem>
@@ -65,6 +61,8 @@ Collaboration diagram for ApiConnector:<para>
             <listitem><para>int8_t <link linkend="_class_api_connector_1a46089ea3e64a0c222657429e68c5beca">handle_produced_work</link> (const worker_map_t &amp;workers) override</para>
 </listitem>
             <listitem><para>bool <link linkend="_class_api_connector_1ac19687cf6ae2d1d0bcb2e77ee9e8c539">reading_to_json</link> (const <link linkend="_struct_data_line">DataLine</link> &amp;reading, char *out)</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_api_connector_1a8fc0aaa8a9cff66aef93d202a102d9ea">handle_async</link> () override</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -89,9 +87,7 @@ Definition at line <link linkend="_api__connector_8h_source_1l00017">17</link> o
       <colspec colname='c1'/>
       <colspec colname='c2'/>
 <tbody>
-<row><entry><indexterm><primary>e_api_reporter_idle</primary><secondary>ApiConnector</secondary></indexterm>
-<indexterm><primary>ApiConnector</primary><secondary>e_api_reporter_idle</secondary></indexterm>
-<anchor xml:id="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717ada9c4157d7bd03f7071d415f99f273d2"/>e_api_reporter_idle</entry><entry></entry></row><row><entry><indexterm><primary>e_api_reporter_send_success</primary><secondary>ApiConnector</secondary></indexterm>
+<row><entry><indexterm><primary>e_api_reporter_send_success</primary><secondary>ApiConnector</secondary></indexterm>
 <indexterm><primary>ApiConnector</primary><secondary>e_api_reporter_send_success</secondary></indexterm>
 <anchor xml:id="_class_api_connector_1aa01a2d79292ffd453d566d12f6dd3717a5c6cf8f03d275050a7373e360dff0909"/>e_api_reporter_send_success</entry><entry></entry></row><row><entry><indexterm><primary>e_api_reporter_error_to_json</primary><secondary>ApiConnector</secondary></indexterm>
 <indexterm><primary>ApiConnector</primary><secondary>e_api_reporter_error_to_json</secondary></indexterm>
@@ -113,28 +109,6 @@ Definition at line <link linkend="_api__connector_8h_source_1l00017">17</link> o
 <para>
 Definition at line <link linkend="_api__connector_8h_source_1l00022">22</link> of file <link linkend="_api__connector_8h_source">api_connector.h</link>.</para>
 </section>
-<anchor xml:id="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4"/><section>
-    <title>SendFrequency</title>
-<indexterm><primary>SendFrequency</primary><secondary>ApiConnector</secondary></indexterm>
-<indexterm><primary>ApiConnector</primary><secondary>SendFrequency</secondary></indexterm>
-<para><computeroutput>enum <link linkend="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4">ApiConnector::SendFrequency</link></computeroutput></para><informaltable frame="all">
-<title>Enumerator</title>
-    <tgroup cols="2" align="left" colsep="1" rowsep="1">
-      <colspec colname='c1'/>
-      <colspec colname='c2'/>
-<tbody>
-<row><entry><indexterm><primary>e_api_send_frequency_5_sec</primary><secondary>ApiConnector</secondary></indexterm>
-<indexterm><primary>ApiConnector</primary><secondary>e_api_send_frequency_5_sec</secondary></indexterm>
-<anchor xml:id="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4ae695d59916bd6aa20cbd36b3e9e43486"/>e_api_send_frequency_5_sec</entry><entry></entry></row><row><entry><indexterm><primary>e_api_send_frequency_1_min</primary><secondary>ApiConnector</secondary></indexterm>
-<indexterm><primary>ApiConnector</primary><secondary>e_api_send_frequency_1_min</secondary></indexterm>
-<anchor xml:id="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4aeeb7d9827cf810be5f209638a7e56c33"/>e_api_send_frequency_1_min</entry><entry></entry></row><row><entry><indexterm><primary>e_api_send_frequency_5_min</primary><secondary>ApiConnector</secondary></indexterm>
-<indexterm><primary>ApiConnector</primary><secondary>e_api_send_frequency_5_min</secondary></indexterm>
-<anchor xml:id="_class_api_connector_1ac9c3a14b1645b5a60031ef9d6e39adc4a55fc1e5ea7d88d8095033d37c67d52a4"/>e_api_send_frequency_5_min</entry><entry></entry></row>    </tbody>
-    </tgroup>
-</informaltable>
-<para>
-Definition at line <link linkend="_api__connector_8h_source_1l00034">34</link> of file <link linkend="_api__connector_8h_source">api_connector.h</link>.</para>
-</section>
 </section>
 <section>
 <title>Constructor &amp; Destructor Documentation</title>
@@ -143,7 +117,7 @@ Definition at line <link linkend="_api__connector_8h_source_1l00034">34</link> o
 <indexterm><primary>ApiConnector</primary><secondary>ApiConnector</secondary></indexterm>
 <indexterm><primary>ApiConnector</primary><secondary>ApiConnector</secondary></indexterm>
 <para><computeroutput>ApiConnector::ApiConnector (<link linkend="_class_local_storage">LocalStorage</link> &amp; config)<computeroutput>[explicit]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_api__connector_8cpp_source_1l00012">12</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
+Definition at line <link linkend="_api__connector_8cpp_source_1l00009">9</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
 </section>
 <anchor xml:id="_class_api_connector_1a6303c60e2bc8e9d4abe610c9055cff68"/><section>
     <title>~ApiConnector()</title>
@@ -184,16 +158,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_api__connector_8cpp_source_1l00031">31</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
-Here is the call graph for this function:<para>
-    <informalfigure>
-        <mediaobject>
-            <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_api_connector_a27801902e618afb9d835438d66ddec3c_cgraph.jpg"></imagedata>
-            </imageobject>
-        </mediaobject>
-    </informalfigure>
-</para>
+Definition at line <link linkend="_api__connector_8cpp_source_1l00019">19</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -211,23 +176,28 @@ Here is the caller graph for this function:<para>
 <para><computeroutput>void ApiConnector::deactivate ( )<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
 <para>Stop the connection </para>
 <para>
-Definition at line <link linkend="_api__connector_8cpp_source_1l00046">46</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
-Here is the call graph for this function:<para>
-    <informalfigure>
-        <mediaobject>
-            <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_api_connector_a2f3ddac28265bde686f1d9e245b991eb_cgraph.jpg"></imagedata>
-            </imageobject>
-        </mediaobject>
-    </informalfigure>
-</para>
+Definition at line <link linkend="_api__connector_8cpp_source_1l00034">34</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_api_connector_1a884e820440be9b962b9302b38b061c8e"/><section>
+    <title>get_post_count()</title>
+<indexterm><primary>get_post_count</primary><secondary>ApiConnector</secondary></indexterm>
+<indexterm><primary>ApiConnector</primary><secondary>get_post_count</secondary></indexterm>
+<para><computeroutput>uint32_t ApiConnector::get_post_count ( ) const</computeroutput></para><para>
+Definition at line <link linkend="_api__connector_8cpp_source_1l00095">95</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_api_connector_1a8fc0aaa8a9cff66aef93d202a102d9ea"/><section>
+    <title>handle_async()</title>
+<indexterm><primary>handle_async</primary><secondary>ApiConnector</secondary></indexterm>
+<indexterm><primary>ApiConnector</primary><secondary>handle_async</secondary></indexterm>
+<para><computeroutput>int8_t ApiConnector::handle_async ( )<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_api__connector_8cpp_source_1l00099">99</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
 </section>
 <anchor xml:id="_class_api_connector_1a46089ea3e64a0c222657429e68c5beca"/><section>
     <title>handle_produced_work()</title>
 <indexterm><primary>handle_produced_work</primary><secondary>ApiConnector</secondary></indexterm>
 <indexterm><primary>ApiConnector</primary><secondary>handle_produced_work</secondary></indexterm>
 <para><computeroutput>int8_t ApiConnector::handle_produced_work (const worker_map_t &amp; workers)<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_api__connector_8cpp_source_1l00051">51</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
+Definition at line <link linkend="_api__connector_8cpp_source_1l00039">39</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -243,23 +213,22 @@ Here is the call graph for this function:<para>
 <indexterm><primary>reading_to_json</primary><secondary>ApiConnector</secondary></indexterm>
 <indexterm><primary>ApiConnector</primary><secondary>reading_to_json</secondary></indexterm>
 <para><computeroutput>bool ApiConnector::reading_to_json (const <link linkend="_struct_data_line">DataLine</link> &amp; reading, char * out)<computeroutput>[protected]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_api__connector_8cpp_source_1l00142">142</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
-Here is the call graph for this function:<para>
+Definition at line <link linkend="_api__connector_8cpp_source_1l00076">76</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
+Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_api_connector_ac19687cf6ae2d1d0bcb2e77ee9e8c539_cgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_api_connector_ac19687cf6ae2d1d0bcb2e77ee9e8c539_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
 </para>
 </section>
-<anchor xml:id="_class_api_connector_1af62308ca3c907717f3217491b7a6612c"/><section>
+<anchor xml:id="_class_api_connector_1ae4158ccefdfdc7d83196cbdfe7af8d36"/><section>
     <title>time_to_send()</title>
 <indexterm><primary>time_to_send</primary><secondary>ApiConnector</secondary></indexterm>
 <indexterm><primary>ApiConnector</primary><secondary>time_to_send</secondary></indexterm>
-<para><computeroutput>bool ApiConnector::time_to_send (unsigned offset = <computeroutput>1000</computeroutput>
-) const<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para><computeroutput>bool ApiConnector::time_to_send (bool in_fixed_range, bool alert) const<computeroutput>[protected]</computeroutput></computeroutput></para>
 <para>Check if enough time has passed to send the latest reading to api 
                 <formalpara>
                     <title>
@@ -271,8 +240,13 @@ Parameters</title>
                         <colspec colwidth="4*"/>
                         <tbody>
                             <row>
-<entry>offset</entry><entry>
-<para>additional ms offset (default 1 sec to overlap measurements better) </para>
+<entry>in_fixed_range</entry><entry>
+<para>If within configured range, a different send frequency is used </para>
+</entry>
+                            </row>
+                            <row>
+<entry>alert</entry><entry>
+<para>If alerted, a different send frequency is used </para>
 </entry>
                             </row>
                         </tbody>
@@ -286,12 +260,12 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_api__connector_8cpp_source_1l00019">19</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
+Definition at line <link linkend="_api__connector_8cpp_source_1l00012">12</link> of file <link linkend="_api__connector_8cpp_source">api_connector.cpp</link>.</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_api_connector_af62308ca3c907717f3217491b7a6612c_icgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_api_connector_ae4158ccefdfdc7d83196cbdfe7af8d36_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>

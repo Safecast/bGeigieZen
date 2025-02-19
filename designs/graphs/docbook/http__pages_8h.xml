@@ -2,7 +2,7 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_http__pages_8h" xml:lang="en-US">
 <title>bgeigiezen_firmware/utils/http_pages.h File Reference</title>
 <indexterm><primary>bgeigiezen_firmware/utils/http_pages.h</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &lt;WebServer.h&gt;<?linebreak?></programlisting>Include dependency graph for http_pages.h:<para>
+<programlisting linenumbering="unnumbered">#include &lt;WebServer.h&gt;<?linebreak?>#include &lt;workers/local_storage.h&gt;<?linebreak?></programlisting>Include dependency graph for http_pages.h:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
@@ -30,11 +30,43 @@ This graph shows which files directly or indirectly include this file:<para>
 <simplesect>
     <title>Macros    </title>
         <itemizedlist>
-            <listitem><para>#define <link linkend="_http__pages_8h_1aebb78aa92bb82104805350394cf60e62">TRANSMISSION_SIZE</link>&#160;&#160;&#160;4098</para>
+            <listitem><para>#define <link linkend="_http__pages_8h_1aebb78aa92bb82104805350394cf60e62">TRANSMISSION_SIZE</link>&#160;&#160;&#160;6000</para>
 </listitem>
             <listitem><para>#define <link linkend="_http__pages_8h_1ada5878d891f82a42326746c9dbe6b9a6">PURE_CSS_SIZE</link>&#160;&#160;&#160;3929</para>
 </listitem>
             <listitem><para>#define <link linkend="_http__pages_8h_1abc7068a1efb6caca697cbfa09cb56f32">FAVICON_SIZE</link>&#160;&#160;&#160;696</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8h_1ad8c4fff45a5a2de52e574e24cdf12538">FORM_NAME_ALERT_THRESHOLD</link>&#160;&#160;&#160;&quot;d_al&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8h_1a86d39a0de4041c963b6e625be363a1ad">FORM_NAME_CPM_USVH</link>&#160;&#160;&#160;&quot;d_cu&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8h_1ada823b1f31aaaee10bc3b846f1434a53">FORM_NAME_MANUAL_LOGGING</link>&#160;&#160;&#160;&quot;d_ml&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8h_1a86f8f5a04f35476f4a489e8b74db6366">FORM_NAME_ENABLE_JOURNAL</link>&#160;&#160;&#160;&quot;d_ej&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8h_1a601dbed3cd2afa2f9f7cb55ff669923e">FORM_NAME_LOG_VOID</link>&#160;&#160;&#160;&quot;d_lv&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8h_1aa407c1d67e39d469202d6ed135bbbdd2">FORM_NAME_SCREEN_DIM_TIMEOUT</link>&#160;&#160;&#160;&quot;d_dt&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8h_1ac6d9c7f4b2aa55af0b004cd15cb02fca">FORM_NAME_SCREEN_OFF_TIMEOUT</link>&#160;&#160;&#160;&quot;d_ot&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8h_1a0675ea7383d4e03c537b8c29cb4476e6">FORM_NAME_ANIMATED_SCREENSAVER</link>&#160;&#160;&#160;&quot;d_as&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8h_1ae7358aae4052b227beb51c8e36519387">FORM_NAME_AP_LOGIN</link>&#160;&#160;&#160;&quot;c_ap&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8h_1a96d41a86c2cbed3a1a481f9124820640">FORM_NAME_WIFI_SSID</link>&#160;&#160;&#160;&quot;c_ws&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8h_1a1c66dedc46fd01c917f6d9d61867b169">FORM_NAME_WIFI_PASS</link>&#160;&#160;&#160;&quot;c_wp&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8h_1ae05bc8c6aa3fdd1c77743317486bbe25">FORM_NAME_API_KEY</link>&#160;&#160;&#160;&quot;c_ak&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8h_1a096f276a1b519da8d831533f74ace4b7">FORM_NAME_LOC_FIXED_LAT</link>&#160;&#160;&#160;&quot;l_ha&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8h_1adcc40f6da0a247463f074731e8907d73">FORM_NAME_LOC_FIXED_LON</link>&#160;&#160;&#160;&quot;l_ho&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8h_1a95ce4b4f383e36ec196282a39826f6c5">FORM_NAME_FIXED_RANGE</link>&#160;&#160;&#160;&quot;l_fr&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_http__pages_8h_1a5ddd7521ad524438ef47933cccc16027">FORM_NAME_DOP_MAX</link>&#160;&#160;&#160;&quot;l_dm&quot;</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -45,21 +77,133 @@ This graph shows which files directly or indirectly include this file:<para>
 <indexterm><primary>FAVICON_SIZE</primary><secondary>http_pages.h</secondary></indexterm>
 <indexterm><primary>http_pages.h</primary><secondary>FAVICON_SIZE</secondary></indexterm>
 <para><computeroutput>#define FAVICON_SIZE&#160;&#160;&#160;696</computeroutput></para><para>
-Definition at line <link linkend="_http__pages_8h_source_1l00009">9</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+Definition at line <link linkend="_http__pages_8h_source_1l00010">10</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8h_1ad8c4fff45a5a2de52e574e24cdf12538"/><section>
+    <title>FORM_NAME_ALERT_THRESHOLD</title>
+<indexterm><primary>FORM_NAME_ALERT_THRESHOLD</primary><secondary>http_pages.h</secondary></indexterm>
+<indexterm><primary>http_pages.h</primary><secondary>FORM_NAME_ALERT_THRESHOLD</secondary></indexterm>
+<para><computeroutput>#define FORM_NAME_ALERT_THRESHOLD&#160;&#160;&#160;&quot;d_al&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00015">15</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8h_1a0675ea7383d4e03c537b8c29cb4476e6"/><section>
+    <title>FORM_NAME_ANIMATED_SCREENSAVER</title>
+<indexterm><primary>FORM_NAME_ANIMATED_SCREENSAVER</primary><secondary>http_pages.h</secondary></indexterm>
+<indexterm><primary>http_pages.h</primary><secondary>FORM_NAME_ANIMATED_SCREENSAVER</secondary></indexterm>
+<para><computeroutput>#define FORM_NAME_ANIMATED_SCREENSAVER&#160;&#160;&#160;&quot;d_as&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00022">22</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8h_1ae7358aae4052b227beb51c8e36519387"/><section>
+    <title>FORM_NAME_AP_LOGIN</title>
+<indexterm><primary>FORM_NAME_AP_LOGIN</primary><secondary>http_pages.h</secondary></indexterm>
+<indexterm><primary>http_pages.h</primary><secondary>FORM_NAME_AP_LOGIN</secondary></indexterm>
+<para><computeroutput>#define FORM_NAME_AP_LOGIN&#160;&#160;&#160;&quot;c_ap&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00025">25</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8h_1ae05bc8c6aa3fdd1c77743317486bbe25"/><section>
+    <title>FORM_NAME_API_KEY</title>
+<indexterm><primary>FORM_NAME_API_KEY</primary><secondary>http_pages.h</secondary></indexterm>
+<indexterm><primary>http_pages.h</primary><secondary>FORM_NAME_API_KEY</secondary></indexterm>
+<para><computeroutput>#define FORM_NAME_API_KEY&#160;&#160;&#160;&quot;c_ak&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00028">28</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8h_1a86d39a0de4041c963b6e625be363a1ad"/><section>
+    <title>FORM_NAME_CPM_USVH</title>
+<indexterm><primary>FORM_NAME_CPM_USVH</primary><secondary>http_pages.h</secondary></indexterm>
+<indexterm><primary>http_pages.h</primary><secondary>FORM_NAME_CPM_USVH</secondary></indexterm>
+<para><computeroutput>#define FORM_NAME_CPM_USVH&#160;&#160;&#160;&quot;d_cu&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00016">16</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8h_1a5ddd7521ad524438ef47933cccc16027"/><section>
+    <title>FORM_NAME_DOP_MAX</title>
+<indexterm><primary>FORM_NAME_DOP_MAX</primary><secondary>http_pages.h</secondary></indexterm>
+<indexterm><primary>http_pages.h</primary><secondary>FORM_NAME_DOP_MAX</secondary></indexterm>
+<para><computeroutput>#define FORM_NAME_DOP_MAX&#160;&#160;&#160;&quot;l_dm&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00034">34</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8h_1a86f8f5a04f35476f4a489e8b74db6366"/><section>
+    <title>FORM_NAME_ENABLE_JOURNAL</title>
+<indexterm><primary>FORM_NAME_ENABLE_JOURNAL</primary><secondary>http_pages.h</secondary></indexterm>
+<indexterm><primary>http_pages.h</primary><secondary>FORM_NAME_ENABLE_JOURNAL</secondary></indexterm>
+<para><computeroutput>#define FORM_NAME_ENABLE_JOURNAL&#160;&#160;&#160;&quot;d_ej&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00018">18</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8h_1a95ce4b4f383e36ec196282a39826f6c5"/><section>
+    <title>FORM_NAME_FIXED_RANGE</title>
+<indexterm><primary>FORM_NAME_FIXED_RANGE</primary><secondary>http_pages.h</secondary></indexterm>
+<indexterm><primary>http_pages.h</primary><secondary>FORM_NAME_FIXED_RANGE</secondary></indexterm>
+<para><computeroutput>#define FORM_NAME_FIXED_RANGE&#160;&#160;&#160;&quot;l_fr&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00033">33</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8h_1a096f276a1b519da8d831533f74ace4b7"/><section>
+    <title>FORM_NAME_LOC_FIXED_LAT</title>
+<indexterm><primary>FORM_NAME_LOC_FIXED_LAT</primary><secondary>http_pages.h</secondary></indexterm>
+<indexterm><primary>http_pages.h</primary><secondary>FORM_NAME_LOC_FIXED_LAT</secondary></indexterm>
+<para><computeroutput>#define FORM_NAME_LOC_FIXED_LAT&#160;&#160;&#160;&quot;l_ha&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00031">31</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8h_1adcc40f6da0a247463f074731e8907d73"/><section>
+    <title>FORM_NAME_LOC_FIXED_LON</title>
+<indexterm><primary>FORM_NAME_LOC_FIXED_LON</primary><secondary>http_pages.h</secondary></indexterm>
+<indexterm><primary>http_pages.h</primary><secondary>FORM_NAME_LOC_FIXED_LON</secondary></indexterm>
+<para><computeroutput>#define FORM_NAME_LOC_FIXED_LON&#160;&#160;&#160;&quot;l_ho&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00032">32</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8h_1a601dbed3cd2afa2f9f7cb55ff669923e"/><section>
+    <title>FORM_NAME_LOG_VOID</title>
+<indexterm><primary>FORM_NAME_LOG_VOID</primary><secondary>http_pages.h</secondary></indexterm>
+<indexterm><primary>http_pages.h</primary><secondary>FORM_NAME_LOG_VOID</secondary></indexterm>
+<para><computeroutput>#define FORM_NAME_LOG_VOID&#160;&#160;&#160;&quot;d_lv&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00019">19</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8h_1ada823b1f31aaaee10bc3b846f1434a53"/><section>
+    <title>FORM_NAME_MANUAL_LOGGING</title>
+<indexterm><primary>FORM_NAME_MANUAL_LOGGING</primary><secondary>http_pages.h</secondary></indexterm>
+<indexterm><primary>http_pages.h</primary><secondary>FORM_NAME_MANUAL_LOGGING</secondary></indexterm>
+<para><computeroutput>#define FORM_NAME_MANUAL_LOGGING&#160;&#160;&#160;&quot;d_ml&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00017">17</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8h_1aa407c1d67e39d469202d6ed135bbbdd2"/><section>
+    <title>FORM_NAME_SCREEN_DIM_TIMEOUT</title>
+<indexterm><primary>FORM_NAME_SCREEN_DIM_TIMEOUT</primary><secondary>http_pages.h</secondary></indexterm>
+<indexterm><primary>http_pages.h</primary><secondary>FORM_NAME_SCREEN_DIM_TIMEOUT</secondary></indexterm>
+<para><computeroutput>#define FORM_NAME_SCREEN_DIM_TIMEOUT&#160;&#160;&#160;&quot;d_dt&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00020">20</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8h_1ac6d9c7f4b2aa55af0b004cd15cb02fca"/><section>
+    <title>FORM_NAME_SCREEN_OFF_TIMEOUT</title>
+<indexterm><primary>FORM_NAME_SCREEN_OFF_TIMEOUT</primary><secondary>http_pages.h</secondary></indexterm>
+<indexterm><primary>http_pages.h</primary><secondary>FORM_NAME_SCREEN_OFF_TIMEOUT</secondary></indexterm>
+<para><computeroutput>#define FORM_NAME_SCREEN_OFF_TIMEOUT&#160;&#160;&#160;&quot;d_ot&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00021">21</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8h_1a1c66dedc46fd01c917f6d9d61867b169"/><section>
+    <title>FORM_NAME_WIFI_PASS</title>
+<indexterm><primary>FORM_NAME_WIFI_PASS</primary><secondary>http_pages.h</secondary></indexterm>
+<indexterm><primary>http_pages.h</primary><secondary>FORM_NAME_WIFI_PASS</secondary></indexterm>
+<para><computeroutput>#define FORM_NAME_WIFI_PASS&#160;&#160;&#160;&quot;c_wp&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00027">27</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+</section>
+<anchor xml:id="_http__pages_8h_1a96d41a86c2cbed3a1a481f9124820640"/><section>
+    <title>FORM_NAME_WIFI_SSID</title>
+<indexterm><primary>FORM_NAME_WIFI_SSID</primary><secondary>http_pages.h</secondary></indexterm>
+<indexterm><primary>http_pages.h</primary><secondary>FORM_NAME_WIFI_SSID</secondary></indexterm>
+<para><computeroutput>#define FORM_NAME_WIFI_SSID&#160;&#160;&#160;&quot;c_ws&quot;</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00026">26</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
 </section>
 <anchor xml:id="_http__pages_8h_1ada5878d891f82a42326746c9dbe6b9a6"/><section>
     <title>PURE_CSS_SIZE</title>
 <indexterm><primary>PURE_CSS_SIZE</primary><secondary>http_pages.h</secondary></indexterm>
 <indexterm><primary>http_pages.h</primary><secondary>PURE_CSS_SIZE</secondary></indexterm>
 <para><computeroutput>#define PURE_CSS_SIZE&#160;&#160;&#160;3929</computeroutput></para><para>
-Definition at line <link linkend="_http__pages_8h_source_1l00008">8</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+Definition at line <link linkend="_http__pages_8h_source_1l00009">9</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
 </section>
 <anchor xml:id="_http__pages_8h_1aebb78aa92bb82104805350394cf60e62"/><section>
     <title>TRANSMISSION_SIZE</title>
 <indexterm><primary>TRANSMISSION_SIZE</primary><secondary>http_pages.h</secondary></indexterm>
 <indexterm><primary>http_pages.h</primary><secondary>TRANSMISSION_SIZE</secondary></indexterm>
-<para><computeroutput>#define TRANSMISSION_SIZE&#160;&#160;&#160;4098</computeroutput></para><para>
-Definition at line <link linkend="_http__pages_8h_source_1l00006">6</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+<para><computeroutput>#define TRANSMISSION_SIZE&#160;&#160;&#160;6000</computeroutput></para><para>
+Definition at line <link linkend="_http__pages_8h_source_1l00007">7</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
 </section>
 </section>
 </section>

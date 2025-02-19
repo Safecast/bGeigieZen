@@ -15,13 +15,13 @@
 <simplesect>
     <title>Static Public Member Functions    </title>
         <itemizedlist>
-            <listitem><para>static const char * <link linkend="_class_http_pages_1a1d1d7cd02d52ee3802c8a968777d4c51">get_home_page</link> (uint32_t device_id)</para>
+            <listitem><para>static const char * <link linkend="_class_http_pages_1a2029cf0ccea4c0cf9497eb2b0a30f78a">get_home_page</link> (const <link linkend="_class_local_storage">LocalStorage</link> &amp;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)</para>
 </listitem>
-            <listitem><para>static const char * <link linkend="_class_http_pages_1a699f3b010b822aeef2cf40f0d865038c">get_config_device_page</link> (bool display_success, uint32_t device_id)</para>
+            <listitem><para>static const char * <link linkend="_class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4">get_config_device_page</link> (bool display_success, const <link linkend="_class_local_storage">LocalStorage</link> &amp;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)</para>
 </listitem>
-            <listitem><para>static const char * <link linkend="_class_http_pages_1a71db1b40789f4ad547741bc3b5a4b9a2">get_config_connection_page</link> (bool display_success, uint32_t device_id)</para>
+            <listitem><para>static const char * <link linkend="_class_http_pages_1a64735f36d77809ba60b69d33ad6c0003">get_config_connection_page</link> (bool display_success, const <link linkend="_class_local_storage">LocalStorage</link> &amp;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)</para>
 </listitem>
-            <listitem><para>static const char * <link linkend="_class_http_pages_1a75dc19ae45871ef3dfc2c412fe520862">get_config_location_page</link> (bool display_success, uint32_t device_id)</para>
+            <listitem><para>static const char * <link linkend="_class_http_pages_1a74d1994442f6781235fa7d76a9c7c36a">get_config_location_page</link> (bool display_success, const <link linkend="_class_local_storage">LocalStorage</link> &amp;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -41,7 +41,7 @@
 <section>
 <title>Detailed Description</title>
 <para>
-Definition at line <link linkend="_http__pages_8h_source_1l00012">12</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+Definition at line <link linkend="_http__pages_8h_source_1l00037">37</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
 </section>
 <section>
 <title>Constructor &amp; Destructor Documentation</title>
@@ -53,11 +53,11 @@ Definition at line <link linkend="_http__pages_8h_source_1l00012">12</link> of f
 </section>
 <section>
 <title>Member Function Documentation</title>
-<anchor xml:id="_class_http_pages_1a71db1b40789f4ad547741bc3b5a4b9a2"/><section>
+<anchor xml:id="_class_http_pages_1a64735f36d77809ba60b69d33ad6c0003"/><section>
     <title>get_config_connection_page()</title>
 <indexterm><primary>get_config_connection_page</primary><secondary>HttpPages</secondary></indexterm>
 <indexterm><primary>HttpPages</primary><secondary>get_config_connection_page</secondary></indexterm>
-<para><computeroutput>const char * HttpPages::get_config_connection_page (bool display_success, uint32_t device_id)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para><computeroutput>const char * HttpPages::get_config_connection_page (bool display_success, const <link linkend="_class_local_storage">LocalStorage</link> &amp; settings)<computeroutput>[static]</computeroutput></computeroutput></para>
 <para>Render the configuration page for connection settings 
                 <formalpara>
                     <title>
@@ -114,22 +114,22 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_http__pages_8cpp_source_1l00135">135</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00249">249</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_http_pages_a71db1b40789f4ad547741bc3b5a4b9a2_icgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_http_pages_a64735f36d77809ba60b69d33ad6c0003_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
 </para>
 </section>
-<anchor xml:id="_class_http_pages_1a699f3b010b822aeef2cf40f0d865038c"/><section>
+<anchor xml:id="_class_http_pages_1a658899dc73c1f152576b4c9c8a20c5a4"/><section>
     <title>get_config_device_page()</title>
 <indexterm><primary>get_config_device_page</primary><secondary>HttpPages</secondary></indexterm>
 <indexterm><primary>HttpPages</primary><secondary>get_config_device_page</secondary></indexterm>
-<para><computeroutput>const char * HttpPages::get_config_device_page (bool display_success, uint32_t device_id)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para><computeroutput>const char * HttpPages::get_config_device_page (bool display_success, const <link linkend="_class_local_storage">LocalStorage</link> &amp; settings)<computeroutput>[static]</computeroutput></computeroutput></para>
 <para>Render the configuration page for device settings 
                 <formalpara>
                     <title>
@@ -171,22 +171,22 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_http__pages_8cpp_source_1l00095">95</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00093">93</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_http_pages_a699f3b010b822aeef2cf40f0d865038c_icgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_http_pages_a658899dc73c1f152576b4c9c8a20c5a4_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
 </para>
 </section>
-<anchor xml:id="_class_http_pages_1a75dc19ae45871ef3dfc2c412fe520862"/><section>
+<anchor xml:id="_class_http_pages_1a74d1994442f6781235fa7d76a9c7c36a"/><section>
     <title>get_config_location_page()</title>
 <indexterm><primary>get_config_location_page</primary><secondary>HttpPages</secondary></indexterm>
 <indexterm><primary>HttpPages</primary><secondary>get_config_location_page</secondary></indexterm>
-<para><computeroutput>const char * HttpPages::get_config_location_page (bool display_success, uint32_t device_id)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para><computeroutput>const char * HttpPages::get_config_location_page (bool display_success, const <link linkend="_class_local_storage">LocalStorage</link> &amp; settings)<computeroutput>[static]</computeroutput></computeroutput></para>
 <para>Render the configuration page for location settings 
                 <formalpara>
                     <title>
@@ -243,22 +243,22 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_http__pages_8cpp_source_1l00115">115</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00192">192</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_http_pages_a75dc19ae45871ef3dfc2c412fe520862_icgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_http_pages_a74d1994442f6781235fa7d76a9c7c36a_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
 </para>
 </section>
-<anchor xml:id="_class_http_pages_1a1d1d7cd02d52ee3802c8a968777d4c51"/><section>
+<anchor xml:id="_class_http_pages_1a2029cf0ccea4c0cf9497eb2b0a30f78a"/><section>
     <title>get_home_page()</title>
 <indexterm><primary>get_home_page</primary><secondary>HttpPages</secondary></indexterm>
 <indexterm><primary>HttpPages</primary><secondary>get_home_page</secondary></indexterm>
-<para><computeroutput>const char * HttpPages::get_home_page (uint32_t device_id)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para><computeroutput>const char * HttpPages::get_home_page (const <link linkend="_class_local_storage">LocalStorage</link> &amp; settings)<computeroutput>[static]</computeroutput></computeroutput></para>
 <para>Render the home page 
                 <formalpara>
                     <title>
@@ -285,12 +285,12 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_http__pages_8cpp_source_1l00074">74</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
+Definition at line <link linkend="_http__pages_8cpp_source_1l00069">69</link> of file <link linkend="_http__pages_8cpp_source">http_pages.cpp</link>.</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_http_pages_a1d1d7cd02d52ee3802c8a968777d4c51_icgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_http_pages_a2029cf0ccea4c0cf9497eb2b0a30f78a_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
@@ -304,14 +304,14 @@ Here is the caller graph for this function:<para>
 <indexterm><primary>favicon</primary><secondary>HttpPages</secondary></indexterm>
 <indexterm><primary>HttpPages</primary><secondary>favicon</secondary></indexterm>
 <para><computeroutput>const uint8_t HttpPages::favicon<computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_http__pages_8h_source_1l00071">71</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+Definition at line <link linkend="_http__pages_8h_source_1l00596">596</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
 </section>
 <anchor xml:id="_class_http_pages_1a9d1744128b715be721740fe9783a3b98"/><section>
     <title>internet_access</title>
 <indexterm><primary>internet_access</primary><secondary>HttpPages</secondary></indexterm>
 <indexterm><primary>HttpPages</primary><secondary>internet_access</secondary></indexterm>
 <para><computeroutput>bool HttpPages::internet_access = false<computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_http__pages_8h_source_1l00074">74</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+Definition at line <link linkend="_http__pages_8h_source_1l00099">99</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
 </section>
 <anchor xml:id="_class_http_pages_1a4a7f7da507251011076206062a49e0af"/><section>
     <title>pure_css</title>
@@ -320,7 +320,7 @@ Definition at line <link linkend="_http__pages_8h_source_1l00074">74</link> of f
 <para><computeroutput>const uint8_t HttpPages::pure_css<computeroutput>[static]</computeroutput></computeroutput></para>
 <para>Gzipped pure css library <link xlink:href="https://purecss.io/">https://purecss.io/</link> </para>
 <para>
-Definition at line <link linkend="_http__pages_8h_source_1l00070">70</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+Definition at line <link linkend="_http__pages_8h_source_1l00347">347</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
 </section>
 <anchor xml:id="_class_http_pages_1a27971511660fee4a1b5f5f8b7f7e47f4"/><section>
     <title>pure_js</title>
@@ -333,7 +333,7 @@ Definition at line <link linkend="_http__pages_8h_source_1l00070">70</link> of f
 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;push(b);}e.className=r.join(&apos;&#32;&apos;);},ta=(e)=&gt;{e.preventDefault();tc(l,a);tc(m,a);tc(n,a);};n.o&quot;</emphasis>
 &#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;nclick=(e)=&gt;ta(e);c.onclick=(e)=&gt;m.className.indexOf(a)!==-1&#32;&amp;&amp;&#32;ta(e);}(this,this.document));&quot;</emphasis>
 </programlisting><para>
-Definition at line <link linkend="_http__pages_8h_source_1l00072">72</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
+Definition at line <link linkend="_http__pages_8h_source_1l00097">97</link> of file <link linkend="_http__pages_8h_source">http_pages.h</link>.</para>
 </section>
 <para>
 The documentation for this class was generated from the following files:</para>
