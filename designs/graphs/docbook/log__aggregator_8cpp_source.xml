@@ -2,86 +2,121 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_log__aggregator_8cpp_source" xml:lang="en-US">
 <title>log_aggregator.cpp</title>
 <indexterm><primary>bgeigiezen_firmware/workers/log_aggregator.cpp</primary></indexterm>
-Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_log__aggregator_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_log__aggregator_8h">log_aggregator.h</link>&quot;</emphasis>
-<anchor xml:id="_log__aggregator_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_gm__sensor_8h">gm_sensor.h</link>&quot;</emphasis>
-<anchor xml:id="_log__aggregator_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_gps__connector_8h">gps_connector.h</link>&quot;</emphasis>
-<anchor xml:id="_log__aggregator_8cpp_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_battery__indicator_8h">battery_indicator.h</link>&quot;</emphasis>
-<anchor xml:id="_log__aggregator_8cpp_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_identifiers_8h">identifiers.h</link>&quot;</emphasis>
-<anchor xml:id="_log__aggregator_8cpp_source_1l00006"/>00006 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00007"/><link linkend="_log__aggregator_8cpp_1a0a3cc1d5cde549e408f825ddd7f5853d">00007</link> <emphasis role="preprocessor">#define&#32;D2R&#32;(PI&#32;/&#32;180.0)</emphasis>
-<anchor xml:id="_log__aggregator_8cpp_source_1l00008"/><link linkend="_log__aggregator_8cpp_1a337caaa93a8a28930d24c2238da8ac1d">00008</link> <emphasis role="preprocessor">#define&#32;FIXED_LOCATION_RANGE_KM&#32;0.4</emphasis>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_log__aggregator_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_functions_8h">utils/functions.h</link>&quot;</emphasis>
+<anchor xml:id="_log__aggregator_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_log__aggregator_8h">log_aggregator.h</link>&quot;</emphasis>
+<anchor xml:id="_log__aggregator_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_battery__indicator_8h">battery_indicator.h</link>&quot;</emphasis>
+<anchor xml:id="_log__aggregator_8cpp_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_gm__sensor_8h">gm_sensor.h</link>&quot;</emphasis>
+<anchor xml:id="_log__aggregator_8cpp_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_gps__connector_8h">gps_connector.h</link>&quot;</emphasis>
+<anchor xml:id="_log__aggregator_8cpp_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_identifiers_8h">identifiers.h</link>&quot;</emphasis>
+<anchor xml:id="_log__aggregator_8cpp_source_1l00007"/>00007 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00008"/><link linkend="_log__aggregator_8cpp_1a321e36bd633edf2b39a21cb7b3241360">00008</link> <emphasis role="preprocessor">#define&#32;LOG_SECOND_TO_TIMEOUT(sec)&#32;((sec&#32;*&#32;1000)&#32;-&#32;100)</emphasis>
 <anchor xml:id="_log__aggregator_8cpp_source_1l00009"/>00009 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00010"/>00010 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00011"/>00011 <emphasis role="comment">/*&#32;compute&#32;check&#32;sum&#32;of&#32;N&#32;bytes&#32;in&#32;array&#32;s&#32;*/</emphasis>
-<anchor xml:id="_log__aggregator_8cpp_source_1l00012"/><link linkend="_log__aggregator_8cpp_1a59f30f324b3fc88c68fd16abc2d95d41">00012</link> <emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_log__aggregator_8cpp_1a59f30f324b3fc88c68fd16abc2d95d41">checksum</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;s,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;N)&#32;{
-<anchor xml:id="_log__aggregator_8cpp_source_1l00013"/>00013 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;
-<anchor xml:id="_log__aggregator_8cpp_source_1l00014"/>00014 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;chk&#32;=&#32;s[i];
-<anchor xml:id="_log__aggregator_8cpp_source_1l00015"/>00015 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(i&#32;=&#32;1;&#32;i&#32;&lt;&#32;N;&#32;i++)&#32;{
-<anchor xml:id="_log__aggregator_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;chk&#32;^=&#32;s[i];
-<anchor xml:id="_log__aggregator_8cpp_source_1l00017"/>00017 &#32;&#32;};
-<anchor xml:id="_log__aggregator_8cpp_source_1l00018"/>00018 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00019"/>00019 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;chk;
-<anchor xml:id="_log__aggregator_8cpp_source_1l00020"/>00020 }
-<anchor xml:id="_log__aggregator_8cpp_source_1l00021"/>00021 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00030"/><link linkend="_log__aggregator_8cpp_1a9b1d6cb0ae5f9e0e2eb8547c8d1fa038">00030</link> <emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_log__aggregator_8cpp_1a9b1d6cb0ae5f9e0e2eb8547c8d1fa038">haversine_km</link>(<emphasis role="keywordtype">double</emphasis>&#32;lat1,&#32;<emphasis role="keywordtype">double</emphasis>&#32;long1,&#32;<emphasis role="keywordtype">double</emphasis>&#32;lat2,&#32;<emphasis role="keywordtype">double</emphasis>&#32;long2)&#32;{
-<anchor xml:id="_log__aggregator_8cpp_source_1l00031"/>00031 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;dlong&#32;=&#32;(long2&#32;-&#32;long1)&#32;*&#32;<link linkend="_log__aggregator_8cpp_1a0a3cc1d5cde549e408f825ddd7f5853d">D2R</link>;
-<anchor xml:id="_log__aggregator_8cpp_source_1l00032"/>00032 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;dlat&#32;=&#32;(lat2&#32;-&#32;lat1)&#32;*&#32;<link linkend="_log__aggregator_8cpp_1a0a3cc1d5cde549e408f825ddd7f5853d">D2R</link>;
-<anchor xml:id="_log__aggregator_8cpp_source_1l00033"/>00033 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;a&#32;=&#32;pow(sin(dlat&#32;/&#32;2.0),&#32;2)&#32;+&#32;cos(lat1&#32;*&#32;<link linkend="_log__aggregator_8cpp_1a0a3cc1d5cde549e408f825ddd7f5853d">D2R</link>)&#32;*&#32;cos(lat2&#32;*&#32;<link linkend="_log__aggregator_8cpp_1a0a3cc1d5cde549e408f825ddd7f5853d">D2R</link>)&#32;*&#32;pow(sin(dlong&#32;/&#32;2.0),&#32;2);
-<anchor xml:id="_log__aggregator_8cpp_source_1l00034"/>00034 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;c&#32;=&#32;2&#32;*&#32;atan2(sqrt(a),&#32;sqrt(1&#32;-&#32;a));
-<anchor xml:id="_log__aggregator_8cpp_source_1l00035"/>00035 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;6367&#32;*&#32;c;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00015"/><link linkend="_log__aggregator_8cpp_1a2a3c66cbe993c2d69da64f0576581018">00015</link> <emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_log__aggregator_8cpp_1a2a3c66cbe993c2d69da64f0576581018">dd_to_dm</link>(<emphasis role="keywordtype">double</emphasis>&#32;dd)&#32;{
+<anchor xml:id="_log__aggregator_8cpp_source_1l00016"/>00016 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;degrees&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">int</emphasis><emphasis role="keyword">&gt;</emphasis>(dd);
+<anchor xml:id="_log__aggregator_8cpp_source_1l00017"/>00017 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;minutes&#32;=&#32;(dd&#32;-&#32;degrees)&#32;*&#32;60;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00018"/>00018 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(degrees)&#32;*&#32;100&#32;+&#32;minutes;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00019"/>00019 }
+<anchor xml:id="_log__aggregator_8cpp_source_1l00020"/>00020 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00021"/>00021 <emphasis role="comment">/*&#32;&#32;*/</emphasis>
+<anchor xml:id="_log__aggregator_8cpp_source_1l00028"/><link linkend="_log__aggregator_8cpp_1a59f30f324b3fc88c68fd16abc2d95d41">00028</link> <emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_log__aggregator_8cpp_1a59f30f324b3fc88c68fd16abc2d95d41">checksum</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;s,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;N)&#32;{
+<anchor xml:id="_log__aggregator_8cpp_source_1l00029"/>00029 &#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;i&#32;=&#32;0;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00030"/>00030 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;chk&#32;=&#32;s[i];
+<anchor xml:id="_log__aggregator_8cpp_source_1l00031"/>00031 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(i&#32;=&#32;1;&#32;i&#32;&lt;&#32;N;&#32;i++)&#32;{
+<anchor xml:id="_log__aggregator_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;chk&#32;^=&#32;s[i];
+<anchor xml:id="_log__aggregator_8cpp_source_1l00033"/>00033 &#32;&#32;};
+<anchor xml:id="_log__aggregator_8cpp_source_1l00034"/>00034 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00035"/>00035 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;chk;
 <anchor xml:id="_log__aggregator_8cpp_source_1l00036"/>00036 }
 <anchor xml:id="_log__aggregator_8cpp_source_1l00037"/>00037 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00038"/><link linkend="_class_log_aggregator_1a8579c4b144649166f3689c9177c8f3e9">00038</link> <link linkend="_class_log_aggregator_1a8579c4b144649166f3689c9177c8f3e9">LogAggregator::LogAggregator</link>(<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)&#32;:&#32;ProcessWorker&lt;<link linkend="_struct_data_line">DataLine</link>&gt;(5000),&#32;_settings(<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)&#32;{}
-<anchor xml:id="_log__aggregator_8cpp_source_1l00039"/>00039 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00038"/>00038 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00039"/><link linkend="_class_log_aggregator_1a8579c4b144649166f3689c9177c8f3e9">00039</link> <link linkend="_class_log_aggregator_1a8579c4b144649166f3689c9177c8f3e9">LogAggregator::LogAggregator</link>(<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)&#32;:&#32;ProcessWorker&lt;<link linkend="_struct_data_line">DataLine</link>&gt;(<link linkend="_log__aggregator_8cpp_1a321e36bd633edf2b39a21cb7b3241360">LOG_SECOND_TO_TIMEOUT</link>(<link linkend="_user__config_8h_1a8a21e517d3e43eb7ddb20594faffc7bb">LOG_SECONDS_DELAY</link>)),&#32;_settings(<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)&#32;{
 <anchor xml:id="_log__aggregator_8cpp_source_1l00040"/>00040 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00041"/><link linkend="_class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494">00041</link> int8_t&#32;<link linkend="_class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494">LogAggregator::produce_data</link>(<emphasis role="keyword">const</emphasis>&#32;WorkerMap&amp;&#32;workers)&#32;{
-<anchor xml:id="_log__aggregator_8cpp_source_1l00042"/>00042 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;gm_sensor_data&#32;=&#32;workers.worker&lt;<link linkend="_class_geiger_counter">GeigerCounter</link>&gt;(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fadce40ed07be9b46afdd704f59b77a907">k_worker_gm_sensor</link>)-&gt;get_data();
-<anchor xml:id="_log__aggregator_8cpp_source_1l00043"/>00043 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;gps_data&#32;=&#32;workers.worker&lt;<link linkend="_class_gps_connector">GpsConnector</link>&gt;(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211">k_worker_gps_connector</link>)-&gt;get_data();
-<anchor xml:id="_log__aggregator_8cpp_source_1l00044"/>00044 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;battery_data&#32;=&#32;workers.worker&lt;<link linkend="_class_battery_indicator">BatteryIndicator</link>&gt;(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa6daa8cab2f33582eddf479bf8dc018d9">k_worker_battery_indicator</link>)-&gt;get_data();
-<anchor xml:id="_log__aggregator_8cpp_source_1l00045"/>00045 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00046"/>00046 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(gps_data.valid())&#32;{
-<anchor xml:id="_log__aggregator_8cpp_source_1l00047"/>00047 &#32;&#32;&#32;&#32;data.in_fixed_range&#32;=&#32;<link linkend="_log__aggregator_8cpp_1a9b1d6cb0ae5f9e0e2eb8547c8d1fa038">haversine_km</link>(gps_data.latitude,&#32;gps_data.longitude,&#32;_settings.<link linkend="_class_local_storage_1a2366a6a1473c708580e4b9ad1d92f3ca">get_fixed_latitude</link>(),&#32;_settings.<link linkend="_class_local_storage_1a2972e2632be5da773cfa65e23be878e5">get_fixed_longitude</link>())&#32;&lt;&#32;<link linkend="_log__aggregator_8cpp_1a337caaa93a8a28930d24c2238da8ac1d">FIXED_LOCATION_RANGE_KM</link>;
-<anchor xml:id="_log__aggregator_8cpp_source_1l00048"/>00048 &#32;&#32;}
-<anchor xml:id="_log__aggregator_8cpp_source_1l00049"/>00049 &#32;&#32;data.cpm&#32;=&#32;gm_sensor_data.cpm_comp;
-<anchor xml:id="_log__aggregator_8cpp_source_1l00050"/>00050 &#32;&#32;data.latitude&#32;=&#32;gps_data.latitude;
-<anchor xml:id="_log__aggregator_8cpp_source_1l00051"/>00051 &#32;&#32;data.longitude&#32;=&#32;gps_data.longitude;
-<anchor xml:id="_log__aggregator_8cpp_source_1l00052"/>00052 &#32;&#32;data.altitude&#32;=&#32;gps_data.altitudeMSL;
-<anchor xml:id="_log__aggregator_8cpp_source_1l00053"/>00053 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00054"/>00054 &#32;&#32;<emphasis role="comment">//&#32;Create&#32;log&#32;line&#32;(for&#32;logging&#32;and&#32;sending&#32;over&#32;bluetooth</emphasis>
+<anchor xml:id="_log__aggregator_8cpp_source_1l00041"/>00041 }
+<anchor xml:id="_log__aggregator_8cpp_source_1l00042"/>00042 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00043"/>00043 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00044"/><link linkend="_class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494">00044</link> int8_t&#32;<link linkend="_class_log_aggregator_1a343c8421e0dfe93651f3be2ef44e4494">LogAggregator::produce_data</link>(<emphasis role="keyword">const</emphasis>&#32;WorkerMap&amp;&#32;workers)&#32;{
+<anchor xml:id="_log__aggregator_8cpp_source_1l00045"/>00045 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;<link linkend="_main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b">gm_sensor</link>&#32;=&#32;workers.worker&lt;<link linkend="_class_geiger_counter">GeigerCounter</link>&gt;(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fadce40ed07be9b46afdd704f59b77a907">k_worker_gm_sensor</link>);
+<anchor xml:id="_log__aggregator_8cpp_source_1l00046"/>00046 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00047"/>00047 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b">gm_sensor</link>-&gt;is_fresh())&#32;{
+<anchor xml:id="_log__aggregator_8cpp_source_1l00048"/>00048 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;No&#32;fresh&#32;data&#32;yet,&#32;log&#32;only&#32;once&#32;every&#32;5&#32;seconds</emphasis>
+<anchor xml:id="_log__aggregator_8cpp_source_1l00049"/>00049 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;e_worker_idle;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00050"/>00050 &#32;&#32;}
+<anchor xml:id="_log__aggregator_8cpp_source_1l00051"/>00051 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00052"/>00052 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;gm_sensor_data&#32;=&#32;<link linkend="_main_8cpp_1ae315ca7ebbecaa6191fce20ca109a21b">gm_sensor</link>-&gt;get_data();
+<anchor xml:id="_log__aggregator_8cpp_source_1l00053"/>00053 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;gps_data&#32;=&#32;workers.worker&lt;<link linkend="_class_gps_connector">GpsConnector</link>&gt;(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa2cb0209f1a3ab9da14313d7681eda211">k_worker_gps_connector</link>)-&gt;get_data();
+<anchor xml:id="_log__aggregator_8cpp_source_1l00054"/>00054 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keyword">auto</emphasis>&amp;&#32;battery_data&#32;=&#32;workers.worker&lt;<link linkend="_class_battery_indicator">BatteryIndicator</link>&gt;(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa6daa8cab2f33582eddf479bf8dc018d9">k_worker_battery_indicator</link>)-&gt;get_data();
 <anchor xml:id="_log__aggregator_8cpp_source_1l00055"/>00055 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00056"/>00056 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;latitude&#32;=&#32;data.latitude&#32;&lt;&#32;0&#32;?&#32;data.latitude&#32;*&#32;-1&#32;:&#32;data.latitude;
-<anchor xml:id="_log__aggregator_8cpp_source_1l00057"/>00057 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;NS&#32;=&#32;data.latitude&#32;&lt;&#32;0&#32;?&#32;<emphasis role="charliteral">&apos;S&apos;</emphasis>&#32;:&#32;<emphasis role="charliteral">&apos;N&apos;</emphasis>;
-<anchor xml:id="_log__aggregator_8cpp_source_1l00058"/>00058 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;longitude&#32;=&#32;data.longitude&#32;&lt;&#32;0&#32;?&#32;data.longitude&#32;*&#32;-1&#32;:&#32;data.longitude;
-<anchor xml:id="_log__aggregator_8cpp_source_1l00059"/>00059 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;WE&#32;=&#32;data.longitude&#32;&lt;&#32;0&#32;?&#32;<emphasis role="charliteral">&apos;W&apos;</emphasis>&#32;:&#32;<emphasis role="charliteral">&apos;E&apos;</emphasis>;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00056"/>00056 &#32;&#32;data.cpm&#32;=&#32;gm_sensor_data.cpm_comp;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00057"/>00057 &#32;&#32;data.latitude&#32;=&#32;gps_data.latitude;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00058"/>00058 &#32;&#32;data.longitude&#32;=&#32;gps_data.longitude;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00059"/>00059 &#32;&#32;data.altitude&#32;=&#32;gps_data.altitudeMSL;
 <anchor xml:id="_log__aggregator_8cpp_source_1l00060"/>00060 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00061"/>00061 &#32;&#32;sprintf(
-<anchor xml:id="_log__aggregator_8cpp_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;data.timestamp,
-<anchor xml:id="_log__aggregator_8cpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;%02d-%02d-%02dT%02d:%02d:%02dZ&quot;</emphasis>,
-<anchor xml:id="_log__aggregator_8cpp_source_1l00064"/>00064 &#32;&#32;&#32;&#32;&#32;&#32;gps_data.year,&#32;gps_data.month,&#32;gps_data.day,&#32;gps_data.hour,&#32;gps_data.minute,&#32;gps_data.second);
-<anchor xml:id="_log__aggregator_8cpp_source_1l00065"/>00065 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00066"/>00066 &#32;&#32;sprintf(
-<anchor xml:id="_log__aggregator_8cpp_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;data.log_string,
-<anchor xml:id="_log__aggregator_8cpp_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;$%s,%04d,%s,%u,%u,%u,%c,%0.7f,%c,%0.7f,%c,%.1f,%c,%d,%.1f&quot;</emphasis>,
-<anchor xml:id="_log__aggregator_8cpp_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_user__config_8h_1af4522a39d440e3c86985f3c84361a859">DEVICE_HEADER</link>,&#32;_settings.<link linkend="_class_local_storage_1a21a006de02dc8ab7f3a47aafeb894f65">get_device_id</link>(),
-<anchor xml:id="_log__aggregator_8cpp_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;data.timestamp,
-<anchor xml:id="_log__aggregator_8cpp_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;gm_sensor_data.cpm_comp,&#32;gm_sensor_data.cp5s,&#32;gm_sensor_data.total,&#32;gm_sensor_data.valid&#32;?&#32;<emphasis role="charliteral">&apos;A&apos;</emphasis>&#32;:&#32;<emphasis role="charliteral">&apos;V&apos;</emphasis>,
-<anchor xml:id="_log__aggregator_8cpp_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;latitude,&#32;NS,&#32;longitude,&#32;WE,&#32;data.altitude,&#32;gps_data.valid()&#32;?&#32;<emphasis role="charliteral">&apos;A&apos;</emphasis>&#32;:&#32;<emphasis role="charliteral">&apos;V&apos;</emphasis>,&#32;gps_data.satsInView,&#32;gps_data.hdop);
-<anchor xml:id="_log__aggregator_8cpp_source_1l00073"/>00073 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00074"/>00074 &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;len&#32;=&#32;0;
-<anchor xml:id="_log__aggregator_8cpp_source_1l00075"/>00075 &#32;&#32;len&#32;=&#32;strlen(data.log_string);
-<anchor xml:id="_log__aggregator_8cpp_source_1l00076"/>00076 &#32;&#32;data.log_string[len]&#32;=&#32;<emphasis role="charliteral">&apos;\0&apos;</emphasis>;
-<anchor xml:id="_log__aggregator_8cpp_source_1l00077"/>00077 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00078"/>00078 &#32;&#32;<emphasis role="comment">//&#32;generate&#32;checksum</emphasis>
-<anchor xml:id="_log__aggregator_8cpp_source_1l00079"/>00079 &#32;&#32;uint8_t&#32;chk&#32;=&#32;<link linkend="_log__aggregator_8cpp_1a59f30f324b3fc88c68fd16abc2d95d41">checksum</link>(data.log_string&#32;+&#32;1,&#32;len);
-<anchor xml:id="_log__aggregator_8cpp_source_1l00080"/>00080 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00081"/>00081 &#32;&#32;<emphasis role="comment">//&#32;add&#32;checksum&#32;to&#32;end&#32;of&#32;line&#32;before&#32;sending</emphasis>
-<anchor xml:id="_log__aggregator_8cpp_source_1l00082"/>00082 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(chk&#32;&lt;&#32;16)
-<anchor xml:id="_log__aggregator_8cpp_source_1l00083"/>00083 &#32;&#32;&#32;&#32;sprintf(data.log_string&#32;+&#32;len,&#32;<emphasis role="stringliteral">&quot;*0%X&quot;</emphasis>,&#32;(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>)chk);
-<anchor xml:id="_log__aggregator_8cpp_source_1l00084"/>00084 &#32;&#32;<emphasis role="keywordflow">else</emphasis>
-<anchor xml:id="_log__aggregator_8cpp_source_1l00085"/>00085 &#32;&#32;&#32;&#32;sprintf(data.log_string&#32;+&#32;len,&#32;<emphasis role="stringliteral">&quot;*%X&quot;</emphasis>,&#32;(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>)chk);
-<anchor xml:id="_log__aggregator_8cpp_source_1l00086"/>00086 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00087"/>00087 &#32;&#32;data.valid&#32;=&#32;gps_data.valid()&#32;&amp;&amp;&#32;gm_sensor_data.valid;
-<anchor xml:id="_log__aggregator_8cpp_source_1l00088"/>00088 
-<anchor xml:id="_log__aggregator_8cpp_source_1l00089"/>00089 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;e_worker_data_read;
-<anchor xml:id="_log__aggregator_8cpp_source_1l00090"/>00090 }
+<anchor xml:id="_log__aggregator_8cpp_source_1l00061"/>00061 &#32;&#32;<emphasis role="comment">//&#32;Create&#32;log&#32;line&#32;(for&#32;logging&#32;and&#32;sending&#32;over&#32;bluetooth</emphasis>
+<anchor xml:id="_log__aggregator_8cpp_source_1l00062"/>00062 &#32;&#32;uint16_t&#32;latitude_dm&#32;=&#32;0;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00063"/>00063 &#32;&#32;uint16_t&#32;latitude_s&#32;=&#32;0;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00064"/>00064 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;NS&#32;=&#32;<emphasis role="charliteral">&apos;N&apos;</emphasis>;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00065"/>00065 &#32;&#32;uint16_t&#32;longitude_dm&#32;=&#32;0;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00066"/>00066 &#32;&#32;uint16_t&#32;longitude_s&#32;=&#32;0;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00067"/>00067 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;WE&#32;=&#32;<emphasis role="charliteral">&apos;E&apos;</emphasis>;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00068"/>00068 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00069"/>00069 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(gps_data.valid())&#32;{
+<anchor xml:id="_log__aggregator_8cpp_source_1l00070"/>00070 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_settings.get_fixed_latitude()&#32;!=&#32;0&#32;&amp;&amp;&#32;_settings.get_fixed_longitude()&#32;!=&#32;0&#32;&amp;&amp;&#32;_settings.get_fixed_range()&#32;&gt;&#32;0)&#32;{
+<anchor xml:id="_log__aggregator_8cpp_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;data.in_fixed_range&#32;=&#32;<link linkend="_functions_8h_1a9b1d6cb0ae5f9e0e2eb8547c8d1fa038">haversine_km</link>(data.latitude,&#32;data.longitude,&#32;_settings.get_fixed_latitude(),&#32;_settings.get_fixed_longitude())&#32;&lt;&#32;_settings.get_fixed_range();
+<anchor xml:id="_log__aggregator_8cpp_source_1l00072"/>00072 &#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+<anchor xml:id="_log__aggregator_8cpp_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;data.in_fixed_range&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00074"/>00074 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_log__aggregator_8cpp_source_1l00075"/>00075 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00076"/>00076 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((_last_latitude&#32;&lt;&#32;0&#32;||&#32;_last_latitude&#32;&gt;&#32;0)&#32;&amp;&amp;&#32;(_last_longitude&#32;&lt;&#32;0&#32;||&#32;_last_longitude&#32;&gt;&#32;0))&#32;{
+<anchor xml:id="_log__aggregator_8cpp_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;plus_distance&#32;=&#32;<link linkend="_functions_8h_1a9b1d6cb0ae5f9e0e2eb8547c8d1fa038">haversine_km</link>(data.latitude,&#32;data.longitude,&#32;_last_latitude,&#32;_last_longitude);
+<anchor xml:id="_log__aggregator_8cpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;data.distance&#32;+=&#32;plus_distance;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;&#32;&#32;&#32;&#32;&#32;M5_LOGD(&quot;Distance&#32;%f&#32;=&#32;haversine_km(%f,&#32;%f,&#32;%f,&#32;%f)&quot;,&#32;plus_distance,&#32;data.latitude,&#32;data.longitude,&#32;_last_latitude,&#32;_last_longitude);</emphasis>
+<anchor xml:id="_log__aggregator_8cpp_source_1l00080"/>00080 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_log__aggregator_8cpp_source_1l00081"/>00081 &#32;&#32;&#32;&#32;_last_latitude&#32;=&#32;data.latitude;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00082"/>00082 &#32;&#32;&#32;&#32;_last_longitude&#32;=&#32;data.longitude;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00083"/>00083 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00084"/>00084 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00085"/>00085 &#32;&#32;&#32;&#32;NS&#32;=&#32;data.latitude&#32;&lt;&#32;0&#32;?&#32;<emphasis role="charliteral">&apos;S&apos;</emphasis>&#32;:&#32;<emphasis role="charliteral">&apos;N&apos;</emphasis>;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00086"/>00086 &#32;&#32;&#32;&#32;WE&#32;=&#32;data.longitude&#32;&lt;&#32;0&#32;?&#32;<emphasis role="charliteral">&apos;W&apos;</emphasis>&#32;:&#32;<emphasis role="charliteral">&apos;E&apos;</emphasis>;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00087"/>00087 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;latitude&#32;=&#32;<link linkend="_log__aggregator_8cpp_1a2a3c66cbe993c2d69da64f0576581018">dd_to_dm</link>(data.latitude&#32;&lt;&#32;0&#32;?&#32;data.latitude&#32;*&#32;-1&#32;:&#32;data.latitude);
+<anchor xml:id="_log__aggregator_8cpp_source_1l00089"/>00089 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;longitude&#32;=&#32;<link linkend="_log__aggregator_8cpp_1a2a3c66cbe993c2d69da64f0576581018">dd_to_dm</link>(data.longitude&#32;&lt;&#32;0&#32;?&#32;data.longitude&#32;*&#32;-1&#32;:&#32;data.longitude);
+<anchor xml:id="_log__aggregator_8cpp_source_1l00090"/>00090 &#32;&#32;&#32;&#32;latitude_dm&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint32_t<emphasis role="keyword">&gt;</emphasis>(latitude);
+<anchor xml:id="_log__aggregator_8cpp_source_1l00091"/>00091 &#32;&#32;&#32;&#32;latitude_s&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint32_t<emphasis role="keyword">&gt;</emphasis>((latitude&#32;-&#32;latitude_dm)&#32;*&#32;1e4);
+<anchor xml:id="_log__aggregator_8cpp_source_1l00092"/>00092 &#32;&#32;&#32;&#32;longitude_dm&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint32_t<emphasis role="keyword">&gt;</emphasis>(longitude);
+<anchor xml:id="_log__aggregator_8cpp_source_1l00093"/>00093 &#32;&#32;&#32;&#32;longitude_s&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint32_t<emphasis role="keyword">&gt;</emphasis>((longitude&#32;-&#32;longitude_dm)&#32;*&#32;1e4);
+<anchor xml:id="_log__aggregator_8cpp_source_1l00094"/>00094 &#32;&#32;}
+<anchor xml:id="_log__aggregator_8cpp_source_1l00095"/>00095 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00096"/>00096 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00097"/>00097 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;gps_valid&#32;=&#32;gps_data.valid();
+<anchor xml:id="_log__aggregator_8cpp_source_1l00098"/>00098 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;dop_valid&#32;=&#32;gps_valid&#32;&amp;&amp;&#32;gps_data.pdop&#32;*&#32;100&#32;&lt;&#32;_settings.get_dop_max();
+<anchor xml:id="_log__aggregator_8cpp_source_1l00099"/>00099 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00100"/>00100 &#32;&#32;sprintf(
+<anchor xml:id="_log__aggregator_8cpp_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;data.timestamp,
+<anchor xml:id="_log__aggregator_8cpp_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;%04d-%02d-%02dT%02d:%02d:%02dZ&quot;</emphasis>,
+<anchor xml:id="_log__aggregator_8cpp_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;gps_data.year,&#32;gps_data.month,&#32;gps_data.day,&#32;gps_data.hour,&#32;gps_data.minute,&#32;gps_data.second);
+<anchor xml:id="_log__aggregator_8cpp_source_1l00104"/>00104 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00105"/>00105 &#32;&#32;sprintf(
+<anchor xml:id="_log__aggregator_8cpp_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;data.log_string,
+<anchor xml:id="_log__aggregator_8cpp_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;$%s,%04d,%s,%u,%u,%u,%c,%04d.%04d,%c,%04d.%04d,%c,%.1f,%c,%d,%d&quot;</emphasis>,
+<anchor xml:id="_log__aggregator_8cpp_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_user__config_8h_1af4522a39d440e3c86985f3c84361a859">DEVICE_HEADER</link>,&#32;_settings.get_device_id(),
+<anchor xml:id="_log__aggregator_8cpp_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;data.timestamp,
+<anchor xml:id="_log__aggregator_8cpp_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;gm_sensor_data.cpm_comp,&#32;gm_sensor_data.cp5s,&#32;gm_sensor_data.total,&#32;gm_sensor_data.valid&#32;?&#32;<emphasis role="charliteral">&apos;A&apos;</emphasis>&#32;:&#32;<emphasis role="charliteral">&apos;V&apos;</emphasis>,
+<anchor xml:id="_log__aggregator_8cpp_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;latitude_dm,&#32;latitude_s,&#32;NS,&#32;longitude_dm,&#32;longitude_s,&#32;WE,&#32;data.altitude,&#32;gps_valid&#32;?&#32;<emphasis role="charliteral">&apos;A&apos;</emphasis>&#32;:&#32;<emphasis role="charliteral">&apos;V&apos;</emphasis>,&#32;gps_data.satsInView,
+<anchor xml:id="_log__aggregator_8cpp_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">int</emphasis><emphasis role="keyword">&gt;</emphasis>(100&#32;*&#32;gps_data.pdop));&#32;&#32;<emphasis role="comment">//&#32;DOP&#32;logged&#32;as&#32;integer,&#32;displayed&#32;as&#32;float&#32;</emphasis>
+<anchor xml:id="_log__aggregator_8cpp_source_1l00113"/>00113 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00114"/>00114 &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;len&#32;=&#32;strlen(data.log_string);
+<anchor xml:id="_log__aggregator_8cpp_source_1l00115"/>00115 &#32;&#32;data.log_string[len]&#32;=&#32;<emphasis role="charliteral">&apos;\0&apos;</emphasis>;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00116"/>00116 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00117"/>00117 &#32;&#32;<emphasis role="comment">//&#32;generate&#32;checksum</emphasis>
+<anchor xml:id="_log__aggregator_8cpp_source_1l00118"/>00118 &#32;&#32;uint8_t&#32;chk&#32;=&#32;<link linkend="_log__aggregator_8cpp_1a59f30f324b3fc88c68fd16abc2d95d41">checksum</link>(data.log_string&#32;+&#32;1,&#32;len);
+<anchor xml:id="_log__aggregator_8cpp_source_1l00119"/>00119 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00120"/>00120 &#32;&#32;<emphasis role="comment">//&#32;add&#32;checksum&#32;to&#32;end&#32;of&#32;line</emphasis>
+<anchor xml:id="_log__aggregator_8cpp_source_1l00121"/>00121 &#32;&#32;sprintf(data.log_string&#32;+&#32;len,&#32;<emphasis role="stringliteral">&quot;*%02X&quot;</emphasis>,&#32;chk);
+<anchor xml:id="_log__aggregator_8cpp_source_1l00122"/>00122 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00123"/>00123 &#32;&#32;data.gps_valid&#32;=&#32;gps_data.valid();
+<anchor xml:id="_log__aggregator_8cpp_source_1l00124"/>00124 &#32;&#32;data.gm_valid&#32;=&#32;gm_sensor_data.valid;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00125"/>00125 &#32;&#32;data.dop_valid&#32;=&#32;dop_valid;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00126"/>00126 
+<anchor xml:id="_log__aggregator_8cpp_source_1l00127"/>00127 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;e_worker_data_read;
+<anchor xml:id="_log__aggregator_8cpp_source_1l00128"/>00128 }
 </programlisting></section>

@@ -1,0 +1,314 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_base_debug_logger" xml:lang="en-US">
+<title>BaseDebugLogger Class Reference</title>
+<indexterm><primary>BaseDebugLogger</primary></indexterm>
+<para>
+<computeroutput>#include &lt;debug_logger.h&gt;</computeroutput>
+</para>
+Inheritance diagram for BaseDebugLogger:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_debug_logger__inherit__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for BaseDebugLogger:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_debug_logger__coll__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_base_debug_logger_1a7f2c151112b4efde18eecfd0a10dfada">BaseDebugLogger</link> (<link linkend="_class_local_storage">LocalStorage</link> &amp;config, const char *logging_name)</para>
+
+<para><link linkend="_class_base_debug_logger">BaseDebugLogger</link>. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_base_debug_logger_1a7db83bc12a20907a388454e4ffe6dfaa">~BaseDebugLogger</link> ()=default</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_class_base_debug_logger_1a99b27162f11d41d16d3a1e08d6994f9d">activate</link> (bool retry) override</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_base_debug_logger_1a2d9682cdd5615937e8a826067a339fb8">deactivate</link> () override</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_base_debug_logger_1a3d6bb38e095578e89619ce37ef310c74">handle_produced_work</link> (const worker_map_t &amp;workers) final</para>
+</listitem>
+            <listitem><para>virtual void <link linkend="_class_base_debug_logger_1ab825ff0eecb945a2470965805346d3c7">write_initial_lines</link> ()</para>
+</listitem>
+            <listitem><para>virtual bool <link linkend="_class_base_debug_logger_1a877298bae6e6d5f982ca53e86578882e">write_line</link> (const worker_map_t &amp;workers)=0</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_local_storage">LocalStorage</link> &amp; <link linkend="_class_base_debug_logger_1a8d9c2385a1eb9934e08f423658d75f31">_config</link></para>
+</listitem>
+            <listitem><para>char <link linkend="_class_base_debug_logger_1ac692fc2525138fc82e250d38b22c41e2">_logging_name</link> [20]</para>
+</listitem>
+            <listitem><para>char <link linkend="_class_base_debug_logger_1a05340476b0d2a164b7a62289027b2620">_logging_to</link> [<link linkend="_user__config_8h_1a75f97d568a246165199355e9c8272011">LOG_FILENAME_SIZE</link>]</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_debug_logger_1ab16c84f891c4df23d4353e47d0ac8ea6">_is_temp</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_class_base_debug_logger_1ad31a29027cc8d028a75ef081b0164cfa">_total</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Debug log base, extend with write_line </para>
+<para>
+Definition at line <link linkend="_debug__logger_8h_source_1l00013">13</link> of file <link linkend="_debug__logger_8h_source">debug_logger.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_base_debug_logger_1a7f2c151112b4efde18eecfd0a10dfada"/><section>
+    <title>BaseDebugLogger()</title>
+<indexterm><primary>BaseDebugLogger</primary><secondary>BaseDebugLogger</secondary></indexterm>
+<indexterm><primary>BaseDebugLogger</primary><secondary>BaseDebugLogger</secondary></indexterm>
+<para><computeroutput>BaseDebugLogger::BaseDebugLogger (<link linkend="_class_local_storage">LocalStorage</link> &amp; config, const char * logging_name)<computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+
+<para><link linkend="_class_base_debug_logger">BaseDebugLogger</link>. </para>
+</para>
+
+<para>Constructor for <link linkend="_class_base_debug_logger">BaseDebugLogger</link></para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>config</entry><entry>
+<para>Reference to the <link linkend="_class_local_storage">LocalStorage</link> worker </para>
+</entry>
+                            </row>
+                            <row>
+<entry>logging_name</entry><entry>
+<para>C string of the logging name (e.g. &quot;gps&quot;, &quot;survey&quot;, etc.)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Note that this constructor is protected, meaning that it can only be called from the constructors of derived classes. </para>
+<para>
+Definition at line <link linkend="_debug__logger_8cpp_source_1l00024">24</link> of file <link linkend="_debug__logger_8cpp_source">debug_logger.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_debug_logger_a7f2c151112b4efde18eecfd0a10dfada_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_debug_logger_1a7db83bc12a20907a388454e4ffe6dfaa"/><section>
+    <title>~BaseDebugLogger()</title>
+<indexterm><primary>~BaseDebugLogger</primary><secondary>BaseDebugLogger</secondary></indexterm>
+<indexterm><primary>BaseDebugLogger</primary><secondary>~BaseDebugLogger</secondary></indexterm>
+<para><computeroutput>virtual BaseDebugLogger::~BaseDebugLogger ( )<computeroutput>[virtual]</computeroutput>, <computeroutput>[default]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_base_debug_logger_1a99b27162f11d41d16d3a1e08d6994f9d"/><section>
+    <title>activate()</title>
+<indexterm><primary>activate</primary><secondary>BaseDebugLogger</secondary></indexterm>
+<indexterm><primary>BaseDebugLogger</primary><secondary>activate</secondary></indexterm>
+<para><computeroutput>bool BaseDebugLogger::activate (bool retry)<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Activate the debug logger. If the SD card is not ready for writing, then immediately return false. Otherwise, create a new temporary log file and return true.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>retry</entry><entry>
+<para>If true, then try to activate the logger even if the SD card is not ready. If false, then immediately return false if the SD card is not ready.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if the logger was activated, false otherwise. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_debug__logger_8cpp_source_1l00039">39</link> of file <link linkend="_debug__logger_8cpp_source">debug_logger.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_debug_logger_a99b27162f11d41d16d3a1e08d6994f9d_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_debug_logger_1a2d9682cdd5615937e8a826067a339fb8"/><section>
+    <title>deactivate()</title>
+<indexterm><primary>deactivate</primary><secondary>BaseDebugLogger</secondary></indexterm>
+<indexterm><primary>BaseDebugLogger</primary><secondary>deactivate</secondary></indexterm>
+<para><computeroutput>void BaseDebugLogger::deactivate ( )<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Deactivate the debug logger. If the number of lines logged is less than MIN_LOG_LINES_FOR_KEEP, then delete the log file. Otherwise, log the total number of lines logged. Clear the log file name. </para>
+<para>
+Definition at line <link linkend="_debug__logger_8cpp_source_1l00067">67</link> of file <link linkend="_debug__logger_8cpp_source">debug_logger.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_debug_logger_a2d9682cdd5615937e8a826067a339fb8_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_debug_logger_1a3d6bb38e095578e89619ce37ef310c74"/><section>
+    <title>handle_produced_work()</title>
+<indexterm><primary>handle_produced_work</primary><secondary>BaseDebugLogger</secondary></indexterm>
+<indexterm><primary>BaseDebugLogger</primary><secondary>handle_produced_work</secondary></indexterm>
+<para><computeroutput>int8_t BaseDebugLogger::handle_produced_work (const worker_map_t &amp; workers)<computeroutput>[final]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Handle produced work. If the log aggregator has new data, and the sd card is ready, then write the line to the log file. If the log file is currently temporary, then use the rtc to rename the log file. If the write succeeds, then increment _total and return e_handler_data_handled. If there is no new data, then return e_handler_idle.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>workers</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para></para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_debug__logger_8cpp_source_1l00088">88</link> of file <link linkend="_debug__logger_8cpp_source">debug_logger.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_debug_logger_a3d6bb38e095578e89619ce37ef310c74_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_debug_logger_1ab825ff0eecb945a2470965805346d3c7"/><section>
+    <title>write_initial_lines()</title>
+<indexterm><primary>write_initial_lines</primary><secondary>BaseDebugLogger</secondary></indexterm>
+<indexterm><primary>BaseDebugLogger</primary><secondary>write_initial_lines</secondary></indexterm>
+<para><computeroutput>virtual void BaseDebugLogger::write_initial_lines ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+Reimplemented in <link linkend="_class_gps_debug_logger_1ad49a0f5dca70d6bad92950200cb4a3bb">GpsDebugLogger</link>.</para>
+<para>
+Definition at line <link linkend="_debug__logger_8h_source_1l00023">23</link> of file <link linkend="_debug__logger_8h_source">debug_logger.h</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_debug_logger_ab825ff0eecb945a2470965805346d3c7_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_base_debug_logger_1a877298bae6e6d5f982ca53e86578882e"/><section>
+    <title>write_line()</title>
+<indexterm><primary>write_line</primary><secondary>BaseDebugLogger</secondary></indexterm>
+<indexterm><primary>BaseDebugLogger</primary><secondary>write_line</secondary></indexterm>
+<para><computeroutput>virtual bool BaseDebugLogger::write_line (const worker_map_t &amp; workers)<computeroutput>[protected]</computeroutput>, <computeroutput>[pure virtual]</computeroutput></computeroutput></para><para>
+Implemented in <link linkend="_class_gps_debug_logger_1a3d7ac7d312513b4d7ee62fd671a3e143">GpsDebugLogger</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_base_debug_logger_a877298bae6e6d5f982ca53e86578882e_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_base_debug_logger_1a8d9c2385a1eb9934e08f423658d75f31"/><section>
+    <title>_config</title>
+<indexterm><primary>_config</primary><secondary>BaseDebugLogger</secondary></indexterm>
+<indexterm><primary>BaseDebugLogger</primary><secondary>_config</secondary></indexterm>
+<para><computeroutput><link linkend="_class_local_storage">LocalStorage</link>&amp; BaseDebugLogger::_config<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_debug__logger_8h_source_1l00026">26</link> of file <link linkend="_debug__logger_8h_source">debug_logger.h</link>.</para>
+</section>
+<anchor xml:id="_class_base_debug_logger_1ab16c84f891c4df23d4353e47d0ac8ea6"/><section>
+    <title>_is_temp</title>
+<indexterm><primary>_is_temp</primary><secondary>BaseDebugLogger</secondary></indexterm>
+<indexterm><primary>BaseDebugLogger</primary><secondary>_is_temp</secondary></indexterm>
+<para><computeroutput>bool BaseDebugLogger::_is_temp<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_debug__logger_8h_source_1l00030">30</link> of file <link linkend="_debug__logger_8h_source">debug_logger.h</link>.</para>
+</section>
+<anchor xml:id="_class_base_debug_logger_1ac692fc2525138fc82e250d38b22c41e2"/><section>
+    <title>_logging_name</title>
+<indexterm><primary>_logging_name</primary><secondary>BaseDebugLogger</secondary></indexterm>
+<indexterm><primary>BaseDebugLogger</primary><secondary>_logging_name</secondary></indexterm>
+<para><computeroutput>char BaseDebugLogger::_logging_name[20]<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_debug__logger_8h_source_1l00028">28</link> of file <link linkend="_debug__logger_8h_source">debug_logger.h</link>.</para>
+</section>
+<anchor xml:id="_class_base_debug_logger_1a05340476b0d2a164b7a62289027b2620"/><section>
+    <title>_logging_to</title>
+<indexterm><primary>_logging_to</primary><secondary>BaseDebugLogger</secondary></indexterm>
+<indexterm><primary>BaseDebugLogger</primary><secondary>_logging_to</secondary></indexterm>
+<para><computeroutput>char BaseDebugLogger::_logging_to[<link linkend="_user__config_8h_1a75f97d568a246165199355e9c8272011">LOG_FILENAME_SIZE</link>]<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_debug__logger_8h_source_1l00029">29</link> of file <link linkend="_debug__logger_8h_source">debug_logger.h</link>.</para>
+</section>
+<anchor xml:id="_class_base_debug_logger_1ad31a29027cc8d028a75ef081b0164cfa"/><section>
+    <title>_total</title>
+<indexterm><primary>_total</primary><secondary>BaseDebugLogger</secondary></indexterm>
+<indexterm><primary>BaseDebugLogger</primary><secondary>_total</secondary></indexterm>
+<para><computeroutput>uint32_t BaseDebugLogger::_total<computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_debug__logger_8h_source_1l00031">31</link> of file <link linkend="_debug__logger_8h_source">debug_logger.h</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/handlers/<link linkend="_debug__logger_8h">debug_logger.h</link>bgeigiezen_firmware/handlers/<link linkend="_debug__logger_8cpp">debug_logger.cpp</link></section>
+</section>

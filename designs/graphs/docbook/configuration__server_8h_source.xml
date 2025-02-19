@@ -11,7 +11,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_configuration__server_8h_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&lt;Worker.hpp&gt;</emphasis>
 <anchor xml:id="_configuration__server_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&lt;Supervisor.hpp&gt;</emphasis>
 <anchor xml:id="_configuration__server_8h_source_1l00009"/>00009 
-<anchor xml:id="_configuration__server_8h_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_local__storage_8h">handlers/local_storage.h</link>&quot;</emphasis>
+<anchor xml:id="_configuration__server_8h_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_local__storage_8h">local_storage.h</link>&quot;</emphasis>
 <anchor xml:id="_configuration__server_8h_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_wifi__connection_8h">utils/wifi_connection.h</link>&quot;</emphasis>
 <anchor xml:id="_configuration__server_8h_source_1l00012"/>00012 
 <anchor xml:id="_configuration__server_8h_source_1l00013"/><link linkend="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4a">00013</link> <emphasis role="keyword">enum</emphasis>&#32;<link linkend="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4a">ServerStatus</link>&#32;{
@@ -20,9 +20,9 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_configuration__server_8h_source_1l00016"/><link linkend="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aae66ec56782b751934b4ae350253e524c">00016</link> &#32;&#32;<link linkend="_configuration__server_8h_1a23331e5df325fea12f9a553d3b1cab4aae66ec56782b751934b4ae350253e524c">k_server_status_running_access_point</link>,
 <anchor xml:id="_configuration__server_8h_source_1l00017"/>00017 };
 <anchor xml:id="_configuration__server_8h_source_1l00018"/>00018 
-<anchor xml:id="_configuration__server_8h_source_1l00023"/><link linkend="_class_config_web_server">00023</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_config_web_server">ConfigWebServer</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;Worker&lt;ServerStatus&gt;&#32;{
+<anchor xml:id="_configuration__server_8h_source_1l00023"/><link linkend="_class_config_web_server">00023</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_config_web_server_1a001c5b747ffda5655ffa7828efe7a83b">ConfigWebServer</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;Worker&lt;ServerStatus&gt;&#32;{
 <anchor xml:id="_configuration__server_8h_source_1l00024"/>00024 &#32;<emphasis role="keyword">public</emphasis>:
-<anchor xml:id="_configuration__server_8h_source_1l00025"/>00025 &#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_class_config_web_server">ConfigWebServer</link>(<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;config);
+<anchor xml:id="_configuration__server_8h_source_1l00025"/>00025 &#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_class_config_web_server_1a001c5b747ffda5655ffa7828efe7a83b">ConfigWebServer</link>(<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;config);
 <anchor xml:id="_configuration__server_8h_source_1l00026"/><link linkend="_class_config_web_server_1a25c459b986060d38b5557e1eb42a0f4f">00026</link> &#32;&#32;<emphasis role="keyword">virtual</emphasis>&#32;<link linkend="_class_config_web_server_1a25c459b986060d38b5557e1eb42a0f4f">~ConfigWebServer</link>()&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
 <anchor xml:id="_configuration__server_8h_source_1l00027"/>00027 
 <anchor xml:id="_configuration__server_8h_source_1l00031"/>00031 &#32;&#32;int8_t&#32;<link linkend="_class_config_web_server_1a1275de30c892a8fc52e64f958732ac91">produce_data</link>()&#32;<emphasis role="keyword">override</emphasis>;
@@ -42,7 +42,8 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_configuration__server_8h_source_1l00061"/>00061 
 <anchor xml:id="_configuration__server_8h_source_1l00062"/>00062 &#32;&#32;WebServer&#32;_server;
 <anchor xml:id="_configuration__server_8h_source_1l00063"/>00063 &#32;&#32;<link linkend="_class_local_storage">LocalStorage</link>&amp;&#32;_config;
-<anchor xml:id="_configuration__server_8h_source_1l00064"/>00064 };
-<anchor xml:id="_configuration__server_8h_source_1l00065"/>00065 
-<anchor xml:id="_configuration__server_8h_source_1l00066"/>00066 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//BGEIGIEZEN_SERVER_H_</emphasis>
+<anchor xml:id="_configuration__server_8h_source_1l00064"/>00064 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;_handled_client;
+<anchor xml:id="_configuration__server_8h_source_1l00065"/>00065 };
+<anchor xml:id="_configuration__server_8h_source_1l00066"/>00066 
+<anchor xml:id="_configuration__server_8h_source_1l00067"/>00067 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//BGEIGIEZEN_SERVER_H_</emphasis>
 </programlisting></section>

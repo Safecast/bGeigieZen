@@ -6,6 +6,9 @@ digraph "BaseScreen::get_title"
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="RL";
   Node1 [id="Node000001",label="BaseScreen::get_title",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
-  Node1 -> Node2 [id="edge2_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="GFXScreen::handle_report",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_g_f_x_screen.html#aea8f5b94e15d3fcc53790cf1df9d915a",tooltip=" "];
+  Node1 -> Node2 [id="edge4_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="BaseScreen::handle\l_input",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_base_screen.html#adfb9afa5102a23f608d0db4d95bd6d57",tooltip=" "];
+  Node2 -> Node3 [id="edge5_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="GFXScreen::handle_report",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_g_f_x_screen.html#aea8f5b94e15d3fcc53790cf1df9d915a",tooltip=" "];
+  Node1 -> Node3 [id="edge6_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
 }

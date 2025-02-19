@@ -1,0 +1,33 @@
+digraph "LogViewerScreen::render"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="LogViewerScreen::render",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge16_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="BaseScreen::clear_screen\l_content",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_base_screen.html#a0302e81913f193447bcbd63fc5dc1621",tooltip=" "];
+  Node1 -> Node3 [id="edge17_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="LogViewerScreen::render\l_drive_log_list",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_log_viewer_screen.html#a51b746a12f7e55c8bfddd20d676a3c1b",tooltip=" "];
+  Node3 -> Node4 [id="edge18_Node000003_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="BaseScreen::drawButton1",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_base_screen.html#abd62ea7f2f318142dde3d81f1a5e46a1",tooltip=" "];
+  Node3 -> Node5 [id="edge19_Node000003_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="BaseScreen::drawButton2",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_base_screen.html#af5e00b4efc1ada7bb34cd0361b21397c",tooltip=" "];
+  Node3 -> Node6 [id="edge20_Node000003_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="BaseScreen::drawButton3",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_base_screen.html#a13d1abed7e9ef452c950ee1a5af14860",tooltip=" "];
+  Node1 -> Node7 [id="edge21_Node000001_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="LogViewerScreen::render\l_journal_log_list",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_log_viewer_screen.html#a27e25a74f1632bb52e933b8e01e36159",tooltip=" "];
+  Node1 -> Node8 [id="edge22_Node000001_Node000008",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="LogViewerScreen::render\l_log_detail",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_log_viewer_screen.html#a134af9d35f8d48591e12d0032d85971a",tooltip=" "];
+  Node8 -> Node4 [id="edge23_Node000008_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node8 -> Node5 [id="edge24_Node000008_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node8 -> Node6 [id="edge25_Node000008_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node9 [id="edge26_Node000001_Node000009",color="steelblue1",style="solid",tooltip=" "];
+  Node9 [id="Node000009",label="LogViewerScreen::render_main",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_log_viewer_screen.html#accd9a85036896932ae9bc935d089b247",tooltip=" "];
+  Node9 -> Node4 [id="edge27_Node000009_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node9 -> Node5 [id="edge28_Node000009_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node9 -> Node6 [id="edge29_Node000009_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node10 [id="edge30_Node000001_Node000010",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="LogViewerScreen::render\l_survey_log_list",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_log_viewer_screen.html#aa961ac2aee8ebbf2c663d5e7d572ceb8",tooltip=" "];
+}
