@@ -2,7 +2,7 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_base__screen_8h" xml:lang="en-US">
 <title>bgeigiezen_firmware/screens/base_screen.h File Reference</title>
 <indexterm><primary>bgeigiezen_firmware/screens/base_screen.h</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &quot;controller.h&quot;<?linebreak?>#include &lt;Supervisor.hpp&gt;<?linebreak?></programlisting>Include dependency graph for base_screen.h:<para>
+<programlisting linenumbering="unnumbered">#include &lt;M5Unified.hpp&gt;<?linebreak?>#include &lt;Supervisor.hpp&gt;<?linebreak?>#include &quot;workers/zen_button.h&quot;<?linebreak?>#include &quot;user_config.h&quot;<?linebreak?>#include &quot;controller.h&quot;<?linebreak?></programlisting>Include dependency graph for base_screen.h:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
@@ -25,6 +25,72 @@ This graph shows which files directly or indirectly include this file:<para>
         <itemizedlist>
             <listitem><para>class <link linkend="_class_base_screen">BaseScreen</link></para>
 </listitem>
+            <listitem><para>class <link linkend="_class_base_screen_with_menu">BaseScreenWithMenu</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_base_screen_with_menu_1_1_menu_item">BaseScreenWithMenu::MenuItem</link></para>
+</listitem>
         </itemizedlist>
 </simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_base__screen_8h_1a61c07fa7f9b6867d4140d66fe54ba492">STATUS_ERROR_GEIGER</link>&#160;&#160;&#160;F(&quot; NO GEIGER TUBE CONNECTED &quot;);</para>
+</listitem>
+            <listitem><para>#define <link linkend="_base__screen_8h_1a618e5ec407b21fc7d26d2866dd234f13">STATUS_ERROR_GPS</link>&#160;&#160;&#160;F(&quot; NO GPS MODULE CONNECTED &quot;);</para>
+</listitem>
+            <listitem><para>#define <link linkend="_base__screen_8h_1a184fe94d217c2817ccb7ad482385da35">STATUS_ERROR_SD</link>&#160;&#160;&#160;F(&quot; NO SD CARD INSERTED &quot;);</para>
+</listitem>
+            <listitem><para>#define <link linkend="_base__screen_8h_1a05ae5a89f54bb7066cdfce9c4d7f81f0">STATUS_ERROR_WIFI_NO_SSID_AVAIL</link>&#160;&#160;&#160;F(&quot; CONFIGURED SSID NOT AVAILABLE &quot;);</para>
+</listitem>
+            <listitem><para>#define <link linkend="_base__screen_8h_1a9905705fbff288438592e61fdec9c806">STATUS_ERROR_WIFI_CONNECT_FAILED</link>&#160;&#160;&#160;F(&quot; WIFI CONNECTION FAILED &quot;);</para>
+</listitem>
+            <listitem><para>#define <link linkend="_base__screen_8h_1a25d2dd2bc5b69b932ce7b9183cb3ef50">STATUS_ERROR_WIFI_CONNECTION_LOST</link>&#160;&#160;&#160;F(&quot; WIFI CONNECTION LOST &quot;);</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_base__screen_8h_1a61c07fa7f9b6867d4140d66fe54ba492"/><section>
+    <title>STATUS_ERROR_GEIGER</title>
+<indexterm><primary>STATUS_ERROR_GEIGER</primary><secondary>base_screen.h</secondary></indexterm>
+<indexterm><primary>base_screen.h</primary><secondary>STATUS_ERROR_GEIGER</secondary></indexterm>
+<para><computeroutput>#define STATUS_ERROR_GEIGER&#160;&#160;&#160;F(&quot; NO GEIGER TUBE CONNECTED &quot;);</computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8h_source_1l00011">11</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+</section>
+<anchor xml:id="_base__screen_8h_1a618e5ec407b21fc7d26d2866dd234f13"/><section>
+    <title>STATUS_ERROR_GPS</title>
+<indexterm><primary>STATUS_ERROR_GPS</primary><secondary>base_screen.h</secondary></indexterm>
+<indexterm><primary>base_screen.h</primary><secondary>STATUS_ERROR_GPS</secondary></indexterm>
+<para><computeroutput>#define STATUS_ERROR_GPS&#160;&#160;&#160;F(&quot; NO GPS MODULE CONNECTED &quot;);</computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8h_source_1l00012">12</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+</section>
+<anchor xml:id="_base__screen_8h_1a184fe94d217c2817ccb7ad482385da35"/><section>
+    <title>STATUS_ERROR_SD</title>
+<indexterm><primary>STATUS_ERROR_SD</primary><secondary>base_screen.h</secondary></indexterm>
+<indexterm><primary>base_screen.h</primary><secondary>STATUS_ERROR_SD</secondary></indexterm>
+<para><computeroutput>#define STATUS_ERROR_SD&#160;&#160;&#160;F(&quot; NO SD CARD INSERTED &quot;);</computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8h_source_1l00013">13</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+</section>
+<anchor xml:id="_base__screen_8h_1a9905705fbff288438592e61fdec9c806"/><section>
+    <title>STATUS_ERROR_WIFI_CONNECT_FAILED</title>
+<indexterm><primary>STATUS_ERROR_WIFI_CONNECT_FAILED</primary><secondary>base_screen.h</secondary></indexterm>
+<indexterm><primary>base_screen.h</primary><secondary>STATUS_ERROR_WIFI_CONNECT_FAILED</secondary></indexterm>
+<para><computeroutput>#define STATUS_ERROR_WIFI_CONNECT_FAILED&#160;&#160;&#160;F(&quot; WIFI CONNECTION FAILED &quot;);</computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8h_source_1l00015">15</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+</section>
+<anchor xml:id="_base__screen_8h_1a25d2dd2bc5b69b932ce7b9183cb3ef50"/><section>
+    <title>STATUS_ERROR_WIFI_CONNECTION_LOST</title>
+<indexterm><primary>STATUS_ERROR_WIFI_CONNECTION_LOST</primary><secondary>base_screen.h</secondary></indexterm>
+<indexterm><primary>base_screen.h</primary><secondary>STATUS_ERROR_WIFI_CONNECTION_LOST</secondary></indexterm>
+<para><computeroutput>#define STATUS_ERROR_WIFI_CONNECTION_LOST&#160;&#160;&#160;F(&quot; WIFI CONNECTION LOST &quot;);</computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8h_source_1l00016">16</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+</section>
+<anchor xml:id="_base__screen_8h_1a05ae5a89f54bb7066cdfce9c4d7f81f0"/><section>
+    <title>STATUS_ERROR_WIFI_NO_SSID_AVAIL</title>
+<indexterm><primary>STATUS_ERROR_WIFI_NO_SSID_AVAIL</primary><secondary>base_screen.h</secondary></indexterm>
+<indexterm><primary>base_screen.h</primary><secondary>STATUS_ERROR_WIFI_NO_SSID_AVAIL</secondary></indexterm>
+<para><computeroutput>#define STATUS_ERROR_WIFI_NO_SSID_AVAIL&#160;&#160;&#160;F(&quot; CONFIGURED SSID NOT AVAILABLE &quot;);</computeroutput></para><para>
+Definition at line <link linkend="_base__screen_8h_source_1l00014">14</link> of file <link linkend="_base__screen_8h_source">base_screen.h</link>.</para>
+</section>
+</section>
 </section>

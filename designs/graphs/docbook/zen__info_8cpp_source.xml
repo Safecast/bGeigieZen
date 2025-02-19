@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_zen__info_8cpp_source" xml:lang="en-US">
+<title>zen_info.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/screens/zen_info.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_zen__info_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_zen__info_8h">zen_info.h</link>&quot;</emphasis>
+<anchor xml:id="_zen__info_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_menu__window_8h">menu_window.h</link>&quot;</emphasis>
+<anchor xml:id="_zen__info_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_identifiers_8h">identifiers.h</link>&quot;</emphasis>
+<anchor xml:id="_zen__info_8cpp_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_user__config_8h">user_config.h</link>&quot;</emphasis>
+<anchor xml:id="_zen__info_8cpp_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_zen__button_8h">workers/zen_button.h</link>&quot;</emphasis>
+<anchor xml:id="_zen__info_8cpp_source_1l00006"/>00006 
+<anchor xml:id="_zen__info_8cpp_source_1l00007"/><link linkend="_zen__info_8cpp_1abb8fbaa08d00cd1a3a7fd75abd2ff937">00007</link> <link linkend="_class_zen_info_screen">ZenInfoScreen</link>&#32;<link linkend="_zen__info_8cpp_1abb8fbaa08d00cd1a3a7fd75abd2ff937">ZenInfoScreen_i</link>;
+<anchor xml:id="_zen__info_8cpp_source_1l00008"/>00008 
+<anchor xml:id="_zen__info_8cpp_source_1l00009"/><link linkend="_class_zen_info_screen_1a9e1a816d25b0d78f44c642314eb735e9">00009</link> <link linkend="_class_zen_info_screen_1a9e1a816d25b0d78f44c642314eb735e9">ZenInfoScreen::ZenInfoScreen</link>()&#32;:&#32;<link linkend="_class_base_screen_1a2e28e5b4ef3027c3c4392dfb4a6c3ff8">BaseScreen</link>(<emphasis role="stringliteral">&quot;Info&quot;</emphasis>,&#32;true),&#32;_page(e_zen_info_page_main)&#32;{
+<anchor xml:id="_zen__info_8cpp_source_1l00010"/>00010 }
+<anchor xml:id="_zen__info_8cpp_source_1l00011"/>00011 
+<anchor xml:id="_zen__info_8cpp_source_1l00012"/><link linkend="_class_zen_info_screen_1a786b973c3a31797c902d23dfcb44fe7a">00012</link> <link linkend="_class_base_screen_1a2e28e5b4ef3027c3c4392dfb4a6c3ff8">BaseScreen</link>*&#32;<link linkend="_class_zen_info_screen_1a786b973c3a31797c902d23dfcb44fe7a">ZenInfoScreen::handle_input</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</link>,&#32;<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers)&#32;{
+<anchor xml:id="_zen__info_8cpp_source_1l00013"/>00013 &#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;qr_button&#32;=&#32;workers.worker&lt;<link linkend="_class_zen_button">ZenButton</link>&gt;(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa34908d3524a003a1a416f710d3bf096b">k_worker_button_1</link>);
+<anchor xml:id="_zen__info_8cpp_source_1l00014"/>00014 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(qr_button-&gt;is_fresh()&#32;&amp;&amp;&#32;qr_button-&gt;get_data().shortPress)&#32;{
+<anchor xml:id="_zen__info_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;_page&#32;=&#32;_page&#32;==&#32;e_zen_info_page_main&#32;?&#32;e_zen_info_page_qr&#32;:&#32;e_zen_info_page_main;
+<anchor xml:id="_zen__info_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;<link linkend="_class_base_screen_1a475d077e56c80429539f9c8a973752dd">force_next_render</link>();
+<anchor xml:id="_zen__info_8cpp_source_1l00017"/>00017 &#32;&#32;}
+<anchor xml:id="_zen__info_8cpp_source_1l00018"/>00018 &#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;menu_button&#32;=&#32;workers.worker&lt;<link linkend="_class_zen_button">ZenButton</link>&gt;(<link linkend="_identifiers_8h_1a817945491edcfa653f61f26e522cd76fa824a84bb0222b57ea4966a17b90b110c">k_worker_button_3</link>);
+<anchor xml:id="_zen__info_8cpp_source_1l00019"/>00019 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(menu_button-&gt;is_fresh()&#32;&amp;&amp;&#32;menu_button-&gt;get_data().shortPress)&#32;{
+<anchor xml:id="_zen__info_8cpp_source_1l00020"/>00020 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;&amp;<link linkend="_menu__window_8cpp_1a215e1e85bd83173d1f173f23151643f4">MenuWindow_i</link>;
+<anchor xml:id="_zen__info_8cpp_source_1l00021"/>00021 &#32;&#32;}
+<anchor xml:id="_zen__info_8cpp_source_1l00022"/>00022 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_zen__info_8cpp_source_1l00023"/>00023 }
+<anchor xml:id="_zen__info_8cpp_source_1l00024"/>00024 
+<anchor xml:id="_zen__info_8cpp_source_1l00025"/><link linkend="_class_zen_info_screen_1ac6aeca5cbd35b67bfb60f3c39a26e010">00025</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_zen_info_screen_1ac6aeca5cbd35b67bfb60f3c39a26e010">ZenInfoScreen::render</link>(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers,&#32;<emphasis role="keyword">const</emphasis>&#32;handler_map_t&amp;&#32;handlers,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;{
+<anchor xml:id="_zen__info_8cpp_source_1l00026"/>00026 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!force)&#32;{
+<anchor xml:id="_zen__info_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_zen__info_8cpp_source_1l00028"/>00028 &#32;&#32;}
+<anchor xml:id="_zen__info_8cpp_source_1l00029"/>00029 &#32;&#32;<link linkend="_class_base_screen_1a13d1abed7e9ef452c950ee1a5af14860">drawButton3</link>(<emphasis role="stringliteral">&quot;Menu&quot;</emphasis>);
+<anchor xml:id="_zen__info_8cpp_source_1l00030"/>00030 
+<anchor xml:id="_zen__info_8cpp_source_1l00031"/>00031 &#32;&#32;M5.Lcd.fillRect(0,&#32;20,&#32;320,&#32;180,&#32;<link linkend="_user__config_8h_1abda62c97ed73836f3749f74f4de6664a">LCD_COLOR_BACKGROUND</link>);
+<anchor xml:id="_zen__info_8cpp_source_1l00032"/>00032 
+<anchor xml:id="_zen__info_8cpp_source_1l00033"/>00033 &#32;&#32;<emphasis role="keywordflow">switch</emphasis>&#32;(_page)&#32;{
+<anchor xml:id="_zen__info_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;e_zen_info_page_main:
+<anchor xml:id="_zen__info_8cpp_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;render_page_main(workers,&#32;handlers);
+<anchor xml:id="_zen__info_8cpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;e_zen_info_page_qr:
+<anchor xml:id="_zen__info_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;render_page_qr(workers,&#32;handlers);
+<anchor xml:id="_zen__info_8cpp_source_1l00038"/>00038 &#32;&#32;}
+<anchor xml:id="_zen__info_8cpp_source_1l00039"/>00039 }
+<anchor xml:id="_zen__info_8cpp_source_1l00040"/>00040 
+<anchor xml:id="_zen__info_8cpp_source_1l00041"/>00041 <emphasis role="keywordtype">void</emphasis>&#32;ZenInfoScreen::render_page_main(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers,&#32;<emphasis role="keyword">const</emphasis>&#32;handler_map_t&amp;&#32;handlers)&#32;{
+<anchor xml:id="_zen__info_8cpp_source_1l00042"/>00042 &#32;&#32;<emphasis role="comment">//&#32;Temp&#32;only&#32;display&#32;Zen&#32;qr&#32;code&#32;on&#32;main&#32;page</emphasis>
+<anchor xml:id="_zen__info_8cpp_source_1l00043"/>00043 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;render_page_qr(workers,&#32;handlers);
+<anchor xml:id="_zen__info_8cpp_source_1l00044"/>00044 &#32;&#32;<link linkend="_class_base_screen_1abd62ea7f2f318142dde3d81f1a5e46a1">drawButton1</link>(<emphasis role="stringliteral">&quot;Website&quot;</emphasis>);
+<anchor xml:id="_zen__info_8cpp_source_1l00045"/>00045 &#32;&#32;M5.Lcd.setTextColor(<link linkend="_user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62">LCD_COLOR_DEFAULT</link>,&#32;<link linkend="_user__config_8h_1abda62c97ed73836f3749f74f4de6664a">LCD_COLOR_BACKGROUND</link>);
+<anchor xml:id="_zen__info_8cpp_source_1l00046"/>00046 &#32;&#32;M5.Lcd.drawString(<emphasis role="stringliteral">&quot;At&#32;some&#32;point&#32;there&#32;will&#32;be&#32;a&quot;</emphasis>,&#32;10,&#32;46,&#32;&amp;fonts::Font2);
+<anchor xml:id="_zen__info_8cpp_source_1l00047"/>00047 &#32;&#32;M5.Lcd.drawString(<emphasis role="stringliteral">&quot;bunch&#32;of&#32;info&#32;about&#32;your&#32;Zen&#32;here!&quot;</emphasis>,&#32;10,&#32;62,&#32;&amp;fonts::Font2);
+<anchor xml:id="_zen__info_8cpp_source_1l00048"/>00048 }
+<anchor xml:id="_zen__info_8cpp_source_1l00049"/>00049 
+<anchor xml:id="_zen__info_8cpp_source_1l00050"/>00050 <emphasis role="keywordtype">void</emphasis>&#32;ZenInfoScreen::render_page_qr(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers,&#32;<emphasis role="keyword">const</emphasis>&#32;handler_map_t&amp;&#32;handlers)&#32;{
+<anchor xml:id="_zen__info_8cpp_source_1l00051"/>00051 <emphasis role="comment">//&#32;&#32;drawButton1(&quot;Back&quot;);</emphasis>
+<anchor xml:id="_zen__info_8cpp_source_1l00052"/>00052 &#32;&#32;M5.Lcd.setTextColor(<link linkend="_user__config_8h_1a021c81a43f7ae4baa15b51dfabe87e62">LCD_COLOR_DEFAULT</link>,&#32;<link linkend="_user__config_8h_1abda62c97ed73836f3749f74f4de6664a">LCD_COLOR_BACKGROUND</link>);
+<anchor xml:id="_zen__info_8cpp_source_1l00053"/>00053 &#32;&#32;M5.Lcd.drawString(<emphasis role="stringliteral">&quot;Visit&#32;us&#32;at&quot;</emphasis>,&#32;127,&#32;36,&#32;&amp;fonts::Font0);
+<anchor xml:id="_zen__info_8cpp_source_1l00054"/>00054 &#32;&#32;M5.Lcd.qrcode(<emphasis role="stringliteral">&quot;https://bgeigiezen.safecast.jp&quot;</emphasis>,&#32;95,&#32;40,&#32;130);
+<anchor xml:id="_zen__info_8cpp_source_1l00055"/>00055 &#32;&#32;M5.Lcd.drawString(<emphasis role="stringliteral">&quot;bgeigiezen.safecast.jp&quot;</emphasis>,&#32;93,&#32;186,&#32;&amp;fonts::Font2);
+<anchor xml:id="_zen__info_8cpp_source_1l00056"/>00056 }
+<anchor xml:id="_zen__info_8cpp_source_1l00057"/>00057 
+<anchor xml:id="_zen__info_8cpp_source_1l00058"/><link linkend="_class_zen_info_screen_1ab3f312ea8678af3a5d339d781f241da8">00058</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_zen_info_screen_1ab3f312ea8678af3a5d339d781f241da8">ZenInfoScreen::enter_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</link>)&#32;{
+<anchor xml:id="_zen__info_8cpp_source_1l00059"/>00059 &#32;&#32;_page&#32;=&#32;e_zen_info_page_main;
+<anchor xml:id="_zen__info_8cpp_source_1l00060"/>00060 &#32;&#32;<link linkend="_class_base_screen_1a475d077e56c80429539f9c8a973752dd">force_next_render</link>();
+<anchor xml:id="_zen__info_8cpp_source_1l00061"/>00061 }
+</programlisting></section>

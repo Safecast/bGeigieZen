@@ -26,16 +26,16 @@ Collaboration diagram for DebugModeScreen:<para>
 <simplesect>
     <title>Public Member Functions    </title>
         <itemizedlist>
-            <listitem><para><link linkend="_class_base_screen">BaseScreen</link> * <link linkend="_class_debug_mode_screen_1a74b4a2f357094dcda42fffe968067b28">handle_input</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>, const worker_map_t &amp;workers) override</para>
+            <listitem><para><link linkend="_class_debug_mode_screen_1a0e1aee8e9105317eeb8613a3a3ed1502">DebugModeScreen</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_base_screen">BaseScreen</link> * <link linkend="_class_debug_mode_screen_1a74b4a2f357094dcda42fffe968067b28">handle_input</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</link>, const worker_map_t &amp;workers) override</para>
 </listitem>
         </itemizedlist>
 </simplesect>
 Public Member Functions inherited from <link linkend="_class_base_screen">BaseScreen</link>        <itemizedlist>
-            <listitem><para>virtual <link linkend="_class_base_screen">BaseScreen</link> * <link linkend="_class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57">handle_input</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>, const worker_map_t &amp;workers)=0</para>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea">enter_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</link>)</para>
 </listitem>
-            <listitem><para>virtual void <link linkend="_class_base_screen_1a19944bf3ea67c81ccd2269fb16c9e2ea">enter_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)</para>
-</listitem>
-            <listitem><para>virtual void <link linkend="_class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1">leave_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1acbf63899b68f8f761edd965e7bf64ddd">controller</link>)</para>
+            <listitem><para>virtual void <link linkend="_class_base_screen_1a39550ebc8de9c9324c5abde283eb52c1">leave_screen</link> (<link linkend="_class_controller">Controller</link> &amp;<link linkend="_main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</link>)</para>
 </listitem>
             <listitem><para>virtual void <link linkend="_class_base_screen_1abaa4b23c1f7314cdce0ddea7e7a8ed98">do_render</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers) final</para>
 </listitem>
@@ -45,14 +45,21 @@ Public Member Functions inherited from <link linkend="_class_base_screen">BaseSc
 </listitem>
             <listitem><para>virtual bool <link linkend="_class_base_screen_1a2b0ff8ed2e49c96fa6e8d3e158d6db13">has_status_bar</link> () const</para>
 </listitem>
-        </itemizedlist>
-<simplesect>
-    <title>Static Public Member Functions    </title>
-        <itemizedlist>
-            <listitem><para>static <link linkend="_class_debug_mode_screen">DebugModeScreen</link> * <link linkend="_class_debug_mode_screen_1a5f7d1f3fe4386c12e7d8dcd708081fa4">i</link> ()</para>
+            <listitem><para>virtual const __FlashStringHelper * <link linkend="_class_base_screen_1a34ca21425e8a0306c8b28669b35216e6">get_error_message</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers) const</para>
+</listitem>
+            <listitem><para>virtual const __FlashStringHelper * <link linkend="_class_base_screen_1ac34eef3f7a364202d2399ce1b234bf04">get_status_message</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers) const</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1ab4a9e852483065ab2ad6a86955985e90">has_required_gps</link> () const</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1a02551c85c014f0c35c0a887cdaad2e3e">has_required_sd</link> () const</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1abaf330fe58d138607d7eddafec78d2bc">has_required_tube</link> () const</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1a2062532ed7e5f3fa63be92c2d04c7a66">has_required_wifi</link> () const</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1a5757931996557c8d7ec0ab352abc6e3e">has_required_ble</link> () const</para>
 </listitem>
         </itemizedlist>
-</simplesect>
 <simplesect>
     <title>Protected Member Functions    </title>
         <itemizedlist>
@@ -65,17 +72,15 @@ Protected Member Functions inherited from <link linkend="_class_base_screen">Bas
 </listitem>
             <listitem><para>virtual <link linkend="_class_base_screen_1a86234c33321bb25d534c0347a946b084">~BaseScreen</link> ()=default</para>
 </listitem>
-            <listitem><para>virtual void <link linkend="_class_base_screen_1aca89a9c227f03adadb7022eb63ee3685">render</link> (const worker_map_t &amp;workers, const handler_map_t &amp;handlers, bool force)=0</para>
+            <listitem><para>void <link linkend="_class_base_screen_1abd62ea7f2f318142dde3d81f1a5e46a1">drawButton1</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>) const</para>
 </listitem>
-            <listitem><para>void <link linkend="_class_base_screen_1ac4042332f3362042ed3390297c8f1ea1">drawButton1</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>)</para>
+            <listitem><para>void <link linkend="_class_base_screen_1af5e00b4efc1ada7bb34cd0361b21397c">drawButton2</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>) const</para>
 </listitem>
-            <listitem><para>void <link linkend="_class_base_screen_1ad7040cea50962276539e67ac129d5c7c">drawButton2</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>)</para>
+            <listitem><para>void <link linkend="_class_base_screen_1a13d1abed7e9ef452c950ee1a5af14860">drawButton3</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>) const</para>
 </listitem>
-            <listitem><para>void <link linkend="_class_base_screen_1a00da29022f614d7e72fd218ba1dcf747">drawButton3</link> (const char *text, <link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669">ButtonState</link> state=<link linkend="_class_base_screen_1ad4a1248dca462731c78b423fcda99669a651544660e365d498e2eecbe71a05d67">e_button_default</link>)</para>
+            <listitem><para>void <link linkend="_class_base_screen_1a0302e81913f193447bcbd63fc5dc1621">clear_screen_content</link> ()</para>
 </listitem>
-            <listitem><para>int16_t <link linkend="_class_base_screen_1a1129827abdd844b136988965ae4a72ba">printFloatFont</link> (float val, int prec, int x, int y, int font)</para>
-</listitem>
-            <listitem><para>int16_t <link linkend="_class_base_screen_1a7e56deb842ae278490c70910023eb8c8">printIntFont</link> (unsigned long val, int x, int y, int font)</para>
+            <listitem><para>void <link linkend="_class_base_screen_1ae483509d86c8f2ca88f5250180aefe1b">set_status_message</link> (const __FlashStringHelper *message)</para>
 </listitem>
         </itemizedlist>
 <simplesect>
@@ -88,10 +93,47 @@ Public Types inherited from <link linkend="_class_base_screen">BaseScreen</link>
 </listitem>
         </itemizedlist>
 </simplesect>
+Static Protected Member Functions inherited from <link linkend="_class_base_screen">BaseScreen</link>        <itemizedlist>
+            <listitem><para>static size_t <link linkend="_class_base_screen_1acfec22b4351b13b4f0c6bd84254198ec">printFloatFont</link> (float val, int prec, int x, int y, const lgfx::IFont *font)</para>
+</listitem>
+            <listitem><para>static size_t <link linkend="_class_base_screen_1ae6e6ee7b78413b55d89fd192157ea9db">printIntFont</link> (unsigned long val, int x, int y, const lgfx::IFont *font)</para>
+</listitem>
+        </itemizedlist>
+Protected Attributes inherited from <link linkend="_class_base_screen">BaseScreen</link>        <itemizedlist>
+            <listitem><para>bool <link linkend="_class_base_screen_1aa7ff73902ffb4869a7a1e4da7a004f86">required_gps</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1a0ec50e2f5e767c49926acea4eff5d62a">required_sd</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1aaec338ea2e36bc2c621d3283ab345313">required_tube</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1a1aca75e6183b4428be7008ae8cdae37e">required_wifi</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_screen_1a4519670c7f1d8995d30f441f473c4e1d">required_ble</link></para>
+</listitem>
+        </itemizedlist>
 <section>
 <title>Detailed Description</title>
 <para>
 Definition at line <link linkend="_debug__mode_8h_source_1l00006">6</link> of file <link linkend="_debug__mode_8h_source">debug_mode.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_debug_mode_screen_1a0e1aee8e9105317eeb8613a3a3ed1502"/><section>
+    <title>DebugModeScreen()</title>
+<indexterm><primary>DebugModeScreen</primary><secondary>DebugModeScreen</secondary></indexterm>
+<indexterm><primary>DebugModeScreen</primary><secondary>DebugModeScreen</secondary></indexterm>
+<para><computeroutput>DebugModeScreen::DebugModeScreen ( )<computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_debug__mode_8cpp_source_1l00013">13</link> of file <link linkend="_debug__mode_8cpp_source">debug_mode.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_debug_mode_screen_a0e1aee8e9105317eeb8613a3a3ed1502_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
 </section>
 <section>
 <title>Member Function Documentation</title>
@@ -102,28 +144,12 @@ Definition at line <link linkend="_debug__mode_8h_source_1l00006">6</link> of fi
 <para><computeroutput><link linkend="_class_base_screen">BaseScreen</link> * DebugModeScreen::handle_input (<link linkend="_class_controller">Controller</link> &amp; controller, const worker_map_t &amp; workers)<computeroutput>[override]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
 Implements <link linkend="_class_base_screen_1adfb9afa5102a23f608d0db4d95bd6d57">BaseScreen</link>.</para>
 <para>
-Definition at line <link linkend="_debug__mode_8cpp_source_1l00015">15</link> of file <link linkend="_debug__mode_8cpp_source">debug_mode.cpp</link>.</para>
+Definition at line <link linkend="_debug__mode_8cpp_source_1l00104">104</link> of file <link linkend="_debug__mode_8cpp_source">debug_mode.cpp</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
                 <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_debug_mode_screen_a74b4a2f357094dcda42fffe968067b28_cgraph.jpg"></imagedata>
-            </imageobject>
-        </mediaobject>
-    </informalfigure>
-</para>
-</section>
-<anchor xml:id="_class_debug_mode_screen_1a5f7d1f3fe4386c12e7d8dcd708081fa4"/><section>
-    <title>i()</title>
-<indexterm><primary>i</primary><secondary>DebugModeScreen</secondary></indexterm>
-<indexterm><primary>DebugModeScreen</primary><secondary>i</secondary></indexterm>
-<para><computeroutput>static <link linkend="_class_debug_mode_screen">DebugModeScreen</link> * DebugModeScreen::i ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_debug__mode_8h_source_1l00008">8</link> of file <link linkend="_debug__mode_8h_source">debug_mode.h</link>.</para>
-Here is the caller graph for this function:<para>
-    <informalfigure>
-        <mediaobject>
-            <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_debug_mode_screen_a5f7d1f3fe4386c12e7d8dcd708081fa4_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
@@ -161,9 +187,9 @@ Parameters</title>
                 </formalpara>
                 </para>
 <para>
-Implements <link linkend="_class_base_screen_1aca89a9c227f03adadb7022eb63ee3685">BaseScreen</link>.</para>
+Reimplemented from <link linkend="_class_base_screen_1a4a44081a61a095ce9cb8d086525d42b0">BaseScreen</link>.</para>
 <para>
-Definition at line <link linkend="_debug__mode_8cpp_source_1l00023">23</link> of file <link linkend="_debug__mode_8cpp_source">debug_mode.cpp</link>.</para>
+Definition at line <link linkend="_debug__mode_8cpp_source_1l00016">16</link> of file <link linkend="_debug__mode_8cpp_source">debug_mode.cpp</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
