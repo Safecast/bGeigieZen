@@ -30,6 +30,7 @@ class LocalStorage : public ProcessWorker<bool> {
 
   // Getters and setters
   virtual uint16_t get_device_id() const final;
+  virtual const char* get_user_name() const final;
   virtual uint32_t get_fixed_device_id() const final;
   virtual const char* get_ap_password() const final;
   virtual uint16_t get_alert_threshold() const final;
@@ -52,6 +53,7 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual OperationalMode get_last_mode() const final;
 
   virtual void set_device_id(uint16_t device_id, bool force);
+  virtual void set_user_name(const char* user_name, bool force);
   virtual void set_ap_password(const char* ap_password, bool force);
   virtual void set_alert_threshold(uint16_t alert_threshold, bool force);
   virtual void set_cpm_usvh(bool cpm_usvh, bool force);
@@ -85,6 +87,7 @@ class LocalStorage : public ProcessWorker<bool> {
 
   // Device settings
   uint16_t _device_id;
+  char _user_name[CONFIG_VAL_MAX];
   uint16_t _alert_threshold;
   bool _cpm_usvh; // Main display CPM (true) or uSv/h (false) values
   bool _manual_logging;
