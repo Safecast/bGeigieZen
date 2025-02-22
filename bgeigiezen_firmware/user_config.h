@@ -100,6 +100,7 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 
 /** Default configurations **/
 #define D_DEVICE_ID 0
+#define D_USER_NAME "safecast"
 #define D_AP_PASSWORD "safecast"
 #define D_ALARM_THRESHOLD 100
 #define D_CPM_USVH false
