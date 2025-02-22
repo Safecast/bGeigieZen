@@ -107,6 +107,13 @@ class SDInterface {
   SdStatus has_safezen_content(uint16_t device_id);
 
   /**
+   * Get user_name from SAFEZEN.txt file on the SD card
+   * @return user name if available, else safecast
+  */   
+  SdStatus has_safezen_content(const char* user_name);
+
+
+  /**
    * Read SAFEZEN.txt file contents on SD card to local storage
    * @return true if succeeded
    */
