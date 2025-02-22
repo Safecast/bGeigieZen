@@ -3,6 +3,7 @@
 
 #define SD_CONFIG_FIELD_VERSION "version"
 #define SD_CONFIG_FIELD_DEVICE_ID "device_id"
+#define SD_CONFIG_FIELD_USER_NAME "nm"
 #define SD_CONFIG_FIELD_USH_DIVIDER "ush_divider"
 #define SD_CONFIG_FIELD_CPMN "cpmn"
 #define SD_CONFIG_FIELD_BQM_FACTOR "bqm_factor"
@@ -32,6 +33,7 @@
 
 constexpr char sd_config_version_f[] = SD_CONFIG_FIELD_VERSION"=%s";
 constexpr char sd_config_device_id_f[] = SD_CONFIG_FIELD_DEVICE_ID"=%u";
+constexpr char sd_config_user_name_f[] = SD_CONFIG_FIELD_USER_NAME"=%s";
 constexpr char sd_config_ush_divider_f[] = SD_CONFIG_FIELD_USH_DIVIDER"=%lf";
 constexpr char sd_config_cpmn_f[] = SD_CONFIG_FIELD_CPMN"=%s";
 constexpr char sd_config_bqm_factor_f[] = SD_CONFIG_FIELD_BQM_FACTOR"=%lf";
@@ -245,6 +247,7 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   char wifi_ssid[CONFIG_VAL_MAX] = "";
   char wifi_password[CONFIG_VAL_MAX] = "";
   char api_key[CONFIG_VAL_MAX] = "";
+  char user_name[CONFIG_VAL_MAX] = "";
 
   // Location settings
   double fixed_latitude = 0;
@@ -261,6 +264,15 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
       if (sscanf(line.c_str(), sd_config_device_id_f, &_device_id)) {
         settings.set_device_id(_device_id, true);
         M5_LOGD("Loaded from SD: device_id=%d", _device_id);
+      }
+    }
+    else if (line.startsWith(SD_CONFIG_FIELD_USER_NAME)) {
+      if (sscanf(line.c_str(), sd_config_user_name_f, &_user_name)) {
+        settings.set_user_name(_user_name, true);
+        M5_LOGD("Loaded from SD: user_name=%d", _user_name);
+      }
+      else {
+        M5_LOGD("Unable to load user_name");
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_API_KEY)) {
@@ -413,6 +425,8 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
     safecast_txt.printf(sd_config_version_f, VERSION_NUMBER);
     safecast_txt.println();
     safecast_txt.printf(sd_config_device_id_f, settings.get_device_id());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_user_name_f, settings.get_user_name());
     safecast_txt.println();
     safecast_txt.printf(sd_config_api_key_f, settings.get_api_key());
     safecast_txt.println();
