@@ -7,6 +7,7 @@ const char* memory_name = "data";
 
 // Keys for config
 constexpr char const* key_device_id = "device_id";
+constexpr char const* key_user_name = "user_name";
 constexpr char const* key_ap_password = "device_password";
 constexpr char const* key_wifi_ssid = "wifi_ssid";
 constexpr char const* key_wifi_password = "wifi_password";
@@ -31,6 +32,7 @@ LocalStorage::LocalStorage() :
     ProcessWorker<bool>(),
     _memory(),
     _device_id(0),
+    _user_name(""),
     _ap_password(""),
     _alert_threshold(0),
     _cpm_usvh(false),
@@ -55,6 +57,7 @@ LocalStorage::LocalStorage() :
 void LocalStorage::reset_defaults() {
   if(clear()) {
     set_device_id(D_DEVICE_ID, true);
+    set_user_name(D_USER_NAME, true);
     set_ap_password(D_AP_PASSWORD, true);
     set_alert_threshold(D_ALARM_THRESHOLD, true);
     set_cpm_usvh(D_CPM_USVH, true);
@@ -80,6 +83,10 @@ void LocalStorage::reset_defaults() {
 
 uint16_t LocalStorage::get_device_id() const {
   return _device_id;
+}
+
+const char* LocalStorage::get_user_name() const {
+  return _user_name;
 }
 
 uint32_t LocalStorage::get_fixed_device_id() const {
@@ -173,6 +180,19 @@ void LocalStorage::set_device_id(uint16_t device_id, bool force) {
     }
   }
 }
+
+void LocalStorage::set_user_name(const char* user_name, bool force) {
+  if(force || (user_name != nullptr && strlen(user_name) < CONFIG_VAL_MAX)) {
+    if(_memory.begin(memory_name)) {
+      strcpy(_user_name, user_name);
+      _memory.putString(key_user_name, _user_name);
+      _memory.end();
+    } else {
+      M5_LOGD("unable to save new value for user_name");
+    }
+  }
+}
+
 
 void LocalStorage::set_ap_password(const char* ap_password, bool force) {
   if(force || (ap_password != nullptr && strlen(ap_password) < CONFIG_VAL_MAX)) {
