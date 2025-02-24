@@ -5,66 +5,108 @@
 Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_wifi__connection_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&lt;WiFi.h&gt;</emphasis>
 <anchor xml:id="_wifi__connection_8cpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&lt;Arduino.h&gt;</emphasis>
 <anchor xml:id="_wifi__connection_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;ESPmDNS.h&gt;</emphasis>
-<anchor xml:id="_wifi__connection_8cpp_source_1l00004"/>00004 
-<anchor xml:id="_wifi__connection_8cpp_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_wifi__connection_8h">wifi_connection.h</link>&quot;</emphasis>
-<anchor xml:id="_wifi__connection_8cpp_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_debugger_8h">debugger.h</link>&quot;</emphasis>
-<anchor xml:id="_wifi__connection_8cpp_source_1l00007"/>00007 
-<anchor xml:id="_wifi__connection_8cpp_source_1l00008"/><link linkend="_class_wi_fi_connection_wrapper_1a7d869df899dfc5c676806d776597e484">00008</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_wi_fi_connection_wrapper_1a7d869df899dfc5c676806d776597e484">WiFiConnectionWrapper::connect_wifi</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;ssid,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;password)&#32;{
-<anchor xml:id="_wifi__connection_8cpp_source_1l00009"/>00009 &#32;&#32;<emphasis role="keywordflow">if</emphasis>(!ssid)&#32;{
-<anchor xml:id="_wifi__connection_8cpp_source_1l00010"/>00010 &#32;&#32;&#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;WiFi&#32;connector:&#32;No&#32;SSID&#32;to&#32;connect&#32;to!&quot;</emphasis>);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00011"/>00011 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
-<anchor xml:id="_wifi__connection_8cpp_source_1l00012"/>00012 &#32;&#32;}
-<anchor xml:id="_wifi__connection_8cpp_source_1l00013"/>00013 &#32;&#32;<link linkend="_debugger_8h_1a4f1aa9c2cc46934abb3416f96222cc40">DEBUG_PRINTLN</link>(<emphasis role="stringliteral">&quot;WiFi&#32;connector:&#32;Trying&#32;to&#32;connect&#32;to&#32;wifi...&quot;</emphasis>);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00014"/>00014 &#32;&#32;<emphasis role="keywordflow">switch</emphasis>(WiFi.status())&#32;{
-<anchor xml:id="_wifi__connection_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;WL_CONNECTED:
-<anchor xml:id="_wifi__connection_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
-<anchor xml:id="_wifi__connection_8cpp_source_1l00017"/>00017 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:
-<anchor xml:id="_wifi__connection_8cpp_source_1l00018"/>00018 &#32;&#32;&#32;&#32;&#32;&#32;password&#32;?&#32;WiFi.begin(ssid,&#32;password)&#32;:&#32;WiFi.begin(ssid);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;delay(100);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00020"/>00020 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;WiFi.isConnected();
-<anchor xml:id="_wifi__connection_8cpp_source_1l00021"/>00021 &#32;&#32;}
-<anchor xml:id="_wifi__connection_8cpp_source_1l00022"/>00022 }
-<anchor xml:id="_wifi__connection_8cpp_source_1l00023"/>00023 
-<anchor xml:id="_wifi__connection_8cpp_source_1l00024"/><link linkend="_class_wi_fi_connection_wrapper_1ac1c3882d7ca0f8c43c0f3b0b662941f3">00024</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_wi_fi_connection_wrapper_1ac1c3882d7ca0f8c43c0f3b0b662941f3">WiFiConnectionWrapper::disconnect_wifi</link>()&#32;{
-<anchor xml:id="_wifi__connection_8cpp_source_1l00025"/>00025 &#32;&#32;WiFi.disconnect(<emphasis role="keyword">true</emphasis>,&#32;<emphasis role="keyword">true</emphasis>);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00026"/>00026 &#32;&#32;WiFi.mode(WIFI_MODE_NULL);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00027"/>00027 }
-<anchor xml:id="_wifi__connection_8cpp_source_1l00028"/>00028 
-<anchor xml:id="_wifi__connection_8cpp_source_1l00029"/><link linkend="_class_wi_fi_connection_wrapper_1add8ab8299b5dcdcb6643f12aa0a46857">00029</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_wi_fi_connection_wrapper_1add8ab8299b5dcdcb6643f12aa0a46857">WiFiConnectionWrapper::wifi_connected</link>()&#32;{
-<anchor xml:id="_wifi__connection_8cpp_source_1l00030"/>00030 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;WiFi.isConnected();
-<anchor xml:id="_wifi__connection_8cpp_source_1l00031"/>00031 }
-<anchor xml:id="_wifi__connection_8cpp_source_1l00032"/>00032 
-<anchor xml:id="_wifi__connection_8cpp_source_1l00033"/><link linkend="_class_wi_fi_connection_wrapper_1a8d0aa568afdfb72dd868ef93ff64808c">00033</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_wi_fi_connection_wrapper_1a8d0aa568afdfb72dd868ef93ff64808c">WiFiConnectionWrapper::start_ap_server</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;host_ssid,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;password)&#32;{
-<anchor xml:id="_wifi__connection_8cpp_source_1l00034"/>00034 &#32;&#32;<link linkend="_class_wi_fi_connection_wrapper_1a9c470948d1171fc6b9740386b19ccf32">set_hostname</link>(host_ssid,&#32;<emphasis role="keyword">true</emphasis>);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00035"/>00035 &#32;&#32;WiFi.softAP(host_ssid,&#32;password);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00036"/>00036 &#32;&#32;WiFi.softAPsetHostname(host_ssid);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00037"/>00037 &#32;&#32;delay(100);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00038"/>00038 
-<anchor xml:id="_wifi__connection_8cpp_source_1l00039"/>00039 &#32;&#32;IPAddress&#32;ip(<link linkend="_user__config_8h_1a4e96e371af8e34654cb0d5d7057e70c0">ACCESS_POINT_IP</link>);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00040"/>00040 &#32;&#32;IPAddress&#32;n_mask(<link linkend="_user__config_8h_1a9d15ae2b09da9972e7498dfbd4645d0a">ACCESS_POINT_NMASK</link>);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00041"/>00041 &#32;&#32;WiFi.softAPConfig(ip,&#32;ip,&#32;n_mask);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00042"/>00042 
-<anchor xml:id="_wifi__connection_8cpp_source_1l00043"/>00043 &#32;&#32;delay(100);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00044"/>00044 
-<anchor xml:id="_wifi__connection_8cpp_source_1l00045"/>00045 &#32;&#32;<link linkend="_debugger_8h_1a01e7feab704802b5523d4bf0054f0b61">DEBUG_PRINTF</link>(<emphasis role="stringliteral">&quot;Access&#32;point&#32;is&#32;up&#32;at:&#32;%s&#32;-&gt;&#32;%s\n&quot;</emphasis>,&#32;host_ssid,&#32;WiFi.softAPIP().toString().c_str());
-<anchor xml:id="_wifi__connection_8cpp_source_1l00046"/>00046 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_wifi__connection_8cpp_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;M5Unified.h&gt;</emphasis>
+<anchor xml:id="_wifi__connection_8cpp_source_1l00005"/>00005 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_user__config_8h">user_config.h</link>&quot;</emphasis>
+<anchor xml:id="_wifi__connection_8cpp_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_wifi__connection_8h">wifi_connection.h</link>&quot;</emphasis>
+<anchor xml:id="_wifi__connection_8cpp_source_1l00008"/>00008 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00009"/><link linkend="_wifi__connection_8cpp_1a8d10d559fa8c2d79262a08609d604700">00009</link> <link linkend="_class_wi_fi_wrapper">WiFiWrapper</link>&#32;<link linkend="_wifi__connection_8cpp_1a8d10d559fa8c2d79262a08609d604700">WiFiWrapper_i</link>;
+<anchor xml:id="_wifi__connection_8cpp_source_1l00010"/>00010 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00011"/>00011 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00012"/><link linkend="_class_wi_fi_wrapper_1a6c74268bfdfe20d75bc9e277d2588480">00012</link> <link linkend="_class_wi_fi_wrapper_1a6c74268bfdfe20d75bc9e277d2588480">WiFiWrapper::WiFiWrapper</link>():&#32;_last_activity(0),&#32;_hostname(<emphasis role="stringliteral">&quot;&quot;</emphasis>)&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00013"/>00013 }
+<anchor xml:id="_wifi__connection_8cpp_source_1l00014"/>00014 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00015"/>00015 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00016"/><link linkend="_class_wi_fi_wrapper_1ac2331e7155ee97b89214f721d91cd657">00016</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_wi_fi_wrapper_1ac2331e7155ee97b89214f721d91cd657">WiFiWrapper::connect_wifi</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;ssid,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;password,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;first_time)&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00017"/>00017 &#32;&#32;<emphasis role="keywordflow">switch</emphasis>(WiFi.status())&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00018"/>00018 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;WL_CONNECTED:
+<anchor xml:id="_wifi__connection_8cpp_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_wifi__connection_8cpp_source_1l00020"/>00020 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;WL_CONNECT_FAILED:
+<anchor xml:id="_wifi__connection_8cpp_source_1l00021"/>00021 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(first_time)&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;M5_LOGD(<emphasis role="stringliteral">&quot;WiFi&#32;connector:&#32;Trying&#32;to&#32;reconnect&#32;to&#32;wifi...&quot;</emphasis>);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;WiFi.reconnect();
+<anchor xml:id="_wifi__connection_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;delay(100);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_wi_fi_wrapper_1ad810fce36f8f603465f255fbd88dc5c9">update_active</link>();
+<anchor xml:id="_wifi__connection_8cpp_source_1l00026"/>00026 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_wi_fi_wrapper_1a37ba31d67d18f35822a2cda0b6b5bf48">wifi_connected</link>();
+<anchor xml:id="_wifi__connection_8cpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_wifi__connection_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_wifi__connection_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">case</emphasis>&#32;WL_DISCONNECTED:
+<anchor xml:id="_wifi__connection_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;M5_LOGD(<emphasis role="stringliteral">&quot;WiFi&#32;connector:&#32;Trying&#32;to&#32;reconnect&#32;to&#32;wifi...&quot;</emphasis>);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;WiFi.reconnect();
+<anchor xml:id="_wifi__connection_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;delay(100);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_wi_fi_wrapper_1ad810fce36f8f603465f255fbd88dc5c9">update_active</link>();
+<anchor xml:id="_wifi__connection_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_wi_fi_wrapper_1a37ba31d67d18f35822a2cda0b6b5bf48">wifi_connected</link>();
+<anchor xml:id="_wifi__connection_8cpp_source_1l00035"/>00035 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">default</emphasis>:
+<anchor xml:id="_wifi__connection_8cpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;M5_LOGD(<emphasis role="stringliteral">&quot;WiFi&#32;connector:&#32;Trying&#32;to&#32;connect&#32;to&#32;wifi&#32;(%s:%s)...&quot;</emphasis>,&#32;ssid,&#32;password);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;password&#32;?&#32;WiFi.begin(ssid,&#32;password)&#32;:&#32;WiFi.begin(ssid);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;&#32;&#32;delay(100);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_wi_fi_wrapper_1ad810fce36f8f603465f255fbd88dc5c9">update_active</link>();
+<anchor xml:id="_wifi__connection_8cpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_wi_fi_wrapper_1a37ba31d67d18f35822a2cda0b6b5bf48">wifi_connected</link>();
+<anchor xml:id="_wifi__connection_8cpp_source_1l00041"/>00041 &#32;&#32;}
+<anchor xml:id="_wifi__connection_8cpp_source_1l00042"/>00042 }
+<anchor xml:id="_wifi__connection_8cpp_source_1l00043"/>00043 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00044"/><link linkend="_class_wi_fi_wrapper_1ad3550ed2833397450e1a4c80cb5727cf">00044</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_wi_fi_wrapper_1ad3550ed2833397450e1a4c80cb5727cf">WiFiWrapper::disconnect_wifi</link>()&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00045"/>00045 &#32;&#32;WiFi.disconnect(<emphasis role="keyword">true</emphasis>,&#32;<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00046"/>00046 &#32;&#32;WiFi.mode(WIFI_MODE_NULL);
 <anchor xml:id="_wifi__connection_8cpp_source_1l00047"/>00047 }
 <anchor xml:id="_wifi__connection_8cpp_source_1l00048"/>00048 
-<anchor xml:id="_wifi__connection_8cpp_source_1l00049"/><link linkend="_class_wi_fi_connection_wrapper_1aefd749dcacea79d5ff1a085bbae34adf">00049</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_wi_fi_connection_wrapper_1aefd749dcacea79d5ff1a085bbae34adf">WiFiConnectionWrapper::stop_ap_server</link>()&#32;{
-<anchor xml:id="_wifi__connection_8cpp_source_1l00050"/>00050 &#32;&#32;WiFi.softAPdisconnect(<emphasis role="keyword">true</emphasis>);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00051"/>00051 &#32;&#32;delay(20);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00052"/>00052 }
-<anchor xml:id="_wifi__connection_8cpp_source_1l00053"/>00053 
-<anchor xml:id="_wifi__connection_8cpp_source_1l00054"/><link linkend="_class_wi_fi_connection_wrapper_1a23df574a3c026ba7dc02ad887ac3f403">00054</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_wi_fi_connection_wrapper_1a23df574a3c026ba7dc02ad887ac3f403">WiFiConnectionWrapper::ap_server_up</link>()&#32;{
-<anchor xml:id="_wifi__connection_8cpp_source_1l00055"/>00055 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(WiFi.getMode()&#32;&amp;&#32;WIFI_MODE_AP)&#32;!=&#32;0;
-<anchor xml:id="_wifi__connection_8cpp_source_1l00056"/>00056 }
-<anchor xml:id="_wifi__connection_8cpp_source_1l00057"/>00057 
-<anchor xml:id="_wifi__connection_8cpp_source_1l00058"/><link linkend="_class_wi_fi_connection_wrapper_1a9c470948d1171fc6b9740386b19ccf32">00058</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_wi_fi_connection_wrapper_1a9c470948d1171fc6b9740386b19ccf32">WiFiConnectionWrapper::set_hostname</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;hostname,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;ap_mode)&#32;{
-<anchor xml:id="_wifi__connection_8cpp_source_1l00059"/>00059 &#32;&#32;WiFi.setHostname(hostname);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00060"/>00060 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(ap_mode)&#32;{
-<anchor xml:id="_wifi__connection_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(MDNS.begin(hostname))&#32;{
-<anchor xml:id="_wifi__connection_8cpp_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;MDNS.addService(<emphasis role="stringliteral">&quot;http&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;tcp&quot;</emphasis>,&#32;80);
-<anchor xml:id="_wifi__connection_8cpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_wifi__connection_8cpp_source_1l00064"/>00064 &#32;&#32;}
-<anchor xml:id="_wifi__connection_8cpp_source_1l00065"/>00065 }
+<anchor xml:id="_wifi__connection_8cpp_source_1l00049"/><link linkend="_class_wi_fi_wrapper_1a37ba31d67d18f35822a2cda0b6b5bf48">00049</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_wi_fi_wrapper_1a37ba31d67d18f35822a2cda0b6b5bf48">WiFiWrapper::wifi_connected</link>()&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00050"/>00050 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;WiFi.isConnected();
+<anchor xml:id="_wifi__connection_8cpp_source_1l00051"/>00051 }
+<anchor xml:id="_wifi__connection_8cpp_source_1l00052"/>00052 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00053"/><link linkend="_class_wi_fi_wrapper_1aa58f85290d8055a08f88918aed43a044">00053</link> uint8_t&#32;<link linkend="_class_wi_fi_wrapper_1aa58f85290d8055a08f88918aed43a044">WiFiWrapper::status</link>()&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00054"/>00054 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;WiFi.status();
+<anchor xml:id="_wifi__connection_8cpp_source_1l00055"/>00055 }
+<anchor xml:id="_wifi__connection_8cpp_source_1l00056"/>00056 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00057"/><link linkend="_class_wi_fi_wrapper_1a512f805886a687ffa3bd8137a385467a">00057</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_wi_fi_wrapper_1a512f805886a687ffa3bd8137a385467a">WiFiWrapper::start_ap_server</link>(uint16_t&#32;device_id,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;password)&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00058"/>00058 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;host_ssid[20];
+<anchor xml:id="_wifi__connection_8cpp_source_1l00059"/>00059 &#32;&#32;sprintf(host_ssid,&#32;<link linkend="_user__config_8h_1a61e55f831ccc0dca94bf0e0f121f2a7c">ACCESS_POINT_SSID</link>,&#32;device_id);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00060"/>00060 &#32;&#32;WiFi.softAP(host_ssid,&#32;password);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00061"/>00061 &#32;&#32;WiFi.softAPsetHostname(host_ssid);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00062"/>00062 &#32;&#32;delay(100);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00063"/>00063 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00064"/>00064 &#32;&#32;IPAddress&#32;ip(<link linkend="_user__config_8h_1a4e96e371af8e34654cb0d5d7057e70c0">ACCESS_POINT_IP</link>);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00065"/>00065 &#32;&#32;IPAddress&#32;n_mask(<link linkend="_user__config_8h_1a9d15ae2b09da9972e7498dfbd4645d0a">ACCESS_POINT_NMASK</link>);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00066"/>00066 &#32;&#32;WiFi.softAPConfig(ip,&#32;ip,&#32;n_mask);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00067"/>00067 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00068"/>00068 &#32;&#32;delay(100);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00069"/>00069 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00070"/>00070 &#32;&#32;M5_LOGD(<emphasis role="stringliteral">&quot;Access&#32;point&#32;is&#32;up&#32;at:&#32;%s&#32;-&gt;&#32;%s&quot;</emphasis>,&#32;host_ssid,&#32;WiFi.softAPIP().toString().c_str());
+<anchor xml:id="_wifi__connection_8cpp_source_1l00071"/>00071 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_wifi__connection_8cpp_source_1l00072"/>00072 }
+<anchor xml:id="_wifi__connection_8cpp_source_1l00073"/>00073 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00074"/><link linkend="_class_wi_fi_wrapper_1aa9ca9b276121fdd25b8a88c1a59ecf26">00074</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_wi_fi_wrapper_1aa9ca9b276121fdd25b8a88c1a59ecf26">WiFiWrapper::stop_ap_server</link>()&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00075"/>00075 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_wi_fi_wrapper_1ab5bf49473b1e795db44475daf860d7c8">ap_server_up</link>())&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00076"/>00076 &#32;&#32;&#32;&#32;WiFi.softAPdisconnect(<emphasis role="keyword">true</emphasis>);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00077"/>00077 &#32;&#32;&#32;&#32;delay(20);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00078"/>00078 &#32;&#32;}
+<anchor xml:id="_wifi__connection_8cpp_source_1l00079"/>00079 }
+<anchor xml:id="_wifi__connection_8cpp_source_1l00080"/>00080 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00081"/><link linkend="_class_wi_fi_wrapper_1ab5bf49473b1e795db44475daf860d7c8">00081</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_wi_fi_wrapper_1ab5bf49473b1e795db44475daf860d7c8">WiFiWrapper::ap_server_up</link>()&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00082"/>00082 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(WiFi.getMode()&#32;&amp;&#32;WIFI_MODE_AP)&#32;!=&#32;0;
+<anchor xml:id="_wifi__connection_8cpp_source_1l00083"/>00083 }
+<anchor xml:id="_wifi__connection_8cpp_source_1l00084"/>00084 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00085"/><link linkend="_class_wi_fi_wrapper_1aedbee9ee2641c2a5036cbeed9b9045f2">00085</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_wi_fi_wrapper_1aedbee9ee2641c2a5036cbeed9b9045f2">WiFiWrapper::set_hostname</link>(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;hostname,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;ap_mode)&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00086"/>00086 &#32;&#32;strcpy(_hostname,&#32;hostname);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00087"/>00087 &#32;&#32;WiFi.setHostname(hostname);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00088"/>00088 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(ap_mode)&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00089"/>00089 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(MDNS.begin(hostname))&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;MDNS.addService(<emphasis role="stringliteral">&quot;http&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;tcp&quot;</emphasis>,&#32;80);
+<anchor xml:id="_wifi__connection_8cpp_source_1l00091"/>00091 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_wifi__connection_8cpp_source_1l00092"/>00092 &#32;&#32;}
+<anchor xml:id="_wifi__connection_8cpp_source_1l00093"/>00093 }
+<anchor xml:id="_wifi__connection_8cpp_source_1l00094"/>00094 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00095"/><link linkend="_class_wi_fi_wrapper_1a7c56f4e5dfdeb01c6df3d54741a7d00a">00095</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>*&#32;<link linkend="_class_wi_fi_wrapper_1a7c56f4e5dfdeb01c6df3d54741a7d00a">WiFiWrapper::get_hostname</link>()<emphasis role="keyword">&#32;const&#32;</emphasis>{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00096"/>00096 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_hostname;
+<anchor xml:id="_wifi__connection_8cpp_source_1l00097"/>00097 }
+<anchor xml:id="_wifi__connection_8cpp_source_1l00098"/>00098 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00099"/><link linkend="_class_wi_fi_wrapper_1ad810fce36f8f603465f255fbd88dc5c9">00099</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_wi_fi_wrapper_1ad810fce36f8f603465f255fbd88dc5c9">WiFiWrapper::update_active</link>()&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00100"/>00100 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_class_wi_fi_wrapper_1a37ba31d67d18f35822a2cda0b6b5bf48">wifi_connected</link>())&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00101"/>00101 &#32;&#32;&#32;&#32;WiFiWrapper::_last_activity&#32;=&#32;millis();
+<anchor xml:id="_wifi__connection_8cpp_source_1l00102"/>00102 &#32;&#32;}
+<anchor xml:id="_wifi__connection_8cpp_source_1l00103"/>00103 }
+<anchor xml:id="_wifi__connection_8cpp_source_1l00104"/>00104 
+<anchor xml:id="_wifi__connection_8cpp_source_1l00105"/><link linkend="_class_wi_fi_wrapper_1a47e4ba98a6816444c9e52d35ed62df6f">00105</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_wi_fi_wrapper_1a47e4ba98a6816444c9e52d35ed62df6f">WiFiWrapper::was_active</link>()&#32;{
+<anchor xml:id="_wifi__connection_8cpp_source_1l00106"/>00106 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;WiFiWrapper::_last_activity&#32;&amp;&amp;&#32;(WiFiWrapper::_last_activity&#32;+&#32;500)&#32;&gt;&#32;millis();
+<anchor xml:id="_wifi__connection_8cpp_source_1l00107"/>00107 }
 </programlisting></section>

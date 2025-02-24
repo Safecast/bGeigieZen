@@ -80,7 +80,7 @@ struct ConfigData {
   ConfigData() { strcpy(country_code, SETUP_DEFAULT_COUNTRY_CODE); }
   uint8_t type = GEIGIE_TYPE_B;     // 0 for bGeigie, 1 for xGeigie
   uint8_t mode = GEIGIE_MODE_USVH;  // 0 for uSv/h, 1 for Bq/m2
-  char user_name[SETUP_USERNAME_MAXLEN + 1] = {0};
+  char user_name[SETUP_USER_NAME_MAXLEN + 1] = {0};
   uint32_t device_id = SETUP_DEFAULT_DEVICE_ID;
   uint8_t cpm_window = SETUP_DEFAULT_CPM_WINDOW;
   float cpm2ush_divider = SETUP_DEFAULT_USH_DIVIDER;

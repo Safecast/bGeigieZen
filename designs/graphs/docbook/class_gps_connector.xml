@@ -26,9 +26,7 @@ Collaboration diagram for GpsConnector:<para>
 <simplesect>
     <title>Public Member Functions    </title>
         <itemizedlist>
-            <listitem><para><link linkend="_class_gps_connector_1aa7063a9ff75593b35995241c579b070f">GpsConnector</link> (uint8_t gps_serial_num, SFE_UBLOX_GNSS &amp;gnss)</para>
-
-<para>GNSS handler using UBX protocol library. </para>
+            <listitem><para><link linkend="_class_gps_connector_1aff7afdfbf2918f864fdc4e7aee38db00">GpsConnector</link> (TeenyUbloxConnect &amp;_gnss, HardwareSerial &amp;serial)</para>
 </listitem>
             <listitem><para>virtual <link linkend="_class_gps_connector_1a407cbc36ea5bca53e9471c4d27af4225">~GpsConnector</link> ()=default</para>
 </listitem>
@@ -38,29 +36,28 @@ Collaboration diagram for GpsConnector:<para>
 </listitem>
         </itemizedlist>
 </simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_gps_connector_1aa74f07bb7ed9075fe0b0ed64b6eecbc6">deactivate</link> () override</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
 <section>
 <title>Detailed Description</title>
 
 <para>GPS device worker, produces the current GPS location. </para>
 <para>
-Definition at line <link linkend="_gps__connector_8h_source_1l00065">65</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
+Definition at line <link linkend="_gps__connector_8h_source_1l00088">88</link> of file <link linkend="_gps__connector_8h_source">gps_connector.h</link>.</para>
 </section>
 <section>
 <title>Constructor &amp; Destructor Documentation</title>
-<anchor xml:id="_class_gps_connector_1aa7063a9ff75593b35995241c579b070f"/><section>
+<anchor xml:id="_class_gps_connector_1aff7afdfbf2918f864fdc4e7aee38db00"/><section>
     <title>GpsConnector()</title>
 <indexterm><primary>GpsConnector</primary><secondary>GpsConnector</secondary></indexterm>
 <indexterm><primary>GpsConnector</primary><secondary>GpsConnector</secondary></indexterm>
-<para><computeroutput>GpsConnector::GpsConnector (uint8_t gps_serial_num, SFE_UBLOX_GNSS &amp; gnss)<computeroutput>[explicit]</computeroutput></computeroutput></para><para>
-
-<para>GNSS handler using UBX protocol library. </para>
-</para>
-
-<para><para><link linkend="_todo_1_todo000001">Todo</link> 
-<para>Split into a date &amp; time producer and a position producer The date and time are received sooner than position because fewer satellites are needed for time information. This means that we can set the clock and open log files before the full 3D position fix is ready. Eventually, gps_connector is separate and there are two workers, datetime and position, each pulling information from gps_connector. With Core2 (and Core with external RTC), date-time can be obtained from the RTC before GNSS receives time. In that case, the date-time worker can choose the more reliable of the two: GNSS preferred, RTC otherwise. We also have the issue of initializing RTC on a brand new device, that can be done from GNSS. </para>
-</para></para>
-<para>
-Definition at line <link linkend="_gps__connector_8cpp_source_1l00019">19</link> of file <link linkend="_gps__connector_8cpp_source">gps_connector.cpp</link>.</para>
+<para><computeroutput>GpsConnector::GpsConnector (TeenyUbloxConnect &amp; _gnss, HardwareSerial &amp; serial)<computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8cpp_source_1l00034">34</link> of file <link linkend="_gps__connector_8cpp_source">gps_connector.cpp</link>.</para>
 </section>
 <anchor xml:id="_class_gps_connector_1a407cbc36ea5bca53e9471c4d27af4225"/><section>
     <title>~GpsConnector()</title>
@@ -81,14 +78,30 @@ Definition at line <link linkend="_gps__connector_8cpp_source_1l00019">19</link>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_gps__connector_8cpp_source_1l00024">24</link> of file <link linkend="_gps__connector_8cpp_source">gps_connector.cpp</link>.</para>
+Definition at line <link linkend="_gps__connector_8cpp_source_1l00058">58</link> of file <link linkend="_gps__connector_8cpp_source">gps_connector.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_gps_connector_1aa74f07bb7ed9075fe0b0ed64b6eecbc6"/><section>
+    <title>deactivate()</title>
+<indexterm><primary>deactivate</primary><secondary>GpsConnector</secondary></indexterm>
+<indexterm><primary>GpsConnector</primary><secondary>deactivate</secondary></indexterm>
+<para><computeroutput>void GpsConnector::deactivate ( )<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_gps__connector_8cpp_source_1l00127">127</link> of file <link linkend="_gps__connector_8cpp_source">gps_connector.cpp</link>.</para>
 </section>
 <anchor xml:id="_class_gps_connector_1a772998cb4be0a4a1f4964e7dfc6962db"/><section>
     <title>produce_data()</title>
 <indexterm><primary>produce_data</primary><secondary>GpsConnector</secondary></indexterm>
 <indexterm><primary>GpsConnector</primary><secondary>produce_data</secondary></indexterm>
 <para><computeroutput>int8_t GpsConnector::produce_data ( )<computeroutput>[override]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_gps__connector_8cpp_source_1l00074">74</link> of file <link linkend="_gps__connector_8cpp_source">gps_connector.cpp</link>.</para>
+Definition at line <link linkend="_gps__connector_8cpp_source_1l00134">134</link> of file <link linkend="_gps__connector_8cpp_source">gps_connector.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_gps_connector_a772998cb4be0a4a1f4964e7dfc6962db_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
 </section>
 <para>
 The documentation for this class was generated from the following files:</para>

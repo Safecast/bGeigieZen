@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_functions_8h_source" xml:lang="en-US">
+<title>functions.h</title>
+<indexterm><primary>bgeigiezen_firmware/utils/functions.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_functions_8h_source_1l00001"/>00001 <emphasis role="comment">//</emphasis>
+<anchor xml:id="_functions_8h_source_1l00002"/>00002 <emphasis role="comment">//&#32;Created&#32;by&#32;klei&#32;on&#32;10/7/24.</emphasis>
+<anchor xml:id="_functions_8h_source_1l00003"/>00003 <emphasis role="comment">//</emphasis>
+<anchor xml:id="_functions_8h_source_1l00004"/>00004 
+<anchor xml:id="_functions_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#ifndef&#32;BGEIGIEZEN_BGEIGIEZEN_FIRMWARE_UTILS_FUNCTIONS_H_</emphasis>
+<anchor xml:id="_functions_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#define&#32;BGEIGIEZEN_BGEIGIEZEN_FIRMWARE_UTILS_FUNCTIONS_H_</emphasis>
+<anchor xml:id="_functions_8h_source_1l00007"/>00007 
+<anchor xml:id="_functions_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&quot;M5Unified.h&quot;</emphasis>
+<anchor xml:id="_functions_8h_source_1l00009"/><link linkend="_functions_8h_1a0a3cc1d5cde549e408f825ddd7f5853d">00009</link> <emphasis role="preprocessor">#define&#32;D2R&#32;(PI&#32;/&#32;180.0)</emphasis>
+<anchor xml:id="_functions_8h_source_1l00010"/>00010 
+<anchor xml:id="_functions_8h_source_1l00019"/><link linkend="_functions_8h_1a9b1d6cb0ae5f9e0e2eb8547c8d1fa038">00019</link> <emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keywordtype">double</emphasis>&#32;<link linkend="_functions_8h_1a9b1d6cb0ae5f9e0e2eb8547c8d1fa038">haversine_km</link>(<emphasis role="keywordtype">double</emphasis>&#32;lat1,&#32;<emphasis role="keywordtype">double</emphasis>&#32;long1,&#32;<emphasis role="keywordtype">double</emphasis>&#32;lat2,&#32;<emphasis role="keywordtype">double</emphasis>&#32;long2)&#32;{
+<anchor xml:id="_functions_8h_source_1l00020"/>00020 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;dlong&#32;=&#32;(long2&#32;-&#32;long1)&#32;*&#32;<link linkend="_functions_8h_1a0a3cc1d5cde549e408f825ddd7f5853d">D2R</link>;
+<anchor xml:id="_functions_8h_source_1l00021"/>00021 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;dlat&#32;=&#32;(lat2&#32;-&#32;lat1)&#32;*&#32;<link linkend="_functions_8h_1a0a3cc1d5cde549e408f825ddd7f5853d">D2R</link>;
+<anchor xml:id="_functions_8h_source_1l00022"/>00022 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;a&#32;=&#32;pow(sin(dlat&#32;/&#32;2.0),&#32;2)&#32;+&#32;cos(lat1&#32;*&#32;<link linkend="_functions_8h_1a0a3cc1d5cde549e408f825ddd7f5853d">D2R</link>)&#32;*&#32;cos(lat2&#32;*&#32;<link linkend="_functions_8h_1a0a3cc1d5cde549e408f825ddd7f5853d">D2R</link>)&#32;*&#32;pow(sin(dlong&#32;/&#32;2.0),&#32;2);
+<anchor xml:id="_functions_8h_source_1l00023"/>00023 &#32;&#32;<emphasis role="keywordtype">double</emphasis>&#32;c&#32;=&#32;2&#32;*&#32;atan2(sqrt(a),&#32;sqrt(1&#32;-&#32;a));
+<anchor xml:id="_functions_8h_source_1l00024"/>00024 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;6367&#32;*&#32;c;
+<anchor xml:id="_functions_8h_source_1l00025"/>00025 }
+<anchor xml:id="_functions_8h_source_1l00026"/>00026 
+<anchor xml:id="_functions_8h_source_1l00027"/>00027 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//BGEIGIEZEN_BGEIGIEZEN_FIRMWARE_UTILS_FUNCTIONS_H_</emphasis>
+</programlisting></section>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_navsat__collector_8cpp_source" xml:lang="en-US">
+<title>navsat_collector.cpp</title>
+<indexterm><primary>bgeigiezen_firmware/workers/navsat_collector.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_navsat__collector_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_navsat__collector_8h">navsat_collector.h</link>&quot;</emphasis>
+<anchor xml:id="_navsat__collector_8cpp_source_1l00002"/>00002 
+<anchor xml:id="_navsat__collector_8cpp_source_1l00003"/>00003 
+<anchor xml:id="_navsat__collector_8cpp_source_1l00004"/><link linkend="_class_navsat_collector_1aeaa2bb2eff97171c176346039bc80511">00004</link> <link linkend="_class_navsat_collector_1aeaa2bb2eff97171c176346039bc80511">NavsatCollector::NavsatCollector</link>(TeenyUbloxConnect&amp;&#32;<link linkend="_main_8cpp_1a658cddeb4423ca050427704c6761e2e3">gnss</link>)&#32;:&#32;Worker&lt;<link linkend="_struct_navsat_data">NavsatData</link>&gt;({
+<anchor xml:id="_navsat__collector_8cpp_source_1l00005"/>00005 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.available=<emphasis role="keyword">false</emphasis>,
+<anchor xml:id="_navsat__collector_8cpp_source_1l00006"/>00006 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;.navsat_info=ubloxNAVSATInfo_t(),
+<anchor xml:id="_navsat__collector_8cpp_source_1l00007"/>00007 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}),&#32;_gnss(<link linkend="_main_8cpp_1a658cddeb4423ca050427704c6761e2e3">gnss</link>)&#32;{
+<anchor xml:id="_navsat__collector_8cpp_source_1l00008"/>00008 }
+<anchor xml:id="_navsat__collector_8cpp_source_1l00009"/>00009 
+<anchor xml:id="_navsat__collector_8cpp_source_1l00013"/><link linkend="_class_navsat_collector_1ad94174b1af2175c4c484cd3d8b0e1f2d">00013</link> <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_navsat_collector_1ad94174b1af2175c4c484cd3d8b0e1f2d">NavsatCollector::activate</link>(<emphasis role="keywordtype">bool</emphasis>&#32;retry)&#32;{
+<anchor xml:id="_navsat__collector_8cpp_source_1l00014"/>00014 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_gnss.pollUART1Port())&#32;{
+<anchor xml:id="_navsat__collector_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;_gnss.setAutoNAVSATRate(10);
+<anchor xml:id="_navsat__collector_8cpp_source_1l00016"/>00016 &#32;&#32;}
+<anchor xml:id="_navsat__collector_8cpp_source_1l00017"/>00017 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_navsat__collector_8cpp_source_1l00018"/>00018 }
+<anchor xml:id="_navsat__collector_8cpp_source_1l00019"/>00019 
+<anchor xml:id="_navsat__collector_8cpp_source_1l00020"/><link linkend="_class_navsat_collector_1a89eb998ac1a3dda3f2ec94b3f50232ce">00020</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_navsat_collector_1a89eb998ac1a3dda3f2ec94b3f50232ce">NavsatCollector::deactivate</link>()&#32;{
+<anchor xml:id="_navsat__collector_8cpp_source_1l00021"/>00021 &#32;&#32;_gnss.setAutoNAVSAT(<emphasis role="keyword">false</emphasis>);
+<anchor xml:id="_navsat__collector_8cpp_source_1l00022"/>00022 }
+<anchor xml:id="_navsat__collector_8cpp_source_1l00023"/>00023 
+<anchor xml:id="_navsat__collector_8cpp_source_1l00024"/><link linkend="_class_navsat_collector_1a6a35cc446ad59a57f7fa243aa01b3e5c">00024</link> int8_t&#32;<link linkend="_class_navsat_collector_1a6a35cc446ad59a57f7fa243aa01b3e5c">NavsatCollector::produce_data</link>()&#32;{
+<anchor xml:id="_navsat__collector_8cpp_source_1l00025"/>00025 &#32;&#32;<emphasis role="comment">//&#32;Collect&#32;NAVSAT&#32;Packet</emphasis>
+<anchor xml:id="_navsat__collector_8cpp_source_1l00026"/>00026 
+<anchor xml:id="_navsat__collector_8cpp_source_1l00027"/>00027 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(_gnss.getNAVSAT())&#32;{
+<anchor xml:id="_navsat__collector_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;_gnss.getNAVSATInfo(data.navsat_info);
+<anchor xml:id="_navsat__collector_8cpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;data.available&#32;=&#32;data.navsat_info.validPacket;
+<anchor xml:id="_navsat__collector_8cpp_source_1l00030"/>00030 
+<anchor xml:id="_navsat__collector_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;e_worker_data_read;
+<anchor xml:id="_navsat__collector_8cpp_source_1l00032"/>00032 &#32;&#32;}
+<anchor xml:id="_navsat__collector_8cpp_source_1l00033"/>00033 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;e_worker_idle;
+<anchor xml:id="_navsat__collector_8cpp_source_1l00034"/>00034 }
+</programlisting></section>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_zen__info_8h_source" xml:lang="en-US">
+<title>zen_info.h</title>
+<indexterm><primary>bgeigiezen_firmware/screens/zen_info.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_zen__info_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;ZEN_INFO_SCREEN_H</emphasis>
+<anchor xml:id="_zen__info_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;ZEN_INFO_SCREEN_H</emphasis>
+<anchor xml:id="_zen__info_8h_source_1l00003"/>00003 
+<anchor xml:id="_zen__info_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_base__screen_8h">base_screen.h</link>&quot;</emphasis>
+<anchor xml:id="_zen__info_8h_source_1l00005"/>00005 
+<anchor xml:id="_zen__info_8h_source_1l00006"/><link linkend="_class_zen_info_screen">00006</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_zen_info_screen_1a9e1a816d25b0d78f44c642314eb735e9">ZenInfoScreen</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_base_screen_1a2e28e5b4ef3027c3c4392dfb4a6c3ff8">BaseScreen</link>&#32;{
+<anchor xml:id="_zen__info_8h_source_1l00007"/>00007 &#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_zen__info_8h_source_1l00008"/>00008 &#32;&#32;<emphasis role="keyword">explicit</emphasis>&#32;<link linkend="_class_zen_info_screen_1a9e1a816d25b0d78f44c642314eb735e9">ZenInfoScreen</link>();
+<anchor xml:id="_zen__info_8h_source_1l00009"/>00009 
+<anchor xml:id="_zen__info_8h_source_1l00010"/>00010 &#32;&#32;<link linkend="_class_base_screen_1a2e28e5b4ef3027c3c4392dfb4a6c3ff8">BaseScreen</link>*&#32;<link linkend="_class_zen_info_screen_1a786b973c3a31797c902d23dfcb44fe7a">handle_input</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</link>,&#32;<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_zen__info_8h_source_1l00011"/>00011 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_zen_info_screen_1ab3f312ea8678af3a5d339d781f241da8">enter_screen</link>(<link linkend="_class_controller">Controller</link>&amp;&#32;<link linkend="_main_8cpp_1a1eaea7d30fb1aec4bced535709104e57">controller</link>)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_zen__info_8h_source_1l00012"/>00012 
+<anchor xml:id="_zen__info_8h_source_1l00013"/>00013 &#32;<emphasis role="keyword">protected</emphasis>:
+<anchor xml:id="_zen__info_8h_source_1l00014"/>00014 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_zen_info_screen_1ac6aeca5cbd35b67bfb60f3c39a26e010">render</link>(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers,&#32;<emphasis role="keyword">const</emphasis>&#32;handler_map_t&amp;&#32;handlers,&#32;<emphasis role="keywordtype">bool</emphasis>&#32;force)&#32;<emphasis role="keyword">override</emphasis>;
+<anchor xml:id="_zen__info_8h_source_1l00015"/>00015 
+<anchor xml:id="_zen__info_8h_source_1l00016"/>00016 &#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_zen__info_8h_source_1l00017"/>00017 &#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;ZenInfoPage&#32;{
+<anchor xml:id="_zen__info_8h_source_1l00018"/>00018 &#32;&#32;&#32;&#32;e_zen_info_page_main,
+<anchor xml:id="_zen__info_8h_source_1l00019"/>00019 &#32;&#32;&#32;&#32;e_zen_info_page_qr,
+<anchor xml:id="_zen__info_8h_source_1l00020"/>00020 &#32;&#32;};
+<anchor xml:id="_zen__info_8h_source_1l00021"/>00021 
+<anchor xml:id="_zen__info_8h_source_1l00022"/>00022 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;render_page_main(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers,&#32;<emphasis role="keyword">const</emphasis>&#32;handler_map_t&amp;&#32;handlers);
+<anchor xml:id="_zen__info_8h_source_1l00023"/>00023 &#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;render_page_qr(<emphasis role="keyword">const</emphasis>&#32;worker_map_t&amp;&#32;workers,&#32;<emphasis role="keyword">const</emphasis>&#32;handler_map_t&amp;&#32;handlers);
+<anchor xml:id="_zen__info_8h_source_1l00024"/>00024 
+<anchor xml:id="_zen__info_8h_source_1l00025"/>00025 &#32;&#32;ZenInfoPage&#32;_page;
+<anchor xml:id="_zen__info_8h_source_1l00026"/>00026 
+<anchor xml:id="_zen__info_8h_source_1l00027"/>00027 };
+<anchor xml:id="_zen__info_8h_source_1l00028"/>00028 
+<anchor xml:id="_zen__info_8h_source_1l00029"/>00029 <emphasis role="keyword">extern</emphasis>&#32;<link linkend="_class_zen_info_screen">ZenInfoScreen</link>&#32;<link linkend="_zen__info_8cpp_1abb8fbaa08d00cd1a3a7fd75abd2ff937">ZenInfoScreen_i</link>;
+<anchor xml:id="_zen__info_8h_source_1l00030"/>00030 
+<anchor xml:id="_zen__info_8h_source_1l00031"/>00031 <emphasis role="preprocessor">#endif&#32;</emphasis><emphasis role="comment">//ZEN_INFO_SCREEN_H</emphasis>
+</programlisting></section>
