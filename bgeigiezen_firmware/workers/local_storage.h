@@ -30,8 +30,8 @@ class LocalStorage : public ProcessWorker<bool> {
 
   // Getters and setters
   virtual uint16_t get_device_id() const final;
-  virtual const char* get_user_name() const final;
   virtual uint32_t get_fixed_device_id() const final;
+  virtual const char* get_user_name() const final;
   virtual const char* get_ap_password() const final;
   virtual uint16_t get_alert_threshold() const final;
   virtual bool get_cpm_usvh() const final;

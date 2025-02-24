@@ -135,6 +135,7 @@ void ConfigModeScreen::render_page_main(const worker_map_t& workers, const handl
 
   if (_main_page_info_section == e_config_section_device) {
     M5.Lcd.printf("Device settings\n\n");
+    M5.Lcd.printf("User name:   %s  \n", config.get_user_name());
     M5.Lcd.printf("Display unit:   %s  \n", config.get_cpm_usvh() ? "CPM" : "uSv/h");
     M5.Lcd.printf("Alert threshold:   %d  \n", config.get_alert_threshold());
     M5.Lcd.printf("Logging drive/survey:   %s  \n", config.get_manual_logging() ? "Manual start" : "Automatic");
