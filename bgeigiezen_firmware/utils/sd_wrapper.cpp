@@ -3,12 +3,12 @@
 
 #define SD_CONFIG_FIELD_VERSION "version"
 #define SD_CONFIG_FIELD_DEVICE_ID "device_id"
-#define SD_CONFIG_FIELD_USER_NAME "nm"
+#define SD_CONFIG_FIELD_USER_NAME "user_name"
+#define SD_CONFIG_FIELD_COUNTRY_CODE "country_code"
 #define SD_CONFIG_FIELD_USH_DIVIDER "ush_divider"
 #define SD_CONFIG_FIELD_CPMN "cpmn"
 #define SD_CONFIG_FIELD_BQM_FACTOR "bqm_factor"
 #define SD_CONFIG_FIELD_BQMN "bqmn"
-#define SD_CONFIG_FIELD_COUNTRY_CODE "country_code"
 #define SD_CONFIG_FIELD_GT "gt"
 #define SD_CONFIG_FIELD_GM "gm"
 #define SD_CONFIG_FIELD_SENSOR_TYPE "sensor_type"
@@ -33,12 +33,13 @@
 
 constexpr char sd_config_version_f[] = SD_CONFIG_FIELD_VERSION"=%s";
 constexpr char sd_config_device_id_f[] = SD_CONFIG_FIELD_DEVICE_ID"=%u";
-constexpr char sd_config_user_name_f[] = SD_CONFIG_FIELD_USER_NAME"=%s";
+constexpr char sd_config_user_name_f[] = SD_CONFIG_FIELD_USER_NAME"=%[^\t\r\n]";
+constexpr char sd_config_user_name_write_f[] = SD_CONFIG_FIELD_USER_NAME"=%s";
+constexpr char sd_config_country_code_f[] = SD_CONFIG_FIELD_COUNTRY_CODE"=%s";
 constexpr char sd_config_ush_divider_f[] = SD_CONFIG_FIELD_USH_DIVIDER"=%lf";
 constexpr char sd_config_cpmn_f[] = SD_CONFIG_FIELD_CPMN"=%s";
 constexpr char sd_config_bqm_factor_f[] = SD_CONFIG_FIELD_BQM_FACTOR"=%lf";
 constexpr char sd_config_bqmn_f[] = SD_CONFIG_FIELD_BQMN"=%s";
-constexpr char sd_config_country_code_f[] = SD_CONFIG_FIELD_COUNTRY_CODE"=%s";
 constexpr char sd_config_gt_f[] = SD_CONFIG_FIELD_GT"=%d";
 constexpr char sd_config_gm_f[] = SD_CONFIG_FIELD_GM"=%d";
 constexpr char sd_config_sensor_type_f[] = SD_CONFIG_FIELD_SENSOR_TYPE"=%d";
@@ -267,9 +268,9 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_USER_NAME)) {
-      if (sscanf(line.c_str(), sd_config_user_name_f, &_user_name)) {
-        settings.set_user_name(_user_name, true);
-        M5_LOGD("Loaded from SD: user_name=%d", _user_name);
+      if (sscanf(line.c_str(), sd_config_user_name_f, user_name)) {
+        settings.set_user_name(user_name, true);
+        M5_LOGD("Loaded from SD: user_name=%d", user_name);
       }
       else {
         M5_LOGD("Unable to load user_name");
@@ -426,7 +427,7 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
     safecast_txt.println();
     safecast_txt.printf(sd_config_device_id_f, settings.get_device_id());
     safecast_txt.println();
-    safecast_txt.printf(sd_config_user_name_f, settings.get_user_name());
+    safecast_txt.printf(sd_config_user_name_write_f, settings.get_user_name());
     safecast_txt.println();
     safecast_txt.printf(sd_config_api_key_f, settings.get_api_key());
     safecast_txt.println();
