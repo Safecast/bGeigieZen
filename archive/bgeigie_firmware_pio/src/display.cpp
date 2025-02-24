@@ -67,7 +67,7 @@ void Display::draw_base() {
   M5.Lcd.setTextColor(TFT_WHITE, TFT_BLACK);
   M5.Lcd.drawString("SAFECAST", 230, 215, 1);
   M5.Lcd.setTextColor(TFT_ORANGE, TFT_BLACK);
-  M5.Lcd.drawString("2023", 285, 215, 1);
+  M5.Lcd.drawString("2025", 285, 215, 1);
 }
 
 void Display::draw_navbar(const char *A, const char *B, const char *C) {

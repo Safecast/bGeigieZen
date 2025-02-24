@@ -22,15 +22,11 @@
 </listitem>
             <listitem><para>uint32_t <link linkend="_struct_geiger_data_1aa064d0894267741ccf9608ba920c7db8">total</link> = 0</para>
 </listitem>
-            <listitem><para>float <link linkend="_struct_geiger_data_1a81ecc00a99630edc0699b19bdc7ae140">uSv</link> = 0.0</para>
+            <listitem><para>float <link linkend="_struct_geiger_data_1a8be97af73c436bf33d562af811f1218c">uSvh</link> = 0.0</para>
 </listitem>
             <listitem><para>float <link linkend="_struct_geiger_data_1a2bcd68de2b048b085cd1a35a4648ff15">Bqm2</link> = 0.0</para>
 </listitem>
-            <listitem><para>float <link linkend="_struct_geiger_data_1aef46f8c0c1fce07338a04c92ed102329">uSv_sec</link> = 0.0</para>
-</listitem>
-            <listitem><para>float <link linkend="_struct_geiger_data_1a2510caebbe9da3c2ba64b4744ffe6da3">Bqm2_sec</link> = 0.0</para>
-</listitem>
-            <listitem><para>float <link linkend="_struct_geiger_data_1afec940a76e00b11fdfb2070605e50e84">uSv_5sec</link> = 0.0</para>
+            <listitem><para>float <link linkend="_struct_geiger_data_1a7f2852eec45590b5729be23798ecc111">uSvh_5sec</link> = 0.0</para>
 </listitem>
             <listitem><para>float <link linkend="_struct_geiger_data_1a534aff9ab3721280a60b60fcee99aebc">Bqm2_5sec</link> = 0.0</para>
 </listitem>
@@ -50,7 +46,7 @@ Definition at line <link linkend="_gm__sensor_8h_source_1l00007">7</link> of fil
 <indexterm><primary>alert</primary><secondary>GeigerData</secondary></indexterm>
 <indexterm><primary>GeigerData</primary><secondary>alert</secondary></indexterm>
 <para><computeroutput>bool GeigerData::alert = false</computeroutput></para><para>
-Definition at line <link linkend="_gm__sensor_8h_source_1l00021">21</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
+Definition at line <link linkend="_gm__sensor_8h_source_1l00019">19</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
 </section>
 <anchor xml:id="_struct_geiger_data_1a2bcd68de2b048b085cd1a35a4648ff15"/><section>
     <title>Bqm2</title>
@@ -64,13 +60,6 @@ Definition at line <link linkend="_gm__sensor_8h_source_1l00016">16</link> of fi
 <indexterm><primary>Bqm2_5sec</primary><secondary>GeigerData</secondary></indexterm>
 <indexterm><primary>GeigerData</primary><secondary>Bqm2_5sec</secondary></indexterm>
 <para><computeroutput>float GeigerData::Bqm2_5sec = 0.0</computeroutput></para><para>
-Definition at line <link linkend="_gm__sensor_8h_source_1l00020">20</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
-</section>
-<anchor xml:id="_struct_geiger_data_1a2510caebbe9da3c2ba64b4744ffe6da3"/><section>
-    <title>Bqm2_sec</title>
-<indexterm><primary>Bqm2_sec</primary><secondary>GeigerData</secondary></indexterm>
-<indexterm><primary>GeigerData</primary><secondary>Bqm2_sec</secondary></indexterm>
-<para><computeroutput>float GeigerData::Bqm2_sec = 0.0</computeroutput></para><para>
 Definition at line <link linkend="_gm__sensor_8h_source_1l00018">18</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
 </section>
 <anchor xml:id="_struct_geiger_data_1a5bfc9af14c14579f884bbf5ce6edc68f"/><section>
@@ -115,25 +104,18 @@ Definition at line <link linkend="_gm__sensor_8h_source_1l00009">9</link> of fil
 <para><computeroutput>uint32_t GeigerData::total = 0</computeroutput></para><para>
 Definition at line <link linkend="_gm__sensor_8h_source_1l00014">14</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
 </section>
-<anchor xml:id="_struct_geiger_data_1a81ecc00a99630edc0699b19bdc7ae140"/><section>
-    <title>uSv</title>
-<indexterm><primary>uSv</primary><secondary>GeigerData</secondary></indexterm>
-<indexterm><primary>GeigerData</primary><secondary>uSv</secondary></indexterm>
-<para><computeroutput>float GeigerData::uSv = 0.0</computeroutput></para><para>
+<anchor xml:id="_struct_geiger_data_1a8be97af73c436bf33d562af811f1218c"/><section>
+    <title>uSvh</title>
+<indexterm><primary>uSvh</primary><secondary>GeigerData</secondary></indexterm>
+<indexterm><primary>GeigerData</primary><secondary>uSvh</secondary></indexterm>
+<para><computeroutput>float GeigerData::uSvh = 0.0</computeroutput></para><para>
 Definition at line <link linkend="_gm__sensor_8h_source_1l00015">15</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
 </section>
-<anchor xml:id="_struct_geiger_data_1afec940a76e00b11fdfb2070605e50e84"/><section>
-    <title>uSv_5sec</title>
-<indexterm><primary>uSv_5sec</primary><secondary>GeigerData</secondary></indexterm>
-<indexterm><primary>GeigerData</primary><secondary>uSv_5sec</secondary></indexterm>
-<para><computeroutput>float GeigerData::uSv_5sec = 0.0</computeroutput></para><para>
-Definition at line <link linkend="_gm__sensor_8h_source_1l00019">19</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
-</section>
-<anchor xml:id="_struct_geiger_data_1aef46f8c0c1fce07338a04c92ed102329"/><section>
-    <title>uSv_sec</title>
-<indexterm><primary>uSv_sec</primary><secondary>GeigerData</secondary></indexterm>
-<indexterm><primary>GeigerData</primary><secondary>uSv_sec</secondary></indexterm>
-<para><computeroutput>float GeigerData::uSv_sec = 0.0</computeroutput></para><para>
+<anchor xml:id="_struct_geiger_data_1a7f2852eec45590b5729be23798ecc111"/><section>
+    <title>uSvh_5sec</title>
+<indexterm><primary>uSvh_5sec</primary><secondary>GeigerData</secondary></indexterm>
+<indexterm><primary>GeigerData</primary><secondary>uSvh_5sec</secondary></indexterm>
+<para><computeroutput>float GeigerData::uSvh_5sec = 0.0</computeroutput></para><para>
 Definition at line <link linkend="_gm__sensor_8h_source_1l00017">17</link> of file <link linkend="_gm__sensor_8h_source">gm_sensor.h</link>.</para>
 </section>
 <anchor xml:id="_struct_geiger_data_1ace47dff387083abff03224021c8e1217"/><section>

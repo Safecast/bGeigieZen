@@ -20,12 +20,6 @@
 , <link linkend="_class_s_d_interface_1a7ea4bc4a28abc1fe824d21152ab57500a6f24e3394bc18ffac9170adfde185951">e_sd_err_file_open_r_fail</link>
  }</para>
 </listitem>
-            <listitem><para>enum <link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59d">SdLogType</link> { <link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da65cc75f54f901217b5289a3769337657">e_sd_log_type_journal</link>
-, <link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da4b4cbc732b487b71514a6e738c232d54">e_sd_log_type_drive</link>
-, <link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da2aa337c4e3454815707279c590c91742">e_sd_log_type_survey</link>
-, <link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59daccab658091fbf0eed54aaad98fb07add">e_sd_log_type_error</link>
- }</para>
-</listitem>
         </itemizedlist>
 </simplesect>
 <simplesect>
@@ -41,17 +35,33 @@
 </listitem>
             <listitem><para>bool <link linkend="_class_s_d_interface_1a1bfbb7e34aa9616fd103ffc12c3c0fbe">ready</link> ()</para>
 </listitem>
+            <listitem><para>bool <link linkend="_class_s_d_interface_1a1d00f529d7e34ba8b79d01ecca7577bf">can_write_logs</link> () const</para>
+</listitem>
+            <listitem><para><link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50">SdStatus</link> <link linkend="_class_s_d_interface_1abdd9e014e0bab83e0ab99c8807f2e5fd">status</link> () const</para>
+</listitem>
             <listitem><para>bool <link linkend="_class_s_d_interface_1a809a47ce4ef0dc0ea1918552601cbbdd">begin</link> ()</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_s_d_interface_1aa383b96a9103432407c022af1dc3d290">clear_all_logs</link> ()</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_s_d_interface_1afbb88cd8a67481964cd9f887e54898d5">just_wrote</link> () const</para>
 </listitem>
             <listitem><para>void <link linkend="_class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a">end</link> ()</para>
 </listitem>
-            <listitem><para>bool <link linkend="_class_s_d_interface_1a3aa11cea31d2775204a4b387b6a1383c">log</link> (const char *log_name, const uint8_t *data, size_t buff_size)</para>
+            <listitem><para>bool <link linkend="_class_s_d_interface_1a516ce1d47ca0a80250dca3c3d3d44e5c">setup_log</link> (const char *dir, const char *log_name_output, bool clear_on_exist)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_s_d_interface_1a9579c7433715db5ea05b8190b8f9ee13">rename_log</link> (const char *old_log_name, const char *new_log_name)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_s_d_interface_1aabe6178f355242e557c214581eba395f">delete_log</link> (const char *log_name)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_s_d_interface_1a77a1a4519025efa2ff17c99f2c3e7d67">log_println</link> (const char *log_name, const char *data)</para>
+</listitem>
+            <listitem><para>File <link linkend="_class_s_d_interface_1a4ff15a5a0eab20b1df228504a402a4c3">get_file</link> (const char *log_name)</para>
 </listitem>
             <listitem><para><link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50">SdStatus</link> <link linkend="_class_s_d_interface_1ac011e72bed01b65fb3af9cc1242b4f14">has_safezen_content</link> (uint16_t device_id)</para>
 </listitem>
-            <listitem><para>bool <link linkend="_class_s_d_interface_1afcc40c40bd409e59bb1aaeb0d42c110d">read_safezen_file</link> (<link linkend="_class_local_storage">LocalStorage</link> &amp;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)</para>
+            <listitem><para>bool <link linkend="_class_s_d_interface_1a2e3f02d8a0c231ee408f7b4a5d960063">read_safezen_file_to_settings</link> (<link linkend="_class_local_storage">LocalStorage</link> &amp;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>)</para>
 </listitem>
-            <listitem><para>bool <link linkend="_class_s_d_interface_1a1eeb50f1000c0bb1442e522d756216b1">write_safezen_file</link> (const <link linkend="_class_local_storage">LocalStorage</link> &amp;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>, bool full=false)</para>
+            <listitem><para>bool <link linkend="_class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799">write_safezen_file_from_settings</link> (const <link linkend="_class_local_storage">LocalStorage</link> &amp;<link linkend="_main_8cpp_1afe9be2ea4d0b2338fd6511c961267e17">settings</link>, bool full=false)</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -93,30 +103,6 @@ Definition at line <link linkend="_sd__wrapper_8h_source_1l00014">14</link> of f
 <para>
 Definition at line <link linkend="_sd__wrapper_8h_source_1l00024">24</link> of file <link linkend="_sd__wrapper_8h_source">sd_wrapper.h</link>.</para>
 </section>
-<anchor xml:id="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59d"/><section>
-    <title>SdLogType</title>
-<indexterm><primary>SdLogType</primary><secondary>SDInterface</secondary></indexterm>
-<indexterm><primary>SDInterface</primary><secondary>SdLogType</secondary></indexterm>
-<para><computeroutput>enum <link linkend="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59d">SDInterface::SdLogType</link></computeroutput></para><informaltable frame="all">
-<title>Enumerator</title>
-    <tgroup cols="2" align="left" colsep="1" rowsep="1">
-      <colspec colname='c1'/>
-      <colspec colname='c2'/>
-<tbody>
-<row><entry><indexterm><primary>e_sd_log_type_journal</primary><secondary>SDInterface</secondary></indexterm>
-<indexterm><primary>SDInterface</primary><secondary>e_sd_log_type_journal</secondary></indexterm>
-<anchor xml:id="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da65cc75f54f901217b5289a3769337657"/>e_sd_log_type_journal</entry><entry></entry></row><row><entry><indexterm><primary>e_sd_log_type_drive</primary><secondary>SDInterface</secondary></indexterm>
-<indexterm><primary>SDInterface</primary><secondary>e_sd_log_type_drive</secondary></indexterm>
-<anchor xml:id="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da4b4cbc732b487b71514a6e738c232d54"/>e_sd_log_type_drive</entry><entry></entry></row><row><entry><indexterm><primary>e_sd_log_type_survey</primary><secondary>SDInterface</secondary></indexterm>
-<indexterm><primary>SDInterface</primary><secondary>e_sd_log_type_survey</secondary></indexterm>
-<anchor xml:id="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59da2aa337c4e3454815707279c590c91742"/>e_sd_log_type_survey</entry><entry></entry></row><row><entry><indexterm><primary>e_sd_log_type_error</primary><secondary>SDInterface</secondary></indexterm>
-<indexterm><primary>SDInterface</primary><secondary>e_sd_log_type_error</secondary></indexterm>
-<anchor xml:id="_class_s_d_interface_1a5d90fe13c1f3764b24bd4629c227e59daccab658091fbf0eed54aaad98fb07add"/>e_sd_log_type_error</entry><entry></entry></row>    </tbody>
-    </tgroup>
-</informaltable>
-<para>
-Definition at line <link linkend="_sd__wrapper_8h_source_1l00030">30</link> of file <link linkend="_sd__wrapper_8h_source">sd_wrapper.h</link>.</para>
-</section>
 <anchor xml:id="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50"/><section>
     <title>SdStatus</title>
 <indexterm><primary>SdStatus</primary><secondary>SDInterface</secondary></indexterm>
@@ -150,12 +136,39 @@ Definition at line <link linkend="_sd__wrapper_8h_source_1l00016">16</link> of f
     <title>SDInterface()<computeroutput>[1/2]</computeroutput></title>
 <indexterm><primary>SDInterface</primary><secondary>SDInterface</secondary></indexterm>
 <indexterm><primary>SDInterface</primary><secondary>SDInterface</secondary></indexterm>
-<para><computeroutput>SDInterface::SDInterface (const <link linkend="_class_s_d_interface">SDInterface</link> &amp; )<computeroutput>[delete]</computeroutput></computeroutput></para></section>
+<para><computeroutput>SDInterface::SDInterface (const <link linkend="_class_s_d_interface">SDInterface</link> &amp; )<computeroutput>[delete]</computeroutput></computeroutput></para>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_afbcd9b0cdc8f6c6eabf2202aabf78a93_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_afbcd9b0cdc8f6c6eabf2202aabf78a93_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
 <anchor xml:id="_class_s_d_interface_1a89395c7916aff77ceecb5d4e9932b2c6"/><section>
     <title>SDInterface()<computeroutput>[2/2]</computeroutput></title>
 <indexterm><primary>SDInterface</primary><secondary>SDInterface</secondary></indexterm>
 <indexterm><primary>SDInterface</primary><secondary>SDInterface</secondary></indexterm>
-<para><computeroutput>SDInterface::SDInterface (<link linkend="_class_s_d_interface">SDInterface</link> &amp;&amp; )<computeroutput>[delete]</computeroutput></computeroutput></para></section>
+<para><computeroutput>SDInterface::SDInterface (<link linkend="_class_s_d_interface">SDInterface</link> &amp;&amp; )<computeroutput>[delete]</computeroutput></computeroutput></para>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a89395c7916aff77ceecb5d4e9932b2c6_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
 </section>
 <section>
 <title>Member Function Documentation</title>
@@ -174,7 +187,87 @@ We note that for the ESP32, the SD library is robust to multiple call to the <li
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00065">65</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00091">91</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a809a47ce4ef0dc0ea1918552601cbbdd_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1a1d00f529d7e34ba8b79d01ecca7577bf"/><section>
+    <title>can_write_logs()</title>
+<indexterm><primary>can_write_logs</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>can_write_logs</secondary></indexterm>
+<para><computeroutput>bool SDInterface::can_write_logs ( ) const</computeroutput></para>
+<para>Eeturns true if sd was properly set up with device id and all.. <formalpara><title>Returns</title>
+
+<para>true if ready </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00079">79</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1aa383b96a9103432407c022af1dc3d290"/><section>
+    <title>clear_all_logs()</title>
+<indexterm><primary>clear_all_logs</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>clear_all_logs</secondary></indexterm>
+<para><computeroutput>bool SDInterface::clear_all_logs ( )</computeroutput></para>
+<para>Delete all log files / directories <formalpara><title>Returns</title>
+
+<para>true if available </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00110">110</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_aa383b96a9103432407c022af1dc3d290_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_aa383b96a9103432407c022af1dc3d290_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1aabe6178f355242e557c214581eba395f"/><section>
+    <title>delete_log()</title>
+<indexterm><primary>delete_log</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>delete_log</secondary></indexterm>
+<para><computeroutput>bool SDInterface::delete_log (const char * log_name)</computeroutput></para>
+<para>Delete log file </para>
+<para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00511">511</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_aabe6178f355242e557c214581eba395f_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_aabe6178f355242e557c214581eba395f_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
 </section>
 <anchor xml:id="_class_s_d_interface_1a9975927e1e09aa528248b65aafd3f17a"/><section>
     <title>end()</title>
@@ -183,12 +276,28 @@ Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00065">65</link> of
 <para><computeroutput>void SDInterface::end ( )</computeroutput></para>
 <para>close SD connection </para>
 <para>
-Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00084">84</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00124">124</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
                 <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a9975927e1e09aa528248b65aafd3f17a_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1a4ff15a5a0eab20b1df228504a402a4c3"/><section>
+    <title>get_file()</title>
+<indexterm><primary>get_file</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>get_file</secondary></indexterm>
+<para><computeroutput>File SDInterface::get_file (const char * log_name)</computeroutput></para><para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00575">575</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a4ff15a5a0eab20b1df228504a402a4c3_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
@@ -205,7 +314,16 @@ Here is the caller graph for this function:<para>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00111">111</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00154">154</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_ac011e72bed01b65fb3af9cc1242b4f14_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
 </section>
 <anchor xml:id="_class_s_d_interface_1a5b6c9815962e1ef35c816e116c84f15f"/><section>
     <title>i()</title>
@@ -218,7 +336,16 @@ Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00111">111</link> o
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_sd__wrapper_8h_source_1l00046">46</link> of file <link linkend="_sd__wrapper_8h_source">sd_wrapper.h</link>.</para>
+Definition at line <link linkend="_sd__wrapper_8h_source_1l00039">39</link> of file <link linkend="_sd__wrapper_8h_source">sd_wrapper.h</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a5b6c9815962e1ef35c816e116c84f15f_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -229,17 +356,39 @@ Here is the caller graph for this function:<para>
     </informalfigure>
 </para>
 </section>
-<anchor xml:id="_class_s_d_interface_1a3aa11cea31d2775204a4b387b6a1383c"/><section>
-    <title>log()</title>
-<indexterm><primary>log</primary><secondary>SDInterface</secondary></indexterm>
-<indexterm><primary>SDInterface</primary><secondary>log</secondary></indexterm>
-<para><computeroutput>bool SDInterface::log (const char * log_name, const uint8_t * data, size_t buff_size)</computeroutput></para><para>
-Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00089">89</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+<anchor xml:id="_class_s_d_interface_1afbb88cd8a67481964cd9f887e54898d5"/><section>
+    <title>just_wrote()</title>
+<indexterm><primary>just_wrote</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>just_wrote</secondary></indexterm>
+<para><computeroutput>bool SDInterface::just_wrote ( ) const</computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para>true last write in last 0.5 sec </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00120">120</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1a77a1a4519025efa2ff17c99f2c3e7d67"/><section>
+    <title>log_println()</title>
+<indexterm><primary>log_println</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>log_println</secondary></indexterm>
+<para><computeroutput>bool SDInterface::log_println (const char * log_name, const char * data)</computeroutput></para><para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00129">129</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a3aa11cea31d2775204a4b387b6a1383c_cgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a77a1a4519025efa2ff17c99f2c3e7d67_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a77a1a4519025efa2ff17c99f2c3e7d67_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
@@ -249,29 +398,56 @@ Here is the call graph for this function:<para>
     <title>operator=()<computeroutput>[1/2]</computeroutput></title>
 <indexterm><primary>operator=</primary><secondary>SDInterface</secondary></indexterm>
 <indexterm><primary>SDInterface</primary><secondary>operator=</secondary></indexterm>
-<para><computeroutput><link linkend="_class_s_d_interface">SDInterface</link> &amp; SDInterface::operator= (const <link linkend="_class_s_d_interface">SDInterface</link> &amp; )<computeroutput>[delete]</computeroutput></computeroutput></para></section>
+<para><computeroutput><link linkend="_class_s_d_interface">SDInterface</link> &amp; SDInterface::operator= (const <link linkend="_class_s_d_interface">SDInterface</link> &amp; )<computeroutput>[delete]</computeroutput></computeroutput></para>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a0e610420f9195a31def20935935bcad6_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
 <anchor xml:id="_class_s_d_interface_1a1aa6910b72ec4d30ae716c8818432034"/><section>
     <title>operator=()<computeroutput>[2/2]</computeroutput></title>
 <indexterm><primary>operator=</primary><secondary>SDInterface</secondary></indexterm>
 <indexterm><primary>SDInterface</primary><secondary>operator=</secondary></indexterm>
-<para><computeroutput><link linkend="_class_s_d_interface">SDInterface</link> &amp; SDInterface::operator= (<link linkend="_class_s_d_interface">SDInterface</link> &amp;&amp; )<computeroutput>[delete]</computeroutput></computeroutput></para></section>
-<anchor xml:id="_class_s_d_interface_1afcc40c40bd409e59bb1aaeb0d42c110d"/><section>
-    <title>read_safezen_file()</title>
-<indexterm><primary>read_safezen_file</primary><secondary>SDInterface</secondary></indexterm>
-<indexterm><primary>SDInterface</primary><secondary>read_safezen_file</secondary></indexterm>
-<para><computeroutput>bool SDInterface::read_safezen_file (<link linkend="_class_local_storage">LocalStorage</link> &amp; settings)</computeroutput></para>
+<para><computeroutput><link linkend="_class_s_d_interface">SDInterface</link> &amp; SDInterface::operator= (<link linkend="_class_s_d_interface">SDInterface</link> &amp;&amp; )<computeroutput>[delete]</computeroutput></computeroutput></para>Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a1aa6910b72ec4d30ae716c8818432034_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1a2e3f02d8a0c231ee408f7b4a5d960063"/><section>
+    <title>read_safezen_file_to_settings()</title>
+<indexterm><primary>read_safezen_file_to_settings</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>read_safezen_file_to_settings</secondary></indexterm>
+<para><computeroutput>bool SDInterface::read_safezen_file_to_settings (<link linkend="_class_local_storage">LocalStorage</link> &amp; settings)</computeroutput></para>
 <para>Read SAFEZEN.txt file contents on SD card to local storage <formalpara><title>Returns</title>
 
 <para>true if succeeded </para>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00150">150</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00195">195</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a2e3f02d8a0c231ee408f7b4a5d960063_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
 Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_afcc40c40bd409e59bb1aaeb0d42c110d_icgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a2e3f02d8a0c231ee408f7b4a5d960063_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
@@ -282,13 +458,13 @@ Here is the caller graph for this function:<para>
 <indexterm><primary>ready</primary><secondary>SDInterface</secondary></indexterm>
 <indexterm><primary>SDInterface</primary><secondary>ready</secondary></indexterm>
 <para><computeroutput>bool SDInterface::ready ( )</computeroutput></para>
-<para><formalpara><title>Returns</title>
+<para>Checks sd readiness, will end sd connection if sd has been lost <formalpara><title>Returns</title>
 
 <para>true if ready </para>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00054">54</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00069">69</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
@@ -298,25 +474,29 @@ Here is the call graph for this function:<para>
         </mediaobject>
     </informalfigure>
 </para>
-</section>
-<anchor xml:id="_class_s_d_interface_1a1eeb50f1000c0bb1442e522d756216b1"/><section>
-    <title>write_safezen_file()</title>
-<indexterm><primary>write_safezen_file</primary><secondary>SDInterface</secondary></indexterm>
-<indexterm><primary>SDInterface</primary><secondary>write_safezen_file</secondary></indexterm>
-<para><computeroutput>bool SDInterface::write_safezen_file (const <link linkend="_class_local_storage">LocalStorage</link> &amp; settings, bool full = <computeroutput>false</computeroutput>
-)</computeroutput></para>
-<para>Write SAFEZEN.txt file on the SD card from local storage <formalpara><title>Returns</title>
-
-<para>true if succeeded </para>
-</formalpara>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a1bfbb7e34aa9616fd103ffc12c3c0fbe_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
 </para>
+</section>
+<anchor xml:id="_class_s_d_interface_1a9579c7433715db5ea05b8190b8f9ee13"/><section>
+    <title>rename_log()</title>
+<indexterm><primary>rename_log</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>rename_log</secondary></indexterm>
+<para><computeroutput>bool SDInterface::rename_log (const char * old_log_name, const char * new_log_name)</computeroutput></para>
+<para>Rename log file </para>
 <para>
-Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00260">260</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00500">500</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
 Here is the call graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a1eeb50f1000c0bb1442e522d756216b1_cgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a9579c7433715db5ea05b8190b8f9ee13_cgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
@@ -325,7 +505,77 @@ Here is the caller graph for this function:<para>
     <informalfigure>
         <mediaobject>
             <imageobject>
-                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a1eeb50f1000c0bb1442e522d756216b1_icgraph.jpg"></imagedata>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a9579c7433715db5ea05b8190b8f9ee13_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1a516ce1d47ca0a80250dca3c3d3d44e5c"/><section>
+    <title>setup_log()</title>
+<indexterm><primary>setup_log</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>setup_log</secondary></indexterm>
+<para><computeroutput>bool SDInterface::setup_log (const char * dir, const char * log_name_output, bool clear_on_exist)</computeroutput></para><para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00479">479</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_a516ce1d47ca0a80250dca3c3d3d44e5c_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1abdd9e014e0bab83e0ab99c8807f2e5fd"/><section>
+    <title>status()</title>
+<indexterm><primary>status</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>status</secondary></indexterm>
+<para><computeroutput><link linkend="_class_s_d_interface_1a0b866069b3ac21d47be87b8947c2ba50">SDInterface::SdStatus</link> SDInterface::status ( ) const</computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para>last know status </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00083">83</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_abdd9e014e0bab83e0ab99c8807f2e5fd_icgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_s_d_interface_1ade1078226685fa069d4e37ec3fa93799"/><section>
+    <title>write_safezen_file_from_settings()</title>
+<indexterm><primary>write_safezen_file_from_settings</primary><secondary>SDInterface</secondary></indexterm>
+<indexterm><primary>SDInterface</primary><secondary>write_safezen_file_from_settings</secondary></indexterm>
+<para><computeroutput>bool SDInterface::write_safezen_file_from_settings (const <link linkend="_class_local_storage">LocalStorage</link> &amp; settings, bool full = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Write SAFEZEN.txt file on the SD card from local storage <formalpara><title>Returns</title>
+
+<para>true if succeeded </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_sd__wrapper_8cpp_source_1l00387">387</link> of file <link linkend="_sd__wrapper_8cpp_source">sd_wrapper.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_ade1078226685fa069d4e37ec3fa93799_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_s_d_interface_ade1078226685fa069d4e37ec3fa93799_icgraph.jpg"></imagedata>
             </imageobject>
         </mediaobject>
     </informalfigure>
