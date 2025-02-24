@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_gps_debug_logger" xml:lang="en-US">
+<title>GpsDebugLogger Class Reference</title>
+<indexterm><primary>GpsDebugLogger</primary></indexterm>
+<para>
+<computeroutput>#include &lt;debug_logger.h&gt;</computeroutput>
+</para>
+Inheritance diagram for GpsDebugLogger:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_gps_debug_logger__inherit__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for GpsDebugLogger:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_gps_debug_logger__coll__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_gps_debug_logger_1a1d20f5b8842521beab1c32ef03f72ecc">GpsDebugLogger</link> (<link linkend="_class_local_storage">LocalStorage</link> &amp;config)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_class_base_debug_logger">BaseDebugLogger</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_base_debug_logger_1a7f2c151112b4efde18eecfd0a10dfada">BaseDebugLogger</link> (<link linkend="_class_local_storage">LocalStorage</link> &amp;config, const char *logging_name)</para>
+
+<para><link linkend="_class_base_debug_logger">BaseDebugLogger</link>. </para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_base_debug_logger_1a7db83bc12a20907a388454e4ffe6dfaa">~BaseDebugLogger</link> ()=default</para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_class_gps_debug_logger_1ad49a0f5dca70d6bad92950200cb4a3bb">write_initial_lines</link> () override</para>
+
+<para><link linkend="_class_gps_debug_logger">GpsDebugLogger</link>. </para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_gps_debug_logger_1a3d7ac7d312513b4d7ee62fd671a3e143">write_line</link> (const worker_map_t &amp;workers) override</para>
+
+<para>Write a line to the debug log using the latest GPS and NavSat data. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Protected Member Functions inherited from <link linkend="_class_base_debug_logger">BaseDebugLogger</link>        <itemizedlist>
+            <listitem><para>bool <link linkend="_class_base_debug_logger_1a99b27162f11d41d16d3a1e08d6994f9d">activate</link> (bool retry) override</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_base_debug_logger_1a2d9682cdd5615937e8a826067a339fb8">deactivate</link> () override</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_base_debug_logger_1a3d6bb38e095578e89619ce37ef310c74">handle_produced_work</link> (const worker_map_t &amp;workers) final</para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Additional Inherited Members    </title>
+Protected Attributes inherited from <link linkend="_class_base_debug_logger">BaseDebugLogger</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_local_storage">LocalStorage</link> &amp; <link linkend="_class_base_debug_logger_1a8d9c2385a1eb9934e08f423658d75f31">_config</link></para>
+</listitem>
+            <listitem><para>char <link linkend="_class_base_debug_logger_1ac692fc2525138fc82e250d38b22c41e2">_logging_name</link> [20]</para>
+</listitem>
+            <listitem><para>char <link linkend="_class_base_debug_logger_1a05340476b0d2a164b7a62289027b2620">_logging_to</link> [<link linkend="_user__config_8h_1a75f97d568a246165199355e9c8272011">LOG_FILENAME_SIZE</link>]</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_base_debug_logger_1ab16c84f891c4df23d4353e47d0ac8ea6">_is_temp</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_class_base_debug_logger_1ad31a29027cc8d028a75ef081b0164cfa">_total</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_debug__logger_8h_source_1l00036">36</link> of file <link linkend="_debug__logger_8h_source">debug_logger.h</link>.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_gps_debug_logger_1a1d20f5b8842521beab1c32ef03f72ecc"/><section>
+    <title>GpsDebugLogger()</title>
+<indexterm><primary>GpsDebugLogger</primary><secondary>GpsDebugLogger</secondary></indexterm>
+<indexterm><primary>GpsDebugLogger</primary><secondary>GpsDebugLogger</secondary></indexterm>
+<para><computeroutput>GpsDebugLogger::GpsDebugLogger (<link linkend="_class_local_storage">LocalStorage</link> &amp; config)<computeroutput>[inline]</computeroutput>, <computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_debug__logger_8h_source_1l00038">38</link> of file <link linkend="_debug__logger_8h_source">debug_logger.h</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_gps_debug_logger_a1d20f5b8842521beab1c32ef03f72ecc_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_gps_debug_logger_1ad49a0f5dca70d6bad92950200cb4a3bb"/><section>
+    <title>write_initial_lines()</title>
+<indexterm><primary>write_initial_lines</primary><secondary>GpsDebugLogger</secondary></indexterm>
+<indexterm><primary>GpsDebugLogger</primary><secondary>write_initial_lines</secondary></indexterm>
+<para><computeroutput>void GpsDebugLogger::write_initial_lines ( )<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para><link linkend="_class_gps_debug_logger">GpsDebugLogger</link>. </para>
+</para>
+<para>
+Reimplemented from <link linkend="_class_base_debug_logger_1ab825ff0eecb945a2470965805346d3c7">BaseDebugLogger</link>.</para>
+<para>
+Definition at line <link linkend="_debug__logger_8cpp_source_1l00122">122</link> of file <link linkend="_debug__logger_8cpp_source">debug_logger.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_gps_debug_logger_ad49a0f5dca70d6bad92950200cb4a3bb_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_gps_debug_logger_1a3d7ac7d312513b4d7ee62fd671a3e143"/><section>
+    <title>write_line()</title>
+<indexterm><primary>write_line</primary><secondary>GpsDebugLogger</secondary></indexterm>
+<indexterm><primary>GpsDebugLogger</primary><secondary>write_line</secondary></indexterm>
+<para><computeroutput>bool GpsDebugLogger::write_line (const worker_map_t &amp; workers)<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput>, <computeroutput>[virtual]</computeroutput></computeroutput></para><para>
+
+<para>Write a line to the debug log using the latest GPS and NavSat data. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>workers</entry><entry>
+<para>The current worker map</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if the line was written, false otherwise </para>
+</formalpara>
+</para>
+<para>
+Implements <link linkend="_class_base_debug_logger_1a877298bae6e6d5f982ca53e86578882e">BaseDebugLogger</link>.</para>
+<para>
+Definition at line <link linkend="_debug__logger_8cpp_source_1l00134">134</link> of file <link linkend="_debug__logger_8cpp_source">debug_logger.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_gps_debug_logger_a3d7ac7d312513b4d7ee62fd671a3e143_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/handlers/<link linkend="_debug__logger_8h">debug_logger.h</link>bgeigiezen_firmware/handlers/<link linkend="_debug__logger_8cpp">debug_logger.cpp</link></section>
+</section>

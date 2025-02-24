@@ -8,9 +8,9 @@
 <simplesect>
     <title>Public Attributes    </title>
         <itemizedlist>
-            <listitem><para>uint8_t <link linkend="_struct_battery_status_1a9b31c61bbcc4cb9a8f0b9985120724e6">percentage</link></para>
+            <listitem><para>int32_t <link linkend="_struct_battery_status_1a63c092ae9f8f649c4ae3bf81ce6ff0dc">percentage</link></para>
 </listitem>
-            <listitem><para>bool <link linkend="_struct_battery_status_1ab5b72f29887267032f0733cae27c147c">isCharging</link></para>
+            <listitem><para>m5::Power_Class::is_charging_t <link linkend="_struct_battery_status_1a1b9260c294cdd40365bf04d807146e86">isCharging</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -23,18 +23,18 @@ Definition at line <link linkend="_battery__indicator_8h_source_1l00010">10</lin
 </section>
 <section>
 <title>Member Data Documentation</title>
-<anchor xml:id="_struct_battery_status_1ab5b72f29887267032f0733cae27c147c"/><section>
+<anchor xml:id="_struct_battery_status_1a1b9260c294cdd40365bf04d807146e86"/><section>
     <title>isCharging</title>
 <indexterm><primary>isCharging</primary><secondary>BatteryStatus</secondary></indexterm>
 <indexterm><primary>BatteryStatus</primary><secondary>isCharging</secondary></indexterm>
-<para><computeroutput>bool BatteryStatus::isCharging</computeroutput></para><para>
+<para><computeroutput>m5::Power_Class::is_charging_t BatteryStatus::isCharging</computeroutput></para><para>
 Definition at line <link linkend="_battery__indicator_8h_source_1l00012">12</link> of file <link linkend="_battery__indicator_8h_source">battery_indicator.h</link>.</para>
 </section>
-<anchor xml:id="_struct_battery_status_1a9b31c61bbcc4cb9a8f0b9985120724e6"/><section>
+<anchor xml:id="_struct_battery_status_1a63c092ae9f8f649c4ae3bf81ce6ff0dc"/><section>
     <title>percentage</title>
 <indexterm><primary>percentage</primary><secondary>BatteryStatus</secondary></indexterm>
 <indexterm><primary>BatteryStatus</primary><secondary>percentage</secondary></indexterm>
-<para><computeroutput>uint8_t BatteryStatus::percentage</computeroutput></para><para>
+<para><computeroutput>int32_t BatteryStatus::percentage</computeroutput></para><para>
 Definition at line <link linkend="_battery__indicator_8h_source_1l00011">11</link> of file <link linkend="_battery__indicator_8h_source">battery_indicator.h</link>.</para>
 </section>
 <para>
