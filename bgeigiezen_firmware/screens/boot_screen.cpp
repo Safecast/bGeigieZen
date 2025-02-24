@@ -39,13 +39,14 @@ void BootScreen::render(const worker_map_t& workers, const handler_map_t& handle
 
   M5.Lcd.setCursor(10, 10);
   M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawString("bGeigie Zen", 90, 50, &fonts::Font4);
+  M5.Lcd.drawString("bGeigie Zen", 95, 50, &fonts::Font4);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawString("Device details.", 5, 100, &fonts::Font2);
-  M5.Lcd.drawString(VERSION_STRING, 5, 120, &fonts::Font2);
-  M5.Lcd.setCursor(5, 140);
+  M5.Lcd.drawString(VERSION_NUMBER, 145, 62, &fonts::Font2);
+  M5.Lcd.setCursor(5, 125);
   M5.Lcd.setFont(&fonts::Font2);
-  M5.Lcd.printf("Device ID: %d\n\n", storage->get_device_id());
+  M5.Lcd.printf("User name: %s", storage->get_user_name());
+  M5.Lcd.setCursor(5, 143);
+  M5.Lcd.printf("Device id: %d", storage->get_device_id());
 
   // Display safecast copyright
   M5.Lcd.setTextFont(1);

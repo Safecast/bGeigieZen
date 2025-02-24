@@ -406,6 +406,9 @@ bool LocalStorage::clear() {
 bool LocalStorage::activate(bool) {
   _memory.begin(memory_name, true);
   _device_id = _memory.getUShort(key_device_id, D_DEVICE_ID);
+  if(_memory.getString(key_user_name, _user_name, CONFIG_VAL_MAX) == 0) {
+    strcpy(_user_name, D_USER_NAME);
+  }
   _alert_threshold = _memory.getUInt(key_alert_threshold, D_ALARM_THRESHOLD);
   _cpm_usvh = _memory.getBool(key_cpm_usvh, D_CPM_USVH);
   _manual_logging = _memory.getBool(key_manual_logging, D_MANUAL_LOGGING);
