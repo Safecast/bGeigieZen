@@ -6,6 +6,7 @@
 #include "workers/local_storage.h"
 #include "user_config.h"
 #include "workers/log_aggregator.h"
+#include "workers/navsat_collector.h"
 
 /**
  * Debug log base, extend with write_line
@@ -17,10 +18,11 @@ class BaseDebugLogger : public Handler {
 
  protected:
   bool activate(bool retry) override;
+  virtual bool can_activate() {return true;};
   void deactivate() override;
   int8_t handle_produced_work(const worker_map_t& workers) final;
 
-  virtual void write_initial_lines() {};
+  virtual void write_header_lines() {};
   virtual bool write_line(const worker_map_t & workers) = 0;
 
   LocalStorage& _config;
@@ -35,11 +37,14 @@ class BaseDebugLogger : public Handler {
 
 class GpsDebugLogger : public BaseDebugLogger {
  public:
-  explicit GpsDebugLogger(LocalStorage& config) : BaseDebugLogger(config, "gps") {};
+  explicit GpsDebugLogger(LocalStorage& config, TeenyUbloxConnect& _gnss) : BaseDebugLogger(config, "gps"), gnss(_gnss) {};
 
  protected:
-  void write_initial_lines() override;
+  bool can_activate() override;
+  void write_header_lines() override;
   bool write_line(const worker_map_t& workers) override;
+
+  TeenyUbloxConnect& gnss;
 };
 
 
