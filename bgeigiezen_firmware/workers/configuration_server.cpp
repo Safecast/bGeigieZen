@@ -39,6 +39,11 @@ void ConfigWebServer::deactivate() {
   _server.close();
 }
 
+void ConfigWebServer::restart_server() {
+//  _server.close();
+//  _server.begin(SERVER_WIFI_PORT);
+}
+
 int8_t ConfigWebServer::produce_data() {
   _server.handleClient();
   if (_handled_client) {

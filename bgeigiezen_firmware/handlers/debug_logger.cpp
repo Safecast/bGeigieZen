@@ -41,6 +41,9 @@ bool BaseDebugLogger::activate(bool) {
   if (!SDInterface::i().can_write_logs()) {
     return false;
   }
+  if (!can_activate()) {
+    return false;
+  }
   // Create temporary log file
   sprintf(_logging_to, TEMP_LOG_NAME_F, DEBUG_LOG_DIRECTORY, _logging_name);
   if (!SDInterface::i().setup_log(DEBUG_LOG_DIRECTORY, _logging_to, true)) {
@@ -51,7 +54,7 @@ bool BaseDebugLogger::activate(bool) {
   sprintf(header_l2, "%s%d.%d.%d-zen%s", LOG_HEADER_LINE2, MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION, DEBUG_LOG_DIRECTORY);
   SDInterface::i().log_println(_logging_to, "# NEW DEBUG LOG");
   SDInterface::i().log_println(_logging_to, header_l2);
-  write_initial_lines();
+  write_header_lines();
 
   _is_temp = true;
   _total = 0;
@@ -119,7 +122,12 @@ int8_t BaseDebugLogger::handle_produced_work(const worker_map_t& workers) {
 
 /// GpsDebugLogger
 
-void GpsDebugLogger::write_initial_lines() {
+
+bool GpsDebugLogger::can_activate() {
+  return gnss.getUbloxModuleType() != UBLOX_UNKNOWN_MODULE;
+}
+
+void GpsDebugLogger::write_header_lines() {
   // Write log format when creating a new log
   SDInterface::i().log_println(_logging_to,  "# hAcc,vAcc,velN,velE,velD,gSpeed,headMot,sAcc,headAcc,invalidLlh");
 }

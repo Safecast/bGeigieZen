@@ -47,17 +47,17 @@ class ConfigWebServer : public Worker<ServerStatus> {
    */
   void deactivate() override;
 
+  /**
+   * Restart the web server
+   */
+  void restart_server();
+
  private:
 
   /**
    * Handles request for `/save`
    */
   void handle_save();
-
-  /**
-   * Handles request for `/update` post
-   */
-  void handle_update_uploading();
 
   WebServer _server;
   LocalStorage& _config;
