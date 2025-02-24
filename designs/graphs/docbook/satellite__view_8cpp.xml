@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_satellite__view_8cpp" xml:lang="en-US">
+<title>bgeigiezen_firmware/screens/satellite_view.cpp File Reference</title>
+<indexterm><primary>bgeigiezen_firmware/screens/satellite_view.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;satellite_view.h&quot;<?linebreak?>#include &quot;identifiers.h&quot;<?linebreak?>#include &quot;menu_window.h&quot;<?linebreak?>#include &quot;workers/gps_connector.h&quot;<?linebreak?>#include &quot;workers/navsat_collector.h&quot;<?linebreak?>#include &quot;workers/zen_button.h&quot;<?linebreak?></programlisting>Include dependency graph for satellite_view.cpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="satellite__view_8cpp__incl.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_satellite__view_8cpp_1afd2e9a8606e123ce9dc4a4b259075889">COLOR_SAT_SIGNAL_STRONG</link>&#160;&#160;&#160;TFT_WHITE</para>
+</listitem>
+            <listitem><para>#define <link linkend="_satellite__view_8cpp_1a16dc14693503b8417893049290cc04e7">COLOR_SAT_SIGNAL_MEDIUM</link>&#160;&#160;&#160;TFT_YELLOW</para>
+</listitem>
+            <listitem><para>#define <link linkend="_satellite__view_8cpp_1a136460fd274fdb6b4db0e0f9a19ab8c3">COLOR_SAT_SIGNAL_WEAK</link>&#160;&#160;&#160;TFT_ORANGE</para>
+</listitem>
+            <listitem><para>#define <link linkend="_satellite__view_8cpp_1a7942ded46c9bef7048d3729578cd6184">COLOR_SAT_USED_NAV</link>&#160;&#160;&#160;TFT_BLUE</para>
+</listitem>
+            <listitem><para>#define <link linkend="_satellite__view_8cpp_1a2c3e3202ddd8526511b8e527ac5597b3">COLOR_SAT_HEALTHY</link>&#160;&#160;&#160;TFT_RED</para>
+</listitem>
+            <listitem><para>#define <link linkend="_satellite__view_8cpp_1a9de8819e7911ac03a37ea9fcd05a3e6c">COLOR_SAT_UNKNOWN</link>&#160;&#160;&#160;TFT_BLACK</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_struct_base_screen_with_menu_1_1_menu_item">SatelliteViewScreen::MenuItem</link> <link linkend="_satellite__view_8cpp_1a5d7a927669c37f516e3b3a96d83605af">SATELLITE_MENU</link> [<link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa7e77bdd29011695074cdf7082f4cd6a5">SatelliteViewScreen::e_satellite_MENU_MAX</link>]</para>
+</listitem>
+            <listitem><para><link linkend="_class_satellite_view_screen">SatelliteViewScreen</link> <link linkend="_satellite__view_8cpp_1ab7705c5a76518b7896cd0baf3b287962">SatelliteViewScreen_i</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_satellite__view_8cpp_1a2c3e3202ddd8526511b8e527ac5597b3"/><section>
+    <title>COLOR_SAT_HEALTHY</title>
+<indexterm><primary>COLOR_SAT_HEALTHY</primary><secondary>satellite_view.cpp</secondary></indexterm>
+<indexterm><primary>satellite_view.cpp</primary><secondary>COLOR_SAT_HEALTHY</secondary></indexterm>
+<para><computeroutput>#define COLOR_SAT_HEALTHY&#160;&#160;&#160;TFT_RED</computeroutput></para><para>
+Definition at line <link linkend="_satellite__view_8cpp_source_1l00012">12</link> of file <link linkend="_satellite__view_8cpp_source">satellite_view.cpp</link>.</para>
+</section>
+<anchor xml:id="_satellite__view_8cpp_1a16dc14693503b8417893049290cc04e7"/><section>
+    <title>COLOR_SAT_SIGNAL_MEDIUM</title>
+<indexterm><primary>COLOR_SAT_SIGNAL_MEDIUM</primary><secondary>satellite_view.cpp</secondary></indexterm>
+<indexterm><primary>satellite_view.cpp</primary><secondary>COLOR_SAT_SIGNAL_MEDIUM</secondary></indexterm>
+<para><computeroutput>#define COLOR_SAT_SIGNAL_MEDIUM&#160;&#160;&#160;TFT_YELLOW</computeroutput></para><para>
+Definition at line <link linkend="_satellite__view_8cpp_source_1l00009">9</link> of file <link linkend="_satellite__view_8cpp_source">satellite_view.cpp</link>.</para>
+</section>
+<anchor xml:id="_satellite__view_8cpp_1afd2e9a8606e123ce9dc4a4b259075889"/><section>
+    <title>COLOR_SAT_SIGNAL_STRONG</title>
+<indexterm><primary>COLOR_SAT_SIGNAL_STRONG</primary><secondary>satellite_view.cpp</secondary></indexterm>
+<indexterm><primary>satellite_view.cpp</primary><secondary>COLOR_SAT_SIGNAL_STRONG</secondary></indexterm>
+<para><computeroutput>#define COLOR_SAT_SIGNAL_STRONG&#160;&#160;&#160;TFT_WHITE</computeroutput></para><para>
+Definition at line <link linkend="_satellite__view_8cpp_source_1l00008">8</link> of file <link linkend="_satellite__view_8cpp_source">satellite_view.cpp</link>.</para>
+</section>
+<anchor xml:id="_satellite__view_8cpp_1a136460fd274fdb6b4db0e0f9a19ab8c3"/><section>
+    <title>COLOR_SAT_SIGNAL_WEAK</title>
+<indexterm><primary>COLOR_SAT_SIGNAL_WEAK</primary><secondary>satellite_view.cpp</secondary></indexterm>
+<indexterm><primary>satellite_view.cpp</primary><secondary>COLOR_SAT_SIGNAL_WEAK</secondary></indexterm>
+<para><computeroutput>#define COLOR_SAT_SIGNAL_WEAK&#160;&#160;&#160;TFT_ORANGE</computeroutput></para><para>
+Definition at line <link linkend="_satellite__view_8cpp_source_1l00010">10</link> of file <link linkend="_satellite__view_8cpp_source">satellite_view.cpp</link>.</para>
+</section>
+<anchor xml:id="_satellite__view_8cpp_1a9de8819e7911ac03a37ea9fcd05a3e6c"/><section>
+    <title>COLOR_SAT_UNKNOWN</title>
+<indexterm><primary>COLOR_SAT_UNKNOWN</primary><secondary>satellite_view.cpp</secondary></indexterm>
+<indexterm><primary>satellite_view.cpp</primary><secondary>COLOR_SAT_UNKNOWN</secondary></indexterm>
+<para><computeroutput>#define COLOR_SAT_UNKNOWN&#160;&#160;&#160;TFT_BLACK</computeroutput></para><para>
+Definition at line <link linkend="_satellite__view_8cpp_source_1l00013">13</link> of file <link linkend="_satellite__view_8cpp_source">satellite_view.cpp</link>.</para>
+</section>
+<anchor xml:id="_satellite__view_8cpp_1a7942ded46c9bef7048d3729578cd6184"/><section>
+    <title>COLOR_SAT_USED_NAV</title>
+<indexterm><primary>COLOR_SAT_USED_NAV</primary><secondary>satellite_view.cpp</secondary></indexterm>
+<indexterm><primary>satellite_view.cpp</primary><secondary>COLOR_SAT_USED_NAV</secondary></indexterm>
+<para><computeroutput>#define COLOR_SAT_USED_NAV&#160;&#160;&#160;TFT_BLUE</computeroutput></para><para>
+Definition at line <link linkend="_satellite__view_8cpp_source_1l00011">11</link> of file <link linkend="_satellite__view_8cpp_source">satellite_view.cpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_satellite__view_8cpp_1a5d7a927669c37f516e3b3a96d83605af"/><section>
+    <title>SATELLITE_MENU</title>
+<indexterm><primary>SATELLITE_MENU</primary><secondary>satellite_view.cpp</secondary></indexterm>
+<indexterm><primary>satellite_view.cpp</primary><secondary>SATELLITE_MENU</secondary></indexterm>
+<para><computeroutput>const <link linkend="_struct_base_screen_with_menu_1_1_menu_item">SatelliteViewScreen::MenuItem</link> SATELLITE_MENU[<link linkend="_class_satellite_view_screen_1a96f949d5070a5aa8f163f2e4f987872fa7e77bdd29011695074cdf7082f4cd6a5">SatelliteViewScreen::e_satellite_MENU_MAX</link>]</computeroutput></para><emphasis role="strong">Initial value:</emphasis><programlisting linenumbering="unnumbered">=&#32;{
+&#32;&#32;&#32;&#32;{.title=<emphasis role="stringliteral">&quot;Satellites&quot;</emphasis>,&#32;.tooltip=<emphasis role="stringliteral">&quot;View&#32;satellite&#32;constellation&#32;map&quot;</emphasis>,&#32;.enabled=<emphasis role="keyword">true</emphasis>},
+&#32;&#32;&#32;&#32;{.title=<emphasis role="stringliteral">&quot;Set&#32;default&quot;</emphasis>,&#32;.tooltip=<emphasis role="stringliteral">&quot;Configure&#32;GPS&#32;module&#32;to&#32;use&#32;default&#32;satellites&quot;</emphasis>,&#32;.enabled=<emphasis role="keyword">false</emphasis>},
+&#32;&#32;&#32;&#32;{.title=<emphasis role="stringliteral">&quot;Set&#32;Americas&quot;</emphasis>,&#32;.tooltip=<emphasis role="stringliteral">&quot;Configure&#32;GPS&#32;module&#32;to&#32;optimise&#32;use&#32;of&#32;satellites&quot;</emphasis>,&#32;.enabled=<emphasis role="keyword">false</emphasis>},
+&#32;&#32;&#32;&#32;{.title=<emphasis role="stringliteral">&quot;Set&#32;Europe/Africa&quot;</emphasis>,&#32;.tooltip=<emphasis role="stringliteral">&quot;Configure&#32;GPS&#32;module&#32;to&#32;optimise&#32;use&#32;of&#32;satellites&quot;</emphasis>,&#32;.enabled=<emphasis role="keyword">false</emphasis>},
+&#32;&#32;&#32;&#32;{.title=<emphasis role="stringliteral">&quot;Set&#32;Asia/Oceania&quot;</emphasis>,&#32;.tooltip=<emphasis role="stringliteral">&quot;Configure&#32;GPS&#32;module&#32;to&#32;optimise&#32;use&#32;of&#32;satellites&quot;</emphasis>,&#32;.enabled=<emphasis role="keyword">false</emphasis>},
+&#32;&#32;&#32;&#32;{.title=<emphasis role="stringliteral">&quot;Cold&#32;start&quot;</emphasis>,&#32;.tooltip=<emphasis role="stringliteral">&quot;Send&#32;cold&#32;start&#32;signal&#32;to&#32;the&#32;GPX&#32;module&quot;</emphasis>,&#32;.enabled=<emphasis role="keyword">true</emphasis>},
+&#32;&#32;&#32;&#32;{.title=<emphasis role="stringliteral">&quot;Factory&#32;reset&quot;</emphasis>,&#32;.tooltip=<emphasis role="stringliteral">&quot;Send&#32;factory&#32;reset&#32;signal&#32;to&#32;the&#32;GPS&#32;module&quot;</emphasis>,&#32;.enabled=<emphasis role="keyword">false</emphasis>},
+}
+</programlisting><para>
+Definition at line <link linkend="_satellite__view_8cpp_source_1l00016">16</link> of file <link linkend="_satellite__view_8cpp_source">satellite_view.cpp</link>.</para>
+</section>
+<anchor xml:id="_satellite__view_8cpp_1ab7705c5a76518b7896cd0baf3b287962"/><section>
+    <title>SatelliteViewScreen_i</title>
+<indexterm><primary>SatelliteViewScreen_i</primary><secondary>satellite_view.cpp</secondary></indexterm>
+<indexterm><primary>satellite_view.cpp</primary><secondary>SatelliteViewScreen_i</secondary></indexterm>
+<para><computeroutput><link linkend="_class_satellite_view_screen">SatelliteViewScreen</link> SatelliteViewScreen_i</computeroutput></para><para>
+Definition at line <link linkend="_satellite__view_8cpp_source_1l00026">26</link> of file <link linkend="_satellite__view_8cpp_source">satellite_view.cpp</link>.</para>
+</section>
+</section>
+</section>

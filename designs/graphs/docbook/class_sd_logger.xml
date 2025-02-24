@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sd_logger" xml:lang="en-US">
+<title>SdLogger Class Reference</title>
+<indexterm><primary>SdLogger</primary></indexterm>
+<para>
+<computeroutput>#include &lt;sd_logger.h&gt;</computeroutput>
+</para>
+Inheritance diagram for SdLogger:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sd_logger__inherit__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Collaboration diagram for SdLogger:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sd_logger__coll__graph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_class_sd_logger_1a582caf905698caa5c984fc98a2ffc44b">LogType</link> { <link linkend="_class_sd_logger_1a582caf905698caa5c984fc98a2ffc44bab545cc1bdb3f42f80a36701d68555ff1">journal</link>
+, <link linkend="_class_sd_logger_1a582caf905698caa5c984fc98a2ffc44ba7c405a0c04deffbf82e78a0f9765614a">survey</link>
+, <link linkend="_class_sd_logger_1a582caf905698caa5c984fc98a2ffc44ba53399929e212628cffd59c173abb1094">drive</link>
+, <link linkend="_class_sd_logger_1a582caf905698caa5c984fc98a2ffc44baec4026695297a2544dde006c3115edd7">error</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sd_logger_1aa295d7f7824cac1cfe336ac3e9b27f3a">SdLogger</link> (<link linkend="_class_local_storage">LocalStorage</link> &amp;config, <link linkend="_class_sd_logger_1a582caf905698caa5c984fc98a2ffc44b">LogType</link> type)</para>
+</listitem>
+            <listitem><para>virtual <link linkend="_class_sd_logger_1af7b5361e519fc8ad83c39b5a43aef02d">~SdLogger</link> ()=default</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Protected Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_class_sd_logger_1a03701029b7b1906ff9e910c79d509585">activate</link> (bool retry) override</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_sd_logger_1a8e8463c086ad85bd39a99bdbe2207cfa">deactivate</link> () override</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_class_sd_logger_1ab55fb4b592ef94b61f23d408aecd7ee1">handle_produced_work</link> (const worker_map_t &amp;workers) override</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Setups up bluetooth endpoint for the device, allowing it to send readings over bluetooth </para>
+<para>
+Definition at line <link linkend="_sd__logger_8h_source_1l00013">13</link> of file <link linkend="_sd__logger_8h_source">sd_logger.h</link>.</para>
+</section>
+<section>
+<title>Member Enumeration Documentation</title>
+<anchor xml:id="_class_sd_logger_1a582caf905698caa5c984fc98a2ffc44b"/><section>
+    <title>LogType</title>
+<indexterm><primary>LogType</primary><secondary>SdLogger</secondary></indexterm>
+<indexterm><primary>SdLogger</primary><secondary>LogType</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_class_sd_logger_1a582caf905698caa5c984fc98a2ffc44b">SdLogger::LogType</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>journal</primary><secondary>SdLogger</secondary></indexterm>
+<indexterm><primary>SdLogger</primary><secondary>journal</secondary></indexterm>
+<anchor xml:id="_class_sd_logger_1a582caf905698caa5c984fc98a2ffc44bab545cc1bdb3f42f80a36701d68555ff1"/>journal</entry><entry></entry></row><row><entry><indexterm><primary>survey</primary><secondary>SdLogger</secondary></indexterm>
+<indexterm><primary>SdLogger</primary><secondary>survey</secondary></indexterm>
+<anchor xml:id="_class_sd_logger_1a582caf905698caa5c984fc98a2ffc44ba7c405a0c04deffbf82e78a0f9765614a"/>survey</entry><entry></entry></row><row><entry><indexterm><primary>drive</primary><secondary>SdLogger</secondary></indexterm>
+<indexterm><primary>SdLogger</primary><secondary>drive</secondary></indexterm>
+<anchor xml:id="_class_sd_logger_1a582caf905698caa5c984fc98a2ffc44ba53399929e212628cffd59c173abb1094"/>drive</entry><entry></entry></row><row><entry><indexterm><primary>error</primary><secondary>SdLogger</secondary></indexterm>
+<indexterm><primary>SdLogger</primary><secondary>error</secondary></indexterm>
+<anchor xml:id="_class_sd_logger_1a582caf905698caa5c984fc98a2ffc44baec4026695297a2544dde006c3115edd7"/>error</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_sd__logger_8h_source_1l00015">15</link> of file <link linkend="_sd__logger_8h_source">sd_logger.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_sd_logger_1aa295d7f7824cac1cfe336ac3e9b27f3a"/><section>
+    <title>SdLogger()</title>
+<indexterm><primary>SdLogger</primary><secondary>SdLogger</secondary></indexterm>
+<indexterm><primary>SdLogger</primary><secondary>SdLogger</secondary></indexterm>
+<para><computeroutput>SdLogger::SdLogger (<link linkend="_class_local_storage">LocalStorage</link> &amp; config, <link linkend="_class_sd_logger_1a582caf905698caa5c984fc98a2ffc44b">LogType</link> type)<computeroutput>[explicit]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_sd__logger_8cpp_source_1l00012">12</link> of file <link linkend="_sd__logger_8cpp_source">sd_logger.cpp</link>.</para>
+</section>
+<anchor xml:id="_class_sd_logger_1af7b5361e519fc8ad83c39b5a43aef02d"/><section>
+    <title>~SdLogger()</title>
+<indexterm><primary>~SdLogger</primary><secondary>SdLogger</secondary></indexterm>
+<indexterm><primary>SdLogger</primary><secondary>~SdLogger</secondary></indexterm>
+<para><computeroutput>virtual SdLogger::~SdLogger ( )<computeroutput>[virtual]</computeroutput>, <computeroutput>[default]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_sd_logger_1a03701029b7b1906ff9e910c79d509585"/><section>
+    <title>activate()</title>
+<indexterm><primary>activate</primary><secondary>SdLogger</secondary></indexterm>
+<indexterm><primary>SdLogger</primary><secondary>activate</secondary></indexterm>
+<para><computeroutput>bool SdLogger::activate (bool retry)<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_sd__logger_8cpp_source_1l00015">15</link> of file <link linkend="_sd__logger_8cpp_source">sd_logger.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sd_logger_a03701029b7b1906ff9e910c79d509585_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sd_logger_1a8e8463c086ad85bd39a99bdbe2207cfa"/><section>
+    <title>deactivate()</title>
+<indexterm><primary>deactivate</primary><secondary>SdLogger</secondary></indexterm>
+<indexterm><primary>SdLogger</primary><secondary>deactivate</secondary></indexterm>
+<para><computeroutput>void SdLogger::deactivate ( )<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_sd__logger_8cpp_source_1l00038">38</link> of file <link linkend="_sd__logger_8cpp_source">sd_logger.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sd_logger_a8e8463c086ad85bd39a99bdbe2207cfa_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sd_logger_1ab55fb4b592ef94b61f23d408aecd7ee1"/><section>
+    <title>handle_produced_work()</title>
+<indexterm><primary>handle_produced_work</primary><secondary>SdLogger</secondary></indexterm>
+<indexterm><primary>SdLogger</primary><secondary>handle_produced_work</secondary></indexterm>
+<para><computeroutput>int8_t SdLogger::handle_produced_work (const worker_map_t &amp; workers)<computeroutput>[override]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_sd__logger_8cpp_source_1l00049">49</link> of file <link linkend="_sd__logger_8cpp_source">sd_logger.cpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sd_logger_ab55fb4b592ef94b61f23d408aecd7ee1_cgraph.jpg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following files:</para>
+bgeigiezen_firmware/handlers/<link linkend="_sd__logger_8h">sd_logger.h</link>bgeigiezen_firmware/handlers/<link linkend="_sd__logger_8cpp">sd_logger.cpp</link></section>
+</section>
