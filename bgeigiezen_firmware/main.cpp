@@ -83,7 +83,7 @@ ConfigWebServer config_server(settings);
 SdLogger journal_logger(settings, SdLogger::journal);
 SdLogger drive_logger(settings, SdLogger::drive);
 SdLogger survey_logger(settings, SdLogger::survey);
-GpsDebugLogger gps_debug_logger(settings);
+GpsDebugLogger gps_debug_logger(settings, gnss);
 BluetoothReporter bt_connector(settings);
 ApiConnector api_connector(settings);
 
