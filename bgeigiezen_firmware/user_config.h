@@ -12,6 +12,15 @@
 #define VERSION_NUMBER STR(MAJOR_VERSION) "." STR(MINOR_VERSION) "." STR(PATCH_VERSION)
 #define VERSION_STRING "bGeigieZen " VERSION_NUMBER
 
+/*** USER ***/
+// User name for screens
+#define USER_NAME STR(config.user_name)
+#define USER_STRING "USER " USER_NAME
+
+/** DEVICE ID ****/
+#define DEVICE_NAME STR(config.device_id)
+#define DEVICE_STRING "DEVICE " DEVICE_NAME
+
 /*** COPYRIGHT ***/
 // Copyright year for screens
 #define COPYRIGHT_YEAR 2025
@@ -77,6 +86,8 @@ constexpr char FIXED_MODE_GRAFANA_URL[] = "https://tinyurl.com/34yr2tzv?var-devi
 
 // Other
 constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
+// constexpr char SCREENSAVER_TEXT[] = USER_STRING "/n" DEVICE_STRING;
+
 
 
 /**************/
