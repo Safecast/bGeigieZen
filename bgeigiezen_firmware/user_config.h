@@ -11,6 +11,7 @@
 // Version defined in platformio.ini in [env] build flags
 #define VERSION_NUMBER STR(MAJOR_VERSION) "." STR(MINOR_VERSION) "." STR(PATCH_VERSION)
 #define VERSION_STRING "bGeigieZen " VERSION_NUMBER
+#define VERSION_SIMPLE_STRING "" VERSION_NUMBER
 
 /*** USER ***/
 // User name for screens
