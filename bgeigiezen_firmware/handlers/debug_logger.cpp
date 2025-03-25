@@ -4,6 +4,7 @@
 #include "workers/navsat_collector.h"
 #include "workers/rtc_connector.h"
 
+
 // e.g. /debug/gps-latest.log
 #define TEMP_LOG_NAME_F "%s/%s-latest.log"
 // e.g. /debug/gps-2023-11-20_1230.log
@@ -142,27 +143,31 @@ void GpsDebugLogger::write_header_lines() {
 bool GpsDebugLogger::write_line(const worker_map_t& workers) {
   const auto& gps = workers.worker<GpsConnector>(k_worker_navsat_collector);
   const auto& navsat = workers.worker<NavsatCollector>(k_worker_navsat_collector);
-
+  const auto& rtc_data = workers.worker<DateTimeProvider>(k_worker_rtc_connector)->get_data();
+  
   if (gps->active() && navsat->active()) {
-    char log_string[200];
+    char log_string[250];  // Increased buffer size to accommodate timestamp
+    char timestamp[21];    // ISO 8601 format: "YYYY-MM-DDTHH:MM:SSZ"
 
-    /***
-     * Second line of log for extra troubleshooting info
-     * Prefix $BNXNAV BgeigieNanoeXtraNAV info
-     * ***/
+    // // Retrieve and format the timestamp
+    time_t currentTime =rtc_data.year + rtc_data.month + rtc_data.day + rtc_data.hour + rtc_data.minute + rtc_data.second;
+    struct tm* utcTime = gmtime(&currentTime);
+    strftime(timestamp, sizeof(timestamp), "%Y-%m-%dT%H:%M:%SZ", utcTime);
+
     snprintf(
-        log_string, 200,
-        "$BNXNAV,%u,%u,%d,%d,%d,%d,%d,%u,%u,%c",
-        gps->get_data().hAcc,  // mm Horizontal accuracy estimate for Long/Lat
-        gps->get_data().vAcc,  // mm Vertical accuracy estimate for Long/Lat
-        gps->get_data().velN,  // mm/s NED north velocity
-        gps->get_data().velE,  // mm/s NED east velocity
-        gps->get_data().velD,  // mm/s NED down velocity
-        gps->get_data().gSpeed,  // Ground Speed (2-D)
-        gps->get_data().headMot,  // Heading of motion (2-D)
+        log_string, sizeof(log_string),
+        "$BNXNAV,%s,%u,%u,%d,%d,%d,%d,%d,%u,%u,%c",
+        timestamp,
+        gps->get_data().hAcc,
+        gps->get_data().vAcc,
+        gps->get_data().velN,
+        gps->get_data().velE,
+        gps->get_data().velD,
+        gps->get_data().gSpeed,
+        gps->get_data().headMot,
         gps->get_data().sAcc,
         gps->get_data().headAcc,
-        gps->get_data().invalidLlh ? '1':'0'  // NAVPVT[78] flags3 bit 0
+        gps->get_data().invalidLlh ? '1' : '0'
     );
 
     return SDInterface::i().log_println(_logging_to, log_string);
