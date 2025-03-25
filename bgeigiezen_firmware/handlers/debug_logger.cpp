@@ -127,7 +127,7 @@ bool GpsDebugLogger::can_activate() {
 
 void GpsDebugLogger::write_header_lines() {
   // Write log format when creating a new log
-  SDInterface::i().log_println(_logging_to, "# hAcc,vAcc,velN,velE,velD,gSpeed,headMot,sAcc,headAcc,invalidLlh");
+  SDInterface::i().log_println(_logging_to, "# timestamp,hAcc,vAcc,velN,velE,velD,gSpeed,headMot,sAcc,headAcc,invalidLlh");
 }
 
 /**
@@ -151,8 +151,6 @@ bool GpsDebugLogger::write_line(const worker_map_t& workers) {
         "%04d-%02d-%02dT%02d:%02d:%02dZ",
         rtc_data.year, rtc_data.month, rtc_data.day, rtc_data.hour, rtc_data.minute, rtc_data.second);
 
-    // M5_LOGD("Set GPS logger date to: %04d-%02d-%02d %02d:%02d:%02d",
-    //         rtc_data.year, rtc_data.month, rtc_data.day, rtc_data.hour, rtc_data.minute, rtc_data.second);
 
     snprintf(
         log_string, sizeof(log_string),
