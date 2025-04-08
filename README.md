@@ -1,11 +1,13 @@
 
 # bGeigieZen
 
+
 A modern radiation monitoring device based on the M5Stack hardware platform, developed by the Safecast community.
 
 ## Overview
 
 bGeigieZen is a portable radiation monitoring device that combines precision sensing with a user-friendly interface. Built on the M5Stack platform, it provides real-time radiation measurements with GPS logging capabilities.
+![from website](https://github.com/user-attachments/assets/a8260427-227d-4a53-8914-8a7f9e7631ee)
 
 ## Features
 
