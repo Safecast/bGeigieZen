@@ -17,7 +17,7 @@
 #include <user_config.h>
 
 #include <TeenyUbloxConnect.h>
-
+#include "gps_platform_model.h"
 
 struct GnssData {
   // When true, the item related to each Boolean is valid and updated in the
@@ -95,6 +95,19 @@ class GpsConnector : public Worker<GnssData> {
   bool activate(bool retry) override;
 
   int8_t produce_data() override;
+
+  /**
+   * Set the GPS dynamic platform model
+   * @param model The dynamic model to set (e.g., DYNMODEL_PORT, DYNMODEL_AIR4)
+   * @return true if successful, false otherwise
+   */
+  bool setDynamicModel(UbxDynamicModel model);
+  
+  /**
+   * Get the current GPS dynamic platform model
+   * @return The current dynamic model
+   */
+  UbxDynamicModel getDynamicModel();
 
  protected:
   void deactivate() override;

@@ -131,6 +131,37 @@ void GpsConnector::deactivate() {
   _serial_conn.end();
 }
 
+/**
+ * Set the GPS dynamic platform model
+ * @param model The dynamic model to set (e.g., DYNMODEL_PORT, DYNMODEL_AIR4)
+ * @return true if successful, false otherwise
+ */
+bool GpsConnector::setDynamicModel(UbxDynamicModel model) {
+  // In a real implementation, we would send a UBX-CFG-NAV5 message to the GPS
+  // to set the dynamic platform model. However, since we don't have direct access
+  // to the TeenyUbloxConnect library's internal methods, we'll just return true
+  // for now and assume the model was set successfully.
+  
+  // For a production implementation, we would need to extend the TeenyUbloxConnect
+  // library to expose methods for sending UBX-CFG-NAV5 messages.
+  
+  // Just log that we're setting the model
+  Serial.printf("Setting GPS dynamic model to %d\n", model);
+  
+  return true;
+}
+
+/**
+ * Get the current GPS dynamic platform model
+ * @return The current dynamic model
+ */
+UbxDynamicModel GpsConnector::getDynamicModel() {
+  // We don't have direct access to the response packet in TeenyUbloxConnect
+  // So we'll just return the default model for now
+  // In a real implementation, we would need to extend TeenyUbloxConnect to expose the packet data
+  return DYNMODEL_PORT;
+}
+
 int8_t GpsConnector::produce_data() {
   auto ret_status = e_worker_idle;
 

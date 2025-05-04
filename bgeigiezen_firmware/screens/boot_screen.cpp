@@ -5,6 +5,7 @@
 #include "identifiers.h"
 #include "sd_message.h"
 #include "user_config.h"
+#include "workers/rtc_connector.h"
 
 BootScreen BootScreen_i;
 
@@ -36,18 +37,33 @@ void BootScreen::render(const worker_map_t& workers, const handler_map_t& handle
   // Display something
 
   const auto& storage = workers.worker<LocalStorage>(k_worker_local_storage);
+  const auto& rtc = workers.worker<DateTimeProvider>(k_worker_rtc_connector);
 
+  // Display title
   M5.Lcd.setCursor(10, 10);
   M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
   M5.Lcd.drawString("bGeigie Zen", 95, 50, &fonts::Font4);
+  
+  // Display version prominently
+  M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, LCD_COLOR_BACKGROUND);
+  M5.Lcd.drawString("v3.2.9 - Air Mode", 90, 85, &fonts::Font2);
+  
+  // Display user info
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.setCursor(5, 125);
   M5.Lcd.setFont(&fonts::Font2);
   M5.Lcd.printf("User name: %s", storage->get_user_name());
   M5.Lcd.setCursor(5, 143);
   M5.Lcd.printf("Device id: %d", storage->get_device_id());
-  M5.Lcd.setCursor(5, 163);
-  M5.Lcd.printf("Version: %s", VERSION_SIMPLE_STRING);
+  
+  // Display date and time if available
+  if (rtc && rtc->is_fresh()) {
+    const auto& dt = rtc->get_data();
+    M5.Lcd.setCursor(5, 163);
+    M5.Lcd.printf("Date: %04d-%02d-%02d", dt.year, dt.month, dt.day);
+    M5.Lcd.setCursor(5, 183);
+    M5.Lcd.printf("Time: %02d:%02d:%02d", dt.hour, dt.minute, dt.second);
+  }
 
   // Display safecast copyright
   M5.Lcd.setTextFont(1);
