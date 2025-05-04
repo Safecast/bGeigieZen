@@ -251,7 +251,7 @@ void ConfigModeScreen::render_sd_wipe(const worker_map_t& workers, const handler
   M5.Lcd.printf("from the SD card!");
   
   // Regular instructions below the warning
-  M5.Lcd.setCursor(0, 140, &fonts::Font2);
+  M5.Lcd.setCursor(0, 150, &fonts::Font2);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.printf("Press WIPE to confirm deleting all log files.\n");
   M5.Lcd.printf("Your device settings will be preserved.\n");
