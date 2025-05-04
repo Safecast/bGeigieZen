@@ -25,9 +25,31 @@ bool SdLogger::activate(bool) {
   char header_l2[100];
   // e.g. # format=1.2.3-zen/drives
   sprintf(header_l2, "%s%d.%d.%d-zen%s", LOG_HEADER_LINE2, MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION, get_dir());
+  
   bool success = SDInterface::i().log_println(_logging_to, LOG_HEADER_LINE1)
       && SDInterface::i().log_println(_logging_to, header_l2)
       && SDInterface::i().log_println(_logging_to, LOG_HEADER_LINE3);
+      
+  // Add mode information to the header
+  char mode_header[100];
+  switch (_log_type) {
+    case journal:
+      sprintf(mode_header, "# Mode: Journal");
+      break;
+    case survey:
+      sprintf(mode_header, "# Mode: Survey");
+      break;
+    case drive:
+      sprintf(mode_header, "# Mode: Drive");
+      break;
+    case air:
+      sprintf(mode_header, "# Mode: Air (GPS Dynamic Platform Model: AIRBORNE 4G)");
+      break;
+    default:
+      sprintf(mode_header, "# Mode: Unknown");
+      break;
+  }
+  success = success && SDInterface::i().log_println(_logging_to, mode_header);
 
   _is_temp = true;
   _total = 0;
