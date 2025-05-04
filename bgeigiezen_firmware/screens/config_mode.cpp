@@ -56,35 +56,37 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
           DeviceUtils::shutdown(true);
           break;
         case e_config_page_sd_wipe:
-          M5.Lcd.clear(LCD_COLOR_BACKGROUND);
-          M5.Lcd.setRotation(3);
-          M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-          M5.Lcd.setCursor(30, 78, &fonts::Font4);
-          M5.Lcd.printf("WIPE IN PROGRESS\n");
-          M5.Lcd.setCursor(5, 120, &fonts::Font2);
+          {
+            M5.Lcd.clear(LCD_COLOR_BACKGROUND);
+            M5.Lcd.setRotation(3);
+            M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+            M5.Lcd.setCursor(30, 78, &fonts::Font4);
+            M5.Lcd.printf("WIPE IN PROGRESS\n");
+            M5.Lcd.setCursor(5, 120, &fonts::Font2);
 
-          M5.Lcd.printf("Removing all log files, This can take a while...\n");
-          bool success = SDInterface::i().clear_all_logs();
-          M5.Lcd.clear(LCD_COLOR_BACKGROUND);
-          M5.Lcd.setRotation(3);
-          M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-          M5.Lcd.setCursor(27, 78, &fonts::Font4);
-          if (success) {
-            M5.Lcd.printf("SD CARD HAS BEEN\n");
-            M5.Lcd.setCursor(27, 110, &fonts::Font4);
-            M5.Lcd.printf("WIPED SUCCESSFULLY\n");
-            M5.Lcd.setCursor(70, 160, &fonts::Font2);
-            M5.Lcd.printf("Returning to settings menu...\n");
-          } else {
-            M5.Lcd.printf("SD CARD WIPE\n");
-            M5.Lcd.setCursor(27, 110, &fonts::Font4);
-            M5.Lcd.printf("FAILED\n");
-            M5.Lcd.setCursor(70, 160, &fonts::Font2);
-            M5.Lcd.printf("Returning to settings menu...\n");
+            M5.Lcd.printf("Removing all log files, This can take a while...\n");
+            bool success = SDInterface::i().clear_all_logs();
+            M5.Lcd.clear(LCD_COLOR_BACKGROUND);
+            M5.Lcd.setRotation(3);
+            M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+            M5.Lcd.setCursor(27, 78, &fonts::Font4);
+            if (success) {
+              M5.Lcd.printf("SD CARD HAS BEEN\n");
+              M5.Lcd.setCursor(27, 110, &fonts::Font4);
+              M5.Lcd.printf("WIPED SUCCESSFULLY\n");
+              M5.Lcd.setCursor(70, 160, &fonts::Font2);
+              M5.Lcd.printf("Returning to settings menu...\n");
+            } else {
+              M5.Lcd.printf("SD CARD WIPE\n");
+              M5.Lcd.setCursor(27, 110, &fonts::Font4);
+              M5.Lcd.printf("FAILED\n");
+              M5.Lcd.setCursor(70, 160, &fonts::Font2);
+              M5.Lcd.printf("Returning to settings menu...\n");
+            }
+            delay(3000); // Show message for 3 seconds
+            _current_page = e_config_page_main;
+            open_menu(true);
           }
-          delay(3000); // Show message for 3 seconds
-          _current_page = e_config_page_main;
-          open_menu(true);
           break;
         case e_config_page_reset_all:
           M5.Lcd.clear(LCD_COLOR_BACKGROUND);
