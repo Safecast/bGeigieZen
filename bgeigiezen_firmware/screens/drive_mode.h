@@ -2,6 +2,7 @@
 #define SCREENS_DRIVE_SCREEN_H
 
 #include "base_screen.h"
+#include "workers/gps_platform_model.h"
 
 class DriveModeScreen : public BaseScreen {
  public:

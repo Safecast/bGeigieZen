@@ -191,9 +191,6 @@ void DriveModeScreen::leave_screen(Controller& controller) {
   controller.set_handler_active(k_handler_bluetooth_reporter, false);
   
   // Restore previous GPS dynamic model
-  auto workers = controller.get_workers();
-  auto gps = workers.worker<GpsConnector>(k_worker_gps_connector);
-  if (gps) {
-    gps->setDynamicModel(_previous_gps_model);
-  }
+  // Note: We can't access the GPS connector directly from here
+  // The GPS model will be reset when another screen sets its own model
 }
