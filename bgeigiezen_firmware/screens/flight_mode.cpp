@@ -20,7 +20,7 @@ FlightModeScreen::FlightModeScreen() : BaseScreen("Flight Mode", true), _logging
 BaseScreen* FlightModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
   auto log_button = workers.worker<ZenButton>(k_worker_button_1);
   if (_logging_available && log_button->is_fresh() && log_button->get_data().shortPress) {
-    controller.set_handler_active(k_handler_air_logger, !_currently_logging);
+    controller.set_handler_active(k_handler_flight_logger, !_currently_logging);
   }
 
   auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
@@ -57,9 +57,9 @@ void FlightModeScreen::render(const worker_map_t& workers, const handler_map_t& 
   const auto& log_aggregator = workers.worker<LogAggregator>(k_worker_log_aggregator);
   _logging_available = controller_data.local_available && SDInterface::i().status() == SDInterface::e_sd_config_status_ok;
 
-  bool currently_logging = handlers.handler<SdLogger>(k_handler_air_logger)->active();
+  bool currently_logging = handlers.handler<SdLogger>(k_handler_flight_logger)->active();
   if (_currently_logging && !currently_logging) {
-    set_status_message(F(" COMPLETED LOGGING AIR FLIGHT "));
+    set_status_message(F(" COMPLETED LOGGING FLIGHT "));
   } else if (!_currently_logging && currently_logging) {
     set_status_message(F(" STARTED LOGGING, safe flight! "));
     _distance_start = log_aggregator->get_data().distance;
@@ -195,7 +195,7 @@ void FlightModeScreen::render(const worker_map_t& workers, const handler_map_t& 
 void FlightModeScreen::enter_screen(Controller& controller) {
   // Start logging by default if manual logging is disabled
   if (!controller.get_settings().get_manual_logging()) {
-    controller.set_handler_active(k_handler_air_logger, true);
+    controller.set_handler_active(k_handler_flight_logger, true);
     _currently_logging = true;
   }
   
@@ -210,11 +210,11 @@ void FlightModeScreen::enter_screen(Controller& controller) {
 
 void FlightModeScreen::leave_screen(Controller& controller) {
   // Stop logging and BLE when leaving the screen
-  controller.set_handler_active(k_handler_air_logger, false);
+  controller.set_handler_active(k_handler_flight_logger, false);
   controller.set_handler_active(k_handler_bluetooth_reporter, false);
   _currently_logging = false;
   
   // We need to get the worker map from the handle_input method, so we'll set the model back in that method
   // or in the enter_screen method of the next screen
-  set_status_message(F(" LEAVING AIR MODE "));
+  set_status_message(F(" LEAVING FLIGHT MODE "));
 }

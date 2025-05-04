@@ -118,7 +118,7 @@ bool GpsConnector::activate(bool retry) {
 
   // Set Auto on NAV-PVT for non-blocking access
   // getPVT() will return true if a new navigation solution is available
-  _gnss.setAutoPVT(true); // Tell the GNSS to send the solution as it is computed (1 second)
+  _gnss.setAutoNAVPVT(true); // Tell the GNSS to send the solution as it is computed (1 second)
   _gnss.setAutoNAVSAT(false); // Disable navsat by default (navsat worker handles this)
 
   return true;
@@ -186,10 +186,10 @@ int8_t GpsConnector::produce_data() {
   // "LLH" is longitude, latitude, height.
   // getPVT() returns UTC date and time.
   // Do not use GNSS time, see u-blox spec section 9.
-  if (_gnss.getPVT()) {
+  if (_gnss.getNAVPVT()) {
     // M5_LOGD("[%d] _gnss.getPVT() is true.", millis());
 
-    data.satsInView = _gnss.getSIV(); // Satellites In View
+    data.satsInView = _gnss.getNumSV(); // Satellites In View (numSV)
 
     if (_gnss.getFixType() == 2 || _gnss.getFixType() == 3) {
       // M5_LOGD("[%d] fix type is 2D or 3D.", millis());

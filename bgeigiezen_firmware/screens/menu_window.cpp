@@ -8,6 +8,7 @@
 #include "identifiers.h"
 #include "log_viewer.h"
 #include "satellite_view.h"
+#include "sd_wipe.h"
 #include "survey_mode.h"
 #include "user_config.h"
 #include "workers/zen_button.h"
@@ -24,6 +25,7 @@ const MenuWindow::MenuItem MAIN_MENU_ITEMS[MAIN_MENU_MAX] = {
     {.title="Log viewer", .tooltip="View and upload logs over wifi", .enabled=true, .screen=&LogViewerScreen_i},
     {.title="Settings", .tooltip="Configure your device", .enabled=true, .screen=&ConfigModeScreen_i},
     {.title="About Zen", .tooltip="Explore what you can do with your bGeigieZen", .enabled=true, .screen=&ZenInfoScreen_i},
+    {.title="SD Card Wipe", .tooltip="Delete all data from the SD card", .enabled=true, .screen=&SDWipeScreen_i},
     {.title="Debug info", .tooltip="View connected modules and their status", .enabled=true, .screen=&DebugModeScreen_i}
 };
 
