@@ -242,11 +242,18 @@ void ConfigModeScreen::render_sd_wipe(const worker_map_t& workers, const handler
   drawButton2("WIPE");
   drawButton3("Menu");
 
-  M5.Lcd.setCursor(0, 70, &fonts::Font2);
-  M5.Lcd.setTextColor(LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
-  M5.Lcd.printf("WARNING: This will delete ALL log files from the SD card!\n\n");
+  // Create warning box with red background and white text
+  M5.Lcd.fillRect(0, 70, 320, 40, LCD_COLOR_ERROR);
+  M5.Lcd.setCursor(10, 80, &fonts::Font2);
+  M5.Lcd.setTextColor(TFT_WHITE, LCD_COLOR_ERROR);
+  M5.Lcd.printf("WARNING: This will delete ALL log files\n");
+  M5.Lcd.setCursor(10, 100, &fonts::Font2);
+  M5.Lcd.printf("from the SD card!");
+  
+  // Regular instructions below the warning
+  M5.Lcd.setCursor(0, 120, &fonts::Font2);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  M5.Lcd.printf("Press WIPE to confirm deleting all log files.\n");
+  M5.Lcd.printf("\nPress WIPE to confirm deleting all log files.\n");
   M5.Lcd.printf("Your device settings will be preserved.\n");
 }
 
