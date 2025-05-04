@@ -18,9 +18,7 @@ class AirModeScreen : public BaseScreen {
  private:
   bool _logging_available;
   bool _currently_logging;
-  bool _transmitting_data;
-  bool _wifi_enabled;
-  bool _ble_enabled;
+  double _distance_start;
   UbxDynamicModel _previous_gps_model;
 };
 

@@ -93,6 +93,8 @@ const char* SdLogger::get_dir() const {
       return DRIVE_LOG_DIRECTORY;
     case survey:
       return SURVEY_LOG_DIRECTORY;
+    case air:
+      return "/air"; // New directory for air logs
     default:
       return "unknown";
   }
