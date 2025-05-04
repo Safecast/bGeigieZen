@@ -16,7 +16,7 @@ class SdLogger : public Handler {
     journal,
     survey,
     drive,
-    air,
+    flight,
     error,
   };
 

@@ -1,4 +1,4 @@
-#include "air_mode.h"
+#include "flight_mode.h"
 #include "handlers/sd_logger.h"
 #include "identifiers.h"
 #include "menu_window.h"
@@ -8,15 +8,16 @@
 #include "workers/log_aggregator.h"
 #include "workers/zen_button.h"
 
-AirModeScreen AirModeScreen_i;
+FlightModeScreen FlightModeScreen_i;
 
-AirModeScreen::AirModeScreen() : BaseScreen("Air Mode", true), _logging_available(false), _currently_logging(false), _distance_start(0), _previous_gps_model(DYNMODEL_PORT) {
+FlightModeScreen::FlightModeScreen() : BaseScreen("Flight Mode", true), _logging_available(false), _currently_logging(false), _distance_start(0), _previous_gps_model(DYNMODEL_PORT) {
   required_tube = true;
   required_gps = true;
+  required_wifi = false;  // WiFi is optional for Flight mode
   required_sd = true;
 }
 
-BaseScreen* AirModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
+BaseScreen* FlightModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
   auto log_button = workers.worker<ZenButton>(k_worker_button_1);
   if (_logging_available && log_button->is_fresh() && log_button->get_data().shortPress) {
     controller.set_handler_active(k_handler_air_logger, !_currently_logging);
@@ -28,14 +29,14 @@ BaseScreen* AirModeScreen::handle_input(Controller& controller, const worker_map
     auto gps = workers.worker<GpsConnector>(k_worker_gps_connector);
     if (gps) {
       gps->setDynamicModel(_previous_gps_model);
-      set_status_message(F(" LEAVING AIR MODE "));
+      set_status_message(F(" LEAVING FLIGHT MODE "));
     }
     return &MenuWindow_i;
   }
   return nullptr;
 }
 
-void AirModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
+void FlightModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   // Set GPS to AIR4 mode on first render
   static bool first_render = true;
   if (first_render) {
@@ -46,7 +47,7 @@ void AirModeScreen::render(const worker_map_t& workers, const handler_map_t& han
       
       // Set to AIR4 mode
       if (gps->setDynamicModel(DYNMODEL_AIR4)) {
-        set_status_message(F(" AIR MODE - GPS SET TO AIRBORNE 4G "));
+        set_status_message(F(" FLIGHT MODE - GPS SET TO AIRBORNE 4G "));
       }
     }
     first_render = false;
@@ -160,7 +161,7 @@ void AirModeScreen::render(const worker_map_t& workers, const handler_map_t& han
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
     M5.Lcd.printf("%0.6f  ", gps->get_data().longitude);
     
-    // Highlight altitude for Air mode
+    // Highlight altitude for Flight mode
     M5.Lcd.setCursor(170, 168);
     M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, LCD_COLOR_BACKGROUND);  // Use activity color to highlight altitude
     M5.Lcd.print("ALTITUDE   :");
@@ -191,7 +192,7 @@ void AirModeScreen::render(const worker_map_t& workers, const handler_map_t& han
   }
 }
 
-void AirModeScreen::enter_screen(Controller& controller) {
+void FlightModeScreen::enter_screen(Controller& controller) {
   // Start logging by default if manual logging is disabled
   if (!controller.get_settings().get_manual_logging()) {
     controller.set_handler_active(k_handler_air_logger, true);
@@ -200,14 +201,14 @@ void AirModeScreen::enter_screen(Controller& controller) {
   
   // We'll set the GPS to AIR4 mode in the first render call
   // when we have access to the worker map
-  set_status_message(F(" AIR MODE - GPS SET TO AIRBORNE 4G "));
+  set_status_message(F(" FLIGHT MODE - GPS SET TO AIRBORNE 4G "));
   force_next_render(); // Force render to apply GPS settings
   
-  // Enable BLE for Air mode, similar to Drive mode
+  // Enable BLE for Flight mode, similar to Drive mode
   controller.set_handler_active(k_handler_bluetooth_reporter, true);
 }
 
-void AirModeScreen::leave_screen(Controller& controller) {
+void FlightModeScreen::leave_screen(Controller& controller) {
   // Stop logging and BLE when leaving the screen
   controller.set_handler_active(k_handler_air_logger, false);
   controller.set_handler_active(k_handler_bluetooth_reporter, false);

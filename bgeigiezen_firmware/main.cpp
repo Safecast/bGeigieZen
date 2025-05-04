@@ -83,7 +83,7 @@ ConfigWebServer config_server(settings);
 SdLogger journal_logger(settings, SdLogger::journal);
 SdLogger drive_logger(settings, SdLogger::drive);
 SdLogger survey_logger(settings, SdLogger::survey);
-SdLogger air_logger(settings, SdLogger::air); // Using dedicated air log type
+SdLogger flight_logger(settings, SdLogger::flight); // Using dedicated flight log type
 GpsDebugLogger gps_debug_logger(settings, gnss);
 BluetoothReporter bt_connector(settings);
 ApiConnector api_connector(settings);
@@ -120,7 +120,7 @@ void setup() {
   controller.register_handler(k_handler_journal_logger, journal_logger);
   controller.register_handler(k_handler_drive_logger, drive_logger);
   controller.register_handler(k_handler_survey_logger, survey_logger);
-  controller.register_handler(k_handler_air_logger, air_logger);
+  controller.register_handler(k_handler_flight_logger, flight_logger);
   controller.register_handler(k_handler_gps_debug_logger, gps_debug_logger);
   controller.register_handler(k_handler_bluetooth_reporter, bt_connector);
   controller.register_handler(k_handler_api_reporter, api_connector);

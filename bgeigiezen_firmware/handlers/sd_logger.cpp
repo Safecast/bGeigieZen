@@ -42,8 +42,8 @@ bool SdLogger::activate(bool) {
     case drive:
       sprintf(mode_header, "# Mode: Drive");
       break;
-    case air:
-      sprintf(mode_header, "# Mode: Air (GPS Dynamic Platform Model: AIRBORNE 4G)");
+    case flight:
+      sprintf(mode_header, "# Mode: Flight (GPS Dynamic Platform Model: AIRBORNE 4G)");
       break;
     default:
       sprintf(mode_header, "# Mode: Unknown");
@@ -115,8 +115,8 @@ const char* SdLogger::get_dir() const {
       return DRIVE_LOG_DIRECTORY;
     case survey:
       return SURVEY_LOG_DIRECTORY;
-    case air:
-      return "/air"; // New directory for air logs
+    case flight:
+      return "/flight"; // Directory for flight logs
     default:
       return "unknown";
   }

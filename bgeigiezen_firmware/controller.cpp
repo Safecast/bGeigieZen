@@ -62,7 +62,7 @@ int8_t Controller::produce_data() {
     set_handler_active(k_handler_journal_logger, false);
     set_handler_active(k_handler_drive_logger, false);
     set_handler_active(k_handler_survey_logger, false);
-    set_handler_active(k_handler_air_logger, false);
+    set_handler_active(k_handler_flight_logger, false);
     set_handler_active(k_handler_gps_debug_logger, false);
   } else if (data.sd_card_status != SDInterface::i().status()) {
     // SD status changed,

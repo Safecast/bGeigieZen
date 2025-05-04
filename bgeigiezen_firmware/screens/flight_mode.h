@@ -1,12 +1,12 @@
-#ifndef SCREENS_AIR_MODE_H
-#define SCREENS_AIR_MODE_H
+#ifndef SCREENS_FLIGHT_MODE_H
+#define SCREENS_FLIGHT_MODE_H
 
 #include "base_screen.h"
 #include "workers/gps_connector.h"
 
-class AirModeScreen : public BaseScreen {
+class FlightModeScreen : public BaseScreen {
  public:
-  explicit AirModeScreen();
+  explicit FlightModeScreen();
 
   BaseScreen* handle_input(Controller& controller, const worker_map_t& workers) override;
   void enter_screen(Controller& controller) override;
@@ -22,6 +22,6 @@ class AirModeScreen : public BaseScreen {
   UbxDynamicModel _previous_gps_model;
 };
 
-extern AirModeScreen AirModeScreen_i;
+extern FlightModeScreen FlightModeScreen_i;
 
-#endif //SCREENS_AIR_MODE_H
+#endif //SCREENS_FLIGHT_MODE_H
