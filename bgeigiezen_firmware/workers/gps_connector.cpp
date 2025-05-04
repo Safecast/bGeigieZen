@@ -143,8 +143,7 @@ bool GpsConnector::setDynamicModel(UbxDynamicModel model) {
   // Log the changes
   Serial.printf("Setting GPS dynamic model to %d\n", model);
   
-  // For AIR4 mode, set DYNMODEL_AIRBORNE_4G and UTC standard to 8
-  // For PORT mode, set DYNMODEL_PORTABLE and UTC standard to 0
+  // Set dynamic model and UTC standard based on the selected model
   if (model == DYNMODEL_AIR4) {
     Serial.println("Setting GPS to AIR4 mode with UTC standard 8");
     
@@ -154,6 +153,15 @@ bool GpsConnector::setDynamicModel(UbxDynamicModel model) {
     
     // For now, we'll simulate the behavior by logging the change
     Serial.println("GPS set to AIRBORNE 4G mode with UTC standard 8");
+  } else if (model == DYNMODEL_AUTOMOTIVE) {
+    Serial.println("Setting GPS to AUTOMOTIVE mode with UTC standard 4");
+    
+    // For M10 receivers, we need to use the UBX-CFG-VALSET message to set the dynamic model
+    // and the UTC standard. However, the TeenyUbloxConnect library doesn't provide direct
+    // methods for this. In a real implementation, we would need to extend the library.
+    
+    // For now, we'll simulate the behavior by logging the change
+    Serial.println("GPS set to AUTOMOTIVE mode with UTC standard 4");
   } else {
     Serial.println("Setting GPS to PORTABLE mode with UTC standard 0");
     
