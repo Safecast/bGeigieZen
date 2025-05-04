@@ -36,6 +36,8 @@ BaseScreen* FlightModeScreen::handle_input(Controller& controller, const worker_
   return nullptr;
 }
 
+
+
 void FlightModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   // Set GPS to AIR4 mode on first render
   static bool first_render = true;
@@ -45,9 +47,9 @@ void FlightModeScreen::render(const worker_map_t& workers, const handler_map_t& 
       // Save current dynamic model to restore when leaving
       _previous_gps_model = gps->getDynamicModel();
       
-      // Set to AIR4 mode
-      if (gps->setDynamicModel(DYNMODEL_AIR4)) {
-        set_status_message(F(" FLIGHT MODE - GPS SET TO AIRBORNE 4G "));
+      // Set to AIR4 mode and save to flash memory
+      if (gps->setDynamicModel(DYNMODEL_AIR4, true)) {
+        set_status_message(F(" FLIGHT MODE - GPS SET TO AIRBORNE 4G (SAVED TO FLASH) "));
       }
     }
     first_render = false;

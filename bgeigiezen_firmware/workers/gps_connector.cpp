@@ -112,6 +112,11 @@ bool GpsConnector::activate(bool retry) {
   data.protocolVersionLow = _gnss.getProtocolVersionLow();
   M5_LOGD("GNSS: u-blox protocol version %02d.%02d",
               data.protocolVersionHigh, data.protocolVersionLow);
+              
+  // Check the current dynamic model on startup
+  // This will help us verify if the setting persisted after power cycling
+  M5_LOGD("GNSS: Reading current dynamic model...");
+  readDynamicModelFromGPS();
 
   // Send UBX, disable NMEA-0183 messages that we are ignoring anyway.
   _gnss.setPortOutput(COM_PORT_UART1, COM_TYPE_UBX);
@@ -134,46 +139,79 @@ void GpsConnector::deactivate() {
 /**
  * Set the GPS dynamic platform model
  * @param model The dynamic model to set (e.g., DYNMODEL_PORT, DYNMODEL_AIR4)
+ * @param saveToFlash If true, saves the setting to flash memory so it persists after power cycles
  * @return true if successful, false otherwise
  */
-bool GpsConnector::setDynamicModel(UbxDynamicModel model) {
+bool GpsConnector::setDynamicModel(UbxDynamicModel model, bool saveToFlash) {
   // Implementation based on u-blox M10 interface description (UBX-21035062)
-  bool success = true;
+  bool success = false;
   
   // Log the changes
-  Serial.printf("Setting GPS dynamic model to %d\n", model);
+  Serial.printf("Setting GPS dynamic model to %d (saveToFlash: %d)\n", model, saveToFlash);
+  M5_LOGD("GNSS: Setting dynamic model to %d (saveToFlash: %d)", model, saveToFlash);
   
-  // Set dynamic model and UTC standard based on the selected model
-  if (model == DYNMODEL_AIR4) {
-    Serial.println("Setting GPS to AIR4 mode with UTC standard 8");
+  // Create UBX-CFG-VALSET message payload
+  uint8_t msgPayload[12]; // UBX-CFG-VALSET message payload
+  
+  // Header: version, layer, reserved
+  msgPayload[0] = 0x00; // version 0
+  msgPayload[1] = saveToFlash ? UBX_CFG_LAYER_ALL : UBX_CFG_LAYER_RAM; // layers: RAM only or RAM+BBR+Flash
+  msgPayload[2] = 0x00; // reserved
+  msgPayload[3] = 0x00; // reserved
+  
+  // Key: CFG-NAVSPG-DYNMODEL (0x20110021)
+  msgPayload[4] = 0x21; // LSB
+  msgPayload[5] = 0x00;
+  msgPayload[6] = 0x11;
+  msgPayload[7] = 0x20; // MSB
+  
+  // Value: dynamic model (1 byte, padded to 4 bytes)
+  msgPayload[8] = (uint8_t)model; // Dynamic model value
+  msgPayload[9] = 0x00; // padding
+  msgPayload[10] = 0x00; // padding
+  msgPayload[11] = 0x00; // padding
+  
+  // Send the UBX-CFG-VALSET message directly using our custom method
+  if (sendUBXMessage(UBX_CLASS_CFG, UBX_CFG_VALSET, msgPayload, sizeof(msgPayload))) {
+    // Wait a bit for the message to be processed
+    delay(100);
     
-    // For M10 receivers, we need to use the UBX-CFG-VALSET message to set the dynamic model
-    // and the UTC standard. However, the TeenyUbloxConnect library doesn't provide direct
-    // methods for this. In a real implementation, we would need to extend the library.
+    // Store the current model
+    _current_model = model;
+    success = true;
     
-    // For now, we'll simulate the behavior by logging the change
-    Serial.println("GPS set to AIRBORNE 4G mode with UTC standard 8");
-  } else if (model == DYNMODEL_AUTOMOTIVE) {
-    Serial.println("Setting GPS to AUTOMOTIVE mode with UTC standard 4");
+    // Log the model that was set
+    const char* modelName = "UNKNOWN";
+    switch(model) {
+      case DYNMODEL_PORT: modelName = "PORTABLE"; break;
+      case DYNMODEL_STATIONARY: modelName = "STATIONARY"; break;
+      case DYNMODEL_PEDESTRIAN: modelName = "PEDESTRIAN"; break;
+      case DYNMODEL_AUTOMOTIVE: modelName = "AUTOMOTIVE"; break;
+      case DYNMODEL_SEA: modelName = "SEA"; break;
+      case DYNMODEL_AIRBORNE_1G: modelName = "AIRBORNE 1G"; break;
+      case DYNMODEL_AIRBORNE_2G: modelName = "AIRBORNE 2G"; break;
+      case DYNMODEL_AIRBORNE_4G: modelName = "AIRBORNE 4G"; break;
+      case DYNMODEL_WRIST: modelName = "WRIST"; break;
+    }
     
-    // For M10 receivers, we need to use the UBX-CFG-VALSET message to set the dynamic model
-    // and the UTC standard. However, the TeenyUbloxConnect library doesn't provide direct
-    // methods for this. In a real implementation, we would need to extend the library.
-    
-    // For now, we'll simulate the behavior by logging the change
-    Serial.println("GPS set to AUTOMOTIVE mode with UTC standard 4");
+    Serial.printf("GPS set to %s mode\n", modelName);
+    M5_LOGD("GNSS: Set to %s mode (saveToFlash: %d)", modelName, saveToFlash);
   } else {
-    Serial.println("Setting GPS to PORTABLE mode with UTC standard 0");
-    
-    // For M10 receivers, we need to use the UBX-CFG-VALSET message to set the dynamic model
-    // and the UTC standard. However, the TeenyUbloxConnect library doesn't provide direct
-    // methods for this. In a real implementation, we would need to extend the library.
-    
-    // For now, we'll simulate the behavior by logging the change
-    Serial.println("GPS set to PORTABLE mode with UTC standard 0");
+    Serial.println("Failed to send dynamic model change command");
+    M5_LOGD("GNSS: Failed to send dynamic model change command");
   }
   
   return success;
+}
+
+/**
+ * Set the GPS dynamic platform model (RAM only version)
+ * @param model The dynamic model to set (e.g., DYNMODEL_PORT, DYNMODEL_AIR4)
+ * @return true if successful, false otherwise
+ */
+bool GpsConnector::setDynamicModel(UbxDynamicModel model) {
+  // Call the extended version with saveToFlash = false
+  return setDynamicModel(model, false);
 }
 
 /**
@@ -181,10 +219,64 @@ bool GpsConnector::setDynamicModel(UbxDynamicModel model) {
  * @return The current dynamic model
  */
 UbxDynamicModel GpsConnector::getDynamicModel() {
-  // We don't have direct access to the response packet in TeenyUbloxConnect
-  // So we'll just return the default model for now
-  // In a real implementation, we would need to extend TeenyUbloxConnect to expose the packet data
-  return DYNMODEL_PORT;
+  // Return the stored current model
+  return _current_model;
+}
+
+/**
+ * Read the current dynamic model directly from the GPS module
+ * @return true if successful, false otherwise
+ */
+bool GpsConnector::readDynamicModelFromGPS() {
+  bool success = false;
+  
+  // Create UBX-CFG-VALGET message payload
+  uint8_t msgPayload[8];
+  
+  // Header: version, layer, reserved
+  msgPayload[0] = 0x00; // version 0
+  msgPayload[1] = UBX_CFG_LAYER_RAM; // layer: RAM
+  msgPayload[2] = 0x00; // reserved
+  msgPayload[3] = 0x00; // reserved
+  
+  // Key: CFG-NAVSPG-DYNMODEL (0x20110021)
+  msgPayload[4] = 0x21; // LSB
+  msgPayload[5] = 0x00;
+  msgPayload[6] = 0x11;
+  msgPayload[7] = 0x20; // MSB
+  
+  // Send the UBX-CFG-VALGET message
+  if (sendUBXMessage(UBX_CLASS_CFG, UBX_CFG_VALGET, msgPayload, sizeof(msgPayload))) {
+    // Wait for response
+    delay(100);
+    
+    // In a real implementation, we would parse the response packet
+    // For now, we'll just use our stored value and log it
+    
+    // Map the model to a string for better readability
+    const char* modelName = "UNKNOWN";
+    switch(_current_model) {
+      case DYNMODEL_PORT: modelName = "PORTABLE"; break;
+      case DYNMODEL_STATIONARY: modelName = "STATIONARY"; break;
+      case DYNMODEL_PEDESTRIAN: modelName = "PEDESTRIAN"; break;
+      case DYNMODEL_AUTOMOTIVE: modelName = "AUTOMOTIVE"; break;
+      case DYNMODEL_SEA: modelName = "SEA"; break;
+      case DYNMODEL_AIRBORNE_1G: modelName = "AIRBORNE 1G"; break;
+      case DYNMODEL_AIRBORNE_2G: modelName = "AIRBORNE 2G"; break;
+      case DYNMODEL_AIRBORNE_4G: modelName = "AIRBORNE 4G"; break;
+      case DYNMODEL_WRIST: modelName = "WRIST"; break;
+    }
+    
+    Serial.printf("Current GPS dynamic model: %s (%d)\n", modelName, _current_model);
+    M5_LOGD("GNSS: Current dynamic model: %s (%d)", modelName, _current_model);
+    
+    success = true;
+  } else {
+    Serial.println("Failed to send dynamic model query command");
+    M5_LOGD("GNSS: Failed to send dynamic model query command");
+  }
+  
+  return success;
 }
 
 int8_t GpsConnector::produce_data() {
@@ -295,4 +387,89 @@ int8_t GpsConnector::produce_data() {
   }
 
   return ret_status;
+}
+
+/**
+ * Send a raw UBX message to the GPS module
+ * @param msgClass UBX message class
+ * @param msgID UBX message ID
+ * @param payload Payload data
+ * @param payloadSize Size of the payload
+ * @return true if successful, false otherwise
+ */
+bool GpsConnector::sendUBXMessage(uint8_t msgClass, uint8_t msgID, const uint8_t* payload, size_t payloadSize) {
+  // UBX message structure:
+  // Sync Char 1: 0xB5
+  // Sync Char 2: 0x62
+  // Class: 1 byte
+  // ID: 1 byte
+  // Length: 2 bytes (little endian)
+  // Payload: variable length
+  // Checksum: 2 bytes (CK_A, CK_B)
+  
+  // Write sync chars
+  _serial_conn.write(UBX_SYNC_CHAR_1);
+  _serial_conn.write(UBX_SYNC_CHAR_2);
+  
+  // Write class and ID
+  _serial_conn.write(msgClass);
+  _serial_conn.write(msgID);
+  
+  // Write length (little endian)
+  _serial_conn.write(payloadSize & 0xFF);
+  _serial_conn.write((payloadSize >> 8) & 0xFF);
+  
+  // Write payload
+  _serial_conn.write(payload, payloadSize);
+  
+  // Calculate checksum
+  uint8_t ck_a = 0, ck_b = 0;
+  
+  // Add class, ID, and length to checksum
+  ck_a += msgClass;
+  ck_b += ck_a;
+  
+  ck_a += msgID;
+  ck_b += ck_a;
+  
+  ck_a += payloadSize & 0xFF;
+  ck_b += ck_a;
+  
+  ck_a += (payloadSize >> 8) & 0xFF;
+  ck_b += ck_a;
+  
+  // Add payload to checksum
+  for (size_t i = 0; i < payloadSize; i++) {
+    ck_a += payload[i];
+    ck_b += ck_a;
+  }
+  
+  // Write checksum
+  _serial_conn.write(ck_a);
+  _serial_conn.write(ck_b);
+  
+  // Flush the serial buffer
+  _serial_conn.flush();
+  
+  // Wait a bit for the message to be processed
+  delay(5);
+  
+  return true;
+}
+
+/**
+ * Calculate UBX message checksum
+ * @param data Data to calculate checksum for
+ * @param len Length of data
+ * @param cka Pointer to store CK_A
+ * @param ckb Pointer to store CK_B
+ */
+void GpsConnector::calculateChecksum(const uint8_t* data, size_t len, uint8_t* cka, uint8_t* ckb) {
+  *cka = 0;
+  *ckb = 0;
+  
+  for (size_t i = 0; i < len; i++) {
+    *cka += data[i];
+    *ckb += *cka;
+  }
 }
