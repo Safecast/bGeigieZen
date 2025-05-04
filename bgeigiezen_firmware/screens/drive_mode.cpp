@@ -10,13 +10,24 @@
 
 DriveModeScreen DriveModeScreen_i;
 
-DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _logging_available(false), _currently_logging(false), _distance_start(0) {
+DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _logging_available(false), _currently_logging(false), _distance_start(0), _gps_model_set(false) {
   required_tube = true;
   required_gps = true;
   required_sd = true;
 }
 
 BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
+  // If we're about to leave this screen and we've set the GPS model, restore it
+  static bool leaving_screen = false;
+  if (leaving_screen && _gps_model_set) {
+    auto gps = workers.worker<GpsConnector>(k_worker_gps_connector);
+    if (gps) {
+      gps->setDynamicModel(_previous_gps_model);
+      _gps_model_set = false;
+    }
+    leaving_screen = false;
+  }
+
   auto log_button = workers.worker<ZenButton>(k_worker_button_1);
   if (_logging_available && log_button->is_fresh() && log_button->get_data().shortPress) {
     controller.set_handler_active(k_handler_drive_logger, !_currently_logging);
@@ -24,6 +35,7 @@ BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_m
 
   auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
   if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
+    leaving_screen = true; // Set flag to restore GPS model on next handle_input call
     return &MenuWindow_i;
   }
 
@@ -47,6 +59,7 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
       // Set to AUTOMOTIVE mode
       if (gps->setDynamicModel(DYNMODEL_AUTOMOTIVE)) {
         set_status_message(F(" DRIVE MODE - GPS SET TO AUTOMOTIVE "));
+        _gps_model_set = true; // Mark that we've changed the GPS model
       }
     }
     first_render = false;
@@ -192,5 +205,6 @@ void DriveModeScreen::leave_screen(Controller& controller) {
   
   // Restore previous GPS dynamic model
   // Note: We can't access the GPS connector directly from here
-  // The GPS model will be reset when another screen sets its own model
+  // The GPS model will be restored in the handle_input method
+  // when the leaving_screen flag is set
 }
