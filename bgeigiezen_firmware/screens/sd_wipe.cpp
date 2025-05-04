@@ -44,7 +44,7 @@ void SDWipeScreen::render(const worker_map_t& workers, const handler_map_t& hand
 
   switch (_state) {
     case CONFIRM:
-      M5.Lcd.setTextColor(LCD_COLOR_WARNING, LCD_COLOR_BACKGROUND);
+      M5.Lcd.setTextColor(LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
       M5.Lcd.setTextSize(1);
       M5.Lcd.setCursor(20, 60);
       M5.Lcd.println("WARNING: This will delete ALL data from the SD card!");
@@ -56,7 +56,7 @@ void SDWipeScreen::render(const worker_map_t& workers, const handler_map_t& hand
       M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
       M5.Lcd.println("Are you sure you want to continue?");
       
-      drawButton1("Confirm", e_button_warning);
+      drawButton1("Confirm", e_button_active);
       drawButton2("");
       drawButton3("Cancel");
       break;
@@ -76,7 +76,7 @@ void SDWipeScreen::render(const worker_map_t& workers, const handler_map_t& hand
       
     case COMPLETE:
       if (_wipe_success) {
-        M5.Lcd.setTextColor(LCD_COLOR_SUCCESS, LCD_COLOR_BACKGROUND);
+        M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, LCD_COLOR_BACKGROUND);
         M5.Lcd.setTextSize(1);
         M5.Lcd.setCursor(20, 80);
         M5.Lcd.println("SD card wiped successfully!");

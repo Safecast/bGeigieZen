@@ -3,7 +3,7 @@
 
 #include "base_screen.h"
 
-#define MAIN_MENU_MAX 10
+#define MAIN_MENU_MAX 9
 
 /**
  * Menu items is a separate screen render on top of the "current screen" in the gfx screen

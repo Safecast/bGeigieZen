@@ -14,6 +14,7 @@ const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MEN
     {.title="Start on local", .tooltip="Connect to local     Wi-Fi, use pc or      phone on local       network to configure    device", .enabled=true},
     {.title="Load from SD", .tooltip="Read settings file     from the SD-card     and set to device", .enabled=true},
     {.title="Save to SD", .tooltip="Write current device      settings to the       SD-card config file", .enabled=true},
+    {.title="Wipe SD Card", .tooltip="Delete all log files from the SD card", .enabled=true},
     {.title="Reset device", .tooltip="Clear and reset      device, on reboot it      will load settings        from SD-card", .enabled=true},
     {.title="Factory reset", .tooltip="Clear and reset      device and SD-card", .enabled=true},
 };
@@ -53,6 +54,37 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
           M5.Lcd.printf("Restarting device...\n");
           delay(1000);
           DeviceUtils::shutdown(true);
+          break;
+        case e_config_page_sd_wipe:
+          M5.Lcd.clear(LCD_COLOR_BACKGROUND);
+          M5.Lcd.setRotation(3);
+          M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+          M5.Lcd.setCursor(30, 78, &fonts::Font4);
+          M5.Lcd.printf("WIPE IN PROGRESS\n");
+          M5.Lcd.setCursor(5, 120, &fonts::Font2);
+
+          M5.Lcd.printf("Removing all log files, This can take a while...\n");
+          bool success = SDInterface::i().clear_all_logs();
+          M5.Lcd.clear(LCD_COLOR_BACKGROUND);
+          M5.Lcd.setRotation(3);
+          M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+          M5.Lcd.setCursor(27, 78, &fonts::Font4);
+          if (success) {
+            M5.Lcd.printf("SD CARD HAS BEEN\n");
+            M5.Lcd.setCursor(27, 110, &fonts::Font4);
+            M5.Lcd.printf("WIPED SUCCESSFULLY\n");
+            M5.Lcd.setCursor(70, 160, &fonts::Font2);
+            M5.Lcd.printf("Returning to settings menu...\n");
+          } else {
+            M5.Lcd.printf("SD CARD WIPE\n");
+            M5.Lcd.setCursor(27, 110, &fonts::Font4);
+            M5.Lcd.printf("FAILED\n");
+            M5.Lcd.setCursor(70, 160, &fonts::Font2);
+            M5.Lcd.printf("Returning to settings menu...\n");
+          }
+          delay(3000); // Show message for 3 seconds
+          _current_page = e_config_page_main;
+          open_menu(true);
           break;
         case e_config_page_reset_all:
           M5.Lcd.clear(LCD_COLOR_BACKGROUND);
@@ -96,26 +128,38 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
     if (!force) {
       return;
     }
-    return render_menu(CONFIG_MODE_MENU, e_config_MENU_MAX);
+    render_menu(CONFIG_MODE_MENU, e_config_MENU_MAX, true, 1);
+  }
+  else {
+    if (!force) {
+      return;
+    }
+    clear_screen_content();
+
+    switch (_current_page) {
+      case e_config_page_main:
+        render_page_main(workers, handlers);
+        break;
+      case e_config_page_ap:
+        render_page_ap(workers, handlers);
+        break;
+      case e_config_page_wifi:
+        render_page_wifi(workers, handlers);
+        break;
+      case e_config_page_sd_wipe:
+        render_sd_wipe(workers, handlers);
+        break;
+      case e_config_page_reset:
+        render_reset_device(workers, handlers);
+        break;
+      case e_config_page_reset_all:
+        render_reset_device_sd(workers, handlers);
+        break;
+      default:
+        break;
+    }
   }
 
-  switch (_current_page) {
-    case e_config_page_main:
-      if (!force) {
-        return;
-      }
-      return render_page_main(workers, handlers);
-    case e_config_page_ap:
-      return render_page_ap(workers, handlers);
-    case e_config_page_wifi:
-      return render_page_wifi(workers, handlers);
-    case e_config_page_reset:
-      return render_reset_device(workers, handlers);
-    case e_config_page_reset_all:
-      return render_reset_device_sd(workers, handlers);
-    default:
-      return;
-  }
 }
 
 void ConfigModeScreen::render_page_main(const worker_map_t& workers, const handler_map_t& handlers) {
@@ -189,6 +233,19 @@ void ConfigModeScreen::render_page_wifi(const worker_map_t& workers, const handl
   M5.Lcd.printf("Connected:  %s\n", WiFiWrapper_i.wifi_connected() ? "Yes          " : "Not yet...");
 
   M5.Lcd.printf("IP:  %s               \n", WiFiWrapper_i.wifi_connected() ? WiFi.localIP().toString().c_str() : "Waiting for connection... ");
+}
+
+void ConfigModeScreen::render_sd_wipe(const worker_map_t& workers, const handler_map_t& handlers) {
+  drawButton1("Options");
+  drawButton2("WIPE");
+  drawButton3("Menu");
+
+  M5.Lcd.setCursor(0, 70, &fonts::Font2);
+  M5.Lcd.setTextColor(LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
+  M5.Lcd.printf("WARNING: This will delete ALL log files from the SD card!\n\n");
+  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  M5.Lcd.printf("Press WIPE to confirm deleting all log files.\n");
+  M5.Lcd.printf("Your device settings will be preserved.\n");
 }
 
 void ConfigModeScreen::render_reset_device(const worker_map_t& workers, const handler_map_t& handlers) {
