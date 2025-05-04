@@ -5,6 +5,7 @@
 #include "workers/battery_indicator.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
+#include "workers/gps_platform_model.h"
 #include "workers/zen_button.h"
 
 DriveModeScreen DriveModeScreen_i;
@@ -35,6 +36,22 @@ BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_m
 }
 
 void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
+  // Set GPS to AUTOMOTIVE mode on first render
+  static bool first_render = true;
+  if (first_render) {
+    auto gps = workers.worker<GpsConnector>(k_worker_gps_connector);
+    if (gps) {
+      // Save current dynamic model to restore when leaving
+      _previous_gps_model = gps->getDynamicModel();
+      
+      // Set to AUTOMOTIVE mode
+      if (gps->setDynamicModel(DYNMODEL_AUTOMOTIVE)) {
+        set_status_message(F(" DRIVE MODE - GPS SET TO AUTOMOTIVE "));
+      }
+    }
+    first_render = false;
+  }
+
   const auto& controller_data = workers.worker<Controller>(k_worker_device_state)->get_data();
   const auto& log_aggregator = workers.worker<LogAggregator>(k_worker_log_aggregator);
   _logging_available = controller_data.local_available && SDInterface::i().status() == SDInterface::e_sd_config_status_ok;
@@ -161,10 +178,22 @@ void DriveModeScreen::enter_screen(Controller& controller) {
     controller.set_handler_active(k_handler_drive_logger, true);
   }
   controller.set_handler_active(k_handler_bluetooth_reporter, true);
+  
+  // We'll set the GPS to AUTOMOTIVE mode in the first render call
+  // when we have access to the worker map
+  set_status_message(F(" DRIVE MODE - GPS SET TO AUTOMOTIVE "));
+  force_next_render(); // Force render to apply GPS settings
 }
 
 void DriveModeScreen::leave_screen(Controller& controller) {
   // close logging to file
   controller.set_handler_active(k_handler_drive_logger, false);
   controller.set_handler_active(k_handler_bluetooth_reporter, false);
+  
+  // Restore previous GPS dynamic model
+  auto workers = controller.get_workers();
+  auto gps = workers.worker<GpsConnector>(k_worker_gps_connector);
+  if (gps) {
+    gps->setDynamicModel(_previous_gps_model);
+  }
 }

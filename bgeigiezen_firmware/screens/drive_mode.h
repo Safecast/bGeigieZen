@@ -19,6 +19,7 @@ class DriveModeScreen : public BaseScreen {
   bool _logging_available;
   bool _currently_logging;
   double _distance_start;
+  UbxDynamicModel _previous_gps_model;
 };
 
 extern DriveModeScreen DriveModeScreen_i;
