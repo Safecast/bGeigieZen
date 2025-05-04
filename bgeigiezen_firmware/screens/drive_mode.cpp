@@ -56,9 +56,9 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
       // Save current dynamic model to restore when leaving
       _previous_gps_model = gps->getDynamicModel();
       
-      // Set to AUTOMOTIVE mode
-      if (gps->setDynamicModel(DYNMODEL_AUTOMOTIVE)) {
-        set_status_message(F(" DRIVE MODE - GPS SET TO AUTOMOTIVE "));
+      // Set to AUTOMOTIVE mode and save to flash memory
+      if (gps->setDynamicModel(DYNMODEL_AUTOMOTIVE, true)) {
+        set_status_message(F(" DRIVE MODE - GPS SET TO AUTOMOTIVE (SAVED TO FLASH) "));
         _gps_model_set = true; // Mark that we've changed the GPS model
       }
     }
@@ -186,6 +186,8 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 }
 
 void DriveModeScreen::enter_screen(Controller& controller) {
+  BaseScreen::enter_screen(controller);
+  
   if (!controller.get_settings().get_manual_logging()) {
     // Automatically start logging
     controller.set_handler_active(k_handler_drive_logger, true);

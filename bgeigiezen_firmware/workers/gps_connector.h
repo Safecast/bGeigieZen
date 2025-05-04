@@ -99,6 +99,14 @@ class GpsConnector : public Worker<GnssData> {
   /**
    * Set the GPS dynamic platform model
    * @param model The dynamic model to set (e.g., DYNMODEL_PORT, DYNMODEL_AIR4)
+   * @param saveToFlash If true, saves the setting to flash memory so it persists after power cycles
+   * @return true if successful, false otherwise
+   */
+  bool setDynamicModel(UbxDynamicModel model, bool saveToFlash);
+  
+  /**
+   * Set the GPS dynamic platform model (RAM only version)
+   * @param model The dynamic model to set (e.g., DYNMODEL_PORT, DYNMODEL_AIR4)
    * @return true if successful, false otherwise
    */
   bool setDynamicModel(UbxDynamicModel model);
@@ -108,6 +116,31 @@ class GpsConnector : public Worker<GnssData> {
    * @return The current dynamic model
    */
   UbxDynamicModel getDynamicModel();
+  
+  /**
+   * Read the current dynamic model directly from the GPS module
+   * @return true if successful, false otherwise
+   */
+  bool readDynamicModelFromGPS();
+  
+  /**
+   * Send a raw UBX message to the GPS module
+   * @param msgClass UBX message class
+   * @param msgID UBX message ID
+   * @param payload Payload data
+   * @param payloadSize Size of the payload
+   * @return true if successful, false otherwise
+   */
+  bool sendUBXMessage(uint8_t msgClass, uint8_t msgID, const uint8_t* payload, size_t payloadSize);
+  
+  /**
+   * Calculate UBX message checksum
+   * @param data Data to calculate checksum for
+   * @param len Length of data
+   * @param cka Pointer to store CK_A
+   * @param ckb Pointer to store CK_B
+   */
+  void calculateChecksum(const uint8_t* data, size_t len, uint8_t* cka, uint8_t* ckb);
 
  protected:
   void deactivate() override;
@@ -127,6 +160,9 @@ class GpsConnector : public Worker<GnssData> {
 
   double _last_latitude;
   double _last_longitude;
+  
+  // Current GPS dynamic model
+  UbxDynamicModel _current_model = DYNMODEL_PORT;
 
   // Age each item. If the corresponding timer times out, it's stale.
   RBD::Timer location_timer{GPS_FIX_AGE_LIMIT};
