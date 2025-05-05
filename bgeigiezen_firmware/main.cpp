@@ -221,14 +221,18 @@ void loop() {
     max_loop_time = loop_execution_time;
   }
   
-  // Report statistics every 20 seconds
-  if (current_time - last_stats_time >= 20000) {
+  // Report statistics every 1 second
+  if (current_time - last_stats_time >= 1000) {
     // Calculate average
     float avg_loop_time = (float)total_loop_time / loop_count;
     
-    // Report statistics
-    Serial.println("\n===== LOOP PERFORMANCE STATISTICS =====");
-    Serial.println("Sound status: " + String(sound_manager.isSoundEnabled() ? "ON" : "OFF"));
+    // Report sound status more prominently
+    Serial.println("\n**********************************");
+    Serial.println("* SOUND IS " + String(sound_manager.isSoundEnabled() ? "ON " : "OFF") + "                     *");
+    Serial.println("**********************************");
+    
+    // Report performance statistics
+    Serial.println("===== LOOP PERFORMANCE STATISTICS =====");
     Serial.println("Total loops: " + String(loop_count));
     Serial.println("Average loop time: " + String(avg_loop_time, 2) + " microseconds");
     Serial.println("Minimum loop time: " + String(min_loop_time) + " microseconds");
