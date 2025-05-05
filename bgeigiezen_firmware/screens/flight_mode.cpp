@@ -10,7 +10,7 @@
 
 FlightModeScreen FlightModeScreen_i;
 
-FlightModeScreen::FlightModeScreen() : BaseScreen("Flight Mode", true), _logging_available(false), _currently_logging(false), _distance_start(0), _previous_gps_model(DYNMODEL_PORT) {
+FlightModeScreen::FlightModeScreen() : BaseScreen("Flight", true), _logging_available(false), _currently_logging(false), _distance_start(0), _previous_gps_model(DYNMODEL_PORT) {
   required_tube = true;
   required_gps = true;
   required_wifi = false;  // WiFi is optional for Flight mode
@@ -200,11 +200,11 @@ void FlightModeScreen::enter_screen(Controller& controller) {
   if (!controller.get_settings().get_manual_logging()) {
     controller.set_handler_active(k_handler_flight_logger, true);
     _currently_logging = true;
+    set_status_message(F(" STARTED LOGGING FLIGHT "));
   }
   
   // We'll set the GPS to AIR4 mode in the first render call
   // when we have access to the worker map
-  // No message displayed when entering Flight mode
   force_next_render(); // Force render to apply GPS settings
   
   // Enable BLE for Flight mode, similar to Drive mode

@@ -231,7 +231,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         static String last_error_message = "";
         static String last_status_message = "";
         static unsigned long message_display_time = 0;
-        static const unsigned long MESSAGE_TIMEOUT = 5000; // 5 seconds timeout for messages
+        static const unsigned long MESSAGE_TIMEOUT = 2000; // 2 seconds timeout for messages
         
 
         

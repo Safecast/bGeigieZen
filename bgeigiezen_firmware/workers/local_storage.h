@@ -18,6 +18,7 @@ class LocalStorage : public ProcessWorker<bool> {
     e_operational_mode_survey,
     e_operational_mode_fixed,
     e_operational_mode_satellite,
+    e_operational_mode_flight,
   };
 
   LocalStorage();
