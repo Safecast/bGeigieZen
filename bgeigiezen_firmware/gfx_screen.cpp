@@ -252,6 +252,9 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         last_error_message = current_error_message;
         last_status_message = current_status_message;
         
+        // Check if message timeout has expired
+        bool message_timeout_expired = message_displayed && (millis() - message_display_time > MESSAGE_TIMEOUT);
+        
         // Render message if available on top of bar
         if (error_msg && (!message_displayed || current_error_message != last_error_message)) {
           // Error message takes precedence
@@ -366,8 +369,8 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
           } else {
             M5.Lcd.setTextColor(LCD_COLOR_INACTIVE, TFT_BLACK);
           }
-          M5.Lcd.print("SND");
-          pos += 24; // Adjust position for next indicator
+          M5.Lcd.print("SN");
+          pos += 16; // Adjust position for next indicator
 
           // Device
           M5.Lcd.setCursor(pos, 235);
