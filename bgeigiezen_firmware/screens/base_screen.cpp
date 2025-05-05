@@ -138,14 +138,9 @@ const __FlashStringHelper* BaseScreen::get_error_message(const worker_map_t& wor
 }
 
 const __FlashStringHelper* BaseScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) const {
+  // Simple implementation that just checks if the message has timed out
   if (_message && _status_message_time && _status_message_time + STATUS_MESSAGE_DURATION > millis()) {
     return _message;
-  }
-  // Clear the message after timeout
-  if (_message && _status_message_time) {
-    BaseScreen* non_const_this = const_cast<BaseScreen*>(this);
-    non_const_this->_message = nullptr;
-    non_const_this->_status_message_time = 0; // Also reset the timestamp
   }
   return nullptr;
 }
