@@ -15,6 +15,7 @@
 #include "workers/gm_sensor.h"
 #include "workers/rtc_connector.h"
 #include "workers/zen_button.h"
+#include "workers/sound_manager.h"
 
 #define SCREENSAVER_TEXT_LENGTH (strlen(SCREENSAVER_TEXT) * 6)
 #define TIMEOUT_PASSED(timeout, last_interaction) (timeout && (millis() - last_interaction) > (timeout * 1000))
@@ -294,6 +295,15 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
           M5.Lcd.setTextColor(_screen->has_required_ble() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
         }
         M5.Lcd.print("BT ");
+        
+        // Status icon: Sound
+        extern SoundManager sound_manager;
+        if (sound_manager.isSoundEnabled()) {
+          M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, LCD_COLOR_BACKGROUND);
+        } else {
+          M5.Lcd.setTextColor(LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
+        }
+        M5.Lcd.print("SN ");
 
         // Device
         if (_settings.get_device_id() < 10000) {
