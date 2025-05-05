@@ -61,6 +61,7 @@
 #include "workers/rtc_connector.h"
 #include "workers/shake_detector.h"
 #include "workers/zen_button.h"
+#include "workers/sound_manager.h"
 
 TeenyUbloxConnect gnss;
 LocalStorage settings;
@@ -78,6 +79,7 @@ DateTimeProvider rtc;
 ShakeDetector shake_detector;
 LogAggregator log_aggregator(settings);
 ConfigWebServer config_server(settings);
+SoundManager sound_manager;
 
 // Data handlers
 SdLogger journal_logger(settings, SdLogger::journal);
@@ -115,6 +117,7 @@ void setup() {
   controller.register_worker(k_worker_device_state, controller);
   controller.register_worker(k_worker_local_storage, settings);
   controller.register_worker(k_worker_config_server, config_server);
+  controller.register_worker(k_worker_sound_manager, sound_manager);
 
   M5_LOGD("Register handlers...");
   controller.register_handler(k_handler_journal_logger, journal_logger);
@@ -140,6 +143,50 @@ void loop() {
   }
 
   M5.update();
+  
+  // Use long press on Button A (menu button) for sound toggle
+  static uint32_t last_toggle_time = 0;
+  static uint32_t button_a_press_start = 0;
+  static bool button_a_long_press_detected = false;
+  uint32_t current_time = millis();
+  
+  // Check if Button A is pressed
+  if (M5.BtnA.isPressed()) {
+    // If this is the start of a press, record the time
+    if (button_a_press_start == 0) {
+      button_a_press_start = current_time;
+      Serial.println("Button A press started");
+    }
+    
+    // Check for long press (2 seconds) and trigger only once per press
+    if (!button_a_long_press_detected && 
+        (current_time - button_a_press_start >= 2000)) {
+      button_a_long_press_detected = true;
+      
+      // Only toggle if enough time has passed since last toggle (debounce)
+      if (current_time - last_toggle_time > 1000) {
+        Serial.println("\n===== BUTTON A LONG PRESS DETECTED =====\n");
+        
+        // Toggle sound
+        sound_manager.toggleSound();
+        
+        // Update last toggle time for debounce protection
+        last_toggle_time = current_time;
+        
+        // Debug output
+        Serial.println("Sound toggled with Button A long press: " + 
+                       String(sound_manager.isSoundEnabled() ? "ON" : "OFF"));
+      }
+    }
+  } else {
+    // Button A released, reset tracking variables
+    if (button_a_press_start > 0) {
+      Serial.println("Button A released after " + 
+                     String(current_time - button_a_press_start) + " ms");
+      button_a_press_start = 0;
+      button_a_long_press_detected = false;
+    }
+  }
 
   controller.run();
 }

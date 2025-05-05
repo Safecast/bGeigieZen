@@ -30,7 +30,7 @@ BaseScreen* SurveyModeScreen::handle_input(Controller& controller, const worker_
     auto gps = workers.worker<GpsConnector>(k_worker_gps_connector);
     if (gps) {
       gps->setDynamicModel(_previous_gps_model);
-      set_status_message(F(" LEAVING SURVEY MODE "));
+      // No message displayed when leaving Survey mode
     }
     return &MenuWindow_i;
   }
@@ -51,7 +51,7 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
       
       // Set to PEDESTRIAN mode and save to flash memory
       if (gps->setDynamicModel(DYNMODEL_PEDESTRIAN, true)) {
-        set_status_message(F(" SURVEY MODE - GPS SET TO PEDESTRIAN (SAVED TO FLASH) "));
+        // No message displayed when setting GPS mode
         _gps_model_set = true; // Mark that we've changed the GPS model
       }
     }
@@ -61,10 +61,11 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
 
   // Check if we're currently logging
   bool currently_logging = handlers.handler<SdLogger>(k_handler_survey_logger)->active();
-  if (_currently_logging && !currently_logging) {
-    set_status_message(F(" COMPLETED LOGGING SURVEY "));
-  } else if (!_currently_logging && currently_logging) {
+  if (!_currently_logging && currently_logging) {
     set_status_message(F(" STARTED LOGGING SURVEY "));
+  }
+  if (_currently_logging && !currently_logging) {
+    set_status_message(F(" STOPPED LOGGING SURVEY "));
   }
 
   if (currently_logging != _currently_logging) {
@@ -162,17 +163,19 @@ void SurveyModeScreen::enter_screen(Controller& controller) {
   
   // We'll set the GPS to PEDESTRIAN mode in the first render call
   // when we have access to the worker map and save it to flash memory
-  set_status_message(F(" SURVEY MODE - GPS SET TO PEDESTRIAN (SAVED TO FLASH) "));
+  // No message displayed when entering Survey mode
   force_next_render(); // Force render to apply GPS settings
 }
 
 void SurveyModeScreen::leave_screen(Controller& controller) {
-  BaseScreen::leave_screen(controller);
+  // Don't call BaseScreen::leave_screen to avoid displaying a message
   
-  // close logging to file
+  // close logging to file without displaying a message
   controller.set_handler_active(k_handler_survey_logger, false);
   
   // We can't access the GPS connector directly from here
   // The GPS model will be restored in the handle_input method
   // when returning to the menu
 }
+
+

@@ -29,7 +29,7 @@ BaseScreen* FlightModeScreen::handle_input(Controller& controller, const worker_
     auto gps = workers.worker<GpsConnector>(k_worker_gps_connector);
     if (gps) {
       gps->setDynamicModel(_previous_gps_model);
-      set_status_message(F(" LEAVING FLIGHT MODE "));
+      // No message displayed when leaving Flight mode
     }
     return &MenuWindow_i;
   }
@@ -49,7 +49,7 @@ void FlightModeScreen::render(const worker_map_t& workers, const handler_map_t& 
       
       // Set to AIR4 mode and save to flash memory
       if (gps->setDynamicModel(DYNMODEL_AIR4, true)) {
-        set_status_message(F(" FLIGHT MODE - GPS SET TO AIRBORNE 4G (SAVED TO FLASH) "));
+        // No message displayed when setting GPS mode
       }
     }
     first_render = false;
@@ -60,11 +60,12 @@ void FlightModeScreen::render(const worker_map_t& workers, const handler_map_t& 
   _logging_available = controller_data.local_available && SDInterface::i().status() == SDInterface::e_sd_config_status_ok;
 
   bool currently_logging = handlers.handler<SdLogger>(k_handler_flight_logger)->active();
-  if (_currently_logging && !currently_logging) {
-    set_status_message(F(" COMPLETED LOGGING FLIGHT "));
-  } else if (!_currently_logging && currently_logging) {
-    set_status_message(F(" STARTED LOGGING, safe flight! "));
+  if (!_currently_logging && currently_logging) {
+    set_status_message(F(" STARTED LOGGING FLIGHT "));
     _distance_start = log_aggregator->get_data().distance;
+  }
+  if (_currently_logging && !currently_logging) {
+    set_status_message(F(" STOPPED LOGGING FLIGHT "));
   }
   _currently_logging = currently_logging;
 
@@ -203,7 +204,7 @@ void FlightModeScreen::enter_screen(Controller& controller) {
   
   // We'll set the GPS to AIR4 mode in the first render call
   // when we have access to the worker map
-  set_status_message(F(" FLIGHT MODE - GPS SET TO AIRBORNE 4G "));
+  // No message displayed when entering Flight mode
   force_next_render(); // Force render to apply GPS settings
   
   // Enable BLE for Flight mode, similar to Drive mode
@@ -218,5 +219,5 @@ void FlightModeScreen::leave_screen(Controller& controller) {
   
   // We need to get the worker map from the handle_input method, so we'll set the model back in that method
   // or in the enter_screen method of the next screen
-  set_status_message(F(" LEAVING FLIGHT MODE "));
+  // No message displayed when leaving Flight mode
 }

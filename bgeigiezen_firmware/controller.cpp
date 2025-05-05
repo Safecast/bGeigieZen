@@ -1,8 +1,9 @@
 #include "controller.h"
 #include "identifiers.h"
 #include "utils/sd_wrapper.h"
-
 #include "utils/device_utils.h"
+#include "workers/gm_sensor.h"
+#include "workers/sound_manager.h"
 
 Controller::Controller(LocalStorage& settings, TeenyUbloxConnect& gnss)
     : Aggregator(),
@@ -29,6 +30,10 @@ void Controller::start_default_workers() {
   set_worker_active(k_worker_log_aggregator, true);
 //  set_worker_active(k_worker_shake_detector, true);
   set_worker_active(k_worker_device_state, true);
+  set_worker_active(k_worker_sound_manager, true);
+  
+  // We'll connect the SoundManager to the GeigerCounter after all workers are initialized
+  // This will be done in the produce_data method
 }
 
 int8_t Controller::produce_data() {
