@@ -31,6 +31,12 @@ class GeigerCounter : public Worker<GeigerData> {
 
   int8_t produce_data() override;
   
+  /**
+   * Get direct access to the pulse counter
+   * @return Reference to the pulse counter
+   */
+  HardwareCounter& getPulseCounter() { return pulse_counter; }
+  
  private:
   HardwareCounter pulse_counter;
   float _ush_factor = 1.0 / SETUP_DEFAULT_USH_DIVIDER;

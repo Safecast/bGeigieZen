@@ -3,6 +3,7 @@
 #include "utils/wifi_connection.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
+#include "workers/sound_manager.h"
 
 #include <WiFi.h>
 
@@ -139,6 +140,11 @@ const __FlashStringHelper* BaseScreen::get_error_message(const worker_map_t& wor
 const __FlashStringHelper* BaseScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) const {
   if (_message && _status_message_time && _status_message_time + STATUS_MESSAGE_DURATION > millis()) {
     return _message;
+  }
+  // Clear the message after timeout
+  if (_message && _status_message_time) {
+    BaseScreen* non_const_this = const_cast<BaseScreen*>(this);
+    non_const_this->_message = nullptr;
   }
   return nullptr;
 }

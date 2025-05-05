@@ -1,6 +1,9 @@
 #include <numeric>
 #include "gm_sensor.h"
 
+// Global variable for CPS value that can be accessed by SoundManager
+uint16_t g_cps = 0;
+
 GeigerCounter::GeigerCounter() : Worker<GeigerData>(), pulse_counter() {
   std::fill(_shift_reg.begin(), _shift_reg.end(), 0);
 }
@@ -26,6 +29,9 @@ int8_t GeigerCounter::produce_data() {
   while (pulse_counter.available()) {
 
     data.cps = pulse_counter.get_last_count();
+    
+    // Update global CPS variable for SoundManager to access
+    g_cps = data.cps;
 
     // increase total count
     data.total += data.cps;

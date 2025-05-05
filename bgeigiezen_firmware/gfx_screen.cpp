@@ -15,6 +15,7 @@
 #include "workers/gm_sensor.h"
 #include "workers/rtc_connector.h"
 #include "workers/zen_button.h"
+#include "workers/sound_manager.h"
 
 #define SCREENSAVER_TEXT_LENGTH (strlen(SCREENSAVER_TEXT) * 6)
 #define TIMEOUT_PASSED(timeout, last_interaction) (timeout && (millis() - last_interaction) > (timeout * 1000))
@@ -223,95 +224,167 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
       }
 
       if (_screen->has_status_bar()) {
+        // Only update status bar at a reduced rate to prevent flickering
+        static unsigned long last_status_bar_update = 0;
+        static bool status_bar_needs_full_redraw = true;
+        static bool message_displayed = false;
+        static String last_error_message = "";
+        static String last_status_message = "";
+        static unsigned long message_display_time = 0;
+        static const unsigned long MESSAGE_TIMEOUT = 5000; // 5 seconds timeout for messages
+        
+
+        
+        // Check if messages have changed
+        const __FlashStringHelper* error_msg = _screen->get_error_message(workers, handlers);
+        const __FlashStringHelper* status_msg = _screen->get_status_message(workers, handlers);
+        
+        String current_error_message = error_msg ? String(error_msg) : "";
+        String current_status_message = status_msg ? String(status_msg) : "";
+        
+        bool message_changed = (current_error_message != last_error_message) || (current_status_message != last_status_message);
+        last_error_message = current_error_message;
+        last_status_message = current_status_message;
+        
+        // Check if message timeout has expired
+        bool message_timeout_expired = message_displayed && (millis() - message_display_time > MESSAGE_TIMEOUT);
+        
         // Render message if available on top of bar
-        if (_screen->get_error_message(workers, handlers)) {
+        if (error_msg && (!message_displayed || current_error_message != last_error_message)) {
+          // Error message takes precedence
           M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_ERROR);
-          uint16_t text_width = M5.Lcd.drawString(_screen->get_error_message(workers, handlers), 0, 220, &fonts::Font2);
-          M5.Lcd.fillRect(text_width, 200, 320 - text_width, 20, LCD_COLOR_BACKGROUND);
-        } else if (_screen->get_status_message(workers, handlers)) {
+          uint16_t text_width = M5.Lcd.drawString(current_error_message.c_str(), 0, 220, &fonts::Font2);
+          M5.Lcd.fillRect(text_width, 220, 320 - text_width, 20, LCD_COLOR_BACKGROUND);
+          message_displayed = true;
+          message_display_time = millis(); // Reset timeout
+          status_bar_needs_full_redraw = true;
+        } else if (status_msg && (!message_displayed || current_status_message != last_status_message)) {
+          // Status message
           M5.Lcd.setTextColor(LCD_COLOR_BACKGROUND, LCD_COLOR_DEFAULT);
-          uint16_t text_width = M5.Lcd.drawString(_screen->get_status_message(workers, handlers), 0, 220, &fonts::Font2);
-          M5.Lcd.fillRect(text_width, 200, 320 - text_width, 20, LCD_COLOR_BACKGROUND);
-        } else {
-          M5.Lcd.fillRect(0, 200, 320, 20, LCD_COLOR_BACKGROUND);
+          uint16_t text_width = M5.Lcd.drawString(current_status_message.c_str(), 0, 220, &fonts::Font2);
+          M5.Lcd.fillRect(text_width, 220, 320 - text_width, 20, LCD_COLOR_BACKGROUND);
+          message_displayed = true;
+          message_display_time = millis(); // Reset timeout
+          status_bar_needs_full_redraw = true;
+        } else if ((message_displayed && !error_msg && !status_msg) || message_timeout_expired) {
+          // Clear message area if no message and there was one before, or if timeout expired
+          M5.Lcd.fillRect(0, 220, 320, 20, LCD_COLOR_BACKGROUND);
+          message_displayed = false;
+          status_bar_needs_full_redraw = true;
         }
 
-        // Render bottom status bar
-        M5.Lcd.drawLine(0, 220, 320, 220, TFT_WHITE);
-        M5.Lcd.setFont(&fonts::Font0);
-
-        // Screen name
-        M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-        M5.Lcd.setCursor(0, 235);
-        M5.Lcd.print(_screen->get_title());
-        M5.Lcd.print(" ");
-
-        // Status icon: Battery
-        const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator)->get_data();
-        M5.Lcd.setTextColor(battery.isCharging ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-        M5.Lcd.printf("%d%% ", battery.percentage);
-
-        // Status icon: Geiger Tube
-        const auto& gm = workers.worker<GeigerCounter>(k_worker_gm_sensor);
-        if (!gm->active()) {
-          M5.Lcd.setTextColor(_screen->has_required_tube() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, TFT_BLACK);
-        } else {
+        // Only update the status bar every 500ms or if a full redraw is needed
+        if (millis() - last_status_bar_update > 1000 || status_bar_needs_full_redraw || message_changed) {
+          last_status_bar_update = millis();
+          status_bar_needs_full_redraw = false;
+          
+          // Clear the entire status bar area at once
+          M5.Lcd.fillRect(0, 221, 320, 19, LCD_COLOR_BACKGROUND);
+          
+          // Render bottom status bar
+          M5.Lcd.drawLine(0, 220, 320, 220, TFT_WHITE);
+          M5.Lcd.setFont(&fonts::Font0);
+          
+          // Screen name
           M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-        }
-        M5.Lcd.print("GM ");
+          M5.Lcd.setCursor(0, 235);
+          M5.Lcd.print(_screen->get_title());
+          
+          // Calculate positions for status indicators
+          int pos = 60; // Starting position after screen name
+          
+          // Status icon: Battery
+          M5.Lcd.setCursor(pos, 235);
+          const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator)->get_data();
+          M5.Lcd.setTextColor(battery.isCharging ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+          M5.Lcd.printf("%d%%", battery.percentage);
+          pos += 25; // Adjust position for next indicator
 
-        // Status icon: GPS
-        const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
-        if (!gps->active()) {
-          M5.Lcd.setTextColor(_screen->has_required_gps() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, TFT_BLACK);
-          M5.Lcd.printf("GPS ");
-        } else {
-          M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_ACTIVITY : LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
-          M5.Lcd.printf("GPS%d ", gps->get_data().satsInView);
-        }
+          // Status icon: Geiger Tube
+          M5.Lcd.setCursor(pos, 235);
+          const auto& gm = workers.worker<GeigerCounter>(k_worker_gm_sensor);
+          if (!gm->active()) {
+            M5.Lcd.setTextColor(_screen->has_required_tube() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, TFT_BLACK);
+          } else {
+            M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+          }
+          M5.Lcd.print("GM");
+          pos += 18; // Adjust position for next indicator
 
-        // Status icon: SD
-        if (!SDInterface::i().can_write_logs()) {
-          M5.Lcd.setTextColor(_screen->has_required_sd() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, TFT_BLACK);
-        } else {
-          M5.Lcd.setTextColor(SDInterface::i().just_wrote() ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-        }
-        M5.Lcd.print("SD ");
+          // Status icon: GPS
+          M5.Lcd.setCursor(pos, 235);
+          const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
+          if (!gps->active()) {
+            M5.Lcd.setTextColor(_screen->has_required_gps() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, TFT_BLACK);
+            M5.Lcd.print("GPS");
+            pos += 24; // Adjust position for next indicator
+          } else {
+            M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_ACTIVITY : LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
+            M5.Lcd.printf("GPS%d", gps->get_data().satsInView);
+            pos += 30; // Adjust position for next indicator (account for digit)
+          }
 
-        // Status icon: Wi-Fi
-        if (WiFiWrapper_i.wifi_connected()) {
-          M5.Lcd.setTextColor(WiFiWrapper_i.was_active() ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-        } else {
-          M5.Lcd.setTextColor(_screen->has_required_wifi() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
-        }
-        M5.Lcd.print("WF ");
+          // Status icon: SD
+          M5.Lcd.setCursor(pos, 235);
+          if (!SDInterface::i().can_write_logs()) {
+            M5.Lcd.setTextColor(_screen->has_required_sd() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, TFT_BLACK);
+          } else {
+            M5.Lcd.setTextColor(SDInterface::i().just_wrote() ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+          }
+          M5.Lcd.print("SD");
+          pos += 18; // Adjust position for next indicator
 
-        // Status icon: Bluetooth
-        const auto& bt_reporter = handlers.handler<BluetoothReporter>(k_handler_bluetooth_reporter);
-        if (bt_reporter->active()) {
-          M5.Lcd.setTextColor(bt_reporter->client_count() > 0 ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-        } else {
-          M5.Lcd.setTextColor(_screen->has_required_ble() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
-        }
-        M5.Lcd.print("BT ");
+          // Status icon: Wi-Fi
+          M5.Lcd.setCursor(pos, 235);
+          if (WiFiWrapper_i.wifi_connected()) {
+            M5.Lcd.setTextColor(WiFiWrapper_i.was_active() ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+          } else {
+            M5.Lcd.setTextColor(_screen->has_required_wifi() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
+          }
+          M5.Lcd.print("WF");
+          pos += 18; // Adjust position for next indicator
+          
+          // Status icon: Bluetooth
+          M5.Lcd.setCursor(pos, 235);
+          const auto& bt_reporter = handlers.handler<BluetoothReporter>(k_handler_bluetooth_reporter);
+          if (bt_reporter->active()) {
+            M5.Lcd.setTextColor(bt_reporter->client_count() > 0 ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+          } else {
+            M5.Lcd.setTextColor(_screen->has_required_ble() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
+          }
+          M5.Lcd.print("BT");
+          pos += 18; // Adjust position for next indicator
+          
+          // Status icon: Sound
+          extern SoundManager sound_manager;
+          M5.Lcd.setCursor(pos, 235);
+          if (sound_manager.isSoundEnabled()) {
+            M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, LCD_COLOR_BACKGROUND);
+          } else {
+            M5.Lcd.setTextColor(LCD_COLOR_INACTIVE, TFT_BLACK);
+          }
+          M5.Lcd.print("SND");
+          pos += 24; // Adjust position for next indicator
 
-        // Device
-        if (_settings.get_device_id() < 10000) {
-          // 4-digit device id
-          M5.Lcd.setCursor(186, 235);
-          M5.Lcd.setTextColor(_settings.get_device_id() ? LCD_COLOR_DEFAULT : LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
-          M5.Lcd.printf("#%04d ", _settings.get_device_id());
-        } else {
-          // 5-digit device id
-          M5.Lcd.setCursor(180, 235);
-          M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-          M5.Lcd.printf("#%5d ", _settings.get_device_id());
-        }
+          // Device
+          M5.Lcd.setCursor(pos, 235);
+          if (_settings.get_device_id() < 10000) {
+            // 4 digits
+            M5.Lcd.setTextColor(_settings.get_device_id() ? LCD_COLOR_DEFAULT : LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
+            M5.Lcd.printf("#%04d", _settings.get_device_id());
+          } else {
+            // 5-digit device id
+            M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+            M5.Lcd.printf("#%5d", _settings.get_device_id());
+          }
+          pos += 40; // Adjust position for next indicator
 
-        // Time HH:MM
-        const auto& rtc = workers.worker<DateTimeProvider>(k_worker_rtc_connector)->get_data();
-        M5.Lcd.setTextColor(rtc.valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-        M5.Lcd.printf("%04d/%02d/%02d %02d:%02d", rtc.year, rtc.month, rtc.day, rtc.hour, rtc.minute);
+          // Date
+          const auto& rtc = workers.worker<DateTimeProvider>(k_worker_rtc_connector)->get_data();
+          M5.Lcd.setCursor(pos, 235);
+          M5.Lcd.setTextColor(rtc.valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+          M5.Lcd.printf("%02d/%02d %02d:%02d", rtc.month, rtc.day, rtc.hour, rtc.minute);
+        }
       }
 
       M5.Lcd.setRotation(1);

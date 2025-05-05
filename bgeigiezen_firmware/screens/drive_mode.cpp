@@ -58,7 +58,7 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
       
       // Set to AUTOMOTIVE mode and save to flash memory
       if (gps->setDynamicModel(DYNMODEL_AUTOMOTIVE, true)) {
-        set_status_message(F(" DRIVE MODE - GPS SET TO AUTOMOTIVE (SAVED TO FLASH) "));
+        // No message displayed when setting GPS mode
         _gps_model_set = true; // Mark that we've changed the GPS model
       }
     }
@@ -70,11 +70,12 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   _logging_available = controller_data.local_available && SDInterface::i().status() == SDInterface::e_sd_config_status_ok;
 
   bool currently_logging = handlers.handler<SdLogger>(k_handler_drive_logger)->active();
-  if (_currently_logging && !currently_logging) {
-    set_status_message(F(" COMPLETED LOGGING DRIVE "));
-  } else if (!_currently_logging && currently_logging) {
-    set_status_message(F(" STARTED LOGGING, safe travels! "));
+  if (!_currently_logging && currently_logging) {
+    set_status_message(F(" STARTED LOGGING DRIVE "));
     _distance_start = log_aggregator->get_data().distance;
+  }
+  if (_currently_logging && !currently_logging) {
+    set_status_message(F(" STOPPED LOGGING DRIVE "));
   }
   _currently_logging = currently_logging;
 
@@ -196,7 +197,7 @@ void DriveModeScreen::enter_screen(Controller& controller) {
   
   // We'll set the GPS to AUTOMOTIVE mode in the first render call
   // when we have access to the worker map
-  set_status_message(F(" DRIVE MODE - GPS SET TO AUTOMOTIVE "));
+  // No message displayed when entering Drive mode
   force_next_render(); // Force render to apply GPS settings
 }
 
