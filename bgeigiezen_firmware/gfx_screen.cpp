@@ -242,12 +242,15 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         String current_error_message = error_msg ? String(error_msg) : "";
         String current_status_message = status_msg ? String(status_msg) : "";
         
+        // Log message state for debugging
+        M5_LOGD("GFX Message state: displayed=%s, error_msg=%s, status_msg=%s",
+               message_displayed ? "true" : "false",
+               error_msg ? "present" : "null",
+               status_msg ? "present" : "null");
+        
         bool message_changed = (current_error_message != last_error_message) || (current_status_message != last_status_message);
         last_error_message = current_error_message;
         last_status_message = current_status_message;
-        
-        // Check if message timeout has expired
-        bool message_timeout_expired = message_displayed && (millis() - message_display_time > MESSAGE_TIMEOUT);
         
         // Render message if available on top of bar
         if (error_msg && (!message_displayed || current_error_message != last_error_message)) {
