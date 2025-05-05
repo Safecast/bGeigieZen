@@ -321,7 +321,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         // Time HH:MM
         const auto& rtc = workers.worker<DateTimeProvider>(k_worker_rtc_connector)->get_data();
         M5.Lcd.setTextColor(rtc.valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-        M5.Lcd.printf("%04d/%02d/%02d %02d:%02d", rtc.year, rtc.month, rtc.day, rtc.hour, rtc.minute);
+        M5.Lcd.printf("%02d/%02d %02d:%02d", rtc.month, rtc.day, rtc.hour, rtc.minute);
       }
 
       M5.Lcd.setRotation(1);
