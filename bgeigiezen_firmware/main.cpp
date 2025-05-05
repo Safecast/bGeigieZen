@@ -137,7 +137,24 @@ void setup() {
   M5_LOGD("Setup complete");
 }
 
+// Performance measurement variables
+static uint32_t loop_start_time = 0;
+static uint32_t loop_count = 0;
+static uint32_t total_loop_time = 0;
+static uint32_t min_loop_time = UINT32_MAX;
+static uint32_t max_loop_time = 0;
+static uint32_t last_stats_time = 0;
+
 void loop() {
+  // Record start time of this loop iteration
+  uint32_t current_time = millis();
+  uint32_t loop_iteration_start = micros();
+  
+  // If this is the first iteration, initialize the stats time
+  if (last_stats_time == 0) {
+    last_stats_time = current_time;
+  }
+  
   if (gps.active()) {
     gnss.checkUblox();
   }
@@ -148,7 +165,6 @@ void loop() {
   static uint32_t last_toggle_time = 0;
   static uint32_t button_a_press_start = 0;
   static bool button_a_long_press_detected = false;
-  uint32_t current_time = millis();
   
   // Check if Button A is pressed
   if (M5.BtnA.isPressed()) {
@@ -189,4 +205,42 @@ void loop() {
   }
 
   controller.run();
+  
+  // Calculate loop execution time
+  uint32_t loop_execution_time = micros() - loop_iteration_start;
+  
+  // Update statistics
+  total_loop_time += loop_execution_time;
+  loop_count++;
+  
+  // Update min/max times
+  if (loop_execution_time < min_loop_time) {
+    min_loop_time = loop_execution_time;
+  }
+  if (loop_execution_time > max_loop_time) {
+    max_loop_time = loop_execution_time;
+  }
+  
+  // Report statistics every 20 seconds
+  if (current_time - last_stats_time >= 20000) {
+    // Calculate average
+    float avg_loop_time = (float)total_loop_time / loop_count;
+    
+    // Report statistics
+    Serial.println("\n===== LOOP PERFORMANCE STATISTICS =====");
+    Serial.println("Sound status: " + String(sound_manager.isSoundEnabled() ? "ON" : "OFF"));
+    Serial.println("Total loops: " + String(loop_count));
+    Serial.println("Average loop time: " + String(avg_loop_time, 2) + " microseconds");
+    Serial.println("Minimum loop time: " + String(min_loop_time) + " microseconds");
+    Serial.println("Maximum loop time: " + String(max_loop_time) + " microseconds");
+    Serial.println("Loop frequency: " + String(1000000.0 / avg_loop_time, 2) + " Hz");
+    Serial.println("======================================\n");
+    
+    // Reset statistics for next period
+    last_stats_time = current_time;
+    total_loop_time = 0;
+    loop_count = 0;
+    min_loop_time = UINT32_MAX;
+    max_loop_time = 0;
+  }
 }
