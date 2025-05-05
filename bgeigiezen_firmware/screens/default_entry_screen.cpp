@@ -1,6 +1,7 @@
 #include "default_entry_screen.h"
 #include "drive_mode.h"
 #include "fixed_mode.h"
+#include "flight_mode.h"
 #include "identifiers.h"
 #include "satellite_view.h"
 #include "survey_mode.h"
@@ -22,6 +23,8 @@ BaseScreen* DefaultEntryScreen::handle_input(Controller& controller, const worke
       return &FixedModeScreen_i;
     case LocalStorage::e_operational_mode_satellite:
       return &SatelliteViewScreen_i;
+    case LocalStorage::e_operational_mode_flight:
+      return &FlightModeScreen_i;
     default:
       return &DriveModeScreen_i;
   }

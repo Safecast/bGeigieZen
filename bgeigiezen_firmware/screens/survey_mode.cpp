@@ -11,7 +11,7 @@
 
 SurveyModeScreen SurveyModeScreen_i;
 
-SurveyModeScreen::SurveyModeScreen() : BaseScreen("Survey Mode", true), _logging_available(false), _currently_logging(false), _previous_gps_model(DYNMODEL_PORT), _gps_model_set(false) {
+SurveyModeScreen::SurveyModeScreen() : BaseScreen("Survey", true), _logging_available(false), _currently_logging(false), _previous_gps_model(DYNMODEL_PORT), _gps_model_set(false) {
   required_tube = true;
   required_gps = true;  // GPS is used in Survey mode
   required_wifi = false;  // WiFi is optional for Survey mode

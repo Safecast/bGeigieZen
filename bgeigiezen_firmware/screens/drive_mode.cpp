@@ -192,12 +192,12 @@ void DriveModeScreen::enter_screen(Controller& controller) {
   if (!controller.get_settings().get_manual_logging()) {
     // Automatically start logging
     controller.set_handler_active(k_handler_drive_logger, true);
+    set_status_message(F(" STARTED LOGGING DRIVE "));
   }
   controller.set_handler_active(k_handler_bluetooth_reporter, true);
   
   // We'll set the GPS to AUTOMOTIVE mode in the first render call
   // when we have access to the worker map
-  // No message displayed when entering Drive mode
   force_next_render(); // Force render to apply GPS settings
 }
 

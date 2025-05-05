@@ -115,7 +115,7 @@ void BaseScreen::force_next_render() {
 }
 
 const __FlashStringHelper* BaseScreen::get_error_message(const worker_map_t& workers, const handler_map_t& handlers) const {
-  if (required_tube && millis() > 2000 && !workers.worker<GeigerCounter>(k_worker_gm_sensor)->active()) {
+  if (required_tube && millis() > 3000 && !workers.worker<GeigerCounter>(k_worker_gm_sensor)->active()) {
     return STATUS_ERROR_GEIGER;
   }
   if (required_gps && !workers.worker<GpsConnector>(k_worker_gps_connector)->active()) {
@@ -145,6 +145,7 @@ const __FlashStringHelper* BaseScreen::get_status_message(const worker_map_t& wo
   if (_message && _status_message_time) {
     BaseScreen* non_const_this = const_cast<BaseScreen*>(this);
     non_const_this->_message = nullptr;
+    non_const_this->_status_message_time = 0; // Also reset the timestamp
   }
   return nullptr;
 }
