@@ -9,7 +9,7 @@
 
 FixedModeScreen FixedModeScreen_i;
 
-FixedModeScreen::FixedModeScreen() : BaseScreen("Real-time", true) {
+FixedModeScreen::FixedModeScreen() : BaseScreen("Fixed", true) {
   required_gps = true;
   required_tube = true;
   required_wifi = true;

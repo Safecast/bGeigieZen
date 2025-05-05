@@ -310,12 +310,12 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
           // 4-digit device id
           M5.Lcd.setCursor(186, 235);
           M5.Lcd.setTextColor(_settings.get_device_id() ? LCD_COLOR_DEFAULT : LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
-          M5.Lcd.printf("#%04d ", _settings.get_device_id());
+          M5.Lcd.printf("%04d ", _settings.get_device_id());
         } else {
           // 5-digit device id
           M5.Lcd.setCursor(180, 235);
           M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-          M5.Lcd.printf("#%5d ", _settings.get_device_id());
+          M5.Lcd.printf("%5d ", _settings.get_device_id());
         }
 
         // Time HH:MM
