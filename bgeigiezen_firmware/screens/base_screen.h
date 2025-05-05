@@ -106,11 +106,6 @@ class BaseScreen {
   void clear_screen_content();
 
   void set_status_message(const __FlashStringHelper* message);
-  
-  /**
-   * Clear the status message
-   */
-  void clear_status_message();
 
   // required modules for status bar
   bool required_gps;

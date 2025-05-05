@@ -3,7 +3,6 @@
 #include "utils/wifi_connection.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
-#include "workers/sound_manager.h"
 
 #include <WiFi.h>
 
@@ -115,7 +114,7 @@ void BaseScreen::force_next_render() {
 }
 
 const __FlashStringHelper* BaseScreen::get_error_message(const worker_map_t& workers, const handler_map_t& handlers) const {
-  if (required_tube && millis() > 3000 && !workers.worker<GeigerCounter>(k_worker_gm_sensor)->active()) {
+  if (required_tube && millis() > 2000 && !workers.worker<GeigerCounter>(k_worker_gm_sensor)->active()) {
     return STATUS_ERROR_GEIGER;
   }
   if (required_gps && !workers.worker<GpsConnector>(k_worker_gps_connector)->active()) {
@@ -138,7 +137,6 @@ const __FlashStringHelper* BaseScreen::get_error_message(const worker_map_t& wor
 }
 
 const __FlashStringHelper* BaseScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) const {
-  // Simple implementation that just checks if the message has timed out
   if (_message && _status_message_time && _status_message_time + STATUS_MESSAGE_DURATION > millis()) {
     return _message;
   }
@@ -220,20 +218,10 @@ void BaseScreenWithMenu::render_menu(const MenuItem items[], int menu_max, bool 
   M5.Lcd.drawLine(160, 33, 160, 177, LCD_COLOR_STALE_INCOMPLETE);
 
 
-  // Calculate visible range - show at most 9 items to fit on screen
-  int startIdx = max(0, _menu_index - 4);
-  int endIdx = min(menu_max, startIdx + 9);
-  
-  // Adjust startIdx if we have fewer than 9 items at the end
-  if (endIdx - startIdx < 9 && startIdx > 0) {
-    startIdx = max(0, endIdx - 9);
-  }
-  
-  for (int i = startIdx; i < endIdx; ++i) {
-    int yPos = 48 + ((i - startIdx) * 16); // Adjust y position based on visible range
+  for (int i = 0; i < menu_max; ++i) {
     M5.Lcd.setTextColor(items[i].enabled ? (i == _menu_index ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_DEFAULT) : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.drawLine(16, yPos, 159, yPos, (i == _menu_index ? (items[i].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE) : LCD_COLOR_BACKGROUND));
-    M5.Lcd.setCursor(16, yPos + 8, &fonts::Font2);
+    M5.Lcd.drawLine(16, 48 + (i * 16), 159, 48 + (i * 16), (i == _menu_index ? (items[i].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE) : LCD_COLOR_BACKGROUND));
+    M5.Lcd.setCursor(16, 56 + (i * 16), &fonts::Font2);
     if (i == _menu_index) {
       M5.Lcd.print("> ");
     }
@@ -242,16 +230,6 @@ void BaseScreenWithMenu::render_menu(const MenuItem items[], int menu_max, bool 
     }
     M5.Lcd.print(items[i].title);
     M5.Lcd.print("  ");
-  }
-  
-  // Show scroll indicators if needed
-  if (startIdx > 0) {
-    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-    M5.Lcd.drawString("▲", 140, 40, &fonts::Font2);
-  }
-  if (endIdx < menu_max) {
-    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-    M5.Lcd.drawString("▼", 140, 184, &fonts::Font2);
   }
 
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
