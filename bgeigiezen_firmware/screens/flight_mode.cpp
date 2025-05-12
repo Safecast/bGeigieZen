@@ -10,7 +10,7 @@
 
 FlightModeScreen FlightModeScreen_i;
 
-FlightModeScreen::FlightModeScreen() : BaseScreen("Flight", true), _logging_available(false), _currently_logging(false), _distance_start(0), _previous_gps_model(DYNMODEL_PORT) {
+FlightModeScreen::FlightModeScreen() : BaseScreen("Cosmic", true), _logging_available(false), _currently_logging(false), _distance_start(0), _previous_gps_model(DYNMODEL_PORT) {
   required_tube = true;
   required_gps = true;
   required_wifi = false;  // WiFi is optional for Flight mode
