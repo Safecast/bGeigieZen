@@ -19,8 +19,8 @@
 const MenuWindow::MenuItem MAIN_MENU_ITEMS[MAIN_MENU_MAX] = {
     {.title="Survey mode", .tooltip="Log radiation data to SD card", .enabled=true, .screen=&SurveyModeScreen_i},
     {.title="Drive mode", .tooltip="Log radiation data with GPS", .enabled=true, .screen=&DriveModeScreen_i},
-    {.title="Flight mode", .tooltip="Log data with airborne GPS", .enabled=true, .screen=&FlightModeScreen_i},
-    {.title="Fixed mode", .tooltip="Real-time upload to API", .enabled=true, .screen=&FixedModeScreen_i},
+    {.title="Cosmic mode", .tooltip="Log data with airborne GPS", .enabled=true, .screen=&FlightModeScreen_i},
+    {.title="Real Time mode", .tooltip="Real-time upload to API", .enabled=true, .screen=&FixedModeScreen_i},
     {.title="Satellite view", .tooltip="A 2d constellation map for viewing satellites", .enabled=true, .screen=&SatelliteViewScreen_i},
     {.title="Log viewer", .tooltip="View and upload logs over wifi", .enabled=true, .screen=&LogViewerScreen_i},
     {.title="Settings", .tooltip="Configure your device", .enabled=true, .screen=&ConfigModeScreen_i},
