@@ -7,10 +7,14 @@
 #include "workers/local_storage.h"
 #include "screens/menu_window.h"
 #include "screens/base_screen.h"
+#include "message_timer.h"
 
 /**
  * M5 Screen renderer
  */
+// Forward declaration for the timer task function
+void messageTimerTask(void* parameter);
+
 class GFXScreen : public Supervisor {
  public:
   explicit GFXScreen(LocalStorage& settings, Controller& controller);
@@ -41,8 +45,11 @@ class GFXScreen : public Supervisor {
   int8_t _saver_x_direction;
   int8_t _saver_y_direction;
   ScreenStatus _screen_status;
-  BaseScreen* _screen;
+  BaseScreen* _screen; // Made accessible to timer task
   MenuWindow* _menu;
+  
+  // Friend declaration to allow timer task access to private members
+  friend void messageTimerTask(void* parameter);
 };
 
 #endif //BGEIGIEZEN_GFX_SCREEN_H_
