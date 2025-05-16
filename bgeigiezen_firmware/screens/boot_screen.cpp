@@ -45,8 +45,8 @@ void BootScreen::render(const worker_map_t& workers, const handler_map_t& handle
   M5.Lcd.drawString("bGeigie Zen", 95, 50, &fonts::Font4);
   
   // Display version prominently
-  M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawString("v3.2.9 - Air Mode", 90, 85, &fonts::Font2);
+  M5.Lcd.setTextColor(TFT_ORANGE, LCD_COLOR_BACKGROUND);
+  M5.Lcd.drawString("v3.2.9 BETA", 100, 90, &fonts::Font4);
   
   // Display user info
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
