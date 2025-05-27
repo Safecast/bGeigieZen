@@ -95,6 +95,8 @@ GFXScreen gfx_screen(settings, controller);
 
 void setup() {
   /// Hardware configurations
+
+  setCpuFrequencyMhz(80);
   M5.begin();
 
   M5.Log.setLogLevel(m5::log_target_t::log_target_serial, esp_log_level_t::ESP_LOG_DEBUG);
