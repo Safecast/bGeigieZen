@@ -252,21 +252,14 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         static unsigned long message_display_time = 0;
         static const unsigned long MESSAGE_TIMEOUT = 2000; // 2 seconds timeout for messages
         
-
-        
-        // Check if messages have changed
+        // Get current messages from the screen
         const __FlashStringHelper* error_msg = _screen->get_error_message(workers, handlers);
         const __FlashStringHelper* status_msg = _screen->get_status_message(workers, handlers);
         
         String current_error_message = error_msg ? String(error_msg) : "";
         String current_status_message = status_msg ? String(status_msg) : "";
         
-        // Log message state for debugging
-        M5_LOGD("GFX Message state: displayed=%s, error_msg=%s, status_msg=%s",
-               message_displayed ? "true" : "false",
-               error_msg ? "present" : "null",
-               status_msg ? "present" : "null");
-        
+        // Check if messages have changed
         bool message_changed = (current_error_message != last_error_message) || (current_status_message != last_status_message);
         last_error_message = current_error_message;
         last_status_message = current_status_message;
@@ -274,14 +267,16 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         // Check if message timeout has expired
         bool message_timeout_expired = message_displayed && (millis() - message_display_time > MESSAGE_TIMEOUT);
         
-        // Render message if available on top of bar
+        // Handle message display
+#ifdef M5STACK_CORE2
+        // Core2 message handling
         if (error_msg && (!message_displayed || current_error_message != last_error_message)) {
           // Error message takes precedence
           M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_ERROR);
           uint16_t text_width = M5.Lcd.drawString(current_error_message.c_str(), 0, 220, &fonts::Font2);
           M5.Lcd.fillRect(text_width, 220, 320 - text_width, 20, LCD_COLOR_BACKGROUND);
           message_displayed = true;
-          message_display_time = millis(); // Reset timeout
+          message_display_time = millis();
           status_bar_needs_full_redraw = true;
         } else if (status_msg && (!message_displayed || current_status_message != last_status_message)) {
           // Status message
@@ -289,7 +284,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
           uint16_t text_width = M5.Lcd.drawString(current_status_message.c_str(), 0, 220, &fonts::Font2);
           M5.Lcd.fillRect(text_width, 220, 320 - text_width, 20, LCD_COLOR_BACKGROUND);
           message_displayed = true;
-          message_display_time = millis(); // Reset timeout
+          message_display_time = millis();
           status_bar_needs_full_redraw = true;
         } else if ((message_displayed && !error_msg && !status_msg) || message_timeout_expired) {
           // Clear message area if no message and there was one before, or if timeout expired
@@ -297,8 +292,33 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
           message_displayed = false;
           status_bar_needs_full_redraw = true;
         }
+#else
+        // CoreS3 specific message handling
+        if (error_msg && (!message_displayed || current_error_message != last_error_message)) {
+          // Error message takes precedence
+          M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_ERROR);
+          uint16_t text_width = M5.Lcd.drawString(current_error_message.c_str(), 0, 220, &fonts::Font2);
+          M5.Lcd.fillRect(text_width, 220, 320 - text_width, 20, LCD_COLOR_BACKGROUND);
+          message_displayed = true;
+          message_display_time = millis();
+          status_bar_needs_full_redraw = true;
+        } else if (status_msg && (!message_displayed || current_status_message != last_status_message)) {
+          // Status message
+          M5.Lcd.setTextColor(LCD_COLOR_BACKGROUND, LCD_COLOR_DEFAULT);
+          uint16_t text_width = M5.Lcd.drawString(current_status_message.c_str(), 0, 220, &fonts::Font2);
+          M5.Lcd.fillRect(text_width, 220, 320 - text_width, 20, LCD_COLOR_BACKGROUND);
+          message_displayed = true;
+          message_display_time = millis();
+          status_bar_needs_full_redraw = true;
+        } else if ((message_displayed && !error_msg && !status_msg) || message_timeout_expired) {
+          // Clear message area if no message and there was one before, or if timeout expired
+          M5.Lcd.fillRect(0, 220, 320, 20, LCD_COLOR_BACKGROUND);
+          message_displayed = false;
+          status_bar_needs_full_redraw = true;
+        }
+#endif
 
-        // Only update the status bar every 500ms or if a full redraw is needed
+        // Only update the status bar every 1000ms or if a full redraw is needed
         if (millis() - last_status_bar_update > 1000 || status_bar_needs_full_redraw || message_changed) {
           last_status_bar_update = millis();
           status_bar_needs_full_redraw = false;
