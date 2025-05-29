@@ -206,6 +206,10 @@ void FlightModeScreen::render(const worker_map_t& workers, const handler_map_t& 
 void FlightModeScreen::enter_screen(Controller& controller) {
   M5_LOGI("Entering Cosmic mode - optimizing power");
   
+  // Set the last mode to flight mode
+  LocalStorage& settings = const_cast<LocalStorage&>(controller.get_settings());
+  settings.set_last_mode(LocalStorage::e_operational_mode_flight, true);
+  
   // Enter low power mode
   PowerManager::enterLowPowerMode();
   

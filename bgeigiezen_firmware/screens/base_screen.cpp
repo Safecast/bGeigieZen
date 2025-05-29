@@ -3,7 +3,13 @@
 #include "utils/wifi_connection.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
+#include "workers/local_storage.h"
 #include "workers/sound_manager.h"
+#include "drive_mode.h"
+#include "survey_mode.h"
+#include "flight_mode.h"
+#include "fixed_mode.h"
+#include "satellite_view.h"
 
 #include <WiFi.h>
 
@@ -175,7 +181,19 @@ BaseScreen* BaseScreenWithMenu::handle_menu_input(Controller& controller, const 
 
   // Button 3 change view
   if (button3->is_fresh() && button3->get_data().shortPress && items[_menu_index].enabled) {
-
+    // Save the selected mode to LocalStorage
+    auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
+    if (items[_menu_index].screen == &SurveyModeScreen_i) {
+      settings->set_last_mode(LocalStorage::e_operational_mode_survey, true);
+    } else if (items[_menu_index].screen == &DriveModeScreen_i) {
+      settings->set_last_mode(LocalStorage::e_operational_mode_drive, true);
+    } else if (items[_menu_index].screen == &FlightModeScreen_i) {
+      settings->set_last_mode(LocalStorage::e_operational_mode_flight, true);
+    } else if (items[_menu_index].screen == &FixedModeScreen_i) {
+      settings->set_last_mode(LocalStorage::e_operational_mode_fixed, true);
+    } else if (items[_menu_index].screen == &SatelliteViewScreen_i) {
+      settings->set_last_mode(LocalStorage::e_operational_mode_satellite, true);
+    }
 
     if (items[_menu_index].screen) {
       // Swap screens
