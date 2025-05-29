@@ -7,6 +7,9 @@
 #include <esp_bt.h>
 #include <driver/rtc_io.h>
 #include <soc/rtc.h>
+#include <soc/rtc_cntl_reg.h>
+#include <soc/sens_reg.h>
+#include "rtc_wdt_wrapper.h"
 
 // Define logging macros if not already defined
 #ifndef M5_LOGI

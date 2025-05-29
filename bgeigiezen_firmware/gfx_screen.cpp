@@ -19,9 +19,9 @@
 
 #define SCREENSAVER_TEXT_LENGTH (strlen(SCREENSAVER_TEXT) * 6)
 #define TIMEOUT_PASSED(timeout, last_interaction) (timeout && (millis() - last_interaction) > (timeout * 1000))
-static constexpr uint8_t LEVEL_BRIGHT = 80;  // max brightness = 100
-static constexpr uint8_t LEVEL_DIMMED = 25;
-static constexpr uint8_t LEVEL_BLANKED = 10;
+static constexpr uint8_t LEVEL_BRIGHT = 100;  // Full brightness for active use (100%)
+static constexpr uint8_t LEVEL_DIMMED = 20;   // 20% brightness for dimmed state (more noticeable difference)
+static constexpr uint8_t LEVEL_BLANKED = 5;    // 5% brightness when blanked
 
 
 GFXScreen::GFXScreen(LocalStorage& settings, Controller& controller)
@@ -58,6 +58,19 @@ void GFXScreen::initialize() {
 }
 
 void GFXScreen::set_screen_status(ScreenStatus status) {
+  static ScreenStatus last_status = static_cast<ScreenStatus>(255);
+  
+  if (status != last_status) {
+    const char* status_str = "";
+    switch (status) {
+      case e_screen_status_on: status_str = "ON"; break;
+      case e_screen_status_dim: status_str = "DIM"; break;
+      case e_screen_status_off: status_str = "OFF"; break;
+    }
+    Serial.printf("Screen status changed from %d to %s\n", last_status, status_str);
+    last_status = status;
+  }
+  
   _screen_status = status;
   switch (_screen_status) {
     case e_screen_status_on:
@@ -79,47 +92,53 @@ void GFXScreen::set_screen_status(ScreenStatus status) {
 
 //setup brightness by Rob Oudendijk 2023-03-13
 void GFXScreen::setBrightness(uint8_t lvl) {
-
-  if (lvl == LEVEL_BLANKED) {
-    // Turn screen off
-    M5.Lcd.setBrightness(0);
-#ifdef M5_CORE2
-    M5.Power.Axp192.setDCDC3(false);
-    M5.Axp.SetDCDC3(false);
-    M5.Axp.ScreenBreath(0);
-#elif M5_BASIC
-    M5.Lcd.setBrightness(0);
-#endif
-  } else {
-#ifdef M5_CORE2
-    // Make sure screen is turned on
-    M5.Axp.SetDCDC3(true);
-    // Set brightness
-    M5.Axp.ScreenBreath(lvl);
-#elif M5_BASIC
-    if (lvl == LEVEL_BRIGHT)
-      M5.Lcd.setBrightness(200);
-    if (lvl == LEVEL_DIMMED || lvl == LEVEL_BLANKED)
-      M5.Lcd.setBrightness(1);
-#endif
+  static uint8_t last_lvl = 255; // Initialize to impossible value
+  
+  // Only print if brightness level changes
+  if (lvl != last_lvl) {
+    Serial.printf("Setting brightness to: %d (was: %d)\n", lvl, last_lvl);
+    last_lvl = lvl;
   }
+
+  // For M5Stack CoreS3, use M5.Lcd.setBrightness
+  // Map 0-100 range to 0-255 range with a non-linear curve for better visibility
+  uint8_t mapped_brightness;
+  if (lvl == LEVEL_BRIGHT) {
+    mapped_brightness = 255;  // Full brightness
+  } else if (lvl == LEVEL_DIMMED) {
+    mapped_brightness = 64;   // 25% of max for dimmed state
+  } else {
+    mapped_brightness = 12;   // ~5% for blanked state
+  }
+  
+  // Apply the brightness
+  M5.Lcd.setBrightness(mapped_brightness);
+  
+  // Force update the display
+  M5.Lcd.wakeup();
 }
 
 void GFXScreen::clear() {
-  // Clear display
-
   M5.Lcd.startWrite();
-  M5.Lcd.clear();
+  
+  // Set background color based on screen status
+  if (_screen_status == e_screen_status_dim || _screen_status == e_screen_status_off) {
+    M5.Lcd.fillScreen(TFT_BLACK);  // Use black background when dimmed or off
+  } else {
+    M5.Lcd.clear();  // Use default background for normal operation
+  }
+  
   M5.Lcd.setTextDatum(BL_DATUM);  // By default, text x,y is bottom left corner
   M5.Lcd.setTextFont(1);
+  
   if (_screen) {
     _screen->force_next_render();
   }
   if (_menu) {
     _menu->force_next_render();
   }
+  
   M5.Lcd.endWrite();
-
 }
 
 void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& handlers) {

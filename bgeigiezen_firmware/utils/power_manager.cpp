@@ -5,7 +5,10 @@
 #include <esp_bt.h>
 #include <esp_bt_main.h>
 #include <soc/rtc.h>
+#include <soc/rtc_cntl_reg.h>
+#include <soc/sens_reg.h>
 #include <esp32-hal-cpu.h>
+#include <esp_task_wdt.h>
 
 // Initialize static members
 bool PowerManager::_low_power_mode = false;
@@ -14,12 +17,13 @@ uint32_t PowerManager::_original_i2c_freq = 100000; // Default to 100kHz
 
 void PowerManager::begin() {
     // Store original CPU frequency
-    rtc_cpu_freq_config_t config;
-    rtc_clk_cpu_freq_get_config(&config);
-    _original_cpu_freq = config.freq_mhz;
+    _original_cpu_freq = getCpuFrequencyMhz();
     
     // Store original I2C frequency (default is usually 100kHz)
     _original_i2c_freq = 100000;  // Will be updated in setI2cClock if different
+    
+    // Initialize RTC WDT wrapper
+    rtc_wdt_wrapper_init();
 }
 
 void PowerManager::enterLowPowerMode() {
@@ -68,30 +72,53 @@ void PowerManager::exitLowPowerMode() {
 }
 
 bool PowerManager::setCpuFrequency(uint32_t freq_mhz) {
+    if (freq_mhz == 0) {
+        freq_mhz = _original_cpu_freq;  // Restore original frequency if 0 is passed
+    }
+    
     // Store the original frequency if not already stored
     if (_original_cpu_freq == 0) {
-        _original_cpu_freq = getCpuFrequency();
+        _original_cpu_freq = getCpuFrequencyMhz();
     }
-
+    
     // Check if frequency is already set
-    if (getCpuFrequency() == freq_mhz) {
+    if (getCpuFrequencyMhz() == freq_mhz) {
         return true;
     }
     
-    M5_LOGI("Changing CPU frequency from %lu MHz to %lu MHz", 
-            (unsigned long)getCpuFrequency(), (unsigned long)freq_mhz);
+    // Validate frequency for ESP32-S3
+    bool valid_freq = false;
+    #ifdef CONFIG_IDF_TARGET_ESP32S3
+        // ESP32-S3 supported frequencies
+        if (freq_mhz == 80 || freq_mhz == 160 || freq_mhz == 240) {
+            valid_freq = true;
+        }
+    #else
+        // Original ESP32 frequencies
+        if (freq_mhz == 80 || freq_mhz == 160 || freq_mhz == 240) {
+            valid_freq = true;
+        }
+    #endif
+    
+    if (!valid_freq) {
+        M5_LOGW("Unsupported CPU frequency: %u MHz, using 80MHz", freq_mhz);
+        freq_mhz = 80;
+    }
+    
+    M5_LOGI("Changing CPU frequency from %u MHz to %u MHz", 
+            getCpuFrequencyMhz(), freq_mhz);
     
     // Set CPU frequency using Arduino-ESP32 API
     bool success = setCpuFrequencyMhz(freq_mhz);
     
     if (!success) {
-        M5_LOGE("Failed to set CPU frequency to %lu MHz", (unsigned long)freq_mhz);
+        M5_LOGE("Failed to set CPU frequency to %u MHz", freq_mhz);
         return false;
     }
     
     // Verify
-    if (getCpuFrequency() != freq_mhz) {
-        M5_LOGE("Failed to verify CPU frequency set to %lu MHz", (unsigned long)freq_mhz);
+    if (getCpuFrequencyMhz() != freq_mhz) {
+        M5_LOGE("Failed to verify CPU frequency set to %u MHz", freq_mhz);
         return false;
     }
     
@@ -99,7 +126,12 @@ bool PowerManager::setCpuFrequency(uint32_t freq_mhz) {
 }
 
 uint32_t PowerManager::getCpuFrequency() {
-    return getCpuFrequencyMhz();
+    // Use the appropriate method based on the ESP32 variant
+    #ifdef CONFIG_IDF_TARGET_ESP32S3
+        return getCpuFrequencyMhz();
+    #else
+        return getCpuFrequencyMhz();
+    #endif
 }
 
 void PowerManager::disableWireless() {

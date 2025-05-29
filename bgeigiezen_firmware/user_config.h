@@ -120,8 +120,8 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #define D_ENABLE_JOURNAL true
 #define D_LOG_VOID false
 #define D_DOP_MAX 500
-#define D_SCREEN_DIM_TIMEOUT 60
-#define D_SCREEN_OFF_TIMEOUT 600
+#define D_SCREEN_DIM_TIMEOUT 15     // 15 seconds until screen dims
+#define D_SCREEN_OFF_TIMEOUT 600   // 600 seconds (10 minutes) until screen turns off
 #define D_ANIMATED_SCREENSAVER true
 #define D_WIFI_SSID "your wifi ssid"
 #define D_WIFI_PASSWORD "your wifi password"
