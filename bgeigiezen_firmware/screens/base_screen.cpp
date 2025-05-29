@@ -146,10 +146,11 @@ const __FlashStringHelper* BaseScreen::get_error_message(const worker_map_t& wor
 const __FlashStringHelper* BaseScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) {
   // Check if message exists and hasn't timed out
   if (_message) {
-    if (_status_message_time && _status_message_time + STATUS_MESSAGE_DURATION > millis()) {
+    unsigned long current_millis = millis();
+    long time_elapsed = current_millis - _status_message_time;
+    if (_status_message_time && (time_elapsed < STATUS_MESSAGE_DURATION)) {
       return _message;
     } else {
-      // Clear the message if it has timed out
       _message = nullptr;
       _status_message_time = 0;
     }
