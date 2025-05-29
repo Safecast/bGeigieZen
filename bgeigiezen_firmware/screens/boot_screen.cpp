@@ -46,7 +46,7 @@ void BootScreen::render(const worker_map_t& workers, const handler_map_t& handle
   
   // Display version prominently
   M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, LCD_COLOR_BACKGROUND);
-  M5.Lcd.drawString("v3.2.9 - Air Mode", 90, 85, &fonts::Font2);
+  M5.Lcd.drawString("v3.3.0 beta", 120, 85, &fonts::Font2);
   
   // Display user info
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
