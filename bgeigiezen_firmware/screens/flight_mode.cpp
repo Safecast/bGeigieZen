@@ -2,6 +2,7 @@
 #include "handlers/sd_logger.h"
 #include "identifiers.h"
 #include "menu_window.h"
+#include "utils/power_manager.h"
 #include "workers/battery_indicator.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
@@ -10,11 +11,18 @@
 
 FlightModeScreen FlightModeScreen_i;
 
-FlightModeScreen::FlightModeScreen() : BaseScreen("Flight", true), _logging_available(false), _currently_logging(false), _distance_start(0), _previous_gps_model(DYNMODEL_PORT) {
+FlightModeScreen::FlightModeScreen() : BaseScreen("Cosmic", true), _logging_available(false), _currently_logging(false), _distance_start(0), _previous_gps_model(DYNMODEL_PORT) {
   required_tube = true;
   required_gps = true;
   required_wifi = false;  // WiFi is optional for Flight mode
   required_sd = true;
+  
+  // Initialize power manager
+  static bool power_manager_initialized = false;
+  if (!power_manager_initialized) {
+    PowerManager::begin();
+    power_manager_initialized = true;
+  }
 }
 
 BaseScreen* FlightModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
@@ -196,28 +204,40 @@ void FlightModeScreen::render(const worker_map_t& workers, const handler_map_t& 
 }
 
 void FlightModeScreen::enter_screen(Controller& controller) {
+  M5_LOGI("Entering Cosmic mode - optimizing power");
+  
+  // Enter low power mode
+  PowerManager::enterLowPowerMode();
+  
   // Start logging by default if manual logging is disabled
   if (!controller.get_settings().get_manual_logging()) {
     controller.set_handler_active(k_handler_flight_logger, true);
     _currently_logging = true;
-    set_status_message(F(" STARTED LOGGING FLIGHT "));
+    set_status_message(F(" STARTED LOGGING COSMIC "));
   }
   
   // We'll set the GPS to AIR4 mode in the first render call
   // when we have access to the worker map
   force_next_render(); // Force render to apply GPS settings
   
-  // Enable BLE for Flight mode, similar to Drive mode
-  controller.set_handler_active(k_handler_bluetooth_reporter, true);
+  // Don't enable BLE for Cosmic mode to save power
+  // controller.set_handler_active(k_handler_bluetooth_reporter, false);
+  
+  M5_LOGI("Cosmic mode activated with power optimizations");
 }
 
 void FlightModeScreen::leave_screen(Controller& controller) {
-  // Stop logging and BLE when leaving the screen
+  M5_LOGI("Leaving Cosmic mode - restoring normal power settings");
+  
+  // Stop logging when leaving the screen
   controller.set_handler_active(k_handler_flight_logger, false);
-  controller.set_handler_active(k_handler_bluetooth_reporter, false);
   _currently_logging = false;
+  
+  // Restore normal power settings
+  PowerManager::exitLowPowerMode();
   
   // We need to get the worker map from the handle_input method, so we'll set the model back in that method
   // or in the enter_screen method of the next screen
-  // No message displayed when leaving Flight mode
+  
+  M5_LOGI("Cosmic mode deactivated - normal power settings restored");
 }
