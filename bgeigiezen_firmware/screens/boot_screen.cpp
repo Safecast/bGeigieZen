@@ -13,7 +13,7 @@ BootScreen::BootScreen() : BaseScreen("Boot", false), _entered_at(0) {
 }
 
 BaseScreen* BootScreen::handle_input(Controller& controller, const worker_map_t& workers) {
-  if (millis() > 3000 + _entered_at) {
+  if (millis() > 6000 + _entered_at) {
     const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
     if (controller.get_data().sd_card_status != SDInterface::SdStatus::e_sd_config_status_ok) {
       return &SdMessageScreen_i;
