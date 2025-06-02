@@ -7,6 +7,8 @@
 #include "workers/gps_connector.h"
 #include "workers/gps_platform_model.h"
 #include "workers/zen_button.h"
+#include <esp_wifi.h>
+#include <WiFi.h>
 
 DriveModeScreen DriveModeScreen_i;
 
@@ -195,7 +197,13 @@ void DriveModeScreen::enter_screen(Controller& controller) {
     set_status_message(F(" STARTED LOGGING DRIVE "));
   }
   controller.set_handler_active(k_handler_bluetooth_reporter, true);
-  
+
+  // --- WiFi Power Save Mode and TX Power ---
+  // Set WiFi to power save mode and reduce TX power for Drive mode
+  esp_wifi_set_ps(WIFI_PS_MIN_MODEM); // Enable minimum modem power save
+  esp_wifi_set_max_tx_power(15);      // Set TX power to 15 (units: 0.25 dBm, so 15 = 3.75 dBm)
+  // ----------------------------------------
+
   // We'll set the GPS to AUTOMOTIVE mode in the first render call
   // when we have access to the worker map
   force_next_render(); // Force render to apply GPS settings
@@ -205,7 +213,12 @@ void DriveModeScreen::leave_screen(Controller& controller) {
   // close logging to file
   controller.set_handler_active(k_handler_drive_logger, false);
   controller.set_handler_active(k_handler_bluetooth_reporter, false);
-  
+
+  // --- Restore WiFi Power Settings ---
+  esp_wifi_set_ps(WIFI_PS_NONE);      // Disable WiFi power save
+  esp_wifi_set_max_tx_power(78);      // Restore TX power to max (78 * 0.25 = 19.5 dBm)
+  // -----------------------------------
+
   // Restore previous GPS dynamic model
   // Note: We can't access the GPS connector directly from here
   // The GPS model will be restored in the handle_input method
