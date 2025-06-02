@@ -6,6 +6,7 @@
 #include "workers/gm_sensor.h"
 #include "workers/log_aggregator.h"
 #include "workers/zen_button.h"
+#include <esp_wifi.h>
 
 FixedModeScreen FixedModeScreen_i;
 
@@ -129,8 +130,19 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 
 void FixedModeScreen::enter_screen(Controller& controller) {
   controller.set_handler_active(k_handler_api_reporter, true);
+
+  // --- WiFi Power Save Mode and TX Power ---
+  // Set WiFi to power save mode and reduce TX power for Fixed (Real-time) mode
+  esp_wifi_set_ps(WIFI_PS_MIN_MODEM); // Enable minimum modem power save
+  esp_wifi_set_max_tx_power(15);      // Set TX power to 15 (units: 0.25 dBm, so 15 = 3.75 dBm)
+  // ----------------------------------------
 }
 
 void FixedModeScreen::leave_screen(Controller& controller) {
   controller.set_handler_active(k_handler_api_reporter, false);
+
+  // --- Restore WiFi Power Settings ---
+  esp_wifi_set_ps(WIFI_PS_NONE);      // Disable WiFi power save
+  esp_wifi_set_max_tx_power(78);      // Restore TX power to max (78 * 0.25 = 19.5 dBm)
+  // -----------------------------------
 }

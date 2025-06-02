@@ -2,6 +2,13 @@
 #include "identifiers.h"
 #include "utils/sd_wrapper.h"
 #include "workers/rtc_connector.h"
+#include "user_config.h"
+
+#ifdef VERSION_BETA
+#define LOG_VERSION_STRING VERSION_STRING " beta"
+#else
+#define LOG_VERSION_STRING VERSION_STRING
+#endif
 
 // e.g. /drives/latest.log
 #define TEMP_LOG_NAME_F "%s/latest.log"
@@ -23,8 +30,8 @@ bool SdLogger::activate(bool) {
     return false;
   }
   char header_l2[100];
-  // e.g. # format=1.2.3-zen/drives
-  sprintf(header_l2, "%s%d.%d.%d-zen%s", LOG_HEADER_LINE2, MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION, get_dir());
+  // e.g. # format=3.3.1 beta-zen/drives
+  sprintf(header_l2, "%s%s-zen%s", LOG_HEADER_LINE2, LOG_VERSION_STRING, get_dir());
   
   bool success = SDInterface::i().log_println(_logging_to, LOG_HEADER_LINE1)
       && SDInterface::i().log_println(_logging_to, header_l2)
