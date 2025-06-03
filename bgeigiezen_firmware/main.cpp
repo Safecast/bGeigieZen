@@ -73,7 +73,7 @@ ZenButton zen_B(M5.BtnB);
 ZenButton zen_C(M5.BtnC);
 GpsConnector gps(gnss, Serial2);
 NavsatCollector navsat(gnss);
-GeigerCounter gm_sensor;
+GeigerCounter gm_sensor(true);
 BatteryIndicator battery_indicator;
 DateTimeProvider rtc;
 ShakeDetector shake_detector;
