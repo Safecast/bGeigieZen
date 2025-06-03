@@ -3,6 +3,7 @@
 
 #include <Worker.hpp>
 #include <utils/hardware_counter.h>
+#include <utils/ulp_geiger_counter.h>
 
 struct GeigerData {
   bool valid = false;  // True if accumulated data over 1+ minute
@@ -19,12 +20,14 @@ struct GeigerData {
   bool alert = false;  // cpm_comp > alert level
 };
 
+class ULPGeigerCounter;
+
 /**
  * Geiger counter worker, produces CPM among other data (See GeigerData).
  */
 class GeigerCounter : public Worker<GeigerData> {
  public:
-  explicit GeigerCounter();
+  explicit GeigerCounter(bool use_ulp = false);
   virtual ~GeigerCounter() = default;
 
   bool activate(bool retry) override;
@@ -39,6 +42,8 @@ class GeigerCounter : public Worker<GeigerData> {
   
  private:
   HardwareCounter pulse_counter;
+  ULPGeigerCounter* ulp_counter = nullptr;
+  bool use_ulp_counter = false;
   float _ush_factor = 1.0 / SETUP_DEFAULT_USH_DIVIDER;
   float _bqm2_factor = SETUP_DEFAULT_BQM2_FACTOR;  // default factor for surface measurements
   uint32_t _cpm_alert_level = SETUP_DEFAULT_ALERT_LEVEL;
