@@ -32,7 +32,10 @@ void PowerManager::enterLowPowerMode() {
     M5_LOGI("Entering low power mode");
     
     // 1. Reduce CPU frequency first to save power
-    setCpuFrequency(80);  // 80MHz is a good balance between power and performance
+    // ESP32-S3 supports 40, 80, 160, 240 MHz. Try 40 MHz for extra savings.
+    if (!setCpuFrequency(40)) {
+        setCpuFrequency(80); // Fallback if 40 MHz not supported
+    }
     
     // 2. Reduce I2C clock speed
     setI2cClock(50000);  // 50kHz is sufficient for most sensors
