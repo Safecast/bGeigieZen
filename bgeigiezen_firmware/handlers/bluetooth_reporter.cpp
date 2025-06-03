@@ -40,6 +40,10 @@ bool BluetoothReporter::activate(bool) {
   pAdvertising->setMinPreferred(0x06);
   pAdvertising->setMinPreferred(0x12);
 
+  // Set longer advertising interval for lower power (units: 0.625 ms)
+  pAdvertising->setMinInterval(0x0800); // 0x0800 = 2 seconds
+  pAdvertising->setMaxInterval(0x1000); // 0x1000 = 4 seconds
+
   BLEDevice::startAdvertising();
 
   _pServer->setCallbacks(&_btCallbacks); //set the callback functions to restart advertising

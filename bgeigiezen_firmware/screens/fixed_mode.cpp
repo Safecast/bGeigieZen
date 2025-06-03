@@ -7,6 +7,7 @@
 #include "workers/log_aggregator.h"
 #include "workers/zen_button.h"
 #include <esp_wifi.h>
+#include "utils/power_manager.h"
 
 FixedModeScreen FixedModeScreen_i;
 
@@ -131,6 +132,9 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 void FixedModeScreen::enter_screen(Controller& controller) {
   controller.set_handler_active(k_handler_api_reporter, true);
 
+  // Enter low power mode (CPU/I2C down, but WiFi stays on)
+  PowerManager::enterLowPowerMode();
+
   // --- WiFi Power Save Mode and TX Power ---
   // Set WiFi to power save mode and reduce TX power for Fixed (Real-time) mode
   esp_wifi_set_ps(WIFI_PS_MIN_MODEM); // Enable minimum modem power save
@@ -140,6 +144,9 @@ void FixedModeScreen::enter_screen(Controller& controller) {
 
 void FixedModeScreen::leave_screen(Controller& controller) {
   controller.set_handler_active(k_handler_api_reporter, false);
+
+  // Restore normal power settings
+  PowerManager::exitLowPowerMode();
 
   // --- Restore WiFi Power Settings ---
   esp_wifi_set_ps(WIFI_PS_NONE);      // Disable WiFi power save
