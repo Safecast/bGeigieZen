@@ -46,12 +46,32 @@
 #include <Arduino.h>
 
 #include "controller.h"
+#include "screens/base_screen.h"
+#include "screens/boot_screen.h"
+#include "screens/default_entry_screen.h"
+#include "screens/file_browser.h"
+#include "screens/fixed_mode.h"
+#include "screens/flight_mode.h"
+#include "screens/first_time_startup.h"
+
+#include "screens/log_viewer.h"
+#include "screens/menu_window.h"
+#include "screens/satellite_view.h"
+#include "screens/sd_message.h"
+#include "screens/sd_wipe.h"
+#include "screens/zen_info.h"
+#include "screens/debug_mode.h"
+#include "screens/drive_mode.h"
+#include "screens/survey_mode.h"
+#include "utils/power_manager.h"
+
 #include "gfx_screen.h"
 #include "handlers/api_connector.h"
 #include "handlers/bluetooth_reporter.h"
 #include "handlers/sd_logger.h"
 #include "handlers/debug_logger.h"
 #include "identifiers.h"
+#include "handlers/battery_logger.h"
 #include "workers/battery_indicator.h"
 #include "workers/configuration_server.h"
 #include "workers/gm_sensor.h"
@@ -80,6 +100,7 @@ ShakeDetector shake_detector;
 LogAggregator log_aggregator(settings);
 ConfigWebServer config_server(settings);
 SoundManager sound_manager;
+BatteryLogger battery_logger(settings);
 
 // Data handlers
 SdLogger journal_logger(settings, SdLogger::journal);
@@ -94,6 +115,11 @@ ApiConnector api_connector(settings);
 GFXScreen gfx_screen(settings, controller);
 
 void setup() {
+    // Initialize power manager with controller
+    PowerManager::instance().setController(&controller);
+    PowerManager::setBatteryLogger(&battery_logger);
+    PowerManager::setSettings(&settings);
+
   /// Hardware configurations
   M5.begin();
 
@@ -118,6 +144,7 @@ void setup() {
   controller.register_worker(k_worker_local_storage, settings);
   controller.register_worker(k_worker_config_server, config_server);
   controller.register_worker(k_worker_sound_manager, sound_manager);
+  controller.register_handler(k_handler_battery_logger, battery_logger);
 
   M5_LOGD("Register handlers...");
   controller.register_handler(k_handler_journal_logger, journal_logger);
@@ -186,6 +213,11 @@ void loop() {
       button_a_press_start = 0;
       button_a_long_press_detected = false;
     }
+  }
+
+  // Check power button (Button C)
+  if (M5.BtnC.wasPressed()) {
+    PowerManager::instance().enterLowPowerMode();
   }
 
   controller.run();

@@ -9,45 +9,53 @@
 #include <soc/sens_reg.h>
 #include <esp32-hal-cpu.h>
 #include <esp_task_wdt.h>
+#include "handlers/battery_logger.h"
+#include "controller.h"
+
+#include "workers/local_storage.h"
+#include "rtc_wdt_wrapper.h"
 
 // Initialize static members
-bool PowerManager::_low_power_mode = false;
-uint32_t PowerManager::_original_cpu_freq = 240; // Default to 240MHz
-uint32_t PowerManager::_original_i2c_freq = 100000; // Default to 100kHz
+
+
+void PowerManager::setController(Controller* controller) {
+    _controller = controller;
+}
 
 void PowerManager::begin() {
-    // Store original CPU frequency
+    _low_power_mode = false;
     _original_cpu_freq = getCpuFrequencyMhz();
-    
-    // Store original I2C frequency (default is usually 100kHz)
-    _original_i2c_freq = 100000;  // Will be updated in setI2cClock if different
-    
-    // Initialize RTC WDT wrapper
+    _original_i2c_freq = Wire.getClock();
     rtc_wdt_wrapper_init();
 }
 
 void PowerManager::enterLowPowerMode() {
-    if (_low_power_mode) return;  // Already in low power mode
-    
-    M5_LOGI("Entering low power mode");
-    
-    // 1. Reduce CPU frequency first to save power
-    // ESP32-S3 supports 40, 80, 160, 240 MHz. Try 40 MHz for extra savings.
-    if (!setCpuFrequency(40)) {
-        setCpuFrequency(80); // Fallback if 40 MHz not supported
+    PowerManager& instance = PowerManager::instance();
+    if (instance._controller) {
+        instance._controller->data.mode = DeviceState::e_mode_simple;
+        M5.Lcd.setBrightness(0);
+        esp_wifi_set_ps(WIFI_PS_MAX_MODEM);
+        esp_wifi_set_max_tx_power(WIFI_PHY_MODE_LR);
+        esp_bt_controller_mem_release(ESP_BT_MODE_BTDM);
+        Wire.setClock(100000);
+        setCpuFrequencyMhz(80);
+        
+        // Log battery level before shutdown
+        instance.logBatteryLevelBeforeShutdown(*instance._controller);
+        
+        instance._low_power_mode = true;
     }
-    
-    // 2. Reduce I2C clock speed
     setI2cClock(50000);  // 50kHz is sufficient for most sensors
     
     // 3. Disable WiFi and Bluetooth
     disableWireless();
     
-    // 4. Reduce logging to minimum
-    esp_log_level_set("*", ESP_LOG_ERROR);
+    // 4. Keep battery logger active during low power mode
+    if (_battery_logger && _settings && _controller) {
+        logBatteryLevelBeforeShutdown(*instance._controller);
+    }
     
-    _low_power_mode = true;
-    M5_LOGI("Low power mode activated");
+    // 5. Reduce logging to minimum
 }
 
 void PowerManager::exitLowPowerMode() {
@@ -65,6 +73,11 @@ void PowerManager::exitLowPowerMode() {
         setI2cClock(_original_i2c_freq);
     }
     
+    // 3. Deactivate battery logger
+    if (_battery_logger) {
+        _battery_logger->deactivate();
+    }
+    
     // Restore normal logging
     esp_log_level_set("*", ESP_LOG_INFO);
     
@@ -74,14 +87,32 @@ void PowerManager::exitLowPowerMode() {
     M5_LOGI("Normal power mode restored");
 }
 
+void PowerManager::logBatteryLevelBeforeShutdown(Controller& controller) {
+    if (!_battery_logger || !_settings) {
+        return;
+    }
+    _battery_logger->log_battery_level_before_shutdown(controller.workers);
+}
+
+void PowerManager::setBatteryLogger(BatteryLogger* logger) {
+    PowerManager& instance = PowerManager::instance();
+    instance._battery_logger = logger;
+}
+
+void PowerManager::setSettings(LocalStorage* settings) {
+    PowerManager& instance = PowerManager::instance();
+    instance._settings = settings;
+}
+
 bool PowerManager::setCpuFrequency(uint32_t freq_mhz) {
+    PowerManager& instance = PowerManager::instance();
     if (freq_mhz == 0) {
-        freq_mhz = _original_cpu_freq;  // Restore original frequency if 0 is passed
+        freq_mhz = instance._original_cpu_freq;  // Restore original frequency if 0 is passed
     }
     
     // Store the original frequency if not already stored
-    if (_original_cpu_freq == 0) {
-        _original_cpu_freq = getCpuFrequencyMhz();
+    if (instance._original_cpu_freq == 0) {
+        instance._original_cpu_freq = getCpuFrequencyMhz();
     }
     
     // Check if frequency is already set
@@ -141,14 +172,12 @@ void PowerManager::disableWireless() {
     M5_LOGI("Disabling wireless modules");
     
     // Disable WiFi
-    WiFi.mode(WIFI_OFF);
     esp_wifi_stop();
     esp_wifi_deinit();
-  
-    // Disable Bluetooth if it was enabled
-    if (btStarted()) {
-        btStop();
-    }
+    
+    // Disable Bluetooth
+    esp_bt_controller_disable();
+    esp_bt_controller_deinit();
 }
 
 void PowerManager::enableWireless() {
@@ -157,15 +186,14 @@ void PowerManager::enableWireless() {
 }
 
 void PowerManager::setI2cClock(uint32_t freq_hz) {
+    PowerManager& instance = PowerManager::instance();
     if (freq_hz < 10000 || freq_hz > 1000000) {
         M5_LOGW("I2C frequency %u Hz is outside recommended range (10kHz - 1MHz)", freq_hz);
     }
     
-    if (!_low_power_mode) {
-        // Only update original frequency if not in low power mode
-        _original_i2c_freq = Wire.getClock();
+    if (!instance._low_power_mode) {
+        instance._original_i2c_freq = Wire.getClock();
     }
-    
     M5_LOGI("Setting I2C clock to %u Hz (was %u Hz)", freq_hz, Wire.getClock());
     Wire.setClock(freq_hz);
 }

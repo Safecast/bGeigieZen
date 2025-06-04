@@ -1,17 +1,33 @@
-#ifndef POWER_MANAGER_H
-#define POWER_MANAGER_H
+#ifndef BGEIGIEZEN_POWER_MANAGER_H_
+#define BGEIGIEZEN_POWER_MANAGER_H_
 
-#include <Arduino.h>
-#include <WiFi.h>
+#include <Wire.h>
+#include <esp_log.h>
 #include <esp_wifi.h>
 #include <esp_bt.h>
-#include <driver/rtc_io.h>
+#include <esp_bt_main.h>
 #include <soc/rtc.h>
 #include <soc/rtc_cntl_reg.h>
 #include <soc/sens_reg.h>
-#include "rtc_wdt_wrapper.h"
+#include <esp32-hal-cpu.h>
+#include <esp_task_wdt.h>
+#include "handlers/battery_logger.h"
+#include "identifiers.h"
+#include "workers/local_storage.h"
+#include "controller.h"
+#include <Worker.hpp>
+
+// Forward declare Controller class
+class Controller;
+
+// Worker identifiers
+
 
 // Define logging macros if not already defined
+#ifndef LOG_LOCAL_LEVEL
+#define LOG_LOCAL_LEVEL ESP_LOG_INFO
+#endif
+
 #ifndef M5_LOGI
 #define M5_LOGI(format, ...) Serial.printf("[PowerMgr] " format "\r\n", ##__VA_ARGS__)
 #endif
@@ -28,11 +44,81 @@
  * @brief Power management utility for optimizing power consumption
  */
 class PowerManager {
+private:
+    bool _low_power_mode;             ///< Whether we're in low power mode
+    uint32_t _original_cpu_freq;      ///< Original CPU frequency
+    uint32_t _original_i2c_freq;      ///< Original I2C frequency
+    BatteryLogger* _battery_logger;    ///< Battery logger instance
+    LocalStorage* _settings;           ///< Settings instance
+    Controller* _controller;           ///< Controller instance for worker access
+
 public:
+    static PowerManager& instance() {
+        static PowerManager instance;
+        return instance;
+    }
+
+    PowerManager() : _low_power_mode(false),
+                     _original_cpu_freq(0),
+                     _original_i2c_freq(0),
+                     _battery_logger(nullptr),
+                     _settings(nullptr),
+                     _controller(nullptr) {}
+    ~PowerManager() = default;
+
+    PowerManager(const PowerManager&) = delete;
+    PowerManager& operator=(const PowerManager&) = delete;
+
+    /**
+     * @brief Set the Controller instance
+     */
+    void setController(Controller* controller);
+
     /**
      * @brief Initialize power management
      */
-    static void begin();
+    void begin();
+    /**
+     * @brief Enter low power mode to save power
+     */
+    void enterLowPowerMode();
+    /**
+     * @brief Exit low power mode and restore normal operation
+     */
+    void exitLowPowerMode();
+    /**
+     * @brief Log battery level before shutdown
+     */
+    void logBatteryLevelBeforeShutdown(Controller& controller);
+    /**
+     * @brief Set CPU frequency
+     */
+    bool setCpuFrequency(uint32_t freq_mhz);
+    /**
+     * @brief Get current CPU frequency
+     */
+    static uint32_t getCpuFrequency();
+    /**
+     * @brief Disable wireless modules (WiFi and Bluetooth)
+     */
+    static void disableWireless();
+    /**
+     * @brief Enable wireless modules when needed
+     */
+    static void enableWireless();
+    /**
+     * @brief Set I2C clock frequency
+     */
+    static void setI2cClock(uint32_t freq_hz = 100000);
+
+    /**
+     * @brief Set the battery logger instance
+     */
+    static void setBatteryLogger(BatteryLogger* logger);
+    /**
+     * @brief Set the local storage settings
+     */
+    static void setSettings(LocalStorage* settings);
 
     /**
      * @brief Enter low power mode for Cosmic mode
@@ -45,56 +131,19 @@ public:
      * 4. Reduce I2C clock speed
      * 5. Disable debug output
      */
-    static void enterLowPowerMode();
+    static void enterLowPowerModeCosmic();
 
     /**
-     * @brief Exit low power mode
+     * @brief Exit low power mode for Cosmic mode
      * 
      * This function should be called when leaving Cosmic mode to restore normal operation.
      */
-    static void exitLowPowerMode();
-
-    /**
-     * @brief Set the CPU frequency
-     * 
-     * @param freq_mhz CPU frequency in MHz (80, 160, 240)
-     * @return true if successful, false otherwise
-     */
-    static bool setCpuFrequency(uint32_t freq_mhz);
-
-    /**
-     * @brief Get the current CPU frequency
-     * 
-     * @return uint32_t Current CPU frequency in MHz
-     */
-    static uint32_t getCpuFrequency();
-
-    /**
-     * @brief Disable WiFi and Bluetooth radios
-     */
-    static void disableWireless();
-
-    /**
-     * @brief Re-enable WiFi and Bluetooth radios
-     */
-    static void enableWireless();
-
-    /**
-     * @brief Set the I2C clock speed
-     * 
-     * @param freq_hz I2C clock frequency in Hz (default: 100000)
-     */
-    static void setI2cClock(uint32_t freq_hz = 100000);
+    static void exitLowPowerModeCosmic();
 
     /**
      * @brief Restore all settings to their original values
      */
     static void restoreNormalSettings();
-
-private:
-    static bool _low_power_mode;             ///< Whether we're in low power mode
-    static uint32_t _original_cpu_freq;      ///< Original CPU frequency
-    static uint32_t _original_i2c_freq;      ///< Original I2C frequency
 };
 
 #endif // POWER_MANAGER_H

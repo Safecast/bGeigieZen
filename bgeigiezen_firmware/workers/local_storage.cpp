@@ -26,14 +26,15 @@ constexpr char const* key_fixed_longitude = "fixed_longitude";
 constexpr char const* key_fixed_latitude = "fixed_latitude";
 constexpr char const* key_last_longitude = "last_longitude";
 constexpr char const* key_last_latitude = "last_latitude";
+constexpr char const* key_battery_log_file = "battery_log";
 constexpr char const* key_last_mode = "last_mode";
 
 LocalStorage::LocalStorage() :
     ProcessWorker<bool>(),
     _memory(),
-    _device_id(0),
-    _user_name(""),
-    _ap_password(""),
+    _device_id(D_DEVICE_ID),
+    _user_name(D_USER_NAME),
+    _ap_password(D_AP_PASSWORD),
     _alert_threshold(0),
     _cpm_usvh(false),
     _manual_logging(false),
@@ -50,35 +51,44 @@ LocalStorage::LocalStorage() :
     _fixed_range(0.5),
     _dop_max(0),
     _last_longitude(0),
-    _last_latitude(0),
-    _last_mode(e_operational_mode_drive) {
+    _last_latitude(0) {
+    strncpy(_battery_log_file, "battery.log", sizeof(_battery_log_file) - 1);
+    if (_memory.begin(memory_name)) {
+        _memory.putString(key_battery_log_file, _battery_log_file);
+        _memory.end();
+    }
 }
 
 void LocalStorage::reset_defaults() {
-  if(clear()) {
-    set_device_id(D_DEVICE_ID, true);
-    set_user_name(D_USER_NAME, true);
-    set_ap_password(D_AP_PASSWORD, true);
-    set_alert_threshold(D_ALARM_THRESHOLD, true);
-    set_cpm_usvh(D_CPM_USVH, true);
-    set_manual_logging(D_MANUAL_LOGGING, true);
-    set_enable_journal(D_ENABLE_JOURNAL, true);
-    set_log_void(D_LOG_VOID, true);
-    set_screen_dim_timeout(D_SCREEN_DIM_TIMEOUT, true);
-    set_screen_off_timeout(D_SCREEN_OFF_TIMEOUT, true);
-    set_animated_screensaver(D_ANIMATED_SCREENSAVER, true);
-    set_wifi_ssid(D_WIFI_SSID, true);
-    set_wifi_password(D_WIFI_PASSWORD, true);
-    set_api_key(D_API_KEY, true);
-    set_fixed_longitude(D_FIXED_LONGITUDE, true);
-    set_fixed_latitude(D_FIXED_LATITUDE, true);
-    set_fixed_range(D_FIXED_RANGE, true);
-    set_dop_max(D_DOP_MAX, true);
-    set_last_longitude(D_LAST_LONGITUDE, true);
-    set_last_latitude(D_LAST_LATITUDE, true);
-    set_last_mode(e_operational_mode_drive, true);
-    M5_LOGD("Local Storage: Set defaults for all settings");
-  }
+    if (clear()) {
+        strncpy(_battery_log_file, "battery.log", sizeof(_battery_log_file) - 1);
+        if (_memory.begin(memory_name)) {
+            _memory.putString(key_battery_log_file, _battery_log_file);
+            _memory.end();
+        }
+        set_device_id(D_DEVICE_ID, true);
+        set_user_name(D_USER_NAME, true);
+        set_ap_password(D_AP_PASSWORD, true);
+        set_alert_threshold(D_ALARM_THRESHOLD, true);
+        set_cpm_usvh(D_CPM_USVH, true);
+        set_manual_logging(D_MANUAL_LOGGING, true);
+        set_enable_journal(D_ENABLE_JOURNAL, true);
+        set_log_void(D_LOG_VOID, true);
+        set_screen_dim_timeout(D_SCREEN_DIM_TIMEOUT, true);
+        set_screen_off_timeout(D_SCREEN_OFF_TIMEOUT, true);
+        set_animated_screensaver(D_ANIMATED_SCREENSAVER, true);
+        set_wifi_ssid(D_WIFI_SSID, true);
+        set_wifi_password(D_WIFI_PASSWORD, true);
+        set_api_key(D_API_KEY, true);
+        set_fixed_longitude(D_FIXED_LONGITUDE, true);
+        set_fixed_latitude(D_FIXED_LATITUDE, true);
+        set_fixed_range(D_FIXED_RANGE, true);
+        set_dop_max(D_DOP_MAX, true);
+        set_last_longitude(D_LAST_LONGITUDE, true);
+        set_last_latitude(D_LAST_LATITUDE, true);
+        set_last_mode(e_operational_mode_drive, true);
+        M5_LOGD("Local Storage: Set defaults for all settings");
+    }
 }
 
 uint16_t LocalStorage::get_device_id() const {
@@ -167,6 +177,20 @@ double LocalStorage::get_last_latitude() const {
 
 LocalStorage::OperationalMode LocalStorage::get_last_mode() const {
   return _last_mode;
+}
+
+const char* LocalStorage::get_battery_log_file() const {
+  return _battery_log_file;
+}
+
+void LocalStorage::set_battery_log_file(const char* filename) {
+    strncpy(_battery_log_file, filename, sizeof(_battery_log_file) - 1);
+    if (_memory.begin(memory_name)) {
+        _memory.putString(key_battery_log_file, _battery_log_file);
+        _memory.end();
+    } else {
+        M5_LOGD("unable to save new value for battery_log_file");
+    }
 }
 
 void LocalStorage::set_device_id(uint16_t device_id, bool force) {

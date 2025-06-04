@@ -20,7 +20,7 @@ FlightModeScreen::FlightModeScreen() : BaseScreen("Cosmic", true), _logging_avai
   // Initialize power manager
   static bool power_manager_initialized = false;
   if (!power_manager_initialized) {
-    PowerManager::begin();
+    PowerManager::instance().begin();
     power_manager_initialized = true;
   }
 }
@@ -206,28 +206,16 @@ void FlightModeScreen::render(const worker_map_t& workers, const handler_map_t& 
 void FlightModeScreen::enter_screen(Controller& controller) {
   M5_LOGI("Entering Cosmic mode - optimizing power");
   
-  // Set the last mode to flight mode
-  LocalStorage& settings = const_cast<LocalStorage&>(controller.get_settings());
-  settings.set_last_mode(LocalStorage::e_operational_mode_flight, true);
-  
-  // Enter low power mode
-  PowerManager::enterLowPowerMode();
-  
-  // Start logging by default if manual logging is disabled
   if (!controller.get_settings().get_manual_logging()) {
-    controller.set_handler_active(k_handler_flight_logger, true);
-    _currently_logging = true;
-    set_status_message(F(" STARTED LOGGING COSMIC "));
+    // Automatically start logging
+    controller.set_handler_active(k_handler_gps_debug_logger, true);
+    set_status_message(F(" STARTED LOGGING FLIGHT "));
   }
-  
-  // We'll set the GPS to AIR4 mode in the first render call
-  // when we have access to the worker map
+
+  // Enter power saving mode (CPU/I2C down, wireless off)
+  PowerManager::instance().enterLowPowerMode();
+
   force_next_render(); // Force render to apply GPS settings
-  
-  // Don't enable BLE for Cosmic mode to save power
-  // controller.set_handler_active(k_handler_bluetooth_reporter, false);
-  
-  M5_LOGI("Cosmic mode activated with power optimizations");
 }
 
 void FlightModeScreen::leave_screen(Controller& controller) {
@@ -238,7 +226,7 @@ void FlightModeScreen::leave_screen(Controller& controller) {
   _currently_logging = false;
   
   // Restore normal power settings
-  PowerManager::exitLowPowerMode();
+  PowerManager::instance().exitLowPowerMode();
   
   // We need to get the worker map from the handle_input method, so we'll set the model back in that method
   // or in the enter_screen method of the next screen
