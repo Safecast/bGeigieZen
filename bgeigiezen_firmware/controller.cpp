@@ -28,6 +28,7 @@ void Controller::start_default_workers() {
   set_worker_active(k_worker_gps_connector, true);
   set_worker_active(k_worker_navsat_collector, true);
   set_worker_active(k_worker_log_aggregator, true);
+  set_worker_active(k_worker_battery_logger, true);
 //  set_worker_active(k_worker_shake_detector, true);
   set_worker_active(k_worker_device_state, true);
   set_worker_active(k_worker_sound_manager, true);
