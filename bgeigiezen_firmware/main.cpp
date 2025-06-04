@@ -53,6 +53,7 @@
 #include "handlers/debug_logger.h"
 #include "identifiers.h"
 #include "workers/battery_indicator.h"
+#include "workers/battery_logger.h"
 #include "workers/configuration_server.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
@@ -80,6 +81,7 @@ ShakeDetector shake_detector;
 LogAggregator log_aggregator(settings);
 ConfigWebServer config_server(settings);
 SoundManager sound_manager;
+BatteryLogger battery_logger;
 
 // Data handlers
 SdLogger journal_logger(settings, SdLogger::journal);
@@ -101,6 +103,22 @@ void setup() {
 
   M5_LOGD("MAIN SETUP DEBUG ENABLED");
 
+  // Check SD card status
+  M5_LOGI("Checking SD card status...");
+  if(!SD.begin(GPIO_NUM_4, SPI, 20000000)){
+    M5_LOGE("SD Card Mount Failed");
+  } else {
+    uint8_t cardType = SD.cardType();
+    if(cardType == CARD_NONE){
+        M5_LOGE("No SD card attached");
+    } else {
+        M5_LOGI("SD Card Type: %d", cardType);
+        uint64_t cardSize = SD.cardSize() / (1024 * 1024);
+        M5_LOGI("SD Card Size: %lluMB", cardSize);
+    }
+  }
+
+
   /// Software configurations
 
   M5_LOGD("Register workers...");
@@ -110,6 +128,7 @@ void setup() {
   controller.register_worker(k_worker_shake_detector, shake_detector);
   controller.register_worker(k_worker_battery_indicator, battery_indicator);
   controller.register_worker(k_worker_rtc_connector, rtc);
+  controller.register_worker(k_worker_battery_logger, battery_logger);
   controller.register_worker(k_worker_button_3, zen_A);
   controller.register_worker(k_worker_button_2, zen_B);
   controller.register_worker(k_worker_button_1, zen_C);
