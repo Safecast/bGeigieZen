@@ -75,6 +75,9 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual void set_last_latitude(double last_latitude, bool force);
   virtual void set_last_mode(OperationalMode last_mode, bool force);
 
+  virtual const char* get_battery_log_file() const final;
+  virtual void set_battery_log_file(const char* filename) final;
+
  protected:
   virtual bool clear();
 
@@ -98,6 +101,7 @@ class LocalStorage : public ProcessWorker<bool> {
   uint16_t _screen_off_timeout; // in seconds
   bool _animated_screensaver;
   char _ap_password[CONFIG_VAL_MAX];
+  char _battery_log_file[32];
 
   // Connection settings
   char _wifi_ssid[CONFIG_VAL_MAX];

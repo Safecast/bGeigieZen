@@ -199,7 +199,7 @@ void DriveModeScreen::enter_screen(Controller& controller) {
   }
 
   // Enter power saving mode (CPU/I2C down, wireless off)
-  PowerManager::enterLowPowerMode();
+  PowerManager::instance().enterLowPowerMode();
 
   // Re-enable BLE only (do NOT enable WiFi)
   controller.set_handler_active(k_handler_bluetooth_reporter, true);
@@ -215,7 +215,7 @@ void DriveModeScreen::leave_screen(Controller& controller) {
   controller.set_handler_active(k_handler_bluetooth_reporter, false);
 
   // Restore normal power settings
-  PowerManager::exitLowPowerMode();
+  PowerManager::instance().exitLowPowerMode();
 
   // Restore previous GPS dynamic model
   // Note: We can't access the GPS connector directly from here

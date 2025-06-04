@@ -130,10 +130,19 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 }
 
 void FixedModeScreen::enter_screen(Controller& controller) {
+  BaseScreen::enter_screen(controller);
+  
+  // Enable API reporting
   controller.set_handler_active(k_handler_api_reporter, true);
 
-  // Enter low power mode (CPU/I2C down, but WiFi stays on)
-  PowerManager::enterLowPowerMode();
+  if (!controller.get_settings().get_manual_logging()) {
+    // Automatically start logging
+    controller.set_handler_active(k_handler_survey_logger, true);
+    set_status_message(F(" STARTED LOGGING SURVEY "));
+  }
+
+  // Enter power saving mode (CPU/I2C down, wireless off)
+  PowerManager::instance().enterLowPowerMode();
 
   // --- WiFi Power Save Mode and TX Power ---
   // Set WiFi to power save mode and reduce TX power for Fixed (Real-time) mode
@@ -146,7 +155,7 @@ void FixedModeScreen::leave_screen(Controller& controller) {
   controller.set_handler_active(k_handler_api_reporter, false);
 
   // Restore normal power settings
-  PowerManager::exitLowPowerMode();
+  PowerManager::instance().exitLowPowerMode();
 
   // --- Restore WiFi Power Settings ---
   esp_wifi_set_ps(WIFI_PS_NONE);      // Disable WiFi power save

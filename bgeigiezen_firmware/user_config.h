@@ -71,6 +71,7 @@ constexpr char JOURNAL_LOG_DIRECTORY[] = "/journals";
 constexpr char DRIVE_LOG_DIRECTORY[] = "/drives";
 constexpr char SURVEY_LOG_DIRECTORY[] = "/surveys";
 constexpr char DEBUG_LOG_DIRECTORY[] = "/debug";
+constexpr char BATTERY_LOG_DIRECTORY[] = "/battery";
 constexpr char LOG_HEADER_LINE1[] = "# NEW LOG";
 constexpr char LOG_HEADER_LINE2[] = "# format=";
 constexpr char LOG_HEADER_LINE3[] = "# deadtime=off";

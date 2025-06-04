@@ -32,6 +32,7 @@ enum DataHandlers {
   k_handler_gps_debug_logger,
   k_handler_bluetooth_reporter,
   k_handler_api_reporter,
+  k_handler_battery_logger,
 };
 
 #endif //BGEIGIEZEN_IDENTIFIERS_H_
