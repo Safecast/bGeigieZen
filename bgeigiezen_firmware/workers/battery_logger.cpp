@@ -107,6 +107,11 @@ int8_t BatteryLogger::produce_data(const worker_map_t& workers) {
         M5_LOGI("Battery level change detected. Old: %d, New: %d", data.last_battery_level, battery_level);
         should_log = true;
     }
+    // Add special case for 0% battery level - log every 5 minutes
+    else if (battery_level == 0 && (current_millis - data.last_log_time >= 300000)) { // 300000ms = 5 minutes
+        M5_LOGI("Battery at 0%, logging 5-minute interval entry.");
+        should_log = true;
+    }
 
     // Note: Logging due to mode change or simple interval pass is removed as per new requirement.
 
