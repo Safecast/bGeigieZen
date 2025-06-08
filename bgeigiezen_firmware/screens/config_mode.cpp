@@ -219,7 +219,7 @@ void ConfigModeScreen::render_page_ap(const worker_map_t& workers, const handler
   M5.Lcd.printf("SSID:  %s\n", WiFiWrapper_i.get_hostname());
   M5.Lcd.printf("Password:  %s\n", settings->get_ap_password());
 
-  M5.Lcd.printf("IP:  %s     \n", WiFi.softAPIP().toString().c_str());
+  M5.Lcd.printf("Connect to config page at url :  %s     \n", WiFi.softAPIP().toString().c_str());
 }
 
 void ConfigModeScreen::render_page_wifi(const worker_map_t& workers, const handler_map_t& handlers) {
