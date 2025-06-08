@@ -18,6 +18,7 @@ struct BatteryLogEntry {
     uint32_t last_battery_level; // Percentage
     uint32_t last_log_time;      // Milliseconds from millis()
     uint32_t device_id;
+    float    battery_voltage;    // Battery voltage in volts
     bool     header_written;     // Tracks if the CSV header has been written for the current file
     bool     initial_log_done;   // Tracks if the very first log entry has been made
     char     current_log_filename[128]; // Stores the name of the current daily log file
@@ -27,6 +28,7 @@ struct BatteryLogEntry {
         last_battery_level(0),
         last_log_time(0),
         device_id(0),
+        battery_voltage(0.0f),
         header_written(false),
         initial_log_done(false),
         is_temp_file(true) { // Initialize as temporary

@@ -205,7 +205,7 @@ int8_t BatteryLogger::produce_data(const worker_map_t& workers) {
                 mode_str = get_operational_mode_string(settings->get_last_mode());
             }
             file.printf("# Operational Mode: %s\n", mode_str);
-            file.println("device_id,timestamp_utc,datetime_utc,battery_level_percent");
+            file.println("device_id,timestamp_utc,datetime_utc,battery_level_percent,battery_voltage");
             data.header_written = true;
         }
 
@@ -217,13 +217,18 @@ int8_t BatteryLogger::produce_data(const worker_map_t& workers) {
             }
         }
 
+        // Get battery voltage from M5.Power
+        float battery_voltage = M5.Power.getBatteryVoltage();
+        data.battery_voltage = battery_voltage;
+
         // Prepare final log entry string using dt_buffer
         char final_log_buffer[256]; // Use a distinct name to avoid confusion if log_buffer was used elsewhere
-        snprintf(final_log_buffer, sizeof(final_log_buffer), "%u,%u,%s,%d",
+        snprintf(final_log_buffer, sizeof(final_log_buffer), "%u,%u,%s,%d,%.3f",
                  data.device_id,
                  timestamp_s,      // epoch timestamp
                  dt_buffer,        // YYYY-MM-DDTHH:MM:SSZ or "N/A"
-                 battery_level);
+                 battery_level,
+                 battery_voltage / 1000.0f);
         
         M5_LOGI("Writing log entry: %s", final_log_buffer);
         file.println(final_log_buffer);
