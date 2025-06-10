@@ -117,8 +117,8 @@ bool GpsConnector::activate(bool retry) {
   _gnss.setPortOutput(COM_PORT_UART1, COM_TYPE_UBX);
 
   // Set Auto on NAV-PVT for non-blocking access
-  // getPVT() will return true if a new navigation solution is available
-  _gnss.setAutoPVT(true); // Tell the GNSS to send the solution as it is computed (1 second)
+  // getNAVPVT() will return true if a new navigation solution is available
+  _gnss.setAutoNAVPVT(true); // Tell the GNSS to send the solution as it is computed (1 second)
   _gnss.setAutoNAVSAT(false); // Disable navsat by default (navsat worker handles this)
 
   return true;
@@ -134,14 +134,14 @@ void GpsConnector::deactivate() {
 int8_t GpsConnector::produce_data() {
   auto ret_status = e_worker_idle;
 
-  // getPVT returns true if there is a fresh navigation solution available.
+  // getNAVPVT returns true if there is a fresh navigation solution available.
   // "LLH" is longitude, latitude, height.
-  // getPVT() returns UTC date and time.
+  // getNAVPVT() returns UTC date and time.
   // Do not use GNSS time, see u-blox spec section 9.
-  if (_gnss.getPVT()) {
-    // M5_LOGD("[%d] _gnss.getPVT() is true.", millis());
+  if (_gnss.getNAVPVT()) {
+    // M5_LOGD("[%d] _gnss.getNAVPVT() is true.", millis());
 
-    data.satsInView = _gnss.getSIV(); // Satellites In View
+    data.satsInView = _gnss.getNumSV(); // Satellites In View
 
     if (_gnss.getFixType() == 2 || _gnss.getFixType() == 3) {
       // M5_LOGD("[%d] fix type is 2D or 3D.", millis());
