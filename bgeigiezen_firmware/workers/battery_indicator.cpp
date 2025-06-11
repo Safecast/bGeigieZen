@@ -9,8 +9,12 @@ bool BatteryIndicator::activate(bool retry) {
 }
 
 int8_t BatteryIndicator::produce_data() {
-
   data.isCharging = M5.Power.isCharging();
-  data.percentage = M5.Power.getBatteryLevel();
+  data.voltage = M5.Power.getBatteryVoltage() / 1000.0f; // Convert mV to V if needed
+  // Map voltage to percentage: 4.2V = 100%, 3.0V = 0%
+  float pct = (data.voltage - 3.0f) / (4.2f - 3.0f) * 100.0f;
+  if (pct > 100.0f) pct = 100.0f;
+  if (pct < 0.0f) pct = 0.0f;
+  data.percentage = static_cast<int32_t>(pct + 0.5f); // Round to nearest int
   return e_worker_data_read;
 }

@@ -28,8 +28,9 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.setCursor(0, 25);
-  M5.Lcd.printf("Battery: %d%% %s\n",
+  M5.Lcd.printf("Battery: %d%% (%.2fV) %s\n",
                 battery->get_data().percentage,
+                battery->get_data().voltage,
                 battery->get_data().isCharging ? "(charging)" : "          ");
   if (gm_sensor->active()) {
     M5.Lcd.printf("Geiger counter %s\n"
