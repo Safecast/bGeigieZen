@@ -92,8 +92,9 @@ int8_t BatteryLogger::produce_data(const worker_map_t& workers) {
     }
 
     // uint32_t current_millis = millis(); // Removed: Duplicate of declaration at line 76
-    // Get battery level from data struct: battery->get_data().percentage
-    int battery_level = battery->get_data().percentage; 
+    // Get battery level and voltage from data struct: battery->get_data().percentage, battery->get_data().voltage
+    int battery_level = battery->get_data().percentage;
+    float battery_voltage = battery->get_data().voltage;
     // DeviceState::Mode current_mode = controller_worker->get_data().mode; // No longer needed
 
     bool should_log = false;
@@ -217,10 +218,6 @@ int8_t BatteryLogger::produce_data(const worker_map_t& workers) {
             }
         }
 
-        // Get battery voltage from M5.Power
-        float battery_voltage = M5.Power.getBatteryVoltage();
-        data.battery_voltage = battery_voltage;
-
         // Prepare final log entry string using dt_buffer
         char final_log_buffer[256]; // Use a distinct name to avoid confusion if log_buffer was used elsewhere
         snprintf(final_log_buffer, sizeof(final_log_buffer), "%u,%u,%s,%d,%.3f",
@@ -228,7 +225,7 @@ int8_t BatteryLogger::produce_data(const worker_map_t& workers) {
                  timestamp_s,      // epoch timestamp
                  dt_buffer,        // YYYY-MM-DDTHH:MM:SSZ or "N/A"
                  battery_level,
-                 battery_voltage / 1000.0f);
+                 battery_voltage);
         
         M5_LOGI("Writing log entry: %s", final_log_buffer);
         file.println(final_log_buffer);

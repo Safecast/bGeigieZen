@@ -8,7 +8,8 @@
  * Relevant battery status
  */
 struct BatteryStatus {
-  int32_t percentage;
+  int32_t percentage; // Now mapped from voltage
+  float voltage;      // Battery voltage in volts
   m5::Power_Class::is_charging_t isCharging;
 };
 
