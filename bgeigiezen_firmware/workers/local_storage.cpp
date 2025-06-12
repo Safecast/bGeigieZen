@@ -393,13 +393,12 @@ void LocalStorage::set_last_mode(LocalStorage::OperationalMode last_mode, bool f
 }
 
 void LocalStorage::reset_dose_rate() {
-  // Reset the dose rate by clearing the accumulated counts
-  if(_memory.begin(memory_name)) {
+  if (_memory.begin("bgeigiezen", false)) {
     _memory.remove("dose_rate");
     _memory.end();
-    M5_LOGD("Dose rate reset");
+    M5_LOGI("Dose rate reset");
   } else {
-    M5_LOGD("unable to reset dose rate");
+    M5_LOGE("Cannot access memory to reset dose rate");
   }
 }
 
@@ -460,16 +459,6 @@ int8_t LocalStorage::produce_data(const worker_map_t& workers) {
     return Worker::e_worker_data_read;
   }
   return Worker::e_worker_idle;
-}
-
-void LocalStorage::reset_dose_rate() {
-  if (_memory.begin("bgeigiezen", false)) {
-    _memory.remove("dose_rate");
-    _memory.end();
-    M5_LOGI("Dose rate reset");
-  } else {
-    M5_LOGE("Cannot access memory to reset dose rate");
-  }
 }
 
 float LocalStorage::get_accumulated_dose() const {
