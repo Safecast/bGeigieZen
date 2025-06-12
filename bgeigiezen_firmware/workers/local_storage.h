@@ -76,6 +76,10 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual void set_last_mode(OperationalMode last_mode, bool force);
   virtual void reset_dose_rate() final;
 
+  void reset_dose_rate();
+  float get_accumulated_dose() const;
+  void save_accumulated_dose(float dose);
+
  protected:
   virtual bool clear();
 
@@ -85,7 +89,7 @@ class LocalStorage : public ProcessWorker<bool> {
   bool activate(bool) override;
   int8_t produce_data(const worker_map_t& workers) override;
  private:
-  Preferences _memory;
+  mutable Preferences _memory;
 
   // Device settings
   uint16_t _device_id;

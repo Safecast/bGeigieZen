@@ -108,27 +108,42 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
     cps_width += M5.Lcd.drawString(" CP5S", cps_width, 105, &fonts::Font4); // Prints after cps value
     M5.Lcd.fillRect(cps_width, 74, 320 - cps_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CP5S text
 
-    // Display dose rate (uSv/h) on the right side at same height as latitude
-    M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.setCursor(170, 157);
+    // Calculate accumulated dose rate (integrate over time)
+    static float accumulated_dose = settings->get_accumulated_dose(); // Load saved dose on first run
+    static uint32_t last_update = 0;
+    static uint32_t last_save = 0;
+    uint32_t current_time = millis();
+    if (last_update > 0) {
+      float time_diff = (current_time - last_update) / 3600000.0; // Convert ms to hours
+      accumulated_dose += gm_sensor->get_data().uSvh_5sec * time_diff;
+    }
+    last_update = current_time;
+
+    // Save accumulated dose every 5 seconds
+    if (current_time - last_save >= 5000) {
+      settings->save_accumulated_dose(accumulated_dose);
+      last_save = current_time;
+    }
+
+    // Display accumulated dose rate on the right side at same height as latitude
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-    M5.Lcd.print("Dose rate :");
-    M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.printf("%0.4f uSv/h", gm_sensor->get_data().uSvh_5sec);
+    M5.Lcd.drawString("dose: ", 170, 157, &fonts::Font0);
+    M5.Lcd.drawFloat(accumulated_dose, 4, 210, 157, &fonts::Font0);
+    M5.Lcd.drawString(" uSv", 255, 157, &fonts::Font0);
   }
 
   // Always update GPS data when fresh
   if (gps->is_fresh() || force) {
     // Print survey data
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-    const uint16_t lat_width = M5.Lcd.drawString("Latitude  :", 0, 157, &fonts::Font0);
-    const uint16_t lon_width = M5.Lcd.drawString("Longitude :", 0, 165, &fonts::Font0);
-    const uint16_t sat_width = M5.Lcd.drawString("Satellites:", 0, 173, &fonts::Font0);
+    const uint16_t lat_width = M5.Lcd.drawString("Latitude  :", 150, 157, &fonts::Font0);
+    const uint16_t lon_width = M5.Lcd.drawString("Longitude :", 150, 165, &fonts::Font0);
+    const uint16_t sat_width = M5.Lcd.drawString("Satellites:", 150, 173, &fonts::Font0);
 
     // Print GPS values
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    M5.Lcd.drawFloat(gps->get_data().latitude, 6, lat_width + 5, 157, &fonts::Font0);
-    M5.Lcd.drawFloat(gps->get_data().longitude, 6, lon_width + 5, 165, &fonts::Font0);
+    M5.Lcd.drawFloat(gps->get_data().latitude, 6, lat_width + 160, 157, &fonts::Font0);
+    M5.Lcd.drawFloat(gps->get_data().longitude, 6, lon_width + 160, 165, &fonts::Font0);
     
     // Make sure satellites are displayed correctly
     uint8_t satellites = gps->get_data().numSV;
@@ -136,7 +151,7 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
       // If numSV is 0 but GPS is fresh, try to get satellites from satsInView
       satellites = gps->get_data().satsInView;
     }
-    M5.Lcd.drawNumber(satellites, sat_width + 5, 173, &fonts::Font0);
+    M5.Lcd.drawNumber(satellites, sat_width + 160, 173, &fonts::Font0);
   }
 }
 
