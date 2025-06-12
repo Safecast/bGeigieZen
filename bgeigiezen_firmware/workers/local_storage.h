@@ -75,10 +75,8 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual void set_last_latitude(double last_latitude, bool force);
   virtual void set_last_mode(OperationalMode last_mode, bool force);
   virtual void reset_dose_rate() final;
-
-  void reset_dose_rate();
-  float get_accumulated_dose() const;
-  void save_accumulated_dose(float dose);
+  virtual void save_accumulated_dose(float dose) final;
+  virtual float get_accumulated_dose() const final;
 
  protected:
   virtual bool clear();
