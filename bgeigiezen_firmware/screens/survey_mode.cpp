@@ -98,15 +98,36 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
     // Display values based on user settings
     const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
     
-    // Display CP5S (5-second average) big
-    M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-    uint16_t cps_width = printIntFont(gm_sensor->get_data().cp5s, 0, 100, &fonts::Font7);
+    // Use the 5-second average (cp5s) instead of single-second CPS to avoid showing 0
+    // The cp5s value is the sum of counts over the last 5 seconds
+    // We'll use the 5-second uSv/h value that's already calculated in the sensor
+    float cps_usvh = gm_sensor->get_data().uSvh_5sec; // Already calculated 5-second average in uSv/h
+    
+    if (settings->get_cpm_usvh()) {
+      // Display CP5S (5-second average) big, uSv/h small for Survey Mode
+      M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+      uint16_t cps_width = printIntFont(gm_sensor->get_data().cp5s, 0, 100, &fonts::Font7);
+      uint16_t ush_width = printFloatFont(cps_usvh, 4, 0, 140, &fonts::Font4);
 
-    // Display unit text with cleanup (CP5S)
-    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-    M5.Lcd.fillRect(cps_width, 52, 320 - cps_width, 27, LCD_COLOR_BACKGROUND); // Prints blanks after cps value
-    cps_width += M5.Lcd.drawString(" CP5S", cps_width, 105, &fonts::Font4); // Prints after cps value
-    M5.Lcd.fillRect(cps_width, 74, 320 - cps_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CP5S text
+      // Display unit text with cleanup (CP5S uSv/h)
+      M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+      M5.Lcd.fillRect(cps_width, 52, 320 - cps_width, 27, LCD_COLOR_BACKGROUND); // Prints blanks after cps value
+      cps_width += M5.Lcd.drawString(" CP5S", cps_width, 105, &fonts::Font4); // Prints after cps value
+      M5.Lcd.fillRect(cps_width, 74, 320 - cps_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CP5S text
+      M5.Lcd.drawString(" uSv/h   ", 0 + ush_width, 140, &fonts::Font4); // Prints after ush value
+    } else {
+      // Display uSv/h big, CP5S small
+      M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+      uint16_t ush_width = printFloatFont(cps_usvh, 3, 0, 100, &fonts::Font7);
+      uint16_t cps_width = printIntFont(gm_sensor->get_data().cp5s, 0, 140, &fonts::Font4);
+
+      // Display unit text with cleanup (uSv/h CP5S)
+      M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+      M5.Lcd.fillRect(ush_width, 52, 320 - ush_width, 27, LCD_COLOR_BACKGROUND); // Prints blanks after uSv/h value
+      ush_width += M5.Lcd.drawString(" uSv/h", ush_width, 105, &fonts::Font4); // Prints after uSv/h value
+      M5.Lcd.fillRect(ush_width, 74, 320 - ush_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after uSv/h text
+      M5.Lcd.drawString(" CP5S   ", 0 + cps_width, 140, &fonts::Font4); // Prints after cp5s value
+    }
 
     // Calculate accumulated dose rate (integrate over time)
     static float accumulated_dose = settings->get_accumulated_dose(); // Load saved dose on first run
@@ -115,7 +136,7 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
     uint32_t current_time = millis();
     if (last_update > 0) {
       float time_diff = (current_time - last_update) / 3600000.0; // Convert ms to hours
-      accumulated_dose += gm_sensor->get_data().uSvh_5sec * time_diff;
+      accumulated_dose += cps_usvh * time_diff;
     }
     last_update = current_time;
 
@@ -127,9 +148,9 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
 
     // Display accumulated dose rate on the right side at same height as latitude
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-    M5.Lcd.drawString("dose: ", 170, 157, &fonts::Font0);
-    M5.Lcd.drawFloat(accumulated_dose, 4, 210, 157, &fonts::Font0);
-    M5.Lcd.drawString(" uSv", 255, 157, &fonts::Font0);
+    M5.Lcd.drawString("dose: ", 0, 157, &fonts::Font0);
+    M5.Lcd.drawFloat(accumulated_dose, 4, 35, 157, &fonts::Font0);
+    M5.Lcd.drawString(" uSv", 65, 157, &fonts::Font0);
   }
 
   // Always update GPS data when fresh
