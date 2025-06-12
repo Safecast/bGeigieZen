@@ -15,6 +15,7 @@ const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MEN
     {.title="Load from SD", .tooltip="Read settings file     from the SD-card     and set to device", .enabled=true},
     {.title="Save to SD", .tooltip="Write current device      settings to the       SD-card config file", .enabled=true},
     {.title="Wipe SD Card", .tooltip="Delete all log files from the SD card", .enabled=true},
+    {.title="Reset dose", .tooltip="Reset the accumulated dose rate to zero", .enabled=true},
     {.title="Reset device", .tooltip="Clear and reset      device, on reboot it      will load settings        from SD-card", .enabled=true},
     {.title="Factory reset", .tooltip="Clear and reset      device and SD-card", .enabled=true},
 };
@@ -26,26 +27,29 @@ ConfigModeScreen::ConfigModeScreen() : BaseScreenWithMenu("Settings", true), _ma
 }
 
 BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
-
   if (menu_open()) {
-    return handle_menu_input(controller, workers, CONFIG_MODE_MENU, e_config_MENU_MAX);
+    auto* new_screen = handle_menu_input(controller, workers, CONFIG_MODE_MENU, e_config_MENU_MAX);
+    if (new_screen) {
+      return new_screen;
+    }
+    // Handle menu selection
+    if (_current_page == e_config_page_reset_dose) {
+      auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
+      settings->reset_dose_rate();
+      set_status_message(F(" DOSE RATE RESET "));
+      _current_page = e_config_page_main;
+      open_menu(false);
+      force_next_render();
+    }
   }
   else {
     auto button1 = workers.worker<ZenButton>(k_worker_button_1);
     auto button2 = workers.worker<ZenButton>(k_worker_button_2);
     auto button3 = workers.worker<ZenButton>(k_worker_button_3);
     if (button1->is_fresh() && button1->get_data().shortPress) {
-      if (_main_page_info_section == e_config_section_device) {
-        // Reset dose rate when in device settings section
-        auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
-        settings->reset_dose_rate();
-        set_status_message(F(" DOSE RATE RESET "));
-        force_next_render();
-      } else {
-        open_menu(true);
-        M5.Lcd.clear();
-        force_next_render();
-      }
+      open_menu(true);
+      M5.Lcd.clear();
+      force_next_render();
     }
     if (button2->is_fresh() && button2->get_data().shortPress) {
       // screen specific action
@@ -197,7 +201,6 @@ void ConfigModeScreen::render_page_main(const worker_map_t& workers, const handl
     M5.Lcd.printf("Screen dim after:   %d seconds  \n", config.get_screen_dim_timeout());
     M5.Lcd.printf("Screen off after:   %d seconds  \n", config.get_screen_off_timeout());
     M5.Lcd.printf("Screensaver:   %s  \n", config.get_animated_screensaver() ? "Enabled" : "Disabled");
-    M5.Lcd.printf("Reset dose rate:   Press button 1  \n");
   }
   if (_main_page_info_section == e_config_section_location) {
     M5.Lcd.printf("Location settings\n\n");
