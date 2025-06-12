@@ -35,9 +35,17 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
     auto button2 = workers.worker<ZenButton>(k_worker_button_2);
     auto button3 = workers.worker<ZenButton>(k_worker_button_3);
     if (button1->is_fresh() && button1->get_data().shortPress) {
-      open_menu(true);
-      M5.Lcd.clear();
-      force_next_render();
+      if (_main_page_info_section == e_config_section_device) {
+        // Reset dose rate when in device settings section
+        auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
+        settings->reset_dose_rate();
+        set_status_message(F(" DOSE RATE RESET "));
+        force_next_render();
+      } else {
+        open_menu(true);
+        M5.Lcd.clear();
+        force_next_render();
+      }
     }
     if (button2->is_fresh() && button2->get_data().shortPress) {
       // screen specific action
@@ -189,6 +197,7 @@ void ConfigModeScreen::render_page_main(const worker_map_t& workers, const handl
     M5.Lcd.printf("Screen dim after:   %d seconds  \n", config.get_screen_dim_timeout());
     M5.Lcd.printf("Screen off after:   %d seconds  \n", config.get_screen_off_timeout());
     M5.Lcd.printf("Screensaver:   %s  \n", config.get_animated_screensaver() ? "Enabled" : "Disabled");
+    M5.Lcd.printf("Reset dose rate:   Press button 1  \n");
   }
   if (_main_page_info_section == e_config_section_location) {
     M5.Lcd.printf("Location settings\n\n");

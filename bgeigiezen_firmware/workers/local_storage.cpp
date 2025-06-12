@@ -392,6 +392,17 @@ void LocalStorage::set_last_mode(LocalStorage::OperationalMode last_mode, bool f
   }
 }
 
+void LocalStorage::reset_dose_rate() {
+  // Reset the dose rate by clearing the accumulated counts
+  if(_memory.begin(memory_name)) {
+    _memory.remove("dose_rate");
+    _memory.end();
+    M5_LOGD("Dose rate reset");
+  } else {
+    M5_LOGD("unable to reset dose rate");
+  }
+}
+
 bool LocalStorage::clear() {
   if(_memory.begin(memory_name)) {
     _memory.clear();
