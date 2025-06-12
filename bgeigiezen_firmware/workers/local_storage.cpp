@@ -461,3 +461,31 @@ int8_t LocalStorage::produce_data(const worker_map_t& workers) {
   }
   return Worker::e_worker_idle;
 }
+
+void LocalStorage::reset_dose_rate() {
+  if (_memory.begin("bgeigiezen", false)) {
+    _memory.remove("dose_rate");
+    _memory.end();
+    M5_LOGI("Dose rate reset");
+  } else {
+    M5_LOGE("Cannot access memory to reset dose rate");
+  }
+}
+
+float LocalStorage::get_accumulated_dose() const {
+  float dose = 0.0;
+  if (_memory.begin("bgeigiezen", true)) {  // true for read-only
+    dose = _memory.getFloat("dose_rate", 0.0);
+    _memory.end();
+  }
+  return dose;
+}
+
+void LocalStorage::save_accumulated_dose(float dose) {
+  if (_memory.begin("bgeigiezen", false)) {  // false for read-write
+    _memory.putFloat("dose_rate", dose);
+    _memory.end();
+  } else {
+    M5_LOGE("Cannot access memory to save dose rate");
+  }
+}
