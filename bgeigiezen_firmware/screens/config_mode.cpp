@@ -36,10 +36,18 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
     if (_current_page == e_config_page_reset_dose) {
       auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
       settings->reset_dose_rate();
-      set_status_message(F(" DOSE RATE RESET "));
-      _current_page = e_config_page_main;
-      open_menu(false);
-      force_next_render();
+      
+      // Clear screen and show restart message
+      M5.Lcd.clear(LCD_COLOR_BACKGROUND);
+      M5.Lcd.setRotation(3);
+      M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+      M5.Lcd.setCursor(46, 78, &fonts::Font4);  // Centered horizontally (320 - text width) / 2
+      M5.Lcd.printf("DOSE RATE RESET\n");
+      M5.Lcd.setCursor(100, 120, &fonts::Font2);
+      M5.Lcd.printf("Restarting device...\n");
+      
+      delay(2000); // Wait 2 seconds
+      DeviceUtils::shutdown(true); // Restart the device
     }
   }
   else {
