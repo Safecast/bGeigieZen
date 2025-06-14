@@ -339,14 +339,14 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
           M5.Lcd.print(_screen->get_title());
           
           // Calculate positions for status indicators
-          int pos = 60; // Starting position after screen name
+          int pos = 60; // Starting position after screen name (reduced from 60)
           
           // Status icon: Battery
           M5.Lcd.setCursor(pos, 235);
           const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator)->get_data();
           M5.Lcd.setTextColor(battery.isCharging ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
           M5.Lcd.printf("%d%%", battery.percentage);
-          pos += 25; // Adjust position for next indicator
+          pos += 30; 
 
           // Status icon: Geiger Tube
           M5.Lcd.setCursor(pos, 235);
@@ -357,7 +357,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
             M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
           }
           M5.Lcd.print("GM");
-          pos += 18; // Adjust position for next indicator
+          pos += 15; 
 
           // Status icon: GPS
           M5.Lcd.setCursor(pos, 235);
@@ -365,11 +365,11 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
           if (!gps->active()) {
             M5.Lcd.setTextColor(_screen->has_required_gps() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, TFT_BLACK);
             M5.Lcd.print("GPS");
-            pos += 24; // Adjust position for next indicator
+            pos += 26; // Reduced from 24
           } else {
             M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_ACTIVITY : LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
             M5.Lcd.printf("GPS%d", gps->get_data().satsInView);
-            pos += 30; // Adjust position for next indicator (account for digit)
+            pos += 30; // Reduced from 30
           }
 
           // Status icon: SD
