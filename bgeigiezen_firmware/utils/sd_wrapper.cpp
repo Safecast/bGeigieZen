@@ -239,7 +239,7 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   uint8_t cpm_usvh = false;
   uint8_t manual_logging = false;
   uint8_t enable_journal = true;
-  uint8_t log_void = false;
+  uint8_t log_void = true;  // Always set to true to include invalid lines
   uint32_t screen_dim_timeout = 0;
   uint32_t screen_off_timeout = 0;
   uint8_t animated_screensaver = true;

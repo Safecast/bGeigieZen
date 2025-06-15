@@ -151,9 +151,8 @@ void ConfigWebServer::handle_save() {
   if(_server.hasArg(FORM_NAME_ENABLE_JOURNAL)) {
     _config.set_enable_journal(_server.arg(FORM_NAME_ENABLE_JOURNAL).toInt(), false);
   }
-  if(_server.hasArg(FORM_NAME_LOG_VOID)) {
-    _config.set_log_void(_server.arg(FORM_NAME_LOG_VOID).toInt(), false);
-  }
+  // Always set log_void to true to include invalid lines
+  _config.set_log_void(true, false);
   if(_server.hasArg(FORM_NAME_AP_LOGIN)) {
     _config.set_ap_password(_server.arg(FORM_NAME_AP_LOGIN).c_str(), false);
   }

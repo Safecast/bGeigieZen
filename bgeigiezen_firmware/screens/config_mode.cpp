@@ -16,8 +16,8 @@ const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MEN
     {.title="Save to SD", .tooltip="Write current device      settings to the       SD-card config file", .enabled=true},
     {.title="Wipe SD Card", .tooltip="Delete all log files from the SD card", .enabled=true},
     {.title="Reset dose", .tooltip="Reset the accumulated dose rate to zero", .enabled=true},
-    {.title="Reset device", .tooltip="Clear and reset      device, on reboot it      will load settings        from SD-card", .enabled=true},
     {.title="Factory reset", .tooltip="Clear and reset      device and SD-card", .enabled=true},
+    {.title="Back to main menu", .tooltip="Return to the main menu", .enabled=true},
 };
 
 
@@ -49,6 +49,9 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
       delay(2000); // Wait 2 seconds
       DeviceUtils::shutdown(true); // Restart the device
     }
+    else if (_current_page == e_config_page_back_to_main) {
+      return &MenuWindow_i;
+    }
   }
   else {
     auto button1 = workers.worker<ZenButton>(k_worker_button_1);
@@ -62,52 +65,6 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
     if (button2->is_fresh() && button2->get_data().shortPress) {
       // screen specific action
       switch (_current_page) {
-        case e_config_page_reset:
-          controller.reset_settings();
-          // Temp clear and post reset message to screen
-          M5.Lcd.clear(LCD_COLOR_BACKGROUND);
-          M5.Lcd.setRotation(3);
-          M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-          M5.Lcd.setCursor(17, 78, &fonts::Font4);
-          M5.Lcd.printf("DEVICE MEMORY RESET\n");
-          M5.Lcd.setCursor(100, 120, &fonts::Font2);
-          M5.Lcd.printf("Restarting device...\n");
-          delay(1000);
-          DeviceUtils::shutdown(true);
-          break;
-        case e_config_page_sd_wipe:
-          {
-            M5.Lcd.clear(LCD_COLOR_BACKGROUND);
-            M5.Lcd.setRotation(3);
-            M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-            M5.Lcd.setCursor(30, 78, &fonts::Font4);
-            M5.Lcd.printf("WIPE IN PROGRESS\n");
-            M5.Lcd.setCursor(5, 120, &fonts::Font2);
-
-            M5.Lcd.printf("Removing all log files, This can take a while...\n");
-            bool success = SDInterface::i().clear_all_logs();
-            M5.Lcd.clear(LCD_COLOR_BACKGROUND);
-            M5.Lcd.setRotation(3);
-            M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-            M5.Lcd.setCursor(27, 78, &fonts::Font4);
-            if (success) {
-              M5.Lcd.printf("SD CARD HAS BEEN\n");
-              M5.Lcd.setCursor(27, 110, &fonts::Font4);
-              M5.Lcd.printf("WIPED SUCCESSFULLY\n");
-              M5.Lcd.setCursor(70, 160, &fonts::Font2);
-              M5.Lcd.printf("Returning to settings menu...\n");
-            } else {
-              M5.Lcd.printf("SD CARD WIPE\n");
-              M5.Lcd.setCursor(27, 110, &fonts::Font4);
-              M5.Lcd.printf("FAILED\n");
-              M5.Lcd.setCursor(70, 160, &fonts::Font2);
-              M5.Lcd.printf("Returning to settings menu...\n");
-            }
-            delay(3000); // Show message for 3 seconds
-            _current_page = e_config_page_main;
-            open_menu(true);
-          }
-          break;
         case e_config_page_reset_all:
           M5.Lcd.clear(LCD_COLOR_BACKGROUND);
           M5.Lcd.setRotation(3);
@@ -145,7 +102,6 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
 }
 
 void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
-
   if (menu_open()) {
     if (!force) {
       return;
@@ -171,9 +127,6 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
       case e_config_page_sd_wipe:
         render_sd_wipe(workers, handlers);
         break;
-      case e_config_page_reset:
-        render_reset_device(workers, handlers);
-        break;
       case e_config_page_reset_all:
         render_reset_device_sd(workers, handlers);
         break;
@@ -181,7 +134,6 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
         break;
     }
   }
-
 }
 
 void ConfigModeScreen::render_page_main(const worker_map_t& workers, const handler_map_t& handlers) {
@@ -205,7 +157,6 @@ void ConfigModeScreen::render_page_main(const worker_map_t& workers, const handl
     M5.Lcd.printf("Display unit:   %s  \n", config.get_cpm_usvh() ? "CPM" : "uSv/h");
     M5.Lcd.printf("Alert threshold:   %d  \n", config.get_alert_threshold());
     M5.Lcd.printf("Logging drive/survey:   %s  \n", config.get_manual_logging() ? "Manual start" : "Automatic");
-    M5.Lcd.printf("Measurements in log file:   %s  \n", config.get_log_void() ? "Valid and invalid" : "Only valid");
     M5.Lcd.printf("Screen dim after:   %d seconds  \n", config.get_screen_dim_timeout());
     M5.Lcd.printf("Screen off after:   %d seconds  \n", config.get_screen_off_timeout());
     M5.Lcd.printf("Screensaver:   %s  \n", config.get_animated_screensaver() ? "Enabled" : "Disabled");
@@ -275,16 +226,6 @@ void ConfigModeScreen::render_sd_wipe(const worker_map_t& workers, const handler
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.printf("Press WIPE to confirm deleting all log files.\n");
   M5.Lcd.printf("Your device settings will be preserved.\n");
-}
-
-void ConfigModeScreen::render_reset_device(const worker_map_t& workers, const handler_map_t& handlers) {
-  drawButton1("Options");
-  drawButton2("RESET");
-  drawButton3("Menu");
-
-  M5.Lcd.setCursor(0, 70, &fonts::Font2);
-  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  M5.Lcd.printf("Press RESET to confirm clearing all local storage\n");
 }
 
 void ConfigModeScreen::render_reset_device_sd(const worker_map_t& workers, const handler_map_t& handlers) {
