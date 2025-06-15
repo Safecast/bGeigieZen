@@ -159,14 +159,6 @@ const char* HttpPages::get_config_device_page(
 
       "<br>"
 
-      // Log void lines
-      "<label for='" FORM_NAME_LOG_VOID "0' class='pure-radio'>"
-      "<input id='" FORM_NAME_LOG_VOID "0' type='radio' name='" FORM_NAME_LOG_VOID "' value='0' %s>Don't add invalid lines to log files (no GPS or incomplete GM values)"
-      "</label>"
-      "<label for='" FORM_NAME_LOG_VOID "1' class='pure-radio'>"
-      "<input id='" FORM_NAME_LOG_VOID "1' type='radio' name='" FORM_NAME_LOG_VOID "' value='1' %s>Include invalid lines to log"
-      "</label>"
-
       "<br>"
       "<button type='submit' class='pure-button pure-button-primary'>Save</button>"
       "</fieldset>"
@@ -183,8 +175,6 @@ const char* HttpPages::get_config_device_page(
       settings.get_manual_logging() ? "checked" : "",
       settings.get_enable_journal() ? "checked" : "",
       settings.get_enable_journal() ? "" : "checked",
-      settings.get_log_void() ? "" : "checked",
-      settings.get_log_void() ? "checked" : "",
       display_success ? success_message : ""
   );
 }
