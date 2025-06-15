@@ -17,6 +17,7 @@ bool BluetoothReporter::activate(bool) {
   if (BLEDevice::getInitialized()) {
     // Already initialized
     _pServer->getAdvertising()->start();
+    logPowerState(); // Log initial state
     return true;
   }
 
@@ -49,6 +50,7 @@ bool BluetoothReporter::activate(bool) {
   _pServer->setCallbacks(&_btCallbacks); //set the callback functions to restart advertising
 
   M5_LOGD("Bluetooth initialized, device: %s", deviceName);
+  logPowerState(); // Log after initialization
   return BLEDevice::getInitialized();
 }
 
@@ -177,25 +179,36 @@ void BluetoothReporter::create_ble_data_service(BLEServer* pServer) {
   pDataService->start();
 }
 
+void BluetoothReporter::logPowerState() {
+    ESP_LOGI("BLE", "BLE State - Connected: %d", _is_connected);
+}
+
 int8_t BluetoothReporter::handle_async() {
-  if (_pServer->getConnectedCount() == 0) {
-    // No clients to send data to
-    return e_bluetooth_no_clients;
-  }
-  size_t size = strlen(_log_string);
+    if (_pServer->getConnectedCount() == 0) {
+        // No clients to send data to
+        return e_bluetooth_no_clients;
+    }
 
-  int segment = 0;
-  const static uint8_t max_segment_size = 20; // Max that can be sent over bluetooth
-  do {
-    ++segment;
-    uint8_t segment_size = segment * max_segment_size > size ? size % max_segment_size : max_segment_size;
-    char to_send[segment_size];
-    strncpy(to_send, _log_string + ((segment - 1) * max_segment_size), segment_size);
+    // Log power state before sending data
+    logPowerState();
 
-    _pDataRXCharacteristic->setValue((uint8_t*) to_send, segment_size);
-    _pDataRXCharacteristic->notify();
-  } while (segment * max_segment_size < size);
-  return e_bluetooth_client_sent;
+    size_t size = strlen(_log_string);
+
+    int segment = 0;
+    const static uint8_t max_segment_size = 20; // Max that can be sent over bluetooth
+    do {
+        ++segment;
+        uint8_t segment_size = segment * max_segment_size > size ? size % max_segment_size : max_segment_size;
+        char to_send[segment_size];
+        strncpy(to_send, _log_string + ((segment - 1) * max_segment_size), segment_size);
+
+        _pDataRXCharacteristic->setValue((uint8_t*) to_send, segment_size);
+        _pDataRXCharacteristic->notify();
+    } while (segment * max_segment_size < size);
+
+    // Log power state after sending data
+    logPowerState();
+    return e_bluetooth_client_sent;
 }
 
 uint32_t BluetoothReporter::client_count() const {

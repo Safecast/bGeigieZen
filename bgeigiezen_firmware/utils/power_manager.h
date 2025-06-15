@@ -11,18 +11,10 @@
 #include <soc/sens_reg.h>
 #include "rtc_wdt_wrapper.h"
 
-// Define logging macros if not already defined
-#ifndef M5_LOGI
-#define M5_LOGI(format, ...) Serial.printf("[PowerMgr] " format "\r\n", ##__VA_ARGS__)
-#endif
-
-#ifndef M5_LOGE
-#define M5_LOGE(format, ...) Serial.printf("[PowerMgr][ERROR] " format "\r\n", ##__VA_ARGS__)
-#endif
-
-#ifndef M5_LOGW
-#define M5_LOGW(format, ...) Serial.printf("[PowerMgr][WARN] " format "\r\n", ##__VA_ARGS__)
-#endif
+// Custom logging macros for power management
+#define POWER_LOG_I(format, ...) Serial.printf("[PowerMgr] " format "\r\n", ##__VA_ARGS__)
+#define POWER_LOG_E(format, ...) Serial.printf("[PowerMgr][ERROR] " format "\r\n", ##__VA_ARGS__)
+#define POWER_LOG_W(format, ...) Serial.printf("[PowerMgr][WARN] " format "\r\n", ##__VA_ARGS__)
 
 /**
  * @brief Power management utility for optimizing power consumption
@@ -91,10 +83,36 @@ public:
      */
     static void restoreNormalSettings();
 
+    /**
+     * @brief Get current power consumption in mA
+     * @return int Current power consumption in mA
+     */
+    static int getCurrentConsumption();
+
+    /**
+     * @brief Get current CPU frequency in MHz
+     * @return uint32_t Current CPU frequency in MHz
+     */
+    static uint32_t getCurrentCpuFrequency();
+
+    /**
+     * @brief Get current I2C clock speed in Hz
+     * @return uint32_t Current I2C clock speed in Hz
+     */
+    static uint32_t getCurrentI2cClock();
+
+    /**
+     * @brief Log current power state
+     */
+    static void logPowerState();
+
 private:
     static bool _low_power_mode;             ///< Whether we're in low power mode
     static uint32_t _original_cpu_freq;      ///< Original CPU frequency
     static uint32_t _original_i2c_freq;      ///< Original I2C frequency
+    static int _last_power_reading;  ///< Last power reading in mA
+    static uint32_t _last_cpu_freq;  ///< Last CPU frequency in MHz
+    static uint32_t _last_i2c_freq;  ///< Last I2C frequency in Hz
 };
 
 #endif // POWER_MANAGER_H

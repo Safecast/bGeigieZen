@@ -9,69 +9,59 @@
 #include <soc/sens_reg.h>
 #include <esp32-hal-cpu.h>
 #include <esp_task_wdt.h>
+#include <M5Unified.hpp>
 
 // Initialize static members
 bool PowerManager::_low_power_mode = false;
 uint32_t PowerManager::_original_cpu_freq = 240; // Default to 240MHz
 uint32_t PowerManager::_original_i2c_freq = 100000; // Default to 100kHz
+int PowerManager::_last_power_reading = 0;
+uint32_t PowerManager::_last_cpu_freq = 0;
+uint32_t PowerManager::_last_i2c_freq = 0;
 
 void PowerManager::begin() {
-    // Store original CPU frequency
-    _original_cpu_freq = getCpuFrequencyMhz();
-    
-    // Store original I2C frequency (default is usually 100kHz)
-    _original_i2c_freq = 100000;  // Will be updated in setI2cClock if different
-    
-    // Initialize RTC WDT wrapper
-    rtc_wdt_wrapper_init();
+    _low_power_mode = false;
+    _original_cpu_freq = getCpuFrequency();
+    _original_i2c_freq = getCurrentI2cClock();
+    POWER_LOG_I("Power Manager initialized");
 }
 
 void PowerManager::enterLowPowerMode() {
-    if (_low_power_mode) return;  // Already in low power mode
-    
-    M5_LOGI("Entering low power mode");
-    
-    // 1. Reduce CPU frequency first to save power
-    // ESP32-S3 supports 40, 80, 160, 240 MHz. Try 40 MHz for extra savings.
-    if (!setCpuFrequency(40)) {
-        setCpuFrequency(80); // Fallback if 40 MHz not supported
+    if (_low_power_mode) {
+        POWER_LOG_W("Already in low power mode");
+        return;
     }
+
+    POWER_LOG_I("Entering low power mode");
     
-    // 2. Reduce I2C clock speed
-    setI2cClock(50000);  // 50kHz is sufficient for most sensors
-    
-    // 3. Disable WiFi and Bluetooth
+    // Disable wireless
     disableWireless();
     
-    // 4. Reduce logging to minimum
-    esp_log_level_set("*", ESP_LOG_ERROR);
+    // Set CPU frequency to 40MHz
+    if (!setCpuFrequency(40)) {
+        POWER_LOG_E("Failed to set CPU frequency to 40MHz");
+    }
+    
+    // Set I2C clock to 50kHz
+    setI2cClock(50000);
     
     _low_power_mode = true;
-    M5_LOGI("Low power mode activated");
+    logPowerState();
 }
 
 void PowerManager::exitLowPowerMode() {
-    if (!_low_power_mode) return;  // Not in low power mode
-    
-    M5_LOGI("Exiting low power mode");
-    
-    // 1. Restore CPU frequency
-    if (_original_cpu_freq > 0) {
-        setCpuFrequency(_original_cpu_freq);
+    if (!_low_power_mode) {
+        POWER_LOG_W("Not in low power mode");
+        return;
     }
+
+    POWER_LOG_I("Exiting low power mode");
     
-    // 2. Restore I2C clock speed
-    if (_original_i2c_freq > 0) {
-        setI2cClock(_original_i2c_freq);
-    }
-    
-    // Restore normal logging
-    esp_log_level_set("*", ESP_LOG_INFO);
-    
-    // Note: WiFi/BT will be re-enabled when needed by the specific mode
+    // Restore original settings
+    restoreNormalSettings();
     
     _low_power_mode = false;
-    M5_LOGI("Normal power mode restored");
+    logPowerState();
 }
 
 bool PowerManager::setCpuFrequency(uint32_t freq_mhz) {
@@ -104,24 +94,24 @@ bool PowerManager::setCpuFrequency(uint32_t freq_mhz) {
     #endif
     
     if (!valid_freq) {
-        M5_LOGW("Unsupported CPU frequency: %u MHz, using 80MHz", freq_mhz);
+        ESP_LOGW("PowerMgr", "Unsupported CPU frequency: %u MHz, using 80MHz", freq_mhz);
         freq_mhz = 80;
     }
     
-    M5_LOGI("Changing CPU frequency from %u MHz to %u MHz", 
+    ESP_LOGI("PowerMgr", "Changing CPU frequency from %u MHz to %u MHz", 
             getCpuFrequencyMhz(), freq_mhz);
     
     // Set CPU frequency using Arduino-ESP32 API
     bool success = setCpuFrequencyMhz(freq_mhz);
     
     if (!success) {
-        M5_LOGE("Failed to set CPU frequency to %u MHz", freq_mhz);
+        ESP_LOGE("PowerMgr", "Failed to set CPU frequency to %u MHz", freq_mhz);
         return false;
     }
     
     // Verify
     if (getCpuFrequencyMhz() != freq_mhz) {
-        M5_LOGE("Failed to verify CPU frequency set to %u MHz", freq_mhz);
+        ESP_LOGE("PowerMgr", "Failed to verify CPU frequency set to %u MHz", freq_mhz);
         return false;
     }
     
@@ -138,7 +128,7 @@ uint32_t PowerManager::getCpuFrequency() {
 }
 
 void PowerManager::disableWireless() {
-    M5_LOGI("Disabling wireless modules");
+    ESP_LOGI("PowerMgr", "Disabling wireless modules");
     
     // Disable WiFi
     WiFi.mode(WIFI_OFF);
@@ -152,13 +142,13 @@ void PowerManager::disableWireless() {
 }
 
 void PowerManager::enableWireless() {
-    M5_LOGI("Wireless modules will be re-enabled when needed by specific modes");
+    ESP_LOGI("PowerMgr", "Wireless modules will be re-enabled when needed by specific modes");
     // Note: WiFi and BT are enabled on-demand by the specific features that need them
 }
 
 void PowerManager::setI2cClock(uint32_t freq_hz) {
     if (freq_hz < 10000 || freq_hz > 1000000) {
-        M5_LOGW("I2C frequency %u Hz is outside recommended range (10kHz - 1MHz)", freq_hz);
+        ESP_LOGW("PowerMgr", "I2C frequency %u Hz is outside recommended range (10kHz - 1MHz)", freq_hz);
     }
     
     if (!_low_power_mode) {
@@ -166,10 +156,52 @@ void PowerManager::setI2cClock(uint32_t freq_hz) {
         _original_i2c_freq = Wire.getClock();
     }
     
-    M5_LOGI("Setting I2C clock to %u Hz (was %u Hz)", freq_hz, Wire.getClock());
+    ESP_LOGI("PowerMgr", "Setting I2C clock to %u Hz (was %u Hz)", freq_hz, Wire.getClock());
     Wire.setClock(freq_hz);
 }
 
 // Brownout detector control removed for ESP32-S3 compatibility
 // The brownout detector is a safety feature that prevents damage
 // from low voltage conditions. It's better to keep it enabled.
+
+int PowerManager::getCurrentConsumption() {
+    // For now, return a placeholder value
+    // TODO: Implement proper current measurement
+    return _last_power_reading;
+}
+
+uint32_t PowerManager::getCurrentCpuFrequency() {
+    _last_cpu_freq = getCpuFrequencyMhz();
+    return _last_cpu_freq;
+}
+
+uint32_t PowerManager::getCurrentI2cClock() {
+    _last_i2c_freq = Wire.getClock();
+    return _last_i2c_freq;
+}
+
+void PowerManager::logPowerState() {
+    POWER_LOG_I("Power State - CPU: %u MHz, I2C: %u Hz", 
+                getCurrentCpuFrequency(), 
+                getCurrentI2cClock());
+}
+
+void PowerManager::restoreNormalSettings() {
+    // Restore CPU frequency
+    if (_original_cpu_freq > 0) {
+        setCpuFrequency(_original_cpu_freq);
+    }
+    
+    // Restore I2C clock speed
+    if (_original_i2c_freq > 0) {
+        setI2cClock(_original_i2c_freq);
+    }
+    
+    // Re-enable wireless
+    enableWireless();
+    
+    // Restore normal logging
+    esp_log_level_set("*", ESP_LOG_INFO);
+    
+    POWER_LOG_I("Normal settings restored");
+}
