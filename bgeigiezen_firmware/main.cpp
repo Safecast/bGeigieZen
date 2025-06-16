@@ -63,6 +63,8 @@
 #include "workers/shake_detector.h"
 #include "workers/zen_button.h"
 #include "workers/sound_manager.h"
+ 
+#include <nvs_flash.h> // Include for NVS flash initialization
 
 TeenyUbloxConnect gnss;
 LocalStorage settings;
@@ -98,6 +100,17 @@ GFXScreen gfx_screen(settings, controller);
 void setup() {
   /// Hardware configurations
   M5.begin();
+  Wire.begin(); // Initialize I2C communication
+
+  // Initialize NVS. This is required for WiFi and Preferences.
+  esp_err_t ret = nvs_flash_init();
+  if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+      M5_LOGE("NVS: %s. Erasing NVS and retrying...", esp_err_to_name(ret));
+      ESP_ERROR_CHECK(nvs_flash_erase());
+      ret = nvs_flash_init();
+  }
+  ESP_ERROR_CHECK(ret);
+  M5_LOGI("NVS initialized successfully.");
 
   M5.Log.setLogLevel(m5::log_target_t::log_target_serial, esp_log_level_t::ESP_LOG_DEBUG);
 
