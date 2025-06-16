@@ -28,40 +28,64 @@ void PowerManager::begin() {
 
 void PowerManager::enterLowPowerMode() {
     if (_low_power_mode) {
-        POWER_LOG_W("Already in low power mode");
+        M5_LOGW("Already in low power mode");
         return;
     }
 
-    POWER_LOG_I("Entering low power mode");
+    M5_LOGI("Entering low power mode");
+    logPowerState(); // Log initial state
     
-    // Disable wireless
-    disableWireless();
+    // 1. Reduce CPU frequency first to save power
+    #ifdef CONFIG_IDF_TARGET_ESP32S3
+        // ESP32-S3 supports 80, 160, 240 MHz natively. We'll use 80MHz for stable low power.
+        setCpuFrequency(80);
+    #else
+        // For Core2 (ESP32), try 160MHz as per user request.
+        setCpuFrequency(160);
+    #endif
+    logPowerState(); // Log after CPU frequency change
+
+    // 2. Reduce I2C clock speed
+    setI2cClock(50000);  // 50kHz is sufficient for most sensors
+    logPowerState(); // Log after I2C clock change
+
+    // 3. Wireless modules will be managed by specific modes
     
-    // Set CPU frequency to 40MHz
-    if (!setCpuFrequency(40)) {
-        POWER_LOG_E("Failed to set CPU frequency to 40MHz");
-    }
-    
-    // Set I2C clock to 50kHz
-    setI2cClock(50000);
+    // 4. Reduce logging to minimum, but keep WiFi debug logging
+    esp_log_level_set("*", ESP_LOG_ERROR);
+    esp_log_level_set("wifi", ESP_LOG_DEBUG); // Set WiFi logging to DEBUG
     
     _low_power_mode = true;
-    logPowerState();
+    M5_LOGI("Low power mode activated");
+    logPowerState(); // Log final state
 }
 
 void PowerManager::exitLowPowerMode() {
     if (!_low_power_mode) {
-        POWER_LOG_W("Not in low power mode");
+        M5_LOGW("Not in low power mode");
         return;
     }
 
-    POWER_LOG_I("Exiting low power mode");
+    M5_LOGI("Exiting low power mode");
     
-    // Restore original settings
-    restoreNormalSettings();
+    // 1. Restore CPU frequency
+    if (_original_cpu_freq > 0) {
+        setCpuFrequency(_original_cpu_freq);
+    }
+    
+    // 2. Restore I2C clock speed
+    if (_original_i2c_freq > 0) {
+        setI2cClock(_original_i2c_freq);
+    }
+    
+    // Restore normal logging
+    esp_log_level_set("*", ESP_LOG_INFO);
+    esp_log_level_set("wifi", ESP_LOG_INFO); // Restore WiFi logging to INFO
+    
+    // Note: Wireless modules will be re-enabled when needed by the specific mode
     
     _low_power_mode = false;
-    logPowerState();
+    M5_LOGI("Normal power mode restored");
 }
 
 bool PowerManager::setCpuFrequency(uint32_t freq_mhz) {
@@ -76,6 +100,7 @@ bool PowerManager::setCpuFrequency(uint32_t freq_mhz) {
     
     // Check if frequency is already set
     if (getCpuFrequencyMhz() == freq_mhz) {
+        M5_LOGI("CPU frequency already set to %u MHz", freq_mhz);
         return true;
     }
     
@@ -83,35 +108,36 @@ bool PowerManager::setCpuFrequency(uint32_t freq_mhz) {
     bool valid_freq = false;
     #ifdef CONFIG_IDF_TARGET_ESP32S3
         // ESP32-S3 supported frequencies
-        if (freq_mhz == 80 || freq_mhz == 160 || freq_mhz == 240) {
+        if (freq_mhz == 80 || freq_mhz == 160 || freq_mhz == 240 || freq_mhz == 40) {
             valid_freq = true;
         }
     #else
-        // Original ESP32 frequencies
-        if (freq_mhz == 80 || freq_mhz == 160 || freq_mhz == 240) {
+        // Original ESP32 frequencies (Core2)
+        if (freq_mhz == 80 || freq_mhz == 160 || freq_mhz == 240 || freq_mhz == 40) {
             valid_freq = true;
         }
     #endif
     
     if (!valid_freq) {
-        ESP_LOGW("PowerMgr", "Unsupported CPU frequency: %u MHz, using 80MHz", freq_mhz);
-        freq_mhz = 80;
+        #ifdef CONFIG_IDF_TARGET_ESP32S3
+            M5_LOGW("Unsupported CPU frequency: %u MHz for S3, using 80MHz", freq_mhz);
+            freq_mhz = 80;
+        #else
+            // For Core2 (ESP32), default to 160MHz if unsupported frequency is requested.
+            M5_LOGW("Unsupported CPU frequency: %u MHz for ESP32 (Core2), using 160MHz", freq_mhz);
+            freq_mhz = 160;
+        #endif
     }
     
-    ESP_LOGI("PowerMgr", "Changing CPU frequency from %u MHz to %u MHz", 
+    M5_LOGI("Attempting to change CPU frequency from %u MHz to %u MHz", 
             getCpuFrequencyMhz(), freq_mhz);
     
-    // Set CPU frequency using Arduino-ESP32 API
-    bool success = setCpuFrequencyMhz(freq_mhz);
-    
-    if (!success) {
-        ESP_LOGE("PowerMgr", "Failed to set CPU frequency to %u MHz", freq_mhz);
-        return false;
-    }
-    
+    bool success = setCpuFrequencyMhz(freq_mhz); // Re-enable actual CPU frequency change
+    M5_LOGI("CPU frequency change attempted. Result: %s", success ? "SUCCESS" : "FAILED");
+
     // Verify
     if (getCpuFrequencyMhz() != freq_mhz) {
-        ESP_LOGE("PowerMgr", "Failed to verify CPU frequency set to %u MHz", freq_mhz);
+        M5_LOGE("Failed to verify CPU frequency set to %u MHz", freq_mhz);
         return false;
     }
     
