@@ -200,6 +200,9 @@ void DriveModeScreen::enter_screen(Controller& controller) {
 
   // Enter power saving mode (CPU/I2C down, wireless off)
   PowerManager::enterLowPowerMode();
+  
+  // Set CPU frequency to 80MHz for Drive mode
+  PowerManager::setCpuFrequency(80);
 
   // Re-enable BLE only (do NOT enable WiFi)
   controller.set_handler_active(k_handler_bluetooth_reporter, true);
