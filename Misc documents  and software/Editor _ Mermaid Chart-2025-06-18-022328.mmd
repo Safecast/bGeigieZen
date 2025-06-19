@@ -1,0 +1,45 @@
+sequenceDiagram
+    participant M as Main
+    participant C as Controller
+    participant W as Workers
+    participant S as Screens
+    participant SD as SD Card
+    participant I2C as I2C Bus
+    
+    M->>C: Initialize Controller
+    M->>W: Initialize Workers
+    Note over W: Key Workers:<br/>- BatteryIndicator (AXP2101)<br/>- GpsConnector (UBLOX)<br/>- SoundManager<br/>- LogAggregator<br/>- LocalStorage<br/>- GeigerCounter
+    
+    M->>W: Start Default Workers
+    loop Worker Initialization
+        W->>BatteryIndicator: Initialize AXP2101
+        W->>GpsConnector: Initialize GPS
+        W->>SoundManager: Load sound state
+        W->>LocalStorage: Load settings
+    end
+    
+    M->>S: Show BootScreen
+    Note over S: Displays:<br/>- Device name/version<br/>- User/Device ID<br/>- RTC time/date<br/>- Battery status
+    
+    loop Main Loop
+        M->>W: Update Workers
+        W->>BatteryIndicator: Read voltage/charge
+        W->>GpsConnector: Process NMEA
+        W->>SoundManager: Handle clicks
+        W->>LogAggregator: Aggregate sensor data
+        
+        M->>S: Update Display
+        alt Every 6s or User Input
+            C->>SD: Check status
+            alt SD Card OK
+                C->>LocalStorage: Get device_id
+                alt First Boot
+                    C->>S: Show FirstTimeStartupScreen
+                else Normal Boot
+                    C->>S: Show DefaultEntryScreen
+                end
+            else SD Error
+                C->>S: Show SdMessageScreen
+            end
+        end
+    end
