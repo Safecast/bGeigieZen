@@ -12,7 +12,10 @@
 #include "identifiers.h"         // For k_worker_* constants
 
 #include "utils/sd_wrapper.h"
-#include "controller.h"
+
+
+// Forward declaration for WorkerMap
+class WorkerMap;
 
 // Define BatteryLogEntry here, after controller.h to ensure DeviceState is known
 struct BatteryLogEntry {
@@ -45,11 +48,13 @@ public:
     explicit BatteryLogger();
     virtual ~BatteryLogger() = default;
 
-    bool activate(bool retry) override;
-    int8_t produce_data(const worker_map_t& workers) override;
+    // Override methods from ProcessWorker
+    bool activate(bool retry = false) override;
 
-private:
 
+protected:
+    void deactivate() override;
+    int8_t produce_data(const WorkerMap& workers) override;
 };
 
 #endif //BGEIGIEZEN_BATTERY_LOGGER_H_
