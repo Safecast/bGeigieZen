@@ -1,182 +1,170 @@
 #include "battery_logger.h"
-#include "identifiers.h"
-#include "workers/rtc_connector.h"
-#include "workers/battery_indicator.h"
+
+#include <M5Unified.h>
+#include <SD.h>
+#include <SPI.h>
+
+#include "utils/sd_wrapper.h"
+
 #include "workers/local_storage.h"
-// #include "controller.h" // No longer needed for DeviceState::Mode here
-#include <SD.h>       // For SD card operations
-#include <cmath>      // For std::abs
-#include <cstdio>     // For snprintf
-#include <cstring>    // For strncpy
-#include <time.h>       // For mktime for epoch conversion
+#include "workers/battery_indicator.h"
+#include "workers/rtc_connector.h"
 
-// Helper function to convert OperationalMode to string
-const char* get_operational_mode_string(LocalStorage::OperationalMode mode) {
-    switch (mode) {
-        case LocalStorage::e_operational_mode_drive:
-            return "DRIVE_MODE";
-        case LocalStorage::e_operational_mode_survey:
-            return "SURVEY_MODE";
-        case LocalStorage::e_operational_mode_fixed:
-            return "FIXED_MODE";
-        case LocalStorage::e_operational_mode_satellite:
-            return "SATELLITE_MODE";
-        case LocalStorage::e_operational_mode_flight:
-            return "FLIGHT_MODE";
-        default:
-            return "UNKNOWN_MODE";
-    }
-}
-
-#define BATTERY_LOG_DIRECTORY "/battery_logs"
-// #define BATTERY_LOG_FILE_PREFIX "battery_log_" // No longer used directly for initial file
-// #define BATTERY_LOG_FILE_SUFFIX ".csv" // No longer used directly for initial file
-#define BATT_TEMP_LOG_NAME_F "%s/latest_batt.csv"
-#define BATT_DATED_LOG_NAME_F "%s/batt_%04d-%02d-%02d_%02d%02d.csv"
-// #define BATTERY_LOG_INTERVAL 5000  // 5 seconds between checks
-// #define BATTERY_LEVEL_THRESHOLD 5   // Log when battery level changes by 5%
+#define BATT_LOG_DIR "/battery_logs"
+#define BATT_LOG_FILE_PREFIX "battery_"
+#define BATT_LOG_TEMP_FILENAME BATT_LOG_DIR "/latest_batt.csv"
+#define BATT_LOG_HEADER "device_id,uptime_s,voltage_v,percentage"
+#define BATT_MIN_LOG_LINES 1  // Minimum number of lines to keep the log file
 
 BatteryLogger::BatteryLogger()
     : ProcessWorker<BatteryLogEntry>(BATTERY_LOG_INTERVAL) {
     data.device_id = 0;
     data.header_written = false;
     data.initial_log_done = false;
-    data.is_temp_file = true; // Ensure it's true on construction
-    data.start_time = 0;       // Initialize start_time
-    data.last_log_time = 0;    // Initialize last_log_time
+    data.is_temp_file = true;
+    data.start_time = 0;
+    data.last_log_time = 0;
+    data.current_log_filename[0] = '\0';
 }
 
 bool BatteryLogger::activate(bool retry) {
-    // Ensure the directory exists
-    if (!SD.exists(BATTERY_LOG_DIRECTORY)) {
-        if (!SD.mkdir(BATTERY_LOG_DIRECTORY)) {
-            M5_LOGE("Failed to create battery log directory: %s", BATTERY_LOG_DIRECTORY);
-            return false; // Critical if we can't create the directory
-        }
+    // Call parent class activate first
+    if (!ProcessWorker<BatteryLogEntry>::activate(retry)) {
+        return false;
     }
 
+    M5_LOGI("Activating BatteryLogger");
+
+    // Store activation time
+    data.start_time = millis();
+    data.last_log_time = 0;
+    data.header_written = false;
+    data.initial_log_done = false;
+    data.is_temp_file = true;
+
+    // Don't activate until SD card is ready and system is initialized
+    if (!SDInterface::i().can_write_logs()) {
+        M5_LOGV("SD card not ready for writing, delaying BatteryLogger activation");
+        return false;
+    }
+
+
+    
     // Set up the temporary log file path
-    snprintf(data.current_log_filename, sizeof(data.current_log_filename),
-             BATT_TEMP_LOG_NAME_F, BATTERY_LOG_DIRECTORY);
+    strncpy(data.current_log_filename, BATT_LOG_TEMP_FILENAME, sizeof(data.current_log_filename) - 1);
+    data.current_log_filename[sizeof(data.current_log_filename) - 1] = '\0';
 
-    // Delete existing temporary log file to start fresh, if it exists
-    if (SD.exists(data.current_log_filename)) {
-        SD.remove(data.current_log_filename);
+    // Prepare log file (create directory and temp file, deleting any previous one)
+    if (!SDInterface::i().setup_log(BATT_LOG_DIR, data.current_log_filename, true)) {
+        M5_LOGE("Failed to create battery log directory or log file");
+        return false;
     }
+    strncpy(data.current_log_filename, BATT_LOG_TEMP_FILENAME, sizeof(data.current_log_filename) - 1);
+    data.current_log_filename[sizeof(data.current_log_filename) - 1] = '\0';
+    
 
-    M5_LOGI("BatteryLogger activated. Initial log file: %s", data.current_log_filename);
-    data.header_written = false;    // Header will need to be written to the new temp file
-    data.initial_log_done = false;  // Reset for the new session
-    data.is_temp_file = true;       // Mark that we are using a temporary file
-    data.start_time = millis();     // Record the power-up time
+    
+    M5_LOGI("Created new battery log file: %s", data.current_log_filename);
+    data.header_written = false;
 
+    M5_LOGI("BatteryLogger activated. Log file: %s", data.current_log_filename);
     return true;
 }
 
-int8_t BatteryLogger::produce_data(const worker_map_t& workers) {
-    // M5_LOGI("BatteryLogger::produce_data(workers) ENTRYPOINT REACHED"); // Disabled for less verbose logging
-    uint32_t current_millis = millis();
-    const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator);
-    const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
-    // Removed: const auto& rtc_worker = workers.worker<DateTimeProvider>(k_worker_rtc_connector);
-
-    if (!battery || !settings) { // controller_worker removed from check
-        M5_LOGE("Required worker not available for BatteryLogger");
-        return e_worker_error;
+void BatteryLogger::deactivate() {
+    M5_LOGI("Deactivating BatteryLogger");
+    
+    // If we haven't logged enough data, clean up the log file
+    if (data.initial_log_done && data.last_log_time - data.start_time < BATTERY_LOG_INTERVAL * 2) {
+        M5_LOGI("Removing incomplete battery log file");
+        SDInterface::i().delete_log(data.current_log_filename);
     }
+    
+    // Call parent class deactivate
+    ProcessWorker<BatteryLogEntry>::deactivate();
+}
 
-    // Use active() method, not is_active()
-    if (!battery->active()) {
-        M5_LOGI("Battery indicator not active, BatteryLogger idle.");
+
+
+    
+
+
+int8_t BatteryLogger::produce_data(const WorkerMap& workers) {
+    // Check if we should log (every BATTERY_LOG_INTERVAL ms)
+        uint32_t current_millis = millis();
+    // Skip until next 10-minute interval after initial log
+    if (data.initial_log_done && (current_millis - data.last_log_time < BATTERY_LOG_INTERVAL)) {
         return e_worker_idle;
     }
 
-    // uint32_t current_millis = millis(); // Removed: Duplicate of declaration at line 76
-    // Get battery level and voltage from data struct: battery->get_data().percentage, battery->get_data().voltage
-    // Removed: int battery_level = battery->get_data().percentage;
-    float battery_voltage = battery->get_data().voltage;
-    // DeviceState::Mode current_mode = controller_worker->get_data().mode; // No longer needed
-
-    bool should_log = false;
-
-    // Log every 10 minutes (BATTERY_LOG_INTERVAL)
-    if (current_millis - data.last_log_time >= BATTERY_LOG_INTERVAL) {
-        M5_LOGI("Battery logging interval reached. Logging battery data.");
-        should_log = true;
+    // Ensure device ID is initialized
+    if (data.device_id == 0) {
+        auto* storage = workers.worker<LocalStorage>(k_worker_local_storage);
+        if (storage) {
+            data.device_id = storage->get_device_id();
+        }
+    }
+    
+    // Write header (once we have device id and mode)
+    if (!data.header_written && data.device_id != 0) {
+        const auto* storage = workers.worker<LocalStorage>(k_worker_local_storage);
+        const char* mode_str = "unknown";
+        if (storage) {
+            switch (storage->get_last_mode()) {
+                case LocalStorage::e_operational_mode_drive: mode_str = "drive"; break;
+                case LocalStorage::e_operational_mode_survey: mode_str = "survey"; break;
+                case LocalStorage::e_operational_mode_fixed: mode_str = "fixed"; break;
+                case LocalStorage::e_operational_mode_satellite: mode_str = "cosmic"; break;
+                case LocalStorage::e_operational_mode_flight: mode_str = "flight"; break;
+            }
+        }
+        char comment[64];
+        sprintf(comment, "# device_id=%u", data.device_id);
+        SDInterface::i().log_println(data.current_log_filename, comment);
+        sprintf(comment, "# mode=%s", mode_str);
+        SDInterface::i().log_println(data.current_log_filename, comment);
+        SDInterface::i().log_println(data.current_log_filename, BATT_LOG_HEADER);
+        data.header_written = true;
     }
 
-    if (should_log) {
-        // uint32_t timestamp_s;
-        // char dt_buffer[30] = "N/A"; // For YYYY-MM-DDTHH:MM:SSZ string or N/A
-        // bool rtc_is_reliable_for_entry = rtc_worker && rtc_worker->active() && rtc_worker->get_data().valid;
-
-        // Removed all RTC and filename renaming logic. Always use temporary file.
-
-        // At this point, data.current_log_filename is set to the temp file.
-
-        // Use SD object for filesystem operations
-        if (!SD.exists(BATTERY_LOG_DIRECTORY)) {
-            M5_LOGI("Battery log directory %s does not exist, creating.", BATTERY_LOG_DIRECTORY);
-            if (!SD.mkdir(BATTERY_LOG_DIRECTORY)) {
-                M5_LOGE("Failed to create battery log directory: %s", BATTERY_LOG_DIRECTORY);
-                // data.initial_log_done is not reset here. If it was false, it remains false for the next attempt.
-                // If it was true, it remains true.
-                return e_worker_error;
-            }
-        }
-
-        M5_LOGI("Attempting to open or create log file: %s", data.current_log_filename);
-        File file = SD.open(data.current_log_filename, FILE_APPEND);
-        if (!file) {
-            M5_LOGE("Failed to open battery log file: %s", data.current_log_filename);
-            // data.initial_log_done is not reset here. If it was false, it remains false for the next attempt.
-            // If it was true, it remains true.
-            return e_worker_error;
-        }
-
-        M5_LOGI("Successfully opened log file: %s", data.current_log_filename);
-
-        if (file.size() == 0 || !data.header_written) {
-            M5_LOGI("Writing CSV header to new log file: %s", data.current_log_filename);
-            // Get operational mode for the header comment
-            LocalStorage* settings = workers.worker<LocalStorage>(k_worker_local_storage);
-            const char* mode_str = "UNKNOWN_MODE";
-            if (settings && settings->active()) {
-                mode_str = get_operational_mode_string(settings->get_last_mode());
-            }
-            file.printf("# Operational Mode: %s\n", mode_str);
-            file.println("device_id,time_since_powerup_ms,battery_voltage"); // Simplified header
-            data.header_written = true;
-        }
-
-        // Ensure device_id is fetched if not already cached
-        if (data.device_id == 0) {
-            data.device_id = settings->get_device_id();
-             if (data.device_id == 0) { // Still 0 after trying to fetch?
-                M5_LOGW("Device ID is 0. Check LocalStorage settings.");
-            }
-        }
-
-        // Prepare final log entry string
-        char final_log_buffer[256];
-        snprintf(final_log_buffer, sizeof(final_log_buffer), "%u,%u,%.3f",
-                 data.device_id,
-                 current_millis - data.start_time, // Time since powerup
-                 battery_voltage);
-        
-        M5_LOGI("Writing log entry: %s", final_log_buffer);
-        file.println(final_log_buffer);
-        file.close();
-
-        // Removed: data.last_battery_level = battery_level;
-        data.last_log_time = current_millis;
-        if (!data.initial_log_done) { // Set initial_log_done only after the first successful log
-            data.initial_log_done = true;
-        }
-        
-        M5_LOGI("Battery log written successfully.");
-        return e_worker_data_read;
+    // Check if SD card is ready
+    if (!SDInterface::i().can_write_logs()) {
+        M5_LOGV("SD card not ready for writing, skipping battery log");
+        return e_worker_idle;
+    }
+    
+    // Get required workers
+    auto* battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator);
+    if (!battery) {
+        M5_LOGE("Failed to get BatteryIndicator worker");
+        return e_worker_error;
     }
 
-    return e_worker_idle;
+    // Get battery data
+    const auto& battery_data = battery->get_data();
+    float battery_voltage = battery_data.voltage;
+
+    // (Optional) log file rename based on RTC could go here
+    // Disabled for now until fully implemented
+
+
+        if (data.start_time == 0) {
+        data.start_time = current_millis;
+    }
+
+    int battery_percent = battery_data.percentage;
+    unsigned long uptime_s = (current_millis - data.start_time) / 1000;
+    char row[100];
+    sprintf(row, "%u,%lu,%.3f,%d", data.device_id, uptime_s, battery_voltage, battery_percent);
+    SDInterface::i().log_println(data.current_log_filename, row);
+
+    // Update state
+    if (!data.initial_log_done) {
+        data.initial_log_done = true;
+    }
+    data.last_log_time = current_millis;
+
+    M5_LOGD("Logged battery data: %s", row);
+
+    return e_worker_data_read;
 }

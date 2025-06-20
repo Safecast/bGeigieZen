@@ -11,8 +11,8 @@ bool BatteryIndicator::activate(bool retry) {
 
 int8_t BatteryIndicator::produce_data() {
   data.isCharging = M5.Power.isCharging();
-  uint16_t voltage_mv = M5.Power.getBatteryVoltage(); // Already in millivolts
-  data.voltage = voltage_mv / 1000.0f; // Convert to V for display
+  uint16_t voltage_mv = M5.Power.getBatteryVoltage(); // millivolts
+  data.voltage = voltage_mv / 1000.0f;
   // Convert voltage to percentage using the mapping table
   data.percentage = static_cast<int32_t>(BatteryMapping::voltage_to_percentage(voltage_mv) + 0.5f); // Round to nearest int
   return e_worker_data_read;
