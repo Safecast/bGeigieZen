@@ -4,23 +4,35 @@
 
 struct BatteryMapping {
     static float voltage_to_percentage(uint16_t voltage_mv) {
-        // Linear mapping based on empirical dataset:
-        // 4.15 V  (4150 mV) → 100 %
-        // 2.95 V  (2950 mV) →   0 %
-        // Values beyond this range are clamped.
-        constexpr uint16_t FULL_VOLTAGE_MV  = 4150; // 100 %
-        constexpr uint16_t EMPTY_VOLTAGE_MV = 2950; //   0 %
+        // Discharge curve table for Vapecell N40 (values from provided MD file)
+        static const struct {
+            uint16_t voltage_mv;
+            float percentage;
+        } curve[] = {
+            {4200, 100}, {4150, 98}, {4100, 95}, {4050, 90}, {4000, 85},
+            {3950, 80}, {3900, 75}, {3850, 70}, {3800, 65}, {3750, 55},
+            {3700, 45}, {3650, 35}, {3600, 25}, {3550, 20}, {3500, 15},
+            {3450, 12}, {3400, 9},  {3350, 6},  {3300, 4},  {3200, 2},
+            {3100, 1},  {3000, 0.5f}, {2900, 0}
+        };
+        constexpr size_t N = sizeof(curve) / sizeof(curve[0]);
 
-        if (voltage_mv >= FULL_VOLTAGE_MV) {
-            return 100.0f;
-        }
-        if (voltage_mv <= EMPTY_VOLTAGE_MV) {
-            return 0.0f;
-        }
+        // Clamp outside range
+        if (voltage_mv >= curve[0].voltage_mv) return curve[0].percentage;
+        if (voltage_mv <= curve[N-1].voltage_mv) return curve[N-1].percentage;
 
-        float span_mv = static_cast<float>(FULL_VOLTAGE_MV - EMPTY_VOLTAGE_MV);
-        float delta_mv = static_cast<float>(voltage_mv - EMPTY_VOLTAGE_MV);
-        return (delta_mv / span_mv) * 100.0f;
+        // Locate segment for interpolation
+        for (size_t i = 0; i < N - 1; ++i) {
+            if (voltage_mv <= curve[i].voltage_mv && voltage_mv > curve[i+1].voltage_mv) {
+                const float v_high = curve[i].voltage_mv;
+                const float p_high = curve[i].percentage;
+                const float v_low  = curve[i+1].voltage_mv;
+                const float p_low  = curve[i+1].percentage;
+                float ratio = (v_high - voltage_mv) / (v_high - v_low);
+                return p_high - ratio * (p_high - p_low);
+            }
+        }
+        return 0.0f; // Fallback, should not happen
 
     }
 }; 

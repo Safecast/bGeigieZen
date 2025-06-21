@@ -22,7 +22,7 @@ const MenuWindow::MenuItem MAIN_MENU_ITEMS[MAIN_MENU_MAX] = {
     {.title="Cosmic mode", .tooltip="Log data with optimized power settings", .enabled=true, .screen=&FlightModeScreen_i},
     {.title="Fixed mode", .tooltip="Real-time upload to API", .enabled=true, .screen=&FixedModeScreen_i},
     {.title="Satellite view", .tooltip="A 2d constellation map for viewing satellites", .enabled=true, .screen=&SatelliteViewScreen_i},
-    {.title="Log viewer", .tooltip="View and upload logs over wifi", .enabled=true, .screen=&LogViewerScreen_i},
+    {.title="Log viewer", .tooltip="Log viewer (in progress)", .enabled=false, .screen=&LogViewerScreen_i},
     {.title="Settings", .tooltip="Configure your device", .enabled=true, .screen=&ConfigModeScreen_i},
     {.title="About Zen", .tooltip="Explore what you can do with your bGeigieZen", .enabled=true, .screen=&ZenInfoScreen_i},
     {.title="Debug info", .tooltip="View connected modules and their status", .enabled=true, .screen=&DebugModeScreen_i}
