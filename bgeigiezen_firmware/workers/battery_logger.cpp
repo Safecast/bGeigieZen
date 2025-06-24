@@ -13,7 +13,7 @@
 #define BATT_LOG_DIR "/battery_logs"
 #define BATT_LOG_FILE_PREFIX "battery_"
 #define BATT_LOG_TEMP_FILENAME BATT_LOG_DIR "/latest_batt.csv"
-#define BATT_LOG_HEADER "device_id,uptime_s,voltage_v,percentage"
+#define BATT_LOG_HEADER "device_id,uptime_s,voltage_v,percentage,current_ma"
 #define BATT_MIN_LOG_LINES 1  // Minimum number of lines to keep the log file
 
 BatteryLogger::BatteryLogger()
@@ -143,6 +143,7 @@ int8_t BatteryLogger::produce_data(const WorkerMap& workers) {
     // Get battery data
     const auto& battery_data = battery->get_data();
     float battery_voltage = battery_data.voltage;
+    float battery_current = battery_data.current_mA;
 
     // (Optional) log file rename based on RTC could go here
     // Disabled for now until fully implemented
@@ -154,8 +155,8 @@ int8_t BatteryLogger::produce_data(const WorkerMap& workers) {
 
     int battery_percent = battery_data.percentage;
     unsigned long uptime_s = (current_millis - data.start_time) / 1000;
-    char row[100];
-    sprintf(row, "%u,%lu,%.3f,%d", data.device_id, uptime_s, battery_voltage, battery_percent);
+    char row[120];
+    sprintf(row, "%u,%lu,%.3f,%d,%.1f", data.device_id, uptime_s, battery_voltage, battery_percent, battery_current);
     SDInterface::i().log_println(data.current_log_filename, row);
 
     // Update state
