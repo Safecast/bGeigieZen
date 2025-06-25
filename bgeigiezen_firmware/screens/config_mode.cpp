@@ -3,6 +3,7 @@
 #include "menu_window.h"
 #include "user_config.h"
 #include "utils/device_utils.h"
+#include "utils/power_manager.h"
 #include "utils/wifi_connection.h"
 #include "workers/local_storage.h"
 #include "workers/zen_button.h"
@@ -244,6 +245,9 @@ void ConfigModeScreen::render_reset_device_sd(const worker_map_t& workers, const
 }
 
 void ConfigModeScreen::enter_screen(Controller& controller) {
+  // Ensure low power mode is disabled so that WiFi/AP will start reliably
+  PowerManager::exitLowPowerMode();
+
   switch (_current_page) {
     case e_config_page_main:
       // In case when entering from main menu, always set config menu index correctly
