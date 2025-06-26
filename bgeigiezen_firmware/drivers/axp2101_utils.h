@@ -35,6 +35,38 @@ inline bool read_register(uint8_t reg, uint8_t &value) {
 constexpr uint8_t REG_REMAIN_CAP_H = 0xB2;
 constexpr uint8_t REG_REMAIN_CAP_L = 0xB3;
 
+// Battery current ADC registers (AXP2101 datasheet)
+constexpr uint8_t REG_BAT_DISCHG_CUR_H = 0x7A;
+constexpr uint8_t REG_BAT_DISCHG_CUR_L = 0x7B;
+constexpr uint8_t REG_BAT_CHG_CUR_H    = 0x7C;
+constexpr uint8_t REG_BAT_CHG_CUR_L    = 0x7D;
+
+// Typical current LSB for AXP PMICs is 0.5 mA. Datasheet should be consulted
+// for the exact value; adjust if necessary.
+constexpr float CUR_LSB_mA = 0.5f;
+
+// Return battery current in milliamps. Positive when discharging, negative when charging.
+inline int32_t get_battery_current_mA()
+{
+  uint8_t high = 0, low = 0;
+  // Read discharge current first (positive current)
+  read_register(REG_BAT_DISCHG_CUR_H, high);
+  read_register(REG_BAT_DISCHG_CUR_L, low);
+  uint16_t discharge_raw = (static_cast<uint16_t>(high) << 8) | low;
+
+  // Read charge current (negative current)
+  read_register(REG_BAT_CHG_CUR_H, high);
+  read_register(REG_BAT_CHG_CUR_L, low);
+  uint16_t charge_raw = (static_cast<uint16_t>(high) << 8) | low;
+
+  if (discharge_raw) {
+    return static_cast<int32_t>(discharge_raw * CUR_LSB_mA); // +mA (discharging)
+  } else if (charge_raw) {
+    return -static_cast<int32_t>(charge_raw * CUR_LSB_mA);   // -mA (charging)
+  }
+  return 0;
+}
+
 inline float get_remaining_capacity_percent(uint16_t programmed_capacity_mAh) {
   uint8_t high, low;
   if (!read_register(REG_REMAIN_CAP_H, high)) return -1.0f;
