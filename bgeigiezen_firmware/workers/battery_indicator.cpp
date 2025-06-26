@@ -21,8 +21,14 @@ int8_t BatteryIndicator::produce_data() {
   uint16_t voltage_mv = M5.Power.getBatteryVoltage(); // millivolts
   data.voltage = voltage_mv / 1000.0f;
 
-  // Current (mA), positive when discharging, negative when charging
-  data.current_mA = M5.Power.getBatteryCurrent();
+  // Current (mA), positive when discharging, negative when charging. If
+  // M5Unified returns 0 (not implemented on some boards), fallback to AXP2101
+  // direct ADC reading.
+  int32_t current = M5.Power.getBatteryCurrent();
+  if (current == 0) {
+    current = axp2101::get_battery_current_mA();
+  }
+  data.current_mA = static_cast<float>(current);
 
   // Convert voltage to percentage using discharge curve mapping
   data.percentage = static_cast<int32_t>(BatteryMapping::voltage_to_percentage(voltage_mv) + 0.5f);
