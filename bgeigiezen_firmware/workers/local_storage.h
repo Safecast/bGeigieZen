@@ -42,8 +42,16 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual uint16_t get_screen_dim_timeout() const final;
   virtual uint16_t get_screen_off_timeout() const final;
   virtual bool get_animated_screensaver() const final;
+  // Primary WiFi profile
   virtual const char* get_wifi_ssid() const final;
   virtual const char* get_wifi_password() const final;
+  // Secondary WiFi profile
+  virtual const char* get_wifi_ssid2() const final;
+  virtual const char* get_wifi_password2() const final;
+
+  // Active profile helper (1 or 2)
+  virtual uint8_t get_wifi_profile_active() const final;
+
   virtual const char* get_api_key() const final;
   virtual double get_fixed_longitude() const final;
   virtual double get_fixed_latitude() const final;
@@ -66,6 +74,9 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual void set_animated_screensaver(bool animated_screensaver, bool force);
   virtual void set_wifi_ssid(const char* wifi_ssid, bool force);
   virtual void set_wifi_password(const char* wifi_password, bool force);
+  virtual void set_wifi_ssid2(const char* wifi_ssid, bool force);
+  virtual void set_wifi_password2(const char* wifi_password, bool force);
+  virtual void set_wifi_profile_active(uint8_t profile, bool force);
   virtual void set_api_key(const char* api_key, bool force);
   virtual void set_fixed_longitude(double fixed_longitude, bool force);
   virtual void set_fixed_latitude(double fixed_latitude, bool force);
@@ -103,8 +114,13 @@ class LocalStorage : public ProcessWorker<bool> {
   char _ap_password[CONFIG_VAL_MAX];
 
   // Connection settings
+  // WiFi profiles
   char _wifi_ssid[CONFIG_VAL_MAX];
   char _wifi_password[CONFIG_LONG_VAL_MAX];
+  char _wifi_ssid2[CONFIG_VAL_MAX];
+  char _wifi_password2[CONFIG_LONG_VAL_MAX];
+  uint8_t _wifi_profile_active; // 1 or 2
+
   char _api_key[CONFIG_VAL_MAX];
 
   // Location settings

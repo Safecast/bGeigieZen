@@ -44,6 +44,9 @@ LocalStorage::LocalStorage() :
     _animated_screensaver(true),
     _wifi_ssid(""),
     _wifi_password(""),
+    _wifi_ssid2(""),
+    _wifi_password2(""),
+    _wifi_profile_active(1),
     _api_key(""),
     _fixed_longitude(0),
     _fixed_latitude(0),
@@ -139,6 +142,16 @@ const char* LocalStorage::get_wifi_ssid() const {
 
 const char* LocalStorage::get_wifi_password() const {
   return _wifi_password;
+}
+
+const char* LocalStorage::get_wifi_ssid2() const {
+  return _wifi_ssid2;
+}
+const char* LocalStorage::get_wifi_password2() const {
+  return _wifi_password2;
+}
+uint8_t LocalStorage::get_wifi_profile_active() const {
+  return _wifi_profile_active;
 }
 
 const char* LocalStorage::get_api_key() const {
@@ -305,6 +318,30 @@ void LocalStorage::set_wifi_ssid(const char* wifi_ssid, bool force) {
     } else {
       M5_LOGD("unable to save new value for wifi_ssid");
     }
+  }
+}
+
+
+void LocalStorage::set_wifi_ssid2(const char* wifi_ssid, bool force) {
+  if(_memory.begin(memory_name)) {
+    strcpy(_wifi_ssid2, wifi_ssid);
+    _memory.putString("wifi_ssid2", wifi_ssid);
+    _memory.end();
+  }
+}
+void LocalStorage::set_wifi_password2(const char* wifi_password, bool force) {
+  if(_memory.begin(memory_name)) {
+    strcpy(_wifi_password2, wifi_password);
+    _memory.putString("wifi_password2", wifi_password);
+    _memory.end();
+  }
+}
+void LocalStorage::set_wifi_profile_active(uint8_t profile, bool force) {
+  profile = profile == 2 ? 2 : 1;
+  if(_memory.begin(memory_name)) {
+    _wifi_profile_active = profile;
+    _memory.putUChar("wifi_profile", profile);
+    _memory.end();
   }
 }
 
