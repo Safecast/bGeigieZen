@@ -25,6 +25,9 @@
 #define SD_CONFIG_FIELD_ANIMATED_SCREENSAVER "animated_screensaver"
 #define SD_CONFIG_FIELD_WIFI_SSID "wifi_ssid"
 #define SD_CONFIG_FIELD_WIFI_PASSWORD "wifi_password"
+#define SD_CONFIG_FIELD_WIFI_SSID2 "wifi_ssid2"
+#define SD_CONFIG_FIELD_WIFI_PASSWORD2 "wifi_password2"
+#define SD_CONFIG_FIELD_WIFI_PROFILE "wifi_profile"
 #define SD_CONFIG_FIELD_API_KEY "api_key"
 #define SD_CONFIG_FIELD_FIXED_LATITUDE "fixed_latitude"
 #define SD_CONFIG_FIELD_FIXED_LONGITUDE "fixed_longitude"
@@ -59,6 +62,11 @@ constexpr char sd_config_wifi_ssid_f[] = SD_CONFIG_FIELD_WIFI_SSID"=%[^\t\r\n]";
 constexpr char sd_config_wifi_ssid_write_f[] = SD_CONFIG_FIELD_WIFI_SSID"=%s";
 constexpr char sd_config_wifi_password_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD"=%[^\t\r\n]";
 constexpr char sd_config_wifi_password_write_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD"=%s";
+constexpr char sd_config_wifi_ssid2_f[] = SD_CONFIG_FIELD_WIFI_SSID2"=%[^\t\r\n]";
+constexpr char sd_config_wifi_ssid2_write_f[] = SD_CONFIG_FIELD_WIFI_SSID2"=%s";
+constexpr char sd_config_wifi_password2_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD2"=%[^\t\r\n]";
+constexpr char sd_config_wifi_password2_write_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD2"=%s";
+constexpr char sd_config_wifi_profile_f[] = SD_CONFIG_FIELD_WIFI_PROFILE"=%hhu";
 constexpr char sd_config_api_key_f[] = SD_CONFIG_FIELD_API_KEY"=%s";
 constexpr char sd_config_fixed_latitude_f[] = SD_CONFIG_FIELD_FIXED_LATITUDE"=%lf";
 constexpr char sd_config_fixed_longitude_f[] = SD_CONFIG_FIELD_FIXED_LONGITUDE"=%lf";
@@ -247,6 +255,9 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   // Connection settings
   char wifi_ssid[CONFIG_VAL_MAX] = "";
   char wifi_password[CONFIG_VAL_MAX] = "";
+  char wifi_ssid2[CONFIG_VAL_MAX] = "";
+  char wifi_password2[CONFIG_LONG_VAL_MAX] = "";
+  uint8_t wifi_profile_active = 1;
   char api_key[CONFIG_VAL_MAX] = "";
   char user_name[CONFIG_VAL_MAX] = "";
 
@@ -306,6 +317,30 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
         M5_LOGD("Loaded from SD: wifi_password=%s", wifi_password);
       } else {
         M5_LOGD("Unable to load wifi_password");
+      }
+    }
+    else if (line.startsWith(SD_CONFIG_FIELD_WIFI_SSID2)) {
+      if (_device_id && line.length() - strlen(SD_CONFIG_FIELD_WIFI_SSID2) < CONFIG_VAL_MAX && sscanf(line.c_str(), sd_config_wifi_ssid2_f, wifi_ssid2)) {
+        settings.set_wifi_ssid2(wifi_ssid2, true);
+        M5_LOGD("Loaded from SD: wifi_ssid2=%s", wifi_ssid2);
+      } else {
+        M5_LOGD("Unable to load wifi_ssid2");
+      }
+    }
+    else if (line.startsWith(SD_CONFIG_FIELD_WIFI_PASSWORD2)) {
+      if (_device_id && line.length() - strlen(SD_CONFIG_FIELD_WIFI_PASSWORD2) < CONFIG_LONG_VAL_MAX && sscanf(line.c_str(), sd_config_wifi_password2_f, wifi_password2)) {
+        settings.set_wifi_password2(wifi_password2, true);
+        M5_LOGD("Loaded from SD: wifi_password2=***hidden***");
+      } else {
+        M5_LOGD("Unable to load wifi_password2");
+      }
+    }
+    else if (line.startsWith(SD_CONFIG_FIELD_WIFI_PROFILE)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_wifi_profile_f, &wifi_profile_active)) {
+        settings.set_wifi_profile_active(wifi_profile_active, true);
+        M5_LOGD("Loaded from SD: wifi_profile_active=%u", wifi_profile_active);
+      } else {
+        M5_LOGD("Unable to load wifi_profile");
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_ALARM_THRESHOLD)) {
@@ -436,6 +471,12 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
     safecast_txt.printf(sd_config_wifi_ssid_write_f, settings.get_wifi_ssid());
     safecast_txt.println();
     safecast_txt.printf(sd_config_wifi_password_write_f, settings.get_wifi_password());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_wifi_ssid2_write_f, settings.get_wifi_ssid2());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_wifi_password2_write_f, settings.get_wifi_password2());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_wifi_profile_f, settings.get_wifi_profile_active());
     safecast_txt.println();
     safecast_txt.printf(sd_config_alert_threshold_f, settings.get_alert_threshold());
     safecast_txt.println();
