@@ -162,6 +162,17 @@ void ConfigWebServer::handle_save() {
   if(_server.hasArg(FORM_NAME_WIFI_PASS)) {
     _config.set_wifi_password(_server.arg(FORM_NAME_WIFI_PASS).c_str(), false);
   }
+  // WiFi profile 2
+  if(_server.hasArg(FORM_NAME_WIFI_SSID2)) {
+    _config.set_wifi_ssid2(_server.arg(FORM_NAME_WIFI_SSID2).c_str(), false);
+  }
+  if(_server.hasArg(FORM_NAME_WIFI_PASS2)) {
+    _config.set_wifi_password2(_server.arg(FORM_NAME_WIFI_PASS2).c_str(), false);
+  }
+  // Active WiFi profile (1 or 2)
+  if(_server.hasArg(FORM_NAME_WIFI_PROFILE)) {
+    _config.set_wifi_profile_active(_server.arg(FORM_NAME_WIFI_PROFILE).toInt(), false);
+  }
   if(_server.hasArg(FORM_NAME_API_KEY)) {
     _config.set_api_key(_server.arg(FORM_NAME_API_KEY).c_str(), false);
   }

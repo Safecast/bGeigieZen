@@ -26,7 +26,7 @@ bool ApiConnector::activate(bool retry) {
   }
   last_try = millis();
 
-  WiFiWrapper_i.connect_wifi(_config.get_wifi_ssid(), _config.get_wifi_password(), !retry);
+  WiFiWrapper_i.connect_wifi(_config.get_active_wifi_ssid(), _config.get_active_wifi_password(), !retry);
 
   return WiFi.isConnected();
 }

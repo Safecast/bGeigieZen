@@ -11,6 +11,9 @@ constexpr char const* key_user_name = "user_name";
 constexpr char const* key_ap_password = "device_password";
 constexpr char const* key_wifi_ssid = "wifi_ssid";
 constexpr char const* key_wifi_password = "wifi_password";
+constexpr char const* key_wifi_ssid2 = "wifi_ssid2";
+constexpr char const* key_wifi_password2 = "wifi_password2";
+constexpr char const* key_wifi_profile = "wifi_profile";
 constexpr char const* key_api_key = "api_key";
 constexpr char const* key_alert_threshold = "alarm_threshold";
 constexpr char const* key_cpm_usvh = "cpm_usvh";
@@ -152,6 +155,14 @@ const char* LocalStorage::get_wifi_password2() const {
 }
 uint8_t LocalStorage::get_wifi_profile_active() const {
   return _wifi_profile_active;
+}
+
+const char* LocalStorage::get_active_wifi_ssid() const {
+  return _wifi_profile_active == 2 ? _wifi_ssid2 : _wifi_ssid;
+}
+
+const char* LocalStorage::get_active_wifi_password() const {
+  return _wifi_profile_active == 2 ? _wifi_password2 : _wifi_password;
 }
 
 const char* LocalStorage::get_api_key() const {
@@ -458,6 +469,10 @@ bool LocalStorage::activate(bool) {
   }
   _alert_threshold = _memory.getUInt(key_alert_threshold, D_ALARM_THRESHOLD);
   _cpm_usvh = _memory.getBool(key_cpm_usvh, D_CPM_USVH);
+  // Load second WiFi profile and active selector
+  _memory.getString(key_wifi_ssid2, _wifi_ssid2, CONFIG_VAL_MAX);
+  _memory.getString(key_wifi_password2, _wifi_password2, CONFIG_LONG_VAL_MAX);
+  _wifi_profile_active = _memory.getUChar(key_wifi_profile, 1);
   _manual_logging = _memory.getBool(key_manual_logging, D_MANUAL_LOGGING);
   _enable_journal = _memory.getBool(key_enable_journal, D_ENABLE_JOURNAL);
   _log_void = _memory.getBool(key_log_void, D_LOG_VOID);
