@@ -45,7 +45,7 @@ BaseScreen* FixedModeScreen::handle_input(Controller& controller, const worker_m
 void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   // Display Profile and Menu buttons
   char profile_label[14];
-  sprintf(profile_label, "Prof %u", workers.worker<LocalStorage>(k_worker_local_storage)->get_wifi_profile_active());
+  sprintf(profile_label, "Profile %u", workers.worker<LocalStorage>(k_worker_local_storage)->get_wifi_profile_active());
   drawButton2(profile_label);
   drawButton3("Menu");
 
