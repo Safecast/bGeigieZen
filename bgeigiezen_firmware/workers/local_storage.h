@@ -52,6 +52,10 @@ class LocalStorage : public ProcessWorker<bool> {
   // Active profile helper (1 or 2)
   virtual uint8_t get_wifi_profile_active() const final;
 
+  // Active profile convenience getters
+  virtual const char* get_active_wifi_ssid() const final;
+  virtual const char* get_active_wifi_password() const final;
+
   virtual const char* get_api_key() const final;
   virtual double get_fixed_longitude() const final;
   virtual double get_fixed_latitude() const final;

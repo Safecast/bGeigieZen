@@ -262,10 +262,25 @@ const char* HttpPages::get_config_connection_page(
       "<input type='text' name='" FORM_NAME_WIFI_SSID "' id='" FORM_NAME_WIFI_SSID "' value='%s'>"
       "<span class='pure-form-message'>Your local WiFi network name</span>"
 
-      // WiFi password
+      // WiFi password (Profile 1)
       "<label for='" FORM_NAME_WIFI_PASS "'>WiFi password</label>"
       "<input type='text' name='" FORM_NAME_WIFI_PASS "' id='" FORM_NAME_WIFI_PASS "' value='%s'>"
       "<span class='pure-form-message'>Your local WiFi network password</span>"
+
+      // WiFi ssid (Profile 2)
+      "<label for='" FORM_NAME_WIFI_SSID2 "'>WiFi network name (Profile 2)</label>"
+      "<input type='text' name='" FORM_NAME_WIFI_SSID2 "' id='" FORM_NAME_WIFI_SSID2 "' value='%s'>"
+      "<span class='pure-form-message'>Optional second WiFi network name</span>"
+
+      // WiFi password (Profile 2)
+      "<label for='" FORM_NAME_WIFI_PASS2 "'>WiFi password (Profile 2)</label>"
+      "<input type='text' name='" FORM_NAME_WIFI_PASS2 "' id='" FORM_NAME_WIFI_PASS2 "' value='%s'>"
+      "<span class='pure-form-message'>Optional second WiFi network password</span>"
+
+      // Active profile selector
+      "<label>Active WiFi profile</label>"
+      "<label class='pure-radio'><input type='radio' name='" FORM_NAME_WIFI_PROFILE "' value='1' %s>Profile&nbsp;1</label>"
+      "<label class='pure-radio'><input type='radio' name='" FORM_NAME_WIFI_PROFILE "' value='2' %s>Profile&nbsp;2</label>"
 
       // Api key
       "<label for='" FORM_NAME_API_KEY "'>API key</label>"
@@ -283,6 +298,10 @@ const char* HttpPages::get_config_connection_page(
       settings.get_device_id(),
       settings.get_wifi_ssid(),
       settings.get_wifi_password(),
+      settings.get_wifi_ssid2(),
+      settings.get_wifi_password2(),
+      settings.get_wifi_profile_active()==1 ? "checked" : "",
+      settings.get_wifi_profile_active()==2 ? "checked" : "",
       settings.get_api_key(),
       display_success ? success_message : ""
   );
