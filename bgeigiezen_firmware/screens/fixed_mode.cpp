@@ -4,6 +4,7 @@
 #include "menu_window.h"
 #include "user_config.h"
 #include "workers/gm_sensor.h"
+#include "workers/local_storage.h"
 #include "workers/log_aggregator.h"
 #include "workers/zen_button.h"
 #include <esp_wifi.h>
@@ -18,6 +19,22 @@ FixedModeScreen::FixedModeScreen() : BaseScreen("Real-time", true) {
 }
 
 BaseScreen* FixedModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
+  // Handle Profile button (Button 2)
+  auto profile_button = workers.worker<ZenButton>(k_worker_button_2);
+  if (profile_button->is_fresh() && profile_button->get_data().shortPress) {
+    const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
+    uint8_t current = settings->get_wifi_profile_active();
+    uint8_t next = current == 1 ? 2 : 1;
+    settings->set_wifi_profile_active(next, true);
+    // Restart Wi-Fi with new credentials
+    WiFiWrapper_i.disconnect_wifi();
+    WiFiWrapper_i.connect_wifi(settings->get_active_wifi_ssid(), settings->get_active_wifi_password(), true);
+    // Show quick feedback
+    set_status_message(next == 1 ? F(" PROFILE 1 ") : F(" PROFILE 2 "));
+    force_next_render();
+  }
+
+  // Handle Menu button (Button 3)
   auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
   if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
     return &MenuWindow_i;
@@ -26,6 +43,10 @@ BaseScreen* FixedModeScreen::handle_input(Controller& controller, const worker_m
 }
 
 void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
+  // Display Profile and Menu buttons
+  char profile_label[14];
+  sprintf(profile_label, "Prof %u", workers.worker<LocalStorage>(k_worker_local_storage)->get_wifi_profile_active());
+  drawButton2(profile_label);
   drawButton3("Menu");
 
   const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
