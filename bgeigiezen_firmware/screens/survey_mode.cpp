@@ -7,6 +7,7 @@
 #include "workers/gps_connector.h"
 #include "workers/log_aggregator.h"
 #include "workers/zen_button.h"
+#include "utils/power_manager.h"
 #include "controller.h"
 
 SurveyModeScreen SurveyModeScreen_i;
@@ -16,6 +17,13 @@ SurveyModeScreen::SurveyModeScreen() : BaseScreen("Survey", true), _logging_avai
   required_gps = true;  // GPS is used in Survey mode
   required_wifi = false;  // WiFi is optional for Survey mode
   required_sd = true;
+  
+  // Initialize power manager
+  static bool power_manager_initialized = false;
+  if (!power_manager_initialized) {
+    PowerManager::begin();
+    power_manager_initialized = true;
+  }
 }
 
 BaseScreen* SurveyModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
@@ -179,6 +187,9 @@ void SurveyModeScreen::render(const worker_map_t& workers, const handler_map_t& 
 void SurveyModeScreen::enter_screen(Controller& controller) {
   BaseScreen::enter_screen(controller);
   
+  // Enter low power mode for Survey
+  PowerManager::enterLowPowerMode();
+  
   if (!controller.get_settings().get_manual_logging()) {
     // Automatically start logging
     controller.set_handler_active(k_handler_survey_logger, true);
@@ -195,6 +206,9 @@ void SurveyModeScreen::leave_screen(Controller& controller) {
   
   // close logging to file without displaying a message
   controller.set_handler_active(k_handler_survey_logger, false);
+  
+  // Restore normal power settings
+  PowerManager::exitLowPowerMode();
   
   // We can't access the GPS connector directly from here
   // The GPS model will be restored in the handle_input method
