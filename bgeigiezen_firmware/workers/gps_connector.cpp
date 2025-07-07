@@ -473,3 +473,18 @@ void GpsConnector::calculateChecksum(const uint8_t* data, size_t len, uint8_t* c
     *ckb += *cka;
   }
 }
+
+/**
+ * Ask the GNSS to enter Backup mode (save state) using UBX-RXM-PMREQ.
+ * This dramatically reduces TTFF on the next boot.
+ */
+bool GpsConnector::requestBackup() {
+  // UBX-RXM-PMREQ (0x02 0x41) payload is 8 bytes:
+  // 0-1: version / reserved (set to 0)
+  // 2-3: duration (little-endian) – 0 means indefinite
+  // 4-7: flags – bit0 = backup, everything else 0
+  const uint8_t payload[8] = { 0x00, 0x00, // version / reserved
+                               0x00, 0x00, // duration LSB/MSB (0 = indefinitely)
+                               0x01, 0x00, 0x00, 0x00 }; // flags (backup)
+  return sendUBXMessage(0x02 /*RXM*/, 0x41 /*PMREQ*/, payload, sizeof(payload));
+}
