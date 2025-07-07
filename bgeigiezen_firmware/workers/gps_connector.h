@@ -132,6 +132,13 @@ class GpsConnector : public Worker<GnssData> {
    * @return true if successful, false otherwise
    */
   bool sendUBXMessage(uint8_t msgClass, uint8_t msgID, const uint8_t* payload, size_t payloadSize);
+  /**
+   * Request the GNSS module to enter Backup mode and save its state.
+   * Uses UBX-RXM-PMREQ with flags = 0x00000001.
+   * Should be called just before power is removed.
+   * @return true if the UBX frame was sent.
+   */
+  bool requestBackup();
   
   /**
    * Calculate UBX message checksum
