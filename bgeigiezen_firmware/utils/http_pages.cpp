@@ -80,7 +80,7 @@ const char* HttpPages::get_home_page(const LocalStorage& settings) {
       "<ul>"
       "<li><a href='/device'>Configure device settings</a></li>"
       "<li><a href='/connection'>Configure Network connections</a></li>"
-      "<li><a href='/location'>Configure location settings for fixed mode</a></li>"
+      "<li><a href='/location'>Configure location settings for Real Time mode</a></li>"
       "</ul>"
       "More information about configurations in the <a href='https://github.com/Safecast/bGeigieZen/wiki/User-manual#available-settings' target='_blank'>User manual</a>. "
       "Or view your device on <a href='%s' target='_blank'>Grafana</a>."
@@ -104,7 +104,7 @@ const char* HttpPages::get_config_device_page(
       // Alarm threshold
       "<label for='" FORM_NAME_ALERT_THRESHOLD "'>CPM Alert threshold</label>"
       "<input required type='number' min='0' max='34464' name='" FORM_NAME_ALERT_THRESHOLD "' id='" FORM_NAME_ALERT_THRESHOLD "' value='%u' step='1'>"
-      "<span class='pure-form-message'>When in fixed mode and CPM is above configured value, it will upload data more frequently</span>"
+      "<span class='pure-form-message'>When in Real Time mode and CPM is above configured value, it will upload data more frequently</span>"
 
       // Screen dim timeout
       "<label for='" FORM_NAME_SCREEN_DIM_TIMEOUT "'>Screen dims after... (in seconds)</label>"
@@ -192,11 +192,11 @@ const char* HttpPages::get_config_location_page(
 
 
       // Home latitude
-      "<label for='" FORM_NAME_LOC_FIXED_LAT "'>Fixed mode latitude</label>"
+      "<label for='" FORM_NAME_LOC_FIXED_LAT "'>Real Time latitude</label>"
       "<input type='number' min='-90.0000' max='90.0000' name='" FORM_NAME_LOC_FIXED_LAT "' id='" FORM_NAME_LOC_FIXED_LAT "' value='%.5f' step='0.00001'>"
 
       // Home longitude
-      "<label for='" FORM_NAME_LOC_FIXED_LON "'>Fixed mode longitude</label>"
+      "<label for='" FORM_NAME_LOC_FIXED_LON "'>Real Time longitude</label>"
       "<input type='number' min='-180.0000' max='180.0000' name='" FORM_NAME_LOC_FIXED_LON "' id='" FORM_NAME_LOC_FIXED_LON "' value='%.5f' step='0.00001'>"
 
       // Set last known location
@@ -211,9 +211,9 @@ const char* HttpPages::get_config_location_page(
       "</span>"
 
       // Fixed range
-      "<label for='" FORM_NAME_FIXED_RANGE "'>Fixed range</label>"
+      "<label for='" FORM_NAME_FIXED_RANGE "'>Real Time range</label>"
       "<input type='number' min='0' max='5' name='" FORM_NAME_FIXED_RANGE "' id='" FORM_NAME_FIXED_RANGE "' value='%.1f' step='0.1'>"
-      "<span class='pure-form-message'>Range from fixed location in which measurements will be posted as fixed location (in KM)</span>"
+      "<span class='pure-form-message'>Range from Real Time location in which measurements will be posted as Real Time location (in KM)</span>"
 
       // Max DOP
       "<label for='" FORM_NAME_DOP_MAX "'>DOP max</label>"
