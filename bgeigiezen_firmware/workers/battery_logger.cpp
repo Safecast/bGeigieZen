@@ -113,7 +113,7 @@ int8_t BatteryLogger::produce_data(const WorkerMap& workers) {
             switch (storage->get_last_mode()) {
                 case LocalStorage::e_operational_mode_drive: mode_str = "drive"; break;
                 case LocalStorage::e_operational_mode_survey: mode_str = "survey"; break;
-                case LocalStorage::e_operational_mode_fixed: mode_str = "fixed"; break;
+                case LocalStorage::e_operational_mode_fixed: mode_str = "real_time"; break;
                 case LocalStorage::e_operational_mode_satellite: mode_str = "cosmic"; break;
                 case LocalStorage::e_operational_mode_flight: mode_str = "flight"; break;
             }
