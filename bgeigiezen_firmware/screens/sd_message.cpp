@@ -7,6 +7,7 @@
 #include "identifiers.h"
 #include "menu_window.h"
 #include "utils/device_utils.h"
+#include "utils/error_beep.h"
 #include "workers/zen_button.h"
 
 SdMessageScreen SdMessageScreen_i;
@@ -76,6 +77,13 @@ BaseScreen* SdMessageScreen::handle_input(Controller& controller, const worker_m
 }
 
 void SdMessageScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
+  // Play error beeps for SD card error messages on first render
+  static bool first_render = true;
+  if (first_render) {
+    playErrorBeepsIfAvailable(workers);
+    first_render = false;
+  }
+  
   switch (error_type) {
     case k_unknown:
       drawButton1("Reboot");

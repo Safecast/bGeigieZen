@@ -1,6 +1,7 @@
 #include "base_screen.h"
 #include "identifiers.h"
 #include "utils/wifi_connection.h"
+#include "utils/error_beep.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
 #include "workers/local_storage.h"

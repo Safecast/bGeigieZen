@@ -3,7 +3,9 @@
 #include "identifiers.h"
 #include "menu_window.h"
 #include "user_config.h"
+#include "utils/error_beep.h"
 #include "workers/gm_sensor.h"
+#include "workers/gps_connector.h"
 #include "workers/local_storage.h"
 #include "workers/log_aggregator.h"
 #include "workers/zen_button.h"
@@ -16,6 +18,7 @@ FixedModeScreen::FixedModeScreen() : BaseScreen("Real-time", true) {
   required_gps = true;
   required_tube = true;
   required_wifi = true;
+  required_sd = true;
 }
 
 BaseScreen* FixedModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
@@ -112,7 +115,15 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
       M5.Lcd.setTextColor(log_data.in_fixed_range ? LCD_COLOR_DEFAULT : LCD_COLOR_ACTIVITY, LCD_COLOR_BACKGROUND);
       M5.Lcd.printf(log_data.in_fixed_range ? "At home    " : "Roaming    ");
     } else {
-      M5.Lcd.setTextColor(LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
+      // Check if GPS hardware is present vs completely missing
+      const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
+      if (!gps->active()) {
+        // GPS hardware not present - this is a real error, play beeps
+        setErrorColorWithBeep(workers);
+      } else {
+        // GPS hardware present but no valid fix - don't play error beeps
+        M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+      }
       M5.Lcd.printf("Without GPS");
     }
 
@@ -156,10 +167,24 @@ void FixedModeScreen::enter_screen(Controller& controller) {
   // Enter low power mode (CPU/I2C down, but WiFi stays on)
   PowerManager::enterLowPowerMode();
 
-  // --- WiFi Power Save Mode and TX Power ---
-  // Set WiFi to power save mode and reduce TX power for Fixed (Real-time) mode
-  esp_wifi_set_ps(WIFI_PS_MIN_MODEM); // Enable minimum modem power save
-  esp_wifi_set_max_tx_power(15);      // Set TX power to 15 (units: 0.25 dBm, so 15 = 3.75 dBm)
+  // --- WiFi Power Save Mode and TX Power (Core2 specific) ---
+  // For ESP32 (Core2), we need to be more careful with WiFi power management
+  // Only apply power save settings after ensuring WiFi is stable
+  #ifndef CONFIG_IDF_TARGET_ESP32S3
+    // Core2 (ESP32) - Apply conservative power settings to avoid WiFi init loops
+    // Wait a bit for power management to stabilize
+    delay(100);
+    
+    // Only apply power save if WiFi is already connected or connecting
+    if (WiFi.status() == WL_CONNECTED || WiFi.status() == WL_DISCONNECTED) {
+      esp_wifi_set_ps(WIFI_PS_NONE);     // Disable power save for Core2 stability
+      esp_wifi_set_max_tx_power(20);     // Use moderate TX power (5 dBm)
+    }
+  #else
+    // CoreS3 (ESP32-S3) - Can handle more aggressive power saving
+    esp_wifi_set_ps(WIFI_PS_MIN_MODEM); // Enable minimum modem power save
+    esp_wifi_set_max_tx_power(15);      // Set TX power to 15 (units: 0.25 dBm, so 15 = 3.75 dBm)
+  #endif
   // ----------------------------------------
 }
 

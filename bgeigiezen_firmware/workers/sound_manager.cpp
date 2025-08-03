@@ -189,3 +189,25 @@ bool SoundManager::toggleSound() {
   
   return _sound_enabled;
 }
+
+void SoundManager::playErrorBeeps() {
+  // Save current volume
+  uint8_t current_volume = M5.Speaker.getVolume();
+  
+  // Set maximum volume for error beeps (critical alerts)
+  M5.Speaker.setVolume(255);
+  
+  M5_LOGD("Playing error beeps (3x 3kHz)");
+  
+  // Play three 3kHz beeps with short pauses
+  for (int i = 0; i < 3; i++) {
+    M5.Speaker.tone(3000, 200, 0, true);  // 3kHz for 200ms
+    delay(200);  // Wait for tone to complete
+    if (i < 2) {  // Don't delay after the last beep
+      delay(100);  // 100ms pause between beeps
+    }
+  }
+  
+  // Restore original volume
+  M5.Speaker.setVolume(current_volume);
+}

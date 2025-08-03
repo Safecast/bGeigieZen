@@ -3,6 +3,7 @@
 #include "identifiers.h"
 #include "menu_window.h"
 #include "utils/sd_wrapper.h"
+#include "utils/error_beep.h"
 #include "workers/zen_button.h"
 
 SDWipeScreen SDWipeScreen_i;
@@ -44,7 +45,7 @@ void SDWipeScreen::render(const worker_map_t& workers, const handler_map_t& hand
 
   switch (_state) {
     case CONFIRM:
-      M5.Lcd.setTextColor(LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
+      setErrorColorWithBeep(workers);
       M5.Lcd.setTextSize(1);
       M5.Lcd.setCursor(20, 60);
       M5.Lcd.println("WARNING: This will delete ALL data from the SD card!");
@@ -84,7 +85,7 @@ void SDWipeScreen::render(const worker_map_t& workers, const handler_map_t& hand
         M5.Lcd.setCursor(20, 100);
         M5.Lcd.println("All log files have been deleted.");
       } else {
-        M5.Lcd.setTextColor(LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
+        setErrorColorWithBeep(workers);
         M5.Lcd.setTextSize(1);
         M5.Lcd.setCursor(20, 80);
         M5.Lcd.println("Failed to wipe SD card!");
