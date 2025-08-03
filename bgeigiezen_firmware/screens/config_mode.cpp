@@ -3,6 +3,7 @@
 #include "menu_window.h"
 #include "user_config.h"
 #include "utils/device_utils.h"
+#include "utils/error_beep.h"
 #include "utils/power_manager.h"
 #include "utils/wifi_connection.h"
 #include "workers/local_storage.h"
@@ -215,6 +216,7 @@ void ConfigModeScreen::render_sd_wipe(const worker_map_t& workers, const handler
   drawButton3("Menu");
 
   // Create warning box with red background and white text
+  playErrorBeepsIfAvailable(workers);
   M5.Lcd.fillRect(0, 70, 320, 60, LCD_COLOR_ERROR);
   M5.Lcd.setCursor(10, 85, &fonts::Font2);
   M5.Lcd.setTextColor(TFT_WHITE, LCD_COLOR_ERROR);

@@ -48,6 +48,12 @@ class SoundManager : public Worker<bool> {
    */
   bool isSoundEnabled() const { return _sound_enabled; }
 
+  /**
+   * Play three 3kHz beeps for error messages
+   * Plays regardless of sound enabled state for critical errors
+   */
+  void playErrorBeeps();
+
  private:
   bool _sound_enabled = true;
   uint32_t _last_cps = 0;

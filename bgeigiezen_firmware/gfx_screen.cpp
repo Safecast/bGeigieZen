@@ -3,6 +3,7 @@
 #include "controller.h"
 #include "gfx_screen.h"
 #include "handlers/bluetooth_reporter.h"
+#include "utils/error_beep.h"
 #include "identifiers.h"
 #include "screens/boot_screen.h"
 #include "screens/default_entry_screen.h"
@@ -250,7 +251,9 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         static String last_error_message = "";
         static String last_status_message = "";
         static unsigned long message_display_time = 0;
-        static const unsigned long MESSAGE_TIMEOUT = 2000; // 2 seconds timeout for messages
+        static const unsigned long MESSAGE_TIMEOUT = 5000; // 5 seconds timeout for messages
+        static BaseScreen* last_error_screen = nullptr; // Track which screen showed the error
+        static String last_shown_error = ""; // Track the last error message that was actually shown
         
         // Define message area properties based on Font2 (height 16px) and current baseline 220
         const int MSG_AREA_Y_BASELINE = 220;
@@ -270,54 +273,72 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         last_error_message = current_error_message;
         last_status_message = current_status_message;
         
+        // Check for message timeout
+        bool message_timed_out = message_displayed && (millis() - message_display_time > MESSAGE_TIMEOUT);
+        
+        // Check if we should show error message (new screen or different error)
+        bool should_show_error = error_msg && (
+          (_screen != last_error_screen) || // New screen
+          (current_error_message != last_shown_error) || // Different error message
+          (!message_displayed && last_shown_error.isEmpty()) // First time showing any error
+        );
+        
         // Handle message display
 #ifdef M5STACK_CORE2
         // Core2 message handling
-        if (error_msg && (!message_displayed || current_error_message != last_error_message)) {
-          // Error message takes precedence
+        if (should_show_error) {
+          // Error message takes precedence - only show on screen change or new error
+          playErrorBeepsIfAvailable(workers);
           M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_ERROR);
           uint16_t text_width = M5.Lcd.drawString(current_error_message.c_str(), 0, MSG_AREA_Y_BASELINE, &fonts::Font2);
           M5.Lcd.fillRect(text_width, MSG_AREA_Y_TOP, M5.Lcd.width() - text_width, MSG_AREA_HEIGHT, LCD_COLOR_BACKGROUND);
           message_displayed = true;
           message_display_time = millis();
+          last_error_screen = _screen;
+          last_shown_error = current_error_message;
           status_bar_needs_full_redraw = true;
         } else if (status_msg && (!message_displayed || current_status_message != last_status_message)) {
-          // Status message
+          // Status message - only show on new message or first display
           M5.Lcd.setTextColor(LCD_COLOR_BACKGROUND, LCD_COLOR_DEFAULT);
           uint16_t text_width = M5.Lcd.drawString(current_status_message.c_str(), 0, MSG_AREA_Y_BASELINE, &fonts::Font2);
           M5.Lcd.fillRect(text_width, MSG_AREA_Y_TOP, M5.Lcd.width() - text_width, MSG_AREA_HEIGHT, LCD_COLOR_BACKGROUND);
           message_displayed = true;
           message_display_time = millis();
           status_bar_needs_full_redraw = true;
-        } else if (message_displayed && !error_msg && !status_msg) {
-          // Clear message area if no message and there was one before
+        } else if (message_displayed && (message_timed_out || (!error_msg && !status_msg))) {
+          // Clear message area if timed out or no message and there was one before
           M5.Lcd.fillRect(0, MSG_AREA_Y_TOP, M5.Lcd.width(), MSG_AREA_HEIGHT, LCD_COLOR_BACKGROUND);
           message_displayed = false;
           status_bar_needs_full_redraw = true;
+          // Don't clear last_shown_error here - keep it to prevent re-showing on same screen
         }
 #else
         // CoreS3 specific message handling
-        if (error_msg && (!message_displayed || current_error_message != last_error_message)) {
-          // Error message takes precedence
+        if (should_show_error) {
+          // Error message takes precedence - only show on screen change or new error
+          playErrorBeepsIfAvailable(workers);
           M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_ERROR);
           uint16_t text_width = M5.Lcd.drawString(current_error_message.c_str(), 0, MSG_AREA_Y_BASELINE, &fonts::Font2);
           M5.Lcd.fillRect(text_width, MSG_AREA_Y_TOP, M5.Lcd.width() - text_width, MSG_AREA_HEIGHT, LCD_COLOR_BACKGROUND);
           message_displayed = true;
           message_display_time = millis();
+          last_error_screen = _screen;
+          last_shown_error = current_error_message;
           status_bar_needs_full_redraw = true;
         } else if (status_msg && (!message_displayed || current_status_message != last_status_message)) {
-          // Status message
+          // Status message - only show on new message or first display
           M5.Lcd.setTextColor(LCD_COLOR_BACKGROUND, LCD_COLOR_DEFAULT);
           uint16_t text_width = M5.Lcd.drawString(current_status_message.c_str(), 0, MSG_AREA_Y_BASELINE, &fonts::Font2);
           M5.Lcd.fillRect(text_width, MSG_AREA_Y_TOP, M5.Lcd.width() - text_width, MSG_AREA_HEIGHT, LCD_COLOR_BACKGROUND);
           message_displayed = true;
           message_display_time = millis();
           status_bar_needs_full_redraw = true;
-        } else if (message_displayed && !error_msg && !status_msg) {
-          // Clear message area if no message and there was one before
+        } else if (message_displayed && (message_timed_out || (!error_msg && !status_msg))) {
+          // Clear message area if timed out or no message and there was one before
           M5.Lcd.fillRect(0, MSG_AREA_Y_TOP, M5.Lcd.width(), MSG_AREA_HEIGHT, LCD_COLOR_BACKGROUND);
           message_displayed = false;
           status_bar_needs_full_redraw = true;
+          // Don't clear last_shown_error here - keep it to prevent re-showing on same screen
         }
 #endif
 
@@ -375,9 +396,19 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
           // Status icon: SD
           M5.Lcd.setCursor(pos, 235);
           if (!SDInterface::i().can_write_logs()) {
-            M5.Lcd.setTextColor(_screen->has_required_sd() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, TFT_BLACK);
+            bool sd_error_state = _screen->has_required_sd();
+            M5.Lcd.setTextColor(sd_error_state ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, TFT_BLACK);
+            
+            // Play beeps when switching to a screen that requires SD card but none is available
+            static BaseScreen* last_screen = nullptr;
+            if (sd_error_state && _screen != last_screen) {
+              playErrorBeepsIfAvailable(workers);
+            }
+            last_screen = _screen;
           } else {
             M5.Lcd.setTextColor(SDInterface::i().just_wrote() ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+            static BaseScreen* last_screen = nullptr;
+            last_screen = _screen; // Update screen tracking even when SD is working
           }
           M5.Lcd.print("SD");
           pos += 18; // Adjust position for next indicator

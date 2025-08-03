@@ -33,7 +33,7 @@ bool BatteryLogger::activate(bool retry) {
         return false;
     }
 
-    M5_LOGI("Activating BatteryLogger");
+    // M5_LOGI("Activating BatteryLogger");
 
     // Store activation time
     data.start_time = millis();
