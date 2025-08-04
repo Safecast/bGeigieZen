@@ -15,6 +15,7 @@ class ConfigModeScreen : public BaseScreenWithMenu {
     e_config_page_save_config_to_sd,
     e_config_page_sd_wipe,
     e_config_page_reset_dose,
+    e_config_page_cpm_threshold,
     e_config_page_reset_all,
     e_config_page_back_to_main,
     e_config_MENU_MAX,
@@ -36,6 +37,7 @@ class ConfigModeScreen : public BaseScreenWithMenu {
   void render_page_wifi(const worker_map_t& workers, const handler_map_t& handlers);
   void render_sd_wipe(const worker_map_t& workers, const handler_map_t& handlers);
   void render_reset_device_sd(const worker_map_t& workers, const handler_map_t& handlers);
+  void render_cpm_threshold_page(const worker_map_t& workers, const handler_map_t& handlers);
 
   enum MainPageInfoSection {
     e_config_section_device,

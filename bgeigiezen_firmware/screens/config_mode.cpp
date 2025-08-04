@@ -6,6 +6,7 @@
 #include "utils/error_beep.h"
 #include "utils/power_manager.h"
 #include "utils/wifi_connection.h"
+#include "utils/sd_wrapper.h"
 #include "workers/local_storage.h"
 #include "workers/zen_button.h"
 #include <WiFi.h>
@@ -18,6 +19,7 @@ const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MEN
     {.title="Save to SD", .tooltip="Write current device      settings to the       SD-card config file", .enabled=true},
     {.title="Wipe SD Card", .tooltip="Delete all log files from the SD card", .enabled=true},
     {.title="Reset dose", .tooltip="Reset the accumulated dose rate to zero", .enabled=true},
+    {.title="CPM Alert Level", .tooltip="Adjust the CPM alert threshold level", .enabled=true},
     {.title="Factory reset", .tooltip="Clear and reset      device and SD-card", .enabled=true},
     {.title="Back to main menu", .tooltip="Return to the main menu", .enabled=true},
 };
@@ -91,6 +93,34 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
         case e_config_page_main:
           _main_page_info_section = (_main_page_info_section + 1) % e_config_section_MAX;
           force_next_render();
+          break;
+        case e_config_page_cpm_threshold: {
+          auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
+          uint16_t current_threshold = settings->get_alert_threshold();
+          uint16_t increment = button2->get_data().longPress ? 100 : 10;
+          uint16_t new_threshold = current_threshold + increment;
+          
+          // Clamp to reasonable range
+          if (new_threshold > 9999) {
+            new_threshold = 9999;
+          }
+          if (new_threshold < 10) {
+            new_threshold = 10;
+          }
+          
+          if (new_threshold != current_threshold) {
+            settings->set_alert_threshold(new_threshold, false);
+            
+            // Save to SD card
+            if (SDInterface::i().ready()) {
+              SDInterface::i().write_safezen_file_from_settings(*settings, false);
+            }
+            
+            force_next_render();
+            M5_LOGD("CPM threshold updated to: %u", new_threshold);
+          }
+          break;
+        }
         default:
           break;
       }
@@ -128,6 +158,9 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
         break;
       case e_config_page_sd_wipe:
         render_sd_wipe(workers, handlers);
+        break;
+      case e_config_page_cpm_threshold:
+        render_cpm_threshold_page(workers, handlers);
         break;
       case e_config_page_reset_all:
         render_reset_device_sd(workers, handlers);
@@ -244,6 +277,25 @@ void ConfigModeScreen::render_reset_device_sd(const worker_map_t& workers, const
   M5.Lcd.printf("This will also clear all log files, and reset the \n");
   M5.Lcd.printf("settings on the SD-card to only contain your ID\n\n");
   M5.Lcd.printf("device ID: %d\n\n", storage->get_device_id());
+}
+
+void ConfigModeScreen::render_cpm_threshold_page(const worker_map_t& workers, const handler_map_t& handlers) {
+  auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
+  uint16_t current_threshold = settings->get_alert_threshold();
+  
+  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  M5.Lcd.setCursor(0, 30, &fonts::Font2);
+  M5.Lcd.printf("CPM Alert Threshold\n");
+  M5.Lcd.printf("\n");
+  M5.Lcd.printf("Current: %u CPM\n", current_threshold);
+  M5.Lcd.printf("\n");
+  M5.Lcd.printf("A: Menu (adjust)\n");
+  M5.Lcd.printf("B: +10 CPM\n");
+  M5.Lcd.printf("C: Back\n");
+  M5.Lcd.printf("\n");
+  M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+  M5.Lcd.printf("Hold B: +100 CPM\n");
+  M5.Lcd.printf("Range: 10-9999 CPM\n");
 }
 
 void ConfigModeScreen::enter_screen(Controller& controller) {
