@@ -62,9 +62,36 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
     auto button2 = workers.worker<ZenButton>(k_worker_button_2);
     auto button3 = workers.worker<ZenButton>(k_worker_button_3);
     if (button1->is_fresh() && button1->get_data().shortPress) {
-      open_menu(true);
-      M5.Lcd.clear();
-      force_next_render();
+      // Check if we're on the CPM threshold page for decrement functionality
+      if (_current_page == e_config_page_cpm_threshold) {
+        auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
+        uint16_t current_threshold = settings->get_alert_threshold();
+        uint16_t decrement = button1->get_data().longPress ? 100 : 10;
+        uint16_t new_threshold;
+        
+        // Handle underflow protection
+        if (current_threshold <= decrement || current_threshold - decrement < 10) {
+          new_threshold = 10;  // Minimum threshold
+        } else {
+          new_threshold = current_threshold - decrement;
+        }
+        
+        if (new_threshold != current_threshold) {
+          settings->set_alert_threshold(new_threshold, false);
+          
+          // Save to SD card
+          if (SDInterface::i().ready()) {
+            SDInterface::i().write_safezen_file_from_settings(*settings, false);
+          }
+          
+          force_next_render();
+          M5_LOGD("CPM threshold decreased to: %u", new_threshold);
+        }
+      } else {
+        open_menu(true);
+        M5.Lcd.clear();
+        force_next_render();
+      }
     }
     if (button2->is_fresh() && button2->get_data().shortPress) {
       // screen specific action
@@ -289,12 +316,13 @@ void ConfigModeScreen::render_cpm_threshold_page(const worker_map_t& workers, co
   M5.Lcd.printf("\n");
   M5.Lcd.printf("Current: %u CPM\n", current_threshold);
   M5.Lcd.printf("\n");
-  M5.Lcd.printf("A: Menu (adjust)\n");
-  M5.Lcd.printf("B: +10 CPM\n");
-  M5.Lcd.printf("C: Back\n");
+  M5.Lcd.printf("[A] Decrease -10 CPM\n");
+  M5.Lcd.printf("[B] Increase +10 CPM\n");
+  M5.Lcd.printf("[C] Back to menu\n");
   M5.Lcd.printf("\n");
   M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-  M5.Lcd.printf("Hold B: +100 CPM\n");
+  M5.Lcd.printf("Hold [A]: -100 CPM\n");
+  M5.Lcd.printf("Hold [B]: +100 CPM\n");
   M5.Lcd.printf("Range: 10-9999 CPM\n");
 }
 
