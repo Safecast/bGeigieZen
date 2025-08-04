@@ -1,10 +1,12 @@
 #include <numeric>
 #include "gm_sensor.h"
+#include "workers/local_storage.h"
+#include "identifiers.h"
 
 // Global variable for CPS value that can be accessed by SoundManager
 uint16_t g_cps = 0;
 
-GeigerCounter::GeigerCounter() : Worker<GeigerData>(), pulse_counter() {
+GeigerCounter::GeigerCounter() : ProcessWorker<GeigerData>(), pulse_counter() {
   std::fill(_shift_reg.begin(), _shift_reg.end(), 0);
 }
 
@@ -21,7 +23,13 @@ bool GeigerCounter::activate(bool retry) {
   return false;
 }
 
-int8_t GeigerCounter::produce_data() {
+int8_t GeigerCounter::produce_data(const worker_map_t& workers) {
+  // Get the current alert threshold from LocalStorage
+  auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
+  if (settings) {
+    _cpm_alert_level = settings->get_alert_threshold();
+  }
+  
   if (!pulse_counter.available()) {
     return e_worker_idle;
   }

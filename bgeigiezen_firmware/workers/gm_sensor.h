@@ -22,14 +22,14 @@ struct GeigerData {
 /**
  * Geiger counter worker, produces CPM among other data (See GeigerData).
  */
-class GeigerCounter : public Worker<GeigerData> {
+class GeigerCounter : public ProcessWorker<GeigerData> {
  public:
   explicit GeigerCounter();
   virtual ~GeigerCounter() = default;
 
   bool activate(bool retry) override;
 
-  int8_t produce_data() override;
+  int8_t produce_data(const worker_map_t& workers) override;
   
   /**
    * Get direct access to the pulse counter
