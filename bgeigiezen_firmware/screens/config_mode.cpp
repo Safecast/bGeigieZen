@@ -310,19 +310,24 @@ void ConfigModeScreen::render_cpm_threshold_page(const worker_map_t& workers, co
   auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
   uint16_t current_threshold = settings->get_alert_threshold();
   
+  // Draw button indicators at bottom of screen
+  drawButton1("-10 CPM");
+  drawButton2("+10 CPM");
+  drawButton3("Back");
+  
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  M5.Lcd.setCursor(0, 30, &fonts::Font2);
+  M5.Lcd.setCursor(0, 50, &fonts::Font2);
   M5.Lcd.printf("CPM Alert Threshold\n");
   M5.Lcd.printf("\n");
   M5.Lcd.printf("Current: %u CPM\n", current_threshold);
   M5.Lcd.printf("\n");
-  M5.Lcd.printf("[A] Decrease -10 CPM\n");
-  M5.Lcd.printf("[B] Increase +10 CPM\n");
-  M5.Lcd.printf("[C] Back to menu\n");
+  M5.Lcd.printf("Press A to decrease by 10 CPM\n");
+  M5.Lcd.printf("Press B to increase by 10 CPM\n");
+  M5.Lcd.printf("Press C to go back\n");
   M5.Lcd.printf("\n");
   M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-  M5.Lcd.printf("Hold [A]: -100 CPM\n");
-  M5.Lcd.printf("Hold [B]: +100 CPM\n");
+  M5.Lcd.printf("Hold A: -100 CPM\n");
+  M5.Lcd.printf("Hold B: +100 CPM\n");
   M5.Lcd.printf("Range: 10-9999 CPM\n");
 }
 
