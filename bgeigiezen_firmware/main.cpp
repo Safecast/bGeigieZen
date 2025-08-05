@@ -54,6 +54,7 @@
 #include "identifiers.h"
 #include "workers/battery_indicator.h"
 #include "workers/battery_logger.h"
+#include "workers/battery_led_indicator.h"
 #include "workers/configuration_server.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
@@ -86,6 +87,7 @@ LogAggregator log_aggregator(settings);
 ConfigWebServer config_server(settings);
 SoundManager sound_manager;
 BatteryLogger battery_logger;
+BatteryLedIndicator battery_led_indicator;
 
 // Data handlers
 SdLogger journal_logger(settings, SdLogger::journal);
@@ -144,6 +146,7 @@ void setup() {
   controller.register_worker(k_worker_battery_indicator, battery_indicator);
   controller.register_worker(k_worker_rtc_connector, rtc);
   controller.register_worker(k_worker_battery_logger, battery_logger);
+  controller.register_worker(k_worker_battery_led_indicator, battery_led_indicator);
   controller.register_worker(k_worker_button_3, zen_A);
   controller.register_worker(k_worker_button_2, zen_B);
   controller.register_worker(k_worker_button_1, zen_C);
