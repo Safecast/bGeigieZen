@@ -153,7 +153,18 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
       }
     }
     if (button3->is_fresh() && button3->get_data().shortPress) {
-      return &MenuWindow_i;
+      // Handle page-specific back navigation
+      switch (_current_page) {
+        case e_config_page_cpm_threshold:
+          // Go back to config menu, not main menu
+          _current_page = e_config_page_main;
+          open_menu(false);
+          force_next_render();
+          return nullptr;  // Stay on config screen
+        default:
+          // For other pages, go back to main menu
+          return &MenuWindow_i;
+      }
     }
   }
 
