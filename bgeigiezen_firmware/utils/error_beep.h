@@ -4,6 +4,7 @@
 #include <Worker.hpp>
 #include "identifiers.h"
 #include "workers/sound_manager.h"
+#include "workers/local_storage.h"
 #include "user_config.h"
 
 /**
@@ -13,6 +14,13 @@
  */
 inline void playErrorBeepsIfAvailable(const WorkerMap& workers) {
   try {
+    // Check if error alert sounds are enabled in settings
+    auto local_storage = workers.worker<LocalStorage>(k_worker_local_storage);
+    if (local_storage && !local_storage->get_error_alert_sound()) {
+      // Error alert sounds disabled, skip playing beeps
+      return;
+    }
+    
     // Try to get the SoundManager worker
     auto sound_manager = workers.worker<SoundManager>(k_worker_sound_manager);
     if (sound_manager != nullptr) {

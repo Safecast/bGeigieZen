@@ -24,6 +24,7 @@ constexpr char const* key_dop_max = "dop_max";
 constexpr char const* key_screen_dim_timeout = "dim_timeout";
 constexpr char const* key_screen_off_timeout = "off_timeout";
 constexpr char const* key_animated_screensaver = "ani_screensaver";
+constexpr char const* key_error_alert_sound = "error_alert_sound";
 constexpr char const* key_fixed_range = "fixed_range";
 constexpr char const* key_fixed_longitude = "fixed_longitude";
 constexpr char const* key_fixed_latitude = "fixed_latitude";
@@ -45,6 +46,7 @@ LocalStorage::LocalStorage() :
     _screen_dim_timeout(60),
     _screen_off_timeout(600),
     _animated_screensaver(true),
+    _error_alert_sound(true),
     _wifi_ssid(""),
     _wifi_password(""),
     _wifi_ssid2(""),
@@ -73,6 +75,7 @@ void LocalStorage::reset_defaults() {
     set_screen_dim_timeout(D_SCREEN_DIM_TIMEOUT, true);
     set_screen_off_timeout(D_SCREEN_OFF_TIMEOUT, true);
     set_animated_screensaver(D_ANIMATED_SCREENSAVER, true);
+    set_error_alert_sound(D_ERROR_ALERT_SOUND, true);
     set_wifi_ssid(D_WIFI_SSID, true);
     set_wifi_password(D_WIFI_PASSWORD, true);
     set_api_key(D_API_KEY, true);
@@ -137,6 +140,10 @@ uint16_t LocalStorage::get_screen_off_timeout() const {
 
 bool LocalStorage::get_animated_screensaver() const {
   return _animated_screensaver;
+}
+
+bool LocalStorage::get_error_alert_sound() const {
+  return _error_alert_sound;
 }
 
 const char* LocalStorage::get_wifi_ssid() const {
@@ -320,6 +327,16 @@ void LocalStorage::set_animated_screensaver(bool animated_screensaver, bool forc
   }
 }
 
+void LocalStorage::set_error_alert_sound(bool error_alert_sound, bool force) {
+  if(_memory.begin(memory_name)) {
+    _error_alert_sound = error_alert_sound;
+    _memory.putBool(key_error_alert_sound, error_alert_sound);
+    _memory.end();
+  } else {
+    M5_LOGD("unable to save new value for error_alert_sound");
+  }
+}
+
 void LocalStorage::set_wifi_ssid(const char* wifi_ssid, bool force) {
   if(force || (wifi_ssid != nullptr && strlen(wifi_ssid) < CONFIG_VAL_MAX)) {
     if(_memory.begin(memory_name)) {
@@ -479,6 +496,7 @@ bool LocalStorage::activate(bool) {
   _screen_dim_timeout = _memory.getUInt(key_screen_dim_timeout, D_SCREEN_DIM_TIMEOUT);
   _screen_off_timeout = _memory.getUInt(key_screen_off_timeout, D_SCREEN_OFF_TIMEOUT);
   _animated_screensaver = _memory.getBool(key_animated_screensaver, D_ANIMATED_SCREENSAVER);
+  _error_alert_sound = _memory.getBool(key_error_alert_sound, D_ERROR_ALERT_SOUND);
   if(_memory.getString(key_ap_password, _ap_password, CONFIG_VAL_MAX) == 0) {
     strcpy(_ap_password, D_AP_PASSWORD);
   }

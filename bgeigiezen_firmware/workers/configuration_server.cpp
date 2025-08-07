@@ -142,6 +142,9 @@ void ConfigWebServer::handle_save() {
   if(_server.hasArg(FORM_NAME_ANIMATED_SCREENSAVER)) {
     _config.set_animated_screensaver(_server.arg(FORM_NAME_ANIMATED_SCREENSAVER).toInt(), false);
   }
+  if(_server.hasArg(FORM_NAME_ERROR_ALERT_SOUND)) {
+    _config.set_error_alert_sound(_server.arg(FORM_NAME_ERROR_ALERT_SOUND).toInt(), false);
+  }
   if(_server.hasArg(FORM_NAME_CPM_USVH)) {
     _config.set_cpm_usvh(_server.arg(FORM_NAME_CPM_USVH).toInt(), false);
   }
