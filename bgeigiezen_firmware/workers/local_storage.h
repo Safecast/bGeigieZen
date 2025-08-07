@@ -42,6 +42,7 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual uint16_t get_screen_dim_timeout() const final;
   virtual uint16_t get_screen_off_timeout() const final;
   virtual bool get_animated_screensaver() const final;
+  virtual bool get_error_alert_sound() const final;
   // Primary WiFi profile
   virtual const char* get_wifi_ssid() const final;
   virtual const char* get_wifi_password() const final;
@@ -76,6 +77,7 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual void set_screen_dim_timeout(uint16_t screen_dim_timeout, bool force);
   virtual void set_screen_off_timeout(uint16_t screen_off_timeout, bool force);
   virtual void set_animated_screensaver(bool animated_screensaver, bool force);
+  virtual void set_error_alert_sound(bool error_alert_sound, bool force);
   virtual void set_wifi_ssid(const char* wifi_ssid, bool force);
   virtual void set_wifi_password(const char* wifi_password, bool force);
   virtual void set_wifi_ssid2(const char* wifi_ssid, bool force);
@@ -115,6 +117,7 @@ class LocalStorage : public ProcessWorker<bool> {
   uint16_t _screen_dim_timeout; // in seconds
   uint16_t _screen_off_timeout; // in seconds
   bool _animated_screensaver;
+  bool _error_alert_sound;
   char _ap_password[CONFIG_VAL_MAX];
 
   // Connection settings

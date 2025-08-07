@@ -20,6 +20,7 @@ const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MEN
     {.title="Wipe SD Card", .tooltip="Delete all log files from the SD card", .enabled=true},
     {.title="Reset dose", .tooltip="Reset the accumulated dose rate to zero", .enabled=true},
     {.title="CPM Alert Level", .tooltip="Adjust the CPM alert threshold level", .enabled=true},
+    {.title="Error Alert Sound", .tooltip="Enable/disable error alert beep sounds", .enabled=true},
     {.title="Factory reset", .tooltip="Clear and reset      device and SD-card", .enabled=true},
     {.title="Back to main menu", .tooltip="Return to the main menu", .enabled=true},
 };
@@ -87,7 +88,24 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
           force_next_render();
           M5_LOGD("CPM threshold decreased to: %u", new_threshold);
         }
-      } else {
+      }
+      // Check if we're on the error alert sound page for toggle functionality
+      else if (_current_page == e_config_page_error_alert_sound) {
+        auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
+        bool current_setting = settings->get_error_alert_sound();
+        bool new_setting = !current_setting;
+        
+        settings->set_error_alert_sound(new_setting, false);
+        
+        // Save to SD card
+        if (SDInterface::i().ready()) {
+          SDInterface::i().write_safezen_file_from_settings(*settings, false);
+        }
+        
+        force_next_render();
+        M5_LOGD("Error alert sound toggled to: %s", new_setting ? "ENABLED" : "DISABLED");
+      }
+      else {
         open_menu(true);
         M5.Lcd.clear();
         force_next_render();
@@ -199,6 +217,9 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
         break;
       case e_config_page_cpm_threshold:
         render_cpm_threshold_page(workers, handlers);
+        break;
+      case e_config_page_error_alert_sound:
+        render_error_alert_sound_page(workers, handlers);
         break;
       case e_config_page_reset_all:
         render_reset_device_sd(workers, handlers);
@@ -340,6 +361,29 @@ void ConfigModeScreen::render_cpm_threshold_page(const worker_map_t& workers, co
   M5.Lcd.printf("Hold A: -100 CPM\n");
   M5.Lcd.printf("Hold B: +100 CPM\n");
   M5.Lcd.printf("Range: 10-9999 CPM\n");
+}
+
+void ConfigModeScreen::render_error_alert_sound_page(const worker_map_t& workers, const handler_map_t& handlers) {
+  auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
+  bool current_setting = settings->get_error_alert_sound();
+  
+  // Draw button indicators at bottom of screen
+  drawButton1("Toggle");
+  drawButton2("");
+  drawButton3("Back");
+  
+  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  M5.Lcd.setCursor(0, 50, &fonts::Font2);
+  M5.Lcd.printf("Error Alert Sound\n");
+  M5.Lcd.printf("\n");
+  M5.Lcd.printf("Current: %s\n", current_setting ? "ENABLED" : "DISABLED");
+  M5.Lcd.printf("\n");
+  M5.Lcd.printf("Controls error beep sounds\n");
+  M5.Lcd.printf("when system errors occur.\n");
+  M5.Lcd.printf("\n");
+  M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+  M5.Lcd.printf("Note: CPM alert sounds are\n");
+  M5.Lcd.printf("controlled separately.\n");
 }
 
 void ConfigModeScreen::enter_screen(Controller& controller) {

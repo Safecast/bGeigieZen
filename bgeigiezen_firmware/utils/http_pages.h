@@ -20,6 +20,7 @@
 #define FORM_NAME_SCREEN_DIM_TIMEOUT "d_dt"
 #define FORM_NAME_SCREEN_OFF_TIMEOUT "d_ot"
 #define FORM_NAME_ANIMATED_SCREENSAVER "d_as"
+#define FORM_NAME_ERROR_ALERT_SOUND "d_eas"
 
 // Connection setting form names
 #define FORM_NAME_AP_LOGIN "c_ap"
