@@ -1,6 +1,7 @@
 #include <numeric>
 #include "gm_sensor.h"
 #include "workers/local_storage.h"
+#include "workers/sound_manager.h"
 #include "identifiers.h"
 
 // Global variable for CPS value that can be accessed by SoundManager
@@ -81,6 +82,19 @@ int8_t GeigerCounter::produce_data(const worker_map_t& workers) {
     data.Bqm2_5sec = static_cast<float>(data.cp5s * 12) * _bqm2_factor;
 
     data.alert = data.cpm_comp > _cpm_alert_level;
+    
+    // Check for alert state transition (crossing from below to above threshold)
+    if (data.alert && !_previous_alert_state) {
+      // We just crossed the threshold from below - trigger audible alert
+      auto* sound_manager = workers.worker<SoundManager>(k_worker_sound_manager);
+      if (sound_manager) {
+        sound_manager->playCpmAlert();
+        M5_LOGD("CPM threshold breached: %u > %u - playing alert sound", data.cpm_comp, _cpm_alert_level);
+      }
+    }
+    
+    // Update previous alert state for next iteration
+    _previous_alert_state = data.alert;
   }
 
   return e_worker_data_read;

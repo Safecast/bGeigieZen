@@ -299,9 +299,20 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
           status_bar_needs_full_redraw = true;
         } else if (status_msg && (!message_displayed || current_status_message != last_status_message)) {
           // Status message - only show on new message or first display
-          M5.Lcd.setTextColor(LCD_COLOR_BACKGROUND, LCD_COLOR_DEFAULT);
-          uint16_t text_width = M5.Lcd.drawString(current_status_message.c_str(), 0, MSG_AREA_Y_BASELINE, &fonts::Font2);
-          M5.Lcd.fillRect(text_width, MSG_AREA_Y_TOP, M5.Lcd.width() - text_width, MSG_AREA_HEIGHT, LCD_COLOR_BACKGROUND);
+          // Check if it's a CPM alert for special styling
+          bool is_cpm_alert = current_status_message.indexOf("CPM ALERT") >= 0;
+          
+          if (is_cpm_alert) {
+            // CPM Alert: Red background with white text
+            M5.Lcd.fillRect(0, MSG_AREA_Y_TOP, M5.Lcd.width(), MSG_AREA_HEIGHT, LCD_COLOR_ERROR);
+            M5.Lcd.setTextColor(TFT_WHITE, LCD_COLOR_ERROR);
+            uint16_t text_width = M5.Lcd.drawString(current_status_message.c_str(), 0, MSG_AREA_Y_BASELINE, &fonts::Font2);
+          } else {
+            // Regular status message
+            M5.Lcd.setTextColor(LCD_COLOR_BACKGROUND, LCD_COLOR_DEFAULT);
+            uint16_t text_width = M5.Lcd.drawString(current_status_message.c_str(), 0, MSG_AREA_Y_BASELINE, &fonts::Font2);
+            M5.Lcd.fillRect(text_width, MSG_AREA_Y_TOP, M5.Lcd.width() - text_width, MSG_AREA_HEIGHT, LCD_COLOR_BACKGROUND);
+          }
           message_displayed = true;
           message_display_time = millis();
           status_bar_needs_full_redraw = true;
@@ -327,9 +338,20 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
           status_bar_needs_full_redraw = true;
         } else if (status_msg && (!message_displayed || current_status_message != last_status_message)) {
           // Status message - only show on new message or first display
-          M5.Lcd.setTextColor(LCD_COLOR_BACKGROUND, LCD_COLOR_DEFAULT);
-          uint16_t text_width = M5.Lcd.drawString(current_status_message.c_str(), 0, MSG_AREA_Y_BASELINE, &fonts::Font2);
-          M5.Lcd.fillRect(text_width, MSG_AREA_Y_TOP, M5.Lcd.width() - text_width, MSG_AREA_HEIGHT, LCD_COLOR_BACKGROUND);
+          // Check if it's a CPM alert for special styling
+          bool is_cpm_alert = current_status_message.indexOf("CPM ALERT") >= 0;
+          
+          if (is_cpm_alert) {
+            // CPM Alert: Red background with white text
+            M5.Lcd.fillRect(0, MSG_AREA_Y_TOP, M5.Lcd.width(), MSG_AREA_HEIGHT, LCD_COLOR_ERROR);
+            M5.Lcd.setTextColor(TFT_WHITE, LCD_COLOR_ERROR);
+            uint16_t text_width = M5.Lcd.drawString(current_status_message.c_str(), 0, MSG_AREA_Y_BASELINE, &fonts::Font2);
+          } else {
+            // Regular status message
+            M5.Lcd.setTextColor(LCD_COLOR_BACKGROUND, LCD_COLOR_DEFAULT);
+            uint16_t text_width = M5.Lcd.drawString(current_status_message.c_str(), 0, MSG_AREA_Y_BASELINE, &fonts::Font2);
+            M5.Lcd.fillRect(text_width, MSG_AREA_Y_TOP, M5.Lcd.width() - text_width, MSG_AREA_HEIGHT, LCD_COLOR_BACKGROUND);
+          }
           message_displayed = true;
           message_display_time = millis();
           status_bar_needs_full_redraw = true;

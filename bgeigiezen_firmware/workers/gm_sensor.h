@@ -42,6 +42,7 @@ class GeigerCounter : public ProcessWorker<GeigerData> {
   float _ush_factor = 1.0 / SETUP_DEFAULT_USH_DIVIDER;
   float _bqm2_factor = SETUP_DEFAULT_BQM2_FACTOR;  // default factor for surface measurements
   uint32_t _cpm_alert_level = SETUP_DEFAULT_ALERT_LEVEL;
+  bool _previous_alert_state = false;  // Track previous alert state to detect threshold crossings
 
   int _pos = 0;  // current position in shift register
   std::array<uint32_t, GEIGER_AVERAGING_N_BINS> _shift_reg;
