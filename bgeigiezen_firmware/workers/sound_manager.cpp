@@ -211,3 +211,29 @@ void SoundManager::playErrorBeeps() {
   // Restore original volume
   M5.Speaker.setVolume(current_volume);
 }
+
+void SoundManager::playCpmAlert() {
+  // Only play if sound is enabled (unlike error beeps which always play)
+  if (!_sound_enabled) {
+    return;
+  }
+  
+  // Save current volume
+  uint8_t current_volume = M5.Speaker.getVolume();
+  
+  // Set high volume for alert (but not max like error beeps)
+  M5.Speaker.setVolume(220);
+  
+  M5_LOGD("Playing CPM alert sound");
+  
+  // Play a distinct alert pattern: two quick high-pitched beeps
+  // Different from error beeps (3x 3kHz) and regular clicks (variable frequency)
+  M5.Speaker.tone(2500, 150, 0, true);  // 2.5kHz for 150ms
+  delay(150);
+  delay(50);   // Short pause
+  M5.Speaker.tone(2500, 150, 0, true);  // Second beep
+  delay(150);
+  
+  // Restore original volume
+  M5.Speaker.setVolume(current_volume);
+}

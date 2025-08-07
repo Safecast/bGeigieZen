@@ -54,6 +54,13 @@ class SoundManager : public Worker<bool> {
    */
   void playErrorBeeps();
 
+  /**
+   * Play a distinct CPM alert sound when threshold is breached
+   * Different tone/pattern from regular clicks and error beeps
+   * Plays if sound is enabled
+   */
+  void playCpmAlert();
+
  private:
   bool _sound_enabled = true;
   uint32_t _last_cps = 0;

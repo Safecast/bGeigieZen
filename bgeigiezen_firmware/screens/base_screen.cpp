@@ -145,7 +145,14 @@ const __FlashStringHelper* BaseScreen::get_error_message(const worker_map_t& wor
 }
 
 const __FlashStringHelper* BaseScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) {
-  // Check if message exists and hasn't timed out
+  // First check for persistent CPM alert message
+  auto* gm_sensor = workers.worker<GeigerCounter>(k_worker_gm_sensor);
+  if (gm_sensor && gm_sensor->get_data().alert) {
+    // CPM is above threshold - show persistent alert message
+    return F(" ⚠ CPM ALERT ACTIVE ⚠ ");
+  }
+  
+  // Check if temporary message exists and hasn't timed out
   if (_message) {
     unsigned long current_millis = millis();
     long time_elapsed = current_millis - _status_message_time;
