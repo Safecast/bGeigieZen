@@ -86,17 +86,17 @@ bool BatteryLedIndicator::isCore2() {
 }
 
 BatteryLedPattern BatteryLedIndicator::determineLedPattern(const BatteryStatus& battery) {
-  // Critical battery (< 10%)
+  // Critical battery (< 10%) - always show regardless of charging state
   if (battery.percentage < CRITICAL_BATTERY_THRESHOLD) {
     return LED_CRITICAL_BATTERY;
   }
   
-  // Low battery (< 20%)
+  // Low battery (< 20%) - always show regardless of charging state
   if (battery.percentage < LOW_BATTERY_THRESHOLD) {
     return LED_LOW_BATTERY;
   }
   
-  // Charging states
+  // Charging states - only show LED patterns when actively charging
   if (battery.isCharging == m5::Power_Class::is_charging_t::is_charging) {
     // Full battery while charging (>= 95%)
     if (battery.percentage >= 95) {
@@ -112,12 +112,7 @@ BatteryLedPattern BatteryLedIndicator::determineLedPattern(const BatteryStatus& 
     return LED_CHARGING_SLOW;
   }
   
-  // Not charging, battery full (>= 95%)
-  if (battery.percentage >= 95) {
-    return LED_FULL_CHARGED;
-  }
-  
-  // Normal battery level, not charging - LED off
+  // Not charging and battery level is normal (>= 20%) - LED off to save power
   return LED_OFF;
 }
 
