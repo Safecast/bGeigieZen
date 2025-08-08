@@ -9,6 +9,7 @@
 #include "utils/sd_wrapper.h"
 #include "workers/local_storage.h"
 #include "workers/zen_button.h"
+#include "workers/sound_manager.h"
 #include <WiFi.h>
 
 const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MENU_MAX] = {
@@ -20,6 +21,7 @@ const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MEN
     {.title="Wipe SD Card", .tooltip="Delete all log files from the SD card", .enabled=true},
     {.title="Reset dose", .tooltip="Reset the accumulated dose rate to zero", .enabled=true},
     {.title="CPM Alert Level", .tooltip="Adjust the CPM alert threshold level", .enabled=true},
+    {.title="Click Sound", .tooltip="Enable/disable Geiger click sounds", .enabled=true},
     {.title="Error Alert Sound", .tooltip="Enable/disable error alert beep sounds", .enabled=true},
     {.title="Factory reset", .tooltip="Clear and reset      device and SD-card", .enabled=true},
     {.title="Back to main menu", .tooltip="Return to the main menu", .enabled=true},
@@ -87,6 +89,20 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
           
           force_next_render();
           M5_LOGD("CPM threshold decreased to: %u", new_threshold);
+        }
+      }
+      // Check if we're on the click sound page for toggle functionality
+      else if (_current_page == e_config_page_click_sound) {
+        auto sound_manager = workers.worker<SoundManager>(k_worker_sound_manager);
+        if (sound_manager) {
+          bool new_state = sound_manager->toggleSound();
+          // Persist confirmation already handled by SoundManager; also mirror to SD settings file
+          auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
+          if (SDInterface::i().ready()) {
+            SDInterface::i().write_safezen_file_from_settings(*settings, false);
+          }
+          force_next_render();
+          M5_LOGD("Click sound toggled to: %s", new_state ? "ENABLED" : "DISABLED");
         }
       }
       // Check if we're on the error alert sound page for toggle functionality
@@ -174,6 +190,8 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
       // Handle page-specific back navigation
       switch (_current_page) {
         case e_config_page_cpm_threshold:
+        case e_config_page_click_sound:
+        case e_config_page_error_alert_sound:
           // Go back to config menu, not main menu
           _current_page = e_config_page_main;
           open_menu(false);
@@ -217,6 +235,9 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
         break;
       case e_config_page_cpm_threshold:
         render_cpm_threshold_page(workers, handlers);
+        break;
+      case e_config_page_click_sound:
+        render_click_sound_page(workers, handlers);
         break;
       case e_config_page_error_alert_sound:
         render_error_alert_sound_page(workers, handlers);
@@ -363,6 +384,30 @@ void ConfigModeScreen::render_cpm_threshold_page(const worker_map_t& workers, co
   M5.Lcd.printf("Range: 10-9999 CPM\n");
 }
 
+void ConfigModeScreen::render_click_sound_page(const worker_map_t& workers, const handler_map_t& handlers) {
+  auto sound_manager = workers.worker<SoundManager>(k_worker_sound_manager);
+  bool enabled = sound_manager && sound_manager->isSoundEnabled();
+  
+  // Draw button indicators at bottom of screen
+  drawButton1("Toggle");
+  drawButton2("");
+  drawButton3("Back");
+  
+  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  M5.Lcd.setCursor(0, 50, &fonts::Font2);
+  M5.Lcd.printf("Click Sound\n");
+  M5.Lcd.printf("\n");
+  M5.Lcd.printf("Current: %s\n", enabled ? "ENABLED" : "DISABLED");
+  M5.Lcd.printf("\n");
+  M5.Lcd.printf("Controls Geiger counter click\n");
+  M5.Lcd.printf("sound during normal operation.\n");
+  
+  M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+  M5.Lcd.printf("\n");
+  M5.Lcd.printf("Tip: Long-press Menu Button\n");
+  M5.Lcd.printf("toggles this too.\n");
+}
+
 void ConfigModeScreen::render_error_alert_sound_page(const worker_map_t& workers, const handler_map_t& handlers) {
   auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
   bool current_setting = settings->get_error_alert_sound();
@@ -390,11 +435,16 @@ void ConfigModeScreen::enter_screen(Controller& controller) {
   // Ensure low power mode is disabled so that WiFi/AP will start reliably
   PowerManager::exitLowPowerMode();
 
+  // If entering the Settings screen from outside and we're on the main page,
+  // force the menu to open at the main entry
+  if (_current_page == e_config_page_main) {
+    _menu_index = e_config_page_main;
+    open_menu(true);
+    return;
+  }
+
+  // For other pages, perform page-specific actions when the page is entered
   switch (_current_page) {
-    case e_config_page_main:
-      // In case when entering from main menu, always set config menu index correctly
-      _menu_index = e_config_page_main;
-      break;
     case e_config_page_ap:
       WiFiWrapper_i.start_ap_server(controller.get_settings().get_device_id(), controller.get_settings().get_ap_password());
       controller.set_worker_active(k_worker_config_server, true);
