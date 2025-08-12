@@ -247,11 +247,13 @@ void BaseScreenWithMenu::render_menu(const MenuItem items[], int menu_max, bool 
     }
   }
 
+  // Clear menu area to prevent overlapping text
+  M5.Lcd.fillRect(16, 26, 144, 158, LCD_COLOR_BACKGROUND);
+  
   // Draw tooltip block
   M5.Lcd.fillRoundRect(161, 26, 142, 158, 4, LCD_COLOR_BACKGROUND);
   // Draw separate line between menu and tooltip
   M5.Lcd.drawLine(160, 33, 160, 177, LCD_COLOR_STALE_INCOMPLETE);
-
 
   // Calculate visible range - show at most 9 items to fit on screen
   int startIdx = max(0, _menu_index - 4);
