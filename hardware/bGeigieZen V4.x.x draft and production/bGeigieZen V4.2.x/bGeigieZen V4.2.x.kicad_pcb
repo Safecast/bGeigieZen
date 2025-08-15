@@ -1062,7 +1062,7 @@
 		(descr "Through hole straight socket strip, 1x04, 2.54mm pitch, single row (from Kicad 4.0.7), script generated")
 		(tags "Through hole socket strip THT 1x04 2.54mm single row")
 		(property "Reference" "J3"
-			(at 0 -2.77 270)
+			(at 0 -2.77 90)
 			(layer "F.SilkS")
 			(uuid "c8bf2ee7-e668-4124-a586-d926cbddc5b0")
 			(effects
@@ -1073,7 +1073,7 @@
 			)
 		)
 		(property "Value" "GPS"
-			(at 0 10.39 270)
+			(at 0 10.39 90)
 			(layer "F.Fab")
 			(uuid "bbe93ab2-ddcc-453c-9a7d-3a6459daa998")
 			(effects
@@ -1084,7 +1084,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 270)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "15c5e813-35a7-4f57-8504-491399788a1d")
@@ -1096,7 +1096,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 0 0 270)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "6c48edd4-ea29-469a-80a5-301058266de3")
@@ -1327,6 +1327,17 @@
 			)
 			(rotate
 				(xyz 0 0 0)
+			)
+		)
+		(model "${KIPRJMOD}/shapes3D/Beitian BN-880Q GPS 1.wrl"
+			(offset
+				(xyz 0.5 10.5 8)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -0 -180 -90)
 			)
 		)
 	)

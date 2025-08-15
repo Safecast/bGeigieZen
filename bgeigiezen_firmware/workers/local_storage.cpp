@@ -548,3 +548,4 @@ void LocalStorage::save_accumulated_dose(float dose) {
     M5_LOGE("Cannot access memory to save dose rate");
   }
 }
+
