@@ -105,6 +105,20 @@ class GpsConnector : public Worker<GnssData> {
    */
   bool restoreGpsMemoryFromNVS();
 
+  /**
+   * Save a warm-start seed (time/position) to SD card for faster startup without VBAT.
+   * File path: /gnss/warm_seed.bin
+   * @return true if file written
+   */
+  bool saveWarmStartSeedToSD();
+
+  /**
+   * Load warm-start seed from SD card and prepare for injection.
+   * Current implementation validates and logs the seed.
+   * @return true if seed loaded
+   */
+  bool injectWarmStartSeedFromSD();
+
   bool activate(bool retry) override;
 
   int8_t produce_data() override;

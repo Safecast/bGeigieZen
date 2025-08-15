@@ -205,6 +205,13 @@ void loop() {
         } else {
           M5_LOGE("[BtnPWR] GPS save FAILED");
         }
+        // Also save a warm-start seed to SD for boot-time aiding
+        bool sd_ok = gps.saveWarmStartSeedToSD();
+        if (sd_ok) {
+          M5_LOGI("[BtnPWR] GNSS warm-start seed saved to SD");
+        } else {
+          M5_LOGW("[BtnPWR] GNSS warm-start seed NOT saved to SD (no valid data or SD error)");
+        }
         last_pwr_backup = current_time;
       }
     }

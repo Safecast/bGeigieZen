@@ -14,6 +14,7 @@
 
 #include "utils/functions.h"
 #include "gps_connector.h"
+#include <SD.h>
 
 #define GPS_INVALID_YEAR 2000
 #define GPS_INVALID_MONTH 1
@@ -126,6 +127,101 @@ bool GpsConnector::activate(bool retry) {
   _gnss.setAutoNAVPVT(true); // Tell the GNSS to send the solution as it is computed (1 second)
   _gnss.setAutoNAVSAT(false); // Disable navsat by default (navsat worker handles this)
 
+  // Announce/perform restore path on boot (relies on internal backup domain)
+  restoreGpsMemoryFromNVS();
+
+  // Try to inject warm-start seed from SD if present
+  injectWarmStartSeedFromSD();
+
+  return true;
+}
+
+// Simple warm seed format
+// magic 0x47574D53 ('GWMS'), version 1, lat/lon in 1e-7 deg, alt mm, date/time
+struct WarmSeedBinV1 {
+  uint32_t magic;     // 'GWMS'
+  uint16_t version;   // 1
+  int32_t lat_e7;
+  int32_t lon_e7;
+  int32_t alt_mm;     // altitude MSL in mm
+  uint16_t year;
+  uint8_t month, day, hour, minute, second;
+};
+
+static constexpr uint32_t kSeedMagic = 0x47574D53; // GWMS
+static constexpr uint16_t kSeedVer = 1;
+static constexpr const char* kSeedDir = "/gnss";
+static constexpr const char* kSeedPath = "/gnss/warm_seed.bin";
+
+bool GpsConnector::saveWarmStartSeedToSD() {
+  // Ensure we have valid data
+  if (!(data.location_valid && data.date_valid && data.time_valid)) {
+    M5_LOGW("GPS: Cannot save warm seed — invalid or incomplete GNSS data");
+    return false;
+  }
+
+  // Ensure directory exists
+  if (!SD.exists(kSeedDir)) {
+    if (!SD.mkdir(kSeedDir)) {
+      M5_LOGE("GPS: Failed to create %s directory on SD", kSeedDir);
+      return false;
+    }
+  }
+
+  WarmSeedBinV1 seed{};
+  seed.magic = kSeedMagic;
+  seed.version = kSeedVer;
+  seed.lat_e7 = static_cast<int32_t>(data.latitude * 1e7);
+  seed.lon_e7 = static_cast<int32_t>(data.longitude * 1e7);
+  seed.alt_mm = static_cast<int32_t>(data.altitudeMSL * 1000.0);
+  seed.year = data.year;
+  seed.month = data.month;
+  seed.day = data.day;
+  seed.hour = data.hour;
+  seed.minute = data.minute;
+  seed.second = data.second;
+
+  File f = SD.open(kSeedPath, FILE_WRITE);
+  if (!f) {
+    M5_LOGE("GPS: Failed to open %s for write", kSeedPath);
+    return false;
+  }
+  size_t written = f.write(reinterpret_cast<const uint8_t*>(&seed), sizeof(seed));
+  f.flush();
+  f.close();
+  if (written != sizeof(seed)) {
+    M5_LOGE("GPS: Failed to write full seed (wrote %u/%u bytes)", (unsigned)written, (unsigned)sizeof(seed));
+    return false;
+  }
+  M5_LOGI("GPS: Warm-start seed saved to %s", kSeedPath);
+  return true;
+}
+
+bool GpsConnector::injectWarmStartSeedFromSD() {
+  if (!SD.exists(kSeedPath)) {
+    M5_LOGI("GPS: No warm-start seed found at %s", kSeedPath);
+    return false;
+  }
+  File f = SD.open(kSeedPath, FILE_READ);
+  if (!f) {
+    M5_LOGE("GPS: Failed to open %s for read", kSeedPath);
+    return false;
+  }
+  WarmSeedBinV1 seed{};
+  size_t rd = f.read(reinterpret_cast<uint8_t*>(&seed), sizeof(seed));
+  f.close();
+  if (rd != sizeof(seed) || seed.magic != kSeedMagic || seed.version != kSeedVer) {
+    M5_LOGE("GPS: Invalid warm-start seed file");
+    return false;
+  }
+
+  // For now, log that we would inject time/position; full MGA-INI injection can be added next
+  double lat = seed.lat_e7 / 1e7;
+  double lon = seed.lon_e7 / 1e7;
+  double alt = seed.alt_mm / 1000.0;
+  M5_LOGI("GPS: Loaded warm seed from SD: %04u-%02u-%02u %02u:%02u:%02u, lat=%.7f lon=%.7f alt=%.1f",
+          seed.year, seed.month, seed.day, seed.hour, seed.minute, seed.second, lat, lon, alt);
+  // Placeholder for future injection via MGA-INI-TIME_UTC and MGA-INI-POS_LLH
   return true;
 }
 
