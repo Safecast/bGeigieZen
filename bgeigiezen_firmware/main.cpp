@@ -52,18 +52,19 @@
 #include "handlers/sd_logger.h"
 #include "handlers/debug_logger.h"
 #include "identifiers.h"
-#include "workers/battery_indicator.h"
 #include "workers/battery_logger.h"
 #include "workers/battery_led_indicator.h"
 #include "workers/configuration_server.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
-#include "workers/log_aggregator.h"
-#include "workers/navsat_collector.h"
+#include "workers/local_storage.h"
 #include "workers/rtc_connector.h"
-#include "workers/shake_detector.h"
+#include "workers/battery_led_indicator.h"
+#include "workers/battery_indicator.h"
+// Wire.h included via M5Unified.hpp
 #include "workers/zen_button.h"
 #include "workers/sound_manager.h"
+#include "workers/shake_detector.h"
  
 #include <nvs_flash.h> // Include for NVS flash initialization
 
@@ -104,7 +105,7 @@ GFXScreen gfx_screen(settings, controller);
 void setup() {
   /// Hardware configurations
   M5.begin();
-  Wire.begin(); // Initialize I2C communication
+  // I2C initialized via M5.begin()
 
   // Initialize NVS. This is required for WiFi and Preferences.
   esp_err_t ret = nvs_flash_init();
@@ -119,6 +120,7 @@ void setup() {
   M5.Log.setLogLevel(m5::log_target_t::log_target_serial, esp_log_level_t::ESP_LOG_DEBUG);
 
   M5_LOGD("MAIN SETUP DEBUG ENABLED");
+  
 
   // Check SD card status
   M5_LOGI("Checking SD card status...");
@@ -134,8 +136,6 @@ void setup() {
         M5_LOGI("SD Card Size: %lluMB", cardSize);
     }
   }
-
-
   /// Software configurations
 
   M5_LOGD("Register workers...");
@@ -181,18 +181,46 @@ void loop() {
 
   M5.update();
   
+  // Establish current time for subsequent logic
+  uint32_t current_time = millis();
+  
+  // Direct M5Unified power button (BtnPWR) logging + GPS backup on click (1.5s cooldown)
+  {
+    static bool pwr_prev = false;
+    static uint32_t last_pwr_backup = 0;
+    bool pwr_now = M5.BtnPWR.isPressed();
+    if (pwr_now && !pwr_prev) {
+      M5_LOGI("[BtnPWR] pressed");
+    } else if (!pwr_now && pwr_prev) {
+      M5_LOGI("[BtnPWR] released");
+    }
+    pwr_prev = pwr_now;
+    // Trigger on click with cooldown
+    if (M5.BtnPWR.wasClicked()) {
+      if (current_time - last_pwr_backup >= 1500) {
+        M5_LOGI("[BtnPWR] clicked — saving GPS data to NVS...");
+        bool ok = gps.backupGpsMemoryToNVS();
+        if (ok) {
+          M5_LOGI("[BtnPWR] GPS data saved to NVS");
+        } else {
+          M5_LOGE("[BtnPWR] GPS save FAILED");
+        }
+        last_pwr_backup = current_time;
+      }
+    }
+  }
+
   // Use long press on Button A (menu button) for sound toggle
   static uint32_t last_toggle_time = 0;
   static uint32_t button_a_press_start = 0;
   static bool button_a_long_press_detected = false;
-  uint32_t current_time = millis();
   
-  // Check if Button A is pressed
+  // Check for Button A long press (2 seconds) for sound toggle
   if (M5.BtnA.isPressed()) {
     // If this is the start of a press, record the time
     if (button_a_press_start == 0) {
       button_a_press_start = current_time;
-      Serial.println("Button A press started");
+      M5_LOGD("Button A press started");
     }
     
     // Check for long press (2 seconds) and trigger only once per press
@@ -202,7 +230,7 @@ void loop() {
       
       // Only toggle if enough time has passed since last toggle (debounce)
       if (current_time - last_toggle_time > 1000) {
-        Serial.println("\n===== BUTTON A LONG PRESS DETECTED =====\n");
+        M5_LOGI("===== BUTTON A LONG PRESS DETECTED =====");
         
         // Toggle sound
         sound_manager.toggleSound();
@@ -211,15 +239,13 @@ void loop() {
         last_toggle_time = current_time;
         
         // Debug output
-        Serial.println("Sound toggled with Button A long press: " + 
-                       String(sound_manager.isSoundEnabled() ? "ON" : "OFF"));
+        M5_LOGI("Sound toggled with Button A long press: %s", sound_manager.isSoundEnabled() ? "ON" : "OFF");
       }
     }
   } else {
     // Button A released, reset tracking variables
     if (button_a_press_start > 0) {
-      Serial.println("Button A released after " + 
-                     String(current_time - button_a_press_start) + " ms");
+      M5_LOGD("Button A released after %lu ms", (unsigned long)(current_time - button_a_press_start));
       button_a_press_start = 0;
       button_a_long_press_detected = false;
     }

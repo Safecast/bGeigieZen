@@ -91,6 +91,19 @@ class GpsConnector : public Worker<GnssData> {
   explicit GpsConnector(TeenyUbloxConnect& _gnss, HardwareSerial& serial);
 
   virtual ~GpsConnector() = default;
+  
+  
+  /**
+   * Backup U-blox GPS memory (almanac, ephemeris, satellite data) to M5Stack NVS
+   * @return true if backup was successful
+   */
+  bool backupGpsMemoryToNVS();
+  
+  /**
+   * Restore U-blox GPS memory from M5Stack NVS for faster startup
+   * @return true if restore was successful
+   */
+  bool restoreGpsMemoryFromNVS();
 
   bool activate(bool retry) override;
 

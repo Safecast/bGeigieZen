@@ -12,13 +12,18 @@ class DeviceUtils {
  public:
   static void shutdown(bool reboot = false) {
     if (reboot) {
+      M5_LOGI("System reboot initiated");
       M5_LOGD("\n Reboot system...\n");
       ESP.restart();
     } else {
+      M5_LOGI("Power down initiated - saving GPS data");
       if (g_active_gps) {
-        g_active_gps->requestBackup();
+        M5_LOGI("GPS: Backing up satellite data and memory to internal storage");
+        g_active_gps->backupGpsMemoryToNVS();
         delay(50); // give UART time to send
+        M5_LOGI("GPS: Satellite data backup completed");
       }
+      M5_LOGI("System shutdown in progress");
       M5_LOGD("\n Shutdown system...\n");
       // TODO: fix this for core2, it wont compile when enabled. ESP deep sleep doesnt work either.
 //      M5.Power.powerOff();

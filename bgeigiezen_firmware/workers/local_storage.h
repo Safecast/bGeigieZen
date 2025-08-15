@@ -94,6 +94,7 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual void reset_dose_rate() final;
   virtual void save_accumulated_dose(float dose) final;
   virtual float get_accumulated_dose() const final;
+  
 
  protected:
   virtual bool clear();
@@ -141,6 +142,7 @@ class LocalStorage : public ProcessWorker<bool> {
   OperationalMode _last_mode;
   double _last_longitude;
   double _last_latitude;
+  
 
 };
 

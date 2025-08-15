@@ -1,5 +1,4 @@
 #include "power_manager.h"
-#include <Wire.h>
 #include <esp_log.h>
 #include <esp_wifi.h>
 #include <esp_bt.h>
@@ -14,15 +13,17 @@
 // Initialize static members
 bool PowerManager::_low_power_mode = false;
 uint32_t PowerManager::_original_cpu_freq = 240; // Default to 240MHz
-uint32_t PowerManager::_original_i2c_freq = 100000; // Default to 100kHz
+uint32_t PowerManager::_original_i2c_freq = 100000; // Default to 100kHz (logical)
 int PowerManager::_last_power_reading = 0;
 uint32_t PowerManager::_last_cpu_freq = 0;
-uint32_t PowerManager::_last_i2c_freq = 0;
+uint32_t PowerManager::_last_i2c_freq = 100000; // Track logical I2C clock
 
 void PowerManager::begin() {
     _low_power_mode = false;
     _original_cpu_freq = getCpuFrequency();
-    _original_i2c_freq = getCurrentI2cClock();
+    // Under M5Unified, do not query Wire bus directly here.
+    _original_i2c_freq = 100000; // assume 100kHz default
+    _last_i2c_freq = _original_i2c_freq;
     POWER_LOG_I("Power Manager initialized");
 }
 
@@ -45,8 +46,8 @@ void PowerManager::enterLowPowerMode() {
     #endif
     logPowerState(); // Log after CPU frequency change
 
-    // 2. Reduce I2C clock speed
-    setI2cClock(50000);  // 50kHz is sufficient for most sensors
+    // 2. Reduce I2C clock speed (logical only; transfers specify freq per call)
+    setI2cClock(50000);  // 50kHz logical target
     logPowerState(); // Log after I2C clock change
 
     // 3. Wireless modules will be managed by specific modes
@@ -73,7 +74,7 @@ void PowerManager::exitLowPowerMode() {
         setCpuFrequency(_original_cpu_freq);
     }
     
-    // 2. Restore I2C clock speed
+    // 2. Restore I2C clock speed (logical only)
     if (_original_i2c_freq > 0) {
         setI2cClock(_original_i2c_freq);
     }
@@ -176,14 +177,12 @@ void PowerManager::setI2cClock(uint32_t freq_hz) {
     if (freq_hz < 10000 || freq_hz > 1000000) {
         ESP_LOGW("PowerMgr", "I2C frequency %u Hz is outside recommended range (10kHz - 1MHz)", freq_hz);
     }
-    
+    // Maintain logical frequency; M5Unified calls pass desired freq per transaction.
     if (!_low_power_mode) {
-        // Only update original frequency if not in low power mode
-        _original_i2c_freq = Wire.getClock();
+        _original_i2c_freq = freq_hz;
     }
-    
-    ESP_LOGI("PowerMgr", "Setting I2C clock to %u Hz (was %u Hz)", freq_hz, Wire.getClock());
-    Wire.setClock(freq_hz);
+    ESP_LOGI("PowerMgr", "Logical I2C clock set to %u Hz", freq_hz);
+    _last_i2c_freq = freq_hz;
 }
 
 // Brownout detector control removed for ESP32-S3 compatibility
@@ -202,7 +201,7 @@ uint32_t PowerManager::getCurrentCpuFrequency() {
 }
 
 uint32_t PowerManager::getCurrentI2cClock() {
-    _last_i2c_freq = Wire.getClock();
+    // Return the last logical value; avoid querying uninitialized bus.
     return _last_i2c_freq;
 }
 
