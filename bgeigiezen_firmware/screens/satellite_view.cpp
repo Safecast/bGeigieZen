@@ -38,13 +38,16 @@ BaseScreen* SatelliteViewScreen::handle_input(Controller& controller, const work
     const auto gps = workers.worker<GpsConnector>(k_worker_gps_connector);
     const auto navsat = workers.worker<NavsatCollector>(k_worker_navsat_collector);
 
-    if (gps->active() && navsat->get_active_state() == NavsatCollector::e_state_inactive) {
+    if (gps->active() && !navsat->active()) {
       // reconnect navsat worker once gps worker is connected
+      // M5_LOGD("NAVSAT: Activating navsat collector");
       controller.set_worker_active(k_worker_navsat_collector, true);
       if (navsat->active()) {
         set_status_message(F(" Nav-sat connected, this can take a few seconds "));
+        // M5_LOGD("NAVSAT: Successfully activated");
       } else {
         set_status_message(F(" Nav-sat was unable to connect "));
+        // M5_LOGD("NAVSAT: Failed to activate");
       }
     }
 
@@ -91,7 +94,8 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
   const auto gps = workers.worker<GpsConnector>(k_worker_gps_connector);
   const auto navsat = workers.worker<NavsatCollector>(k_worker_navsat_collector);
 
-  M5_LOGD("NAVSAT RENDER %d %d", navsat->active(), navsat->is_fresh());
+  // M5_LOGD("SAT: active=%d fresh=%d avail=%d numSvs=%d", navsat->active(), navsat->is_fresh(), 
+  //        navsat->get_data().available, navsat->get_data().available ? navsat->get_data().navsat_info.numSvsEphValid : 0);
 
   if (force || (navsat && navsat->is_fresh())) {
 
@@ -139,6 +143,7 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
     }
 
     if (navsat->get_data().available) {
+      // M5_LOGD("SAT: Rendering %d satellites", navsat->get_data().navsat_info.numSvsEphValid);
 
       // Set text size for satellite IDs
       const auto& navsat_info = navsat->get_data().navsat_info;

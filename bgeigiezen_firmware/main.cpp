@@ -212,6 +212,13 @@ void loop() {
         } else {
           M5_LOGW("[BtnPWR] GNSS warm-start seed NOT saved to SD (no valid data or SD error)");
         }
+        // Optionally dump the full GNSS database to SD for host-side restore
+        bool dbd_ok = gps.dumpDatabaseToSD();
+        if (dbd_ok) {
+          M5_LOGI("[BtnPWR] GNSS database dump saved to SD");
+        } else {
+          M5_LOGW("[BtnPWR] GNSS database dump not saved (timeout or SD error)");
+        }
         last_pwr_backup = current_time;
       }
     }
