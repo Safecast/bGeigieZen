@@ -130,6 +130,9 @@ bool GpsConnector::activate(bool retry) {
   // Announce/perform restore path on boot (relies on internal backup domain)
   restoreGpsMemoryFromNVS();
 
+  // Try to restore full database from SD if available
+  restoreDatabaseFromSD();
+
   // Try to inject warm-start seed from SD if present
   injectWarmStartSeedFromSD();
 
@@ -148,10 +151,21 @@ struct WarmSeedBinV1 {
   uint8_t month, day, hour, minute, second;
 };
 
+// Age limits in seconds
+static constexpr uint32_t kSeedMaxAge = 7 * 24 * 3600; // 7 days
+static constexpr uint32_t kDbdMaxAge = 12 * 3600; // 12 hours
+
 static constexpr uint32_t kSeedMagic = 0x47574D53; // GWMS
 static constexpr uint16_t kSeedVer = 1;
 static constexpr const char* kSeedDir = "/gnss";
 static constexpr const char* kSeedPath = "/gnss/warm_seed.bin";
+static constexpr const char* kDbdPath = "/gnss/dbd_latest.bin";
+
+// Forward declarations
+class GpsConnector;
+static bool sendMgaIniTimeUtc(GpsConnector* gps, uint16_t year, uint8_t month, uint8_t day, 
+                              uint8_t hour, uint8_t minute, uint8_t second);
+static bool sendMgaIniPosLlh(GpsConnector* gps, int32_t lat_1e7, int32_t lon_1e7, int32_t alt_mm);
 
 bool GpsConnector::saveWarmStartSeedToSD() {
   // Ensure we have valid data
@@ -202,27 +216,69 @@ bool GpsConnector::injectWarmStartSeedFromSD() {
     M5_LOGI("GPS: No warm-start seed found at %s", kSeedPath);
     return false;
   }
+
   File f = SD.open(kSeedPath, FILE_READ);
   if (!f) {
     M5_LOGE("GPS: Failed to open %s for read", kSeedPath);
     return false;
   }
-  WarmSeedBinV1 seed{};
-  size_t rd = f.read(reinterpret_cast<uint8_t*>(&seed), sizeof(seed));
-  f.close();
-  if (rd != sizeof(seed) || seed.magic != kSeedMagic || seed.version != kSeedVer) {
-    M5_LOGE("GPS: Invalid warm-start seed file");
+
+  // Check file age
+  time_t fileTime = f.getLastWrite();
+  time_t now = time(nullptr);
+  if (now > 0 && fileTime > 0 && (now - fileTime) > kSeedMaxAge) {
+    f.close();
+    M5_LOGW("GPS: Warm seed too old (%u seconds), skipping injection", (unsigned)(now - fileTime));
     return false;
   }
 
-  // For now, log that we would inject time/position; full MGA-INI injection can be added next
-  double lat = seed.lat_e7 / 1e7;
-  double lon = seed.lon_e7 / 1e7;
-  double alt = seed.alt_mm / 1000.0;
-  M5_LOGI("GPS: Loaded warm seed from SD: %04u-%02u-%02u %02u:%02u:%02u, lat=%.7f lon=%.7f alt=%.1f",
-          seed.year, seed.month, seed.day, seed.hour, seed.minute, seed.second, lat, lon, alt);
-  // Placeholder for future injection via MGA-INI-TIME_UTC and MGA-INI-POS_LLH
-  return true;
+  WarmSeedBinV1 seed{};
+  size_t bytesRead = f.read((uint8_t*)&seed, sizeof(seed));
+  f.close();
+
+  if (bytesRead != sizeof(seed)) {
+    M5_LOGE("GPS: Invalid seed file size: %u bytes (expected %u)", bytesRead, sizeof(seed));
+    return false;
+  }
+
+  if (seed.magic != 0x47574D53) { // 'GWMS'
+    M5_LOGE("GPS: Invalid seed magic: 0x%08X", seed.magic);
+    return false;
+  }
+
+  if (seed.version != 1) {
+    M5_LOGW("GPS: Unsupported seed version: %u", seed.version);
+    return false;
+  }
+
+  // Convert back to degrees and meters
+  double lat = (double)seed.lat_e7 / 1e7;
+  double lon = (double)seed.lon_e7 / 1e7;
+  double alt = (double)seed.alt_mm / 1000.0;
+
+  M5_LOGI("GPS: Loaded warm seed from SD: %.6f,%.6f,%.1fm %04u-%02u-%02u %02u:%02u:%02u",
+          lat, lon, alt, seed.year, seed.month, seed.day, seed.hour, seed.minute, seed.second);
+
+  // Inject MGA-INI-TIME_UTC
+  bool timeOk = sendMgaIniTimeUtc(this, seed.year, seed.month, seed.day, seed.hour, seed.minute, seed.second);
+  if (timeOk) {
+    M5_LOGI("GPS: MGA-INI-TIME_UTC injected");
+  } else {
+    M5_LOGW("GPS: MGA-INI-TIME_UTC injection failed");
+  }
+
+  // Inject MGA-INI-POS_LLH
+  bool posOk = sendMgaIniPosLlh(this, seed.lat_e7, seed.lon_e7, seed.alt_mm);
+  if (posOk) {
+    M5_LOGI("GPS: MGA-INI-POS_LLH injected");
+  } else {
+    M5_LOGW("GPS: MGA-INI-POS_LLH injection failed");
+  }
+
+  // Minimal delay during boot
+  delay(20);
+
+  return timeOk && posOk;
 }
 
 void GpsConnector::deactivate() {
@@ -230,6 +286,254 @@ void GpsConnector::deactivate() {
   _tried_38400_at = 0;
   _tried_115200_at = 0;
   _serial_conn.end();
+}
+
+// ---- UBX MGA-DBD dump/restore ----
+
+// Pack and send UBX-MGA-INI-TIME_UTC
+static bool sendMgaIniTimeUtc(GpsConnector* gps, uint16_t year, uint8_t month, uint8_t day, 
+                              uint8_t hour, uint8_t minute, uint8_t second) {
+  // UBX-MGA-INI-TIME_UTC payload (24 bytes)
+  uint8_t payload[24] = {0};
+  payload[0] = 0x10; // type = TIME_UTC
+  payload[1] = 0x00; // version
+  // reserved0[2] = 0
+  payload[4] = year & 0xFF; payload[5] = (year >> 8) & 0xFF; // year
+  payload[6] = month; // month
+  payload[7] = day;   // day
+  payload[8] = hour;  // hour
+  payload[9] = minute; // min
+  payload[10] = second; // sec
+  // reserved1 = 0
+  // ns, tAcc, reserved2 = 0 (we don't have sub-second precision)
+  return gps->sendUBXMessage(0x13, 0x40, payload, sizeof(payload));
+}
+
+// Pack and send UBX-MGA-INI-POS_LLH
+static bool sendMgaIniPosLlh(GpsConnector* gps, int32_t lat_1e7, int32_t lon_1e7, int32_t alt_mm) {
+  // UBX-MGA-INI-POS_LLH payload (20 bytes)
+  uint8_t payload[20] = {0};
+  payload[0] = 0x01; // type = POS_LLH
+  payload[1] = 0x00; // version
+  // reserved0[2] = 0
+  // lat (4 bytes, little-endian, 1e-7 degrees)
+  payload[4] = lat_1e7 & 0xFF; payload[5] = (lat_1e7 >> 8) & 0xFF;
+  payload[6] = (lat_1e7 >> 16) & 0xFF; payload[7] = (lat_1e7 >> 24) & 0xFF;
+  // lon (4 bytes, little-endian, 1e-7 degrees)
+  payload[8] = lon_1e7 & 0xFF; payload[9] = (lon_1e7 >> 8) & 0xFF;
+  payload[10] = (lon_1e7 >> 16) & 0xFF; payload[11] = (lon_1e7 >> 24) & 0xFF;
+  // alt (4 bytes, little-endian, mm)
+  payload[12] = alt_mm & 0xFF; payload[13] = (alt_mm >> 8) & 0xFF;
+  payload[14] = (alt_mm >> 16) & 0xFF; payload[15] = (alt_mm >> 24) & 0xFF;
+  // posAcc = 0 (we set a large default uncertainty)
+  uint32_t posAcc = 10000000; // 10km uncertainty in mm
+  payload[16] = posAcc & 0xFF; payload[17] = (posAcc >> 8) & 0xFF;
+  payload[18] = (posAcc >> 16) & 0xFF; payload[19] = (posAcc >> 24) & 0xFF;
+  return gps->sendUBXMessage(0x13, 0x40, payload, sizeof(payload));
+}
+
+// Read a single UBX frame from _serial_conn. Returns total bytes read into buf, or 0 on timeout/failure.
+static size_t readOneUbxFrame(HardwareSerial& ser, uint8_t* buf, size_t bufsize, uint32_t timeout_ms) {
+  const uint32_t start = millis();
+  enum { SYNC1, SYNC2, CLASS, ID, LEN1, LEN2, PAYLOAD, CK_A, CK_B } state = SYNC1;
+  uint16_t len = 0; size_t idx = 0; uint8_t ck_a = 0, ck_b = 0; size_t payload_read = 0;
+  while (millis() - start < timeout_ms) {
+    if (ser.available() == 0) { delay(1); continue; }
+    uint8_t b = ser.read();
+    switch (state) {
+      case SYNC1:
+        if (b == 0xB5) { if (idx < bufsize) buf[idx++] = b; state = SYNC2; }
+        break;
+      case SYNC2:
+        if (b == 0x62) { if (idx < bufsize) buf[idx++] = b; state = CLASS; }
+        else { state = SYNC1; idx = 0; }
+        break;
+      case CLASS:
+        if (idx < bufsize) buf[idx++] = b; ck_a = b; ck_b = ck_a; state = ID; break;
+      case ID:
+        if (idx < bufsize) buf[idx++] = b; ck_a += b; ck_b += ck_a; state = LEN1; break;
+      case LEN1:
+        if (idx < bufsize) buf[idx++] = b; ck_a += b; ck_b += ck_a; len = b; state = LEN2; break;
+      case LEN2:
+        if (idx < bufsize) buf[idx++] = b; ck_a += b; ck_b += ck_a; len |= (uint16_t)b << 8; payload_read = 0; state = (len == 0 ? CK_A : PAYLOAD); break;
+      case PAYLOAD:
+        if (idx < bufsize) buf[idx++] = b; ck_a += b; ck_b += ck_a; if (++payload_read >= len) state = CK_A; break;
+      case CK_A:
+        if (idx < bufsize) buf[idx++] = b; if (b != ck_a) { state = SYNC1; idx = 0; } else state = CK_B; break;
+      case CK_B:
+        if (idx < bufsize) buf[idx++] = b; if (b != ck_b) { state = SYNC1; idx = 0; }
+        else { return idx; }
+        break;
+    }
+  }
+  return 0; // timeout
+}
+
+bool GpsConnector::dumpDatabaseToSD() {
+  // Ensure directory exists
+  if (!SD.exists(kSeedDir)) {
+    if (!SD.mkdir(kSeedDir)) {
+      M5_LOGE("GPS: Failed to create %s directory on SD", kSeedDir);
+      return false;
+    }
+  }
+
+  File f = SD.open(kDbdPath, FILE_WRITE);
+  if (!f) {
+    M5_LOGE("GPS: Failed to open %s for write", kDbdPath);
+    return false;
+  }
+
+  M5_LOGI("GPS: Requesting GNSS database dump to SD...");
+  // Send UBX-MGA-DBD (class 0x13, id 0x80) with zero-length payload to request dump
+  if (!sendUBXMessage(0x13, 0x80, nullptr, 0)) {
+    M5_LOGE("GPS: Failed to send MGA-DBD request");
+    f.close();
+    return false;
+  }
+
+  // Read frames for a limited time; write only MGA-DBD frames
+  const uint32_t overall_start = millis();
+  uint32_t last_frame_time = overall_start;
+  uint32_t frames = 0, bytes_written = 0;
+  uint8_t frame[2048];
+
+  while (millis() - last_frame_time < 1000 && millis() - overall_start < 8000) { // 1s quiet or max 8s
+    size_t n = readOneUbxFrame(_serial_conn, frame, sizeof(frame), 250);
+    if (n == 0) continue;
+    last_frame_time = millis();
+    // Check class/id
+    if (n >= 6) {
+      uint8_t cls = frame[2];
+      uint8_t id  = frame[3];
+      if (cls == 0x13 && id == 0x80) { // MGA-DBD
+        size_t w = f.write(frame, n);
+        if (w != n) { M5_LOGE("GPS: SD write error during DBD dump"); break; }
+        frames++;
+        bytes_written += w;
+      }
+    }
+  }
+  f.flush();
+  f.close();
+  if (frames == 0) {
+    M5_LOGW("GPS: No MGA-DBD frames captured");
+    return false;
+  }
+  M5_LOGI("GPS: DBD dump complete: %u frames, %u bytes to %s", frames, bytes_written, kDbdPath);
+  return true;
+}
+
+// Wait for MGA-ACK-DATA0 after sending a frame; return true if seen
+static bool waitForMgaAck(HardwareSerial& ser, uint32_t timeout_ms) {
+  uint32_t start = millis();
+  uint8_t frame[256];
+  while (millis() - start < timeout_ms) {
+    size_t n = readOneUbxFrame(ser, frame, sizeof(frame), 50);
+    if (n >= 6) {
+      uint8_t cls = frame[2];
+      uint8_t id  = frame[3];
+      if (cls == 0x13 && id == 0x60) { // MGA-ACK-DATA0
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+// Parse concatenated UBX frames from a File and send them one by one
+bool GpsConnector::restoreDatabaseFromSD() {
+  if (!SD.exists(kDbdPath)) {
+    M5_LOGI("GPS: No database dump found at %s", kDbdPath);
+    return false;
+  }
+  File f = SD.open(kDbdPath, FILE_READ);
+  if (!f) {
+    M5_LOGE("GPS: Failed to open %s for read", kDbdPath);
+    return false;
+  }
+
+  // Check file age
+  time_t fileTime = f.getLastWrite();
+  time_t now = time(nullptr);
+  if (now > 0 && fileTime > 0 && (now - fileTime) > kDbdMaxAge) {
+    f.close();
+    M5_LOGW("GPS: Database dump too old (%u seconds), skipping restore", (unsigned)(now - fileTime));
+    return false;
+  }
+
+  size_t fileSize = f.size();
+  M5_LOGI("GPS: Restoring GNSS database from %s (%u bytes)...", kDbdPath, (unsigned)fileSize);
+
+  if (fileSize == 0) {
+    f.close();
+    M5_LOGW("GPS: Database file is empty");
+    return false;
+  }
+
+  size_t frames = 0; size_t bytes = 0; uint8_t b; size_t totalRead = 0;
+  enum { FIND_SYNC1, FIND_SYNC2, READ_HEADER, READ_PAYLOAD, READ_CKS } state = FIND_SYNC1;
+  uint8_t header[4]; size_t hidx = 0; uint16_t len = 0; uint16_t pleft = 0; uint8_t ck_a = 0, ck_b = 0;
+  // Buffer to hold and re-send a full frame
+  static const size_t MAXF = 2048;
+  uint8_t frame[MAXF]; size_t fidx = 0;
+
+  while (f.available()) {
+    totalRead++;
+    int bi = f.read();
+    if (bi < 0) break;
+    b = (uint8_t)bi;
+    switch (state) {
+      case FIND_SYNC1:
+        if (b == 0xB5) { fidx = 0; frame[fidx++] = b; state = FIND_SYNC2; }
+        break;
+      case FIND_SYNC2:
+        if (b == 0x62) { frame[fidx++] = b; state = READ_HEADER; hidx = 0; }
+        else { state = FIND_SYNC1; fidx = 0; }
+        break;
+      case READ_HEADER:
+        header[hidx++] = b; frame[fidx++] = b;
+        if (hidx == 4) {
+          ck_a = header[0]; ck_b = ck_a; // class
+          ck_a += header[1]; ck_b += ck_a; // id
+          ck_a += header[2]; ck_b += ck_a; // len LSB
+          ck_a += header[3]; ck_b += ck_a; // len MSB
+          len = (uint16_t)header[2] | ((uint16_t)header[3] << 8);
+          pleft = len;
+          state = (len == 0) ? READ_CKS : READ_PAYLOAD;
+        }
+        break;
+      case READ_PAYLOAD:
+        frame[fidx++] = b;
+        ck_a += b; ck_b += ck_a;
+        if (--pleft == 0) { state = READ_CKS; }
+        break;
+      case READ_CKS:
+        frame[fidx++] = b;
+        if (fidx == 6 + len + 1) { // just read CK_A
+          if (b != ck_a) { state = FIND_SYNC1; fidx = 0; break; }
+        } else if (fidx == 6 + len + 2) { // just read CK_B
+          if (b != ck_b) { state = FIND_SYNC1; fidx = 0; break; }
+          // Valid UBX frame complete; send and wait for ACK if it's DBD
+          uint8_t cls = header[0];
+          uint8_t id  = header[1];
+          if (cls == 0x13 && id == 0x80) {
+            _serial_conn.write(frame, fidx);
+            _serial_conn.flush();
+            bytes += fidx; frames++;
+            // Minimal pacing - don't wait for ACKs during boot
+            delay(1);
+          }
+          // Reset for next frame
+          state = FIND_SYNC1; fidx = 0;
+        }
+        break;
+    }
+  }
+  f.close();
+  M5_LOGI("GPS: Database restore sent: %u frames, %u bytes (read %u/%u bytes from file)", 
+          (unsigned)frames, (unsigned)bytes, (unsigned)totalRead, (unsigned)fileSize);
+  return frames > 0;
 }
 
 /**

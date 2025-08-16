@@ -119,6 +119,18 @@ class GpsConnector : public Worker<GnssData> {
    */
   bool injectWarmStartSeedFromSD();
 
+  /**
+   * Dump the GNSS database (UBX-MGA-DBD) to SD card.
+   * File path: /gnss/dbd_latest.bin (raw UBX frames)
+   */
+  bool dumpDatabaseToSD();
+
+  /**
+   * Restore the GNSS database from SD card by replaying stored UBX frames.
+   * File path: /gnss/dbd_latest.bin
+   */
+  bool restoreDatabaseFromSD();
+
   bool activate(bool retry) override;
 
   int8_t produce_data() override;
