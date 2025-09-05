@@ -23,6 +23,7 @@ const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MEN
     {.title="CPM Alert Level", .tooltip="Adjust the CPM alert threshold level", .enabled=true},
     {.title="Click Sound", .tooltip="Enable/disable Geiger click sounds", .enabled=true},
     {.title="Error Alert Sound", .tooltip="Enable/disable error alert beep sounds", .enabled=true},
+    {.title="Dim Brightness", .tooltip="Adjust screen brightness when dimmed/screensaver", .enabled=true},
     {.title="Factory reset", .tooltip="Clear and reset      device and SD-card", .enabled=true},
     {.title="Back to main menu", .tooltip="Return to the main menu", .enabled=true},
 };
@@ -31,6 +32,26 @@ const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MEN
 ConfigModeScreen ConfigModeScreen_i;
 
 ConfigModeScreen::ConfigModeScreen() : BaseScreenWithMenu("Settings", true), _main_page_info_section(0) {
+}
+
+void ConfigModeScreen::render_dim_brightness_page(const worker_map_t& workers, const handler_map_t& handlers) {
+  auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
+  uint8_t current = settings->get_dim_brightness();
+
+  // Draw button indicators at bottom of screen
+  drawButton1("-5%\nHold:-20%");
+  drawButton2("+5%\nHold:+20%");
+  drawButton3("Back");
+
+  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  M5.Lcd.setCursor(0, 50, &fonts::Font2);
+  M5.Lcd.printf("Dim Brightness\n\n");
+  M5.Lcd.printf("Current: %u%%\n\n", current);
+  M5.Lcd.printf("Controls the screen brightness used\n");
+  M5.Lcd.printf("when the device is DIM or the\n");
+  M5.Lcd.printf("animated screensaver is active.\n\n");
+  M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+  M5.Lcd.printf("Range: 0-100%%\n");
 }
 
 BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
@@ -121,6 +142,22 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
         force_next_render();
         M5_LOGD("Error alert sound toggled to: %s", new_setting ? "ENABLED" : "DISABLED");
       }
+      // Check if we're on the dim brightness page for decrement functionality
+      else if (_current_page == e_config_page_dim_brightness) {
+        auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
+        uint8_t current = settings->get_dim_brightness();
+        uint8_t step = button1->get_data().longPress ? 20 : 5;
+        uint8_t new_value = (current > step) ? (uint8_t)(current - step) : 0;
+
+        if (new_value != current) {
+          settings->set_dim_brightness(new_value, false);
+          if (SDInterface::i().ready()) {
+            SDInterface::i().write_safezen_file_from_settings(*settings, false);
+          }
+          force_next_render();
+          M5_LOGD("Dim brightness decreased to: %u%%", new_value);
+        }
+      }
       else {
         open_menu(true);
         M5.Lcd.clear();
@@ -182,6 +219,23 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
           }
           break;
         }
+        case e_config_page_dim_brightness: {
+          auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
+          uint8_t current = settings->get_dim_brightness();
+          uint8_t step = button2->get_data().longPress ? 20 : 5;
+          uint16_t temp = current + step; // use wider type to avoid overflow before clamp
+          uint8_t new_value = (temp > 100) ? 100 : (uint8_t)temp;
+
+          if (new_value != current) {
+            settings->set_dim_brightness(new_value, false);
+            if (SDInterface::i().ready()) {
+              SDInterface::i().write_safezen_file_from_settings(*settings, false);
+            }
+            force_next_render();
+            M5_LOGD("Dim brightness increased to: %u%%", new_value);
+          }
+          break;
+        }
         default:
           break;
       }
@@ -192,6 +246,7 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
         case e_config_page_cpm_threshold:
         case e_config_page_click_sound:
         case e_config_page_error_alert_sound:
+        case e_config_page_dim_brightness:
           // Go back to config menu, not main menu
           _current_page = e_config_page_main;
           open_menu(false);
@@ -241,6 +296,9 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
         break;
       case e_config_page_error_alert_sound:
         render_error_alert_sound_page(workers, handlers);
+        break;
+      case e_config_page_dim_brightness:
+        render_dim_brightness_page(workers, handlers);
         break;
       case e_config_page_reset_all:
         render_reset_device_sd(workers, handlers);

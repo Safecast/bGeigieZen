@@ -18,6 +18,7 @@ class ConfigModeScreen : public BaseScreenWithMenu {
     e_config_page_cpm_threshold,
     e_config_page_click_sound,
     e_config_page_error_alert_sound,
+    e_config_page_dim_brightness,
     e_config_page_reset_all,
     e_config_page_back_to_main,
     e_config_MENU_MAX,
@@ -42,6 +43,7 @@ class ConfigModeScreen : public BaseScreenWithMenu {
   void render_cpm_threshold_page(const worker_map_t& workers, const handler_map_t& handlers);
   void render_click_sound_page(const worker_map_t& workers, const handler_map_t& handlers);
   void render_error_alert_sound_page(const worker_map_t& workers, const handler_map_t& handlers);
+  void render_dim_brightness_page(const worker_map_t& workers, const handler_map_t& handlers);
 
   enum MainPageInfoSection {
     e_config_section_device,
