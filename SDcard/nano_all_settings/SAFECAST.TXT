@@ -1,0 +1,32 @@
+# Example of a full bGeigie Nano SAFECAST.TXT
+# See README for key semantics; consult Nano firmware docs for canonical meanings.
+
+nm=SAFECAST
+# Replace with your assigned Safecast device ID
+did=5555
+# GPS type: 0 often means u-blox (firmware-specific)
+gt=0
+# GPS mode/profile (firmware-specific)
+gm=0
+# CPM calibration factor and label
+cpmf=334
+cpmn=Cs137
+# Bq/m^2 calibration factor and label
+bqmf=37
+bqmn=Cs137
+# CPM alert threshold
+al=100
+# Timezone offset in hours (e.g., 9 for JST)
+tz=9
+# Country code (ISO-3166)
+cn=JPN
+# Logging start mode (0=manual; firmware-specific)
+st=0
+# Sound: 1=on, 0=off
+ss=1
+# Screen brightness 0-100
+sh=100
+# Screen/map mode (firmware-specific)
+sm=0
+# Log commit/write interval in seconds
+cw=60
