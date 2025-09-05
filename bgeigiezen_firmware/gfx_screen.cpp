@@ -21,8 +21,7 @@
 #define SCREENSAVER_TEXT_LENGTH (strlen(SCREENSAVER_TEXT) * 6)
 #define TIMEOUT_PASSED(timeout, last_interaction) (timeout && (millis() - last_interaction) > (timeout * 1000))
 static constexpr uint8_t LEVEL_BRIGHT = 100;  // Full brightness for active use (100%)
-static constexpr uint8_t LEVEL_DIMMED = 20;   // 20% brightness for dimmed state (more noticeable difference)
-static constexpr uint8_t LEVEL_BLANKED = 5;    // 5% brightness when blanked
+static constexpr uint8_t LEVEL_BLANKED = 5;   // 5% brightness when blanked
 
 
 GFXScreen::GFXScreen(LocalStorage& settings, Controller& controller)
@@ -78,12 +77,12 @@ void GFXScreen::set_screen_status(ScreenStatus status) {
       setBrightness(LEVEL_BRIGHT);
       break;
     case e_screen_status_dim:
-      setBrightness(LEVEL_DIMMED);
+      setBrightness(_settings.get_dim_brightness());
       break;
     case e_screen_status_off:
       clear();
       if (_settings.get_animated_screensaver()) {
-        setBrightness(LEVEL_DIMMED);
+        setBrightness(_settings.get_dim_brightness());
       } else {
         setBrightness(LEVEL_BLANKED);
       }
@@ -91,7 +90,7 @@ void GFXScreen::set_screen_status(ScreenStatus status) {
   }
 }
 
-//setup brightness by Rob Oudendijk 2023-03-13
+//setup brightness by Rob Oudendijk 2023-03-13; updated to interpret lvl as percentage (0-100)
 void GFXScreen::setBrightness(uint8_t lvl) {
   static uint8_t last_lvl = 255; // Initialize to impossible value
   
@@ -102,14 +101,12 @@ void GFXScreen::setBrightness(uint8_t lvl) {
   }
 
   // For M5Stack CoreS3, use M5.Lcd.setBrightness
-  // Map 0-100 range to 0-255 range with a non-linear curve for better visibility
-  uint8_t mapped_brightness;
-  if (lvl == LEVEL_BRIGHT) {
-    mapped_brightness = 255;  // Full brightness
-  } else if (lvl == LEVEL_DIMMED) {
-    mapped_brightness = 40;   // ~16% of max for dimmed state (reduced to mitigate burn-in)
-  } else {
-    mapped_brightness = 12;   // ~5% for blanked state
+  // Map 0-100 percentage range to 0-255 device brightness
+  if (lvl > 100) lvl = 100;
+  uint8_t mapped_brightness = (uint8_t)((lvl * 255) / 100);
+  // Ensure small non-zero levels are still visible but low-power
+  if (lvl > 0 && mapped_brightness < 12) {
+    mapped_brightness = 12;
   }
   
   // Apply the brightness
