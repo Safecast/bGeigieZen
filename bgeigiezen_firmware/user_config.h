@@ -132,6 +132,7 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #define D_FIXED_RANGE 0.2
 #define D_LAST_LONGITUDE 0
 #define D_LAST_LATITUDE 0
-
+// Default dim brightness percentage (0-100) used when the screen is in DIM state
+#define D_DIM_BRIGHTNESS 20
 
 #endif

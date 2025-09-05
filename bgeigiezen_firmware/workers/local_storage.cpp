@@ -25,6 +25,7 @@ constexpr char const* key_screen_dim_timeout = "dim_timeout";
 constexpr char const* key_screen_off_timeout = "off_timeout";
 constexpr char const* key_animated_screensaver = "ani_screensaver";
 constexpr char const* key_error_alert_sound = "err_alert_snd";
+constexpr char const* key_dim_brightness = "dim_brightness";
 constexpr char const* key_fixed_range = "fixed_range";
 constexpr char const* key_fixed_longitude = "fixed_longitude";
 constexpr char const* key_fixed_latitude = "fixed_latitude";
@@ -45,6 +46,7 @@ LocalStorage::LocalStorage() :
     _log_void(false),
     _screen_dim_timeout(60),
     _screen_off_timeout(600),
+    _dim_brightness(D_DIM_BRIGHTNESS),
     _animated_screensaver(true),
     _error_alert_sound(true),
     _wifi_ssid(""),
@@ -74,6 +76,7 @@ void LocalStorage::reset_defaults() {
     set_log_void(D_LOG_VOID, true);
     set_screen_dim_timeout(D_SCREEN_DIM_TIMEOUT, true);
     set_screen_off_timeout(D_SCREEN_OFF_TIMEOUT, true);
+    set_dim_brightness(D_DIM_BRIGHTNESS, true);
     set_animated_screensaver(D_ANIMATED_SCREENSAVER, true);
     set_error_alert_sound(D_ERROR_ALERT_SOUND, true);
     set_wifi_ssid(D_WIFI_SSID, true);
@@ -144,6 +147,10 @@ bool LocalStorage::get_animated_screensaver() const {
 
 bool LocalStorage::get_error_alert_sound() const {
   return _error_alert_sound;
+}
+
+uint8_t LocalStorage::get_dim_brightness() const {
+  return _dim_brightness;
 }
 
 const char* LocalStorage::get_wifi_ssid() const {
@@ -337,6 +344,18 @@ void LocalStorage::set_error_alert_sound(bool error_alert_sound, bool force) {
   }
 }
 
+void LocalStorage::set_dim_brightness(uint8_t dim_brightness, bool force) {
+  // Clamp to 0-100
+  if (dim_brightness > 100) dim_brightness = 100;
+  if(_memory.begin(memory_name)) {
+    _dim_brightness = dim_brightness;
+    _memory.putUChar(key_dim_brightness, dim_brightness);
+    _memory.end();
+  } else {
+    M5_LOGD("unable to save new value for dim_brightness");
+  }
+}
+
 void LocalStorage::set_wifi_ssid(const char* wifi_ssid, bool force) {
   if(force || (wifi_ssid != nullptr && strlen(wifi_ssid) < CONFIG_VAL_MAX)) {
     if(_memory.begin(memory_name)) {
@@ -497,6 +516,7 @@ bool LocalStorage::activate(bool) {
   _screen_off_timeout = _memory.getUInt(key_screen_off_timeout, D_SCREEN_OFF_TIMEOUT);
   _animated_screensaver = _memory.getBool(key_animated_screensaver, D_ANIMATED_SCREENSAVER);
   _error_alert_sound = _memory.getBool(key_error_alert_sound, D_ERROR_ALERT_SOUND);
+  _dim_brightness = _memory.getUChar(key_dim_brightness, D_DIM_BRIGHTNESS);
   if(_memory.getString(key_ap_password, _ap_password, CONFIG_VAL_MAX) == 0) {
     strcpy(_ap_password, D_AP_PASSWORD);
   }
