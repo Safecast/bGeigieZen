@@ -2,6 +2,7 @@
 #include "identifiers.h"
 #include "gm_sensor.h"
 #include "controller.h"
+#include "user_config.h"
 
 SoundManager::SoundManager() :
     Worker("SoundManager"),
@@ -15,8 +16,10 @@ SoundManager::SoundManager() :
   // Set data to match loaded sound state
   data = _sound_enabled;
   
-  // Set speaker volume
-  M5.Speaker.setVolume(200);
+  // Set speaker volume according to user audio volume
+  Preferences p; uint8_t volPct = D_AUDIO_VOLUME; if (p.begin("data", true)) { volPct = p.getUChar("audio_volume", D_AUDIO_VOLUME); p.end(); }
+  uint16_t vol = (uint16_t)volPct * 255 / 100; if (vol > 255) vol = 255;
+  M5.Speaker.setVolume((uint8_t)vol);
 }
 
 bool SoundManager::activate(bool retry) {
@@ -53,8 +56,10 @@ int8_t SoundManager::produce_data() {
     
     // If random value is less than probability and enough time has passed, play a click
     if (random_value < click_probability && current_time - _last_click_time >= MIN_CLICK_INTERVAL) {
-      // Play a click sound with a higher volume
-      M5.Speaker.setVolume(200);
+      // Play a click sound at user volume
+      Preferences p; uint8_t volPct = D_AUDIO_VOLUME; if (p.begin("data", true)) { volPct = p.getUChar("audio_volume", D_AUDIO_VOLUME); p.end(); }
+      uint16_t vol = (uint16_t)volPct * 255 / 100; if (vol > 255) vol = 255;
+      M5.Speaker.setVolume((uint8_t)vol);
       
       // Vary frequency based on CPS - higher CPS = higher frequency
       uint16_t frequency = BASE_FREQUENCY + (_last_cps * 10);
@@ -101,7 +106,10 @@ void SoundManager::playClick(uint32_t cps) {
   uint16_t frequency = BASE_FREQUENCY + (cps * 10);
   if (frequency > MAX_FREQUENCY) frequency = MAX_FREQUENCY;
   
-  // Play the click sound
+  // Play the click sound at user volume
+  Preferences p; uint8_t volPct = D_AUDIO_VOLUME; if (p.begin("data", true)) { volPct = p.getUChar("audio_volume", D_AUDIO_VOLUME); p.end(); }
+  uint16_t vol = (uint16_t)volPct * 255 / 100; if (vol > 255) vol = 255;
+  M5.Speaker.setVolume((uint8_t)vol);
   M5.Speaker.tone(frequency, CLICK_DURATION, _click_channel);
   
   // Update last click time and CPS
@@ -182,8 +190,10 @@ bool SoundManager::toggleSound() {
     delay(150);
   }
   
-  // Reset to normal volume
-  M5.Speaker.setVolume(200);
+  // Reset to user-configured volume
+  Preferences p; uint8_t volPct = D_AUDIO_VOLUME; if (p.begin("data", true)) { volPct = p.getUChar("audio_volume", D_AUDIO_VOLUME); p.end(); }
+  uint16_t vol = (uint16_t)volPct * 255 / 100; if (vol > 255) vol = 255;
+  M5.Speaker.setVolume((uint8_t)vol);
   
   M5_LOGD("Sound toggled to %s", _sound_enabled ? "ON" : "OFF");
   
@@ -221,8 +231,10 @@ void SoundManager::playCpmAlert() {
   // Save current volume
   uint8_t current_volume = M5.Speaker.getVolume();
   
-  // Set high volume for alert (but not max like error beeps)
-  M5.Speaker.setVolume(220);
+  // Set user-configured volume for alert
+  Preferences p; uint8_t volPct = D_AUDIO_VOLUME; if (p.begin("data", true)) { volPct = p.getUChar("audio_volume", D_AUDIO_VOLUME); p.end(); }
+  uint16_t vol = (uint16_t)volPct * 255 / 100; if (vol > 255) vol = 255;
+  M5.Speaker.setVolume((uint8_t)vol);
   
   M5_LOGD("Playing CPM alert sound");
   

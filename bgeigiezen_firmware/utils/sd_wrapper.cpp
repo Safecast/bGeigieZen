@@ -25,6 +25,7 @@
 #define SD_CONFIG_FIELD_ANIMATED_SCREENSAVER "animated_screensaver"
 #define SD_CONFIG_FIELD_ERROR_ALERT_SOUND "error_alert_sound"
 #define SD_CONFIG_FIELD_DIM_BRIGHTNESS "dim_brightness"
+#define SD_CONFIG_FIELD_AUDIO_VOLUME "audio_volume"
 #define SD_CONFIG_FIELD_WIFI_SSID "wifi_ssid"
 #define SD_CONFIG_FIELD_WIFI_PASSWORD "wifi_password"
 #define SD_CONFIG_FIELD_WIFI_SSID2 "wifi_ssid2"
@@ -62,6 +63,7 @@ constexpr char sd_config_screen_off_timeout_f[] = SD_CONFIG_FIELD_SCREEN_OFF_TIM
 constexpr char sd_config_animated_screensaver_f[] = SD_CONFIG_FIELD_ANIMATED_SCREENSAVER"=%hhu";
 constexpr char sd_config_error_alert_sound_f[] = SD_CONFIG_FIELD_ERROR_ALERT_SOUND"=%hhu";
 constexpr char sd_config_dim_brightness_f[] = SD_CONFIG_FIELD_DIM_BRIGHTNESS"=%hhu";
+constexpr char sd_config_audio_volume_f[] = SD_CONFIG_FIELD_AUDIO_VOLUME"=%hhu";
 constexpr char sd_config_wifi_ssid_f[] = SD_CONFIG_FIELD_WIFI_SSID"=%[^\t\r\n]";
 constexpr char sd_config_wifi_ssid_write_f[] = SD_CONFIG_FIELD_WIFI_SSID"=%s";
 constexpr char sd_config_wifi_password_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD"=%[^\t\r\n]";
@@ -257,6 +259,7 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   uint8_t animated_screensaver = true;
   uint8_t error_alert_sound = true;
   uint8_t dim_brightness = D_DIM_BRIGHTNESS;
+  uint8_t audio_volume = D_AUDIO_VOLUME;
 
   // Connection settings
   char wifi_ssid[CONFIG_VAL_MAX] = "";
@@ -404,6 +407,13 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
         M5_LOGD("Loaded from SD: dim_brightness=%u", dim_brightness);
       }
     }
+    else if (line.startsWith(SD_CONFIG_FIELD_AUDIO_VOLUME)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_audio_volume_f, &audio_volume)) {
+        if (audio_volume > 100) audio_volume = 100;
+        settings.set_audio_volume(audio_volume, true);
+        M5_LOGD("Loaded from SD: audio_volume=%u", audio_volume);
+      }
+    }
     else if (line.startsWith(SD_CONFIG_FIELD_ERROR_ALERT_SOUND)) {
       if (_device_id && sscanf(line.c_str(), sd_config_error_alert_sound_f, &error_alert_sound)) {
         settings.set_error_alert_sound(!!error_alert_sound, true);
@@ -508,6 +518,8 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
     safecast_txt.printf(sd_config_log_void_f, settings.get_log_void());
     safecast_txt.println();
     safecast_txt.printf(sd_config_dim_brightness_f, settings.get_dim_brightness());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_audio_volume_f, settings.get_audio_volume());
     safecast_txt.println();
     safecast_txt.printf(sd_config_error_alert_sound_f, settings.get_error_alert_sound());
     safecast_txt.println();
