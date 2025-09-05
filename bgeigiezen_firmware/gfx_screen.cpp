@@ -107,7 +107,7 @@ void GFXScreen::setBrightness(uint8_t lvl) {
   if (lvl == LEVEL_BRIGHT) {
     mapped_brightness = 255;  // Full brightness
   } else if (lvl == LEVEL_DIMMED) {
-    mapped_brightness = 64;   // 25% of max for dimmed state
+    mapped_brightness = 40;   // ~16% of max for dimmed state (reduced to mitigate burn-in)
   } else {
     mapped_brightness = 12;   // ~5% for blanked state
   }
