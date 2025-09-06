@@ -134,7 +134,7 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #define D_LAST_LATITUDE 0
 // Default brightness level when dimmed (percentage)
 #ifndef D_DIM_BRIGHTNESS
-#define D_DIM_BRIGHTNESS 20
+#define D_DIM_BRIGHTNESS 30
 #endif
 
 // Default audio volume (percentage 0-100) for clicks/alerts
