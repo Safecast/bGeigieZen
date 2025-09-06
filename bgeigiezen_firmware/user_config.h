@@ -123,7 +123,7 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #define D_SCREEN_DIM_TIMEOUT 60     // 60 seconds until screen dims
 #define D_SCREEN_OFF_TIMEOUT 0   // No screensaver by default
 #define D_ANIMATED_SCREENSAVER true
-#define D_ERROR_ALERT_SOUND true
+#define D_ERROR_ALERT_SOUND false
 #define D_WIFI_SSID "your wifi ssid"
 #define D_WIFI_PASSWORD "your wifi password"
 #define D_API_KEY ""
@@ -139,7 +139,7 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 
 // Default audio volume (percentage 0-100) for clicks/alerts
 #ifndef D_AUDIO_VOLUME
-#define D_AUDIO_VOLUME 60
+#define D_AUDIO_VOLUME 0
 #endif
 
 #endif
