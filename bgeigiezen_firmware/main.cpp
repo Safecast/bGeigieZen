@@ -52,7 +52,6 @@
 #include "handlers/sd_logger.h"
 #include "handlers/debug_logger.h"
 #include "identifiers.h"
-#include "workers/battery_logger.h"
 #include "workers/battery_led_indicator.h"
 #include "workers/configuration_server.h"
 #include "workers/gm_sensor.h"
@@ -87,7 +86,6 @@ ShakeDetector shake_detector;
 LogAggregator log_aggregator(settings);
 ConfigWebServer config_server(settings);
 SoundManager sound_manager;
-BatteryLogger battery_logger;
 BatteryLedIndicator battery_led_indicator;
 
 // Data handlers
@@ -95,7 +93,6 @@ SdLogger journal_logger(settings, SdLogger::journal);
 SdLogger drive_logger(settings, SdLogger::drive);
 SdLogger survey_logger(settings, SdLogger::survey);
 SdLogger flight_logger(settings, SdLogger::flight); // Using dedicated flight log type
-GpsDebugLogger gps_debug_logger(settings, gnss);
 BluetoothReporter bt_connector(settings);
 ApiConnector api_connector(settings);
 
@@ -145,7 +142,6 @@ void setup() {
   controller.register_worker(k_worker_shake_detector, shake_detector);
   controller.register_worker(k_worker_battery_indicator, battery_indicator);
   controller.register_worker(k_worker_rtc_connector, rtc);
-  controller.register_worker(k_worker_battery_logger, battery_logger);
   controller.register_worker(k_worker_battery_led_indicator, battery_led_indicator);
   controller.register_worker(k_worker_button_3, zen_A);
   controller.register_worker(k_worker_button_2, zen_B);
@@ -161,7 +157,6 @@ void setup() {
   controller.register_handler(k_handler_drive_logger, drive_logger);
   controller.register_handler(k_handler_survey_logger, survey_logger);
   controller.register_handler(k_handler_flight_logger, flight_logger);
-  controller.register_handler(k_handler_gps_debug_logger, gps_debug_logger);
   controller.register_handler(k_handler_bluetooth_reporter, bt_connector);
   controller.register_handler(k_handler_api_reporter, api_connector);
 

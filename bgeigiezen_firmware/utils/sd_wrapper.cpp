@@ -148,8 +148,31 @@ bool SDInterface::log_println(const char* log_name, const char* data) {
     return false;
   }
   if (!SD.exists(log_name)) {
-    M5_LOGD("Unable to log to non-existent file \"%s\".", log_name);
-    return false;
+    // Attempt to auto-create the missing file and its parent directory
+    String path = String(log_name);
+    int last_slash = path.lastIndexOf('/');
+    if (last_slash > 0) {
+      String dir = path.substring(0, last_slash);
+      if (!SD.exists(dir.c_str())) {
+        M5_LOGD("Creating directory '%s' for missing log file", dir.c_str());
+        SD.mkdir(dir.c_str());
+      }
+    }
+
+    // Create the file
+    File create_file = SD.open(log_name, FILE_WRITE);
+    if (!create_file) {
+      end();
+      M5_LOGD("Unable to create log file \"%s\".", log_name);
+      return false;
+    }
+    create_file.close();
+
+    // If still doesn't exist, give up
+    if (!SD.exists(log_name)) {
+      M5_LOGD("Unable to log to non-existent file \"%s\" after creation attempt.", log_name);
+      return false;
+    }
   }
   // open the setup file in append mode to add lines
   auto log_file = SD.open(log_name, FILE_APPEND);
@@ -590,13 +613,54 @@ bool SDInterface::setup_log(const char* dir, const char* log_name_output, bool c
 
 bool SDInterface::rename_log(const char* old_log_name, const char* new_log_name) {
   if (!ready()) {
+    M5_LOGE("Cannot rename: SD card not ready");
     return false;
   }
 
   if (!SD.exists(old_log_name)) {
+    M5_LOGE("Cannot rename: source file '%s' does not exist", old_log_name);
     return false;
   }
-  return SD.rename(old_log_name, new_log_name);
+  
+  // Check if target already exists. If so, assume rename was successful already.
+  if (SD.exists(new_log_name)) {
+    M5_LOGW("Target file '%s' already exists, assuming rename is complete.", new_log_name);
+    // If the original file still exists, something is wrong. Let's remove it.
+    if(SD.exists(old_log_name)) {
+        SD.remove(old_log_name);
+    }
+    return true;
+  }
+  
+  // Extract directory from new_log_name and ensure it exists
+  String new_path = String(new_log_name);
+  int last_slash = new_path.lastIndexOf('/');
+  if (last_slash > 0) {
+    String dir = new_path.substring(0, last_slash);
+    if (!SD.exists(dir.c_str())) {
+      M5_LOGD("Creating directory '%s' for rename", dir.c_str());
+      if (!SD.mkdir(dir.c_str())) {
+        M5_LOGE("Failed to create directory '%s'", dir.c_str());
+        return false;
+      }
+    }
+  }
+  
+  bool success = SD.rename(old_log_name, new_log_name);
+  
+  // Verify the renamed file exists
+  if (success && !SD.exists(new_log_name)) {
+    M5_LOGE("Rename reported success but file '%s' does not exist", new_log_name);
+    success = false;
+  }
+  
+  if (success) {
+    M5_LOGD("Successfully renamed '%s' to '%s'", old_log_name, new_log_name);
+  } else {
+    M5_LOGE("Failed to rename '%s' to '%s'", old_log_name, new_log_name);
+  }
+
+  return success;
 }
 
 bool SDInterface::delete_log(const char* log_name) {
