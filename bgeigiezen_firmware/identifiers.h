@@ -19,7 +19,6 @@ enum DataWorkers {
   k_worker_local_storage,
   k_worker_config_server,
   k_worker_sound_manager,
-  k_worker_battery_logger,
   k_worker_battery_led_indicator,
 };
 
@@ -31,7 +30,6 @@ enum DataHandlers {
   k_handler_drive_logger,
   k_handler_survey_logger,
   k_handler_flight_logger,
-  k_handler_gps_debug_logger,
   k_handler_bluetooth_reporter,
   k_handler_api_reporter,
 };

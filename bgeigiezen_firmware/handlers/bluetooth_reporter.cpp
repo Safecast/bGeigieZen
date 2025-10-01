@@ -180,7 +180,7 @@ void BluetoothReporter::create_ble_data_service(BLEServer* pServer) {
 }
 
 void BluetoothReporter::logPowerState() {
-    ESP_LOGI("BLE", "BLE State - Connected: %d", _is_connected);
+    ESP_LOGI("BLE", "BLE State - Connected clients: %d", _pServer->getConnectedCount());
 }
 
 int8_t BluetoothReporter::handle_async() {

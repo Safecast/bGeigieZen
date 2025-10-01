@@ -172,11 +172,11 @@ void FlightModeScreen::render(const worker_map_t& workers, const handler_map_t& 
     M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
     M5.Lcd.printf("%0.6f  ", gps->get_data().longitude);
     
-    // Highlight altitude for Flight mode
+    // Altitude for Flight mode
     M5.Lcd.setCursor(170, 168);
-    M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, LCD_COLOR_BACKGROUND);  // Use activity color to highlight altitude
+    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("ALTITUDE   :");
-    M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_ACTIVITY : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+    M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
     M5.Lcd.printf("%0.2f m   ", gps->get_data().altitudeMSL);
     
     M5.Lcd.setCursor(170, 177);
@@ -187,14 +187,14 @@ void FlightModeScreen::render(const worker_map_t& workers, const handler_map_t& 
     
     // Calculate and display vertical speed using velD
     M5.Lcd.setCursor(170, 186);
-    M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, LCD_COLOR_BACKGROUND);  // Use activity color for vertical speed too
+    M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.print("VERT SPEED :");
     
     // Check if we have valid velocity data
     if (gps->get_data().location_valid) {
       // Convert from mm/s to m/s and invert sign (velD is positive downward)
       float verticalSpeed = -gps->get_data().velD / 1000.0f;
-      M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, LCD_COLOR_BACKGROUND);
+      M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
       M5.Lcd.printf("%0.1f m/s ", verticalSpeed);
     } else {
       M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);

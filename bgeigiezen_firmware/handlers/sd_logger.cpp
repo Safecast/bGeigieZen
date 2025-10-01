@@ -3,6 +3,7 @@
 #include "utils/sd_wrapper.h"
 #include "workers/rtc_connector.h"
 #include "user_config.h"
+#include <SD.h>
 
 #ifdef VERSION_BETA
 #define LOG_VERSION_STRING VERSION_STRING " beta"
@@ -78,7 +79,24 @@ void SdLogger::deactivate() {
 int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
   const auto& log_data = workers.worker<LogAggregator>(k_worker_log_aggregator);
   const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
+  
+  // Skip if handler is not active
+  if (!active()) {
+    // Clear any stale state if handler became inactive
+    if (strlen(_logging_to) > 0) {
+      M5_LOGD("Handler inactive but has stale path '%s', clearing state.", _logging_to);
+      strcpy(_logging_to, "");
+      _is_temp = true;
+    }
+    return e_handler_idle;
+  }
+  
   if (log_data->is_fresh()) {
+    // Skip if logger is not active (no file opened)
+    if (strlen(_logging_to) == 0) {
+      return e_handler_idle;
+    }
+    
     if (!SDInterface::i().ready()) {
       M5_LOGD("Abrupt stop logging '%s', sd card not ready.", _logging_to);
       return e_handler_error;
@@ -87,13 +105,24 @@ int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
       // Check RTC for time to rename log file
       const auto& rtc_data = workers.worker<DateTimeProvider>(k_worker_rtc_connector)->get_data();
       if (rtc_data.valid) {
+        // Verify the log file actually exists before attempting rename
+        if (!SD.exists(_logging_to)) {
+          M5_LOGW("Log file '%s' does not exist, clearing handler state.", _logging_to);
+          strcpy(_logging_to, "");
+          _is_temp = true;
+          return e_handler_idle;
+        }
+        
         // Renaming the log file
         char new_name[LOG_FILENAME_SIZE];
         sprintf(new_name, DATED_LOG_NAME_F, get_dir(), rtc_data.year, rtc_data.month, rtc_data.day, rtc_data.hour, rtc_data.minute);
-        SDInterface::i().rename_log(_logging_to, new_name);
-        strcpy(_logging_to, new_name);
-        M5_LOGD("Updated log name to '%s'.", _logging_to);
-        _is_temp = false;
+        if (SDInterface::i().rename_log(_logging_to, new_name)) {
+          strcpy(_logging_to, new_name);
+          M5_LOGD("Updated log name to '%s'.", _logging_to);
+          _is_temp = false;
+        } else {
+          M5_LOGE("Failed to rename log from '%s' to '%s'.", _logging_to, new_name);
+        }
       }
     }
 

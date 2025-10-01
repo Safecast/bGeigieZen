@@ -28,7 +28,6 @@ void Controller::start_default_workers() {
   set_worker_active(k_worker_gps_connector, true);
   set_worker_active(k_worker_navsat_collector, true);
   set_worker_active(k_worker_log_aggregator, true);
-  set_worker_active(k_worker_battery_logger, true);
   set_worker_active(k_worker_battery_led_indicator, true);
 //  set_worker_active(k_worker_shake_detector, true);
   set_worker_active(k_worker_device_state, true);
@@ -70,7 +69,6 @@ int8_t Controller::produce_data() {
     set_handler_active(k_handler_drive_logger, false);
     set_handler_active(k_handler_survey_logger, false);
     set_handler_active(k_handler_flight_logger, false);
-    set_handler_active(k_handler_gps_debug_logger, false);
   } else if (data.sd_card_status != SDInterface::i().status()) {
     // SD status changed,
     data.sd_card_status = SDInterface::i().status();
@@ -82,7 +80,6 @@ int8_t Controller::produce_data() {
     if (_settings.get_enable_journal()) {
       set_handler_active(k_handler_journal_logger, true);
     }
-    set_handler_active(k_handler_gps_debug_logger, true);
   }
 
   return _status;
