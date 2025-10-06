@@ -78,7 +78,7 @@ bool ApiConnector::reading_to_json(const DataLine& line, char* out) {
       out,
       "{\"captured_at\":\"%s\","
       "\"device_id\":%d,"
-      "\"value\":%d,"
+      "\"value\":%u,"
       "\"unit\":\"cpm\","
       "\"height\":%0.6f,"
       "\"latitude\":%0.6f,"

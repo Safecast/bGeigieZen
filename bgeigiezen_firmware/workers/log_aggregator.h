@@ -17,7 +17,7 @@ struct DataLine {
     return gps_valid && gm_valid && dop_valid;
   }
 
-  uint16_t cpm = 0;
+  uint32_t cpm = 0;  // Changed from uint16_t to handle high frequency inputs
   char timestamp[20] = "";
   double latitude = 0;
   double longitude = 0;
