@@ -91,7 +91,7 @@ size_t BaseScreen::printFloatFont(float val, int prec, int x, int y, const lgfx:
 // Prints int with fonts
 size_t BaseScreen::printIntFont(unsigned long val, int x, int y, const lgfx::IFont* font) {
   char sz[32] = "";
-  sprintf(sz, "%ld", val);
+  sprintf(sz, "%lu", val);  // Use %lu for unsigned long instead of %ld
   return M5.Lcd.drawString((sz), x, y, font);
 }
 

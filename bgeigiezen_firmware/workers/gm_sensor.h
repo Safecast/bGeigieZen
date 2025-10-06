@@ -6,8 +6,8 @@
 
 struct GeigerData {
   bool valid = false;  // True if accumulated data over 1+ minute
-  uint16_t cps = 0;  // Past second
-  uint16_t cp5s = 0;  // Past 5 seconds
+  uint32_t cps = 0;  // Past second - changed to uint32_t for high count rates
+  uint32_t cp5s = 0;  // Past 5 seconds - changed to uint32_t for high count rates
   uint32_t cpm_raw = 0;  // Past minute
   uint32_t cpm_comp = 0;  // cpm_raw compensated for medcom deadtime
   uint32_t cpm_comp_peak = 0;  // highest cpm_comp recorded
@@ -45,6 +45,7 @@ class GeigerCounter : public ProcessWorker<GeigerData> {
   bool _previous_alert_state = false;  // Track previous alert state to detect threshold crossings
 
   int _pos = 0;  // current position in shift register
+  uint32_t _samples_collected = 0;  // Track total number of samples collected
   std::array<uint32_t, GEIGER_AVERAGING_N_BINS> _shift_reg;
 
 

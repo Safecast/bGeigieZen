@@ -101,29 +101,106 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   if (gm_sensor->is_fresh() || force) {
     // Display values
     const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
+    
+    // Auto-switch units based on value magnitude
+    uint32_t cpm_value = gm_sensor->get_data().cpm_comp;
+    float dose_value = gm_sensor->get_data().uSvh;
+    const char* cpm_unit = " CPM";
+    const char* dose_unit = " uSv/h";
+    
+    // Convert to KCPM if > 1000
+    float display_cpm = cpm_value;
+    if (cpm_value > 1000) {
+      display_cpm = cpm_value / 1000.0f;
+      cpm_unit = " KCPM";
+    }
+    
+    // Convert to mSv/h if > 1000
+    float display_dose = dose_value;
+    if (dose_value > 1000) {
+      display_dose = dose_value / 1000.0f;
+      dose_unit = " mSv/h";
+    }
+    
     if (settings->get_cpm_usvh()) {
       // Display CPM big, usvh small
       M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-      uint16_t cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 0, 100, &fonts::Font7);
-      uint16_t ush_width = printFloatFont(gm_sensor->get_data().uSvh, 4, 0, 140, &fonts::Font4);
+      
+      // Always display exactly 3 digits for clean appearance
+      uint16_t cpm_width;
+      if (cpm_value >= 1000) {
+        // Convert to KCPM for values >= 1000
+        float kcpm = cpm_value / 1000.0f;
+        if (kcpm > 999.0f) {
+          cpm_width = printIntFont(999, 0, 100, &fonts::Font7);
+          cpm_unit = "+KCPM";
+        } else if (kcpm >= 100.0f) {
+          cpm_width = printIntFont((int)kcpm, 0, 100, &fonts::Font7);  // xxx format
+          cpm_unit = " KCPM";
+        } else if (kcpm >= 10.0f) {
+          cpm_width = printFloatFont(kcpm, 1, 0, 100, &fonts::Font7);  // xx.x format
+          cpm_unit = " KCPM";
+        } else {
+          cpm_width = printFloatFont(kcpm, 2, 0, 100, &fonts::Font7);  // x.xx format
+          cpm_unit = " KCPM";
+        }
+      } else {
+        // Display as CPM (0-999)
+        cpm_width = printIntFont(cpm_value, 0, 100, &fonts::Font7);
+        cpm_unit = " CPM";
+      }
+      
+      uint16_t ush_width = printFloatFont(display_dose, (dose_value > 1000) ? 2 : 4, 0, 140, &fonts::Font4);
 
-      // Display unit text with cleanup (CPM uSv/h)
+      // Display unit text with cleanup (CPM/KCPM uSv/h/mSv/h)
       M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
       M5.Lcd.fillRect(cpm_width, 52, 320 - cpm_width, 27, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
-      cpm_width += M5.Lcd.drawString(" CPM", cpm_width, 105, &fonts::Font4); // Prints after cpm value
+      cpm_width += M5.Lcd.drawString(cpm_unit, cpm_width, 105, &fonts::Font4); // Prints after cpm value
       M5.Lcd.fillRect(cpm_width, 74, 320 - cpm_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CPM text
-      M5.Lcd.drawString(" uSv/h   ", 0 + ush_width, 140, &fonts::Font4); // Prints after ush value
+      M5.Lcd.drawString((String(dose_unit) + "   ").c_str(), 0 + ush_width, 140, &fonts::Font4); // Prints after ush value
     } else {
       M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-      uint16_t ush_width = printFloatFont(gm_sensor->get_data().uSvh, 3, 0, 100, &fonts::Font7);
-      uint16_t cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 0, 140, &fonts::Font4);
+      
+      // Always display exactly 3 digits for clean appearance
+      uint16_t ush_width;
+      if (dose_value >= 1000.0f) {
+        // Convert to mSv/h for values >= 1000 uSv/h
+        float msv = dose_value / 1000.0f;
+        if (msv > 999.0f) {
+          ush_width = printIntFont(999, 0, 100, &fonts::Font7);
+          dose_unit = "+mSv/h";
+        } else if (msv >= 100.0f) {
+          ush_width = printIntFont((int)msv, 0, 100, &fonts::Font7);  // xxx format
+          dose_unit = " mSv/h";
+        } else if (msv >= 10.0f) {
+          ush_width = printFloatFont(msv, 1, 0, 100, &fonts::Font7);  // xx.x format
+          dose_unit = " mSv/h";
+        } else {
+          ush_width = printFloatFont(msv, 2, 0, 100, &fonts::Font7);  // x.xx format
+          dose_unit = " mSv/h";
+        }
+      } else if (dose_value >= 100.0f) {
+        // Display as integer uSv/h (100-999)
+        ush_width = printIntFont((int)dose_value, 0, 100, &fonts::Font7);  // xxx format
+        dose_unit = " uSv/h";
+      } else if (dose_value >= 10.0f) {
+        ush_width = printFloatFont(dose_value, 1, 0, 100, &fonts::Font7);  // xx.x format
+        dose_unit = " uSv/h";
+      } else {
+        ush_width = printFloatFont(dose_value, 2, 0, 100, &fonts::Font7);  // x.xx format
+        dose_unit = " uSv/h";
+      }
+      
+      uint16_t cpm_width = (cpm_value > 1000)
+        ? printFloatFont(display_cpm, 2, 0, 140, &fonts::Font4)
+        : printIntFont(cpm_value, 0, 140, &fonts::Font4);
 
-      // Display unit text with cleanup (CPM uSv/h)
+      // Display unit text with cleanup (CPM/KCPM uSv/h/mSv/h)
       M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-      M5.Lcd.fillRect(ush_width, 52, 320 - ush_width, 27, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
-      ush_width += M5.Lcd.drawString(" uSv/h", ush_width, 105, &fonts::Font4); // Prints after cpm value
-      M5.Lcd.fillRect(ush_width, 74, 320 - ush_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CPM text
-      M5.Lcd.drawString(" CPM   ", 0 + cpm_width, 140, &fonts::Font4); // Prints after ush value
+      M5.Lcd.fillRect(ush_width, 52, 320 - ush_width, 27, LCD_COLOR_BACKGROUND); // Prints blanks after dose value, above dose text
+      ush_width += M5.Lcd.drawString(dose_unit, ush_width, 105, &fonts::Font4); // Prints after dose value
+      M5.Lcd.fillRect(ush_width, 74, 320 - ush_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after dose text
+      M5.Lcd.drawString((String(cpm_unit) + "   ").c_str(), 0 + cpm_width, 140, &fonts::Font4); // Prints after cpm value
     }
   }
 

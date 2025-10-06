@@ -78,7 +78,7 @@ int8_t SoundManager::produce_data() {
     static uint32_t last_cps_update = 0;
     if (current_time - last_cps_update >= 1000) {
       // Get CPS from global data (this is a hack, but should work)
-      extern uint16_t g_cps;
+      extern uint32_t g_cps;  // Changed to uint32_t for high count rates
       _last_cps = g_cps;
       last_cps_update = current_time;
     }
