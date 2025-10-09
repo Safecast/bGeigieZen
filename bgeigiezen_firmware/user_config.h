@@ -73,7 +73,7 @@ constexpr char SURVEY_LOG_DIRECTORY[] = "/surveys";
 constexpr char DEBUG_LOG_DIRECTORY[] = "/debug";
 constexpr char LOG_HEADER_LINE1[] = "# NEW LOG";
 constexpr char LOG_HEADER_LINE2[] = "# format=";
-constexpr char LOG_HEADER_LINE3[] = "# deadtime=off";
+constexpr char LOG_HEADER_LINE3[] = "# deadtime=on";
 constexpr char DEVICE_HEADER[] = "BNRDD";
 constexpr uint8_t LINE_BUFFER_SIZE = 100;
 constexpr uint8_t LOG_FILENAME_SIZE = 255;
