@@ -56,7 +56,8 @@ BaseScreen* SatelliteViewScreen::handle_input(Controller& controller, const work
     const auto button3 = workers.worker<ZenButton>(k_worker_button_3);
     if (button1->is_fresh() && button1->get_data().shortPress) {
       open_menu(true);
-      M5.Lcd.clear();
+      // Don't clear the entire screen to avoid flickering
+      // The menu render will handle clearing what it needs
       force_next_render();
     }
     if (button2->is_fresh() && button2->get_data().shortPress) {
