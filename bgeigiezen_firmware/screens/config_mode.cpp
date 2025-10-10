@@ -610,7 +610,7 @@ void ConfigModeScreen::render_set_home_gps_page(const worker_map_t& workers, con
     M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, LCD_COLOR_BACKGROUND);
     M5.Lcd.printf("Lat: %.6f\n", gps->get_data().latitude);
     M5.Lcd.printf("Lon: %.6f\n", gps->get_data().longitude);
-    M5.Lcd.printf("Sats: %d\n", gps->get_data().numSV);
+    M5.Lcd.printf("Sats: %d\n", gps->get_data().satsInView);
   } else if (gps && gps->active()) {
     M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
     M5.Lcd.printf("Waiting for GPS fix...\n");
