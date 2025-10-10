@@ -10,6 +10,7 @@
 #include "workers/local_storage.h"
 #include "workers/zen_button.h"
 #include "workers/sound_manager.h"
+#include "workers/gps_connector.h"
 #include <WiFi.h>
 
 const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MENU_MAX] = {
@@ -25,6 +26,7 @@ const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MEN
     {.title="Error Alert Sound", .tooltip="Enable/disable error alert beep sounds", .enabled=true},
     {.title="Audio Volume", .tooltip="Adjust global audio volume for clicks/alerts", .enabled=true},
     {.title="Dim Brightness", .tooltip="Adjust screen brightness when dimmed/screensaver", .enabled=true},
+    {.title="Set Home GPS", .tooltip="Set current GPS      location as home     for Real Time mode", .enabled=true},
     {.title="Factory reset", .tooltip="Clear and reset      device and SD-card", .enabled=true},
     {.title="Back to main menu", .tooltip="Return to the main menu", .enabled=true},
 };
@@ -227,6 +229,37 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
           _main_page_info_section = (_main_page_info_section + 1) % e_config_section_MAX;
           force_next_render();
           break;
+        case e_config_page_set_home_gps: {
+          // Set current GPS location as home
+          auto* gps = workers.worker<GpsConnector>(k_worker_gps_connector);
+          auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
+          
+          if (gps && gps->active() && gps->get_data().location_valid) {
+            double new_lat = gps->get_data().latitude;
+            double new_lon = gps->get_data().longitude;
+            
+            // Save the new home location
+            settings->set_fixed_latitude(new_lat, false);
+            settings->set_fixed_longitude(new_lon, false);
+            
+            // Also update last known location for reference
+            settings->set_last_latitude(new_lat, false);
+            settings->set_last_longitude(new_lon, false);
+            
+            // Save to SD card
+            if (SDInterface::i().ready()) {
+              SDInterface::i().write_safezen_file_from_settings(*settings, false);
+            }
+            
+            set_status_message(F(" HOME GPS LOCATION SET! "));
+            force_next_render();
+            M5_LOGD("Home GPS location set to: Lat %.6f, Lon %.6f", new_lat, new_lon);
+          } else {
+            set_status_message(F(" NO VALID GPS FIX! "));
+            M5_LOGD("Cannot set home GPS - no valid fix");
+          }
+          break;
+        }
         case e_config_page_cpm_threshold: {
           auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
           uint16_t current_threshold = settings->get_alert_threshold();
@@ -300,6 +333,7 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
         case e_config_page_error_alert_sound:
         case e_config_page_dim_brightness:
         case e_config_page_audio_volume:
+        case e_config_page_set_home_gps:
           // Go back to config menu, not main menu
           _current_page = e_config_page_main;
           open_menu(false);
@@ -355,6 +389,9 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
         break;
       case e_config_page_audio_volume:
         render_audio_volume_page(workers, handlers);
+        break;
+      case e_config_page_set_home_gps:
+        render_set_home_gps_page(workers, handlers);
         break;
       case e_config_page_reset_all:
         render_reset_device_sd(workers, handlers);
@@ -543,6 +580,48 @@ void ConfigModeScreen::render_error_alert_sound_page(const worker_map_t& workers
   M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
   M5.Lcd.printf("Note: CPM alert sounds are\n");
   M5.Lcd.printf("controlled separately.\n");
+}
+
+void ConfigModeScreen::render_set_home_gps_page(const worker_map_t& workers, const handler_map_t& handlers) {
+  auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
+  auto* gps = workers.worker<GpsConnector>(k_worker_gps_connector);
+  
+  // Draw button indicators at bottom of screen
+  drawButton1("");
+  drawButton2("Set Home");
+  drawButton3("Back");
+  
+  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  M5.Lcd.setCursor(0, 50, &fonts::Font2);
+  M5.Lcd.printf("Set Home GPS Location\n\n");
+  
+  // Show current home location
+  M5.Lcd.printf("Current Home (Real Time):\n");
+  M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+  M5.Lcd.printf("Lat: %.6f\n", settings->get_fixed_latitude());
+  M5.Lcd.printf("Lon: %.6f\n\n", settings->get_fixed_longitude());
+  
+  // Show current GPS location if available
+  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  M5.Lcd.printf("Current GPS Position:\n");
+  
+  if (gps && gps->active() && gps->get_data().location_valid) {
+    M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, LCD_COLOR_BACKGROUND);
+    M5.Lcd.printf("Lat: %.6f\n", gps->get_data().latitude);
+    M5.Lcd.printf("Lon: %.6f\n", gps->get_data().longitude);
+    M5.Lcd.printf("Sats: %d\n", gps->get_data().numSV);
+  } else if (gps && gps->active()) {
+    M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+    M5.Lcd.printf("Waiting for GPS fix...\n");
+    M5.Lcd.printf("Sats in view: %d\n", gps ? gps->get_data().satsInView : 0);
+  } else {
+    M5.Lcd.setTextColor(LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
+    M5.Lcd.printf("GPS not available\n");
+  }
+  
+  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  M5.Lcd.printf("\nPress B to set current GPS\n");
+  M5.Lcd.printf("position as home location.\n");
 }
 
 void ConfigModeScreen::enter_screen(Controller& controller) {

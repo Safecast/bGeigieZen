@@ -20,6 +20,7 @@ class ConfigModeScreen : public BaseScreenWithMenu {
     e_config_page_error_alert_sound,
     e_config_page_audio_volume,
     e_config_page_dim_brightness,
+    e_config_page_set_home_gps,
     e_config_page_reset_all,
     e_config_page_back_to_main,
     e_config_MENU_MAX,
@@ -46,6 +47,7 @@ class ConfigModeScreen : public BaseScreenWithMenu {
   void render_error_alert_sound_page(const worker_map_t& workers, const handler_map_t& handlers);
   void render_audio_volume_page(const worker_map_t& workers, const handler_map_t& handlers);
   void render_dim_brightness_page(const worker_map_t& workers, const handler_map_t& handlers);
+  void render_set_home_gps_page(const worker_map_t& workers, const handler_map_t& handlers);
 
   enum MainPageInfoSection {
     e_config_section_device,
