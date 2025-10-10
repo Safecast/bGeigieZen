@@ -216,7 +216,8 @@ BaseScreen* BaseScreenWithMenu::handle_menu_input(Controller& controller, const 
     } else {
       // Swap pages internally
       _menu_open = false;
-      M5.Lcd.clear();
+      // Don't clear the entire screen, just the content area to avoid flickering
+      clear_screen_content();
       if (_menu_index != _current_page) {
         leave_screen(controller);
         _current_page = _menu_index;

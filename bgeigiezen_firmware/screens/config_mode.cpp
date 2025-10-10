@@ -197,7 +197,8 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
       }
       else {
         open_menu(true);
-        M5.Lcd.clear();
+        // Don't clear the entire screen to avoid flickering
+        // The menu render will handle clearing what it needs
         force_next_render();
       }
     }
