@@ -197,8 +197,7 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
       }
       else {
         open_menu(true);
-        // Don't clear the entire screen to avoid flickering
-        // The menu render will handle clearing what it needs
+        M5.Lcd.clear(LCD_COLOR_BACKGROUND);  // Clear screen when opening menu
         force_next_render();
       }
     }
@@ -337,6 +336,7 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
         case e_config_page_set_home_gps:
           // Go back to config menu, not main menu
           _current_page = e_config_page_main;
+          M5.Lcd.clear(LCD_COLOR_BACKGROUND);  // Clear screen to avoid visual artifacts
           open_menu(false);
           force_next_render();
           return nullptr;  // Stay on config screen
@@ -600,7 +600,7 @@ void ConfigModeScreen::render_set_home_gps_page(const worker_map_t& workers, con
   M5.Lcd.printf("Current Home (Real Time):\n");
   M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
   M5.Lcd.printf("Lat: %.6f\n", settings->get_fixed_latitude());
-  M5.Lcd.printf("Lon: %.6f\n\n", settings->get_fixed_longitude());
+  M5.Lcd.printf("Lon: %.6f\n", settings->get_fixed_longitude());
   
   // Show current GPS location if available
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
@@ -610,7 +610,6 @@ void ConfigModeScreen::render_set_home_gps_page(const worker_map_t& workers, con
     M5.Lcd.setTextColor(LCD_COLOR_ACTIVITY, LCD_COLOR_BACKGROUND);
     M5.Lcd.printf("Lat: %.6f\n", gps->get_data().latitude);
     M5.Lcd.printf("Lon: %.6f\n", gps->get_data().longitude);
-    M5.Lcd.printf("Sats: %d\n", gps->get_data().satsInView);
   } else if (gps && gps->active()) {
     M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
     M5.Lcd.printf("Waiting for GPS fix...\n");
