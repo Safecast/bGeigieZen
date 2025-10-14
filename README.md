@@ -81,3 +81,5 @@ This repo is for development of the bGeigieZen.
 Much more information and documentation for the bGeigieZen is at [https://bgeigiezen.safecast.jp
 ](https://bgeigiezen.safecast.jp)
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Safecast/bGeigieZen)
+
