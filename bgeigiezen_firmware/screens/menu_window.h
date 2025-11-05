@@ -2,8 +2,9 @@
 #define BGEIGIEZEN_BGEIGIEZEN_FIRMWARE_SCREENS_MENU_ITEMS_H
 
 #include "base_screen.h"
+#include "usb_transfer_screen.h"
 
-#define MAIN_MENU_MAX 9
+#define MAIN_MENU_MAX 10
 
 /**
  * Menu items is a separate screen render on top of the "current screen" in the gfx screen

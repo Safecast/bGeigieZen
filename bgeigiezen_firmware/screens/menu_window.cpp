@@ -13,8 +13,7 @@
 #include "user_config.h"
 #include "workers/zen_button.h"
 #include "zen_info.h"
-
-
+#include "usb_transfer_screen.h"
 
 const MenuWindow::MenuItem MAIN_MENU_ITEMS[MAIN_MENU_MAX] = {
     {.title="Drive mode", .tooltip="Log radiation data with GPS", .enabled=true, .screen=&DriveModeScreen_i},
@@ -25,9 +24,9 @@ const MenuWindow::MenuItem MAIN_MENU_ITEMS[MAIN_MENU_MAX] = {
     {.title="Log viewer", .tooltip="Log viewer (in progress)", .enabled=false, .screen=&LogViewerScreen_i},
     {.title="Settings", .tooltip="Configure your device", .enabled=true, .screen=&ConfigModeScreen_i},
     {.title="About Zen", .tooltip="Explore what you can do with your bGeigieZen", .enabled=true, .screen=&ZenInfoScreen_i},
-    {.title="Debug info", .tooltip="View connected modules and their status", .enabled=true, .screen=&DebugModeScreen_i}
+    {.title="Debug info", .tooltip="View connected modules and their status", .enabled=true, .screen=&DebugModeScreen_i},
+    {.title="USB File Transfer", .tooltip="Transfer SD card files via USB-C connection", .enabled=true, .screen=&USBTransferScreen_i}
 };
-
 
 MenuWindow MenuWindow_i;
 
