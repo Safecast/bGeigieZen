@@ -438,8 +438,10 @@ void ConfigModeScreen::render_page_main(const worker_map_t& workers, const handl
   if (_main_page_info_section == e_config_section_connection) {
     M5.Lcd.printf("Connection settings\n\n");
     M5.Lcd.printf("AP password:   %s  \n", config.get_ap_password());
-    M5.Lcd.printf("local Wi-Fi ssid:   %s  \n", config.get_wifi_ssid());
-    M5.Lcd.printf("local Wi-Fi password:   %s  \n", config.get_wifi_password());
+    M5.Lcd.printf("Profile 1 Wi-Fi ssid:   %s  \n", config.get_wifi_ssid());
+    M5.Lcd.printf("Profile 1 Wi-Fi password:   %s  \n", config.get_wifi_password());
+    M5.Lcd.printf("Profile 2 Wi-Fi ssid:   %s  \n", config.get_wifi_ssid2());
+    M5.Lcd.printf("Profile 2 Wi-Fi password:   %s  \n", config.get_wifi_password2());
     M5.Lcd.printf("API key:   %s  \n", config.get_api_key());
   }
 
