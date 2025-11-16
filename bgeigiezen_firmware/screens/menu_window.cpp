@@ -1,8 +1,5 @@
 #include "menu_window.h"
-<<<<<<< HEAD
 #include "flight_mode.h"
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 #include "config_mode.h"
 #include "controller.h"
 #include "debug_mode.h"
@@ -11,15 +8,11 @@
 #include "identifiers.h"
 #include "log_viewer.h"
 #include "satellite_view.h"
-<<<<<<< HEAD
 #include "sd_wipe.h"
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 #include "survey_mode.h"
 #include "user_config.h"
 #include "workers/zen_button.h"
 #include "zen_info.h"
-<<<<<<< HEAD
 #include "usb_transfer_screen.h"
 
 const MenuWindow::MenuItem MAIN_MENU_ITEMS[MAIN_MENU_MAX] = {
@@ -35,23 +28,6 @@ const MenuWindow::MenuItem MAIN_MENU_ITEMS[MAIN_MENU_MAX] = {
     {.title="USB File Transfer", .tooltip="Transfer SD card files via USB-C connection", .enabled=true, .screen=&USBTransferScreen_i}
 };
 
-=======
-
-
-
-const MenuWindow::MenuItem MAIN_MENU_ITEMS[MAIN_MENU_MAX] = {
-    {.title="Drive mode", .tooltip="Put the zen on your car and drive!", .enabled=true, .screen=&DriveModeScreen_i},
-    {.title="Survey mode", .tooltip="Take the Zen out of the case and test   sources directly!", .enabled=true, .screen=&SurveyModeScreen_i},
-    {.title="Real-time mode", .tooltip="Place the zen at a    fixed location or    take it with you and    upload data real-   time over wifi!", .enabled=true, .screen=&FixedModeScreen_i},
-    {.title="Satellites", .tooltip="A 2d constellation   map for viewing and    configuring satellites", .enabled=true, .screen=&SatelliteViewScreen_i},
-    {.title="Log viewer", .tooltip="View and upload     logs over wifi!", .enabled=false, .screen=&LogViewerScreen_i},
-    {.title="Settings", .tooltip="Configure your      device!", .enabled=true, .screen=&ConfigModeScreen_i},
-    {.title="About Zen", .tooltip="Explore what you    can do with your     bGeigieZen", .enabled=true, .screen=&ZenInfoScreen_i},
-    {.title="Debug info", .tooltip="Connected modules, their data and status all in a simple view", .enabled=true, .screen=&DebugModeScreen_i}
-};
-
-
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 MenuWindow MenuWindow_i;
 
 MenuWindow::MenuWindow() : BaseScreenWithMenu("Menu", true) {

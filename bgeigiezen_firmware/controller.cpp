@@ -1,14 +1,9 @@
 #include "controller.h"
 #include "identifiers.h"
 #include "utils/sd_wrapper.h"
-<<<<<<< HEAD
 #include "utils/device_utils.h"
 #include "workers/gm_sensor.h"
 #include "workers/sound_manager.h"
-=======
-
-#include "utils/device_utils.h"
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
 Controller::Controller(LocalStorage& settings, TeenyUbloxConnect& gnss)
     : Aggregator(),
@@ -33,7 +28,6 @@ void Controller::start_default_workers() {
   set_worker_active(k_worker_gps_connector, true);
   set_worker_active(k_worker_navsat_collector, true);
   set_worker_active(k_worker_log_aggregator, true);
-<<<<<<< HEAD
   set_worker_active(k_worker_battery_led_indicator, true);
 //  set_worker_active(k_worker_shake_detector, true);
   set_worker_active(k_worker_device_state, true);
@@ -41,10 +35,6 @@ void Controller::start_default_workers() {
   
   // We'll connect the SoundManager to the GeigerCounter after all workers are initialized
   // This will be done in the produce_data method
-=======
-//  set_worker_active(k_worker_shake_detector, true);
-  set_worker_active(k_worker_device_state, true);
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 }
 
 int8_t Controller::produce_data() {
@@ -78,11 +68,7 @@ int8_t Controller::produce_data() {
     set_handler_active(k_handler_journal_logger, false);
     set_handler_active(k_handler_drive_logger, false);
     set_handler_active(k_handler_survey_logger, false);
-<<<<<<< HEAD
     set_handler_active(k_handler_flight_logger, false);
-=======
-    set_handler_active(k_handler_gps_debug_logger, false);
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   } else if (data.sd_card_status != SDInterface::i().status()) {
     // SD status changed,
     data.sd_card_status = SDInterface::i().status();
@@ -94,10 +80,6 @@ int8_t Controller::produce_data() {
     if (_settings.get_enable_journal()) {
       set_handler_active(k_handler_journal_logger, true);
     }
-<<<<<<< HEAD
-=======
-    set_handler_active(k_handler_gps_debug_logger, true);
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   }
 
   return _status;

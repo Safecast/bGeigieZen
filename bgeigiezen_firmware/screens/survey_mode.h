@@ -2,10 +2,7 @@
 #define SCREENS_SURVEY_SCREEN_H
 
 #include "base_screen.h"
-<<<<<<< HEAD
 #include "workers/gps_connector.h"
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
 class SurveyModeScreen : public BaseScreen {
  public:
@@ -22,11 +19,8 @@ class SurveyModeScreen : public BaseScreen {
 
   bool _logging_available;
   bool _currently_logging;
-<<<<<<< HEAD
   UbxDynamicModel _previous_gps_model;
   bool _gps_model_set;
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 };
 
 extern SurveyModeScreen SurveyModeScreen_i;

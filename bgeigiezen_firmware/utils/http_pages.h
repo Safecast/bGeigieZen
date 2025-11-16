@@ -20,21 +20,15 @@
 #define FORM_NAME_SCREEN_DIM_TIMEOUT "d_dt"
 #define FORM_NAME_SCREEN_OFF_TIMEOUT "d_ot"
 #define FORM_NAME_ANIMATED_SCREENSAVER "d_as"
-<<<<<<< HEAD
 #define FORM_NAME_ERROR_ALERT_SOUND "d_eas"
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
 // Connection setting form names
 #define FORM_NAME_AP_LOGIN "c_ap"
 #define FORM_NAME_WIFI_SSID "c_ws"
 #define FORM_NAME_WIFI_PASS "c_wp"
-<<<<<<< HEAD
 #define FORM_NAME_WIFI_SSID2 "c_ws2"
 #define FORM_NAME_WIFI_PASS2 "c_wp2"
 #define FORM_NAME_WIFI_PROFILE "c_wpf"
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 #define FORM_NAME_API_KEY "c_ak"
 
 // Location setting form names

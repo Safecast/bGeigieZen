@@ -8,13 +8,9 @@
  * Relevant battery status
  */
 struct BatteryStatus {
-<<<<<<< HEAD
   int32_t percentage; // Now mapped from voltage
   float voltage;      // Battery voltage in volts
   float current_mA;   // Battery current in milliamps (+ discharge, - charge)
-=======
-  int32_t percentage;
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   m5::Power_Class::is_charging_t isCharging;
 };
 
