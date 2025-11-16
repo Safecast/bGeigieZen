@@ -21,6 +21,11 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
     case WL_CONNECT_FAILED:
       if (first_time) {
         M5_LOGD("WiFi connector: Trying to reconnect to wifi...");
+        #ifndef CONFIG_IDF_TARGET_ESP32S3
+        // On Core2, disconnect and clear state before reconnecting
+        WiFi.disconnect(true);
+        delay(50);
+        #endif
         WiFi.reconnect();
         delay(100);
         update_active();
@@ -29,12 +34,25 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
       return false;
     case WL_DISCONNECTED:
       M5_LOGD("WiFi connector: Trying to reconnect to wifi...");
+      #ifndef CONFIG_IDF_TARGET_ESP32S3
+      // On Core2, disconnect and clear state before reconnecting
+      WiFi.disconnect(true);
+      delay(50);
+      #endif
       WiFi.reconnect();
       delay(100);
       update_active();
       return wifi_connected();
     default:
       M5_LOGD("WiFi connector: Trying to connect to wifi (%s:%s)...", ssid, password);
+      #ifndef CONFIG_IDF_TARGET_ESP32S3
+      // On Core2, ensure clean WiFi state before connecting to new network
+      if (WiFi.getMode() != WIFI_MODE_NULL) {
+        WiFi.disconnect(true);
+        WiFi.mode(WIFI_STA);
+        delay(100);
+      }
+      #endif
       password ? WiFi.begin(ssid, password) : WiFi.begin(ssid);
       delay(100);
       update_active();
