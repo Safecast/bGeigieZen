@@ -221,7 +221,6 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
       ush_width += M5.Lcd.drawString(" uSv/h", ush_width, 105, &fonts::Font4); // Prints after cpm value
       M5.Lcd.fillRect(ush_width, 74, 320 - ush_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CPM text
       M5.Lcd.drawString(" CPM   ", 0 + cpm_width, 140, &fonts::Font4); // Prints after ush value
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     }
   }
 
@@ -312,7 +311,6 @@ void DriveModeScreen::enter_screen(Controller& controller) {
     controller.set_handler_active(k_handler_drive_logger, true);
   }
   controller.set_handler_active(k_handler_bluetooth_reporter, true);
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 }
 
 void DriveModeScreen::leave_screen(Controller& controller) {
@@ -327,5 +325,4 @@ void DriveModeScreen::leave_screen(Controller& controller) {
   // Note: We can't access the GPS connector directly from here
   // The GPS model will be restored in the handle_input method
   // when the leaving_screen flag is set
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 }
