@@ -3,6 +3,7 @@
 #include "menu_window.h"
 #include "user_config.h"
 #include "utils/device_utils.h"
+<<<<<<< HEAD
 #include "utils/error_beep.h"
 #include "utils/power_manager.h"
 #include "utils/wifi_connection.h"
@@ -11,6 +12,11 @@
 #include "workers/zen_button.h"
 #include "workers/sound_manager.h"
 #include "workers/gps_connector.h"
+=======
+#include "utils/wifi_connection.h"
+#include "workers/local_storage.h"
+#include "workers/zen_button.h"
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 #include <WiFi.h>
 
 const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MENU_MAX] = {
@@ -19,6 +25,7 @@ const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MEN
     {.title="Start on local", .tooltip="Connect to local     Wi-Fi, use pc or      phone on local       network to configure    device", .enabled=true},
     {.title="Load from SD", .tooltip="Read settings file     from the SD-card     and set to device", .enabled=true},
     {.title="Save to SD", .tooltip="Write current device      settings to the       SD-card config file", .enabled=true},
+<<<<<<< HEAD
     {.title="Wipe SD Card", .tooltip="Delete all log files from the SD card", .enabled=true},
     {.title="Reset dose", .tooltip="Reset the accumulated dose rate to zero", .enabled=true},
     {.title="CPM Alert Level", .tooltip="Adjust the CPM alert threshold level", .enabled=true},
@@ -29,6 +36,10 @@ const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MEN
     {.title="Set Home GPS", .tooltip="Set current GPS      location as home     for Real Time mode", .enabled=true},
     {.title="Factory reset", .tooltip="Clear and reset      device and SD-card", .enabled=true},
     {.title="Back to main menu", .tooltip="Return to the main menu", .enabled=true},
+=======
+    {.title="Reset device", .tooltip="Clear and reset      device, on reboot it      will load settings        from SD-card", .enabled=true},
+    {.title="Factory reset", .tooltip="Clear and reset      device and SD-card", .enabled=true},
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 };
 
 
@@ -37,6 +48,7 @@ ConfigModeScreen ConfigModeScreen_i;
 ConfigModeScreen::ConfigModeScreen() : BaseScreenWithMenu("Settings", true), _main_page_info_section(0) {
 }
 
+<<<<<<< HEAD
 void ConfigModeScreen::render_audio_volume_page(const worker_map_t& workers, const handler_map_t& handlers) {
   auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
   uint8_t current = settings->get_audio_volume();
@@ -102,12 +114,19 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
     else if (_current_page == e_config_page_back_to_main) {
       return &MenuWindow_i;
     }
+=======
+BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
+
+  if (menu_open()) {
+    return handle_menu_input(controller, workers, CONFIG_MODE_MENU, e_config_MENU_MAX);
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   }
   else {
     auto button1 = workers.worker<ZenButton>(k_worker_button_1);
     auto button2 = workers.worker<ZenButton>(k_worker_button_2);
     auto button3 = workers.worker<ZenButton>(k_worker_button_3);
     if (button1->is_fresh() && button1->get_data().shortPress) {
+<<<<<<< HEAD
       // Check if we're on the CPM threshold page for decrement functionality
       if (_current_page == e_config_page_cpm_threshold) {
         auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
@@ -200,10 +219,31 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
         M5.Lcd.clear(LCD_COLOR_BACKGROUND);  // Clear screen when opening menu
         force_next_render();
       }
+=======
+      open_menu(true);
+      M5.Lcd.clear();
+      force_next_render();
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     }
     if (button2->is_fresh() && button2->get_data().shortPress) {
       // screen specific action
       switch (_current_page) {
+<<<<<<< HEAD
+=======
+        case e_config_page_reset:
+          controller.reset_settings();
+          // Temp clear and post reset message to screen
+          M5.Lcd.clear(LCD_COLOR_BACKGROUND);
+          M5.Lcd.setRotation(3);
+          M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+          M5.Lcd.setCursor(17, 78, &fonts::Font4);
+          M5.Lcd.printf("DEVICE MEMORY RESET\n");
+          M5.Lcd.setCursor(100, 120, &fonts::Font2);
+          M5.Lcd.printf("Restarting device...\n");
+          delay(1000);
+          DeviceUtils::shutdown(true);
+          break;
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
         case e_config_page_reset_all:
           M5.Lcd.clear(LCD_COLOR_BACKGROUND);
           M5.Lcd.setRotation(3);
@@ -228,6 +268,7 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
         case e_config_page_main:
           _main_page_info_section = (_main_page_info_section + 1) % e_config_section_MAX;
           force_next_render();
+<<<<<<< HEAD
           break;
         case e_config_page_set_home_gps: {
           // Set current GPS location as home
@@ -321,11 +362,14 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
           }
           break;
         }
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
         default:
           break;
       }
     }
     if (button3->is_fresh() && button3->get_data().shortPress) {
+<<<<<<< HEAD
       // Handle page-specific back navigation
       switch (_current_page) {
         case e_config_page_cpm_threshold:
@@ -344,6 +388,9 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
           // For other pages, go back to main menu
           return &MenuWindow_i;
       }
+=======
+      return &MenuWindow_i;
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     }
   }
 
@@ -351,10 +398,15 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
 }
 
 void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   if (menu_open()) {
     if (!force) {
       return;
     }
+<<<<<<< HEAD
     render_menu(CONFIG_MODE_MENU, e_config_MENU_MAX, true, 1);
   }
   else {
@@ -400,6 +452,27 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
       default:
         break;
     }
+=======
+    return render_menu(CONFIG_MODE_MENU, e_config_MENU_MAX);
+  }
+
+  switch (_current_page) {
+    case e_config_page_main:
+      if (!force) {
+        return;
+      }
+      return render_page_main(workers, handlers);
+    case e_config_page_ap:
+      return render_page_ap(workers, handlers);
+    case e_config_page_wifi:
+      return render_page_wifi(workers, handlers);
+    case e_config_page_reset:
+      return render_reset_device(workers, handlers);
+    case e_config_page_reset_all:
+      return render_reset_device_sd(workers, handlers);
+    default:
+      return;
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   }
 }
 
@@ -424,6 +497,10 @@ void ConfigModeScreen::render_page_main(const worker_map_t& workers, const handl
     M5.Lcd.printf("Display unit:   %s  \n", config.get_cpm_usvh() ? "CPM" : "uSv/h");
     M5.Lcd.printf("Alert threshold:   %d  \n", config.get_alert_threshold());
     M5.Lcd.printf("Logging drive/survey:   %s  \n", config.get_manual_logging() ? "Manual start" : "Automatic");
+<<<<<<< HEAD
+=======
+    M5.Lcd.printf("Measurements in log file:   %s  \n", config.get_log_void() ? "Valid and invalid" : "Only valid");
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     M5.Lcd.printf("Screen dim after:   %d seconds  \n", config.get_screen_dim_timeout());
     M5.Lcd.printf("Screen off after:   %d seconds  \n", config.get_screen_off_timeout());
     M5.Lcd.printf("Screensaver:   %s  \n", config.get_animated_screensaver() ? "Enabled" : "Disabled");
@@ -438,10 +515,15 @@ void ConfigModeScreen::render_page_main(const worker_map_t& workers, const handl
   if (_main_page_info_section == e_config_section_connection) {
     M5.Lcd.printf("Connection settings\n\n");
     M5.Lcd.printf("AP password:   %s  \n", config.get_ap_password());
+<<<<<<< HEAD
     M5.Lcd.printf("Profile 1 Wi-Fi ssid:   %s  \n", config.get_wifi_ssid());
     M5.Lcd.printf("Profile 1 Wi-Fi password:   %s  \n", config.get_wifi_password());
     M5.Lcd.printf("Profile 2 Wi-Fi ssid:   %s  \n", config.get_wifi_ssid2());
     M5.Lcd.printf("Profile 2 Wi-Fi password:   %s  \n", config.get_wifi_password2());
+=======
+    M5.Lcd.printf("local Wi-Fi ssid:   %s  \n", config.get_wifi_ssid());
+    M5.Lcd.printf("local Wi-Fi password:   %s  \n", config.get_wifi_password());
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     M5.Lcd.printf("API key:   %s  \n", config.get_api_key());
   }
 
@@ -459,7 +541,11 @@ void ConfigModeScreen::render_page_ap(const worker_map_t& workers, const handler
   M5.Lcd.printf("SSID:  %s\n", WiFiWrapper_i.get_hostname());
   M5.Lcd.printf("Password:  %s\n", settings->get_ap_password());
 
+<<<<<<< HEAD
   M5.Lcd.printf("Connect to config page at url :  %s     \n", WiFi.softAPIP().toString().c_str());
+=======
+  M5.Lcd.printf("IP:  %s     \n", WiFi.softAPIP().toString().c_str());
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 }
 
 void ConfigModeScreen::render_page_wifi(const worker_map_t& workers, const handler_map_t& handlers) {
@@ -477,6 +563,7 @@ void ConfigModeScreen::render_page_wifi(const worker_map_t& workers, const handl
   M5.Lcd.printf("IP:  %s               \n", WiFiWrapper_i.wifi_connected() ? WiFi.localIP().toString().c_str() : "Waiting for connection... ");
 }
 
+<<<<<<< HEAD
 void ConfigModeScreen::render_sd_wipe(const worker_map_t& workers, const handler_map_t& handlers) {
   drawButton1("Options");
   drawButton2("WIPE");
@@ -496,6 +583,16 @@ void ConfigModeScreen::render_sd_wipe(const worker_map_t& workers, const handler
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.printf("Press WIPE to confirm deleting all log files.\n");
   M5.Lcd.printf("Your device settings will be preserved.\n");
+=======
+void ConfigModeScreen::render_reset_device(const worker_map_t& workers, const handler_map_t& handlers) {
+  drawButton1("Options");
+  drawButton2("RESET");
+  drawButton3("Menu");
+
+  M5.Lcd.setCursor(0, 70, &fonts::Font2);
+  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  M5.Lcd.printf("Press RESET to confirm clearing all local storage\n");
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 }
 
 void ConfigModeScreen::render_reset_device_sd(const worker_map_t& workers, const handler_map_t& handlers) {
@@ -513,6 +610,7 @@ void ConfigModeScreen::render_reset_device_sd(const worker_map_t& workers, const
   M5.Lcd.printf("device ID: %d\n\n", storage->get_device_id());
 }
 
+<<<<<<< HEAD
 void ConfigModeScreen::render_cpm_threshold_page(const worker_map_t& workers, const handler_map_t& handlers) {
   auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
   uint16_t current_threshold = settings->get_alert_threshold();
@@ -640,6 +738,14 @@ void ConfigModeScreen::enter_screen(Controller& controller) {
 
   // For other pages, perform page-specific actions when the page is entered
   switch (_current_page) {
+=======
+void ConfigModeScreen::enter_screen(Controller& controller) {
+  switch (_current_page) {
+    case e_config_page_main:
+      // In case when entering from main menu, always set config menu index correctly
+      _menu_index = e_config_page_main;
+      break;
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     case e_config_page_ap:
       WiFiWrapper_i.start_ap_server(controller.get_settings().get_device_id(), controller.get_settings().get_ap_password());
       controller.set_worker_active(k_worker_config_server, true);

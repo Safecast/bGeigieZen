@@ -2,6 +2,7 @@
 #include "identifiers.h"
 #include "utils/sd_wrapper.h"
 #include "workers/rtc_connector.h"
+<<<<<<< HEAD
 #include "user_config.h"
 #include <SD.h>
 
@@ -10,6 +11,8 @@
 #else
 #define LOG_VERSION_STRING VERSION_STRING
 #endif
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
 // e.g. /drives/latest.log
 #define TEMP_LOG_NAME_F "%s/latest.log"
@@ -31,6 +34,7 @@ bool SdLogger::activate(bool) {
     return false;
   }
   char header_l2[100];
+<<<<<<< HEAD
   // e.g. # format=3.3.1 beta-zen/drives
   sprintf(header_l2, "%s%s-zen%s", LOG_HEADER_LINE2, LOG_VERSION_STRING, get_dir());
   
@@ -58,6 +62,13 @@ bool SdLogger::activate(bool) {
       break;
   }
   success = success && SDInterface::i().log_println(_logging_to, mode_header);
+=======
+  // e.g. # format=1.2.3-zen/drives
+  sprintf(header_l2, "%s%d.%d.%d-zen%s", LOG_HEADER_LINE2, MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION, get_dir());
+  bool success = SDInterface::i().log_println(_logging_to, LOG_HEADER_LINE1)
+      && SDInterface::i().log_println(_logging_to, header_l2)
+      && SDInterface::i().log_println(_logging_to, LOG_HEADER_LINE3);
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
   _is_temp = true;
   _total = 0;
@@ -79,6 +90,7 @@ void SdLogger::deactivate() {
 int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
   const auto& log_data = workers.worker<LogAggregator>(k_worker_log_aggregator);
   const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
+<<<<<<< HEAD
   
   // Skip if handler is not active
   if (!active()) {
@@ -97,6 +109,9 @@ int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
       return e_handler_idle;
     }
     
+=======
+  if (log_data->is_fresh()) {
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     if (!SDInterface::i().ready()) {
       M5_LOGD("Abrupt stop logging '%s', sd card not ready.", _logging_to);
       return e_handler_error;
@@ -105,6 +120,7 @@ int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
       // Check RTC for time to rename log file
       const auto& rtc_data = workers.worker<DateTimeProvider>(k_worker_rtc_connector)->get_data();
       if (rtc_data.valid) {
+<<<<<<< HEAD
         // Verify the log file actually exists before attempting rename
         if (!SD.exists(_logging_to)) {
           M5_LOGW("Log file '%s' does not exist, clearing handler state.", _logging_to);
@@ -123,6 +139,15 @@ int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
         } else {
           M5_LOGE("Failed to rename log from '%s' to '%s'.", _logging_to, new_name);
         }
+=======
+        // Renaming the log file
+        char new_name[LOG_FILENAME_SIZE];
+        sprintf(new_name, DATED_LOG_NAME_F, get_dir(), rtc_data.year, rtc_data.month, rtc_data.day, rtc_data.hour, rtc_data.minute);
+        SDInterface::i().rename_log(_logging_to, new_name);
+        strcpy(_logging_to, new_name);
+        M5_LOGD("Updated log name to '%s'.", _logging_to);
+        _is_temp = false;
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       }
     }
 
@@ -151,8 +176,11 @@ const char* SdLogger::get_dir() const {
       return DRIVE_LOG_DIRECTORY;
     case survey:
       return SURVEY_LOG_DIRECTORY;
+<<<<<<< HEAD
     case flight:
       return "/flight"; // Directory for flight logs
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     default:
       return "unknown";
   }

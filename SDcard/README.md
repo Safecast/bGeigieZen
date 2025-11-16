@@ -1,5 +1,6 @@
 # SAFEZEN.txt
 
+<<<<<<< HEAD
 Every Zen device requires an SD card to work. On that SD card there must be a file named `SAFEZEN.txt` at the SD root with your device settings.
 
 See also the full documentation in the root `README.md` under “SAFEZEN.txt configuration (SD card)”.
@@ -51,3 +52,17 @@ Some older sample files (including `all_settings/SAFEZEN.txt`) contain keys that
 - `alarm_threshold` — Legacy name for `alert_threshold`. The current firmware writes/uses `alert_threshold`.
 
 It is safe to leave these lines present; they will be skipped by the parser. New files written by the device will use the current keys.
+=======
+Every Zen device requires an SD card to work. On that SD card there should be a 
+file named SAFEZEN.txt with personal settings.
+
+There are 3 example files, the minimal required settings is device_id 
+(see [SAFEZEN_minimal.txt](SAFEZEN_minimal.txt)). Device id must be greater than 0 to work
+
+Other settings can be added, see [SAFEZEN_all_settings.txt](SAFEZEN_all_settings.txt) 
+for full options.
+
+All settings can be changed (or will be added later) in the config screen of the device. 
+
+More info will be added in this readme at a later time.
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416

@@ -2,7 +2,10 @@
 #define SCREENS_DRIVE_SCREEN_H
 
 #include "base_screen.h"
+<<<<<<< HEAD
 #include "workers/gps_platform_model.h"
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
 class DriveModeScreen : public BaseScreen {
  public:
@@ -20,8 +23,11 @@ class DriveModeScreen : public BaseScreen {
   bool _logging_available;
   bool _currently_logging;
   double _distance_start;
+<<<<<<< HEAD
   UbxDynamicModel _previous_gps_model;
   bool _gps_model_set;
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 };
 
 extern DriveModeScreen DriveModeScreen_i;

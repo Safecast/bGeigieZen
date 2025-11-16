@@ -3,6 +3,7 @@
 #include "identifiers.h"
 #include "menu_window.h"
 #include "user_config.h"
+<<<<<<< HEAD
 #include "utils/error_beep.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
@@ -11,6 +12,11 @@
 #include "workers/zen_button.h"
 #include <esp_wifi.h>
 #include "utils/power_manager.h"
+=======
+#include "workers/gm_sensor.h"
+#include "workers/log_aggregator.h"
+#include "workers/zen_button.h"
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
 FixedModeScreen FixedModeScreen_i;
 
@@ -18,6 +24,7 @@ FixedModeScreen::FixedModeScreen() : BaseScreen("Real-time", true) {
   required_gps = true;
   required_tube = true;
   required_wifi = true;
+<<<<<<< HEAD
   required_sd = true;
 }
 
@@ -38,6 +45,11 @@ BaseScreen* FixedModeScreen::handle_input(Controller& controller, const worker_m
   }
 
   // Handle Menu button (Button 3)
+=======
+}
+
+BaseScreen* FixedModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
   if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
     return &MenuWindow_i;
@@ -46,10 +58,13 @@ BaseScreen* FixedModeScreen::handle_input(Controller& controller, const worker_m
 }
 
 void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
+<<<<<<< HEAD
   // Display Profile and Menu buttons
   char profile_label[14];
   sprintf(profile_label, "Profile %u", workers.worker<LocalStorage>(k_worker_local_storage)->get_wifi_profile_active());
   drawButton2(profile_label);
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   drawButton3("Menu");
 
   const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
@@ -59,6 +74,7 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 
 
   if (gm_sensor->is_fresh() || force) {
+<<<<<<< HEAD
     // Auto-switch units based on value magnitude
     uint32_t cpm_value = gm_sensor->get_data().cpm_comp;
     float dose_value = gm_sensor->get_data().uSvh;
@@ -180,6 +196,31 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
       ush_width += M5.Lcd.drawString(dose_unit, ush_width, 105, &fonts::Font4); // Prints after dose value
       M5.Lcd.fillRect(ush_width, 74, 220 - ush_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after dose text
       M5.Lcd.drawString((String(cpm_unit) + "   ").c_str(), 0 + cpm_width, 140, &fonts::Font4); // Prints after cpm value
+=======
+    if (settings->get_cpm_usvh()) {
+      // Display CPM big, usvh small
+      M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+      uint16_t cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 0, 100, &fonts::Font7);
+      uint16_t ush_width = printFloatFont(gm_sensor->get_data().uSvh, 4, 0, 140, &fonts::Font4);
+
+      // Display unit text with cleanup (CPM uSv/h)
+      M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+      M5.Lcd.fillRect(cpm_width, 52, 220 - cpm_width, 27, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
+      cpm_width += M5.Lcd.drawString(" CPM", cpm_width, 105, &fonts::Font4); // Prints after cpm value
+      M5.Lcd.fillRect(cpm_width, 74, 220 - cpm_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CPM text
+      M5.Lcd.drawString(" uSv/h   ", 0 + ush_width, 140, &fonts::Font4); // Prints after ush value
+    } else {
+      M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+      uint16_t ush_width = printFloatFont(gm_sensor->get_data().uSvh, 3, 0, 100, &fonts::Font7);
+      uint16_t cpm_width = printIntFont(gm_sensor->get_data().cpm_comp, 0, 140, &fonts::Font4);
+
+      // Display unit text with cleanup (CPM uSv/h)
+      M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+      M5.Lcd.fillRect(ush_width, 52, 220 - ush_width, 27, LCD_COLOR_BACKGROUND); // Prints blanks after cpm value, above CPM text
+      ush_width += M5.Lcd.drawString(" uSv/h", ush_width, 105, &fonts::Font4); // Prints after cpm value
+      M5.Lcd.fillRect(ush_width, 74, 220 - ush_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after CPM text
+      M5.Lcd.drawString(" CPM   ", 0 + cpm_width, 140, &fonts::Font4); // Prints after ush value
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     }
   }
 
@@ -213,6 +254,7 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
       M5.Lcd.setTextColor(log_data.in_fixed_range ? LCD_COLOR_DEFAULT : LCD_COLOR_ACTIVITY, LCD_COLOR_BACKGROUND);
       M5.Lcd.printf(log_data.in_fixed_range ? "At home    " : "Roaming    ");
     } else {
+<<<<<<< HEAD
       // Check if GPS hardware is present vs completely missing
       const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
       if (!gps->active()) {
@@ -222,6 +264,9 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
         // GPS hardware present but no valid fix - don't play error beeps
         M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
       }
+=======
+      M5.Lcd.setTextColor(LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       M5.Lcd.printf("Without GPS");
     }
 
@@ -261,6 +306,7 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 
 void FixedModeScreen::enter_screen(Controller& controller) {
   controller.set_handler_active(k_handler_api_reporter, true);
+<<<<<<< HEAD
 
   // Enter low power mode (CPU/I2C down, but WiFi stays on)
   PowerManager::enterLowPowerMode();
@@ -284,10 +330,13 @@ void FixedModeScreen::enter_screen(Controller& controller) {
     esp_wifi_set_max_tx_power(15);      // Set TX power to 15 (units: 0.25 dBm, so 15 = 3.75 dBm)
   #endif
   // ----------------------------------------
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 }
 
 void FixedModeScreen::leave_screen(Controller& controller) {
   controller.set_handler_active(k_handler_api_reporter, false);
+<<<<<<< HEAD
 
   // Restore normal power settings
   PowerManager::exitLowPowerMode();
@@ -296,4 +345,6 @@ void FixedModeScreen::leave_screen(Controller& controller) {
   esp_wifi_set_ps(WIFI_PS_NONE);      // Disable WiFi power save
   esp_wifi_set_max_tx_power(78);      // Restore TX power to max (78 * 0.25 = 19.5 dBm)
   // -----------------------------------
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 }

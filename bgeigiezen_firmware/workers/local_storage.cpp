@@ -11,9 +11,12 @@ constexpr char const* key_user_name = "user_name";
 constexpr char const* key_ap_password = "device_password";
 constexpr char const* key_wifi_ssid = "wifi_ssid";
 constexpr char const* key_wifi_password = "wifi_password";
+<<<<<<< HEAD
 constexpr char const* key_wifi_ssid2 = "wifi_ssid2";
 constexpr char const* key_wifi_password2 = "wifi_password2";
 constexpr char const* key_wifi_profile = "wifi_profile";
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 constexpr char const* key_api_key = "api_key";
 constexpr char const* key_alert_threshold = "alarm_threshold";
 constexpr char const* key_cpm_usvh = "cpm_usvh";
@@ -24,9 +27,12 @@ constexpr char const* key_dop_max = "dop_max";
 constexpr char const* key_screen_dim_timeout = "dim_timeout";
 constexpr char const* key_screen_off_timeout = "off_timeout";
 constexpr char const* key_animated_screensaver = "ani_screensaver";
+<<<<<<< HEAD
 constexpr char const* key_error_alert_sound = "err_alert_snd";
 constexpr char const* key_dim_brightness = "dim_brightness";
 constexpr char const* key_audio_volume = "audio_volume";
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 constexpr char const* key_fixed_range = "fixed_range";
 constexpr char const* key_fixed_longitude = "fixed_longitude";
 constexpr char const* key_fixed_latitude = "fixed_latitude";
@@ -47,6 +53,7 @@ LocalStorage::LocalStorage() :
     _log_void(false),
     _screen_dim_timeout(60),
     _screen_off_timeout(600),
+<<<<<<< HEAD
     _dim_brightness(D_DIM_BRIGHTNESS),
     _audio_volume(D_AUDIO_VOLUME),
     _animated_screensaver(true),
@@ -56,6 +63,11 @@ LocalStorage::LocalStorage() :
     _wifi_ssid2(""),
     _wifi_password2(""),
     _wifi_profile_active(1),
+=======
+    _animated_screensaver(true),
+    _wifi_ssid(""),
+    _wifi_password(""),
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     _api_key(""),
     _fixed_longitude(0),
     _fixed_latitude(0),
@@ -78,10 +90,14 @@ void LocalStorage::reset_defaults() {
     set_log_void(D_LOG_VOID, true);
     set_screen_dim_timeout(D_SCREEN_DIM_TIMEOUT, true);
     set_screen_off_timeout(D_SCREEN_OFF_TIMEOUT, true);
+<<<<<<< HEAD
     set_dim_brightness(D_DIM_BRIGHTNESS, true);
     set_audio_volume(D_AUDIO_VOLUME, true);
     set_animated_screensaver(D_ANIMATED_SCREENSAVER, true);
     set_error_alert_sound(D_ERROR_ALERT_SOUND, true);
+=======
+    set_animated_screensaver(D_ANIMATED_SCREENSAVER, true);
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     set_wifi_ssid(D_WIFI_SSID, true);
     set_wifi_password(D_WIFI_PASSWORD, true);
     set_api_key(D_API_KEY, true);
@@ -148,6 +164,7 @@ bool LocalStorage::get_animated_screensaver() const {
   return _animated_screensaver;
 }
 
+<<<<<<< HEAD
 bool LocalStorage::get_error_alert_sound() const {
   return _error_alert_sound;
 }
@@ -160,6 +177,8 @@ uint8_t LocalStorage::get_audio_volume() const {
   return _audio_volume;
 }
 
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 const char* LocalStorage::get_wifi_ssid() const {
   return _wifi_ssid;
 }
@@ -168,6 +187,7 @@ const char* LocalStorage::get_wifi_password() const {
   return _wifi_password;
 }
 
+<<<<<<< HEAD
 const char* LocalStorage::get_wifi_ssid2() const {
   return _wifi_ssid2;
 }
@@ -186,6 +206,8 @@ const char* LocalStorage::get_active_wifi_password() const {
   return _wifi_profile_active == 2 ? _wifi_password2 : _wifi_password;
 }
 
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 const char* LocalStorage::get_api_key() const {
   return _api_key;
 }
@@ -341,6 +363,7 @@ void LocalStorage::set_animated_screensaver(bool animated_screensaver, bool forc
   }
 }
 
+<<<<<<< HEAD
 void LocalStorage::set_error_alert_sound(bool error_alert_sound, bool force) {
   if(_memory.begin(memory_name)) {
     _error_alert_sound = error_alert_sound;
@@ -375,6 +398,8 @@ void LocalStorage::set_audio_volume(uint8_t audio_volume, bool force) {
   }
 }
 
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 void LocalStorage::set_wifi_ssid(const char* wifi_ssid, bool force) {
   if(force || (wifi_ssid != nullptr && strlen(wifi_ssid) < CONFIG_VAL_MAX)) {
     if(_memory.begin(memory_name)) {
@@ -387,6 +412,7 @@ void LocalStorage::set_wifi_ssid(const char* wifi_ssid, bool force) {
   }
 }
 
+<<<<<<< HEAD
 
 void LocalStorage::set_wifi_ssid2(const char* wifi_ssid, bool force) {
   if(_memory.begin(memory_name)) {
@@ -411,6 +437,8 @@ void LocalStorage::set_wifi_profile_active(uint8_t profile, bool force) {
   }
 }
 
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 void LocalStorage::set_wifi_password(const char* wifi_password, bool force) {
   if(force || (wifi_password != nullptr && strlen(wifi_password) < CONFIG_LONG_VAL_MAX)) {
     if(_memory.begin(memory_name)) {
@@ -495,6 +523,7 @@ void LocalStorage::set_last_mode(LocalStorage::OperationalMode last_mode, bool f
   }
 }
 
+<<<<<<< HEAD
 void LocalStorage::reset_dose_rate() {
   if (_memory.begin("bgeigiezen", false)) {
     _memory.remove("dose_rate");
@@ -505,6 +534,8 @@ void LocalStorage::reset_dose_rate() {
   }
 }
 
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 bool LocalStorage::clear() {
   if(_memory.begin(memory_name)) {
     _memory.clear();
@@ -524,19 +555,25 @@ bool LocalStorage::activate(bool) {
   }
   _alert_threshold = _memory.getUInt(key_alert_threshold, D_ALARM_THRESHOLD);
   _cpm_usvh = _memory.getBool(key_cpm_usvh, D_CPM_USVH);
+<<<<<<< HEAD
   // Load second WiFi profile and active selector
   _memory.getString(key_wifi_ssid2, _wifi_ssid2, CONFIG_VAL_MAX);
   _memory.getString(key_wifi_password2, _wifi_password2, CONFIG_LONG_VAL_MAX);
   _wifi_profile_active = _memory.getUChar(key_wifi_profile, 1);
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   _manual_logging = _memory.getBool(key_manual_logging, D_MANUAL_LOGGING);
   _enable_journal = _memory.getBool(key_enable_journal, D_ENABLE_JOURNAL);
   _log_void = _memory.getBool(key_log_void, D_LOG_VOID);
   _screen_dim_timeout = _memory.getUInt(key_screen_dim_timeout, D_SCREEN_DIM_TIMEOUT);
   _screen_off_timeout = _memory.getUInt(key_screen_off_timeout, D_SCREEN_OFF_TIMEOUT);
   _animated_screensaver = _memory.getBool(key_animated_screensaver, D_ANIMATED_SCREENSAVER);
+<<<<<<< HEAD
   _error_alert_sound = _memory.getBool(key_error_alert_sound, D_ERROR_ALERT_SOUND);
   _dim_brightness = _memory.getUChar(key_dim_brightness, D_DIM_BRIGHTNESS);
   _audio_volume = _memory.getUChar(key_audio_volume, D_AUDIO_VOLUME);
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   if(_memory.getString(key_ap_password, _ap_password, CONFIG_VAL_MAX) == 0) {
     strcpy(_ap_password, D_AP_PASSWORD);
   }
@@ -570,6 +607,7 @@ int8_t LocalStorage::produce_data(const worker_map_t& workers) {
   }
   return Worker::e_worker_idle;
 }
+<<<<<<< HEAD
 
 float LocalStorage::get_accumulated_dose() const {
   float dose = 0.0;
@@ -589,3 +627,5 @@ void LocalStorage::save_accumulated_dose(float dose) {
   }
 }
 
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416

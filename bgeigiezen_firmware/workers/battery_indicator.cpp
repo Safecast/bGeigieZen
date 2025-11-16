@@ -1,4 +1,5 @@
 #include "battery_indicator.h"
+<<<<<<< HEAD
 #include "drivers/battery_mapping.h"
 // axp2101_utils disabled
 //#include "drivers/axp2101_utils.h"
@@ -15,22 +16,28 @@ void dump_pmic_current_regs() {
 }
 }
 #endif // disable axp2101 util diagnostic
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
 BatteryIndicator::BatteryIndicator() : Worker<BatteryStatus>(1000) {
 }
 
 bool BatteryIndicator::activate(bool retry) {
+<<<<<<< HEAD
   // Configure AXP2101 coulomb counter once (4000 mAh preset). Ignore failure silently.
   static bool configured = false;
   if (!configured) {
 
     configured = true;
   }
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   // TODO: double check power button config, can now do through M5 unified lib
   return true;
 }
 
 int8_t BatteryIndicator::produce_data() {
+<<<<<<< HEAD
   data.isCharging = M5.Power.isCharging();
   uint16_t voltage_mv = M5.Power.getBatteryVoltage(); // millivolts
   data.voltage = voltage_mv / 1000.0f;
@@ -45,5 +52,10 @@ int8_t BatteryIndicator::produce_data() {
 
   // Convert voltage to percentage using discharge curve mapping
   data.percentage = static_cast<int32_t>(BatteryMapping::voltage_to_percentage(voltage_mv) + 0.5f);
+=======
+
+  data.isCharging = M5.Power.isCharging();
+  data.percentage = M5.Power.getBatteryLevel();
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   return e_worker_data_read;
 }

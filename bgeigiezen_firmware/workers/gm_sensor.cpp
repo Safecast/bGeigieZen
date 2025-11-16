@@ -1,5 +1,6 @@
 #include <numeric>
 #include "gm_sensor.h"
+<<<<<<< HEAD
 #include "workers/local_storage.h"
 #include "workers/sound_manager.h"
 #include "identifiers.h"
@@ -10,6 +11,11 @@ uint32_t g_cps = 0;  // Changed to uint32_t for high count rates
 GeigerCounter::GeigerCounter() : ProcessWorker<GeigerData>(), pulse_counter() {
   std::fill(_shift_reg.begin(), _shift_reg.end(), 0);
   _samples_collected = 0;  // Track how many samples we've collected
+=======
+
+GeigerCounter::GeigerCounter() : Worker<GeigerData>(), pulse_counter() {
+  std::fill(_shift_reg.begin(), _shift_reg.end(), 0);
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 }
 
 bool GeigerCounter::activate(bool retry) {
@@ -25,6 +31,7 @@ bool GeigerCounter::activate(bool retry) {
   return false;
 }
 
+<<<<<<< HEAD
 int8_t GeigerCounter::produce_data(const worker_map_t& workers) {
   // Get the current alert threshold from LocalStorage
   auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
@@ -32,6 +39,9 @@ int8_t GeigerCounter::produce_data(const worker_map_t& workers) {
     _cpm_alert_level = settings->get_alert_threshold();
   }
   
+=======
+int8_t GeigerCounter::produce_data() {
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   if (!pulse_counter.available()) {
     return e_worker_idle;
   }
@@ -39,9 +49,12 @@ int8_t GeigerCounter::produce_data(const worker_map_t& workers) {
   while (pulse_counter.available()) {
 
     data.cps = pulse_counter.get_last_count();
+<<<<<<< HEAD
     
     // Update global CPS variable for SoundManager to access
     g_cps = data.cps;
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
     // increase total count
     data.total += data.cps;
@@ -53,6 +66,7 @@ int8_t GeigerCounter::produce_data(const worker_map_t& workers) {
 
     // update the shift register
     _pos = (_pos + 1) % GEIGER_AVERAGING_N_BINS;
+<<<<<<< HEAD
     _shift_reg[_pos] = data.cps;
     
     // Track samples collected, but cap at N_BINS + 1 to prevent overflow
@@ -115,6 +129,24 @@ int8_t GeigerCounter::produce_data(const worker_map_t& workers) {
       // Just use raw count (detector is saturated anyway)
       data.cpm_comp = static_cast<uint32_t>(effective_cpm_raw);
     }
+=======
+    if (_pos == 0 && data.cpm_raw > 0) {
+      data.valid = true;
+    }
+    _shift_reg[_pos] = data.cps;
+
+    // sum up the shift register
+    data.cpm_raw = std::accumulate(_shift_reg.begin(), _shift_reg.end(), 0u);
+
+    data.cp5s = _shift_reg[(_pos) % GEIGER_AVERAGING_N_BINS]
+        + _shift_reg[(_pos + GEIGER_AVERAGING_N_BINS - 1) % GEIGER_AVERAGING_N_BINS]
+        + _shift_reg[(_pos + GEIGER_AVERAGING_N_BINS - 2) % GEIGER_AVERAGING_N_BINS]
+        + _shift_reg[(_pos + GEIGER_AVERAGING_N_BINS - 3) % GEIGER_AVERAGING_N_BINS]
+        + _shift_reg[(_pos + GEIGER_AVERAGING_N_BINS - 4) % GEIGER_AVERAGING_N_BINS];
+
+    // CPM compensated for deadtime (medcom international)
+    data.cpm_comp = static_cast<uint32_t>(static_cast<float>(data.cpm_raw) / (1 - (static_cast<float>(data.cpm_raw) * 1.8833e-6)));
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
     // peak measurement
     if (data.cpm_comp > data.cpm_comp_peak) {
@@ -122,6 +154,7 @@ int8_t GeigerCounter::produce_data(const worker_map_t& workers) {
     }
 
     // micro-Sieverts per hour conversion
+<<<<<<< HEAD
     // Now cpm_comp is always properly scaled, so we can use it directly
     data.uSvh = static_cast<float>(data.cpm_comp) * _ush_factor;
     data.Bqm2 = static_cast<float>(data.cpm_comp) * _bqm2_factor;
@@ -156,6 +189,15 @@ int8_t GeigerCounter::produce_data(const worker_map_t& workers) {
     
     // Update previous alert state for next iteration
     _previous_alert_state = data.alert;
+=======
+    data.uSvh = static_cast<float>(data.cpm_comp) * _ush_factor;
+    data.Bqm2 = static_cast<float>(data.cpm_comp) * _bqm2_factor;
+
+    data.uSvh_5sec = static_cast<float>(data.cp5s * 12) * _ush_factor;
+    data.Bqm2_5sec = static_cast<float>(data.cp5s * 12) * _bqm2_factor;
+
+    data.alert = data.cpm_comp > _cpm_alert_level;
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   }
 
   return e_worker_data_read;

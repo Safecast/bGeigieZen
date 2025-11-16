@@ -28,6 +28,7 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.setCursor(0, 25);
+<<<<<<< HEAD
   M5.Lcd.printf("Battery: %d%% (%.2fV) %s\n",
                 battery->get_data().percentage,
                 battery->get_data().voltage,
@@ -36,6 +37,15 @@ void DebugModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     M5.Lcd.printf("Geiger counter %s\n"
                   " CPM: raw %u, comp %u %s       \n   uSv/h: %.4f,  Bq/m2: %.0f   \n"
                   " CP5S: %u,  uSv/h: %.4f,  Bq/m2: %.0f      \n",
+=======
+  M5.Lcd.printf("Battery: %d%% %s\n",
+                battery->get_data().percentage,
+                battery->get_data().isCharging ? "(charging)" : "          ");
+  if (gm_sensor->active()) {
+    M5.Lcd.printf("Geiger counter %s\n"
+                  " CPM: raw %d, comp %d %s       \n   uSv/h: %.4f,  Bq/m2: %.0f   \n"
+                  " CP5S: %d,  uSv/h: %.4f,  Bq/m2: %.0f      \n",
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
                   gm_sensor->get_data().valid ? "(valid)             " : "(collecting data...)",
                   gm_sensor->get_data().cpm_raw,
                   gm_sensor->get_data().cpm_comp,
