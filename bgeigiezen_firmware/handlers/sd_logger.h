@@ -16,10 +16,7 @@ class SdLogger : public Handler {
     journal,
     survey,
     drive,
-<<<<<<< HEAD
     flight,
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     error,
   };
 

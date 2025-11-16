@@ -91,14 +91,11 @@ void BaseDebugLogger::deactivate() {
 int8_t BaseDebugLogger::handle_produced_work(const worker_map_t& workers) {
   const auto& log_data = workers.worker<LogAggregator>(k_worker_log_aggregator);
   if (log_data->is_fresh()) {
-<<<<<<< HEAD
     // Skip if logger is not active (no file opened)
     if (strlen(_logging_to) == 0) {
       return e_handler_idle;
     }
     
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     if (!SDInterface::i().ready()) {
       M5_LOGD("Abrupt stop logging '%s', sd card not ready.", _logging_to);
       return e_handler_error;
@@ -110,7 +107,6 @@ int8_t BaseDebugLogger::handle_produced_work(const worker_map_t& workers) {
         // Renaming the log file
         char new_name[LOG_FILENAME_SIZE];
         sprintf(new_name, DATED_LOG_NAME_F, DEBUG_LOG_DIRECTORY, _logging_name, rtc_data.year, rtc_data.month, rtc_data.day, rtc_data.hour, rtc_data.minute);
-<<<<<<< HEAD
         if (SDInterface::i().rename_log(_logging_to, new_name)) {
           strcpy(_logging_to, new_name);
           M5_LOGD("Updated log name to '%s'.", _logging_to);
@@ -118,12 +114,6 @@ int8_t BaseDebugLogger::handle_produced_work(const worker_map_t& workers) {
         } else {
           M5_LOGE("Failed to rename log from '%s' to '%s'.", _logging_to, new_name);
         }
-=======
-        SDInterface::i().rename_log(_logging_to, new_name);
-        strcpy(_logging_to, new_name);
-        M5_LOGD("Updated log name to '%s'.", _logging_to);
-        _is_temp = false;
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       }
     }
 

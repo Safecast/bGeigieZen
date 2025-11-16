@@ -48,11 +48,7 @@ constexpr uint32_t GPS_FIX_AGE_LIMIT = 4500; // ms before we decide the fix is t
 
 // - LCD display
 constexpr uint32_t LCD_REFRESH_RATE = 1000;  // 1s
-<<<<<<< HEAD
 constexpr uint32_t STATUS_MESSAGE_DURATION = 10000;  // 10s
-=======
-constexpr uint32_t STATUS_MESSAGE_DURATION = 5000;  // 5s
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 #define LCD_COLOR_BACKGROUND TFT_BLACK
 #define LCD_COLOR_DEFAULT TFT_WHITE
 #define LCD_COLOR_STALE_INCOMPLETE TFT_ORANGE
@@ -77,11 +73,7 @@ constexpr char SURVEY_LOG_DIRECTORY[] = "/surveys";
 constexpr char DEBUG_LOG_DIRECTORY[] = "/debug";
 constexpr char LOG_HEADER_LINE1[] = "# NEW LOG";
 constexpr char LOG_HEADER_LINE2[] = "# format=";
-<<<<<<< HEAD
 constexpr char LOG_HEADER_LINE3[] = "# deadtime=on";
-=======
-constexpr char LOG_HEADER_LINE3[] = "# deadtime=off";
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 constexpr char DEVICE_HEADER[] = "BNRDD";
 constexpr uint8_t LINE_BUFFER_SIZE = 100;
 constexpr uint8_t LOG_FILENAME_SIZE = 255;
@@ -91,11 +83,7 @@ constexpr uint16_t API_SEND_SECONDS_DELAY = 300; // Posts every 5 minute by defa
 constexpr uint16_t API_SEND_SECONDS_DELAY_ALERT = 5; // Posts every 5 seconds when alerted
 constexpr uint16_t API_SEND_SECONDS_DELAY_ROAMING = 5; // Posts every 5 seconds when roaming
 
-<<<<<<< HEAD
 constexpr char FIXED_MODE_GRAFANA_URL[] = "https://tinyurl.com/34yr2tzv?var-device_urn_name=geigiecast-zen:%d&from=now-24h&to=now";
-=======
-constexpr char FIXED_MODE_GRAFANA_URL[] = "https://tinyurl.com/34yr2tzv?var-device_urn_name=geigiecast-zen:%d";
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
 // Other
 constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
@@ -130,20 +118,12 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #define D_CPM_USVH false
 #define D_MANUAL_LOGGING false
 #define D_ENABLE_JOURNAL true
-<<<<<<< HEAD
 #define D_LOG_VOID true
 #define D_DOP_MAX 500
 #define D_SCREEN_DIM_TIMEOUT 60     // 60 seconds until screen dims
 #define D_SCREEN_OFF_TIMEOUT 0   // No screensaver by default
 #define D_ANIMATED_SCREENSAVER true
 #define D_ERROR_ALERT_SOUND false
-=======
-#define D_LOG_VOID false
-#define D_DOP_MAX 500
-#define D_SCREEN_DIM_TIMEOUT 60
-#define D_SCREEN_OFF_TIMEOUT 600
-#define D_ANIMATED_SCREENSAVER true
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 #define D_WIFI_SSID "your wifi ssid"
 #define D_WIFI_PASSWORD "your wifi password"
 #define D_API_KEY ""
@@ -152,7 +132,6 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #define D_FIXED_RANGE 0.2
 #define D_LAST_LONGITUDE 0
 #define D_LAST_LATITUDE 0
-<<<<<<< HEAD
 // Default brightness level when dimmed (percentage)
 #ifndef D_DIM_BRIGHTNESS
 #define D_DIM_BRIGHTNESS 30
@@ -162,8 +141,5 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #ifndef D_AUDIO_VOLUME
 #define D_AUDIO_VOLUME 0
 #endif
-=======
-
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
 #endif

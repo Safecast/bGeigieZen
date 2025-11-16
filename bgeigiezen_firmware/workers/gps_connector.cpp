@@ -14,10 +14,7 @@
 
 #include "utils/functions.h"
 #include "gps_connector.h"
-<<<<<<< HEAD
 #include <SD.h>
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
 #define GPS_INVALID_YEAR 2000
 #define GPS_INVALID_MONTH 1
@@ -116,20 +113,16 @@ bool GpsConnector::activate(bool retry) {
   data.protocolVersionLow = _gnss.getProtocolVersionLow();
   M5_LOGD("GNSS: u-blox protocol version %02d.%02d",
               data.protocolVersionHigh, data.protocolVersionLow);
-<<<<<<< HEAD
               
   // Check the current dynamic model on startup
   // This will help us verify if the setting persisted after power cycling
   M5_LOGD("GNSS: Reading current dynamic model...");
   readDynamicModelFromGPS();
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
   // Send UBX, disable NMEA-0183 messages that we are ignoring anyway.
   _gnss.setPortOutput(COM_PORT_UART1, COM_TYPE_UBX);
 
   // Set Auto on NAV-PVT for non-blocking access
-<<<<<<< HEAD
   // getPVT() will return true if a new navigation solution is available
   _gnss.setAutoNAVPVT(true); // Tell the GNSS to send the solution as it is computed (1 second)
   _gnss.setAutoNAVSAT(false); // Disable navsat by default (navsat worker handles this)
@@ -288,15 +281,6 @@ bool GpsConnector::injectWarmStartSeedFromSD() {
   return timeOk && posOk;
 }
 
-=======
-  // getNAVPVT() will return true if a new navigation solution is available
-  _gnss.setAutoNAVPVT(true); // Tell the GNSS to send the solution as it is computed (1 second)
-  _gnss.setAutoNAVSAT(false); // Disable navsat by default (navsat worker handles this)
-
-  return true;
-}
-
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 void GpsConnector::deactivate() {
   _tried_9600_at = 0;
   _tried_38400_at = 0;
@@ -304,7 +288,6 @@ void GpsConnector::deactivate() {
   _serial_conn.end();
 }
 
-<<<<<<< HEAD
 // ---- UBX MGA-DBD dump/restore ----
 
 // Pack and send UBX-MGA-INI-TIME_UTC
@@ -713,19 +696,6 @@ int8_t GpsConnector::produce_data() {
     // M5_LOGD("[%d] _gnss.getPVT() is true.", millis());
 
     data.satsInView = _gnss.getNumSV(); // Satellites In View (numSV)
-=======
-int8_t GpsConnector::produce_data() {
-  auto ret_status = e_worker_idle;
-
-  // getNAVPVT returns true if there is a fresh navigation solution available.
-  // "LLH" is longitude, latitude, height.
-  // getNAVPVT() returns UTC date and time.
-  // Do not use GNSS time, see u-blox spec section 9.
-  if (_gnss.getNAVPVT()) {
-    // M5_LOGD("[%d] _gnss.getNAVPVT() is true.", millis());
-
-    data.satsInView = _gnss.getNumSV(); // Satellites In View
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
     if (_gnss.getFixType() == 2 || _gnss.getFixType() == 3) {
       // M5_LOGD("[%d] fix type is 2D or 3D.", millis());
@@ -824,7 +794,6 @@ int8_t GpsConnector::produce_data() {
 
   return ret_status;
 }
-<<<<<<< HEAD
 
 /**
  * Send a raw UBX message to the GPS module
@@ -957,5 +926,3 @@ bool GpsConnector::restoreGpsMemoryFromNVS() {
   
   return true;
 }
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416

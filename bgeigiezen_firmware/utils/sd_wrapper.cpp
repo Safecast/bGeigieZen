@@ -23,7 +23,6 @@
 #define SD_CONFIG_FIELD_SCREEN_DIM_TIMEOUT "screen_dim_timeout"
 #define SD_CONFIG_FIELD_SCREEN_OFF_TIMEOUT "screen_off_timeout"
 #define SD_CONFIG_FIELD_ANIMATED_SCREENSAVER "animated_screensaver"
-<<<<<<< HEAD
 #define SD_CONFIG_FIELD_ERROR_ALERT_SOUND "error_alert_sound"
 #define SD_CONFIG_FIELD_DIM_BRIGHTNESS "dim_brightness"
 #define SD_CONFIG_FIELD_AUDIO_VOLUME "audio_volume"
@@ -32,10 +31,6 @@
 #define SD_CONFIG_FIELD_WIFI_SSID2 "wifi_ssid2"
 #define SD_CONFIG_FIELD_WIFI_PASSWORD2 "wifi_password2"
 #define SD_CONFIG_FIELD_WIFI_PROFILE "wifi_profile"
-=======
-#define SD_CONFIG_FIELD_WIFI_SSID "wifi_ssid"
-#define SD_CONFIG_FIELD_WIFI_PASSWORD "wifi_password"
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 #define SD_CONFIG_FIELD_API_KEY "api_key"
 #define SD_CONFIG_FIELD_FIXED_LATITUDE "fixed_latitude"
 #define SD_CONFIG_FIELD_FIXED_LONGITUDE "fixed_longitude"
@@ -66,24 +61,18 @@ constexpr char sd_config_log_void_f[] = SD_CONFIG_FIELD_LOG_VOID"=%hhu";
 constexpr char sd_config_screen_dim_timeout_f[] = SD_CONFIG_FIELD_SCREEN_DIM_TIMEOUT"=%du";
 constexpr char sd_config_screen_off_timeout_f[] = SD_CONFIG_FIELD_SCREEN_OFF_TIMEOUT"=%du";
 constexpr char sd_config_animated_screensaver_f[] = SD_CONFIG_FIELD_ANIMATED_SCREENSAVER"=%hhu";
-<<<<<<< HEAD
 constexpr char sd_config_error_alert_sound_f[] = SD_CONFIG_FIELD_ERROR_ALERT_SOUND"=%hhu";
 constexpr char sd_config_dim_brightness_f[] = SD_CONFIG_FIELD_DIM_BRIGHTNESS"=%hhu";
 constexpr char sd_config_audio_volume_f[] = SD_CONFIG_FIELD_AUDIO_VOLUME"=%hhu";
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 constexpr char sd_config_wifi_ssid_f[] = SD_CONFIG_FIELD_WIFI_SSID"=%[^\t\r\n]";
 constexpr char sd_config_wifi_ssid_write_f[] = SD_CONFIG_FIELD_WIFI_SSID"=%s";
 constexpr char sd_config_wifi_password_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD"=%[^\t\r\n]";
 constexpr char sd_config_wifi_password_write_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD"=%s";
-<<<<<<< HEAD
 constexpr char sd_config_wifi_ssid2_f[] = SD_CONFIG_FIELD_WIFI_SSID2"=%[^\t\r\n]";
 constexpr char sd_config_wifi_ssid2_write_f[] = SD_CONFIG_FIELD_WIFI_SSID2"=%s";
 constexpr char sd_config_wifi_password2_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD2"=%[^\t\r\n]";
 constexpr char sd_config_wifi_password2_write_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD2"=%s";
 constexpr char sd_config_wifi_profile_f[] = SD_CONFIG_FIELD_WIFI_PROFILE"=%hhu";
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 constexpr char sd_config_api_key_f[] = SD_CONFIG_FIELD_API_KEY"=%s";
 constexpr char sd_config_fixed_latitude_f[] = SD_CONFIG_FIELD_FIXED_LATITUDE"=%lf";
 constexpr char sd_config_fixed_longitude_f[] = SD_CONFIG_FIELD_FIXED_LONGITUDE"=%lf";
@@ -159,7 +148,6 @@ bool SDInterface::log_println(const char* log_name, const char* data) {
     return false;
   }
   if (!SD.exists(log_name)) {
-<<<<<<< HEAD
     // Attempt to auto-create the missing file and its parent directory
     String path = String(log_name);
     int last_slash = path.lastIndexOf('/');
@@ -185,10 +173,6 @@ bool SDInterface::log_println(const char* log_name, const char* data) {
       M5_LOGD("Unable to log to non-existent file \"%s\" after creation attempt.", log_name);
       return false;
     }
-=======
-    M5_LOGD("Unable to log to non-existent file \"%s\".", log_name);
-    return false;
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   }
   // open the setup file in append mode to add lines
   auto log_file = SD.open(log_name, FILE_APPEND);
@@ -292,7 +276,6 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   uint8_t cpm_usvh = false;
   uint8_t manual_logging = false;
   uint8_t enable_journal = true;
-<<<<<<< HEAD
   uint8_t log_void = true;  // Always set to true to include invalid lines
   uint32_t screen_dim_timeout = 0;
   uint32_t screen_off_timeout = 0;
@@ -300,22 +283,13 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   uint8_t error_alert_sound = true;
   uint8_t dim_brightness = D_DIM_BRIGHTNESS;
   uint8_t audio_volume = D_AUDIO_VOLUME;
-=======
-  uint8_t log_void = false;
-  uint32_t screen_dim_timeout = 0;
-  uint32_t screen_off_timeout = 0;
-  uint8_t animated_screensaver = true;
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
   // Connection settings
   char wifi_ssid[CONFIG_VAL_MAX] = "";
   char wifi_password[CONFIG_VAL_MAX] = "";
-<<<<<<< HEAD
   char wifi_ssid2[CONFIG_VAL_MAX] = "";
   char wifi_password2[CONFIG_LONG_VAL_MAX] = "";
   uint8_t wifi_profile_active = 1;
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   char api_key[CONFIG_VAL_MAX] = "";
   char user_name[CONFIG_VAL_MAX] = "";
 
@@ -377,7 +351,6 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
         M5_LOGD("Unable to load wifi_password");
       }
     }
-<<<<<<< HEAD
     else if (line.startsWith(SD_CONFIG_FIELD_WIFI_SSID2)) {
       if (_device_id && line.length() - strlen(SD_CONFIG_FIELD_WIFI_SSID2) < CONFIG_VAL_MAX && sscanf(line.c_str(), sd_config_wifi_ssid2_f, wifi_ssid2)) {
         settings.set_wifi_ssid2(wifi_ssid2, true);
@@ -402,8 +375,6 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
         M5_LOGD("Unable to load wifi_profile");
       }
     }
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     else if (line.startsWith(SD_CONFIG_FIELD_ALARM_THRESHOLD)) {
       if (_device_id && sscanf(line.c_str(), sd_config_alert_threshold_f, &alert_threshold)) {
         settings.set_alert_threshold(alert_threshold, true);
@@ -449,7 +420,6 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
     else if (line.startsWith(SD_CONFIG_FIELD_ANIMATED_SCREENSAVER)) {
       if (_device_id && sscanf(line.c_str(), sd_config_animated_screensaver_f, &animated_screensaver)) {
         settings.set_animated_screensaver(!!animated_screensaver, true);
-<<<<<<< HEAD
         M5_LOGD("Loaded from SD: animated_screensaver=%d", !!animated_screensaver);
       }
     }
@@ -471,9 +441,6 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
       if (_device_id && sscanf(line.c_str(), sd_config_error_alert_sound_f, &error_alert_sound)) {
         settings.set_error_alert_sound(!!error_alert_sound, true);
         M5_LOGD("Loaded from SD: error_alert_sound=%d", !!error_alert_sound);
-=======
-        M5_LOGD("Loaded from SD: manual_logging=%d", !!manual_logging);
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_FIXED_LATITUDE)) {
@@ -557,15 +524,12 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
     safecast_txt.println();
     safecast_txt.printf(sd_config_wifi_password_write_f, settings.get_wifi_password());
     safecast_txt.println();
-<<<<<<< HEAD
     safecast_txt.printf(sd_config_wifi_ssid2_write_f, settings.get_wifi_ssid2());
     safecast_txt.println();
     safecast_txt.printf(sd_config_wifi_password2_write_f, settings.get_wifi_password2());
     safecast_txt.println();
     safecast_txt.printf(sd_config_wifi_profile_f, settings.get_wifi_profile_active());
     safecast_txt.println();
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     safecast_txt.printf(sd_config_alert_threshold_f, settings.get_alert_threshold());
     safecast_txt.println();
     safecast_txt.printf(sd_config_cpm_usvh_f, settings.get_cpm_usvh());
@@ -576,15 +540,12 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
     safecast_txt.println();
     safecast_txt.printf(sd_config_log_void_f, settings.get_log_void());
     safecast_txt.println();
-<<<<<<< HEAD
     safecast_txt.printf(sd_config_dim_brightness_f, settings.get_dim_brightness());
     safecast_txt.println();
     safecast_txt.printf(sd_config_audio_volume_f, settings.get_audio_volume());
     safecast_txt.println();
     safecast_txt.printf(sd_config_error_alert_sound_f, settings.get_error_alert_sound());
     safecast_txt.println();
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     safecast_txt.printf(sd_config_fixed_latitude_f, settings.get_fixed_latitude());
     safecast_txt.println();
     safecast_txt.printf(sd_config_fixed_longitude_f, settings.get_fixed_longitude());
@@ -652,15 +613,11 @@ bool SDInterface::setup_log(const char* dir, const char* log_name_output, bool c
 
 bool SDInterface::rename_log(const char* old_log_name, const char* new_log_name) {
   if (!ready()) {
-<<<<<<< HEAD
     M5_LOGE("Cannot rename: SD card not ready");
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     return false;
   }
 
   if (!SD.exists(old_log_name)) {
-<<<<<<< HEAD
     M5_LOGE("Cannot rename: source file '%s' does not exist", old_log_name);
     return false;
   }
@@ -704,11 +661,6 @@ bool SDInterface::rename_log(const char* old_log_name, const char* new_log_name)
   }
 
   return success;
-=======
-    return false;
-  }
-  return SD.rename(old_log_name, new_log_name);
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 }
 
 bool SDInterface::delete_log(const char* log_name) {
