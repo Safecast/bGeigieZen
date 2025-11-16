@@ -9,6 +9,7 @@
 #include <esp32-hal-cpu.h>
 #include <esp_task_wdt.h>
 #include <M5Unified.hpp>
+#include <WiFi.h>
 
 // Initialize static members
 bool PowerManager::_low_power_mode = false;
@@ -35,16 +36,19 @@ void PowerManager::enterLowPowerMode() {
 
     M5_LOGI("Entering low power mode");
     logPowerState(); // Log initial state
-    
+
     // 1. Reduce CPU frequency first to save power
     #ifdef CONFIG_IDF_TARGET_ESP32S3
         // ESP32-S3 supports 80, 160, 240 MHz natively. We'll use 80MHz for stable low power.
         setCpuFrequency(80);
+        logPowerState(); // Log after CPU frequency change
     #else
-        // For Core2 (ESP32), try 160MHz as per user request.
-        setCpuFrequency(160);
+        // For Core2 (ESP32), do NOT change CPU frequency
+        // WiFi buffer allocation is tied to CPU frequency at init time
+        // Any frequency change after WiFi init corrupts buffers
+        // Keep at boot frequency (240MHz) for maximum WiFi stability
+        M5_LOGI("Core2: Keeping CPU at current frequency for WiFi stability");
     #endif
-    logPowerState(); // Log after CPU frequency change
 
     // 2. Reduce I2C clock speed (logical only; transfers specify freq per call)
     setI2cClock(50000);  // 50kHz logical target
@@ -68,23 +72,30 @@ void PowerManager::exitLowPowerMode() {
     }
 
     M5_LOGI("Exiting low power mode");
-    
+
     // 1. Restore CPU frequency
+    #ifdef CONFIG_IDF_TARGET_ESP32S3
+    // CoreS3 can restore to any frequency
     if (_original_cpu_freq > 0) {
         setCpuFrequency(_original_cpu_freq);
     }
-    
+    #else
+    // Core2: Don't change CPU frequency (WiFi stability)
+    M5_LOGI("Core2: Keeping CPU at current frequency for WiFi stability");
+    #endif
+
     // 2. Restore I2C clock speed (logical only)
     if (_original_i2c_freq > 0) {
         setI2cClock(_original_i2c_freq);
     }
-    
+
     // Restore normal logging
     esp_log_level_set("*", ESP_LOG_INFO);
     esp_log_level_set("wifi", ESP_LOG_INFO); // Restore WiFi logging to INFO
-    
-    // Note: Wireless modules will be re-enabled when needed by the specific mode
-    
+
+    // Note: WiFi will be initialized on-demand when needed by config mode or other features
+    // We don't force initialization here to avoid memory allocation issues
+
     _low_power_mode = false;
     M5_LOGI("Normal power mode restored");
 }

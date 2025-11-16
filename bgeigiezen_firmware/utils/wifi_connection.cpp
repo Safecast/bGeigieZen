@@ -2,6 +2,7 @@
 #include <Arduino.h>
 #include <ESPmDNS.h>
 #include <M5Unified.h>
+#include <esp_wifi.h>
 
 #include "user_config.h"
 #include "wifi_connection.h"
@@ -55,6 +56,18 @@ uint8_t WiFiWrapper::status() {
 }
 
 bool WiFiWrapper::start_ap_server(uint16_t device_id, const char* password) {
+  #ifndef CONFIG_IDF_TARGET_ESP32S3
+  // On Core2, ensure WiFi is in clean state before starting AP
+  M5_LOGD("Core2: Ensuring clean WiFi state before AP start");
+
+  // Disconnect if currently connected, but don't force deinit
+  if (WiFi.getMode() != WIFI_MODE_NULL) {
+    WiFi.disconnect(true);
+    WiFi.mode(WIFI_OFF);
+    delay(100);
+  }
+  #endif
+
   char host_ssid[20];
   sprintf(host_ssid, ACCESS_POINT_SSID, device_id);
   WiFi.softAP(host_ssid, password);
