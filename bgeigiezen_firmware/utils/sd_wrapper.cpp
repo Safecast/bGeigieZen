@@ -335,22 +335,8 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
         M5_LOGD("Unable to load access_point_password");
       }
     }
-    else if (line.startsWith(SD_CONFIG_FIELD_WIFI_SSID)) {
-      if (_device_id && line.length() - strlen(SD_CONFIG_FIELD_WIFI_SSID) < CONFIG_VAL_MAX && sscanf(line.c_str(), sd_config_wifi_ssid_f, wifi_ssid)) {
-        settings.set_wifi_ssid(wifi_ssid, true);
-        M5_LOGD("Loaded from SD: wifi_ssid=%s", wifi_ssid);
-      } else {
-        M5_LOGD("Unable to load wifi_ssid");
-      }
-    }
-    else if (line.startsWith(SD_CONFIG_FIELD_WIFI_PASSWORD)) {
-      if (_device_id && line.length() - strlen(SD_CONFIG_FIELD_WIFI_PASSWORD) < CONFIG_VAL_MAX && sscanf(line.c_str(), sd_config_wifi_password_f, wifi_password)) {
-        settings.set_wifi_password(wifi_password, true);
-        M5_LOGD("Loaded from SD: wifi_password=%s", wifi_password);
-      } else {
-        M5_LOGD("Unable to load wifi_password");
-      }
-    }
+    // Check wifi_ssid2 and wifi_password2 BEFORE wifi_ssid and wifi_password
+    // because "wifi_ssid2" starts with "wifi_ssid" and would match incorrectly
     else if (line.startsWith(SD_CONFIG_FIELD_WIFI_SSID2)) {
       if (_device_id && line.length() - strlen(SD_CONFIG_FIELD_WIFI_SSID2) < CONFIG_VAL_MAX && sscanf(line.c_str(), sd_config_wifi_ssid2_f, wifi_ssid2)) {
         settings.set_wifi_ssid2(wifi_ssid2, true);
@@ -365,6 +351,22 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
         M5_LOGD("Loaded from SD: wifi_password2=***hidden***");
       } else {
         M5_LOGD("Unable to load wifi_password2");
+      }
+    }
+    else if (line.startsWith(SD_CONFIG_FIELD_WIFI_SSID)) {
+      if (_device_id && line.length() - strlen(SD_CONFIG_FIELD_WIFI_SSID) < CONFIG_VAL_MAX && sscanf(line.c_str(), sd_config_wifi_ssid_f, wifi_ssid)) {
+        settings.set_wifi_ssid(wifi_ssid, true);
+        M5_LOGD("Loaded from SD: wifi_ssid=%s", wifi_ssid);
+      } else {
+        M5_LOGD("Unable to load wifi_ssid");
+      }
+    }
+    else if (line.startsWith(SD_CONFIG_FIELD_WIFI_PASSWORD)) {
+      if (_device_id && line.length() - strlen(SD_CONFIG_FIELD_WIFI_PASSWORD) < CONFIG_VAL_MAX && sscanf(line.c_str(), sd_config_wifi_password_f, wifi_password)) {
+        settings.set_wifi_password(wifi_password, true);
+        M5_LOGD("Loaded from SD: wifi_password=%s", wifi_password);
+      } else {
+        M5_LOGD("Unable to load wifi_password");
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_WIFI_PROFILE)) {
