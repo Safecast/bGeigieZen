@@ -6,8 +6,13 @@
 
 struct GeigerData {
   bool valid = false;  // True if accumulated data over 1+ minute
+<<<<<<< HEAD
   uint32_t cps = 0;  // Past second - changed to uint32_t for high count rates
   uint32_t cp5s = 0;  // Past 5 seconds - changed to uint32_t for high count rates
+=======
+  uint16_t cps = 0;  // Past second
+  uint16_t cp5s = 0;  // Past 5 seconds
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   uint32_t cpm_raw = 0;  // Past minute
   uint32_t cpm_comp = 0;  // cpm_raw compensated for medcom deadtime
   uint32_t cpm_comp_peak = 0;  // highest cpm_comp recorded
@@ -22,13 +27,18 @@ struct GeigerData {
 /**
  * Geiger counter worker, produces CPM among other data (See GeigerData).
  */
+<<<<<<< HEAD
 class GeigerCounter : public ProcessWorker<GeigerData> {
+=======
+class GeigerCounter : public Worker<GeigerData> {
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
  public:
   explicit GeigerCounter();
   virtual ~GeigerCounter() = default;
 
   bool activate(bool retry) override;
 
+<<<<<<< HEAD
   int8_t produce_data(const worker_map_t& workers) override;
   
   /**
@@ -36,16 +46,24 @@ class GeigerCounter : public ProcessWorker<GeigerData> {
    * @return Reference to the pulse counter
    */
   HardwareCounter& getPulseCounter() { return pulse_counter; }
+=======
+  int8_t produce_data() override;
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   
  private:
   HardwareCounter pulse_counter;
   float _ush_factor = 1.0 / SETUP_DEFAULT_USH_DIVIDER;
   float _bqm2_factor = SETUP_DEFAULT_BQM2_FACTOR;  // default factor for surface measurements
   uint32_t _cpm_alert_level = SETUP_DEFAULT_ALERT_LEVEL;
+<<<<<<< HEAD
   bool _previous_alert_state = false;  // Track previous alert state to detect threshold crossings
 
   int _pos = 0;  // current position in shift register
   uint32_t _samples_collected = 0;  // Track total number of samples collected
+=======
+
+  int _pos = 0;  // current position in shift register
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   std::array<uint32_t, GEIGER_AVERAGING_N_BINS> _shift_reg;
 
 

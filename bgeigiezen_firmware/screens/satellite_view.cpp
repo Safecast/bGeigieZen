@@ -38,6 +38,7 @@ BaseScreen* SatelliteViewScreen::handle_input(Controller& controller, const work
     const auto gps = workers.worker<GpsConnector>(k_worker_gps_connector);
     const auto navsat = workers.worker<NavsatCollector>(k_worker_navsat_collector);
 
+<<<<<<< HEAD
     if (gps->active() && !navsat->active()) {
       // reconnect navsat worker once gps worker is connected
       // M5_LOGD("NAVSAT: Activating navsat collector");
@@ -48,6 +49,15 @@ BaseScreen* SatelliteViewScreen::handle_input(Controller& controller, const work
       } else {
         set_status_message(F(" Nav-sat was unable to connect "));
         // M5_LOGD("NAVSAT: Failed to activate");
+=======
+    if (gps->active() && navsat->get_active_state() == NavsatCollector::e_state_inactive) {
+      // reconnect navsat worker once gps worker is connected
+      controller.set_worker_active(k_worker_navsat_collector, true);
+      if (navsat->active()) {
+        set_status_message(F(" Nav-sat connected, this can take a few seconds "));
+      } else {
+        set_status_message(F(" Nav-sat was unable to connect "));
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       }
     }
 
@@ -56,8 +66,12 @@ BaseScreen* SatelliteViewScreen::handle_input(Controller& controller, const work
     const auto button3 = workers.worker<ZenButton>(k_worker_button_3);
     if (button1->is_fresh() && button1->get_data().shortPress) {
       open_menu(true);
+<<<<<<< HEAD
       // Don't clear the entire screen to avoid flickering
       // The menu render will handle clearing what it needs
+=======
+      M5.Lcd.clear();
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       force_next_render();
     }
     if (button2->is_fresh() && button2->get_data().shortPress) {
@@ -95,8 +109,12 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
   const auto gps = workers.worker<GpsConnector>(k_worker_gps_connector);
   const auto navsat = workers.worker<NavsatCollector>(k_worker_navsat_collector);
 
+<<<<<<< HEAD
   // M5_LOGD("SAT: active=%d fresh=%d avail=%d numSvs=%d", navsat->active(), navsat->is_fresh(), 
   //        navsat->get_data().available, navsat->get_data().available ? navsat->get_data().navsat_info.numSvsEphValid : 0);
+=======
+  M5_LOGD("NAVSAT RENDER %d %d", navsat->active(), navsat->is_fresh());
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
   if (force || (navsat && navsat->is_fresh())) {
 
@@ -144,7 +162,10 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
     }
 
     if (navsat->get_data().available) {
+<<<<<<< HEAD
       // M5_LOGD("SAT: Rendering %d satellites", navsat->get_data().navsat_info.numSvsEphValid);
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
       // Set text size for satellite IDs
       const auto& navsat_info = navsat->get_data().navsat_info;

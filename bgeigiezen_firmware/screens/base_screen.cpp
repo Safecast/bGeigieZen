@@ -1,6 +1,7 @@
 #include "base_screen.h"
 #include "identifiers.h"
 #include "utils/wifi_connection.h"
+<<<<<<< HEAD
 #include "utils/error_beep.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
@@ -11,6 +12,10 @@
 #include "flight_mode.h"
 #include "fixed_mode.h"
 #include "satellite_view.h"
+=======
+#include "workers/gm_sensor.h"
+#include "workers/gps_connector.h"
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
 #include <WiFi.h>
 
@@ -91,7 +96,11 @@ size_t BaseScreen::printFloatFont(float val, int prec, int x, int y, const lgfx:
 // Prints int with fonts
 size_t BaseScreen::printIntFont(unsigned long val, int x, int y, const lgfx::IFont* font) {
   char sz[32] = "";
+<<<<<<< HEAD
   sprintf(sz, "%lu", val);  // Use %lu for unsigned long instead of %ld
+=======
+  sprintf(sz, "%ld", val);
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   return M5.Lcd.drawString((sz), x, y, font);
 }
 
@@ -122,7 +131,11 @@ void BaseScreen::force_next_render() {
 }
 
 const __FlashStringHelper* BaseScreen::get_error_message(const worker_map_t& workers, const handler_map_t& handlers) const {
+<<<<<<< HEAD
   if (required_tube && millis() > 6000 && !workers.worker<GeigerCounter>(k_worker_gm_sensor)->active()) {
+=======
+  if (required_tube && millis() > 2000 && !workers.worker<GeigerCounter>(k_worker_gm_sensor)->active()) {
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     return STATUS_ERROR_GEIGER;
   }
   if (required_gps && !workers.worker<GpsConnector>(k_worker_gps_connector)->active()) {
@@ -144,6 +157,7 @@ const __FlashStringHelper* BaseScreen::get_error_message(const worker_map_t& wor
   return nullptr;
 }
 
+<<<<<<< HEAD
 const __FlashStringHelper* BaseScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) {
   // First check for persistent CPM alert message
   auto* gm_sensor = workers.worker<GeigerCounter>(k_worker_gm_sensor);
@@ -162,6 +176,11 @@ const __FlashStringHelper* BaseScreen::get_status_message(const worker_map_t& wo
       _message = nullptr;
       _status_message_time = 0;
     }
+=======
+const __FlashStringHelper* BaseScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) const {
+  if (_message && _status_message_time && _status_message_time + STATUS_MESSAGE_DURATION > millis()) {
+    return _message;
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   }
   return nullptr;
 }
@@ -196,6 +215,7 @@ BaseScreen* BaseScreenWithMenu::handle_menu_input(Controller& controller, const 
 
   // Button 3 change view
   if (button3->is_fresh() && button3->get_data().shortPress && items[_menu_index].enabled) {
+<<<<<<< HEAD
     // Save the selected mode to LocalStorage
     auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
     if (items[_menu_index].screen == &SurveyModeScreen_i) {
@@ -209,6 +229,9 @@ BaseScreen* BaseScreenWithMenu::handle_menu_input(Controller& controller, const 
     } else if (items[_menu_index].screen == &SatelliteViewScreen_i) {
       settings->set_last_mode(LocalStorage::e_operational_mode_satellite, true);
     }
+=======
+
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
     if (items[_menu_index].screen) {
       // Swap screens
@@ -216,8 +239,12 @@ BaseScreen* BaseScreenWithMenu::handle_menu_input(Controller& controller, const 
     } else {
       // Swap pages internally
       _menu_open = false;
+<<<<<<< HEAD
       // Don't clear the entire screen, just the content area to avoid flickering
       clear_screen_content();
+=======
+      M5.Lcd.clear();
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       if (_menu_index != _current_page) {
         leave_screen(controller);
         _current_page = _menu_index;
@@ -248,14 +275,18 @@ void BaseScreenWithMenu::render_menu(const MenuItem items[], int menu_max, bool 
     }
   }
 
+<<<<<<< HEAD
   // Clear menu area to prevent overlapping text
   M5.Lcd.fillRect(16, 26, 144, 158, LCD_COLOR_BACKGROUND);
   
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   // Draw tooltip block
   M5.Lcd.fillRoundRect(161, 26, 142, 158, 4, LCD_COLOR_BACKGROUND);
   // Draw separate line between menu and tooltip
   M5.Lcd.drawLine(160, 33, 160, 177, LCD_COLOR_STALE_INCOMPLETE);
 
+<<<<<<< HEAD
   // Calculate visible range - show at most 9 items to fit on screen
   int startIdx = max(0, _menu_index - 4);
   int endIdx = min(menu_max, startIdx + 9);
@@ -270,6 +301,13 @@ void BaseScreenWithMenu::render_menu(const MenuItem items[], int menu_max, bool 
     M5.Lcd.setTextColor(items[i].enabled ? (i == _menu_index ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_DEFAULT) : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
     M5.Lcd.drawLine(16, yPos, 159, yPos, (i == _menu_index ? (items[i].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE) : LCD_COLOR_BACKGROUND));
     M5.Lcd.setCursor(16, yPos + 8, &fonts::Font2);
+=======
+
+  for (int i = 0; i < menu_max; ++i) {
+    M5.Lcd.setTextColor(items[i].enabled ? (i == _menu_index ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_DEFAULT) : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
+    M5.Lcd.drawLine(16, 48 + (i * 16), 159, 48 + (i * 16), (i == _menu_index ? (items[i].enabled ? LCD_COLOR_STALE_INCOMPLETE : LCD_COLOR_INACTIVE) : LCD_COLOR_BACKGROUND));
+    M5.Lcd.setCursor(16, 56 + (i * 16), &fonts::Font2);
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     if (i == _menu_index) {
       M5.Lcd.print("> ");
     }
@@ -279,6 +317,7 @@ void BaseScreenWithMenu::render_menu(const MenuItem items[], int menu_max, bool 
     M5.Lcd.print(items[i].title);
     M5.Lcd.print("  ");
   }
+<<<<<<< HEAD
   
   // Show scroll indicators if needed
   if (startIdx > 0) {
@@ -289,6 +328,8 @@ void BaseScreenWithMenu::render_menu(const MenuItem items[], int menu_max, bool 
     M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
     M5.Lcd.drawString("▼", 140, 184, &fonts::Font2);
   }
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.setCursor(170, 46);

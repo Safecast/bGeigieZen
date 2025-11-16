@@ -80,7 +80,11 @@ const char* HttpPages::get_home_page(const LocalStorage& settings) {
       "<ul>"
       "<li><a href='/device'>Configure device settings</a></li>"
       "<li><a href='/connection'>Configure Network connections</a></li>"
+<<<<<<< HEAD
       "<li><a href='/location'>Configure location settings for Real Time mode</a></li>"
+=======
+      "<li><a href='/location'>Configure location settings for fixed mode</a></li>"
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       "</ul>"
       "More information about configurations in the <a href='https://github.com/Safecast/bGeigieZen/wiki/User-manual#available-settings' target='_blank'>User manual</a>. "
       "Or view your device on <a href='%s' target='_blank'>Grafana</a>."
@@ -104,7 +108,11 @@ const char* HttpPages::get_config_device_page(
       // Alarm threshold
       "<label for='" FORM_NAME_ALERT_THRESHOLD "'>CPM Alert threshold</label>"
       "<input required type='number' min='0' max='34464' name='" FORM_NAME_ALERT_THRESHOLD "' id='" FORM_NAME_ALERT_THRESHOLD "' value='%u' step='1'>"
+<<<<<<< HEAD
       "<span class='pure-form-message'>When in Real Time mode and CPM is above configured value, it will upload data more frequently</span>"
+=======
+      "<span class='pure-form-message'>When in fixed mode and CPM is above configured value, it will upload data more frequently</span>"
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
       // Screen dim timeout
       "<label for='" FORM_NAME_SCREEN_DIM_TIMEOUT "'>Screen dims after... (in seconds)</label>"
@@ -159,6 +167,17 @@ const char* HttpPages::get_config_device_page(
 
       "<br>"
 
+<<<<<<< HEAD
+=======
+      // Log void lines
+      "<label for='" FORM_NAME_LOG_VOID "0' class='pure-radio'>"
+      "<input id='" FORM_NAME_LOG_VOID "0' type='radio' name='" FORM_NAME_LOG_VOID "' value='0' %s>Don't add invalid lines to log files (no GPS or incomplete GM values)"
+      "</label>"
+      "<label for='" FORM_NAME_LOG_VOID "1' class='pure-radio'>"
+      "<input id='" FORM_NAME_LOG_VOID "1' type='radio' name='" FORM_NAME_LOG_VOID "' value='1' %s>Include invalid lines to log"
+      "</label>"
+
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       "<br>"
       "<button type='submit' class='pure-button pure-button-primary'>Save</button>"
       "</fieldset>"
@@ -175,6 +194,11 @@ const char* HttpPages::get_config_device_page(
       settings.get_manual_logging() ? "checked" : "",
       settings.get_enable_journal() ? "checked" : "",
       settings.get_enable_journal() ? "" : "checked",
+<<<<<<< HEAD
+=======
+      settings.get_log_void() ? "" : "checked",
+      settings.get_log_void() ? "checked" : "",
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       display_success ? success_message : ""
   );
 }
@@ -192,11 +216,19 @@ const char* HttpPages::get_config_location_page(
 
 
       // Home latitude
+<<<<<<< HEAD
       "<label for='" FORM_NAME_LOC_FIXED_LAT "'>Real Time latitude</label>"
       "<input type='number' min='-90.0000' max='90.0000' name='" FORM_NAME_LOC_FIXED_LAT "' id='" FORM_NAME_LOC_FIXED_LAT "' value='%.5f' step='0.00001'>"
 
       // Home longitude
       "<label for='" FORM_NAME_LOC_FIXED_LON "'>Real Time longitude</label>"
+=======
+      "<label for='" FORM_NAME_LOC_FIXED_LAT "'>Fixed mode latitude</label>"
+      "<input type='number' min='-90.0000' max='90.0000' name='" FORM_NAME_LOC_FIXED_LAT "' id='" FORM_NAME_LOC_FIXED_LAT "' value='%.5f' step='0.00001'>"
+
+      // Home longitude
+      "<label for='" FORM_NAME_LOC_FIXED_LON "'>Fixed mode longitude</label>"
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       "<input type='number' min='-180.0000' max='180.0000' name='" FORM_NAME_LOC_FIXED_LON "' id='" FORM_NAME_LOC_FIXED_LON "' value='%.5f' step='0.00001'>"
 
       // Set last known location
@@ -211,9 +243,15 @@ const char* HttpPages::get_config_location_page(
       "</span>"
 
       // Fixed range
+<<<<<<< HEAD
       "<label for='" FORM_NAME_FIXED_RANGE "'>Real Time range</label>"
       "<input type='number' min='0' max='5' name='" FORM_NAME_FIXED_RANGE "' id='" FORM_NAME_FIXED_RANGE "' value='%.1f' step='0.1'>"
       "<span class='pure-form-message'>Range from Real Time location in which measurements will be posted as Real Time location (in KM)</span>"
+=======
+      "<label for='" FORM_NAME_FIXED_RANGE "'>Fixed range</label>"
+      "<input type='number' min='0' max='5' name='" FORM_NAME_FIXED_RANGE "' id='" FORM_NAME_FIXED_RANGE "' value='%.1f' step='0.1'>"
+      "<span class='pure-form-message'>Range from fixed location in which measurements will be posted as fixed location (in KM)</span>"
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
       // Max DOP
       "<label for='" FORM_NAME_DOP_MAX "'>DOP max</label>"
@@ -262,11 +300,16 @@ const char* HttpPages::get_config_connection_page(
       "<input type='text' name='" FORM_NAME_WIFI_SSID "' id='" FORM_NAME_WIFI_SSID "' value='%s'>"
       "<span class='pure-form-message'>Your local WiFi network name</span>"
 
+<<<<<<< HEAD
       // WiFi password (Profile 1)
+=======
+      // WiFi password
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       "<label for='" FORM_NAME_WIFI_PASS "'>WiFi password</label>"
       "<input type='text' name='" FORM_NAME_WIFI_PASS "' id='" FORM_NAME_WIFI_PASS "' value='%s'>"
       "<span class='pure-form-message'>Your local WiFi network password</span>"
 
+<<<<<<< HEAD
       // WiFi ssid (Profile 2)
       "<label for='" FORM_NAME_WIFI_SSID2 "'>WiFi network name (Profile 2)</label>"
       "<input type='text' name='" FORM_NAME_WIFI_SSID2 "' id='" FORM_NAME_WIFI_SSID2 "' value='%s'>"
@@ -282,6 +325,8 @@ const char* HttpPages::get_config_connection_page(
       "<label class='pure-radio'><input type='radio' name='" FORM_NAME_WIFI_PROFILE "' value='1' %s>Profile&nbsp;1</label>"
       "<label class='pure-radio'><input type='radio' name='" FORM_NAME_WIFI_PROFILE "' value='2' %s>Profile&nbsp;2</label>"
 
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       // Api key
       "<label for='" FORM_NAME_API_KEY "'>API key</label>"
       "<input type='text' name='" FORM_NAME_API_KEY "' id='" FORM_NAME_API_KEY "' value='%s'>"
@@ -298,10 +343,13 @@ const char* HttpPages::get_config_connection_page(
       settings.get_device_id(),
       settings.get_wifi_ssid(),
       settings.get_wifi_password(),
+<<<<<<< HEAD
       settings.get_wifi_ssid2(),
       settings.get_wifi_password2(),
       settings.get_wifi_profile_active()==1 ? "checked" : "",
       settings.get_wifi_profile_active()==2 ? "checked" : "",
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       settings.get_api_key(),
       display_success ? success_message : ""
   );

@@ -17,7 +17,11 @@
 #include <user_config.h>
 
 #include <TeenyUbloxConnect.h>
+<<<<<<< HEAD
 #include "gps_platform_model.h"
+=======
+
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
 struct GnssData {
   // When true, the item related to each Boolean is valid and updated in the
@@ -91,6 +95,7 @@ class GpsConnector : public Worker<GnssData> {
   explicit GpsConnector(TeenyUbloxConnect& _gnss, HardwareSerial& serial);
 
   virtual ~GpsConnector() = default;
+<<<<<<< HEAD
   
   
   /**
@@ -130,11 +135,14 @@ class GpsConnector : public Worker<GnssData> {
    * File path: /gnss/dbd_latest.bin
    */
   bool restoreDatabaseFromSD();
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
   bool activate(bool retry) override;
 
   int8_t produce_data() override;
 
+<<<<<<< HEAD
   /**
    * Set the GPS dynamic platform model
    * @param model The dynamic model to set (e.g., DYNMODEL_PORT, DYNMODEL_AIR4)
@@ -188,6 +196,8 @@ class GpsConnector : public Worker<GnssData> {
    */
   void calculateChecksum(const uint8_t* data, size_t len, uint8_t* cka, uint8_t* ckb);
 
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
  protected:
   void deactivate() override;
 
@@ -206,9 +216,12 @@ class GpsConnector : public Worker<GnssData> {
 
   double _last_latitude;
   double _last_longitude;
+<<<<<<< HEAD
   
   // Current GPS dynamic model
   UbxDynamicModel _current_model = DYNMODEL_PORT;
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
   // Age each item. If the corresponding timer times out, it's stale.
   RBD::Timer location_timer{GPS_FIX_AGE_LIMIT};

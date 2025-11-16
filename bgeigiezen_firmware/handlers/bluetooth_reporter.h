@@ -24,11 +24,14 @@ class BluetoothReporter : public Handler {
 
   uint32_t client_count() const;
 
+<<<<<<< HEAD
   /**
    * @brief Log current BLE power state
    */
   void logPowerState();
 
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
  protected:
   bool activate(bool retry) override;
   void deactivate() override;
@@ -61,10 +64,13 @@ class BluetoothReporter : public Handler {
 
   char _log_string[LINE_BUFFER_SIZE] = "";
   uint8_t _addr[BLE_DATA_ADDR_SIZE] = BLE_DATA_ADDR;
+<<<<<<< HEAD
 
   static const uint16_t DEFAULT_CONN_INTERVAL = 100;  // 100ms
   static const uint16_t DEFAULT_SLAVE_LATENCY = 4;    // Skip 4 connection events
   static const uint16_t DEFAULT_SUPERVISION_TIMEOUT = 4000;  // 4 seconds
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 };
 
 #endif //BGEIGIEZEN_BLUETOOTH_CONNECTOR_H_

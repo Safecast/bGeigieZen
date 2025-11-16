@@ -52,6 +52,7 @@
 #include "handlers/sd_logger.h"
 #include "handlers/debug_logger.h"
 #include "identifiers.h"
+<<<<<<< HEAD
 #include "workers/battery_led_indicator.h"
 #include "workers/configuration_server.h"
 #include "workers/gm_sensor.h"
@@ -66,6 +67,17 @@
 #include "workers/shake_detector.h"
  
 #include <nvs_flash.h> // Include for NVS flash initialization
+=======
+#include "workers/battery_indicator.h"
+#include "workers/configuration_server.h"
+#include "workers/gm_sensor.h"
+#include "workers/gps_connector.h"
+#include "workers/log_aggregator.h"
+#include "workers/navsat_collector.h"
+#include "workers/rtc_connector.h"
+#include "workers/shake_detector.h"
+#include "workers/zen_button.h"
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
 TeenyUbloxConnect gnss;
 LocalStorage settings;
@@ -76,8 +88,11 @@ ZenButton zen_A(M5.BtnA);
 ZenButton zen_B(M5.BtnB);
 ZenButton zen_C(M5.BtnC);
 GpsConnector gps(gnss, Serial2);
+<<<<<<< HEAD
 // Make GPS connector globally available for shutdown routine
 GpsConnector* g_active_gps = &gps;
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 NavsatCollector navsat(gnss);
 GeigerCounter gm_sensor;
 BatteryIndicator battery_indicator;
@@ -85,14 +100,21 @@ DateTimeProvider rtc;
 ShakeDetector shake_detector;
 LogAggregator log_aggregator(settings);
 ConfigWebServer config_server(settings);
+<<<<<<< HEAD
 SoundManager sound_manager;
 BatteryLedIndicator battery_led_indicator;
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
 // Data handlers
 SdLogger journal_logger(settings, SdLogger::journal);
 SdLogger drive_logger(settings, SdLogger::drive);
 SdLogger survey_logger(settings, SdLogger::survey);
+<<<<<<< HEAD
 SdLogger flight_logger(settings, SdLogger::flight); // Using dedicated flight log type
+=======
+GpsDebugLogger gps_debug_logger(settings, gnss);
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 BluetoothReporter bt_connector(settings);
 ApiConnector api_connector(settings);
 
@@ -102,6 +124,7 @@ GFXScreen gfx_screen(settings, controller);
 void setup() {
   /// Hardware configurations
   M5.begin();
+<<<<<<< HEAD
   // I2C initialized via M5.begin()
 
   // Initialize NVS. This is required for WiFi and Preferences.
@@ -113,10 +136,13 @@ void setup() {
   }
   ESP_ERROR_CHECK(ret);
   M5_LOGI("NVS initialized successfully.");
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
   M5.Log.setLogLevel(m5::log_target_t::log_target_serial, esp_log_level_t::ESP_LOG_DEBUG);
 
   M5_LOGD("MAIN SETUP DEBUG ENABLED");
+<<<<<<< HEAD
   
 
   // Check SD card status
@@ -133,6 +159,9 @@ void setup() {
         M5_LOGI("SD Card Size: %lluMB", cardSize);
     }
   }
+=======
+
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   /// Software configurations
 
   M5_LOGD("Register workers...");
@@ -142,7 +171,10 @@ void setup() {
   controller.register_worker(k_worker_shake_detector, shake_detector);
   controller.register_worker(k_worker_battery_indicator, battery_indicator);
   controller.register_worker(k_worker_rtc_connector, rtc);
+<<<<<<< HEAD
   controller.register_worker(k_worker_battery_led_indicator, battery_led_indicator);
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   controller.register_worker(k_worker_button_3, zen_A);
   controller.register_worker(k_worker_button_2, zen_B);
   controller.register_worker(k_worker_button_1, zen_C);
@@ -150,13 +182,20 @@ void setup() {
   controller.register_worker(k_worker_device_state, controller);
   controller.register_worker(k_worker_local_storage, settings);
   controller.register_worker(k_worker_config_server, config_server);
+<<<<<<< HEAD
   controller.register_worker(k_worker_sound_manager, sound_manager);
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
   M5_LOGD("Register handlers...");
   controller.register_handler(k_handler_journal_logger, journal_logger);
   controller.register_handler(k_handler_drive_logger, drive_logger);
   controller.register_handler(k_handler_survey_logger, survey_logger);
+<<<<<<< HEAD
   controller.register_handler(k_handler_flight_logger, flight_logger);
+=======
+  controller.register_handler(k_handler_gps_debug_logger, gps_debug_logger);
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   controller.register_handler(k_handler_bluetooth_reporter, bt_connector);
   controller.register_handler(k_handler_api_reporter, api_connector);
 
@@ -175,6 +214,7 @@ void loop() {
   }
 
   M5.update();
+<<<<<<< HEAD
   
   // Establish current time for subsequent logic
   uint32_t current_time = millis();
@@ -259,6 +299,8 @@ void loop() {
       button_a_long_press_detected = false;
     }
   }
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
   controller.run();
 }

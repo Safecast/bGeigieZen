@@ -142,9 +142,12 @@ void ConfigWebServer::handle_save() {
   if(_server.hasArg(FORM_NAME_ANIMATED_SCREENSAVER)) {
     _config.set_animated_screensaver(_server.arg(FORM_NAME_ANIMATED_SCREENSAVER).toInt(), false);
   }
+<<<<<<< HEAD
   if(_server.hasArg(FORM_NAME_ERROR_ALERT_SOUND)) {
     _config.set_error_alert_sound(_server.arg(FORM_NAME_ERROR_ALERT_SOUND).toInt(), false);
   }
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   if(_server.hasArg(FORM_NAME_CPM_USVH)) {
     _config.set_cpm_usvh(_server.arg(FORM_NAME_CPM_USVH).toInt(), false);
   }
@@ -154,8 +157,14 @@ void ConfigWebServer::handle_save() {
   if(_server.hasArg(FORM_NAME_ENABLE_JOURNAL)) {
     _config.set_enable_journal(_server.arg(FORM_NAME_ENABLE_JOURNAL).toInt(), false);
   }
+<<<<<<< HEAD
   // Always set log_void to true to include invalid lines
   _config.set_log_void(true, false);
+=======
+  if(_server.hasArg(FORM_NAME_LOG_VOID)) {
+    _config.set_log_void(_server.arg(FORM_NAME_LOG_VOID).toInt(), false);
+  }
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   if(_server.hasArg(FORM_NAME_AP_LOGIN)) {
     _config.set_ap_password(_server.arg(FORM_NAME_AP_LOGIN).c_str(), false);
   }
@@ -165,6 +174,7 @@ void ConfigWebServer::handle_save() {
   if(_server.hasArg(FORM_NAME_WIFI_PASS)) {
     _config.set_wifi_password(_server.arg(FORM_NAME_WIFI_PASS).c_str(), false);
   }
+<<<<<<< HEAD
   // WiFi profile 2
   if(_server.hasArg(FORM_NAME_WIFI_SSID2)) {
     _config.set_wifi_ssid2(_server.arg(FORM_NAME_WIFI_SSID2).c_str(), false);
@@ -176,6 +186,8 @@ void ConfigWebServer::handle_save() {
   if(_server.hasArg(FORM_NAME_WIFI_PROFILE)) {
     _config.set_wifi_profile_active(_server.arg(FORM_NAME_WIFI_PROFILE).toInt(), false);
   }
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   if(_server.hasArg(FORM_NAME_API_KEY)) {
     _config.set_api_key(_server.arg(FORM_NAME_API_KEY).c_str(), false);
   }

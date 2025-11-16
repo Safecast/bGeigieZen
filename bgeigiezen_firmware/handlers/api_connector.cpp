@@ -26,7 +26,11 @@ bool ApiConnector::activate(bool retry) {
   }
   last_try = millis();
 
+<<<<<<< HEAD
   WiFiWrapper_i.connect_wifi(_config.get_active_wifi_ssid(), _config.get_active_wifi_password(), !retry);
+=======
+  WiFiWrapper_i.connect_wifi(_config.get_wifi_ssid(), _config.get_wifi_password(), !retry);
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
   return WiFi.isConnected();
 }
@@ -78,7 +82,11 @@ bool ApiConnector::reading_to_json(const DataLine& line, char* out) {
       out,
       "{\"captured_at\":\"%s\","
       "\"device_id\":%d,"
+<<<<<<< HEAD
       "\"value\":%u,"
+=======
+      "\"value\":%d,"
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       "\"unit\":\"cpm\","
       "\"height\":%0.6f,"
       "\"latitude\":%0.6f,"

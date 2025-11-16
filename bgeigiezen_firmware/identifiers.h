@@ -18,8 +18,11 @@ enum DataWorkers {
   k_worker_device_state,
   k_worker_local_storage,
   k_worker_config_server,
+<<<<<<< HEAD
   k_worker_sound_manager,
   k_worker_battery_led_indicator,
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 };
 
 /**
@@ -29,7 +32,11 @@ enum DataHandlers {
   k_handler_journal_logger = 0,
   k_handler_drive_logger,
   k_handler_survey_logger,
+<<<<<<< HEAD
   k_handler_flight_logger,
+=======
+  k_handler_gps_debug_logger,
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   k_handler_bluetooth_reporter,
   k_handler_api_reporter,
 };

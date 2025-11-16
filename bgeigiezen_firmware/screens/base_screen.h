@@ -74,7 +74,11 @@ class BaseScreen {
    * Get screen status message (if available), else nullptr
    * @return
    */
+<<<<<<< HEAD
   virtual const __FlashStringHelper* get_status_message(const worker_map_t& workers, const handler_map_t& handlers);
+=======
+  virtual const __FlashStringHelper* get_status_message(const worker_map_t& workers, const handler_map_t& handlers) const;
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
   bool has_required_gps() const { return required_gps; }
   bool has_required_sd() const { return required_sd; }
@@ -106,11 +110,14 @@ class BaseScreen {
   void clear_screen_content();
 
   void set_status_message(const __FlashStringHelper* message);
+<<<<<<< HEAD
   
   /**
    * Clear the status message
    */
   void clear_status_message();
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
   // required modules for status bar
   bool required_gps;

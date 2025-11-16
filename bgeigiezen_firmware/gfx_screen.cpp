@@ -3,7 +3,10 @@
 #include "controller.h"
 #include "gfx_screen.h"
 #include "handlers/bluetooth_reporter.h"
+<<<<<<< HEAD
 #include "utils/error_beep.h"
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 #include "identifiers.h"
 #include "screens/boot_screen.h"
 #include "screens/default_entry_screen.h"
@@ -16,12 +19,21 @@
 #include "workers/gm_sensor.h"
 #include "workers/rtc_connector.h"
 #include "workers/zen_button.h"
+<<<<<<< HEAD
 #include "workers/sound_manager.h"
 
 #define SCREENSAVER_TEXT_LENGTH (strlen(SCREENSAVER_TEXT) * 6)
 #define TIMEOUT_PASSED(timeout, last_interaction) (timeout && (millis() - last_interaction) > (timeout * 1000))
 static constexpr uint8_t LEVEL_BRIGHT = 100;  // Full brightness for active use (100%)
 static constexpr uint8_t LEVEL_BLANKED = 5;   // 5% brightness when blanked
+=======
+
+#define SCREENSAVER_TEXT_LENGTH (strlen(SCREENSAVER_TEXT) * 6)
+#define TIMEOUT_PASSED(timeout, last_interaction) (timeout && (millis() - last_interaction) > (timeout * 1000))
+static constexpr uint8_t LEVEL_BRIGHT = 80;  // max brightness = 100
+static constexpr uint8_t LEVEL_DIMMED = 25;
+static constexpr uint8_t LEVEL_BLANKED = 10;
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 
 
 GFXScreen::GFXScreen(LocalStorage& settings, Controller& controller)
@@ -58,6 +70,7 @@ void GFXScreen::initialize() {
 }
 
 void GFXScreen::set_screen_status(ScreenStatus status) {
+<<<<<<< HEAD
   static ScreenStatus last_status = static_cast<ScreenStatus>(255);
   
   if (status != last_status) {
@@ -71,18 +84,28 @@ void GFXScreen::set_screen_status(ScreenStatus status) {
     last_status = status;
   }
   
+=======
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   _screen_status = status;
   switch (_screen_status) {
     case e_screen_status_on:
       setBrightness(LEVEL_BRIGHT);
       break;
     case e_screen_status_dim:
+<<<<<<< HEAD
       setBrightness(_settings.get_dim_brightness());
+=======
+      setBrightness(LEVEL_DIMMED);
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       break;
     case e_screen_status_off:
       clear();
       if (_settings.get_animated_screensaver()) {
+<<<<<<< HEAD
         setBrightness(_settings.get_dim_brightness());
+=======
+        setBrightness(LEVEL_DIMMED);
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       } else {
         setBrightness(LEVEL_BLANKED);
       }
@@ -90,6 +113,7 @@ void GFXScreen::set_screen_status(ScreenStatus status) {
   }
 }
 
+<<<<<<< HEAD
 //setup brightness by Rob Oudendijk 2023-03-13; updated to interpret lvl as percentage (0-100)
 void GFXScreen::setBrightness(uint8_t lvl) {
   static uint8_t last_lvl = 255; // Initialize to impossible value
@@ -129,14 +153,56 @@ void GFXScreen::clear() {
   M5.Lcd.setTextDatum(BL_DATUM);  // By default, text x,y is bottom left corner
   M5.Lcd.setTextFont(1);
   
+=======
+//setup brightness by Rob Oudendijk 2023-03-13
+void GFXScreen::setBrightness(uint8_t lvl) {
+
+  if (lvl == LEVEL_BLANKED) {
+    // Turn screen off
+    M5.Lcd.setBrightness(0);
+#ifdef M5_CORE2
+    M5.Power.Axp192.setDCDC3(false);
+    M5.Axp.SetDCDC3(false);
+    M5.Axp.ScreenBreath(0);
+#elif M5_BASIC
+    M5.Lcd.setBrightness(0);
+#endif
+  } else {
+#ifdef M5_CORE2
+    // Make sure screen is turned on
+    M5.Axp.SetDCDC3(true);
+    // Set brightness
+    M5.Axp.ScreenBreath(lvl);
+#elif M5_BASIC
+    if (lvl == LEVEL_BRIGHT)
+      M5.Lcd.setBrightness(200);
+    if (lvl == LEVEL_DIMMED || lvl == LEVEL_BLANKED)
+      M5.Lcd.setBrightness(1);
+#endif
+  }
+}
+
+void GFXScreen::clear() {
+  // Clear display
+
+  M5.Lcd.startWrite();
+  M5.Lcd.clear();
+  M5.Lcd.setTextDatum(BL_DATUM);  // By default, text x,y is bottom left corner
+  M5.Lcd.setTextFont(1);
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   if (_screen) {
     _screen->force_next_render();
   }
   if (_menu) {
     _menu->force_next_render();
   }
+<<<<<<< HEAD
   
   M5.Lcd.endWrite();
+=======
+  M5.Lcd.endWrite();
+
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 }
 
 void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& handlers) {
@@ -241,6 +307,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
       }
 
       if (_screen->has_status_bar()) {
+<<<<<<< HEAD
         // Only update status bar at a reduced rate to prevent flickering
         static unsigned long last_status_bar_update = 0;
         static bool status_bar_needs_full_redraw = true;
@@ -483,6 +550,97 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
           M5.Lcd.setTextColor(rtc.valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
           M5.Lcd.printf("%02d/%02d %02d:%02d", rtc.month, rtc.day, rtc.hour, rtc.minute);
         }
+=======
+        // Render message if available on top of bar
+        if (_screen->get_error_message(workers, handlers)) {
+          M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_ERROR);
+          uint16_t text_width = M5.Lcd.drawString(_screen->get_error_message(workers, handlers), 0, 220, &fonts::Font2);
+          M5.Lcd.fillRect(text_width, 200, 320 - text_width, 20, LCD_COLOR_BACKGROUND);
+        } else if (_screen->get_status_message(workers, handlers)) {
+          M5.Lcd.setTextColor(LCD_COLOR_BACKGROUND, LCD_COLOR_DEFAULT);
+          uint16_t text_width = M5.Lcd.drawString(_screen->get_status_message(workers, handlers), 0, 220, &fonts::Font2);
+          M5.Lcd.fillRect(text_width, 200, 320 - text_width, 20, LCD_COLOR_BACKGROUND);
+        } else {
+          M5.Lcd.fillRect(0, 200, 320, 20, LCD_COLOR_BACKGROUND);
+        }
+
+        // Render bottom status bar
+        M5.Lcd.drawLine(0, 220, 320, 220, TFT_WHITE);
+        M5.Lcd.setFont(&fonts::Font0);
+
+        // Screen name
+        M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        M5.Lcd.setCursor(0, 235);
+        M5.Lcd.print(_screen->get_title());
+        M5.Lcd.print(" ");
+
+        // Status icon: Battery
+        const auto& battery = workers.worker<BatteryIndicator>(k_worker_battery_indicator)->get_data();
+        M5.Lcd.setTextColor(battery.isCharging ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        M5.Lcd.printf("%d%% ", battery.percentage);
+
+        // Status icon: Geiger Tube
+        const auto& gm = workers.worker<GeigerCounter>(k_worker_gm_sensor);
+        if (!gm->active()) {
+          M5.Lcd.setTextColor(_screen->has_required_tube() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, TFT_BLACK);
+        } else {
+          M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        }
+        M5.Lcd.print("GM ");
+
+        // Status icon: GPS
+        const auto& gps = workers.worker<GpsConnector>(k_worker_gps_connector);
+        if (!gps->active()) {
+          M5.Lcd.setTextColor(_screen->has_required_gps() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, TFT_BLACK);
+          M5.Lcd.printf("GPS ");
+        } else {
+          M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_ACTIVITY : LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
+          M5.Lcd.printf("GPS%d ", gps->get_data().satsInView);
+        }
+
+        // Status icon: SD
+        if (!SDInterface::i().can_write_logs()) {
+          M5.Lcd.setTextColor(_screen->has_required_sd() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, TFT_BLACK);
+        } else {
+          M5.Lcd.setTextColor(SDInterface::i().just_wrote() ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        }
+        M5.Lcd.print("SD ");
+
+        // Status icon: Wi-Fi
+        if (WiFiWrapper_i.wifi_connected()) {
+          M5.Lcd.setTextColor(WiFiWrapper_i.was_active() ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        } else {
+          M5.Lcd.setTextColor(_screen->has_required_wifi() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
+        }
+        M5.Lcd.print("WF ");
+
+        // Status icon: Bluetooth
+        const auto& bt_reporter = handlers.handler<BluetoothReporter>(k_handler_bluetooth_reporter);
+        if (bt_reporter->active()) {
+          M5.Lcd.setTextColor(bt_reporter->client_count() > 0 ? LCD_COLOR_ACTIVITY : LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+        } else {
+          M5.Lcd.setTextColor(_screen->has_required_ble() ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, LCD_COLOR_BACKGROUND);
+        }
+        M5.Lcd.print("BT ");
+
+        // Device
+        if (_settings.get_device_id() < 10000) {
+          // 4-digit device id
+          M5.Lcd.setCursor(186, 235);
+          M5.Lcd.setTextColor(_settings.get_device_id() ? LCD_COLOR_DEFAULT : LCD_COLOR_ERROR, LCD_COLOR_BACKGROUND);
+          M5.Lcd.printf("#%04d ", _settings.get_device_id());
+        } else {
+          // 5-digit device id
+          M5.Lcd.setCursor(180, 235);
+          M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+          M5.Lcd.printf("#%5d ", _settings.get_device_id());
+        }
+
+        // Time HH:MM
+        const auto& rtc = workers.worker<DateTimeProvider>(k_worker_rtc_connector)->get_data();
+        M5.Lcd.setTextColor(rtc.valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
+        M5.Lcd.printf("%04d/%02d/%02d %02d:%02d", rtc.year, rtc.month, rtc.day, rtc.hour, rtc.minute);
+>>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
       }
 
       M5.Lcd.setRotation(1);
