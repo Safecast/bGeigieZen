@@ -348,7 +348,7 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
     else if (line.startsWith(SD_CONFIG_FIELD_WIFI_PASSWORD2)) {
       if (_device_id && line.length() - strlen(SD_CONFIG_FIELD_WIFI_PASSWORD2) < CONFIG_LONG_VAL_MAX && sscanf(line.c_str(), sd_config_wifi_password2_f, wifi_password2)) {
         settings.set_wifi_password2(wifi_password2, true);
-        M5_LOGD("Loaded from SD: wifi_password2=***hidden***");
+        M5_LOGD("Loaded from SD: wifi_password2=%s", wifi_password2);
       } else {
         M5_LOGD("Unable to load wifi_password2");
       }
