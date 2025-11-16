@@ -2,33 +2,22 @@
 #include "handlers/sd_logger.h"
 #include "identifiers.h"
 #include "menu_window.h"
+#include "utils/power_manager.h"
 #include "workers/battery_indicator.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
-<<<<<<< HEAD
 #include "workers/gps_platform_model.h"
 #include "workers/zen_button.h"
-#include <esp_wifi.h>
-#include <WiFi.h>
-#include "utils/power_manager.h"
 
 DriveModeScreen DriveModeScreen_i;
 
 DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _logging_available(false), _currently_logging(false), _distance_start(0), _gps_model_set(false) {
-=======
-#include "workers/zen_button.h"
-
-DriveModeScreen DriveModeScreen_i;
-
-DriveModeScreen::DriveModeScreen() : BaseScreen("Drive", true), _logging_available(false), _currently_logging(false), _distance_start(0) {
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   required_tube = true;
   required_gps = true;
   required_sd = true;
 }
 
 BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_map_t& workers) {
-<<<<<<< HEAD
   // If we're about to leave this screen and we've set the GPS model, restore it
   static bool leaving_screen = false;
   if (leaving_screen && _gps_model_set) {
@@ -40,8 +29,6 @@ BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_m
     leaving_screen = false;
   }
 
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   auto log_button = workers.worker<ZenButton>(k_worker_button_1);
   if (_logging_available && log_button->is_fresh() && log_button->get_data().shortPress) {
     controller.set_handler_active(k_handler_drive_logger, !_currently_logging);
@@ -49,10 +36,7 @@ BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_m
 
   auto menu_button = workers.worker<ZenButton>(k_worker_button_3);
   if (menu_button->is_fresh() && menu_button->get_data().shortPress) {
-<<<<<<< HEAD
     leaving_screen = true; // Set flag to restore GPS model on next handle_input call
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
     return &MenuWindow_i;
   }
 
@@ -65,7 +49,6 @@ BaseScreen* DriveModeScreen::handle_input(Controller& controller, const worker_m
 }
 
 void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
-<<<<<<< HEAD
   // Set GPS to AUTOMOTIVE mode on first render
   static bool first_render = true;
   if (first_render) {
@@ -73,7 +56,7 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     if (gps) {
       // Save current dynamic model to restore when leaving
       _previous_gps_model = gps->getDynamicModel();
-      
+
       // Set to AUTOMOTIVE mode and save to flash memory
       if (gps->setDynamicModel(DYNMODEL_AUTOMOTIVE, true)) {
         // No message displayed when setting GPS mode
@@ -83,27 +66,16 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
     first_render = false;
   }
 
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   const auto& controller_data = workers.worker<Controller>(k_worker_device_state)->get_data();
   const auto& log_aggregator = workers.worker<LogAggregator>(k_worker_log_aggregator);
   _logging_available = controller_data.local_available && SDInterface::i().status() == SDInterface::e_sd_config_status_ok;
 
   bool currently_logging = handlers.handler<SdLogger>(k_handler_drive_logger)->active();
-<<<<<<< HEAD
-  if (!_currently_logging && currently_logging) {
-    set_status_message(F(" STARTED LOGGING DRIVE "));
-    _distance_start = log_aggregator->get_data().distance;
-  }
-  if (_currently_logging && !currently_logging) {
-    set_status_message(F(" STOPPED LOGGING DRIVE "));
-=======
   if (_currently_logging && !currently_logging) {
     set_status_message(F(" COMPLETED LOGGING DRIVE "));
   } else if (!_currently_logging && currently_logging) {
     set_status_message(F(" STARTED LOGGING, safe travels! "));
     _distance_start = log_aggregator->get_data().distance;
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
   }
   _currently_logging = currently_logging;
 
@@ -126,7 +98,6 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
   if (gm_sensor->is_fresh() || force) {
     // Display values
     const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
-<<<<<<< HEAD
     
     // Auto-switch units based on value magnitude
     uint32_t cpm_value = gm_sensor->get_data().cpm_comp;
@@ -227,7 +198,6 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
       ush_width += M5.Lcd.drawString(dose_unit, ush_width, 105, &fonts::Font4); // Prints after dose value
       M5.Lcd.fillRect(ush_width, 74, 320 - ush_width, 26, LCD_COLOR_BACKGROUND); // Prints blanks after dose text
       M5.Lcd.drawString((String(cpm_unit) + "   ").c_str(), 0 + cpm_width, 140, &fonts::Font4); // Prints after cpm value
-=======
     if (settings->get_cpm_usvh()) {
       // Display CPM big, usvh small
       M5.Lcd.setTextColor(gm_sensor->get_data().valid ? LCD_COLOR_DEFAULT : LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
@@ -318,7 +288,6 @@ void DriveModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 }
 
 void DriveModeScreen::enter_screen(Controller& controller) {
-<<<<<<< HEAD
   BaseScreen::enter_screen(controller);
   
   if (!controller.get_settings().get_manual_logging()) {
@@ -338,7 +307,6 @@ void DriveModeScreen::enter_screen(Controller& controller) {
   // We'll set the GPS to AUTOMOTIVE mode in the first render call
   // when we have access to the worker map
   force_next_render(); // Force render to apply GPS settings
-=======
   if (!controller.get_settings().get_manual_logging()) {
     // Automatically start logging
     controller.set_handler_active(k_handler_drive_logger, true);
@@ -351,7 +319,6 @@ void DriveModeScreen::leave_screen(Controller& controller) {
   // close logging to file
   controller.set_handler_active(k_handler_drive_logger, false);
   controller.set_handler_active(k_handler_bluetooth_reporter, false);
-<<<<<<< HEAD
 
   // Restore normal power settings
   PowerManager::exitLowPowerMode();
@@ -360,6 +327,5 @@ void DriveModeScreen::leave_screen(Controller& controller) {
   // Note: We can't access the GPS connector directly from here
   // The GPS model will be restored in the handle_input method
   // when the leaving_screen flag is set
-=======
 >>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 }
