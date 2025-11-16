@@ -84,6 +84,9 @@ void LocalStorage::reset_defaults() {
     set_error_alert_sound(D_ERROR_ALERT_SOUND, true);
     set_wifi_ssid(D_WIFI_SSID, true);
     set_wifi_password(D_WIFI_PASSWORD, true);
+    set_wifi_ssid2(D_WIFI_SSID2, true);
+    set_wifi_password2(D_WIFI_PASSWORD2, true);
+    set_wifi_profile_active(1, true);
     set_api_key(D_API_KEY, true);
     set_fixed_longitude(D_FIXED_LONGITUDE, true);
     set_fixed_latitude(D_FIXED_LATITUDE, true);
@@ -525,8 +528,12 @@ bool LocalStorage::activate(bool) {
   _alert_threshold = _memory.getUInt(key_alert_threshold, D_ALARM_THRESHOLD);
   _cpm_usvh = _memory.getBool(key_cpm_usvh, D_CPM_USVH);
   // Load second WiFi profile and active selector
-  _memory.getString(key_wifi_ssid2, _wifi_ssid2, CONFIG_VAL_MAX);
-  _memory.getString(key_wifi_password2, _wifi_password2, CONFIG_LONG_VAL_MAX);
+  if(_memory.getString(key_wifi_ssid2, _wifi_ssid2, CONFIG_VAL_MAX) == 0) {
+    strcpy(_wifi_ssid2, D_WIFI_SSID2);
+  }
+  if(_memory.getString(key_wifi_password2, _wifi_password2, CONFIG_LONG_VAL_MAX) == 0) {
+    strcpy(_wifi_password2, D_WIFI_PASSWORD2);
+  }
   _wifi_profile_active = _memory.getUChar(key_wifi_profile, 1);
   _manual_logging = _memory.getBool(key_manual_logging, D_MANUAL_LOGGING);
   _enable_journal = _memory.getBool(key_enable_journal, D_ENABLE_JOURNAL);
