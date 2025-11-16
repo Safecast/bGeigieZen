@@ -126,6 +126,8 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #define D_ERROR_ALERT_SOUND false
 #define D_WIFI_SSID "your wifi ssid"
 #define D_WIFI_PASSWORD "your wifi password"
+#define D_WIFI_SSID2 ""
+#define D_WIFI_PASSWORD2 ""
 #define D_API_KEY ""
 #define D_FIXED_LONGITUDE 0
 #define D_FIXED_LATITUDE 0
