@@ -528,13 +528,26 @@ bool LocalStorage::activate(bool) {
   _alert_threshold = _memory.getUInt(key_alert_threshold, D_ALARM_THRESHOLD);
   _cpm_usvh = _memory.getBool(key_cpm_usvh, D_CPM_USVH);
   // Load second WiFi profile and active selector
+  bool wifi2_missing = false;
   if(_memory.getString(key_wifi_ssid2, _wifi_ssid2, CONFIG_VAL_MAX) == 0) {
     strcpy(_wifi_ssid2, D_WIFI_SSID2);
+    wifi2_missing = true;
   }
   if(_memory.getString(key_wifi_password2, _wifi_password2, CONFIG_LONG_VAL_MAX) == 0) {
     strcpy(_wifi_password2, D_WIFI_PASSWORD2);
+    wifi2_missing = true;
   }
   _wifi_profile_active = _memory.getUChar(key_wifi_profile, 1);
+
+  // If WiFi profile 2 was missing, write defaults to NVS to prevent errors on next boot
+  if(wifi2_missing) {
+    _memory.end();
+    _memory.begin(memory_name, false);  // Reopen in write mode
+    _memory.putString(key_wifi_ssid2, D_WIFI_SSID2);
+    _memory.putString(key_wifi_password2, D_WIFI_PASSWORD2);
+    _memory.end();
+    _memory.begin(memory_name, true);  // Reopen in read mode
+  }
   _manual_logging = _memory.getBool(key_manual_logging, D_MANUAL_LOGGING);
   _enable_journal = _memory.getBool(key_enable_journal, D_ENABLE_JOURNAL);
   _log_void = _memory.getBool(key_log_void, D_LOG_VOID);
