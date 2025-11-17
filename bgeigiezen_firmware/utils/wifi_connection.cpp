@@ -49,7 +49,7 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
       // On Core2, ensure clean WiFi state before connecting to new network
       if (WiFi.getMode() != WIFI_MODE_NULL) {
         WiFi.disconnect(true);
-        WiFi.mode(WIFI_STA);
+        // Core2: Don't set mode - just ensure disconnected state
         delay(100);
       }
       #endif
@@ -89,7 +89,12 @@ bool WiFiWrapper::start_ap_server(uint16_t device_id, const char* password) {
   // Disconnect if currently connected, but don't force deinit
   if (WiFi.getMode() != WIFI_MODE_NULL) {
     WiFi.disconnect(true);
-    WiFi.mode(WIFI_OFF);
+    #ifdef CONFIG_IDF_TARGET_ESP32S3
+    WiFi.mode(WIFI_OFF);  // CoreS3 can safely deinit WiFi
+    #else
+    // Core2: NEVER call WiFi.mode() as it triggers deinit
+    esp_wifi_stop();        // Just stop the radio
+    #endif
     delay(100);
   }
   #endif
