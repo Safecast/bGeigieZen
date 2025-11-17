@@ -37,26 +37,17 @@ void PowerManager::enterLowPowerMode(bool wifi_required) {
     M5_LOGI("Entering low power mode (WiFi %s)", wifi_required ? "required" : "not required");
     logPowerState(); // Log initial state
 
-    // 1. Set CPU frequency based on WiFi requirement
+    // 1. Set CPU frequency for power savings
     #ifdef CONFIG_IDF_TARGET_ESP32S3
         // ESP32-S3 supports 80, 160, 240 MHz natively. We'll use 80MHz for stable low power.
         setCpuFrequency(80);
         logPowerState(); // Log after CPU frequency change
     #else
         // For Core2 (ESP32):
-        // - If WiFi is required: Keep at 240MHz for stability
-        // - If WiFi not required: Reduce to 80MHz for power savings
-        if (wifi_required) {
-            M5_LOGI("Core2: WiFi required - keeping CPU at 240MHz for stability");
-            // Ensure we're at 240MHz before WiFi initialization
-            if (getCpuFrequencyMhz() != 240) {
-                setCpuFrequency(240);
-            }
-        } else {
-            M5_LOGI("Core2: WiFi not required - reducing CPU to 80MHz for power savings");
-            setCpuFrequency(80);
-            logPowerState(); // Log after CPU frequency change
-        }
+        // CPU is set to 80MHz at boot and NEVER changed
+        // WiFi buffer allocation happens at 80MHz and stays stable
+        // This provides ~33% power savings compared to 240MHz
+        M5_LOGI("Core2: Keeping CPU at 80MHz (set at boot) for power savings and WiFi stability");
     #endif
 
     // 2. Reduce I2C clock speed (logical only; transfers specify freq per call)
@@ -89,8 +80,8 @@ void PowerManager::exitLowPowerMode() {
         setCpuFrequency(_original_cpu_freq);
     }
     #else
-    // Core2: Don't change CPU frequency (WiFi stability)
-    M5_LOGI("Core2: Keeping CPU at current frequency for WiFi stability");
+    // Core2: Don't change CPU frequency (always 80MHz for WiFi stability)
+    M5_LOGI("Core2: Keeping CPU at 80MHz for WiFi stability");
     #endif
 
     // 2. Restore I2C clock speed (logical only)
