@@ -47,14 +47,21 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
       M5_LOGD("WiFi connector: Trying to connect to wifi (%s:%s)...", ssid, password);
       #ifndef CONFIG_IDF_TARGET_ESP32S3
       // On Core2, ensure WiFi is properly started before connecting
-      if (WiFi.status() == WL_DISCONNECTED) {
+      uint8_t current_status = WiFi.status();
+      M5_LOGD("Core2: Current WiFi status before connect: %d", current_status);
+      
+      if (current_status == WL_DISCONNECTED || current_status == WL_IDLE_STATUS) {
         // WiFi was stopped, need to restart it first
+        M5_LOGD("Core2: Starting WiFi radio before connect");
         esp_wifi_start();
-        delay(100);
-      } else if (WiFi.status() == WL_CONNECTED) {
+        delay(200);
+        current_status = WiFi.status();
+        M5_LOGD("Core2: WiFi status after start: %d", current_status);
+      } else if (current_status == WL_CONNECTED) {
         // Only disconnect if currently connected to a different network
         String current_ssid = WiFi.SSID();
         if (current_ssid != ssid) {
+          M5_LOGD("Core2: Disconnecting from different network: %s", current_ssid.c_str());
           WiFi.disconnect();
           delay(200);
         }
