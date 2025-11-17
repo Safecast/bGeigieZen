@@ -203,7 +203,8 @@ void SurveyModeScreen::enter_screen(Controller& controller) {
   BaseScreen::enter_screen(controller);
   
   // Enter low power mode for Survey
-  PowerManager::enterLowPowerMode();
+  // Survey mode doesn't use WiFi, so we can reduce CPU frequency for power savings
+  PowerManager::enterLowPowerMode(false); // WiFi not required
   
   if (!controller.get_settings().get_manual_logging()) {
     // Automatically start logging

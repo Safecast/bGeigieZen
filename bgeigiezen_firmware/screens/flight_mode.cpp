@@ -288,7 +288,8 @@ void FlightModeScreen::enter_screen(Controller& controller) {
   settings.set_last_mode(LocalStorage::e_operational_mode_flight, true);
   
   // Enter low power mode
-  PowerManager::enterLowPowerMode();
+  // Cosmic mode doesn't use WiFi, so we can reduce CPU frequency for maximum power savings
+  PowerManager::enterLowPowerMode(false); // WiFi not required
   
   // Start logging by default if manual logging is disabled
   if (!controller.get_settings().get_manual_logging()) {

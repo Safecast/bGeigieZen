@@ -263,7 +263,8 @@ void FixedModeScreen::enter_screen(Controller& controller) {
   controller.set_handler_active(k_handler_api_reporter, true);
 
   // Enter low power mode (CPU/I2C down, but WiFi stays on)
-  PowerManager::enterLowPowerMode();
+  // Fixed mode requires WiFi for API reporting, so keep CPU at 240MHz on Core2
+  PowerManager::enterLowPowerMode(true); // WiFi required
 
   // --- WiFi Power Save Mode and TX Power (Core2 specific) ---
   // For ESP32 (Core2), we need to be more careful with WiFi power management
