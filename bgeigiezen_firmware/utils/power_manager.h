@@ -28,7 +28,7 @@ public:
 
     /**
      * @brief Enter low power mode for Cosmic mode
-     * 
+     *
      * This function should be called when entering Cosmic mode to minimize power consumption.
      * It will:
      * 1. Disable WiFi and Bluetooth
@@ -36,8 +36,10 @@ public:
      * 3. Disable brownout detector
      * 4. Reduce I2C clock speed
      * 5. Disable debug output
+     *
+     * @param wifi_required If true, keeps CPU at 240MHz for WiFi stability (Core2 only)
      */
-    static void enterLowPowerMode();
+    static void enterLowPowerMode(bool wifi_required = false);
 
     /**
      * @brief Exit low power mode

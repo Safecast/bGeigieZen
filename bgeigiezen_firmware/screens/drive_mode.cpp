@@ -273,9 +273,9 @@ void DriveModeScreen::enter_screen(Controller& controller) {
   }
 
   // Enter power saving mode (CPU/I2C down, wireless off)
-  // Note: On Core2, CPU frequency is kept constant for WiFi stability
-  // On CoreS3, frequency is reduced to 80MHz
-  PowerManager::enterLowPowerMode();
+  // Drive mode doesn't use WiFi, so we can reduce CPU frequency for power savings
+  // Note: CPU will be reduced to 80MHz on both Core2 and CoreS3
+  PowerManager::enterLowPowerMode(false); // WiFi not required
 
   // Re-enable BLE only (do NOT enable WiFi)
   controller.set_handler_active(k_handler_bluetooth_reporter, true);
