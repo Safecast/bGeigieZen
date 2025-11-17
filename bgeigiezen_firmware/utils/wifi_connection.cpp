@@ -61,12 +61,15 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
 }
 
 void WiFiWrapper::disconnect_wifi() {
-  WiFi.disconnect(true, true);
   #ifdef CONFIG_IDF_TARGET_ESP32S3
+    WiFi.disconnect(true, true);
     WiFi.mode(WIFI_MODE_NULL);  // CoreS3 can safely deinit WiFi
   #else
-    WiFi.mode(WIFI_OFF);  // Core2: Keep driver initialized, just turn off radio
-    M5_LOGD("Core2: WiFi disconnected but driver kept initialized");
+    // Core2: NEVER call WiFi.mode() as it triggers deinit
+    // Just disconnect - driver stays initialized
+    WiFi.disconnect(true);  // Disconnect but don't erase credentials
+    esp_wifi_stop();        // Stop WiFi radio
+    M5_LOGD("Core2: WiFi stopped but driver kept initialized");
   #endif
 }
 
