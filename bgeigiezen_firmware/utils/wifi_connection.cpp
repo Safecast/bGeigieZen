@@ -50,13 +50,15 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
       uint8_t current_status = WiFi.status();
       M5_LOGD("Core2: Current WiFi status before connect: %d", current_status);
       
-      if (current_status == WL_DISCONNECTED || current_status == WL_IDLE_STATUS) {
-        // WiFi was stopped, need to restart it first
-        M5_LOGD("Core2: Starting WiFi radio before connect");
-        esp_wifi_start();
+      if (current_status == 255 || current_status == WL_DISCONNECTED || current_status == WL_IDLE_STATUS) {
+        // WiFi is in invalid or stopped state, need to restart it properly
+        M5_LOGD("Core2: Restarting WiFi radio from status %d", current_status);
+        esp_wifi_stop();  // Ensure it's fully stopped
+        delay(100);
+        esp_wifi_start(); // Restart it
         delay(200);
         current_status = WiFi.status();
-        M5_LOGD("Core2: WiFi status after start: %d", current_status);
+        M5_LOGD("Core2: WiFi status after restart: %d", current_status);
       } else if (current_status == WL_CONNECTED) {
         // Only disconnect if currently connected to a different network
         String current_ssid = WiFi.SSID();
