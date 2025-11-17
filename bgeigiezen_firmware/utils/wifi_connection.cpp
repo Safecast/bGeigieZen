@@ -101,25 +101,41 @@ uint8_t WiFiWrapper::status() {
 }
 
 bool WiFiWrapper::start_ap_server(uint16_t device_id, const char* password) {
-  #ifndef CONFIG_IDF_TARGET_ESP32S3
-  // On Core2, ensure WiFi is in clean state before starting AP
-  M5_LOGD("Core2: Ensuring clean WiFi state before AP start");
+  M5_LOGD("Starting WiFi AP server...");
 
-  // Disconnect if currently connected, but don't force deinit
-  if (WiFi.getMode() != WIFI_MODE_NULL) {
+  wifi_mode_t current_mode = WiFi.getMode();
+  M5_LOGD("Current WiFi mode: %d", current_mode);
+
+  #ifndef CONFIG_IDF_TARGET_ESP32S3
+  // On Core2, if WiFi is in STA mode, we need to fully reset it before AP
+  // to avoid buffer allocation errors during mode switch
+  if (current_mode == WIFI_STA || current_mode == WIFI_AP_STA) {
+    M5_LOGD("Core2: Fully resetting WiFi from STA to AP mode");
+    WiFi.disconnect(false);
+    delay(200);
+
+    // Fully stop WiFi to reset buffers
+    esp_wifi_stop();
+    delay(300);
+
+    // Restart WiFi
+    esp_wifi_start();
+    delay(300);
+
+    M5_LOGD("Core2: WiFi reset complete, mode now: %d", WiFi.getMode());
+  }
+  #else
+  // CoreS3: Can use standard disconnect
+  if (current_mode != WIFI_MODE_NULL && current_mode != WIFI_AP) {
     WiFi.disconnect(true);
-    #ifdef CONFIG_IDF_TARGET_ESP32S3
-    WiFi.mode(WIFI_OFF);  // CoreS3 can safely deinit WiFi
-    #else
-    // Core2: NEVER call WiFi.mode() as it triggers deinit
-    esp_wifi_stop();        // Just stop the radio
-    #endif
-    delay(100);
+    delay(200);
   }
   #endif
 
+  // softAP() will now initialize in AP mode with fresh buffers
   char host_ssid[20];
   sprintf(host_ssid, ACCESS_POINT_SSID, device_id);
+  M5_LOGD("Starting AP with SSID: %s", host_ssid);
   WiFi.softAP(host_ssid, password);
   WiFi.softAPsetHostname(host_ssid);
   delay(100);
