@@ -46,11 +46,14 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
     default:
       M5_LOGD("WiFi connector: Trying to connect to wifi (%s:%s)...", ssid, password);
       #ifndef CONFIG_IDF_TARGET_ESP32S3
-      // On Core2, ensure clean WiFi state before connecting to new network
-      if (WiFi.getMode() != WIFI_MODE_NULL) {
-        WiFi.disconnect(true);
-        // Core2: Don't set mode - just ensure disconnected state
-        delay(100);
+      // On Core2, minimize WiFi state changes to avoid buffer corruption
+      // Only disconnect if currently connected to a different network
+      if (WiFi.status() == WL_CONNECTED) {
+        String current_ssid = WiFi.SSID();
+        if (current_ssid != ssid) {
+          WiFi.disconnect();
+          delay(200);
+        }
       }
       #endif
       password ? WiFi.begin(ssid, password) : WiFi.begin(ssid);
@@ -65,11 +68,10 @@ void WiFiWrapper::disconnect_wifi() {
     WiFi.disconnect(true, true);
     WiFi.mode(WIFI_MODE_NULL);  // CoreS3 can safely deinit WiFi
   #else
-    // Core2: NEVER call WiFi.mode() as it triggers deinit
-    // Just disconnect - driver stays initialized
-    WiFi.disconnect(true);  // Disconnect but don't erase credentials
-    esp_wifi_stop();        // Stop WiFi radio
-    M5_LOGD("Core2: WiFi stopped but driver kept initialized");
+  // Core2: AVOID WiFi.disconnect(true) as it may trigger internal deinit
+  // Just stop the radio - driver stays initialized
+  esp_wifi_stop();        // Stop WiFi radio
+  M5_LOGD("Core2: WiFi stopped but driver kept initialized");
   #endif
 }
 
