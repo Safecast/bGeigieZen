@@ -4,11 +4,13 @@
 #include "menu_window.h"
 #include "user_config.h"
 #include "utils/error_beep.h"
+#include "utils/wifi_connection.h"
 #include "workers/gm_sensor.h"
 #include "workers/gps_connector.h"
 #include "workers/local_storage.h"
 #include "workers/log_aggregator.h"
 #include "workers/zen_button.h"
+#include <WiFi.h>
 #include <esp_wifi.h>
 #include "utils/power_manager.h"
 
@@ -260,6 +262,11 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 }
 
 void FixedModeScreen::enter_screen(Controller& controller) {
+  // Initialize WiFi BEFORE activating the handler to ensure WiFi is ready
+  // This prevents crashes on Core2 when WiFi is in an uninitialized state
+  const auto& settings = controller.get_settings();
+  WiFiWrapper_i.connect_wifi(settings.get_active_wifi_ssid(), settings.get_active_wifi_password());
+
   controller.set_handler_active(k_handler_api_reporter, true);
 
   // Enter low power mode (CPU/I2C down, but WiFi stays on)
@@ -271,11 +278,12 @@ void FixedModeScreen::enter_screen(Controller& controller) {
   // Only apply power save settings after ensuring WiFi is stable
   #ifndef CONFIG_IDF_TARGET_ESP32S3
     // Core2 (ESP32) - Apply conservative power settings to avoid WiFi init loops
-    // Wait a bit for power management to stabilize
-    delay(100);
-    
-    // Only apply power save if WiFi is already connected or connecting
-    if (WiFi.status() == WL_CONNECTED || WiFi.status() == WL_DISCONNECTED) {
+    // Wait a bit for WiFi initialization and power management to stabilize
+    delay(200);
+
+    // Only apply power save if WiFi is in a valid state
+    uint8_t wifi_status = WiFi.status();
+    if (wifi_status != 255 && (wifi_status == WL_CONNECTED || wifi_status == WL_DISCONNECTED || wifi_status == WL_IDLE_STATUS)) {
       esp_wifi_set_ps(WIFI_PS_NONE);     // Disable power save for Core2 stability
       esp_wifi_set_max_tx_power(20);     // Use moderate TX power (5 dBm)
     }
@@ -293,8 +301,22 @@ void FixedModeScreen::leave_screen(Controller& controller) {
   // Restore normal power settings
   PowerManager::exitLowPowerMode();
 
-  // --- Restore WiFi Power Settings ---
-  esp_wifi_set_ps(WIFI_PS_NONE);      // Disable WiFi power save
-  esp_wifi_set_max_tx_power(78);      // Restore TX power to max (78 * 0.25 = 19.5 dBm)
+  // --- Restore WiFi Power Settings and disconnect ---
+  // Restore power settings before disconnecting
+  #ifndef CONFIG_IDF_TARGET_ESP32S3
+    // Core2: Only restore WiFi settings if WiFi is in a valid state
+    uint8_t wifi_status = WiFi.status();
+    if (wifi_status != 255 && (wifi_status == WL_CONNECTED || wifi_status == WL_DISCONNECTED || wifi_status == WL_IDLE_STATUS)) {
+      esp_wifi_set_ps(WIFI_PS_NONE);      // Disable WiFi power save
+      esp_wifi_set_max_tx_power(78);      // Restore TX power to max (78 * 0.25 = 19.5 dBm)
+    }
+  #else
+    // CoreS3: Restore WiFi settings
+    esp_wifi_set_ps(WIFI_PS_NONE);      // Disable WiFi power save
+    esp_wifi_set_max_tx_power(78);      // Restore TX power to max (78 * 0.25 = 19.5 dBm)
+  #endif
+
+  // Disconnect WiFi when leaving fixed mode
+  WiFiWrapper_i.disconnect_wifi();
   // -----------------------------------
 }
