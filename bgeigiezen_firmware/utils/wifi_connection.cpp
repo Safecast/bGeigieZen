@@ -46,9 +46,13 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
     default:
       M5_LOGD("WiFi connector: Trying to connect to wifi (%s:%s)...", ssid, password);
       #ifndef CONFIG_IDF_TARGET_ESP32S3
-      // On Core2, minimize WiFi state changes to avoid buffer corruption
-      // Only disconnect if currently connected to a different network
-      if (WiFi.status() == WL_CONNECTED) {
+      // On Core2, ensure WiFi is properly started before connecting
+      if (WiFi.status() == WL_DISCONNECTED) {
+        // WiFi was stopped, need to restart it first
+        esp_wifi_start();
+        delay(100);
+      } else if (WiFi.status() == WL_CONNECTED) {
+        // Only disconnect if currently connected to a different network
         String current_ssid = WiFi.SSID();
         if (current_ssid != ssid) {
           WiFi.disconnect();
