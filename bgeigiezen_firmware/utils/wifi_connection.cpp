@@ -51,9 +51,14 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
       M5_LOGD("Core2: Current WiFi status before connect: %d", current_status);
 
       if (current_status == 255) {
-        // WiFi is completely uninitialized - don't try to stop/start it
-        // WiFi.begin() will handle initialization
-        M5_LOGD("Core2: WiFi uninitialized (status 255), letting WiFi.begin() handle init");
+        // WiFi is completely uninitialized - initialize and start it
+        M5_LOGD("Core2: WiFi uninitialized (status 255), initializing and starting WiFi");
+        WiFi.mode(WIFI_STA);
+        delay(100);
+        esp_wifi_start();  // Explicitly start the WiFi radio
+        delay(200);
+        current_status = WiFi.status();
+        M5_LOGD("Core2: WiFi started, status now: %d", current_status);
       } else if (current_status == WL_DISCONNECTED || current_status == WL_IDLE_STATUS) {
         // WiFi is initialized but disconnected - safe to restart
         M5_LOGD("Core2: Restarting WiFi radio from status %d", current_status);
@@ -107,10 +112,20 @@ bool WiFiWrapper::start_ap_server(uint16_t device_id, const char* password) {
   M5_LOGD("Current WiFi mode: %d", current_mode);
 
   #ifndef CONFIG_IDF_TARGET_ESP32S3
-  // On Core2, if WiFi is in STA mode, we need to fully reset it before AP
-  // to avoid buffer allocation errors during mode switch
+  // On Core2, we need to ensure WiFi is properly initialized and reset before AP
+  // to avoid buffer allocation errors during mode operations
+  if (current_mode == WIFI_MODE_NULL) {
+    // WiFi is completely uninitialized - initialize it first
+    M5_LOGD("Core2: WiFi uninitialized, initializing to STA mode first");
+    WiFi.mode(WIFI_STA);
+    delay(200);
+    current_mode = WiFi.getMode();
+    M5_LOGD("Core2: WiFi initialized, mode now: %d", current_mode);
+  }
+
+  // Now do a full reset regardless of previous state to ensure clean AP initialization
   if (current_mode == WIFI_STA || current_mode == WIFI_AP_STA) {
-    M5_LOGD("Core2: Fully resetting WiFi from STA to AP mode");
+    M5_LOGD("Core2: Fully resetting WiFi from mode %d to AP mode", current_mode);
     WiFi.disconnect(false);
     delay(200);
 
