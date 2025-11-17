@@ -203,8 +203,8 @@ void SurveyModeScreen::enter_screen(Controller& controller) {
   BaseScreen::enter_screen(controller);
   
   // Enter low power mode for Survey
-  // Survey mode doesn't use WiFi, so we can reduce CPU frequency for power savings
-  PowerManager::enterLowPowerMode(false); // WiFi not required
+  // Note: Core2 runs at 80MHz always (set at boot), CoreS3 reduces to 80MHz here
+  PowerManager::enterLowPowerMode(false);
   
   if (!controller.get_settings().get_manual_logging()) {
     // Automatically start logging

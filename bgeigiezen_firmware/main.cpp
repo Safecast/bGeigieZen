@@ -104,6 +104,13 @@ void setup() {
   M5.begin();
   // I2C initialized via M5.begin()
 
+  // For Core2: Set CPU to 80MHz early for power savings and WiFi stability
+  // WiFi will initialize at 80MHz and stay there (no frequency changes = no corruption)
+  #ifndef CONFIG_IDF_TARGET_ESP32S3
+    setCpuFrequencyMhz(80);
+    M5_LOGI("Core2: CPU set to 80MHz for power savings and WiFi stability");
+  #endif
+
   // Initialize NVS. This is required for WiFi and Preferences.
   esp_err_t ret = nvs_flash_init();
   if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
