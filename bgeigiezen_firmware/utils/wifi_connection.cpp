@@ -49,9 +49,13 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
       // On Core2, ensure WiFi is properly started before connecting
       uint8_t current_status = WiFi.status();
       M5_LOGD("Core2: Current WiFi status before connect: %d", current_status);
-      
-      if (current_status == 255 || current_status == WL_DISCONNECTED || current_status == WL_IDLE_STATUS) {
-        // WiFi is in invalid or stopped state, need to restart it properly
+
+      if (current_status == 255) {
+        // WiFi is completely uninitialized - don't try to stop/start it
+        // WiFi.begin() will handle initialization
+        M5_LOGD("Core2: WiFi uninitialized (status 255), letting WiFi.begin() handle init");
+      } else if (current_status == WL_DISCONNECTED || current_status == WL_IDLE_STATUS) {
+        // WiFi is initialized but disconnected - safe to restart
         M5_LOGD("Core2: Restarting WiFi radio from status %d", current_status);
         esp_wifi_stop();  // Ensure it's fully stopped
         delay(100);
