@@ -175,13 +175,12 @@ void PowerManager::disableWireless() {
         esp_wifi_stop();
         esp_wifi_deinit();
     #else
-        // Core2 (ESP32): NEVER deinit WiFi - just disconnect and put in low power mode
-        // Once WiFi is deinitialized on Core2, it cannot be properly reinitialized
-        // The RX buffer allocation gets corrupted and causes "Expected to init 4 rx buffer, actual is 0" errors
-        WiFi.disconnect(true);  // Disconnect and disable STA mode
-        WiFi.mode(WIFI_OFF);    // Turn off WiFi radio but keep driver initialized
-        esp_wifi_set_ps(WIFI_PS_MIN_MODEM);  // Enable power saving
-        ESP_LOGI("PowerMgr", "Core2: WiFi disconnected but driver kept initialized for stability");
+        // Core2 (ESP32): NEVER call WiFi.mode() or esp_wifi_deinit()
+        // Both trigger deinitialization which corrupts RX buffers
+        // Just disconnect and stop the radio - driver stays initialized
+        WiFi.disconnect(true);  // Disconnect from AP
+        esp_wifi_stop();        // Stop WiFi radio (but don't deinit)
+        ESP_LOGI("PowerMgr", "Core2: WiFi stopped but driver kept initialized for stability");
     #endif
 
     // Disable Bluetooth if it was enabled
