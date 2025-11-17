@@ -167,12 +167,23 @@ uint32_t PowerManager::getCpuFrequency() {
 
 void PowerManager::disableWireless() {
     ESP_LOGI("PowerMgr", "Disabling wireless modules");
-    
+
     // Disable WiFi
-    WiFi.mode(WIFI_OFF);
-    esp_wifi_stop();
-    esp_wifi_deinit();
-  
+    #ifdef CONFIG_IDF_TARGET_ESP32S3
+        // CoreS3 can safely deinit and reinit WiFi
+        WiFi.mode(WIFI_OFF);
+        esp_wifi_stop();
+        esp_wifi_deinit();
+    #else
+        // Core2 (ESP32): NEVER deinit WiFi - just disconnect and put in low power mode
+        // Once WiFi is deinitialized on Core2, it cannot be properly reinitialized
+        // The RX buffer allocation gets corrupted and causes "Expected to init 4 rx buffer, actual is 0" errors
+        WiFi.disconnect(true);  // Disconnect and disable STA mode
+        WiFi.mode(WIFI_OFF);    // Turn off WiFi radio but keep driver initialized
+        esp_wifi_set_ps(WIFI_PS_MIN_MODEM);  // Enable power saving
+        ESP_LOGI("PowerMgr", "Core2: WiFi disconnected but driver kept initialized for stability");
+    #endif
+
     // Disable Bluetooth if it was enabled
     if (btStarted()) {
         btStop();
