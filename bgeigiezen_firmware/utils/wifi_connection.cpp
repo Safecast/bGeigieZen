@@ -90,10 +90,10 @@ void WiFiWrapper::disconnect_wifi() {
     WiFi.disconnect(true, true);
     WiFi.mode(WIFI_MODE_NULL);  // CoreS3 can safely deinit WiFi
   #else
-  // Core2: AVOID WiFi.disconnect(true) as it may trigger internal deinit
-  // Just stop the radio - driver stays initialized
-  esp_wifi_stop();        // Stop WiFi radio
-  M5_LOGD("Core2: WiFi stopped but driver kept initialized");
+  // Core2: Use soft disconnect to avoid WiFi reinitialization issues
+  // disconnect(wifioff=false, eraseap=false) - disconnects but keeps WiFi running
+  WiFi.disconnect(false, false);
+  M5_LOGD("Core2: WiFi disconnected (soft) - driver remains active");
   #endif
 }
 
