@@ -7,7 +7,7 @@
  * wiki: https://github.com/Safecast/bGeigieZen/wiki
  * Slack channel: #bgeigiezen
  *
- *  Copyright (c) 2025, Safecast
+ *  Copyright (c) 2026, Safecast
 
    All rights reserved.
 
