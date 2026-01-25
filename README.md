@@ -1,6 +1,5 @@
 # bGeigieZen
 
-
 A modern radiation monitoring device based on the M5Stack hardware platform, developed by the Safecast community.
 
 ## Overview
@@ -157,29 +156,29 @@ Supported settings (key=value per line):
 - `alert_threshold`
   - CPM alert threshold. Range 10–9999. Triggers audible and visual “CPM ALERT” when exceeded.
   - Note: Older examples may show `alarm_threshold`, but the current firmware uses `alert_threshold`.
--  See: [Zen Specification — Alerts](https://github.com/Safecast/bGeigieZen/wiki/Specification)
+  - See: [Zen Specification — Alerts](https://github.com/Safecast/bGeigieZen/wiki/Specification)
 - `display_cpm`
   - Display unit selector. `1` = show CPM. `0` = show µSv/h.
 - `manual_logging`
   - Logging behavior. `1` = manual start/stop. `0` = automatic depending on mode/movement.
--  See: [Zen Specification — Logging](https://github.com/Safecast/bGeigieZen/wiki/Specification)
+  - See: [Zen Specification — Logging](https://github.com/Safecast/bGeigieZen/wiki/Specification)
 - `enable_journal`
   - Enable the journal log. `1` = enabled, `0` = disabled.
--  See: [Zen Specification — Files & Journaling](https://github.com/Safecast/bGeigieZen/wiki/Specification)
+  - See: [Zen Specification — Files & Journaling](https://github.com/Safecast/bGeigieZen/wiki/Specification)
 - `log_void`
   - Include invalid/void lines in logs. `1` = include, `0` = exclude.
 - `screen_dim_timeout`
   - Seconds of inactivity before screen dims.
--  See: [Zen Specification — Display & Power](https://github.com/Safecast/bGeigieZen/wiki/Specification)
+  - See: [Zen Specification — Display & Power](https://github.com/Safecast/bGeigieZen/wiki/Specification)
 - `screen_off_timeout`
   - Seconds of inactivity before screen turns off.
--  See: [Zen Specification — Display & Power](https://github.com/Safecast/bGeigieZen/wiki/Specification)
+  - See: [Zen Specification — Display & Power](https://github.com/Safecast/bGeigieZen/wiki/Specification)
 - `animated_screensaver`
   - Screensaver animation on dim/off. `1` = enabled, `0` = disabled.
--  See: [Zen Specification — Display & Power](https://github.com/Safecast/bGeigieZen/wiki/Specification)
+  - See: [Zen Specification — Display & Power](https://github.com/Safecast/bGeigieZen/wiki/Specification)
 - `error_alert_sound`
   - Error beep sounds. `1` = enabled, `0` = disabled.
--  See: [Zen Specification — Alerts](https://github.com/Safecast/bGeigieZen/wiki/Specification)
+  - See: [Zen Specification — Alerts](https://github.com/Safecast/bGeigieZen/wiki/Specification)
 - `dim_brightness`
   - Brightness level (0–100) used while dimmed/screensaver.
 - `audio_volume`
@@ -192,7 +191,7 @@ Supported settings (key=value per line):
   - Radius in km for Fixed mode validity.
 - `dop_max`
   - Maximum acceptable Dilution of Precision (DOP) for GPS fix validity.
--  See: [Zen Specification — GPS & Accuracy](https://github.com/Safecast/bGeigieZen/wiki/Specification)
+  - See: [Zen Specification — GPS & Accuracy](https://github.com/Safecast/bGeigieZen/wiki/Specification)
 
 Notes:
 - Unknown or unsupported lines are ignored by the firmware.
