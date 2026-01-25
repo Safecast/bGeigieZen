@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 # bGeigieZen
 
 
@@ -58,7 +54,6 @@ bGeigieZen is a portable radiation monitoring device that combines precision sen
 3. Radiation measurements will display on screen.
 4. Data logs automatically save to the SD card.
 
-<<<<<<< HEAD
 ## SD card configuration files
 
 This project references configuration files used by both bGeigie Nano and bGeigie Zen devices. They are different and not interchangeable. Use the appropriate file for your device:
@@ -221,8 +216,6 @@ Notes:
 
 Tip: These files are not interchangeable. Use `SAFECAST.TXT` on Nano, and `SAFEZEN.txt` on Zen.
 
-=======
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
 ## Contributing
 
 We welcome contributions! Please follow these steps:
@@ -246,13 +239,7 @@ This project is licensed under [appropriate license].
 Developed and maintained by the Safecast community.
 
 This repo is for development of the bGeigieZen.
-<<<<<<< HEAD
 Specs can be found at https://github.com/Safecast/bGeigieZen/wiki/Specification
 Much more information and documentation for the bGeigieZen is at https://bgeigiezen.safecast.jp
-=======
-Much more information and documentation for the bGeigieZen is at [https://bgeigiezen.safecast.jp
-](https://bgeigiezen.safecast.jp)
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Safecast/bGeigieZen)
-
->>>>>>> 4d1f50fa8cf254334dd79afac188923947dfc416
