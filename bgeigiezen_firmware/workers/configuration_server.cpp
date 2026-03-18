@@ -1,6 +1,7 @@
 #include "configuration_server.h"
 #include "user_config.h"
 #include "utils/http_pages.h"
+#include "utils/api_data_cache.h"
 
 #define RETRY_TIMEOUT 4000
 
@@ -119,6 +120,21 @@ void ConfigWebServer::add_urls() {
   // css get
   _server.on("/favicon.ico", HTTP_GET, [this]() {
     _server.send_P(200, "image/x-icon", reinterpret_cast<const char*>(HttpPages::favicon), FAVICON_SIZE);
+    _handled_client = true;
+  });
+
+  // Real-time sensor data for Home Assistant / external consumers
+  _server.on("/api/v1/status", HTTP_GET, [this]() {
+    static const char* mode_names[] = {"drive", "survey", "fixed", "satellite", "flight"};
+    auto mode_idx = static_cast<int>(_config.get_last_mode());
+    const char* mode = (mode_idx >= 0 && mode_idx < 5) ? mode_names[mode_idx] : "unknown";
+
+    _server.sendHeader("Access-Control-Allow-Origin", "*");
+    _server.sendHeader("Cache-Control", "no-cache");
+    _server.send(200, "application/json",
+                 ApiDataCache::instance().toJson(_config.get_device_id(),
+                                                 VERSION_SIMPLE_STRING,
+                                                 mode));
     _handled_client = true;
   });
 }

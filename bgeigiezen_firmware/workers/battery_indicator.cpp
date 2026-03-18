@@ -1,5 +1,6 @@
 #include "battery_indicator.h"
 #include "drivers/battery_mapping.h"
+#include "utils/api_data_cache.h"
 // axp2101_utils disabled
 //#include "drivers/axp2101_utils.h"
 
@@ -45,5 +46,6 @@ int8_t BatteryIndicator::produce_data() {
 
   // Convert voltage to percentage using discharge curve mapping
   data.percentage = static_cast<int32_t>(BatteryMapping::voltage_to_percentage(voltage_mv) + 0.5f);
+  ApiDataCache::instance().update(data);
   return e_worker_data_read;
 }
