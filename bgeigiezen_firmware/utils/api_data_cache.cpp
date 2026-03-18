@@ -47,9 +47,9 @@ String ApiDataCache::toJson(uint16_t device_id,
   // Charging state as a string
   const char* charging_str = "unknown";
   switch (_battery.isCharging) {
-    case m5::Power_Class::is_charging_t::is_charging:    charging_str = "charging";     break;
-    case m5::Power_Class::is_charging_t::not_charging:   charging_str = "not_charging"; break;
-    case m5::Power_Class::is_charging_t::charge_unknown: charging_str = "unknown";      break;
+    case m5::Power_Class::is_charging_t::is_charging:    charging_str = "charging";      break;
+    case m5::Power_Class::is_charging_t::is_discharging: charging_str = "discharging";   break;
+    case m5::Power_Class::is_charging_t::charge_unknown: charging_str = "unknown";       break;
   }
 
   String j;
