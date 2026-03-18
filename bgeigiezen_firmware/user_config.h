@@ -63,7 +63,11 @@ constexpr uint8_t SD_CS_PIN = 4;  // GPIO 4
 constexpr char SETUP_FILENAME[] = "/SAFEZEN.txt";
 constexpr char TEST_FILENAME[] = "/.zen";
 constexpr float SETUP_DEFAULT_USH_DIVIDER = 334.0;
-constexpr float SETUP_DEFAULT_BQM2_FACTOR = 37.0;
+// Bq/m² conversion for Cs-137 equivalent surface activity at ~1 m height.
+// Derived from: 1 µSv/h = 4000 Bq/m² (IAEA dose coefficient, infinite plane
+// source) combined with the LND-7317 calibration (334 CPM = 1 µSv/h):
+//   factor = 4000 / 334 ≈ 12.0
+constexpr float SETUP_DEFAULT_BQM2_FACTOR = 12.0;
 constexpr uint32_t SETUP_DEFAULT_ALERT_LEVEL = 100;
 
 // - Logging
