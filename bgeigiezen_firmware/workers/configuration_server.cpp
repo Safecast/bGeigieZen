@@ -30,6 +30,15 @@ bool ConfigWebServer::activate(bool) {
     _server.begin(SERVER_WIFI_PORT);
     HttpPages::internet_access = WiFiWrapper_i.wifi_connected();
     data = HttpPages::internet_access ? k_server_status_running_wifi : k_server_status_running_access_point;
+
+    // Log the IP so it's easy to find on the serial monitor
+    if (HttpPages::internet_access) {
+      M5_LOGI("Web server started — http://%s/api/v1/status  (IP: %s)",
+               hostname, WiFi.localIP().toString().c_str());
+    } else {
+      M5_LOGI("Web server started (AP) — http://%s/api/v1/status  (IP: %s)",
+               hostname, WiFi.softAPIP().toString().c_str());
+    }
     return true;
   }
   return false;
