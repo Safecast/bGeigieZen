@@ -97,10 +97,7 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
   bool gps_valid = gps_data.valid();
   bool dop_valid = gps_valid && gps_data.pdop * 100 < _settings.get_dop_max();
 
-  sprintf(
-      data.timestamp,
-      "%04d-%02d-%02dT%02d:%02d:%02dZ",
-      gps_data.year, gps_data.month, gps_data.day, gps_data.hour, gps_data.minute, gps_data.second);
+  strcpy(data.timestamp, gps_data.timestamp);
 
   sprintf(
       data.log_string,

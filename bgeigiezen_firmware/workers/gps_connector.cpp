@@ -14,7 +14,6 @@
 
 #include "utils/functions.h"
 #include "gps_connector.h"
-#include "utils/api_data_cache.h"
 #include <SD.h>
 
 #define GPS_INVALID_YEAR 2000
@@ -762,6 +761,8 @@ int8_t GpsConnector::produce_data() {
       data.day = _gnss.getDay();
       data.date_valid = true;
       date_timer.restart();
+      sprintf(data.timestamp, "%04d-%02d-%02dT%02d:%02d:%02dZ",
+        data.year, data.month, data.day, data.hour, data.minute, data.second);
       ret_status = e_worker_data_read;
     }
 
@@ -793,7 +794,6 @@ int8_t GpsConnector::produce_data() {
     data.day = GPS_INVALID_DAY;
   }
 
-  ApiDataCache::instance().update(data);
   return ret_status;
 }
 

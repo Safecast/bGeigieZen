@@ -32,7 +32,6 @@ void Controller::start_default_workers() {
 //  set_worker_active(k_worker_shake_detector, true);
   set_worker_active(k_worker_device_state, true);
   set_worker_active(k_worker_sound_manager, true);
-  set_worker_active(k_worker_config_server, true);  // Always run so /api/v1/status is reachable in all modes
   
   // We'll connect the SoundManager to the GeigerCounter after all workers are initialized
   // This will be done in the produce_data method

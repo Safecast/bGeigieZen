@@ -58,13 +58,12 @@
 #include "workers/gps_connector.h"
 #include "workers/local_storage.h"
 #include "workers/rtc_connector.h"
-#include "workers/battery_led_indicator.h"
 #include "workers/battery_indicator.h"
-// Wire.h included via M5Unified.hpp
-#include "workers/zen_button.h"
-#include "workers/sound_manager.h"
+#include "handlers/api_data_cache.h"
 #include "workers/shake_detector.h"
- 
+#include "workers/sound_manager.h"
+#include "workers/zen_button.h"
+
 #include <nvs_flash.h> // Include for NVS flash initialization
 
 TeenyUbloxConnect gnss;
@@ -95,6 +94,7 @@ SdLogger survey_logger(settings, SdLogger::survey);
 SdLogger flight_logger(settings, SdLogger::flight); // Using dedicated flight log type
 BluetoothReporter bt_connector(settings);
 ApiConnector api_connector(settings);
+ApiDataCache api_data_cache = ApiDataCache::instance();
 
 // Supervisors
 GFXScreen gfx_screen(settings, controller);
@@ -166,6 +166,7 @@ void setup() {
   controller.register_handler(k_handler_flight_logger, flight_logger);
   controller.register_handler(k_handler_bluetooth_reporter, bt_connector);
   controller.register_handler(k_handler_api_reporter, api_connector);
+  controller.register_handler(k_handler_api_data_cache, api_data_cache);
 
   M5_LOGD("Register supervisors...");
   controller.register_supervisor(gfx_screen);

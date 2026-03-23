@@ -3,7 +3,6 @@
 #include "workers/local_storage.h"
 #include "workers/sound_manager.h"
 #include "identifiers.h"
-#include "utils/api_data_cache.h"
 
 // Global variable for CPS value that can be accessed by SoundManager
 uint32_t g_cps = 0;  // Changed to uint32_t for high count rates
@@ -159,6 +158,5 @@ int8_t GeigerCounter::produce_data(const worker_map_t& workers) {
     _previous_alert_state = data.alert;
   }
 
-  ApiDataCache::instance().update(data);
   return e_worker_data_read;
 }

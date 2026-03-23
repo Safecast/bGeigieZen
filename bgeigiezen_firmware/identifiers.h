@@ -32,6 +32,7 @@ enum DataHandlers {
   k_handler_flight_logger,
   k_handler_bluetooth_reporter,
   k_handler_api_reporter,
+  k_handler_api_data_cache,
 };
 
 #endif //BGEIGIEZEN_IDENTIFIERS_H_
