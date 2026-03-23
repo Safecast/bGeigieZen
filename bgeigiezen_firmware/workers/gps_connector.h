@@ -80,6 +80,7 @@ struct GnssData {
   uint8_t protocolVersionHigh;
   uint8_t protocolVersionLow;
 
+  char timestamp[20];
 };
 
 /**
