@@ -78,7 +78,7 @@ ZenButton zen_C(M5.BtnC);
 GpsConnector gps(gnss, Serial2);
 // Make GPS connector globally available for shutdown routine
 GpsConnector* g_active_gps = &gps;
-NavsatCollector navsat(gnss);
+NavsatCollector navsat(gnss, gps.get_data());
 GeigerCounter gm_sensor;
 BatteryIndicator battery_indicator;
 DateTimeProvider rtc;

@@ -4,6 +4,7 @@
 
 #include <Worker.hpp>
 #include <TeenyUbloxConnect.h>
+#include "gps_connector.h"
 
 
 struct NavsatData {
@@ -18,7 +19,7 @@ struct NavsatData {
 class NavsatCollector : public Worker<NavsatData> {
  public:
 
-  explicit NavsatCollector(TeenyUbloxConnect& _gnss);
+  explicit NavsatCollector(TeenyUbloxConnect& _gnss, const GnssData& gps_data);
 
   virtual ~NavsatCollector() = default;
 
@@ -30,6 +31,7 @@ class NavsatCollector : public Worker<NavsatData> {
 
  private:
   TeenyUbloxConnect& _gnss;
+  const GnssData& _gps_data;
 };
 
 #endif //BGEIGIEZEN_NAVSAT_COLLECTOR_H_

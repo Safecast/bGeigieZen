@@ -51,8 +51,11 @@ GpsConnector::GpsConnector(TeenyUbloxConnect& gnss, HardwareSerial& serial) : Wo
                                                        .minute=0,
                                                        .second=0,
                                                        .protocolVersionHigh=0,
-                                                       .protocolVersionLow=0
-                                                   }), _gnss(gnss), _serial_conn(serial), _tried_115200_at(0), _tried_38400_at(0), _tried_9600_at(0), _tried_4800_at(0), _init_at(0), _raw_dump_done(false), _nmea_mode(false), _nmea_len(0), _last_latitude(0), _last_longitude(0) {
+                                                       .protocolVersionLow=0,
+                                                       .nmea_sats={},
+                                                       .nmea_sat_count=0,
+                                                       .nmea_mode=false
+                                                   }), _gnss(gnss), _serial_conn(serial), _tried_115200_at(0), _tried_38400_at(0), _tried_9600_at(0), _tried_4800_at(0), _init_at(0), _raw_dump_done(false), _nmea_mode(false), _nmea_len(0), _nmea_used_count(0), _last_latitude(0), _last_longitude(0) {
 }
 /**
  * @return true if initialized GNSS library, false if no connection with module.
@@ -155,8 +158,11 @@ bool GpsConnector::activate(bool retry) {
         delay(100);
         while (_serial_conn.available()) _serial_conn.read(); // flush stale bytes
         _nmea_mode = true;
+        data.nmea_mode = true;
+        data.nmea_sat_count = 0;
         memset(_nmea_buf, 0, sizeof(_nmea_buf));
         _nmea_len = 0;
+        _nmea_used_count = 0;
         return true;
       }
     } else {
@@ -983,8 +989,15 @@ bool GpsConnector::parseNmeaSentence(const char* sentence) {
 
   bool isRmc = (strncmp(sentence, "$GPRMC", 6) == 0 || strncmp(sentence, "$GNRMC", 6) == 0);
   bool isGga = (strncmp(sentence, "$GPGGA", 6) == 0 || strncmp(sentence, "$GNGGA", 6) == 0);
-  bool isGsv = (strncmp(sentence, "$GPGSV", 6) == 0 || strncmp(sentence, "$GNGSV", 6) == 0);
-  if (!isRmc && !isGga && !isGsv) return false;
+  bool isGsv = (strncmp(sentence, "$GPGSV", 6) == 0 || strncmp(sentence, "$GLGSV", 6) == 0 || strncmp(sentence, "$GNGSV", 6) == 0);
+  bool isGsa = (strncmp(sentence, "$GPGSA", 6) == 0 || strncmp(sentence, "$GNGSA", 6) == 0);
+  if (!isRmc && !isGga && !isGsv && !isGsa) return false;
+
+  // Determine constellation type char from sentence prefix for GSV
+  char gnssIdType = 'G'; // default GPS
+  if (strncmp(sentence, "$GL", 3) == 0) gnssIdType = 'R'; // GLONASS
+  else if (strncmp(sentence, "$GA", 3) == 0) gnssIdType = 'E'; // Galileo
+  else if (strncmp(sentence, "$GB", 3) == 0) gnssIdType = 'B'; // BeiDou
 
   // Copy and strip checksum for field splitting
   char buf[128];
@@ -993,11 +1006,11 @@ bool GpsConnector::parseNmeaSentence(const char* sentence) {
   char* s = strchr(buf, '*');
   if (s) *s = '\0';
 
-  // Split on commas
-  char* fields[15] = {nullptr};
+  // Split on commas (GPGSV needs up to 20 fields, GPGSA up to 18)
+  char* fields[20] = {nullptr};
   int nf = 0;
   char* p = buf;
-  while (nf < 15) {
+  while (nf < 20) {
     fields[nf++] = p;
     p = strchr(p, ',');
     if (!p) break;
@@ -1064,13 +1077,54 @@ bool GpsConnector::parseNmeaSentence(const char* sentence) {
   }
 
   if (isGsv && nf >= 4) {
-    // $G?GSV,numMsgs,msgNum,numSV,...
-    // Read total SVs in view from the first message only (msgNum == "1")
-    if (fields[2][0] == '1' && strlen(fields[3]) > 0) {
+    // $G?GSV,numMsgs,msgNum,numSV,sv1,elev1,azim1,cno1[,...]*cs
+    int msgNum = atoi(fields[2]);
+    if (msgNum == 1) {
+      // First message: reset accumulator
+      data.nmea_sat_count = 0;
       data.satsInView = atoi(fields[3]);
-      data.numSV      = data.satsInView;
-      return true;
+      data.numSV = data.satsInView;
     }
+    // Each message carries up to 4 sats starting at field index 4
+    for (int i = 0; i < 4 && data.nmea_sat_count < GnssData::NMEA_MAX_SATS; i++) {
+      int base = 4 + i * 4;
+      if (base + 3 >= nf || !fields[base] || strlen(fields[base]) == 0) break;
+      GnssData::NmeaSatEntry& sat = data.nmea_sats[data.nmea_sat_count++];
+      sat.svId       = (uint8_t)atoi(fields[base]);
+      sat.elev       = (int8_t)atoi(fields[base + 1]);
+      sat.azim       = (int16_t)atoi(fields[base + 2]);
+      sat.cno        = (fields[base + 3] && strlen(fields[base + 3]) > 0)
+                       ? (uint8_t)atoi(fields[base + 3]) : 0;
+      sat.gnssIdType = gnssIdType;
+      // Mark as used if svId is in the GPGSA used list
+      sat.svUsed = false;
+      for (uint8_t j = 0; j < _nmea_used_count; j++) {
+        if (_nmea_used_svids[j] == sat.svId) { sat.svUsed = true; break; }
+      }
+    }
+    return true;
+  }
+
+  if (isGsa && nf >= 3) {
+    // $G?GSA,mode,fix,sv1..sv12,pdop,hdop,vdop
+    // fields[3..14] are SV IDs used (may be blank)
+    _nmea_used_count = 0;
+    for (int i = 3; i <= 14 && i < nf && _nmea_used_count < 12; i++) {
+      if (fields[i] && strlen(fields[i]) > 0) {
+        _nmea_used_svids[_nmea_used_count++] = (uint8_t)atoi(fields[i]);
+      }
+    }
+    // Update svUsed flag for already-collected satellite entries
+    for (uint8_t i = 0; i < data.nmea_sat_count; i++) {
+      data.nmea_sats[i].svUsed = false;
+      for (uint8_t j = 0; j < _nmea_used_count; j++) {
+        if (_nmea_used_svids[j] == data.nmea_sats[i].svId) {
+          data.nmea_sats[i].svUsed = true;
+          break;
+        }
+      }
+    }
+    return true;
   }
 
   return false;
