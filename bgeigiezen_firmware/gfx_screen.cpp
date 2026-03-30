@@ -407,9 +407,13 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
             M5.Lcd.print("GPS");
             pos += 30; 
           } else {
-            M5.Lcd.setTextColor(gps->get_data().location_valid ? LCD_COLOR_ACTIVITY : LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
-            M5.Lcd.printf("GPS%d", gps->get_data().satsInView);
-            pos += 34; 
+            bool has_fix = gps->get_data().location_valid;
+            M5.Lcd.setTextColor(has_fix ? LCD_COLOR_ACTIVITY : LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
+            // Before fix: show total visible (numSV) so the user sees the GPS is searching.
+            // After fix: show used-in-fix (satsInView) which is the meaningful count.
+            uint8_t display_sats = has_fix ? gps->get_data().satsInView : gps->get_data().numSV;
+            M5.Lcd.printf("GPS%d", display_sats);
+            pos += 34;
           }
 
           // Status icon: SD

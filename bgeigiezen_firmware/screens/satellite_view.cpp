@@ -100,98 +100,83 @@ void SatelliteViewScreen::render(const worker_map_t& workers, const handler_map_
 
   if (force || (navsat && navsat->is_fresh())) {
 
-    int16_t  compAngle = 0;
-    int16_t  mapRadius = 90;
-    int16_t  mapSatRadius = 80; // Keep sat graphics inside map
-    int16_t  mapCenterX = 108;
-    int16_t  mapCenterY = 110;
-    uint8_t  numSats = 0;
-    int16_t  xCoord;
-    int16_t  yCoord;
-    int16_t  satRadius = 10;
-    int32_t  satColor;
-    int16_t  satRingRadius = 12;
-    int32_t  satRingColor;
-    int16_t  satAzimuth;
-    int8_t   satElevation;
-    char _dispStr[4];
+    constexpr int16_t mapRadius   = 90;
+    constexpr int16_t mapSatRadius = 80; // Keep sat graphics inside map
+    constexpr int16_t mapCenterX  = 108;
+    constexpr int16_t mapCenterY  = 110;
+    constexpr int16_t mapSize     = mapRadius * 2;
+    constexpr int16_t compAngle   = 0;
+    constexpr int16_t satRadius   = 10;
+    constexpr int16_t satRingRadius = 12;
 
-    // Clear screen (later sprite support?)
-    M5.Lcd.fillRect(mapCenterX - mapRadius, mapCenterY - mapRadius, mapRadius * 2, mapRadius * 2, LCD_COLOR_BACKGROUND);
+    // Render the constellation map into a sprite and push it atomically to
+    // avoid the clear→draw flicker that happens when writing directly to LCD.
+    static M5Canvas mapSprite(&M5.Lcd);
+    if (!mapSprite.width()) {
+      mapSprite.createSprite(mapSize, mapSize);
+    }
+    mapSprite.fillSprite(LCD_COLOR_BACKGROUND);
 
-    // Draw constellation map
-    // draw main circles, one at 0deg, and one at 45deg elevation
-    M5.Lcd.drawCircle(mapCenterX, mapCenterY, mapRadius, LCD_COLOR_DEFAULT);
-    M5.Lcd.drawCircle(mapCenterX, mapCenterY, (mapRadius >> 1) + 1, LCD_COLOR_DEFAULT);
+    // Draw grid: two range circles
+    mapSprite.drawCircle(mapRadius, mapRadius, mapRadius, LCD_COLOR_DEFAULT);
+    mapSprite.drawCircle(mapRadius, mapRadius, (mapRadius >> 1) + 1, LCD_COLOR_DEFAULT);
 
-    // draw lines at 0, 45, 90, 135 etc degrees azimuth
+    // Draw compass lines and N/E/S/W labels
     for (int16_t i = 0; i <= 7; i++) {
-      xCoord = round(-sin(radians((i * 45) + 180 + compAngle)) * mapRadius);
-      yCoord = round(cos(radians((i * 45) + 180 + compAngle)) * mapRadius);
-      M5.Lcd.drawLine(mapCenterX, mapCenterY, xCoord + mapCenterX, yCoord + mapCenterY, LCD_COLOR_DEFAULT);
-      if(i % 2) continue;
+      int16_t xCoord = round(-sin(radians((i * 45) + 180 + compAngle)) * mapRadius);
+      int16_t yCoord = round(cos(radians((i * 45) + 180 + compAngle)) * mapRadius);
+      mapSprite.drawLine(mapRadius, mapRadius, xCoord + mapRadius, yCoord + mapRadius, LCD_COLOR_DEFAULT);
+      if (i % 2) continue;
       xCoord = round(-sin(radians((i * 45) + 180 + compAngle)) * (mapRadius - 8));
       yCoord = round(cos(radians((i * 45) + 180 + compAngle)) * (mapRadius - 8));
-      M5.Lcd.fillCircle(xCoord + mapCenterX, yCoord + mapCenterY, 12, LCD_COLOR_BACKGROUND);
+      mapSprite.fillCircle(xCoord + mapRadius, yCoord + mapRadius, 12, LCD_COLOR_BACKGROUND);
       char label;
       switch (i) {
         case 0: label = 'N'; break;
         case 2: label = 'E'; break;
         case 4: label = 'S'; break;
-        case 6: label = 'W'; break;
+        default: label = 'W'; break;
       }
-      M5.Lcd.drawChar(xCoord + mapCenterX - 5, yCoord + mapCenterY - 7, label, LCD_COLOR_BACKGROUND, LCD_COLOR_DEFAULT, 2);
+      mapSprite.drawChar(xCoord + mapRadius - 5, yCoord + mapRadius - 7, label, LCD_COLOR_BACKGROUND, LCD_COLOR_DEFAULT, 2);
     }
 
     if (navsat->get_data().available) {
-      // M5_LOGD("SAT: Rendering %d satellites", navsat->get_data().navsat_info.numSvsEphValid);
-
-      // Set text size for satellite IDs
       const auto& navsat_info = navsat->get_data().navsat_info;
+      char _dispStr[4];
 
-      // draw the positions of the sats
-      for(int16_t i = navsat_info.numSvsEphValid -1; i >= 0; --i) {
+      for (int16_t i = navsat_info.numSvsEphValid - 1; i >= 0; --i) {
+        int16_t satAzimuth   = navsat_info.svSortList[i].azim;
+        int8_t  satElevation = navsat_info.svSortList[i].elev;
+        if (satElevation < 0) satElevation = 0;
+        int16_t xCoord = round(-sin(radians(satAzimuth + 180 + compAngle)) *
+                               map(satElevation, 0, 90, mapSatRadius, 1));
+        int16_t yCoord = round(cos(radians(satAzimuth + 180 + compAngle)) *
+                               map(satElevation, 0, 90, mapSatRadius, 1));
 
-        // Sat position
-        ++numSats;
-        satAzimuth = navsat_info.svSortList[i].azim;
-        satElevation = navsat_info.svSortList[i].elev;
-        if(satElevation < 0) satElevation = 0;
-        xCoord = round(-sin(radians(satAzimuth + 180 + compAngle)) *
-                       map(satElevation, 0, 90, mapSatRadius, 1));
-        yCoord = round(cos(radians(satAzimuth + 180 + compAngle)) *
-                       map(satElevation, 0, 90, mapSatRadius, 1));
+        int32_t satRingColor;
+        if (navsat_info.svSortList[i].cno >= 35)      satRingColor = COLOR_SAT_SIGNAL_STRONG;
+        else if (navsat_info.svSortList[i].cno >= 20) satRingColor = COLOR_SAT_SIGNAL_MEDIUM;
+        else                                           satRingColor = COLOR_SAT_SIGNAL_WEAK;
+        mapSprite.fillCircle(xCoord + mapRadius, yCoord + mapRadius, satRingRadius, satRingColor);
 
-        // Sat ring color based on SNR
-        if(navsat_info.svSortList[i].cno >= 35) {
-          satRingColor = COLOR_SAT_SIGNAL_STRONG;
-        } else if(navsat_info.svSortList[i].cno >=20) {
-          satRingColor = COLOR_SAT_SIGNAL_MEDIUM;
-        } else {
-          satRingColor = COLOR_SAT_SIGNAL_WEAK;
-        }
-        M5.Lcd.fillCircle(xCoord + mapCenterX, yCoord + mapCenterY, satRingRadius, satRingColor);
+        int32_t satColor;
+        if (navsat_info.svSortList[i].svUsed)        satColor = COLOR_SAT_USED_NAV;
+        else if (navsat_info.svSortList[i].healthy)  satColor = COLOR_SAT_HEALTHY;
+        else                                          satColor = COLOR_SAT_UNKNOWN;
+        mapSprite.fillCircle(xCoord + mapRadius, yCoord + mapRadius, satRadius, satColor);
 
-        // Sat color based on svUsed
-        if(navsat_info.svSortList[i].svUsed) {
-          satColor = COLOR_SAT_USED_NAV;
-        } else if(navsat_info.svSortList[i].healthy) {
-          satColor = COLOR_SAT_HEALTHY;
-        } else {
-          satColor = COLOR_SAT_UNKNOWN;
-        }
-        M5.Lcd.fillCircle(xCoord + mapCenterX, yCoord + mapCenterY, satRadius, satColor);
-
-
-        // Sat label
-        M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, satColor);
+        mapSprite.setTextColor(LCD_COLOR_DEFAULT, satColor);
         sprintf(_dispStr, "%c%02d",
                 navsat_info.svSortList[i].gnssIdType,
                 navsat_info.svSortList[i].svId);
-        M5.Lcd.drawString(_dispStr, xCoord + mapCenterX - 8, yCoord + mapCenterY + 5, &fonts::Font0);
-
+        mapSprite.setTextDatum(5); // middle_center
+        mapSprite.drawString(_dispStr, xCoord + mapRadius, yCoord + mapRadius, &fonts::Font0);
+        mapSprite.setTextDatum(0); // reset to top_left
       }
     }
+
+    // Push the complete map to the LCD in one operation — no visible clear flash
+    mapSprite.pushSprite(mapCenterX - mapRadius, mapCenterY - mapRadius);
   }
 
   if (force) {
