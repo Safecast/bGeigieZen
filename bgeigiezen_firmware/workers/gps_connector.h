@@ -92,6 +92,7 @@ struct GnssData {
   static constexpr uint8_t NMEA_MAX_SATS = 16;
   NmeaSatEntry nmea_sats[NMEA_MAX_SATS];
   uint8_t nmea_sat_count;
+  uint32_t nmea_gsv_cycle; // incremented each time a complete GPGSV cycle is received
   bool nmea_mode;
 
 };

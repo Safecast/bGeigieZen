@@ -54,6 +54,7 @@ GpsConnector::GpsConnector(TeenyUbloxConnect& gnss, HardwareSerial& serial) : Wo
                                                        .protocolVersionLow=0,
                                                        .nmea_sats={},
                                                        .nmea_sat_count=0,
+                                                       .nmea_gsv_cycle=0,
                                                        .nmea_mode=false
                                                    }), _gnss(gnss), _serial_conn(serial), _tried_115200_at(0), _tried_38400_at(0), _tried_9600_at(0), _tried_4800_at(0), _init_at(0), _raw_dump_done(false), _nmea_mode(false), _nmea_len(0), _nmea_used_count(0), _last_latitude(0), _last_longitude(0) {
 }
@@ -146,13 +147,8 @@ bool GpsConnector::activate(bool retry) {
         if (i < n - 1 && buf[i] == 0xB5 && buf[i+1] == 0x62) hasUbx = true;
         if (buf[i] == '$') hasNmea = true;
       }
-      char hex[3 * 32 + 1] = {0};
-      int show = n < 32 ? n : 32;
-      for (int i = 0; i < show; i++) snprintf(hex + i * 3, 4, "%02X ", buf[i]);
-      M5_LOGI("GNSS: TX test: %d bytes, UBX=%s, NMEA=%s, hex: %s",
-              n, hasUbx ? "YES" : "NO", hasNmea ? "YES" : "NO", hex);
       if (hasNmea && !hasUbx) {
-        M5_LOGI("GNSS: TX unconnected — switching to NMEA fallback mode (RX-only)");
+        M5_LOGI("GNSS: GPS module: NMEA-only (TX not connected) — u-blox or compatible, 9600 baud");
         // Serial is already at 9600 baud on RXD2/TXD2 — just flush and switch mode.
         // Re-calling end()/begin() corrupts the UART on ESP32S3.
         delay(100);
@@ -175,10 +171,12 @@ bool GpsConnector::activate(bool retry) {
   }
 
   // Confirm that we actually have a connection
-  data.protocolVersionHigh = _gnss.getProtocolVersionHigh();
-  data.protocolVersionLow = _gnss.getProtocolVersionLow();
-  M5_LOGD("GNSS: u-blox protocol version %02d.%02d",
-              data.protocolVersionHigh, data.protocolVersionLow);
+  uint8_t pvHigh = _gnss.getProtocolVersionHigh();
+  uint8_t pvLow  = _gnss.getProtocolVersionLow();
+  data.protocolVersionHigh = pvHigh;
+  data.protocolVersionLow = pvLow;
+  const char* gnssModuleName = pvHigh < 18 ? "M7" : pvHigh < 32 ? "M8" : pvHigh < 34 ? "M9" : "M10";
+  M5_LOGI("GNSS: GPS module: u-blox %s, protocol v%02d.%02d", gnssModuleName, pvHigh, pvLow);
               
   // Check the current dynamic model on startup
   // This will help us verify if the setting persisted after power cycling
@@ -1078,12 +1076,13 @@ bool GpsConnector::parseNmeaSentence(const char* sentence) {
 
   if (isGsv && nf >= 4) {
     // $G?GSV,numMsgs,msgNum,numSV,sv1,elev1,azim1,cno1[,...]*cs
+    int totalMsgs = atoi(fields[1]);
     int msgNum = atoi(fields[2]);
     if (msgNum == 1) {
       // First message: reset accumulator
       data.nmea_sat_count = 0;
-      data.satsInView = atoi(fields[3]);
-      data.numSV = data.satsInView;
+      data.numSV = atoi(fields[3]); // total sats in view (not used in fix)
+      // satsInView is set from GPGSA (used-in-fix count) — don't overwrite here
     }
     // Each message carries up to 4 sats starting at field index 4
     for (int i = 0; i < 4 && data.nmea_sat_count < GnssData::NMEA_MAX_SATS; i++) {
@@ -1102,6 +1101,9 @@ bool GpsConnector::parseNmeaSentence(const char* sentence) {
         if (_nmea_used_svids[j] == sat.svId) { sat.svUsed = true; break; }
       }
     }
+    if (msgNum == totalMsgs) {
+      data.nmea_gsv_cycle++; // signal a complete GPGSV cycle to NavsatCollector
+    }
     return true;
   }
 
@@ -1114,6 +1116,8 @@ bool GpsConnector::parseNmeaSentence(const char* sentence) {
         _nmea_used_svids[_nmea_used_count++] = (uint8_t)atoi(fields[i]);
       }
     }
+    // In NMEA mode satsInView reflects sats used in fix (consistent with UBX NAV-PVT numSV)
+    data.satsInView = _nmea_used_count;
     // Update svUsed flag for already-collected satellite entries
     for (uint8_t i = 0; i < data.nmea_sat_count; i++) {
       data.nmea_sats[i].svUsed = false;

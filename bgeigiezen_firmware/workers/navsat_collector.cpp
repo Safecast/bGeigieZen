@@ -4,7 +4,7 @@
 NavsatCollector::NavsatCollector(TeenyUbloxConnect& gnss, const GnssData& gps_data) : Worker<NavsatData>({
                                                                 .available=false,
                                                                 .navsat_info=ubloxNAVSATInfo_t(),
-                                                            }), _gnss(gnss), _gps_data(gps_data) {
+                                                            }), _gnss(gnss), _gps_data(gps_data), _last_gsv_cycle(0) {
 }
 
 /**
@@ -29,8 +29,10 @@ void NavsatCollector::deactivate() {
 
 int8_t NavsatCollector::produce_data() {
   if (_gps_data.nmea_mode) {
-    // Build navsat_info from NMEA $GPGSV/$GPGSA data collected by GpsConnector
-    if (_gps_data.nmea_sat_count == 0) return e_worker_idle;
+    // Build navsat_info from NMEA $GPGSV/$GPGSA data collected by GpsConnector.
+    // Only fire once per complete GPGSV cycle to avoid flickering the satellite view.
+    if (_gps_data.nmea_gsv_cycle == _last_gsv_cycle || _gps_data.nmea_sat_count == 0) return e_worker_idle;
+    _last_gsv_cycle = _gps_data.nmea_gsv_cycle;
     auto& info = data.navsat_info;
     info.validPacket = true;
     info.numSvs = min(_gps_data.nmea_sat_count, (uint8_t)UBX_MAXNAVSATSATELLITES);

@@ -32,6 +32,7 @@ class NavsatCollector : public Worker<NavsatData> {
  private:
   TeenyUbloxConnect& _gnss;
   const GnssData& _gps_data;
+  uint32_t _last_gsv_cycle;
 };
 
 #endif //BGEIGIEZEN_NAVSAT_COLLECTOR_H_
