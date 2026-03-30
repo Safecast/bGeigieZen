@@ -52,7 +52,7 @@ GpsConnector::GpsConnector(TeenyUbloxConnect& gnss, HardwareSerial& serial) : Wo
                                                        .second=0,
                                                        .protocolVersionHigh=0,
                                                        .protocolVersionLow=0
-                                                   }), _gnss(gnss), _serial_conn(serial), _tried_115200_at(0), _tried_38400_at(0), _tried_9600_at(0), _init_at(0), _last_latitude(0), _last_longitude(0) {
+                                                   }), _gnss(gnss), _serial_conn(serial), _tried_115200_at(0), _tried_38400_at(0), _tried_9600_at(0), _tried_4800_at(0), _init_at(0), _raw_dump_done(false), _nmea_mode(false), _nmea_len(0), _last_latitude(0), _last_longitude(0) {
 }
 /**
  * @return true if initialized GNSS library, false if no connection with module.
@@ -104,6 +104,65 @@ bool GpsConnector::activate(bool retry) {
     else {
       return false;
     }
+  }
+  else if (_tried_4800_at == 0 && _tried_9600_at > 0 && (millis() - _tried_9600_at > 1200)) {
+    _tried_4800_at = millis();
+    _serial_conn.updateBaudRate(4800);
+    M5_LOGD("GNSS: Try at 4800 baud");
+    if (_gnss.begin(_serial_conn, 1000)) {
+      M5_LOGD("GNSS: connected at 4800 baud, switching to 38400");
+      _gnss.setSerialRate(38400);
+      delay(100);
+      _serial_conn.updateBaudRate(38400);
+    }
+    else {
+      return false;
+    }
+  }
+  else if (!_raw_dump_done && _tried_4800_at > 0 && (millis() - _tried_4800_at > 1200)) {
+    // All UBX baud-rate attempts failed — test TX line and check for UBX response
+    _raw_dump_done = true;
+    _serial_conn.updateBaudRate(9600);
+    while (_serial_conn.available()) _serial_conn.read(); // flush RX
+    // Send a raw UBX-CFG-PRT poll (class 0x06, id 0x06, payload = UART1 port id 0x01)
+    // B5 62 06 06 01 00 01 0E 24
+    const uint8_t ubxPoll[] = {0xB5, 0x62, 0x06, 0x06, 0x01, 0x00, 0x01, 0x0E, 0x24};
+    _serial_conn.write(ubxPoll, sizeof(ubxPoll));
+    _serial_conn.flush();
+    delay(300); // wait for GPS to respond
+    uint8_t buf[128];
+    int n = 0;
+    uint32_t t = millis();
+    while (n < (int)sizeof(buf) && (millis() - t) < 300) {
+      if (_serial_conn.available()) buf[n++] = _serial_conn.read();
+    }
+    if (n > 0) {
+      bool hasUbx = false;
+      bool hasNmea = false;
+      for (int i = 0; i < n; i++) {
+        if (i < n - 1 && buf[i] == 0xB5 && buf[i+1] == 0x62) hasUbx = true;
+        if (buf[i] == '$') hasNmea = true;
+      }
+      char hex[3 * 32 + 1] = {0};
+      int show = n < 32 ? n : 32;
+      for (int i = 0; i < show; i++) snprintf(hex + i * 3, 4, "%02X ", buf[i]);
+      M5_LOGI("GNSS: TX test: %d bytes, UBX=%s, NMEA=%s, hex: %s",
+              n, hasUbx ? "YES" : "NO", hasNmea ? "YES" : "NO", hex);
+      if (hasNmea && !hasUbx) {
+        M5_LOGI("GNSS: TX unconnected — switching to NMEA fallback mode (RX-only)");
+        // Serial is already at 9600 baud on RXD2/TXD2 — just flush and switch mode.
+        // Re-calling end()/begin() corrupts the UART on ESP32S3.
+        delay(100);
+        while (_serial_conn.available()) _serial_conn.read(); // flush stale bytes
+        _nmea_mode = true;
+        memset(_nmea_buf, 0, sizeof(_nmea_buf));
+        _nmea_len = 0;
+        return true;
+      }
+    } else {
+      M5_LOGW("GNSS: No bytes at 9600 — check wiring RX=GPIO18, TX=GPIO17 on CoreS3");
+    }
+    return false;
   }
   else {
     return false;
@@ -286,6 +345,10 @@ void GpsConnector::deactivate() {
   _tried_9600_at = 0;
   _tried_38400_at = 0;
   _tried_115200_at = 0;
+  _tried_4800_at = 0;
+  _raw_dump_done = false;
+  _nmea_mode = false;
+  _nmea_len = 0;
   _serial_conn.end();
 }
 
@@ -544,44 +607,41 @@ bool GpsConnector::restoreDatabaseFromSD() {
  * @return true if successful, false otherwise
  */
 bool GpsConnector::setDynamicModel(UbxDynamicModel model, bool saveToFlash) {
-  // Implementation based on u-blox M10 interface description (UBX-21035062)
   bool success = false;
-  
-  // Log the changes
-  Serial.printf("Setting GPS dynamic model to %d (saveToFlash: %d)\n", model, saveToFlash);
   M5_LOGD("GNSS: Setting dynamic model to %d (saveToFlash: %d)", model, saveToFlash);
-  
-  // Create UBX-CFG-VALSET message payload
-  uint8_t msgPayload[12]; // UBX-CFG-VALSET message payload
-  
-  // Header: version, layer, reserved
-  msgPayload[0] = 0x00; // version 0
-  msgPayload[1] = saveToFlash ? UBX_CFG_LAYER_ALL : UBX_CFG_LAYER_RAM; // layers: RAM only or RAM+BBR+Flash
-  msgPayload[2] = 0x00; // reserved
-  msgPayload[3] = 0x00; // reserved
-  
-  // Key: CFG-NAVSPG-DYNMODEL (0x20110021)
-  msgPayload[4] = 0x21; // LSB
-  msgPayload[5] = 0x00;
-  msgPayload[6] = 0x11;
-  msgPayload[7] = 0x20; // MSB
-  
-  // Value: dynamic model (1 byte, padded to 4 bytes)
-  msgPayload[8] = (uint8_t)model; // Dynamic model value
-  msgPayload[9] = 0x00; // padding
-  msgPayload[10] = 0x00; // padding
-  msgPayload[11] = 0x00; // padding
-  
-  // Send the UBX-CFG-VALSET message directly using our custom method
-  if (sendUBXMessage(UBX_CLASS_CFG, UBX_CFG_VALSET, msgPayload, sizeof(msgPayload))) {
-    // Wait a bit for the message to be processed
-    delay(100);
-    
-    // Store the current model
-    _current_model = model;
-    success = true;
-    
-    // Log the model that was set
+
+  if (data.protocolVersionHigh > 0 && data.protocolVersionHigh < 18) {
+    // u-blox 7 (e.g. UBX-G7020-KT): use UBX-CFG-NAV5 (0x06/0x24)
+    // CFG-VALSET is not available on protocol versions below 18
+    uint8_t nav5Payload[36] = {0};
+    nav5Payload[0] = 0x01; // mask LSB: apply dynModel only
+    nav5Payload[1] = 0x00; // mask MSB
+    nav5Payload[2] = (uint8_t)model; // dynModel
+    nav5Payload[3] = 0x03; // fixMode: auto 2D/3D
+    if (sendUBXMessage(UBX_CLASS_CFG, UBX_ID_CFG_NAV5, nav5Payload, sizeof(nav5Payload))) {
+      delay(100);
+      _current_model = model;
+      success = true;
+    }
+  } else {
+    // u-blox 8+ (M8/M9/M10): use UBX-CFG-VALSET (0x06/0x8A)
+    uint8_t msgPayload[12] = {0};
+    msgPayload[0] = 0x00; // version 0
+    msgPayload[1] = saveToFlash ? UBX_CFG_LAYER_ALL : UBX_CFG_LAYER_RAM;
+    // Key: CFG-NAVSPG-DYNMODEL (0x20110021)
+    msgPayload[4] = 0x21;
+    msgPayload[5] = 0x00;
+    msgPayload[6] = 0x11;
+    msgPayload[7] = 0x20;
+    msgPayload[8] = (uint8_t)model;
+    if (sendUBXMessage(UBX_CLASS_CFG, UBX_CFG_VALSET, msgPayload, sizeof(msgPayload))) {
+      delay(100);
+      _current_model = model;
+      success = true;
+    }
+  }
+
+  if (success) {
     const char* modelName = "UNKNOWN";
     switch(model) {
       case DYNMODEL_PORT: modelName = "PORTABLE"; break;
@@ -594,19 +654,11 @@ bool GpsConnector::setDynamicModel(UbxDynamicModel model, bool saveToFlash) {
       case DYNMODEL_AIRBORNE_4G: modelName = "AIRBORNE 4G"; break;
       case DYNMODEL_WRIST: modelName = "WRIST"; break;
     }
-    
-    Serial.printf("GPS set to %s mode\n", modelName);
     M5_LOGD("GNSS: Set to %s mode (saveToFlash: %d)", modelName, saveToFlash);
-    
-    // Save to NVS for persistence across power cycles
-    // Note: We need access to LocalStorage instance to save this
-    // This will be handled by the calling code that has access to LocalStorage
-    
   } else {
-    Serial.println("Failed to send dynamic model change command");
     M5_LOGD("GNSS: Failed to send dynamic model change command");
   }
-  
+
   return success;
 }
 
@@ -635,58 +687,36 @@ UbxDynamicModel GpsConnector::getDynamicModel() {
  */
 bool GpsConnector::readDynamicModelFromGPS() {
   bool success = false;
-  
-  // Create UBX-CFG-VALGET message payload
-  uint8_t msgPayload[8];
-  
-  // Header: version, layer, reserved
-  msgPayload[0] = 0x00; // version 0
-  msgPayload[1] = UBX_CFG_LAYER_RAM; // layer: RAM
-  msgPayload[2] = 0x00; // reserved
-  msgPayload[3] = 0x00; // reserved
-  
-  // Key: CFG-NAVSPG-DYNMODEL (0x20110021)
-  msgPayload[4] = 0x21; // LSB
-  msgPayload[5] = 0x00;
-  msgPayload[6] = 0x11;
-  msgPayload[7] = 0x20; // MSB
-  
-  // Send the UBX-CFG-VALGET message
-  if (sendUBXMessage(UBX_CLASS_CFG, UBX_CFG_VALGET, msgPayload, sizeof(msgPayload))) {
-    // Wait for response
-    delay(100);
-    
-    // In a real implementation, we would parse the response packet
-    // For now, we'll just use our stored value and log it
-    
-    // Map the model to a string for better readability
-    const char* modelName = "UNKNOWN";
-    switch(_current_model) {
-      case DYNMODEL_PORT: modelName = "PORTABLE"; break;
-      case DYNMODEL_STATIONARY: modelName = "STATIONARY"; break;
-      case DYNMODEL_PEDESTRIAN: modelName = "PEDESTRIAN"; break;
-      case DYNMODEL_AUTOMOTIVE: modelName = "AUTOMOTIVE"; break;
-      case DYNMODEL_SEA: modelName = "SEA"; break;
-      case DYNMODEL_AIRBORNE_1G: modelName = "AIRBORNE 1G"; break;
-      case DYNMODEL_AIRBORNE_2G: modelName = "AIRBORNE 2G"; break;
-      case DYNMODEL_AIRBORNE_4G: modelName = "AIRBORNE 4G"; break;
-      case DYNMODEL_WRIST: modelName = "WRIST"; break;
-    }
-    
-    Serial.printf("Current GPS dynamic model: %s (%d)\n", modelName, _current_model);
-    M5_LOGD("GNSS: Current dynamic model: %s (%d)", modelName, _current_model);
-    
-    success = true;
+
+  if (data.protocolVersionHigh > 0 && data.protocolVersionHigh < 18) {
+    // u-blox 7: poll UBX-CFG-NAV5 (no payload = poll request)
+    success = sendUBXMessage(UBX_CLASS_CFG, UBX_ID_CFG_NAV5, nullptr, 0);
   } else {
-    Serial.println("Failed to send dynamic model query command");
+    // u-blox 8+ (M8/M9/M10): poll UBX-CFG-VALGET
+    uint8_t msgPayload[8] = {0};
+    msgPayload[1] = UBX_CFG_LAYER_RAM;
+    msgPayload[4] = 0x21; // Key: CFG-NAVSPG-DYNMODEL LSB
+    msgPayload[5] = 0x00;
+    msgPayload[6] = 0x11;
+    msgPayload[7] = 0x20; // MSB
+    success = sendUBXMessage(UBX_CLASS_CFG, UBX_CFG_VALGET, msgPayload, sizeof(msgPayload));
+  }
+
+  if (success) {
+    delay(100);
+    M5_LOGD("GNSS: Current dynamic model (stored): %d", _current_model);
+  } else {
     M5_LOGD("GNSS: Failed to send dynamic model query command");
   }
-  
+
   return success;
 }
 
 
 int8_t GpsConnector::produce_data() {
+  if (_nmea_mode) {
+    return produceDataNmea();
+  }
   auto ret_status = e_worker_idle;
 
   // getPVT returns true if there is a fresh navigation solution available.
@@ -828,28 +858,32 @@ bool GpsConnector::sendUBXMessage(uint8_t msgClass, uint8_t msgID, const uint8_t
   _serial_conn.write((payloadSize >> 8) & 0xFF);
   
   // Write payload
-  _serial_conn.write(payload, payloadSize);
-  
+  if (payload != nullptr && payloadSize > 0) {
+    _serial_conn.write(payload, payloadSize);
+  }
+
   // Calculate checksum
   uint8_t ck_a = 0, ck_b = 0;
-  
+
   // Add class, ID, and length to checksum
   ck_a += msgClass;
   ck_b += ck_a;
-  
+
   ck_a += msgID;
   ck_b += ck_a;
-  
+
   ck_a += payloadSize & 0xFF;
   ck_b += ck_a;
-  
+
   ck_a += (payloadSize >> 8) & 0xFF;
   ck_b += ck_a;
-  
+
   // Add payload to checksum
-  for (size_t i = 0; i < payloadSize; i++) {
-    ck_a += payload[i];
-    ck_b += ck_a;
+  if (payload != nullptr) {
+    for (size_t i = 0; i < payloadSize; i++) {
+      ck_a += payload[i];
+      ck_b += ck_a;
+    }
   }
   
   // Write checksum
@@ -919,12 +953,170 @@ bool GpsConnector::backupGpsMemoryToNVS() {
 
 bool GpsConnector::restoreGpsMemoryFromNVS() {
   M5_LOGI("GPS: Checking for saved memory data in internal storage");
-  
-  // The U-blox M10 automatically restores from its internal backup memory
-  // when it powers up, so we don't need to actively restore data
-  // The backup memory contains almanac, ephemeris, and satellite data
-  
   M5_LOGI("GPS: Memory restore relies on U-blox internal backup memory");
-  
   return true;
+}
+
+// ---------------------------------------------------------------------------
+// NMEA fallback mode — used when GPS TX is connected but GPS RX is not,
+// so only one-way communication (receive NMEA) is possible.
+// ---------------------------------------------------------------------------
+
+double GpsConnector::nmeaCoordToDecimal(const char* coord, char direction) {
+  double val = atof(coord);
+  int deg = (int)(val / 100.0);
+  double min = val - deg * 100.0;
+  double result = deg + min / 60.0;
+  if (direction == 'S' || direction == 'W') result = -result;
+  return result;
+}
+
+bool GpsConnector::parseNmeaSentence(const char* sentence) {
+  // Validate checksum (XOR of bytes between '$' and '*')
+  const char* star = strchr(sentence, '*');
+  if (star != nullptr && strlen(star) >= 3) {
+    uint8_t calc = 0;
+    for (const char* p = sentence + 1; p < star; p++) calc ^= (uint8_t)*p;
+    uint8_t recv = (uint8_t)strtol(star + 1, nullptr, 16);
+    if (calc != recv) return false;
+  }
+
+  bool isRmc = (strncmp(sentence, "$GPRMC", 6) == 0 || strncmp(sentence, "$GNRMC", 6) == 0);
+  bool isGga = (strncmp(sentence, "$GPGGA", 6) == 0 || strncmp(sentence, "$GNGGA", 6) == 0);
+  bool isGsv = (strncmp(sentence, "$GPGSV", 6) == 0 || strncmp(sentence, "$GNGSV", 6) == 0);
+  if (!isRmc && !isGga && !isGsv) return false;
+
+  // Copy and strip checksum for field splitting
+  char buf[128];
+  strncpy(buf, sentence, sizeof(buf) - 1);
+  buf[sizeof(buf) - 1] = '\0';
+  char* s = strchr(buf, '*');
+  if (s) *s = '\0';
+
+  // Split on commas
+  char* fields[15] = {nullptr};
+  int nf = 0;
+  char* p = buf;
+  while (nf < 15) {
+    fields[nf++] = p;
+    p = strchr(p, ',');
+    if (!p) break;
+    *p++ = '\0';
+  }
+
+  if (isRmc && nf >= 10) {
+    // $G?RMC,HHMMSS.ss,A,DDMM.mmm,N,DDDMM.mmm,E,speed,course,DDMMYY,...
+    const char* tstr = fields[1];
+    const char* stat = fields[2];
+    const char* lat  = fields[3];
+    const char* ns   = fields[4];
+    const char* lon  = fields[5];
+    const char* ew   = fields[6];
+    const char* spd  = fields[7];
+    const char* crs  = fields[8];
+    const char* dstr = fields[9];
+
+    if (strlen(tstr) >= 6) {
+      char tmp[3] = {tstr[0], tstr[1], '\0'}; data.hour   = atoi(tmp);
+      tmp[0] = tstr[2]; tmp[1] = tstr[3];     data.minute = atoi(tmp);
+      tmp[0] = tstr[4]; tmp[1] = tstr[5];     data.second = atoi(tmp);
+      data.time_valid = true;
+      time_timer.restart();
+    }
+    if (strlen(dstr) >= 6) {
+      char tmp[3] = {dstr[0], dstr[1], '\0'}; data.day   = atoi(tmp);
+      tmp[0] = dstr[2]; tmp[1] = dstr[3];     data.month = atoi(tmp);
+      tmp[0] = dstr[4]; tmp[1] = dstr[5];     data.year  = 2000 + atoi(tmp);
+      data.date_valid = true;
+      date_timer.restart();
+    }
+    if (stat[0] == 'A' && strlen(lat) > 0 && strlen(lon) > 0) {
+      double new_lat = nmeaCoordToDecimal(lat, ns[0]);
+      double new_lon = nmeaCoordToDecimal(lon, ew[0]);
+      // Skip distance sanity check on first fix (last position is 0,0)
+      bool first_fix = (_last_latitude == 0.0 && _last_longitude == 0.0);
+      const auto dist = haversine_km(new_lat, new_lon, _last_latitude, _last_longitude);
+      _last_latitude  = data.latitude;
+      _last_longitude = data.longitude;
+      data.latitude  = new_lat;
+      data.longitude = new_lon;
+      data.gSpeed    = (int32_t)(atof(spd) * 514.444); // knots → mm/s
+      data.heading_degree = strlen(crs) > 0 ? atof(crs) : 0.0;
+      data.location_valid = first_fix || (dist < 0.5);
+      location_timer.restart();
+      return true;
+    }
+  }
+
+  if (isGga && nf >= 10) {
+    // $G?GGA,time,lat,N,lon,E,quality,nsats,hdop,alt,M,...
+    const char* qual  = fields[6];
+    const char* nsats = fields[7];
+    const char* hdop  = fields[8];
+    const char* alt   = fields[9];
+    if (qual[0] != '0' && strlen(nsats) > 0) {
+      data.satsInView = atoi(nsats);
+      data.numSV      = data.satsInView;
+      data.pdop       = strlen(hdop) > 0 ? atof(hdop) : 0.0;
+      data.altitudeMSL = strlen(alt) > 0 ? atof(alt) : 0.0;
+      return true;
+    }
+  }
+
+  if (isGsv && nf >= 4) {
+    // $G?GSV,numMsgs,msgNum,numSV,...
+    // Read total SVs in view from the first message only (msgNum == "1")
+    if (fields[2][0] == '1' && strlen(fields[3]) > 0) {
+      data.satsInView = atoi(fields[3]);
+      data.numSV      = data.satsInView;
+      return true;
+    }
+  }
+
+  return false;
+}
+
+int8_t GpsConnector::produceDataNmea() {
+  auto ret_status = e_worker_idle;
+  static bool first_fix_logged = false;
+
+  while (_serial_conn.available()) {
+    char c = (char)_serial_conn.read();
+    if (c == '$') {
+      _nmea_len = 0;
+      _nmea_buf[_nmea_len++] = c;
+    } else if (c == '\n' || c == '\r') {
+      if (_nmea_len > 6) {
+        _nmea_buf[_nmea_len] = '\0';
+        if (parseNmeaSentence(_nmea_buf)) {
+          ret_status = e_worker_data_read;
+          if (!first_fix_logged && data.location_valid) {
+            first_fix_logged = true;
+            M5_LOGI("GNSS: NMEA fix — lat=%.5f lon=%.5f alt=%.1fm sats=%d",
+                    data.latitude, data.longitude, data.altitudeMSL, data.satsInView);
+          }
+        }
+      }
+      _nmea_len = 0;
+    } else if (_nmea_len > 0 && _nmea_len < (uint8_t)(sizeof(_nmea_buf) - 1)) {
+      _nmea_buf[_nmea_len++] = c;
+    }
+  }
+
+  if (location_timer.isExpired()) data.location_valid = false;
+  if (time_timer.isExpired()) {
+    data.time_valid = false;
+    data.hour = GPS_INVALID_HOUR;
+    data.minute = GPS_INVALID_MINUTE;
+    data.second = GPS_INVALID_SECOND;
+  }
+  if (date_timer.isExpired()) {
+    data.date_valid = false;
+    data.year  = GPS_INVALID_YEAR;
+    data.month = GPS_INVALID_MONTH;
+    data.day   = GPS_INVALID_DAY;
+  }
+
+  ApiDataCache::instance().update(data);
+  return ret_status;
 }
