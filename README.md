@@ -42,7 +42,7 @@ The firmware supports u-blox GPS modules over UART (Port C on M5Stack).
 | RXD | GPIO18 | ESP32 receives | GPS TX |
 | TXD | GPIO17 | ESP32 transmits | GPS RX (optional — required for full UBX mode) |
 
-**NMEA fallback mode:** If only the GPS TX → GPIO18 wire is connected (GPS RX is not wired), the firmware automatically detects this and switches to NMEA-only parsing. Coordinates, time, date, and satellite count are still reported. Full UBX mode (both wires) is recommended for faster cold-start and richer data.
+**NMEA fallback mode:** If only the GPS TX → GPIO18 wire is connected (GPS RX is not wired), the firmware automatically detects this and switches to NMEA-only parsing. Coordinates, time, date, and satellite count are still reported. The status bar shows `GPS?` while searching, then the satellite count and fix state once acquired. Full UBX mode (both wires) is recommended for faster cold-start and richer data.
 
 ## Software Setup
 
@@ -72,6 +72,25 @@ The firmware supports u-blox GPS modules over UART (Port C on M5Stack).
 2. Wait for GPS signal acquisition.
 3. Radiation measurements will display on screen.
 4. Data logs automatically save to the SD card.
+
+## Status Bar
+
+The bottom status bar shows live device state at a glance:
+
+| Indicator | Meaning |
+|---|---|
+| `GPS?` (orange) | GPS active, searching for satellites (cold start) |
+| `GPS12` (orange) | GPS tracking 12 satellites, no fix yet |
+| `GPS5` (green) | GPS fix acquired using 5 satellites |
+| `GPS` (red) | GPS module not detected / error |
+| `GM` (white) | Geiger tube active |
+| `GM` (red) | Geiger tube required but not detected |
+| `SD` (white/green) | SD card present and writeable |
+| `SD` (red) | SD card required but missing or unreadable |
+| `WF` (white/green) | Wi-Fi connected |
+| `BT` (white/green) | Bluetooth active |
+| `SN` (green) | Sound enabled |
+| `#12345` | Device ID |
 
 ## SD card configuration files
 

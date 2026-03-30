@@ -177,7 +177,10 @@ void setup() {
 }
 
 void loop() {
-  if (gps.active()) {
+  // checkUblox() drains the entire Serial2 buffer looking for UBX packets.
+  // In NMEA fallback mode the GPS sends NMEA sentences, not UBX — skip it so
+  // that produceDataNmea() can read those bytes.
+  if (gps.active() && !gps.get_data().nmea_mode) {
     gnss.checkUblox();
   }
 
