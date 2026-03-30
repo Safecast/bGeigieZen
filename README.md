@@ -19,10 +19,30 @@ bGeigieZen is a portable radiation monitoring device that combines precision sen
 
 ## Hardware Requirements
 
-- M5Stack Core device
+- M5Stack Core device (Core2 or CoreS3)
 - LND-7317 radiation sensor
-- GPS module
+- GPS module (see [Supported GPS Modules](#supported-gps-modules) below)
 - SD card for logging
+
+## Supported GPS Modules
+
+The firmware supports u-blox GPS modules over UART (Port C on M5Stack).
+
+| Module | Chip | Protocol | Mode | Notes |
+|---|---|---|---|---|
+| Beitian BN-280 / BN-880 | u-blox M8 | UBX (bidirectional) | Full UBX | Default recommended module |
+| u-blox NEO-M9N | u-blox M9 | UBX (bidirectional) | Full UBX | |
+| u-blox NEO-M10 | u-blox M10 | UBX (bidirectional) | Full UBX | |
+| u-blox NEO-7M / UBX-G7020-KT | u-blox M7 | NMEA (RX-only) or UBX | NMEA fallback or Full UBX | RX-only works with only GPS TX → CoreS3 GPIO18 connected; connect GPS RX → GPIO17 for full UBX |
+
+### Wiring (M5Stack CoreS3 Port C)
+
+| CoreS3 Port C pin | GPIO | Direction | Connect to |
+|---|---|---|---|
+| RXD | GPIO18 | ESP32 receives | GPS TX |
+| TXD | GPIO17 | ESP32 transmits | GPS RX (optional — required for full UBX mode) |
+
+**NMEA fallback mode:** If only the GPS TX → GPIO18 wire is connected (GPS RX is not wired), the firmware automatically detects this and switches to NMEA-only parsing. Coordinates, time, date, and satellite count are still reported. Full UBX mode (both wires) is recommended for faster cold-start and richer data.
 
 ## Software Setup
 

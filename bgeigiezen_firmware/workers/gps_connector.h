@@ -202,7 +202,18 @@ class GpsConnector : public Worker<GnssData> {
   uint32_t _tried_115200_at;
   uint32_t _tried_38400_at;
   uint32_t _tried_9600_at;
+  uint32_t _tried_4800_at;
   uint32_t _init_at;
+  bool _raw_dump_done;
+
+  // NMEA fallback mode (used when GPS TX is connected but RX is not)
+  bool _nmea_mode;
+  char _nmea_buf[128];
+  uint8_t _nmea_len;
+
+  int8_t produceDataNmea();
+  bool parseNmeaSentence(const char* sentence);
+  static double nmeaCoordToDecimal(const char* coord, char direction);
 
   double _last_latitude;
   double _last_longitude;
