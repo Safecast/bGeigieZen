@@ -276,8 +276,7 @@ This project is licensed under the MIT License.
 
 Developed and maintained by the Safecast community.
 
-This repo is for development of the bGeigieZen.
-Specs can be found at https://github.com/Safecast/bGeigieZen/wiki/Specification
-Much more information and documentation for the bGeigieZen is at https://bgeigiezen.safecast.jp
+- Specifications: [bGeigieZen Wiki](https://github.com/Safecast/bGeigieZen/wiki/Specification)
+- Full documentation: [bgeigiezen.safecast.jp](https://bgeigiezen.safecast.jp)
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Safecast/bGeigieZen)
