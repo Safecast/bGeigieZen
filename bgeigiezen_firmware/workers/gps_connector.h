@@ -80,6 +80,20 @@ struct GnssData {
   uint8_t protocolVersionHigh;
   uint8_t protocolVersionLow;
 
+  // Per-satellite data from NMEA $GPGSV/$GPGSA (populated in NMEA fallback mode)
+  struct NmeaSatEntry {
+    uint8_t svId;
+    int8_t  elev;
+    int16_t azim;
+    uint8_t cno;
+    bool    svUsed;
+    char    gnssIdType; // 'G'=GPS, 'R'=GLONASS, 'E'=Galileo, etc.
+  };
+  static constexpr uint8_t NMEA_MAX_SATS = 16;
+  NmeaSatEntry nmea_sats[NMEA_MAX_SATS];
+  uint8_t nmea_sat_count;
+  bool nmea_mode;
+
 };
 
 /**
@@ -210,6 +224,8 @@ class GpsConnector : public Worker<GnssData> {
   bool _nmea_mode;
   char _nmea_buf[128];
   uint8_t _nmea_len;
+  uint8_t _nmea_used_svids[12]; // SV IDs used in nav solution (from $GPGSA)
+  uint8_t _nmea_used_count;
 
   int8_t produceDataNmea();
   bool parseNmeaSentence(const char* sentence);
