@@ -408,11 +408,18 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
             pos += 30; 
           } else {
             bool has_fix = gps->get_data().location_valid;
+            uint8_t num_sv = gps->get_data().numSV;
             M5.Lcd.setTextColor(has_fix ? LCD_COLOR_ACTIVITY : LCD_COLOR_STALE_INCOMPLETE, TFT_BLACK);
-            // Before fix: show total visible (numSV) so the user sees the GPS is searching.
-            // After fix: show used-in-fix (satsInView) which is the meaningful count.
-            uint8_t display_sats = has_fix ? gps->get_data().satsInView : gps->get_data().numSV;
-            M5.Lcd.printf("GPS%d", display_sats);
+            if (has_fix) {
+              // Fix acquired: show used-in-fix satellite count in green
+              M5.Lcd.printf("GPS%d", gps->get_data().satsInView);
+            } else if (num_sv > 0) {
+              // Satellites visible but no fix yet: show total visible in orange
+              M5.Lcd.printf("GPS%d", num_sv);
+            } else {
+              // No satellites visible yet (cold start searching): show GPS? in orange
+              M5.Lcd.print("GPS?");
+            }
             pos += 34;
           }
 
