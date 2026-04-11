@@ -11,6 +11,7 @@
 #include "sd_wipe.h"
 #include "survey_mode.h"
 #include "user_config.h"
+#include "workers/local_storage.h"
 #include "workers/zen_button.h"
 #include "zen_info.h"
 #include "usb_transfer_screen.h"
@@ -45,6 +46,15 @@ void MenuWindow::render(const worker_map_t& workers, const handler_map_t& handle
 }
 
 void MenuWindow::enter_screen(Controller& controller) {
+  // Restore selection to the last-used operational mode so the menu
+  // doesn't always start on Drive after a power cycle.
+  switch (controller.get_settings().get_last_mode()) {
+    case LocalStorage::e_operational_mode_drive:     _menu_index = 0; break;
+    case LocalStorage::e_operational_mode_survey:    _menu_index = 1; break;
+    case LocalStorage::e_operational_mode_fixed:     _menu_index = 2; break;
+    case LocalStorage::e_operational_mode_flight:    _menu_index = 3; break;
+    case LocalStorage::e_operational_mode_satellite: _menu_index = 4; break;
+  }
   open_menu(true);
   force_next_render();
 }

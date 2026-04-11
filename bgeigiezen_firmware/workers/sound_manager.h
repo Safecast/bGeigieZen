@@ -49,6 +49,12 @@ class SoundManager : public Worker<bool> {
   bool isSoundEnabled() const { return _sound_enabled; }
 
   /**
+   * Set sound enabled state silently (no confirmation tones).
+   * Used by SD config loader to apply persisted state.
+   */
+  void setSoundEnabled(bool enabled);
+
+  /**
    * Play three 3kHz beeps for error messages
    * Plays regardless of sound enabled state for critical errors
    */

@@ -1,5 +1,8 @@
 #include "sd_wrapper.h"
 #include "user_config.h"
+#include "workers/sound_manager.h"
+
+extern SoundManager sound_manager;
 
 #define SD_CONFIG_FIELD_VERSION "version"
 #define SD_CONFIG_FIELD_DEVICE_ID "device_id"
@@ -24,6 +27,7 @@
 #define SD_CONFIG_FIELD_SCREEN_OFF_TIMEOUT "screen_off_timeout"
 #define SD_CONFIG_FIELD_ANIMATED_SCREENSAVER "animated_screensaver"
 #define SD_CONFIG_FIELD_ERROR_ALERT_SOUND "error_alert_sound"
+#define SD_CONFIG_FIELD_SOUND_ENABLED "sound_enabled"
 #define SD_CONFIG_FIELD_DIM_BRIGHTNESS "dim_brightness"
 #define SD_CONFIG_FIELD_AUDIO_VOLUME "audio_volume"
 #define SD_CONFIG_FIELD_WIFI_SSID "wifi_ssid"
@@ -62,6 +66,7 @@ constexpr char sd_config_screen_dim_timeout_f[] = SD_CONFIG_FIELD_SCREEN_DIM_TIM
 constexpr char sd_config_screen_off_timeout_f[] = SD_CONFIG_FIELD_SCREEN_OFF_TIMEOUT"=%du";
 constexpr char sd_config_animated_screensaver_f[] = SD_CONFIG_FIELD_ANIMATED_SCREENSAVER"=%hhu";
 constexpr char sd_config_error_alert_sound_f[] = SD_CONFIG_FIELD_ERROR_ALERT_SOUND"=%hhu";
+constexpr char sd_config_sound_enabled_f[] = SD_CONFIG_FIELD_SOUND_ENABLED"=%hhu";
 constexpr char sd_config_dim_brightness_f[] = SD_CONFIG_FIELD_DIM_BRIGHTNESS"=%hhu";
 constexpr char sd_config_audio_volume_f[] = SD_CONFIG_FIELD_AUDIO_VOLUME"=%hhu";
 constexpr char sd_config_wifi_ssid_f[] = SD_CONFIG_FIELD_WIFI_SSID"=%[^\t\r\n]";
@@ -283,6 +288,7 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   uint8_t error_alert_sound = true;
   uint8_t dim_brightness = D_DIM_BRIGHTNESS;
   uint8_t audio_volume = D_AUDIO_VOLUME;
+  uint8_t sound_enabled = 1;
 
   // Connection settings
   char wifi_ssid[CONFIG_VAL_MAX] = "";
@@ -445,6 +451,12 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
         M5_LOGD("Loaded from SD: error_alert_sound=%d", !!error_alert_sound);
       }
     }
+    else if (line.startsWith(SD_CONFIG_FIELD_SOUND_ENABLED)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_sound_enabled_f, &sound_enabled)) {
+        sound_manager.setSoundEnabled(!!sound_enabled);
+        M5_LOGD("Loaded from SD: sound_enabled=%d", !!sound_enabled);
+      }
+    }
     else if (line.startsWith(SD_CONFIG_FIELD_FIXED_LATITUDE)) {
       if (_device_id && sscanf(line.c_str(), sd_config_fixed_latitude_f, &fixed_latitude)) {
         settings.set_fixed_latitude(fixed_latitude, true);
@@ -547,6 +559,8 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
     safecast_txt.printf(sd_config_audio_volume_f, settings.get_audio_volume());
     safecast_txt.println();
     safecast_txt.printf(sd_config_error_alert_sound_f, settings.get_error_alert_sound());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_sound_enabled_f, sound_manager.isSoundEnabled() ? 1 : 0);
     safecast_txt.println();
     safecast_txt.printf(sd_config_fixed_latitude_f, settings.get_fixed_latitude());
     safecast_txt.println();

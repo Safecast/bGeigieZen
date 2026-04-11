@@ -155,6 +155,16 @@ void SoundManager::saveSoundState() {
   }
 }
 
+void SoundManager::setSoundEnabled(bool enabled) {
+  if (_sound_enabled == enabled) {
+    return;
+  }
+  _sound_enabled = enabled;
+  data = _sound_enabled;
+  saveSoundState();
+  M5_LOGD("Sound state set silently to %s", _sound_enabled ? "ON" : "OFF");
+}
+
 bool SoundManager::toggleSound() {
   // Log the sound toggle operation
   M5_LOGD("Toggling sound state from %s", _sound_enabled ? "ON" : "OFF");
