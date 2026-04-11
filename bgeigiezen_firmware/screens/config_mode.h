@@ -16,9 +16,7 @@ class ConfigModeScreen : public BaseScreenWithMenu {
     e_config_page_sd_wipe,
     e_config_page_reset_dose,
     e_config_page_cpm_threshold,
-    e_config_page_click_sound,
-    e_config_page_error_alert_sound,
-    e_config_page_audio_volume,
+    e_config_page_audio,
     e_config_page_dim_brightness,
     e_config_page_set_home_gps,
     e_config_page_reset_all,
@@ -43,9 +41,7 @@ class ConfigModeScreen : public BaseScreenWithMenu {
   void render_sd_wipe(const worker_map_t& workers, const handler_map_t& handlers);
   void render_reset_device_sd(const worker_map_t& workers, const handler_map_t& handlers);
   void render_cpm_threshold_page(const worker_map_t& workers, const handler_map_t& handlers);
-  void render_click_sound_page(const worker_map_t& workers, const handler_map_t& handlers);
-  void render_error_alert_sound_page(const worker_map_t& workers, const handler_map_t& handlers);
-  void render_audio_volume_page(const worker_map_t& workers, const handler_map_t& handlers);
+  void render_audio_page(const worker_map_t& workers, const handler_map_t& handlers);
   void render_dim_brightness_page(const worker_map_t& workers, const handler_map_t& handlers);
   void render_set_home_gps_page(const worker_map_t& workers, const handler_map_t& handlers);
 
@@ -57,6 +53,14 @@ class ConfigModeScreen : public BaseScreenWithMenu {
   };
 
   uint8_t _main_page_info_section;
+
+  enum AudioField {
+    e_audio_field_volume,
+    e_audio_field_clicks,
+    e_audio_field_alarm,
+    e_audio_field_MAX,
+  };
+  uint8_t _audio_field;
 };
 
 extern ConfigModeScreen ConfigModeScreen_i;

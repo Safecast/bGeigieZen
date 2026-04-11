@@ -22,9 +22,7 @@ const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MEN
     {.title="Wipe SD Card", .tooltip="Delete all log files from the SD card", .enabled=true},
     {.title="Reset dose", .tooltip="Reset the accumulated dose rate to zero", .enabled=true},
     {.title="CPM Alert Level", .tooltip="Adjust the CPM alert threshold level", .enabled=true},
-    {.title="Click Sound", .tooltip="Enable/disable Geiger click sounds", .enabled=true},
-    {.title="Error Alert Sound", .tooltip="Enable/disable error alert beep sounds", .enabled=true},
-    {.title="Audio Volume", .tooltip="Adjust global audio volume for clicks/alerts", .enabled=true},
+    {.title="Audio Settings", .tooltip="Volume, clicks and alarm sound on one page", .enabled=true},
     {.title="Dim Brightness", .tooltip="Adjust screen brightness when dimmed/screensaver", .enabled=true},
     {.title="Set Home GPS", .tooltip="Set current GPS      location as home     for Real Time mode", .enabled=true},
     {.title="Factory reset", .tooltip="Clear and reset      device and SD-card", .enabled=true},
@@ -34,26 +32,48 @@ const ConfigModeScreen::MenuItem CONFIG_MODE_MENU[ConfigModeScreen::e_config_MEN
 
 ConfigModeScreen ConfigModeScreen_i;
 
-ConfigModeScreen::ConfigModeScreen() : BaseScreenWithMenu("Settings", true), _main_page_info_section(0) {
+ConfigModeScreen::ConfigModeScreen() : BaseScreenWithMenu("Settings", true), _main_page_info_section(0), _audio_field(0) {
 }
 
-void ConfigModeScreen::render_audio_volume_page(const worker_map_t& workers, const handler_map_t& handlers) {
+void ConfigModeScreen::render_audio_page(const worker_map_t& workers, const handler_map_t& handlers) {
   auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
-  uint8_t current = settings->get_audio_volume();
+  auto sound_manager = workers.worker<SoundManager>(k_worker_sound_manager);
 
-  // Draw button indicators at bottom of screen
-  drawButton1("-5%\nHold:-20%");
-  drawButton2("+5%\nHold:+20%");
+  uint8_t volume = settings->get_audio_volume();
+  bool clicks_on = sound_manager && sound_manager->isSoundEnabled();
+  bool alarm_on = settings->get_error_alert_sound();
+
+  drawButton1("Next");
+  drawButton2(_audio_field == e_audio_field_volume ? "+5%\nHold:+20%" : "Toggle");
   drawButton3("Back");
 
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  M5.Lcd.setCursor(0, 50, &fonts::Font2);
-  M5.Lcd.printf("Audio Volume\n\n");
-  M5.Lcd.printf("Current: %u%%\n\n", current);
-  M5.Lcd.printf("Controls the global audio volume for\n");
-  M5.Lcd.printf("clicks and CPM alert sounds.\n\n");
-  M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-  M5.Lcd.printf("Range: 0-100%%\n");
+  M5.Lcd.setCursor(0, 45, &fonts::Font2);
+  M5.Lcd.printf("Audio Settings\n\n");
+
+  const uint16_t hl_fg = LCD_COLOR_BACKGROUND;
+  const uint16_t hl_bg = LCD_COLOR_DEFAULT;
+  const uint16_t fg = LCD_COLOR_DEFAULT;
+  const uint16_t bg = LCD_COLOR_BACKGROUND;
+
+  M5.Lcd.setTextColor(_audio_field == e_audio_field_volume ? hl_fg : fg,
+                      _audio_field == e_audio_field_volume ? hl_bg : bg);
+  M5.Lcd.printf(" Volume:  %3u%%       \n", volume);
+  M5.Lcd.setTextColor(fg, bg);
+  M5.Lcd.printf("\n");
+
+  M5.Lcd.setTextColor(_audio_field == e_audio_field_clicks ? hl_fg : fg,
+                      _audio_field == e_audio_field_clicks ? hl_bg : bg);
+  M5.Lcd.printf(" Clicks:  %s      \n", clicks_on ? "ON " : "OFF");
+  M5.Lcd.setTextColor(fg, bg);
+  M5.Lcd.printf("\n");
+
+  M5.Lcd.setTextColor(_audio_field == e_audio_field_alarm ? hl_fg : fg,
+                      _audio_field == e_audio_field_alarm ? hl_bg : bg);
+  M5.Lcd.printf(" Alarm:   %s      \n", alarm_on ? "ON " : "OFF");
+  M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, bg);
+  M5.Lcd.printf("\nA: select  B: change\n");
+  M5.Lcd.printf("Volume wraps 100->0\n");
 }
 
 void ConfigModeScreen::render_dim_brightness_page(const worker_map_t& workers, const handler_map_t& handlers) {
@@ -114,55 +134,30 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
         uint16_t current_threshold = settings->get_alert_threshold();
         uint16_t decrement = button1->get_data().longPress ? 100 : 10;
         uint16_t new_threshold;
-        
+
         // Handle underflow protection
         if (current_threshold <= decrement || current_threshold - decrement < 10) {
           new_threshold = 10;  // Minimum threshold
         } else {
           new_threshold = current_threshold - decrement;
         }
-        
+
         if (new_threshold != current_threshold) {
           settings->set_alert_threshold(new_threshold, false);
-          
+
           // Save to SD card
           if (SDInterface::i().ready()) {
             SDInterface::i().write_safezen_file_from_settings(*settings, false);
           }
-          
+
           force_next_render();
           M5_LOGD("CPM threshold decreased to: %u", new_threshold);
         }
       }
-      // Check if we're on the click sound page for toggle functionality
-      else if (_current_page == e_config_page_click_sound) {
-        auto sound_manager = workers.worker<SoundManager>(k_worker_sound_manager);
-        if (sound_manager) {
-          bool new_state = sound_manager->toggleSound();
-          // Persist confirmation already handled by SoundManager; also mirror to SD settings file
-          auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
-          if (SDInterface::i().ready()) {
-            SDInterface::i().write_safezen_file_from_settings(*settings, false);
-          }
-          force_next_render();
-          M5_LOGD("Click sound toggled to: %s", new_state ? "ENABLED" : "DISABLED");
-        }
-      }
-      // Check if we're on the error alert sound page for toggle functionality
-      else if (_current_page == e_config_page_error_alert_sound) {
-        auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
-        bool current_setting = settings->get_error_alert_sound();
-        bool new_setting = !current_setting;
-        
-        settings->set_error_alert_sound(new_setting, false);
-        
-        // Save to SD card
-        if (SDInterface::i().ready()) {
-          SDInterface::i().write_safezen_file_from_settings(*settings, false);
-        }
-        
+      // Audio Settings page: button A cycles the selected field
+      else if (_current_page == e_config_page_audio) {
+        _audio_field = (_audio_field + 1) % e_audio_field_MAX;
         force_next_render();
-        M5_LOGD("Error alert sound toggled to: %s", new_setting ? "ENABLED" : "DISABLED");
       }
       // Check if we're on the dim brightness page for decrement functionality
       else if (_current_page == e_config_page_dim_brightness) {
@@ -178,21 +173,6 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
           }
           force_next_render();
           M5_LOGD("Dim brightness decreased to: %u%%", new_value);
-        }
-      }
-      else if (_current_page == e_config_page_audio_volume) {
-        auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
-        uint8_t current = settings->get_audio_volume();
-        uint8_t step = button1->get_data().longPress ? 20 : 5;
-        uint8_t new_value = (current > step) ? (uint8_t)(current - step) : 0;
-
-        if (new_value != current) {
-          settings->set_audio_volume(new_value, false);
-          if (SDInterface::i().ready()) {
-            SDInterface::i().write_safezen_file_from_settings(*settings, false);
-          }
-          force_next_render();
-          M5_LOGD("Audio volume decreased to: %u%%", new_value);
         }
       }
       else {
@@ -304,20 +284,39 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
           }
           break;
         }
-        case e_config_page_audio_volume: {
+        case e_config_page_audio: {
           auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
-          uint8_t current = settings->get_audio_volume();
-          uint8_t step = button2->get_data().longPress ? 20 : 5;
-          uint16_t temp = current + step; // use wider type to avoid overflow before clamp
-          uint8_t new_value = (temp > 100) ? 100 : (uint8_t)temp;
-
-          if (new_value != current) {
+          if (_audio_field == e_audio_field_volume) {
+            uint8_t current = settings->get_audio_volume();
+            uint8_t step = button2->get_data().longPress ? 20 : 5;
+            uint16_t next = (uint16_t)current + step;
+            uint8_t new_value = (next > 100) ? 0 : (uint8_t)next; // wrap-around
             settings->set_audio_volume(new_value, false);
             if (SDInterface::i().ready()) {
               SDInterface::i().write_safezen_file_from_settings(*settings, false);
             }
             force_next_render();
-            M5_LOGD("Audio volume increased to: %u%%", new_value);
+            M5_LOGD("Audio volume set to: %u%%", new_value);
+          }
+          else if (_audio_field == e_audio_field_clicks) {
+            auto sound_manager = workers.worker<SoundManager>(k_worker_sound_manager);
+            if (sound_manager) {
+              bool new_state = sound_manager->toggleSound();
+              if (SDInterface::i().ready()) {
+                SDInterface::i().write_safezen_file_from_settings(*settings, false);
+              }
+              force_next_render();
+              M5_LOGD("Click sound toggled to: %s", new_state ? "ENABLED" : "DISABLED");
+            }
+          }
+          else if (_audio_field == e_audio_field_alarm) {
+            bool new_setting = !settings->get_error_alert_sound();
+            settings->set_error_alert_sound(new_setting, false);
+            if (SDInterface::i().ready()) {
+              SDInterface::i().write_safezen_file_from_settings(*settings, false);
+            }
+            force_next_render();
+            M5_LOGD("Alarm (error alert) sound toggled to: %s", new_setting ? "ENABLED" : "DISABLED");
           }
           break;
         }
@@ -329,10 +328,8 @@ BaseScreen* ConfigModeScreen::handle_input(Controller& controller, const worker_
       // Handle page-specific back navigation
       switch (_current_page) {
         case e_config_page_cpm_threshold:
-        case e_config_page_click_sound:
-        case e_config_page_error_alert_sound:
+        case e_config_page_audio:
         case e_config_page_dim_brightness:
-        case e_config_page_audio_volume:
         case e_config_page_set_home_gps:
           // Go back to config menu, not main menu
           _current_page = e_config_page_main;
@@ -379,17 +376,11 @@ void ConfigModeScreen::render(const worker_map_t& workers, const handler_map_t& 
       case e_config_page_cpm_threshold:
         render_cpm_threshold_page(workers, handlers);
         break;
-      case e_config_page_click_sound:
-        render_click_sound_page(workers, handlers);
-        break;
-      case e_config_page_error_alert_sound:
-        render_error_alert_sound_page(workers, handlers);
+      case e_config_page_audio:
+        render_audio_page(workers, handlers);
         break;
       case e_config_page_dim_brightness:
         render_dim_brightness_page(workers, handlers);
-        break;
-      case e_config_page_audio_volume:
-        render_audio_volume_page(workers, handlers);
         break;
       case e_config_page_set_home_gps:
         render_set_home_gps_page(workers, handlers);
@@ -536,53 +527,6 @@ void ConfigModeScreen::render_cpm_threshold_page(const worker_map_t& workers, co
   M5.Lcd.printf("Hold A: -100 CPM\n");
   M5.Lcd.printf("Hold B: +100 CPM\n");
   M5.Lcd.printf("Range: 10-9999 CPM\n");
-}
-
-void ConfigModeScreen::render_click_sound_page(const worker_map_t& workers, const handler_map_t& handlers) {
-  auto sound_manager = workers.worker<SoundManager>(k_worker_sound_manager);
-  bool enabled = sound_manager && sound_manager->isSoundEnabled();
-  
-  // Draw button indicators at bottom of screen
-  drawButton1("Toggle");
-  drawButton2("");
-  drawButton3("Back");
-  
-  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  M5.Lcd.setCursor(0, 50, &fonts::Font2);
-  M5.Lcd.printf("Click Sound\n");
-  M5.Lcd.printf("\n");
-  M5.Lcd.printf("Current: %s\n", enabled ? "ENABLED" : "DISABLED");
-  M5.Lcd.printf("\n");
-  M5.Lcd.printf("Controls Geiger counter click\n");
-  M5.Lcd.printf("sound during normal operation.\n");
-  
-  M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-  M5.Lcd.printf("\n");
-  M5.Lcd.printf("Tip: Long-press Menu Button\n");
-  M5.Lcd.printf("toggles this too.\n");
-}
-
-void ConfigModeScreen::render_error_alert_sound_page(const worker_map_t& workers, const handler_map_t& handlers) {
-  auto* settings = workers.worker<LocalStorage>(k_worker_local_storage);
-  bool current_setting = settings->get_error_alert_sound();
-  
-  // Draw button indicators at bottom of screen
-  drawButton1("Toggle");
-  drawButton2("");
-  drawButton3("Back");
-  
-  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  M5.Lcd.setCursor(0, 50, &fonts::Font2);
-  M5.Lcd.printf("Error Alert Sound\n");
-  M5.Lcd.printf("\n");
-  M5.Lcd.printf("Current: %s\n", current_setting ? "ENABLED" : "DISABLED");
-  M5.Lcd.printf("\n");
-  M5.Lcd.printf("Controls error beep sounds\n");
-  M5.Lcd.printf("when system errors occur.\n");
-  M5.Lcd.printf("\n");
-  M5.Lcd.setTextColor(LCD_COLOR_STALE_INCOMPLETE, LCD_COLOR_BACKGROUND);
-  M5.Lcd.printf("Note: CPM alert sounds are\n");
-  M5.Lcd.printf("controlled separately.\n");
 }
 
 void ConfigModeScreen::render_set_home_gps_page(const worker_map_t& workers, const handler_map_t& handlers) {
