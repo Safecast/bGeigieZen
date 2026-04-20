@@ -125,7 +125,7 @@ const __FlashStringHelper* BaseScreen::get_error_message(const worker_map_t& wor
   if (required_tube && millis() > 6000 && !workers.worker<GeigerCounter>(k_worker_gm_sensor)->active()) {
     return STATUS_ERROR_GEIGER;
   }
-  if (required_gps && !workers.worker<GpsConnector>(k_worker_gps_connector)->active()) {
+  if (required_gps && millis() > 15000 && !workers.worker<GpsConnector>(k_worker_gps_connector)->active()) {
     return STATUS_ERROR_GPS;
   }
   if (required_sd && !SDInterface::i().can_write_logs()) {
