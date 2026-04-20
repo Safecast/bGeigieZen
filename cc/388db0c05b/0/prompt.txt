@@ -1,0 +1,32 @@
+On boot with the M7 Ublox GPS module I always get a GPS error... But it connects fine it seems:
+
+--- Terminal on /dev/ttyACM0 | 115200 8-N-1
+--- Available filters and text transformations: debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+[   351][E][Preferences.cpp:50] begin(): nvs_open failed: NOT_IN[  2581][D][gps_connector.cpp:79] activate(): GNSS: Try at 115200 baud
+[  4511][D][gps_connector.cpp:90] activate(): GNSS: Try at 38400 baud
+[  6037][D][gps_connector.cpp:101] activate(): GNSS: Try at 9600 baud
+[  6260][D][sd_wrapper.cpp:674] rename_log(): Successfully renamed '/journals/latest.log' to '/journals/2026-04-20_1338.log'
+[  6261][D][sd_logger.cpp:121] handle_produced_work(): Updated log name to '/journals/2026-04-20_1338.log'.
+[  7246][D][gps_connector.cpp:115] activate(): GNSS: Try at 4800 baud
+[ 10375][D][gfx_screen.cpp:211] handle_report(): New screen entered: Drive
+[ 10461][D][sd_logger.cpp:64] activate(): Started new log '/drives/latest.log'.
+[ 10462][I][power_manager.cpp:37] enterLowPowerMode(): Entering low power mode (WiFi not required)
+[ 10468][I][power_manager.cpp:145] setCpuFrequency(): Attempting to change CPU frequency from 240 MHz to 80 MHz
+[ 10479][I][power_manager.cpp:148] setCpuFrequency(): CPU frequency change attempted. Result: SUCCESS
+[ 10489][I][power_manager.cpp:64] enterLowPowerMode(): Low power mode activated
+E (42168) BT_GATT: Active Service Found 
+E (42169) BT_GATT: Duplicate Service start - Service already started
+[ 10815][D][bluetooth_reporter.cpp:52] activate(): Bluetooth initialized, device: bGeigie5158
+[ 10818][D][gps_connector.cpp:615] setDynamicModel(): GNSS: Setting dynamic model to 4 (saveToFlash: 1)
+[ 10972][D][gps_connector.cpp:661] setDynamicModel(): GNSS: Set to AUTOMOTIVE mode (saveToFlash: 1)
+[ 11601][I][gps_connector.cpp:151] activate(): GNSS: GPS module: NMEA-only (TX not connected) — u-blox or compatible, 9600 baud
+[ 11771][D][sd_wrapper.cpp:674] rename_log(): Successfully renamed '/drives/latest.log' to '/drives/2026-04-20_1339.log'
+[ 11772][D][sd_logger.cpp:121] handle_produced_work(): Updated log name to '/drives/2026-04-20_1339.log'.
+[ 12731][D][rtc_connector.cpp:75] gps_to_system(): Set system time from GPS: 2026-04-20 13:39:03
+[ 12734][D][rtc_connector.cpp:119] system_to_rtc(): Set RTC from system: 2026-04-20 13:39:03
+
+---
+
+Can I test it now?
