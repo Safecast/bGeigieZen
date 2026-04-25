@@ -53,10 +53,26 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
   const auto& gps_data = workers.worker<GpsConnector>(k_worker_gps_connector)->get_data();
   const auto& battery_data = workers.worker<BatteryIndicator>(k_worker_battery_indicator)->get_data();
 
+  // Snapshot GPS state once. The reference can be mutated by GpsConnector
+  // between reads; without snapshotting, validity could flip false→true mid-
+  // function and emit a line with zero lat/lon but gps_valid=true (Codeberg #5).
+  const bool gps_valid = gps_data.valid();
+  const double gps_latitude = gps_data.latitude;
+  const double gps_longitude = gps_data.longitude;
+  const double gps_altitudeMSL = gps_data.altitudeMSL;
+  const double gps_pdop = gps_data.pdop;
+  const uint8_t gps_satsInView = gps_data.satsInView;
+  const uint16_t gps_year = gps_data.year;
+  const uint8_t gps_month = gps_data.month;
+  const uint8_t gps_day = gps_data.day;
+  const uint8_t gps_hour = gps_data.hour;
+  const uint8_t gps_minute = gps_data.minute;
+  const uint8_t gps_second = gps_data.second;
+
   data.cpm = gm_sensor_data.cpm_comp;
-  data.latitude = gps_data.latitude;
-  data.longitude = gps_data.longitude;
-  data.altitude = gps_data.altitudeMSL;
+  data.latitude = gps_latitude;
+  data.longitude = gps_longitude;
+  data.altitude = gps_altitudeMSL;
 
   // Create log line (for logging and sending over bluetooth
   uint16_t latitude_dm = 0;
@@ -66,7 +82,7 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
   uint16_t longitude_s = 0;
   char WE = 'E';
 
-  if (gps_data.valid()) {
+  if (gps_valid) {
     if (_settings.get_fixed_latitude() != 0 && _settings.get_fixed_longitude() != 0 && _settings.get_fixed_range() > 0) {
       data.in_fixed_range = haversine_km(data.latitude, data.longitude, _settings.get_fixed_latitude(), _settings.get_fixed_longitude()) < _settings.get_fixed_range();
     } else {
@@ -94,13 +110,12 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
   }
 
 
-  bool gps_valid = gps_data.valid();
-  bool dop_valid = gps_valid && gps_data.pdop * 100 < _settings.get_dop_max();
+  bool dop_valid = gps_valid && gps_pdop * 100 < _settings.get_dop_max();
 
   sprintf(
       data.timestamp,
       "%04d-%02d-%02dT%02d:%02d:%02dZ",
-      gps_data.year, gps_data.month, gps_data.day, gps_data.hour, gps_data.minute, gps_data.second);
+      gps_year, gps_month, gps_day, gps_hour, gps_minute, gps_second);
 
   sprintf(
       data.log_string,
@@ -108,8 +123,8 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
       DEVICE_HEADER, _settings.get_device_id(),
       data.timestamp,
       gm_sensor_data.cpm_comp, gm_sensor_data.cp5s, gm_sensor_data.total, gm_sensor_data.valid ? 'A' : 'V',
-      latitude_dm, latitude_s, NS, longitude_dm, longitude_s, WE, data.altitude, gps_valid ? 'A' : 'V', gps_data.satsInView,
-      static_cast<int>(100 * gps_data.pdop));  // DOP logged as integer, displayed as float 
+      latitude_dm, latitude_s, NS, longitude_dm, longitude_s, WE, data.altitude, gps_valid ? 'A' : 'V', gps_satsInView,
+      static_cast<int>(100 * gps_pdop));  // DOP logged as integer, displayed as float
 
   size_t len = strlen(data.log_string);
   data.log_string[len] = '\0';
@@ -120,7 +135,7 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
   // add checksum to end of line
   sprintf(data.log_string + len, "*%02X", chk);
 
-  data.gps_valid = gps_data.valid();
+  data.gps_valid = gps_valid;
   data.gm_valid = gm_sensor_data.valid;
   data.dop_valid = dop_valid;
 
