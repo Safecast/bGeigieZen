@@ -1,10 +1,10 @@
 #include "navsat_collector.h"
 
 
-NavsatCollector::NavsatCollector(TeenyUbloxConnect& gnss, const GnssData& gps_data) : Worker<NavsatData>({
+NavsatCollector::NavsatCollector(TeenyUbloxConnect& gnss, GpsConnector& gps) : Worker<NavsatData>({
                                                                 .available=false,
                                                                 .navsat_info=ubloxNAVSATInfo_t(),
-                                                            }), _gnss(gnss), _gps_data(gps_data), _last_gsv_cycle(0) {
+                                                            }), _gnss(gnss), _gps(gps), _gps_data(gps.get_data()), _last_gsv_cycle(0) {
 }
 
 /**
@@ -61,6 +61,12 @@ int8_t NavsatCollector::produce_data() {
   if (_gnss.getNAVSAT()) {
     _gnss.getNAVSATInfo(data.navsat_info);
     data.available = data.navsat_info.validPacket;
+    // Surface the visible-sat count to GnssData so the status bar can show
+    // "tracking but no fix yet" before a fix is acquired (NAV-PVT.numSV is
+    // sats-used-in-fix only, so it stays 0 during cold-start tracking).
+    if (data.available) {
+      _gps.set_visible_sats(data.navsat_info.numSvs);
+    }
     return e_worker_data_read;
   }
   return e_worker_idle;
