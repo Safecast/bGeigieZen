@@ -203,6 +203,10 @@ class GpsConnector : public Worker<GnssData> {
    */
   void calculateChecksum(const uint8_t* data, size_t len, uint8_t* cka, uint8_t* ckb);
 
+  // Allow NavsatCollector (UBX mode) to publish the visible-sat count back into
+  // GnssData so the status bar can show "tracking but no fix yet" before fix.
+  void set_visible_sats(uint8_t n) { data.numSV = n; }
+
  protected:
   void deactivate() override;
 
