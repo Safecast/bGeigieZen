@@ -735,6 +735,9 @@ int8_t GpsConnector::produce_data() {
     if (_gnss.getFixType() == 2 || _gnss.getFixType() == 3) {
       // M5_LOGD("[%d] fix type is 2D or 3D.", millis());
       data.pdop = _gnss.getPDOP() * 1e-2; // Position Dilution of Precision
+      // Bypass distance gate on the very first fix; otherwise haversine() to
+      // (0,0) is huge and the first valid sample would be discarded.
+      const bool first_fix = (_last_latitude == 0.0 && _last_longitude == 0.0);
       _last_latitude = data.latitude;
       _last_longitude = data.longitude;
       data.latitude = _gnss.getLatitude() * 1e-7;
@@ -779,7 +782,7 @@ int8_t GpsConnector::produce_data() {
       data.sAcc = _gnss.getSpeedAccEst();
       data.headAcc = _gnss.getHeadingAccEst();
 
-      data.location_valid = _gnss.getGnssFixOk() && distance_step < 0.5; // Airplanes fly at 255m per second, 500 meter check is good enough
+      data.location_valid = _gnss.getGnssFixOk() && (first_fix || distance_step < 0.5); // Airplanes fly at 255m per second, 500 meter check is good enough
       location_timer.restart();
       ret_status = e_worker_data_read;
       // DEBUG: Compare PDOP from NAV-PVT and HDOP from NAV-DOP
