@@ -19,7 +19,7 @@ struct NavsatData {
 class NavsatCollector : public Worker<NavsatData> {
  public:
 
-  explicit NavsatCollector(TeenyUbloxConnect& _gnss, const GnssData& gps_data);
+  explicit NavsatCollector(TeenyUbloxConnect& _gnss, GpsConnector& gps);
 
   virtual ~NavsatCollector() = default;
 
@@ -31,6 +31,7 @@ class NavsatCollector : public Worker<NavsatData> {
 
  private:
   TeenyUbloxConnect& _gnss;
+  GpsConnector& _gps;
   const GnssData& _gps_data;
   uint32_t _last_gsv_cycle;
 };
