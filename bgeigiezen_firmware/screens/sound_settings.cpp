@@ -16,14 +16,21 @@ static const SoundSettingsScreen::MenuItem SOUND_MENU[SoundSettingsScreen::e_sou
 };
 
 SoundSettingsScreen::SoundSettingsScreen() : BaseScreenWithMenu("Sound", true), _audio_field(0) {
+  _current_page = e_sound_MENU_MAX;  // sentinel: "show menu, no action page"
 }
 
 void SoundSettingsScreen::enter_screen(Controller& controller) {
-  _current_page = e_sound_page_audio;
-  _menu_index = 0;
-  _audio_field = 0;
-  open_menu(true);
+  if (_current_page == e_sound_MENU_MAX) {
+    _menu_index = 0;
+    _audio_field = 0;
+    open_menu(true);
+  }
+  // else: handle_menu_input did an internal page-swap; render() shows the page
   force_next_render();
+}
+
+void SoundSettingsScreen::leave_screen(Controller& controller) {
+  _current_page = e_sound_MENU_MAX;
 }
 
 BaseScreen* SoundSettingsScreen::handle_input(Controller& controller, const worker_map_t& workers) {

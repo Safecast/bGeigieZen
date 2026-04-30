@@ -17,6 +17,7 @@ static const SdSettingsScreen::MenuItem SD_MENU[SdSettingsScreen::e_sd_MENU_MAX]
 };
 
 SdSettingsScreen::SdSettingsScreen() : BaseScreenWithMenu("SD card", true) {
+  _current_page = e_sd_MENU_MAX;  // sentinel: "show menu, no action page"
 }
 
 void SdSettingsScreen::enter_screen(Controller& controller) {
@@ -27,31 +28,35 @@ void SdSettingsScreen::enter_screen(Controller& controller) {
       } else {
         set_status_message(F(" LOAD CONFIG FAILED, no config or SD-card! "));
       }
-      _current_page = e_sd_page_load_config;
+      // Action complete — bounce back to the submenu
+      _current_page = e_sd_MENU_MAX;
       _menu_index = e_sd_page_load_config;
       open_menu(true);
-      force_next_render();
-      return;
+      break;
     case e_sd_page_save_config:
       if (controller.write_sd_config()) {
         set_status_message(F(" CONFIG SAVED, settings have been saved to SD! "));
       } else {
         set_status_message(F(" WRITE CONFIG FAILED, no SD-card! "));
       }
-      _current_page = e_sd_page_save_config;
+      _current_page = e_sd_MENU_MAX;
       _menu_index = e_sd_page_save_config;
       open_menu(true);
-      force_next_render();
-      return;
+      break;
+    case e_sd_MENU_MAX:
+      // External entry — open the submenu
+      _menu_index = 0;
+      open_menu(true);
+      break;
     default:
+      // Page swap to wipe — render() will show that page
       break;
   }
-
-  // Default entry: open submenu
-  _current_page = e_sd_page_load_config;
-  _menu_index = 0;
-  open_menu(true);
   force_next_render();
+}
+
+void SdSettingsScreen::leave_screen(Controller& controller) {
+  _current_page = e_sd_MENU_MAX;
 }
 
 BaseScreen* SdSettingsScreen::handle_input(Controller& controller, const worker_map_t& workers) {
