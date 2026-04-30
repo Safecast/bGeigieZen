@@ -293,18 +293,73 @@ void BaseScreenWithMenu::render_menu(const MenuItem items[], int menu_max, bool 
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.setCursor(170, 46);
   M5.Lcd.println(items[_menu_index].title);
-  size_t tooltip_length = strlen(items[_menu_index].tooltip);
+  // Word-wrap the tooltip on whitespace so words never break mid-character.
+  // The tooltip area is ~124 px wide starting at x=170; each line is 16 px tall.
+  const char* tooltip = items[_menu_index].tooltip;
+  size_t tooltip_length = strlen(tooltip);
   uint8_t line = 0;
   uint8_t current_line_length = 0;
-  M5.Lcd.setCursor(170, 76);
-  for (size_t i = 0; i < tooltip_length; ++i) {
-    if (current_line_length == 0 && items[_menu_index].tooltip[i] == ' ') {
+  size_t i = 0;
+  while (i < tooltip_length) {
+    // Skip whitespace at the start of a line
+    if (current_line_length == 0 && (tooltip[i] == ' ' || tooltip[i] == '\n')) {
+      ++i;
       continue;
     }
-    current_line_length += M5.Lcd.drawChar(items[_menu_index].tooltip[i], 170 + current_line_length, 76 + (line * 16), 2);
-    if (current_line_length > 124) {
+    // Honour explicit newlines
+    if (tooltip[i] == '\n') {
       line += 1;
       current_line_length = 0;
+      ++i;
+      continue;
+    }
+    // Find the end of the next word (run of non-space chars)
+    size_t word_end = i;
+    while (word_end < tooltip_length && tooltip[word_end] != ' ' && tooltip[word_end] != '\n') {
+      ++word_end;
+    }
+    // Measure the word
+    char word_buf[40];
+    size_t word_len = word_end - i;
+    if (word_len >= sizeof(word_buf)) word_len = sizeof(word_buf) - 1;
+    memcpy(word_buf, tooltip + i, word_len);
+    word_buf[word_len] = '\0';
+    int32_t word_width = M5.Lcd.textWidth(word_buf, &fonts::Font2);
+    // Wrap if the word doesn't fit on the current line (and we've already drawn something)
+    if (current_line_length > 0 && current_line_length + word_width > 124) {
+      line += 1;
+      current_line_length = 0;
+      continue;  // re-evaluate the same word at line start
+    }
+    // Draw the word char by char (drawChar returns advance width)
+    for (size_t j = 0; j < word_len; ++j) {
+      current_line_length += M5.Lcd.drawChar(word_buf[j], 170 + current_line_length, 76 + (line * 16), 2);
+    }
+    i = word_end;
+    // Consume a single trailing space; emit it only if the next word fits
+    if (i < tooltip_length && tooltip[i] == ' ') {
+      // Look ahead at next word width to decide whether to draw the space
+      size_t next_start = i + 1;
+      size_t next_end = next_start;
+      while (next_end < tooltip_length && tooltip[next_end] != ' ' && tooltip[next_end] != '\n') {
+        ++next_end;
+      }
+      char next_buf[40];
+      size_t next_len = next_end - next_start;
+      if (next_len >= sizeof(next_buf)) next_len = sizeof(next_buf) - 1;
+      memcpy(next_buf, tooltip + next_start, next_len);
+      next_buf[next_len] = '\0';
+      int32_t next_width = next_len > 0 ? M5.Lcd.textWidth(next_buf, &fonts::Font2) : 0;
+      int32_t space_width = M5.Lcd.textWidth(" ", &fonts::Font2);
+      if (current_line_length + space_width + next_width <= 124) {
+        current_line_length += M5.Lcd.drawChar(' ', 170 + current_line_length, 76 + (line * 16), 2);
+        ++i;
+      } else {
+        // Drop the space and wrap
+        line += 1;
+        current_line_length = 0;
+        ++i;
+      }
     }
   }
   if (!items[_menu_index].enabled) {
