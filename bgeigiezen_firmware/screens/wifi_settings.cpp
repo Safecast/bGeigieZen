@@ -18,6 +18,7 @@ static const WifiSettingsScreen::MenuItem WIFI_MENU[WifiSettingsScreen::e_wifi_M
 };
 
 WifiSettingsScreen::WifiSettingsScreen() : BaseScreenWithMenu("WiFi", true) {
+  _current_page = e_wifi_MENU_MAX;  // sentinel: "show menu, no action page"
 }
 
 void WifiSettingsScreen::enter_screen(Controller& controller) {
@@ -27,20 +28,17 @@ void WifiSettingsScreen::enter_screen(Controller& controller) {
     case e_wifi_page_ap:
       WiFiWrapper_i.start_ap_server(controller.get_settings().get_device_id(), controller.get_settings().get_ap_password());
       controller.set_worker_active(k_worker_config_server, true);
-      force_next_render();
-      return;
+      break;
     case e_wifi_page_local:
       WiFiWrapper_i.connect_wifi(controller.get_settings().get_wifi_ssid(), controller.get_settings().get_wifi_password());
       controller.set_worker_active(k_worker_config_server, true);
-      force_next_render();
-      return;
+      break;
     default:
+      // Sentinel or other — open the submenu
+      _menu_index = 0;
+      open_menu(true);
       break;
   }
-
-  _current_page = e_wifi_page_ap;
-  _menu_index = 0;
-  open_menu(true);
   force_next_render();
 }
 
@@ -57,7 +55,7 @@ void WifiSettingsScreen::leave_screen(Controller& controller) {
     default:
       break;
   }
-  _current_page = e_wifi_page_ap;
+  _current_page = e_wifi_MENU_MAX;
 }
 
 BaseScreen* WifiSettingsScreen::handle_input(Controller& controller, const worker_map_t& workers) {
