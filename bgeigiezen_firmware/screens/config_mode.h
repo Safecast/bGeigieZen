@@ -3,23 +3,21 @@
 
 #include "base_screen.h"
 
-
+/**
+ * Top-level Settings router.
+ * Each menu entry transitions to a dedicated submenu screen
+ * (Display / GPS / Sound / SD card / WiFi / Utilities) or back
+ * to the main menu.
+ */
 class ConfigModeScreen : public BaseScreenWithMenu {
  public:
-
   enum ConfigModePage {
-    e_config_page_main,
-    e_config_page_ap,
+    e_config_page_display,
+    e_config_page_gps,
+    e_config_page_sound,
+    e_config_page_sd,
     e_config_page_wifi,
-    e_config_page_load_sd_config,
-    e_config_page_save_config_to_sd,
-    e_config_page_sd_wipe,
-    e_config_page_reset_dose,
-    e_config_page_cpm_threshold,
-    e_config_page_audio,
-    e_config_page_dim_brightness,
-    e_config_page_set_home_gps,
-    e_config_page_reset_all,
+    e_config_page_utilities,
     e_config_page_back_to_main,
     e_config_MENU_MAX,
   };
@@ -28,39 +26,9 @@ class ConfigModeScreen : public BaseScreenWithMenu {
 
   BaseScreen* handle_input(Controller& controller, const worker_map_t& workers) override;
   void enter_screen(Controller& controller) override;
-  void leave_screen(Controller& controller) override;
 
  protected:
   void render(const worker_map_t& workers, const handler_map_t& handlers, bool force) override;
-
- private:
-
-  void render_page_main(const worker_map_t& workers, const handler_map_t& handlers);
-  void render_page_ap(const worker_map_t& workers, const handler_map_t& handlers);
-  void render_page_wifi(const worker_map_t& workers, const handler_map_t& handlers);
-  void render_sd_wipe(const worker_map_t& workers, const handler_map_t& handlers);
-  void render_reset_device_sd(const worker_map_t& workers, const handler_map_t& handlers);
-  void render_cpm_threshold_page(const worker_map_t& workers, const handler_map_t& handlers);
-  void render_audio_page(const worker_map_t& workers, const handler_map_t& handlers);
-  void render_dim_brightness_page(const worker_map_t& workers, const handler_map_t& handlers);
-  void render_set_home_gps_page(const worker_map_t& workers, const handler_map_t& handlers);
-
-  enum MainPageInfoSection {
-    e_config_section_device,
-    e_config_section_location,
-    e_config_section_connection,
-    e_config_section_MAX,
-  };
-
-  uint8_t _main_page_info_section;
-
-  enum AudioField {
-    e_audio_field_volume,
-    e_audio_field_clicks,
-    e_audio_field_alarm,
-    e_audio_field_MAX,
-  };
-  uint8_t _audio_field;
 };
 
 extern ConfigModeScreen ConfigModeScreen_i;
