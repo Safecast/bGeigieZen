@@ -1,0 +1,44 @@
+Can you add this to your MCP servers (for all projects):
+
+
+{
+  "servers": {
+    "gitnexus": {
+      "command": "npx",
+      "args": ["gitnexus", "mcp"]
+    }
+  }
+}
+
+---
+
+Just installing it globally.. :
+
+npm install -g gitnexus && gitnexus serve
+
+---
+
+rob@rob-GS66-Stealth-10UG:~/Documents/Safecast/bGeigieZen$ gitnexus serve
+MCP HTTP endpoints mounted at /api/mcp
+
+Failed to start GitNexus server:
+
+  listen EADDRINUSE: address already in use 127.0.0.1:4747
+
+  Port 4747 is already in use. Either:
+    1. Stop the other process using port 4747
+    2. Use a different port: gitnexus serve --port 4748
+
+rob@rob-GS66-Stealth-10UG:~/Documents/Safecast/bGeigieZen$
+
+---
+
+Did not work
+
+---
+
+screen
+
+---
+
+Can you use the mcp server now?
