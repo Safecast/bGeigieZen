@@ -105,7 +105,7 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #define TTSERVE_HOST "tt.safecast.org"
 #define API_HOST "api.safecast.org"
 #define TTSERVE_MEASUREMENTS_ENDPOINT "http://" TTSERVE_HOST "/measurements.json"
-#define API_LOGFILE_ENDPOINT "http://" API_HOST "/bgeigie_imports.json"
+#define API_LOGFILE_ENDPOINT "https://" API_HOST "/bgeigie_imports.json"
 #define HEADER_API_USER_AGENT "bGeigieZen/" VERSION_NUMBER
 
 /** Access point settings **/
