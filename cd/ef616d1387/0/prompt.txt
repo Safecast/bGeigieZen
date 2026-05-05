@@ -1,0 +1,83 @@
+I like to add the option for the bGiegieZen to upload the log files from the sdcard directly to the api over wifi. I tried before with a start on driffent barnch (about a month ago) and like to contine with the current code. Can you make a plan?
+
+---
+
+1- continue from excisting
+2-I think feature/json-api-endpoint (not sure)
+3- https now
+4-API key form LocalStorage
+
+---
+
+A
+
+---
+
+Some parts work: On the menu when when in logvoiwer mode and you are in a folder you can not go back. I think we should have a "back" button instead of a menu button.
+
+Here is the logging:
+[ 48235][D][zen_button.cpp:18] produce_data(): Button pressed
+[ 48239][D][gfx_screen.cpp:201] handle_report(): Menu opened
+[ 52420][D][zen_button.cpp:18] produce_data(): Button pressed
+[ 52738][D][zen_button.cpp:18] produce_data(): Button pressed
+[ 53046][D][zen_button.cpp:18] produce_data(): Button pressed
+[ 53315][D][zen_button.cpp:18] produce_data(): Button pressed
+[ 54403][D][zen_button.cpp:18] produce_data(): Button pressed
+[ 55153][D][main.cpp:242] loop(): Button A press started
+[ 55423][D][main.cpp:267] loop(): Button A released after 270 ms
+[ 55424][D][zen_button.cpp:18] produce_data(): Button pressed
+[ 55428][D][gfx_screen.cpp:193] handle_report(): Menu closed
+[ 62992][D][zen_button.cpp:18] produce_data(): Button pressed
+[ 67394][D][zen_button.cpp:18] produce_data(): Button pressed
+[ 69282][D][zen_button.cpp:18] produce_data(): Button pressed
+[ 74313][D][zen_button.cpp:18] produce_data(): Button pressed
+[ 75469][D][log_viewer.cpp:365] upload_detail(): Header chunk sent (116):
+------WebKitFormBoundaryZen5127
+Content-Disposition: form-data; name="bgeigie_import[description]"
+Uploaded from Zen
+
+------WebKitFormBoundaryZen5127
+Content-Disposition: form-data; name="bgeigie_import[source]"; filename="2025-10-10_0344.log"
+Content-Type: text/plain
+
+
+[ 86575][D][log_viewer.cpp:386] upload_detail(): Closing boundary chunk sent (23):
+------WebKitFormBoundaryZen5127--
+
+[ 86575][D][log_viewer.cpp:390] upload_detail(): End of chunked transfer
+[ 86583][D][log_viewer.cpp:395] upload_detail(): POST complete, (code -4) response:
+
+---
+
+Now hardware inconnected. test and troubleshoot by yourself?
+
+---
+
+Let me check a bit more
+
+---
+
+One question. The loffile selct only shows 6 files?
+
+---
+
+<ide_opened_file>The user opened the file Untitled-1 in the IDE. This may or may not be related to the current task.</ide_opened_file>
+Now wifi get discannecte wehen enetr log view mode. Seems to be related to low power mode? [ 85067][D][gfx_screen.cpp:211] handle_report(): New screen entered: Log view
+[ 85071][D][wifi_connection.cpp:96] disconnect_wifi(): Core2: WiFi disconnected (soft) - driver remains active
+[ 85075][I][power_manager.cpp:74] exitLowPowerMode(): Exiting low power mode
+[ 85082][I][power_manager.cpp:84] exitLowPowerMode(): Core2: Keeping CPU at 80MHz for WiFi stability
+[ 85092][I][power_manager.cpp:100] exitLowPowerMode(): Normal power mode restored
+[ 85102][D][wifi_connection.cpp:96] disconnect_wifi(): Core2: WiFi disconnected (soft) - driver remains active
+[ 85143][D][wifi_connection.cpp:36] connect_wifi(): WiFi connector: Trying to reconnect to wifi...
+
+---
+
+Wifi stays on
+
+---
+
+Seems lbig files do not work?
+
+---
+
+works great now.
