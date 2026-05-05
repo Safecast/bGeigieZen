@@ -1,8 +1,12 @@
 #include <HTTPClient.h>
+#include <WiFiClientSecure.h>
+#include <SD.h>
 
 #include "log_viewer.h"
 #include "identifiers.h"
 #include "menu_window.h"
+#include "user_config.h"
+#include "utils/sd_wrapper.h"
 #include "workers/local_storage.h"
 #include "workers/zen_button.h"
 #include "utils/wifi_connection.h"
@@ -36,9 +40,67 @@ LogViewerScreen::LogViewerScreen() : BaseScreen("Log view", true),
                                      _detail_log_file_name(""),
                                      _detail_log_timestamp{},
                                      _detail_upload_timestamp{},
-                                     _detail_log_upload_id(0) {
+                                     _detail_log_upload_id(0),
+                                     _file_count(0),
+                                     _selected_index(0),
+                                     _main_selected_index(0),
+                                     _upload_status(e_upload_idle),
+                                     _upload_http_code(0) {
   required_wifi = true;
   required_sd = true;
+  _file_list[0][0] = '\0';
+}
+
+const char* LogViewerScreen::current_dir() const {
+  switch (_current_view) {
+    case e_log_drive_view:   return DRIVE_LOG_DIRECTORY;
+    case e_log_survey_view:  return SURVEY_LOG_DIRECTORY;
+    case e_log_journal_view: return JOURNAL_LOG_DIRECTORY;
+    default:                 return nullptr;
+  }
+}
+
+void LogViewerScreen::load_log_list(const char* dir) {
+  _file_count = 0;
+  _selected_index = 0;
+  if (!dir) return;
+
+  File root = SD.open(dir, FILE_READ);
+  if (!root || !root.isDirectory()) {
+    if (root) root.close();
+    return;
+  }
+
+  while (_file_count < LOG_LIST_MAX) {
+    File entry = root.openNextFile();
+    if (!entry) break;
+    if (!entry.isDirectory()) {
+      const char* name = entry.name();
+      // entry.name() may include the leading directory; keep the basename only
+      const char* slash = strrchr(name, '/');
+      const char* base = slash ? slash + 1 : name;
+      // Filter for .log files; skip "latest.log" (still being written)
+      const char* dot = strrchr(base, '.');
+      if (dot && strcmp(dot, ".log") == 0 && strcmp(base, "latest.log") != 0) {
+        strncpy(_file_list[_file_count], base, LOG_NAME_MAX - 1);
+        _file_list[_file_count][LOG_NAME_MAX - 1] = '\0';
+        _file_count++;
+      }
+    }
+    entry.close();
+  }
+  root.close();
+
+  // Sort latest first. Dated names (YYYY-MM-DD_HHMM.log) sort lexicographically;
+  // descending strcmp gives newest at the top.
+  for (int i = 1; i < _file_count; i++) {
+    for (int j = i; j > 0 && strcmp(_file_list[j - 1], _file_list[j]) < 0; j--) {
+      char tmp[LOG_NAME_MAX];
+      strncpy(tmp, _file_list[j - 1], LOG_NAME_MAX);
+      strncpy(_file_list[j - 1], _file_list[j], LOG_NAME_MAX);
+      strncpy(_file_list[j], tmp, LOG_NAME_MAX);
+    }
+  }
 }
 
 BaseScreen* LogViewerScreen::handle_input(Controller& controller, const worker_map_t& workers) {
@@ -50,12 +112,6 @@ BaseScreen* LogViewerScreen::handle_input(Controller& controller, const worker_m
   if (strlen(_detail_log_file_name) > 0) {
     // detail view
     if (button1->is_fresh() && button1->get_data().shortPress) {
-      // Back
-      force_next_render();
-      leave_detail();
-      return nullptr;
-    }
-    if (button2->is_fresh() && button2->get_data().shortPress) {
       force_next_render();
       if (!_detail_log_upload_id) {
         // Upload
@@ -63,27 +119,60 @@ BaseScreen* LogViewerScreen::handle_input(Controller& controller, const worker_m
       }
     }
     if (button3->is_fresh() && button3->get_data().shortPress) {
-      return &MenuWindow_i;
+      // Back: detail -> list
+      force_next_render();
+      leave_detail();
+      return nullptr;
     }
-  } else {
-    // not detail view
+  } else if (_current_view == e_log_main_view) {
+    // category selector
     if (button1->is_fresh() && button1->get_data().shortPress) {
       force_next_render();
-      // TODO: selector down
+      _main_selected_index = (_main_selected_index + 1) % MAIN_VIEW_ITEM_COUNT;
       return nullptr;
     }
     if (button2->is_fresh() && button2->get_data().shortPress) {
-      if (_current_view == e_log_main_view) {
-        force_next_render();
-        _current_view = e_log_drive_view;
-      } else {
-        force_next_render();
-        // TODO: enter detail down
-        enter_detail("/drives/2024-11-30_1227.log");
+      force_next_render();
+      switch (_main_selected_index) {
+        case 0: _current_view = e_log_drive_view;   break;
+        case 1: _current_view = e_log_survey_view;  break;
+        case 2: _current_view = e_log_journal_view; break;
       }
+      load_log_list(current_dir());
+      return nullptr;
     }
     if (button3->is_fresh() && button3->get_data().shortPress) {
+      // Back: main -> menu
       return &MenuWindow_i;
+    }
+  } else {
+    // file list view
+    const int total_rows = _file_count + 1; // row 0 reserved historically; we no longer render it
+    if (button1->is_fresh() && button1->get_data().shortPress) {
+      force_next_render();
+      if (_file_count > 0) {
+        _selected_index = (_selected_index + 1) % _file_count;
+      }
+      return nullptr;
+    }
+    if (button2->is_fresh() && button2->get_data().shortPress) {
+      force_next_render();
+      if (_file_count == 0) {
+        return nullptr;
+      }
+      char full_path[LOG_FILENAME_SIZE];
+      snprintf(full_path, LOG_FILENAME_SIZE, "%s/%s",
+               current_dir(), _file_list[_selected_index]);
+      enter_detail(full_path);
+      return nullptr;
+    }
+    if (button3->is_fresh() && button3->get_data().shortPress) {
+      // Back: list -> main
+      force_next_render();
+      _current_view = e_log_main_view;
+      _selected_index = 0;
+      _file_count = 0;
+      return nullptr;
     }
   }
 
@@ -104,12 +193,10 @@ void LogViewerScreen::render(const worker_map_t& workers, const handler_map_t& h
   switch (_current_view) {
     case e_log_main_view:
       return render_main(workers, handlers, force);
-    case e_log_journal_view:
-      return render_journal_log_list(workers, handlers, force);
     case e_log_drive_view:
-      return render_drive_log_list(workers, handlers, force);
     case e_log_survey_view:
-      return render_survey_log_list(workers, handlers, force);
+    case e_log_journal_view:
+      return render_log_list(current_dir(), workers, handlers, force);
     default:
       return;
   }
@@ -118,51 +205,75 @@ void LogViewerScreen::render(const worker_map_t& workers, const handler_map_t& h
 void LogViewerScreen::render_main(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   drawButton1("Down");
   drawButton2("Select");
-  drawButton3("Menu");
+  drawButton3("Back");
 
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.setCursor(0, 40, &fonts::Font2);
 
-  M5.Lcd.printf(">  Drive logs\n");
-  M5.Lcd.printf("   Survey logs\n");
-  M5.Lcd.printf("   Journal logs\n");
+  const char* labels[MAIN_VIEW_ITEM_COUNT] = {"Drive logs", "Survey logs", "Journal logs"};
+  for (int i = 0; i < MAIN_VIEW_ITEM_COUNT; i++) {
+    M5.Lcd.printf("%s  %s\n", (i == _main_selected_index) ? ">" : " ", labels[i]);
+  }
 }
 
-void LogViewerScreen::render_journal_log_list(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
-}
-
-void LogViewerScreen::render_drive_log_list(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
+void LogViewerScreen::render_log_list(const char* dir, const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   drawButton1("Down");
   drawButton2("Select");
-  drawButton3("Menu");
+  drawButton3("Back");
 
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.setCursor(0, 40, &fonts::Font2);
 
-  M5.Lcd.printf("   Back\n");
-  M5.Lcd.printf(">  2024-11-30_1227.log\n");
-  M5.Lcd.printf("   test2.log\n");
-  M5.Lcd.printf("   test3.log\n");
-}
+  if (_file_count == 0) {
+    M5.Lcd.printf("%s/\n", dir ? dir : "");
+    M5.Lcd.printf("   (no logs)\n");
+    return;
+  }
 
-void LogViewerScreen::render_survey_log_list(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
+  const int total_pages = (_file_count + LOG_LIST_PAGE - 1) / LOG_LIST_PAGE;
+  const int page = _selected_index / LOG_LIST_PAGE;
+  const int start = page * LOG_LIST_PAGE;
+  const int end = (start + LOG_LIST_PAGE < _file_count) ? start + LOG_LIST_PAGE : _file_count;
+  M5.Lcd.printf("%s/  (%d/%d)\n", dir ? dir : "", page + 1, total_pages);
+  for (int i = start; i < end; i++) {
+    M5.Lcd.printf("%s  %s\n",
+                  (i == _selected_index) ? ">" : " ",
+                  _file_list[i]);
+  }
 }
 
 void LogViewerScreen::render_log_detail(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
-  drawButton1("Back");
-  drawButton2("Upload", _detail_log_upload_id || !WiFiWrapper_i.wifi_connected() ? e_button_disabled : e_button_default);
-  drawButton3("Menu");
+  const bool can_upload = !_detail_log_upload_id
+                          && WiFiWrapper_i.wifi_connected()
+                          && _upload_status != e_upload_in_progress;
+  drawButton1("Upload", can_upload ? e_button_default : e_button_disabled);
+  drawButton2("");
+  drawButton3("Back");
 
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.setCursor(0, 40, &fonts::Font2);
 
   M5.Lcd.printf("Log name:      %s\n", _detail_log_file_name);
   M5.Lcd.printf("Timestamp:     %04hu/%02hhu/%02hhu %02hhu:%02hhu\n", _detail_log_timestamp.year, _detail_log_timestamp.month, _detail_log_timestamp.day, _detail_log_timestamp.hour, _detail_log_timestamp.minute);
-  M5.Lcd.printf("Uploaded on:   -\n");
-  M5.Lcd.printf("Upload log id: -\n\n");
-  M5.Lcd.printf("QR code here\n");
+  M5.Lcd.printf("WiFi:          %s\n", WiFiWrapper_i.wifi_connected() ? "connected" : "connecting...");
 
-
+  switch (_upload_status) {
+    case e_upload_idle:
+      M5.Lcd.printf("Status:        ready\n");
+      break;
+    case e_upload_in_progress:
+      M5.Lcd.printf("Status:        uploading...\n");
+      break;
+    case e_upload_success:
+      M5.Lcd.printf("Status:        OK (HTTP %d)\n", _upload_http_code);
+      break;
+    case e_upload_failed:
+      M5.Lcd.printf("Status:        FAILED (HTTP %d)\n", _upload_http_code);
+      break;
+  }
+  if (_detail_log_upload_id) {
+    M5.Lcd.printf("Upload log id: %u\n", _detail_log_upload_id);
+  }
 }
 
 void LogViewerScreen::enter_detail(const char* log_name) {
@@ -184,36 +295,59 @@ void LogViewerScreen::leave_detail() {
   _detail_log_timestamp.clear();
   _detail_upload_timestamp.clear();
   _detail_log_upload_id = 0;
+  _upload_status = e_upload_idle;
+  _upload_http_code = 0;
 }
 
 void LogViewerScreen::enter_screen(Controller& controller) {
   leave_detail();
   _current_view = e_log_main_view;
-  WiFiWrapper_i.connect_wifi(controller.get_settings().get_wifi_ssid(), controller.get_settings().get_wifi_password());
+  _main_selected_index = 0;
+  _selected_index = 0;
+  _file_count = 0;
+  // Use the active WiFi profile (consistent with fixed_mode / api_connector).
+  // first_time=true to force a fresh begin() rather than a passive reconnect,
+  // since other screens may have soft-disconnected the radio.
+  const auto& s = controller.get_settings();
+  WiFiWrapper_i.connect_wifi(s.get_active_wifi_ssid(), s.get_active_wifi_password(), true);
 }
 
 void LogViewerScreen::leave_screen(Controller& controller) {
-  WiFiWrapper_i.disconnect_wifi();
+  // Do not disconnect on leave: api_connector / fixed_mode etc. manage their own
+  // lifecycle and will turn WiFi off when appropriate. Leaving WiFi up reduces
+  // reconnect churn on Core2 where disconnect/reconnect cycles cost seconds.
 }
 
 void LogViewerScreen::upload_detail(const LocalStorage& config) {
+  _upload_status = e_upload_in_progress;
+  _upload_http_code = 0;
+  // Paint a quick "uploading" line directly so the user sees feedback before we block.
+  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  M5.Lcd.setCursor(0, 120, &fonts::Font2);
+  M5.Lcd.printf("Uploading...                ");
+
   File log_file = SDInterface::i().get_file(_detail_log_file_path);
 
   if (!log_file) {
     M5_LOGD("Failed to open log file!");
+    _upload_status = e_upload_failed;
     return;
   }
 
-  char url[100];
-  sprintf(url, "%s?api_key=%s&", API_LOGFILE_ENDPOINT, config.get_api_key());
+  char url[160];
+  snprintf(url, sizeof(url), "%s?api_key=%s", API_LOGFILE_ENDPOINT, config.get_api_key());
 
   ChunkedHTTPClient http;
-  WiFiClient client;
+  WiFiClientSecure client;
+  // TODO: pin Safecast CA bundle. Using setInsecure() until cert plumbing lands.
+  client.setInsecure();
 
-  // Specify destination for HTTP request
+  // Specify destination for HTTPS request
   if (!http.begin(client, url)) {
     M5_LOGD("Unable to begin URL connection");
     http.end(); // Free resources
+    log_file.close();
+    _upload_status = e_upload_failed;
     return;
   }
 
@@ -224,25 +358,29 @@ void LogViewerScreen::upload_detail(const LocalStorage& config) {
   sprintf(content_type_header, "multipart/form-data; boundary=%s", boundary);
 
   http.setUserAgent(HEADER_API_USER_AGENT);
-  http.addHeader("Host", TTSERVE_HOST);
+  // HTTPClient sets Host: from the URL; do not duplicate it here.
   http.addHeader("Content-Type", content_type_header);
   http.addHeader("Transfer-Encoding", "chunked");
+  http.addHeader("Accept", "application/json");
 
   char chunk_header[16];
-  char chunk_buffer[512];
+  static constexpr size_t CHUNK_BUF_SZ = 1024;
+  char chunk_buffer[CHUNK_BUF_SZ];
   size_t chunk_length;
-
 
   if (http.sendPOSTHeaders()) {
     // 1. Send the opening boundary and metadata for the file part as a chunk
+    // RFC 7578: each part = boundary line, headers, blank line, body, CRLF before next boundary.
     sprintf(chunk_buffer,
             "--%s\r\n"
             "Content-Disposition: form-data; name=\"bgeigie_import[description]\"\r\n"
-            "Uploaded from Zen\r\n\r\n"
+            "\r\n"
+            "Uploaded from Zen\r\n"
             "--%s\r\n"
             "Content-Disposition: form-data; name=\"bgeigie_import[source]\"; filename=\"%s\"\r\n"
-            "Content-Type: text/plain\r\n\r\n",
-            boundary, boundary, "2024-11-30_1227.log");
+            "Content-Type: text/plain\r\n"
+            "\r\n",
+            boundary, boundary, _detail_log_file_name);
 
     // Calculate header length
     chunk_length = strlen(chunk_buffer);
@@ -252,20 +390,30 @@ void LogViewerScreen::upload_detail(const LocalStorage& config) {
     client.print("\r\n");                                   // End of chunk
     M5_LOGD("Header chunk sent (%X):\n%s", chunk_length, chunk_buffer);
 
-    // 2. Stream the file content line by line as chunks
+    // 2. Stream the file content in fixed-size blocks. One TLS record per ~1 KB
+    //    keeps throughput reasonable (vs one record per line). yield() after every
+    //    chunk so we don't starve the WiFi task or trip the task watchdog.
+    const uint32_t total_bytes = log_file.size();
+    uint32_t sent_bytes = 0;
+    uint32_t last_log = 0;
     while (log_file.available()) {
-      chunk_length = log_file.readBytesUntil('\n', chunk_buffer, 511); // Read a line from the file
-      chunk_buffer[chunk_length] = '\n'; // Add the newline character back
-      chunk_buffer[chunk_length + 1] = '\0'; // Null-terminate the buffer
-
-      sprintf(chunk_header, " %X\r\n", chunk_length + 1); // Chunk size in hexadecimal (include '\n')
-      client.print(chunk_header);              // Send chunk size
-      client.print(chunk_buffer);               // Send chunk data
-      client.print("\r\n");                                   // End of chunk
+      int n = log_file.read((uint8_t*)chunk_buffer, CHUNK_BUF_SZ);
+      if (n <= 0) break;
+      sprintf(chunk_header, "%X\r\n", n);
+      client.write((const uint8_t*)chunk_header, strlen(chunk_header));
+      client.write((const uint8_t*)chunk_buffer, n);
+      client.write((const uint8_t*)"\r\n", 2);
+      sent_bytes += n;
+      if (sent_bytes - last_log >= 8192) {
+        M5_LOGD("Upload progress: %u / %u bytes", sent_bytes, total_bytes);
+        last_log = sent_bytes;
+      }
+      yield();
     }
+    M5_LOGD("Upload streaming complete: %u bytes", sent_bytes);
 
-    // 3. Send the closing boundary as a chunk
-    sprintf(chunk_buffer, "--%s--\r\n", boundary);
+    // 3. Send the closing boundary as a chunk (with CRLF prefix to terminate file body)
+    sprintf(chunk_buffer, "\r\n--%s--\r\n", boundary);
     chunk_length = strlen(chunk_buffer);
     sprintf(chunk_header, "%X\r\n", chunk_length); // Chunk size in hexadecimal
     client.print(chunk_header);                              // Send chunk size
@@ -282,14 +430,25 @@ void LogViewerScreen::upload_detail(const LocalStorage& config) {
     String response = http.getString();
     M5_LOGD("POST complete, (code %d) response:\n%s", statusCode, response.c_str());
 
+    _upload_http_code = statusCode;
+    if (statusCode >= 200 && statusCode < 300) {
+      _upload_status = e_upload_success;
+      // Best-effort parse: bgeigie_imports returns {"id":<n>, ...}
+      int id_idx = response.indexOf("\"id\":");
+      if (id_idx >= 0) {
+        _detail_log_upload_id = (uint32_t) strtoul(response.c_str() + id_idx + 5, nullptr, 10);
+      }
+    } else {
+      _upload_status = e_upload_failed;
+    }
+
     WiFiWrapper_i.update_active();
   } else {
     M5_LOGD("Failed to initiate request");
+    _upload_status = e_upload_failed;
   }
 
   http.end(); // Free resources
-
-
   log_file.close(); // Close file
-
+  force_next_render();
 }
