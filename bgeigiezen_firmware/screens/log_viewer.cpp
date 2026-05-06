@@ -56,6 +56,7 @@ const char* LogViewerScreen::current_dir() const {
     case e_log_drive_view:   return DRIVE_LOG_DIRECTORY;
     case e_log_survey_view:  return SURVEY_LOG_DIRECTORY;
     case e_log_journal_view: return JOURNAL_LOG_DIRECTORY;
+    case e_log_flight_view:  return FLIGHT_LOG_DIRECTORY;
     default:                 return nullptr;
   }
 }
@@ -71,36 +72,46 @@ void LogViewerScreen::load_log_list(const char* dir) {
     return;
   }
 
-  while (_file_count < LOG_LIST_MAX) {
+  // Scan the whole directory and keep only the LOG_LIST_MAX newest entries.
+  // Reading just the first LOG_LIST_MAX in directory order would drop the
+  // most recent files when the folder has more than LOG_LIST_MAX logs.
+  // Names are dated (YYYY-MM-DD_HHMM.log) so descending strcmp = newest first.
+  while (true) {
     File entry = root.openNextFile();
     if (!entry) break;
-    if (!entry.isDirectory()) {
-      const char* name = entry.name();
-      // entry.name() may include the leading directory; keep the basename only
-      const char* slash = strrchr(name, '/');
-      const char* base = slash ? slash + 1 : name;
-      // Filter for .log files; skip "latest.log" (still being written)
-      const char* dot = strrchr(base, '.');
-      if (dot && strcmp(dot, ".log") == 0 && strcmp(base, "latest.log") != 0) {
-        strncpy(_file_list[_file_count], base, LOG_NAME_MAX - 1);
-        _file_list[_file_count][LOG_NAME_MAX - 1] = '\0';
+    if (entry.isDirectory()) {
+      entry.close();
+      continue;
+    }
+    const char* name = entry.name();
+    const char* slash = strrchr(name, '/');
+    const char* base = slash ? slash + 1 : name;
+    const char* dot = strrchr(base, '.');
+    if (!dot || strcmp(dot, ".log") != 0 || strcmp(base, "latest.log") == 0) {
+      entry.close();
+      continue;
+    }
+
+    // Insertion sort into _file_list, descending. Find the slot, then shift
+    // older entries right; the oldest falls off when the list is full.
+    int pos = 0;
+    while (pos < _file_count && strcmp(_file_list[pos], base) > 0) {
+      pos++;
+    }
+    if (pos < LOG_LIST_MAX) {
+      int last = (_file_count < LOG_LIST_MAX) ? _file_count : LOG_LIST_MAX - 1;
+      for (int j = last; j > pos; j--) {
+        strncpy(_file_list[j], _file_list[j - 1], LOG_NAME_MAX);
+      }
+      strncpy(_file_list[pos], base, LOG_NAME_MAX - 1);
+      _file_list[pos][LOG_NAME_MAX - 1] = '\0';
+      if (_file_count < LOG_LIST_MAX) {
         _file_count++;
       }
     }
     entry.close();
   }
   root.close();
-
-  // Sort latest first. Dated names (YYYY-MM-DD_HHMM.log) sort lexicographically;
-  // descending strcmp gives newest at the top.
-  for (int i = 1; i < _file_count; i++) {
-    for (int j = i; j > 0 && strcmp(_file_list[j - 1], _file_list[j]) < 0; j--) {
-      char tmp[LOG_NAME_MAX];
-      strncpy(tmp, _file_list[j - 1], LOG_NAME_MAX);
-      strncpy(_file_list[j - 1], _file_list[j], LOG_NAME_MAX);
-      strncpy(_file_list[j], tmp, LOG_NAME_MAX);
-    }
-  }
 }
 
 BaseScreen* LogViewerScreen::handle_input(Controller& controller, const worker_map_t& workers) {
@@ -125,29 +136,29 @@ BaseScreen* LogViewerScreen::handle_input(Controller& controller, const worker_m
       return nullptr;
     }
   } else if (_current_view == e_log_main_view) {
-    // category selector
+    // category selector: B1=Down, B2=Back, B3=Select
     if (button1->is_fresh() && button1->get_data().shortPress) {
       force_next_render();
       _main_selected_index = (_main_selected_index + 1) % MAIN_VIEW_ITEM_COUNT;
       return nullptr;
     }
     if (button2->is_fresh() && button2->get_data().shortPress) {
+      // Back: main -> menu
+      return &MenuWindow_i;
+    }
+    if (button3->is_fresh() && button3->get_data().shortPress) {
       force_next_render();
       switch (_main_selected_index) {
         case 0: _current_view = e_log_drive_view;   break;
         case 1: _current_view = e_log_survey_view;  break;
-        case 2: _current_view = e_log_journal_view; break;
+        case 2: _current_view = e_log_flight_view;  break;
+        case 3: _current_view = e_log_journal_view; break;
       }
       load_log_list(current_dir());
       return nullptr;
     }
-    if (button3->is_fresh() && button3->get_data().shortPress) {
-      // Back: main -> menu
-      return &MenuWindow_i;
-    }
   } else {
-    // file list view
-    const int total_rows = _file_count + 1; // row 0 reserved historically; we no longer render it
+    // file list view: B1=Down, B2=Back, B3=Select
     if (button1->is_fresh() && button1->get_data().shortPress) {
       force_next_render();
       if (_file_count > 0) {
@@ -156,6 +167,14 @@ BaseScreen* LogViewerScreen::handle_input(Controller& controller, const worker_m
       return nullptr;
     }
     if (button2->is_fresh() && button2->get_data().shortPress) {
+      // Back: list -> main
+      force_next_render();
+      _current_view = e_log_main_view;
+      _selected_index = 0;
+      _file_count = 0;
+      return nullptr;
+    }
+    if (button3->is_fresh() && button3->get_data().shortPress) {
       force_next_render();
       if (_file_count == 0) {
         return nullptr;
@@ -164,14 +183,6 @@ BaseScreen* LogViewerScreen::handle_input(Controller& controller, const worker_m
       snprintf(full_path, LOG_FILENAME_SIZE, "%s/%s",
                current_dir(), _file_list[_selected_index]);
       enter_detail(full_path);
-      return nullptr;
-    }
-    if (button3->is_fresh() && button3->get_data().shortPress) {
-      // Back: list -> main
-      force_next_render();
-      _current_view = e_log_main_view;
-      _selected_index = 0;
-      _file_count = 0;
       return nullptr;
     }
   }
@@ -204,13 +215,13 @@ void LogViewerScreen::render(const worker_map_t& workers, const handler_map_t& h
 
 void LogViewerScreen::render_main(const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   drawButton1("Down");
-  drawButton2("Select");
-  drawButton3("Back");
+  drawButton2("Back");
+  drawButton3("Select");
 
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.setCursor(0, 40, &fonts::Font2);
 
-  const char* labels[MAIN_VIEW_ITEM_COUNT] = {"Drive logs", "Survey logs", "Journal logs"};
+  const char* labels[MAIN_VIEW_ITEM_COUNT] = {"Drive logs", "Survey logs", "Flight logs", "Journal logs"};
   for (int i = 0; i < MAIN_VIEW_ITEM_COUNT; i++) {
     M5.Lcd.printf("%s  %s\n", (i == _main_selected_index) ? ">" : " ", labels[i]);
   }
@@ -218,8 +229,8 @@ void LogViewerScreen::render_main(const worker_map_t& workers, const handler_map
 
 void LogViewerScreen::render_log_list(const char* dir, const worker_map_t& workers, const handler_map_t& handlers, bool force) {
   drawButton1("Down");
-  drawButton2("Select");
-  drawButton3("Back");
+  drawButton2("Back");
+  drawButton3("Select");
 
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.setCursor(0, 40, &fonts::Font2);
@@ -321,10 +332,22 @@ void LogViewerScreen::leave_screen(Controller& controller) {
 void LogViewerScreen::upload_detail(const LocalStorage& config) {
   _upload_status = e_upload_in_progress;
   _upload_http_code = 0;
-  // Paint a quick "uploading" line directly so the user sees feedback before we block.
+  // Repaint the Status line in place so the user sees feedback before we block.
+  // GFXScreen::loop() draws every frame inside setRotation(3)..setRotation(1) and
+  // leaves the LCD at rotation 1 between ticks. We're called from handle_input,
+  // outside that envelope, so we must re-establish rotation 3 or the text renders
+  // 180-degrees flipped relative to the rest of the screen.
+  // Status line is the 4th Font2 row of render_log_detail (y=40 + 16*3 = 88);
+  // clear it first so leftover glyphs from "ready" don't overlap "uploading...".
+  M5.Lcd.startWrite();
+  M5.Lcd.setRotation(3);
+  M5.Lcd.fillRect(0, 88, M5.Lcd.width(), 16, LCD_COLOR_BACKGROUND);
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
-  M5.Lcd.setCursor(0, 120, &fonts::Font2);
-  M5.Lcd.printf("Uploading...                ");
+  M5.Lcd.setCursor(0, 88, &fonts::Font2);
+  M5.Lcd.printf("Status:        uploading...");
+  M5.Lcd.setRotation(1);
+  M5.Lcd.display();
+  M5.Lcd.endWrite();
 
   File log_file = SDInterface::i().get_file(_detail_log_file_path);
 

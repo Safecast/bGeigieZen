@@ -152,7 +152,7 @@ const char* SdLogger::get_dir() const {
     case survey:
       return SURVEY_LOG_DIRECTORY;
     case flight:
-      return "/flight"; // Directory for flight logs
+      return FLIGHT_LOG_DIRECTORY;
     default:
       return "unknown";
   }
