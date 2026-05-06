@@ -19,6 +19,7 @@ class LogViewerScreen : public BaseScreen {
     e_log_journal_view,
     e_log_drive_view,
     e_log_survey_view,
+    e_log_flight_view,
   };
 
   enum UploadStatus {
@@ -58,7 +59,7 @@ class LogViewerScreen : public BaseScreen {
   static constexpr int LOG_LIST_MAX = 64;
   static constexpr int LOG_NAME_MAX = 40; // basename only, e.g. "2025-10-12_0032.log"
   static constexpr int LOG_LIST_PAGE = 6; // visible rows per page
-  static constexpr int MAIN_VIEW_ITEM_COUNT = 3; // Drive / Survey / Journal
+  static constexpr int MAIN_VIEW_ITEM_COUNT = 4; // Drive / Survey / Journal / Flight
 
   void load_log_list(const char* dir);
   const char* current_dir() const;

@@ -74,6 +74,7 @@ constexpr uint32_t SETUP_DEFAULT_ALERT_LEVEL = 100;
 constexpr char JOURNAL_LOG_DIRECTORY[] = "/journals";
 constexpr char DRIVE_LOG_DIRECTORY[] = "/drives";
 constexpr char SURVEY_LOG_DIRECTORY[] = "/surveys";
+constexpr char FLIGHT_LOG_DIRECTORY[] = "/flight";
 constexpr char DEBUG_LOG_DIRECTORY[] = "/debug";
 constexpr char LOG_HEADER_LINE1[] = "# NEW LOG";
 constexpr char LOG_HEADER_LINE2[] = "# format=";
