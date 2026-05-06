@@ -19,6 +19,14 @@ class LogViewerScreen : public BaseScreen {
     e_log_journal_view,
     e_log_drive_view,
     e_log_survey_view,
+    e_log_flight_view,
+  };
+
+  enum UploadStatus {
+    e_upload_idle,
+    e_upload_in_progress,
+    e_upload_success,
+    e_upload_failed,
   };
 
   struct Timestamp {
@@ -42,12 +50,19 @@ class LogViewerScreen : public BaseScreen {
 
   void render(const worker_map_t& workers, const handler_map_t& handlers, bool force) override;
   void render_main(const worker_map_t& workers, const handler_map_t& handlers, bool force);
-  void render_journal_log_list(const worker_map_t& workers, const handler_map_t& handlers, bool force);
-  void render_drive_log_list(const worker_map_t& workers, const handler_map_t& handlers, bool force);
-  void render_survey_log_list(const worker_map_t& workers, const handler_map_t& handlers, bool force);
+  void render_log_list(const char* dir, const worker_map_t& workers, const handler_map_t& handlers, bool force);
   void render_log_detail(const worker_map_t& workers, const handler_map_t& handlers, bool force);
 
   void upload_detail(const LocalStorage& config);
+
+  // List view helpers
+  static constexpr int LOG_LIST_MAX = 64;
+  static constexpr int LOG_NAME_MAX = 40; // basename only, e.g. "2025-10-12_0032.log"
+  static constexpr int LOG_LIST_PAGE = 6; // visible rows per page
+  static constexpr int MAIN_VIEW_ITEM_COUNT = 4; // Drive / Survey / Journal / Flight
+
+  void load_log_list(const char* dir);
+  const char* current_dir() const;
 
   LogView _current_view;
   char _detail_log_file_path[LOG_FILENAME_SIZE];
@@ -56,6 +71,14 @@ class LogViewerScreen : public BaseScreen {
   Timestamp _detail_upload_timestamp;
   uint32_t _detail_log_upload_id;
 
+  // Index 0 = "Back" pseudo-row, 1..N = real files
+  char _file_list[LOG_LIST_MAX][LOG_NAME_MAX];
+  int _file_count;
+  int _selected_index;
+  int _main_selected_index;
+
+  UploadStatus _upload_status;
+  int _upload_http_code;
 };
 
 extern LogViewerScreen LogViewerScreen_i;
