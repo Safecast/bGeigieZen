@@ -74,6 +74,7 @@ constexpr uint32_t SETUP_DEFAULT_ALERT_LEVEL = 100;
 constexpr char JOURNAL_LOG_DIRECTORY[] = "/journals";
 constexpr char DRIVE_LOG_DIRECTORY[] = "/drives";
 constexpr char SURVEY_LOG_DIRECTORY[] = "/surveys";
+constexpr char FLIGHT_LOG_DIRECTORY[] = "/flight";
 constexpr char DEBUG_LOG_DIRECTORY[] = "/debug";
 constexpr char LOG_HEADER_LINE1[] = "# NEW LOG";
 constexpr char LOG_HEADER_LINE2[] = "# format=";
@@ -105,7 +106,7 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #define TTSERVE_HOST "tt.safecast.org"
 #define API_HOST "api.safecast.org"
 #define TTSERVE_MEASUREMENTS_ENDPOINT "http://" TTSERVE_HOST "/measurements.json"
-#define API_LOGFILE_ENDPOINT "http://" API_HOST "/bgeigie_imports.json"
+#define API_LOGFILE_ENDPOINT "https://" API_HOST "/bgeigie_imports.json"
 #define HEADER_API_USER_AGENT "bGeigieZen/" VERSION_NUMBER
 
 /** Access point settings **/
