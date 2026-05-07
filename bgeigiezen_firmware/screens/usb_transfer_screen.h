@@ -38,7 +38,7 @@ class USBTransferScreen : public BaseScreen {
   void drawButtonLabels();
   
   // USB functionality
-  bool enableUSBStorage();
+  bool enableUSBStorage(Controller& controller);
   bool disableUSBStorage();
   void updateUSBState();
   
@@ -49,9 +49,8 @@ class USBTransferScreen : public BaseScreen {
   uint32_t countFilesRecursive(File dir);
   
   // SD Card cleanup for USB MSC
-  void stopAllSDCardLoggers();
-  void restartSDCardLoggers();
-  
+  void stopAllSDCardLoggers(Controller& controller);
+
   // State management
   TransferState _transfer_state;
   uint32_t _last_state_change;
@@ -64,11 +63,9 @@ class USBTransferScreen : public BaseScreen {
   uint32_t _sd_file_count;
   bool _usb_connected;
   bool _usb_available;
-  
-  // Button state tracking
-  bool _button1_pressed;
-  bool _button2_pressed;
-  bool _button3_pressed;
+
+  // Captured at enter_screen so enable/disable callbacks can stop loggers.
+  Controller* _controller;
   
   static constexpr uint32_t USB_STATE_CHECK_INTERVAL = 1000; // 1 second
   static constexpr uint32_t MAX_STATUS_MESSAGE_LENGTH = 100;

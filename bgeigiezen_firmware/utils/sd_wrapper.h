@@ -81,6 +81,25 @@ class SDInterface {
   void end();
 
   /**
+   * Lock the SD card for exclusive USB MSC access. While locked, ready() and
+   * begin() short-circuit so the firmware (loggers, config polls) won't issue
+   * any SPI traffic that would race the TinyUSB MSC task. Raw block I/O via
+   * SD.readRAW/writeRAW continues to work because the underlying _pdrv stays
+   * valid — we just keep FATFS calls out.
+   */
+  void lock_for_msc();
+  void unlock_for_msc();
+  bool is_locked_for_msc() const;
+
+  /**
+   * Force-unmount and remount the SD card *now*, bypassing begin()'s 5-second
+   * retry rate limit. Use this after a USB MSC session so FATFS picks up any
+   * sectors the host wrote — without this, a quick enable/disable cycle (under
+   * 5 s) leaves SDFS with _pdrv=0xFF and totalBytes()/numSectors() return 0.
+   */
+  bool force_remount();
+
+  /**
    */
   bool setup_log(const char* dir, const char* log_name_output, bool clear_on_exist);
 
@@ -138,6 +157,7 @@ class SDInterface {
 
   SdStatus _status;
   bool _busy;
+  bool _msc_locked;
   uint32_t _device_id;
   uint32_t _last_read;
   uint32_t _last_write;

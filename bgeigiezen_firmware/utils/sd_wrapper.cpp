@@ -85,11 +85,13 @@ constexpr char sd_config_fixed_range_f[] = SD_CONFIG_FIELD_FIXED_RANGE"=%f";
 constexpr char sd_config_dop_max_f[] = SD_CONFIG_FIELD_DOP_MAX "=%hu";
 
 
-SDInterface::SDInterface() : _status(SdStatus::e_sd_config_status_not_ready), _busy(false), _last_read(0), _last_write(0), _last_try(0) {
+SDInterface::SDInterface() : _status(SdStatus::e_sd_config_status_not_ready), _busy(false), _msc_locked(false), _last_read(0), _last_write(0), _last_try(0) {
 }
 
 bool SDInterface::ready() {
-  if (_busy) {
+  if (_busy || _msc_locked) {
+    // _msc_locked: USB MSC owns the SPI bus from a separate task; doing
+    // SD.exists() here would race it.
     return false;
   }
   if (_status != e_sd_config_status_not_ready && !SD.exists(TEST_FILENAME)) {
@@ -112,6 +114,9 @@ SDInterface::SdStatus SDInterface::status() const {
  */
 bool SDInterface::begin() {
   static bool _first_try = true;
+  if (_msc_locked) {
+    return false;
+  }
   if (!ready() && (_first_try || (millis() - _last_try > 5000))) {
     _first_try = false;
     _last_try = millis();
@@ -146,6 +151,46 @@ bool SDInterface::just_wrote() const {
 void SDInterface::end() {
   _status = e_sd_config_status_not_ready;
   SD.end();
+}
+
+void SDInterface::lock_for_msc() {
+  _msc_locked = true;
+  // Force-clear status so the controller's produce_data sees the SD as
+  // not_ready and tears down loggers on its next tick.
+  _status = e_sd_config_status_not_ready;
+}
+
+void SDInterface::unlock_for_msc() {
+  _msc_locked = false;
+}
+
+bool SDInterface::is_locked_for_msc() const {
+  return _msc_locked;
+}
+
+bool SDInterface::force_remount() {
+  if (_msc_locked) {
+    return false;
+  }
+  // Tear down whatever's there (idempotent if already unmounted) and bring
+  // it back up directly via SD.begin(), then refresh _status. Skips the
+  // rate-limit gate in begin() that would otherwise no-op for ~5 s after a
+  // recent attempt.
+  SD.end();
+  if (SD.begin(SD_CS_PIN)) {
+    bool zen_test = SD.exists(TEST_FILENAME);
+    if (!zen_test) {
+      auto new_file = SD.open(TEST_FILENAME, FILE_WRITE);
+      if (new_file) {
+        new_file.close();
+      }
+    }
+    _status = SD.exists(TEST_FILENAME) ? e_sd_config_status_config_no_content : e_sd_config_status_not_ready;
+  } else {
+    _status = e_sd_config_status_not_ready;
+  }
+  _last_try = millis();
+  return ready();
 }
 
 bool SDInterface::log_println(const char* log_name, const char* data) {
