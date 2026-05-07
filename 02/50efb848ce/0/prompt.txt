@@ -1,0 +1,58 @@
+can you make the USB file transfer from the SD card to a computer working? A lot has already been prepared.
+
+---
+
+yes
+
+---
+
+Please continue
+
+---
+
+<ide_opened_file>The user opened the file /home/rob/Documents/Safecast/bGeigieZen/platformio.ini in the IDE. This may or may not be related to the current task.</ide_opened_file>
+[144826][D][wifi_connection.cpp:96] disconnect_wifi(): Core2: WiFi disconnected (soft) - driver remains active
+[144867][D][usb_transfer_screen.cpp:140] enter_screen(): Entering USB Transfer screen
+[144868][W][usb_transfer_screen.cpp:153] enter_screen(): USB MSC unavailable: TinyUSB not enabled or wrong USB mode
+
+This could be due to I do run this on Core2 ?
+
+---
+
+Let me try Core 3..
+
+---
+
+On linux..:
+
+---
+
+I checked a bit more .. The progress bar stays on 0%...and enabling USB storage stays on a very long time. Finally after a few minutes USB storage ACTIVE is shown.
+
+---
+
+I can not program the Core 3 any more. The usb cable get mounted as a drive.  How to fix that?
+
+---
+
+uploading worked.. Flashed the new code. But when I start enable USB, a red  message SDcard can read and the icon turns red. I disk is vidual on the hardware, but does not mount and shows unknow partition.
+
+---
+
+Now the screen displays progress (flashes the grreen line on lot, but show) and displays
+SDCard space:
+Total: 0B 
+Free:0B
+Files:0)
+
+---
+
+In the terminal after flash in new code this:
+
+--- Available filters and text transformations: debug, default, direct, esp32_exception_decoder, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+[PowerMgr] Power State - CPU: 240 MHz, I2C: 100000 Hz
+[PowerMgr] Power State - CPU: 80 MHz, I2C: 100000 Hz
+[PowerMgr] Power State - CPU: 80 MHz, I2C: 50000 Hz
+[PowerMgr] Power State - CPU: 80 MHz, I2C: 50000 Hz
