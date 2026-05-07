@@ -18,7 +18,7 @@ const MenuWindow::MenuItem MAIN_MENU_ITEMS[MAIN_MENU_MAX] = {
     {.title="Satellite view", .tooltip="A 2d constellation map for viewing satellites", .enabled=true, .screen=&SatelliteViewScreen_i},
     {.title="Log viewer", .tooltip="View and upload SD log files over WiFi", .enabled=true, .screen=&LogViewerScreen_i},
     {.title="Settings", .tooltip="Configure your device. Debug info and device information are under Settings > Utilities.", .enabled=true, .screen=&ConfigModeScreen_i},
-    {.title="USB File Transfer", .tooltip="Transfer SD card files via USB-C connection", .enabled=true, .screen=&USBTransferScreen_i}
+    {.title="USB File Transfer", .tooltip="Coming soon: transfer SD files via USB-C. Currently disabled while under development.", .enabled=false, .screen=&USBTransferScreen_i}
 };
 
 MenuWindow MenuWindow_i;
