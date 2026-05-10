@@ -358,7 +358,10 @@ void LogViewerScreen::upload_detail(const LocalStorage& config) {
   }
 
   char url[160];
-  snprintf(url, sizeof(url), "%s?api_key=%s", API_LOGFILE_ENDPOINT, config.get_api_key());
+  const char* endpoint = (config.get_api_logfile_dest() == 1 && strlen(config.get_api_logfile_endpoint_2()) > 0)
+      ? config.get_api_logfile_endpoint_2()
+      : API_LOGFILE_ENDPOINT;
+  snprintf(url, sizeof(url), "%s?api_key=%s", endpoint, config.get_api_key());
 
   ChunkedHTTPClient http;
   WiFiClientSecure client;

@@ -36,6 +36,8 @@ extern SoundManager sound_manager;
 #define SD_CONFIG_FIELD_WIFI_PASSWORD2 "wifi_password2"
 #define SD_CONFIG_FIELD_WIFI_PROFILE "wifi_profile"
 #define SD_CONFIG_FIELD_API_KEY "api_key"
+#define SD_CONFIG_FIELD_API_LOGFILE_ENDPOINT_2 "api_logfile_endpoint_2"
+#define SD_CONFIG_FIELD_API_LOGFILE_DEST "api_logfile_dest"
 #define SD_CONFIG_FIELD_FIXED_LATITUDE "fixed_latitude"
 #define SD_CONFIG_FIELD_FIXED_LONGITUDE "fixed_longitude"
 #define SD_CONFIG_FIELD_FIXED_RANGE "fixed_range"
@@ -79,6 +81,9 @@ constexpr char sd_config_wifi_password2_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD2"=%[
 constexpr char sd_config_wifi_password2_write_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD2"=%s";
 constexpr char sd_config_wifi_profile_f[] = SD_CONFIG_FIELD_WIFI_PROFILE"=%hhu";
 constexpr char sd_config_api_key_f[] = SD_CONFIG_FIELD_API_KEY"=%s";
+constexpr char sd_config_api_logfile_endpoint_2_f[] = SD_CONFIG_FIELD_API_LOGFILE_ENDPOINT_2"=%[^\t\r\n]";
+constexpr char sd_config_api_logfile_endpoint_2_write_f[] = SD_CONFIG_FIELD_API_LOGFILE_ENDPOINT_2"=%s";
+constexpr char sd_config_api_logfile_dest_f[] = SD_CONFIG_FIELD_API_LOGFILE_DEST"=%hhu";
 constexpr char sd_config_fixed_latitude_f[] = SD_CONFIG_FIELD_FIXED_LATITUDE"=%lf";
 constexpr char sd_config_fixed_longitude_f[] = SD_CONFIG_FIELD_FIXED_LONGITUDE"=%lf";
 constexpr char sd_config_fixed_range_f[] = SD_CONFIG_FIELD_FIXED_RANGE"=%f";
@@ -297,6 +302,8 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   char wifi_password2[CONFIG_LONG_VAL_MAX] = "";
   uint8_t wifi_profile_active = 1;
   char api_key[CONFIG_VAL_MAX] = "";
+  char api_logfile_endpoint_2[CONFIG_LONG_VAL_MAX] = "";
+  uint8_t api_logfile_dest = 0;
   char user_name[CONFIG_VAL_MAX] = "";
 
   // Location settings
@@ -331,6 +338,22 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
         M5_LOGD("Loaded from SD: api_key=%s", api_key);
       } else {
         M5_LOGD("Unable to load api_key");
+      }
+    }
+    else if (line.startsWith(SD_CONFIG_FIELD_API_LOGFILE_ENDPOINT_2)) {
+      if (_device_id && line.length() - strlen(SD_CONFIG_FIELD_API_LOGFILE_ENDPOINT_2) < CONFIG_LONG_VAL_MAX && sscanf(line.c_str(), sd_config_api_logfile_endpoint_2_f, api_logfile_endpoint_2)) {
+        settings.set_api_logfile_endpoint_2(api_logfile_endpoint_2, true);
+        M5_LOGD("Loaded from SD: api_logfile_endpoint_2=%s", api_logfile_endpoint_2);
+      } else {
+        M5_LOGD("Unable to load api_logfile_endpoint_2");
+      }
+    }
+    else if (line.startsWith(SD_CONFIG_FIELD_API_LOGFILE_DEST)) {
+      if (_device_id && sscanf(line.c_str(), sd_config_api_logfile_dest_f, &api_logfile_dest)) {
+        settings.set_api_logfile_dest(api_logfile_dest, true);
+        M5_LOGD("Loaded from SD: api_logfile_dest=%u", api_logfile_dest);
+      } else {
+        M5_LOGD("Unable to load api_logfile_dest");
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_ACCESS_POINT_PASSWORD)) {
@@ -531,6 +554,10 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
     safecast_txt.printf(sd_config_user_name_write_f, settings.get_user_name());
     safecast_txt.println();
     safecast_txt.printf(sd_config_api_key_f, settings.get_api_key());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_api_logfile_endpoint_2_write_f, settings.get_api_logfile_endpoint_2());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_api_logfile_dest_f, settings.get_api_logfile_dest());
     safecast_txt.println();
     safecast_txt.printf(sd_config_access_point_password_write_f, settings.get_ap_password());
     safecast_txt.println();
