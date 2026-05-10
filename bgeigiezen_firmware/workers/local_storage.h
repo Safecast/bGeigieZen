@@ -62,6 +62,8 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual const char* get_active_wifi_password() const final;
 
   virtual const char* get_api_key() const final;
+  virtual const char* get_api_logfile_endpoint_2() const final;
+  virtual uint8_t get_api_logfile_dest() const final;
   virtual double get_fixed_longitude() const final;
   virtual double get_fixed_latitude() const final;
   virtual float get_fixed_range() const final;
@@ -90,6 +92,8 @@ class LocalStorage : public ProcessWorker<bool> {
   virtual void set_wifi_password2(const char* wifi_password, bool force);
   virtual void set_wifi_profile_active(uint8_t profile, bool force);
   virtual void set_api_key(const char* api_key, bool force);
+  virtual void set_api_logfile_endpoint_2(const char* url, bool force);
+  virtual void set_api_logfile_dest(uint8_t dest, bool force);
   virtual void set_fixed_longitude(double fixed_longitude, bool force);
   virtual void set_fixed_latitude(double fixed_latitude, bool force);
   virtual void set_fixed_range(float fixed_range, bool force);
@@ -138,6 +142,8 @@ class LocalStorage : public ProcessWorker<bool> {
   uint8_t _wifi_profile_active; // 1 or 2
 
   char _api_key[CONFIG_VAL_MAX];
+  char _api_logfile_endpoint_2[CONFIG_LONG_VAL_MAX];
+  uint8_t _api_logfile_dest; // 0 = primary, 1 = secondary
 
   // Location settings
   double _fixed_longitude;

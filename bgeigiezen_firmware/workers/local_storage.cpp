@@ -15,6 +15,8 @@ constexpr char const* key_wifi_ssid2 = "wifi_ssid2";
 constexpr char const* key_wifi_password2 = "wifi_password2";
 constexpr char const* key_wifi_profile = "wifi_profile";
 constexpr char const* key_api_key = "api_key";
+constexpr char const* key_api_logfile_endpoint_2 = "api_logfile_ep2";
+constexpr char const* key_api_logfile_dest = "api_logfile_dest";
 constexpr char const* key_alert_threshold = "alarm_threshold";
 constexpr char const* key_cpm_usvh = "cpm_usvh";
 constexpr char const* key_manual_logging = "manual_logging";
@@ -57,6 +59,8 @@ LocalStorage::LocalStorage() :
     _wifi_password2(""),
     _wifi_profile_active(1),
     _api_key(""),
+    _api_logfile_endpoint_2(""),
+    _api_logfile_dest(D_API_LOGFILE_DEST),
     _fixed_longitude(0),
     _fixed_latitude(0),
     _fixed_range(0.5),
@@ -88,6 +92,8 @@ void LocalStorage::reset_defaults() {
     set_wifi_password2(D_WIFI_PASSWORD2, true);
     set_wifi_profile_active(1, true);
     set_api_key(D_API_KEY, true);
+    set_api_logfile_endpoint_2(D_API_LOGFILE_ENDPOINT_2, true);
+    set_api_logfile_dest(D_API_LOGFILE_DEST, true);
     set_fixed_longitude(D_FIXED_LONGITUDE, true);
     set_fixed_latitude(D_FIXED_LATITUDE, true);
     set_fixed_range(D_FIXED_RANGE, true);
@@ -191,6 +197,14 @@ const char* LocalStorage::get_active_wifi_password() const {
 
 const char* LocalStorage::get_api_key() const {
   return _api_key;
+}
+
+const char* LocalStorage::get_api_logfile_endpoint_2() const {
+  return _api_logfile_endpoint_2;
+}
+
+uint8_t LocalStorage::get_api_logfile_dest() const {
+  return _api_logfile_dest;
 }
 
 double LocalStorage::get_fixed_longitude() const {
@@ -438,6 +452,30 @@ void LocalStorage::set_api_key(const char* api_key, bool force) {
   }
 }
 
+void LocalStorage::set_api_logfile_endpoint_2(const char* url, bool force) {
+  if(force || (url != nullptr && strlen(url) < CONFIG_LONG_VAL_MAX)) {
+    if(_memory.begin(memory_name)) {
+      strcpy(_api_logfile_endpoint_2, url);
+      _memory.putString(key_api_logfile_endpoint_2, _api_logfile_endpoint_2);
+      _memory.end();
+    } else {
+      M5_LOGD("unable to save new value for api_logfile_endpoint_2");
+    }
+  }
+}
+
+void LocalStorage::set_api_logfile_dest(uint8_t dest, bool force) {
+  if(force || dest <= 1) {
+    if(_memory.begin(memory_name)) {
+      _api_logfile_dest = dest;
+      _memory.putUChar(key_api_logfile_dest, _api_logfile_dest);
+      _memory.end();
+    } else {
+      M5_LOGD("unable to save new value for api_logfile_dest");
+    }
+  }
+}
+
 void LocalStorage::set_fixed_longitude(double fixed_longitude, bool force) {
   if(_memory.begin(memory_name)) {
     _fixed_longitude = fixed_longitude;
@@ -569,6 +607,10 @@ bool LocalStorage::activate(bool) {
   if(_memory.getString(key_api_key, _api_key, CONFIG_VAL_MAX) == 0) {
     strcpy(_api_key, D_API_KEY);
   }
+  if(_memory.getString(key_api_logfile_endpoint_2, _api_logfile_endpoint_2, CONFIG_LONG_VAL_MAX) == 0) {
+    strcpy(_api_logfile_endpoint_2, D_API_LOGFILE_ENDPOINT_2);
+  }
+  _api_logfile_dest = _memory.getUChar(key_api_logfile_dest, D_API_LOGFILE_DEST);
   _fixed_longitude = _memory.getDouble(key_fixed_longitude, D_FIXED_LONGITUDE);
   _fixed_latitude = _memory.getDouble(key_fixed_latitude, D_FIXED_LATITUDE);
   _fixed_range = _memory.getFloat(key_fixed_range, D_FIXED_RANGE);
