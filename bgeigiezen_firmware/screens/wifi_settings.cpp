@@ -14,6 +14,7 @@ WifiSettingsScreen WifiSettingsScreen_i;
 static const WifiSettingsScreen::MenuItem WIFI_MENU[WifiSettingsScreen::e_wifi_MENU_MAX] = {
     {.title="Start Access Point", .tooltip="Start Wi-Fi access point, connect with pc or phone to configure device", .enabled=true, .screen=nullptr},
     {.title="Start on local", .tooltip="Connect to local Wi-Fi, use pc or phone on local network to configure", .enabled=true, .screen=nullptr},
+    {.title="Show Configuration", .tooltip="Show SSID and password for profiles 1 and 2", .enabled=true, .screen=nullptr},
     {.title="Back", .tooltip="Return to Settings", .enabled=true, .screen=&ConfigModeScreen_i},
 };
 
@@ -33,6 +34,8 @@ void WifiSettingsScreen::enter_screen(Controller& controller) {
       WiFiWrapper_i.connect_wifi(controller.get_settings().get_wifi_ssid(), controller.get_settings().get_wifi_password());
       controller.set_worker_active(k_worker_config_server, true);
       break;
+    case e_wifi_page_show:
+      break;
     default:
       // Sentinel or other — open the submenu
       _menu_index = 0;
@@ -51,6 +54,9 @@ void WifiSettingsScreen::leave_screen(Controller& controller) {
     case e_wifi_page_local:
       WiFiWrapper_i.disconnect_wifi();
       controller.set_worker_active(k_worker_config_server, false);
+      break;
+    case e_wifi_page_show:
+      controller.set_worker_active(k_worker_config_server, false);  // Though it should not be active
       break;
     default:
       break;
@@ -93,11 +99,14 @@ void WifiSettingsScreen::render(const worker_map_t& workers, const handler_map_t
     render_page_ap(workers, handlers);
   } else if (_current_page == e_wifi_page_local) {
     render_page_local(workers, handlers);
+  } else if (_current_page == e_wifi_page_show) {
+    render_page_show(workers, handlers);
   }
 }
 
 void WifiSettingsScreen::render_page_ap(const worker_map_t& workers, const handler_map_t& handlers) {
   drawButton1("");
+  drawButton2("");
   drawButton3("Back");
 
   const auto settings = workers.worker<LocalStorage>(k_worker_local_storage);
@@ -113,6 +122,7 @@ void WifiSettingsScreen::render_page_ap(const worker_map_t& workers, const handl
 
 void WifiSettingsScreen::render_page_local(const worker_map_t& workers, const handler_map_t& handlers) {
   drawButton1("");
+  drawButton2("");
   drawButton3("Back");
 
   const auto settings = workers.worker<LocalStorage>(k_worker_local_storage);
@@ -124,4 +134,21 @@ void WifiSettingsScreen::render_page_local(const worker_map_t& workers, const ha
   M5.Lcd.printf("Connected:  %s\n", WiFiWrapper_i.wifi_connected() ? "Yes          " : "Not yet...");
 
   M5.Lcd.printf("IP:  %s               \n", WiFiWrapper_i.wifi_connected() ? WiFi.localIP().toString().c_str() : "Waiting for connection... ");
+}
+
+void WifiSettingsScreen::render_page_show(const worker_map_t& workers, const handler_map_t& handlers) {
+  drawButton1("");
+  drawButton2("");
+  drawButton3("Back");
+
+  const auto& settings = workers.worker<LocalStorage>(k_worker_local_storage);
+
+  M5.Lcd.setCursor(0, 70, &fonts::Font2);
+  M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
+  M5.Lcd.printf("Profile 1:\n");
+  M5.Lcd.printf("  %s\n", settings->get_wifi_ssid());
+  M5.Lcd.printf("  %s\n", settings->get_wifi_password());
+  M5.Lcd.printf("Profile 2:\n");
+  M5.Lcd.printf("  %s\n", settings->get_wifi_ssid2());
+  M5.Lcd.printf("  %s\n", settings->get_wifi_password2());
 }

@@ -8,6 +8,7 @@ class WifiSettingsScreen : public BaseScreenWithMenu {
   enum WifiSettingsPage {
     e_wifi_page_ap,
     e_wifi_page_local,
+    e_wifi_page_show,
     e_wifi_page_back,
     e_wifi_MENU_MAX,
   };
@@ -24,6 +25,7 @@ class WifiSettingsScreen : public BaseScreenWithMenu {
  private:
   void render_page_ap(const worker_map_t& workers, const handler_map_t& handlers);
   void render_page_local(const worker_map_t& workers, const handler_map_t& handlers);
+  void render_page_show(const worker_map_t& workers, const handler_map_t& handlers);
 };
 
 extern WifiSettingsScreen WifiSettingsScreen_i;
