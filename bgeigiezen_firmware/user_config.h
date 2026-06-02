@@ -105,9 +105,10 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 /** API settings **/
 #define TTSERVE_HOST "tt.safecast.org"
 #define API_HOST "api.safecast.org"
+#define API_HOST_2 "simplemap.safecast.org"
 #define TTSERVE_MEASUREMENTS_ENDPOINT "http://" TTSERVE_HOST "/measurements.json"
 #define API_LOGFILE_ENDPOINT "https://" API_HOST "/bgeigie_imports.json"
-#define API_LOGFILE_ENDPOINT_2 "https://" API_HOST "/bgeigie_imports.json"
+#define API_LOGFILE_ENDPOINT_2 "https://" API_HOST_2 "/bgeigie_imports.json"
 #define HEADER_API_USER_AGENT "bGeigieZen/" VERSION_NUMBER
 
 /** Access point settings **/
@@ -135,7 +136,7 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #define D_WIFI_SSID2 ""
 #define D_WIFI_PASSWORD2 ""
 #define D_API_KEY ""
-#define D_API_LOGFILE_ENDPOINT_2 ""
+#define D_API_LOGFILE_ENDPOINT_2 API_LOGFILE_ENDPOINT_2
 #define D_API_LOGFILE_DEST 0 // 0 = primary, 1 = secondary
 #define D_FIXED_LONGITUDE 0
 #define D_FIXED_LATITUDE 0
