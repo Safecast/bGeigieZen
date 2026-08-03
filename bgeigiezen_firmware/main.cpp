@@ -170,6 +170,9 @@ void setup() {
   M5_LOGD("Register supervisors...");
   controller.register_supervisor(gfx_screen);
 
+  M5_LOGD("Register WiFi event handlers...");
+  WiFiWrapper_i.register_events();
+
   M5_LOGD("Start default workers...");
   controller.start_default_workers();
 
@@ -269,6 +272,10 @@ void loop() {
       button_a_long_press_detected = false;
     }
   }
+
+  // Keep WiFi alive independent of sensor data freshness/validity gating,
+  // which otherwise starves ApiConnector::activate() of any chance to run.
+  api_connector.maintain_connection();
 
   controller.run();
 }
