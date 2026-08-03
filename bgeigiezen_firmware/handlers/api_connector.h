@@ -35,6 +35,13 @@ class ApiConnector : public Handler {
 
   uint32_t get_post_count() const;
 
+  /**
+   * Called every loop iteration (independent of sensor data freshness) to
+   * keep the WiFi link alive: reacts to disconnect events immediately and
+   * otherwise retries on the normal backoff.
+   */
+  void maintain_connection();
+
  protected:
 
   /**
@@ -70,6 +77,7 @@ class ApiConnector : public Handler {
   char _payload[200];
   uint32_t _post_count;
   uint32_t _last_post;
+  uint32_t _last_retry;
 };
 
 #endif //BGEIGIEZEN_APICONNECTOR_H_

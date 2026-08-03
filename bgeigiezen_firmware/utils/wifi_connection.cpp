@@ -9,8 +9,41 @@
 
 WiFiWrapper WiFiWrapper_i;
 
+// Bounded wait for WiFi.status() to reach WL_CONNECTED after begin()/reconnect(),
+// instead of a single delay(100) + give-up.
+static bool wait_for_connection(uint32_t timeout_ms) {
+  uint32_t start = millis();
+  while (millis() - start < timeout_ms) {
+    if (WiFi.status() == WL_CONNECTED) {
+      return true;
+    }
+    delay(100);
+  }
+  return WiFi.status() == WL_CONNECTED;
+}
 
-WiFiWrapper::WiFiWrapper(): _last_activity(0), _hostname("") {
+static void on_wifi_event(WiFiEvent_t event) {
+  if (event == ARDUINO_EVENT_WIFI_STA_DISCONNECTED) {
+    M5_LOGD("WiFi connector: STA disconnected event received");
+    WiFiWrapper_i.flag_disconnect_event();
+  }
+}
+
+WiFiWrapper::WiFiWrapper(): _last_activity(0), _hostname(""), _disconnect_event(false) {
+}
+
+void WiFiWrapper::register_events() {
+  WiFi.onEvent(on_wifi_event);
+}
+
+void WiFiWrapper::flag_disconnect_event() {
+  _disconnect_event = true;
+}
+
+bool WiFiWrapper::consume_disconnect_event() {
+  bool fired = _disconnect_event;
+  _disconnect_event = false;
+  return fired;
 }
 
 
@@ -27,7 +60,7 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
         delay(50);
         #endif
         WiFi.reconnect();
-        delay(100);
+        wait_for_connection(3000);
         update_active();
         return wifi_connected();
       }
@@ -40,7 +73,7 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
       delay(50);
       #endif
       WiFi.reconnect();
-      delay(100);
+      wait_for_connection(3000);
       update_active();
       return wifi_connected();
     default:
@@ -79,7 +112,7 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
       }
       #endif
       password ? WiFi.begin(ssid, password) : WiFi.begin(ssid);
-      delay(100);
+      wait_for_connection(3000);
       update_active();
       return wifi_connected();
   }

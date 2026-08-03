@@ -55,9 +55,26 @@ class WiFiWrapper {
   void update_active();
   bool was_active();
 
+  /**
+   * Register the WiFi station disconnect event handler, so that a dropped
+   * link can be detected immediately instead of waiting for the next poll.
+   */
+  void register_events();
+
+  /**
+   * Returns true (once) if a STA disconnect event fired since the last call.
+   */
+  bool consume_disconnect_event();
+
+  /**
+   * Marks that a STA disconnect event fired. Called from the WiFi event callback.
+   */
+  void flag_disconnect_event();
+
  private:
   char _hostname[20];
   uint32_t _last_activity;
+  bool _disconnect_event;
 };
 
 extern WiFiWrapper WiFiWrapper_i;

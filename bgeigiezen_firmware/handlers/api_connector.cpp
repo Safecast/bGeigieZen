@@ -6,7 +6,7 @@
 // subtracting 1 seconds so data is sent more often than not.
 #define SEND_FREQUENCY(last_send, sec) ((last_send) == 0 || (millis() - (last_send)) > (((sec) * 1000) - 500))
 
-ApiConnector::ApiConnector(LocalStorage& config) : Handler(), _http_client(), _config(config), _payload(""), _post_count(0), _last_post(0) {
+ApiConnector::ApiConnector(LocalStorage& config) : Handler(), _http_client(), _config(config), _payload(""), _post_count(0), _last_post(0), _last_retry(0) {
 }
 
 bool ApiConnector::time_to_send(bool in_fixed_range, bool alert) const {
@@ -17,18 +17,34 @@ bool ApiConnector::time_to_send(bool in_fixed_range, bool alert) const {
 }
 
 bool ApiConnector::activate(bool retry) {
-  static uint32_t last_try = 0;
   if (WiFiWrapper_i.wifi_connected()) {
     return true;
   }
-  if (retry && millis() - last_try < RETRY_TIMEOUT) {
+  if (retry && millis() - _last_retry < RETRY_TIMEOUT) {
     return false;
   }
-  last_try = millis();
+  _last_retry = millis();
 
   WiFiWrapper_i.connect_wifi(_config.get_active_wifi_ssid(), _config.get_active_wifi_password(), !retry);
 
   return WiFi.isConnected();
+}
+
+void ApiConnector::maintain_connection() {
+  if (!_config.get_fixed_device_id()) {
+    // No valid device id configured, nothing to upload, leave wifi alone
+    return;
+  }
+  if (WiFiWrapper_i.ap_server_up()) {
+    // User is on the AP config screen, don't fight it
+    return;
+  }
+  if (WiFiWrapper_i.consume_disconnect_event()) {
+    // A disconnect event fired: skip the backoff and retry now
+    M5_LOGD("WiFi connector: disconnect event detected, retrying now");
+    _last_retry = 0;
+  }
+  activate(true);
 }
 
 void ApiConnector::deactivate() {
