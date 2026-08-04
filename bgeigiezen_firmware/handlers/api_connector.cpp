@@ -25,7 +25,10 @@ bool ApiConnector::activate(bool retry) {
   }
   _last_retry = millis();
 
-  WiFiWrapper_i.connect_wifi(_config.get_active_wifi_ssid(), _config.get_active_wifi_password(), !retry);
+  // Non-blocking: activate() runs on the main loop/render task (screen
+  // transitions via set_handler_active(), and the Handler framework's own
+  // auto-retry), so it must never stall waiting for a WiFi verify loop.
+  WiFiWrapper_i.connect_wifi(_config.get_active_wifi_ssid(), _config.get_active_wifi_password(), !retry, false);
 
   return WiFi.isConnected();
 }
@@ -59,6 +62,14 @@ void ApiConnector::maintain_connection() {
 }
 
 void ApiConnector::deactivate() {
+  // Don't forcibly vTaskDelete() a task that may be mid-syscall inside the
+  // WiFi/lwIP stack (e.g. an in-flight HTTPClient::POST) — that can corrupt
+  // heap/lock state and reset the device. Give it a bounded window to finish
+  // naturally first; kill_task() below is just a safety net if it's stuck.
+  uint32_t wait_start = millis();
+  while (task_running() && millis() - wait_start < 5000) {
+    delay(20);
+  }
   kill_task();
   WiFiWrapper_i.disconnect_wifi();
 }

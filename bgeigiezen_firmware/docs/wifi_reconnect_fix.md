@@ -78,3 +78,30 @@ The Core2-specific WiFi init delays (mode/start housekeeping, needed to
 avoid crashes on an uninitialized radio) still run, but the multi-second
 connect-verify wait is skipped; `maintain_connection()` picks up and
 confirms the connection on a later background pass.
+
+## Follow-up fix (v3.4.5): screen still blanking + reset switching RT -> Drive mode
+
+The 3.4.4 fix was incomplete: `FixedModeScreen::enter_screen()` calls
+`connect_wifi()` non-blockingly, but immediately after it calls
+`controller.set_handler_active(k_handler_api_reporter, true)`, which (via
+the `Activatable`/`Handler` framework) invokes `ApiConnector::activate()`
+— and *that* also called `connect_wifi()`, without passing
+`wait_for_result=false`. So the blocking 3s verify-loop still ran, just one
+call later in the chain.
+
+Fix: `ApiConnector::activate()` (`handlers/api_connector.cpp`) now always
+passes `wait_for_result=false`. It runs on the main loop/render task both
+from `set_handler_active()` (screen transitions) and the Handler
+framework's own auto-retry, so it must never block.
+
+Separately, switching from Real-Time mode to Drive mode could reset the
+device. `FixedModeScreen::leave_screen()` deactivates the API handler,
+which called `Handler::kill_task()` -> `vTaskDelete()` on the async task
+that runs `ApiConnector::handle_async()` (an in-flight `HTTPClient::POST`).
+Forcibly deleting a FreeRTOS task while it's inside the WiFi/lwIP stack can
+corrupt heap/lock state and crash — consistent with a reset shortly after
+leaving RT mode while a post was in flight.
+
+Fix: `ApiConnector::deactivate()` now waits (bounded to 5s, polling every
+20ms) for the async task to finish naturally before calling `kill_task()`,
+which remains only as a safety net for a genuinely stuck task.
