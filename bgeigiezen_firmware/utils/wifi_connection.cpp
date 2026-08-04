@@ -47,7 +47,7 @@ bool WiFiWrapper::consume_disconnect_event() {
 }
 
 
-bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool first_time, bool wait_for_result) {
+bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool first_time) {
   switch(WiFi.status()) {
     case WL_CONNECTED:
       return true;
@@ -60,9 +60,7 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
         delay(50);
         #endif
         WiFi.reconnect();
-        if (wait_for_result) {
-          wait_for_connection(3000);
-        }
+        wait_for_connection(3000);
         update_active();
         return wifi_connected();
       }
@@ -75,9 +73,7 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
       delay(50);
       #endif
       WiFi.reconnect();
-      if (wait_for_result) {
-        wait_for_connection(3000);
-      }
+      wait_for_connection(3000);
       update_active();
       return wifi_connected();
     default:
@@ -116,9 +112,7 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
       }
       #endif
       password ? WiFi.begin(ssid, password) : WiFi.begin(ssid);
-      if (wait_for_result) {
-        wait_for_connection(3000);
-      }
+      wait_for_connection(3000);
       update_active();
       return wifi_connected();
   }
