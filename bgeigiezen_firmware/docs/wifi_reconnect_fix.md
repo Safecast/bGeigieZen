@@ -42,23 +42,3 @@ never reconnect on its own. Root causes:
   sensor data freshness.
 - Each reconnect attempt gets a real bounded window to succeed instead of
   a single 100ms check.
-
-## Follow-up fix (v3.4.3): Core2 touch/button freeze
-
-`maintain_connection()` running every `loop()` iteration meant the blocking
-3s `wait_for_connection()` verify-loop (added above) could now fire from the
-background path too. On Core2, `connect_wifi()` also does extra
-`esp_wifi_stop()/start()` housekeeping with hard `delay()`s, so a failed
-reconnect attempt (e.g. real device ID configured but no/wrong WiFi
-credentials) froze `loop()` for ~3.3-3.8s every 10s — long enough that
-`M5.update()` (which polls touch) never got called between touches, making
-menu buttons on Core2 appear unresponsive. CoreS3 has no equivalent
-Core2-only delays and wasn't affected.
-
-Fix: `WiFiWrapper::connect_wifi()` gained a `wait_for_result` parameter.
-`maintain_connection()` (the background/automatic path) now passes `false`
-— it kicks off `WiFi.begin()`/`WiFi.reconnect()` and returns immediately
-without blocking `loop()`, relying on the next periodic call to observe
-whether the connection succeeded. The WiFi settings screen (user-initiated,
-where blocking briefly for feedback is expected) keeps `wait_for_result`
-defaulted to `true`.
