@@ -31,6 +31,9 @@ bool ApiConnector::activate(bool retry) {
 }
 
 void ApiConnector::maintain_connection() {
+  if (WiFiWrapper_i.wifi_connected()) {
+    return;
+  }
   if (!_config.get_fixed_device_id()) {
     // No valid device id configured, nothing to upload, leave wifi alone
     return;
@@ -44,7 +47,15 @@ void ApiConnector::maintain_connection() {
     M5_LOGD("WiFi connector: disconnect event detected, retrying now");
     _last_retry = 0;
   }
-  activate(true);
+  if (millis() - _last_retry < RETRY_TIMEOUT) {
+    return;
+  }
+  _last_retry = millis();
+
+  // Non-blocking: kick off the attempt and let the next call(s) observe the
+  // result. Never wait here — this runs every loop() iteration and must not
+  // stall touch/button polling (M5.update()).
+  WiFiWrapper_i.connect_wifi(_config.get_active_wifi_ssid(), _config.get_active_wifi_password(), false, false);
 }
 
 void ApiConnector::deactivate() {
