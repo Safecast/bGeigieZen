@@ -8,9 +8,14 @@ class WiFiWrapper {
    * Connect to wifi endpoint
    * @param ssid
    * @param password
+   * @param wait_for_result if true, block until connected or a bounded
+   *        timeout elapses (safe for user-initiated UI actions); if false,
+   *        kick off the connection attempt and return immediately without
+   *        blocking the caller (required for calls made from the main loop,
+   *        so touch/button polling isn't starved).
    * @return true if connected
    */
-  bool connect_wifi(const char* ssid, const char* password = nullptr, bool first_time = false);
+  bool connect_wifi(const char* ssid, const char* password = nullptr, bool first_time = false, bool wait_for_result = true);
 
   /**
    * disconnect from wifi endpoint
