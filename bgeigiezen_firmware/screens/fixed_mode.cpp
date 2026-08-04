@@ -263,9 +263,12 @@ void FixedModeScreen::render(const worker_map_t& workers, const handler_map_t& h
 
 void FixedModeScreen::enter_screen(Controller& controller) {
   // Initialize WiFi BEFORE activating the handler to ensure WiFi is ready
-  // This prevents crashes on Core2 when WiFi is in an uninitialized state
+  // This prevents crashes on Core2 when WiFi is in an uninitialized state.
+  // wait_for_result=false: don't block screen entry on the multi-second
+  // connect verify loop, the background maintain_connection() will pick up
+  // and confirm the connection on a later pass.
   const auto& settings = controller.get_settings();
-  WiFiWrapper_i.connect_wifi(settings.get_active_wifi_ssid(), settings.get_active_wifi_password());
+  WiFiWrapper_i.connect_wifi(settings.get_active_wifi_ssid(), settings.get_active_wifi_password(), false, false);
 
   controller.set_handler_active(k_handler_api_reporter, true);
 

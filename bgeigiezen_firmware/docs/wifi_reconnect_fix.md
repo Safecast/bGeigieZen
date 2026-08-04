@@ -62,3 +62,19 @@ without blocking `loop()`, relying on the next periodic call to observe
 whether the connection succeeded. The WiFi settings screen (user-initiated,
 where blocking briefly for feedback is expected) keeps `wait_for_result`
 defaulted to `true`.
+
+## Follow-up fix (v3.4.4): blank screen entering Real-Time mode on Core2
+
+`GFXScreen`'s screen-switch sequence (`gfx_screen.cpp`) clears the display
+*before* calling the new screen's `enter_screen()`. `FixedModeScreen::enter_screen()`
+(`screens/fixed_mode.cpp`) called `WiFiWrapper_i.connect_wifi(...)` with the
+default `wait_for_result=true`, so on Core2 the same 3s verify-loop (plus
+Core2's `esp_wifi_stop()/start()` delays) ran synchronously right after the
+screen was blanked — a ~3s blank screen every time Real-Time mode was
+entered while WiFi wasn't already connected.
+
+Fix: `FixedModeScreen::enter_screen()` now passes `wait_for_result=false`.
+The Core2-specific WiFi init delays (mode/start housekeeping, needed to
+avoid crashes on an uninitialized radio) still run, but the multi-second
+connect-verify wait is skipped; `maintain_connection()` picks up and
+confirms the connection on a later background pass.
