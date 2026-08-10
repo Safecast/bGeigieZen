@@ -1,0 +1,73 @@
+<ide_opened_file>The user opened the file /home/rob/Documents/Safecast/bGeigieZen/.omc/project-memory.json in the IDE. This may or may not be related to the current task.</ide_opened_file>
+can we delete the other non track files or are they needed?
+
+---
+
+Ahhhh just remove all that .omc data from the computer. No need for that any more
+
+---
+
+AOn Core 2 after the update to V3.4.2 the touching of the buttons on the menu does not work any more. Can you fix that?
+
+---
+
+Core 3 works fine
+
+---
+
+Work fine now
+
+---
+
+On core If it swiches (through the menu) to RT mode, the screen is balnk for about 3 seconds. Can yuo fix that?
+
+---
+
+Still doing it.. One think I noticed that selecting drive mode after realtime mode, the Zen resets?
+
+---
+
+Please undo the revisions.. keep this version at 3.4.2
+
+---
+
+Seems to be fixed..
+
+---
+
+There seems to be still an iddue with the screen being back when switching to RT mode. Seems to be 3 seconds black. Could that also be related to this comment?
+
+"Just to finish the thought... delay(3000) is silly. instead use the RBD Timer library. It's already in use elsewhere (GPS). You start a timer then poll to see if it timed out. The timer is refreshed the same way as the Arduino framework refreshes millis()
+[10:13 PM]I saw the 3 second delay in a note for the big batch of commits. I didn't follow it all but it jumped out at me.
+[10:15 PM]The idea would be to initiate the WiFi reconnect and start the timer. Then poll both the connection and the timer and take action on either event, connect or timeout. If connect, then great! If timeout, deal with it another way."
+
+---
+
+There seems to be still an issue with the screen being black when switching to RT mode. Seems to be 3 seconds black. Could that also be related to this comment?
+
+"Just to finish the thought... delay(3000) is silly. instead use the RBD Timer library. It's already in use elsewhere (GPS). You start a timer then poll to see if it timed out. The timer is refreshed the same way as the Arduino framework refreshes millis()
+[10:13 PM]I saw the 3 second delay in a note for the big batch of commits. I didn't follow it all but it jumped out at me.
+[10:15 PM]The idea would be to initiate the WiFi reconnect and start the timer. Then poll both the connection and the timer and take action on either event, connect or timeout. If connect, then great! If timeout, deal with it another way."
+
+---
+
+<ide_opened_file>The user opened the file /home/rob/Documents/Safecast/bGeigieZen/Misc documents  and software/bGeigieZen_Workshop_Description.md in the IDE. This may or may not be related to the current task.</ide_opened_file>
+Much better!!!
+
+---
+
+Please merge
+
+---
+
+I want o update the news at https://bgeigiezen.safecast.jp/news-updates/ . Can you make a list of changes/improvements for the Zen from V3.3.9 till 3.4.2 and makthe text for that news?
+
+---
+
+This part shuld be deleted.. That was laways ther:
+
+"The Zen now remembers which mode (Drive/Survey/Real-time) you were last using and returns to it automatically."
+
+---
+
+hy did you update to V3.4.3?
