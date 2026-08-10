@@ -9,18 +9,7 @@
 
 WiFiWrapper WiFiWrapper_i;
 
-// Bounded wait for WiFi.status() to reach WL_CONNECTED after begin()/reconnect(),
-// instead of a single delay(100) + give-up.
-static bool wait_for_connection(uint32_t timeout_ms) {
-  uint32_t start = millis();
-  while (millis() - start < timeout_ms) {
-    if (WiFi.status() == WL_CONNECTED) {
-      return true;
-    }
-    delay(100);
-  }
-  return WiFi.status() == WL_CONNECTED;
-}
+#define WIFI_CONNECT_TIMEOUT_MS 8000
 
 static void on_wifi_event(WiFiEvent_t event) {
   if (event == ARDUINO_EVENT_WIFI_STA_DISCONNECTED) {
@@ -29,7 +18,8 @@ static void on_wifi_event(WiFiEvent_t event) {
   }
 }
 
-WiFiWrapper::WiFiWrapper(): _last_activity(0), _hostname(""), _disconnect_event(false) {
+WiFiWrapper::WiFiWrapper(): _last_activity(0), _hostname(""), _disconnect_event(false),
+    _connect_attempt_active(false), _connect_timer(WIFI_CONNECT_TIMEOUT_MS) {
 }
 
 void WiFiWrapper::register_events() {
@@ -47,9 +37,10 @@ bool WiFiWrapper::consume_disconnect_event() {
 }
 
 
-bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool first_time, bool wait_for_result) {
+bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool first_time) {
   switch(WiFi.status()) {
     case WL_CONNECTED:
+      _connect_attempt_active = false;
       return true;
     case WL_CONNECT_FAILED:
       if (first_time) {
@@ -60,9 +51,8 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
         delay(50);
         #endif
         WiFi.reconnect();
-        if (wait_for_result) {
-          wait_for_connection(3000);
-        }
+        _connect_attempt_active = true;
+        _connect_timer.restart();
         update_active();
         return wifi_connected();
       }
@@ -75,9 +65,8 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
       delay(50);
       #endif
       WiFi.reconnect();
-      if (wait_for_result) {
-        wait_for_connection(3000);
-      }
+      _connect_attempt_active = true;
+      _connect_timer.restart();
       update_active();
       return wifi_connected();
     default:
@@ -116,12 +105,26 @@ bool WiFiWrapper::connect_wifi(const char* ssid, const char* password, bool firs
       }
       #endif
       password ? WiFi.begin(ssid, password) : WiFi.begin(ssid);
-      if (wait_for_result) {
-        wait_for_connection(3000);
-      }
+      _connect_attempt_active = true;
+      _connect_timer.restart();
       update_active();
       return wifi_connected();
   }
+}
+
+bool WiFiWrapper::connecting() {
+  if (wifi_connected()) {
+    _connect_attempt_active = false;
+    return false;
+  }
+  return _connect_attempt_active && !_connect_timer.isExpired();
+}
+
+bool WiFiWrapper::connect_timed_out() {
+  if (wifi_connected()) {
+    return false;
+  }
+  return _connect_attempt_active && _connect_timer.isExpired();
 }
 
 void WiFiWrapper::disconnect_wifi() {
