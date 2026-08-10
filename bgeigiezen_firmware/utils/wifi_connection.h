@@ -1,21 +1,33 @@
 #ifndef BGEIGIEZEN_WIFI_WRAPPER_H_
 #define BGEIGIEZEN_WIFI_WRAPPER_H_
 
+#include <RBD_Timer.h>
+
 class WiFiWrapper {
  public:
   WiFiWrapper();
   /**
-   * Connect to wifi endpoint
+   * Fire a connect attempt (WiFi.begin()/WiFi.reconnect()) and return
+   * immediately — this NEVER blocks waiting for the result. Callers that
+   * need to know the outcome must poll wifi_connected() / connecting() /
+   * connect_timed_out() on later loop() ticks or render passes.
    * @param ssid
    * @param password
-   * @param wait_for_result if true, block until connected or a bounded
-   *        timeout elapses (safe for user-initiated UI actions); if false,
-   *        kick off the connection attempt and return immediately without
-   *        blocking the caller (required for calls made from the main loop,
-   *        so touch/button polling isn't starved).
-   * @return true if connected
+   * @return true only if WiFi was already connected before this call
    */
-  bool connect_wifi(const char* ssid, const char* password = nullptr, bool first_time = false, bool wait_for_result = true);
+  bool connect_wifi(const char* ssid, const char* password = nullptr, bool first_time = false);
+
+  /**
+   * True while a connect attempt fired by connect_wifi() is still in
+   * flight (not yet connected, not yet timed out).
+   */
+  bool connecting();
+
+  /**
+   * True if the most recent connect attempt has been running longer than
+   * the connect timeout without succeeding.
+   */
+  bool connect_timed_out();
 
   /**
    * disconnect from wifi endpoint
@@ -80,6 +92,8 @@ class WiFiWrapper {
   char _hostname[20];
   uint32_t _last_activity;
   bool _disconnect_event;
+  bool _connect_attempt_active;
+  RBD::Timer _connect_timer;
 };
 
 extern WiFiWrapper WiFiWrapper_i;

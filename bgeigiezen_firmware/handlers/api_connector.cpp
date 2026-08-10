@@ -52,12 +52,7 @@ void ApiConnector::maintain_connection() {
   }
   _last_retry = millis();
 
-  // Non-blocking: kick off the attempt and let the next call(s) observe the
-  // result. Never wait here — this runs every loop() iteration and must not
-  // stall touch/button polling (M5.update()), which is what freezes the
-  // screen (Core2 menu buttons, CoreS3 screensaver wake) during a failed
-  // background reconnect.
-  WiFiWrapper_i.connect_wifi(_config.get_active_wifi_ssid(), _config.get_active_wifi_password(), false, false);
+  WiFiWrapper_i.connect_wifi(_config.get_active_wifi_ssid(), _config.get_active_wifi_password(), false);
 }
 
 void ApiConnector::deactivate() {
