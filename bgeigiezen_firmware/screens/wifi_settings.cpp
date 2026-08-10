@@ -59,6 +59,11 @@ void WifiSettingsScreen::leave_screen(Controller& controller) {
 }
 
 BaseScreen* WifiSettingsScreen::handle_input(Controller& controller, const worker_map_t& workers) {
+  if (!menu_open() && _current_page == e_wifi_page_local && !WiFiWrapper_i.wifi_connected()) {
+    // connect_wifi() is async now — keep the "Connected: ..." status live
+    // until the attempt resolves (connects or times out).
+    force_next_render();
+  }
   if (menu_open()) {
     return handle_menu_input(controller, workers, WIFI_MENU, e_wifi_MENU_MAX);
   }
@@ -121,7 +126,10 @@ void WifiSettingsScreen::render_page_local(const worker_map_t& workers, const ha
   M5.Lcd.setTextColor(LCD_COLOR_DEFAULT, LCD_COLOR_BACKGROUND);
   M5.Lcd.printf("Config through local network, connect to\n");
   M5.Lcd.printf("Network:  %s\n", settings->get_wifi_ssid());
-  M5.Lcd.printf("Connected:  %s\n", WiFiWrapper_i.wifi_connected() ? "Yes          " : "Not yet...");
+  const char* status = WiFiWrapper_i.wifi_connected()
+      ? "Yes          "
+      : (WiFiWrapper_i.connect_timed_out() ? "Timed out    " : "Connecting...");
+  M5.Lcd.printf("Connected:  %s\n", status);
 
   M5.Lcd.printf("IP:  %s               \n", WiFiWrapper_i.wifi_connected() ? WiFi.localIP().toString().c_str() : "Waiting for connection... ");
 }

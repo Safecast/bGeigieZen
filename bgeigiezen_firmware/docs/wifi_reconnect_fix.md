@@ -62,3 +62,48 @@ without blocking `loop()`, relying on the next periodic call to observe
 whether the connection succeeded. The WiFi settings screen (user-initiated,
 where blocking briefly for feedback is expected) keeps `wait_for_result`
 defaulted to `true`.
+
+**Superseded by the rewrite below** — the `wait_for_result` flag design was
+abandoned in v3.4.3 because every call site had to remember to opt out of
+blocking, and two were missed (see below).
+
+## Rewrite (v3.4.3): remove the blocking wait entirely
+
+Across three follow-up patches (touch freeze, then RT-mode blank screen,
+twice), the root problem kept resurfacing: `connect_wifi()` could still
+block for up to 3s via `wait_for_connection()`, a `while` loop polling
+`WiFi.status()` every 100ms — not a literal `delay(3000)`, but functionally
+the same for the caller, since it never returns control to `loop()` until
+connected or timed out. Every new call site (`ApiConnector::activate()`,
+`FixedModeScreen::enter_screen()`, `LogViewerScreen::enter_screen()`, the
+WiFi settings screen) had to explicitly opt out via `wait_for_result=false`
+to avoid it, and it was easy to miss one — which is exactly what kept
+happening.
+
+The fix: `connect_wifi()` no longer has a blocking mode at all.
+`wait_for_connection()` and the `wait_for_result` parameter are gone.
+`connect_wifi()` fires `WiFi.begin()`/`WiFi.reconnect()` and returns
+immediately, always — no call site can opt back into blocking, so no call
+site can regress.
+
+The state that the blocking wait used to track (is an attempt in flight,
+has it timed out) moved into `WiFiWrapper` using an `RBD::Timer`
+(`alextaujenis/RBD_Timer`, already a dependency — used the same way for
+GPS fix-age tracking in `gps_connector.h`):
+- `connect_wifi()` calls `_connect_timer.restart()` when it fires an attempt.
+- `WiFiWrapper::connecting()` — true while an attempt is in flight and the
+  8s timeout (`WIFI_CONNECT_TIMEOUT_MS`) hasn't elapsed.
+- `WiFiWrapper::connect_timed_out()` — true once that timeout elapses
+  without connecting.
+
+Callers that used to get synchronous feedback now poll instead. The WiFi
+settings screen's local-network page (`screens/wifi_settings.cpp`) now
+calls `force_next_render()` from `handle_input()` every tick while
+`!wifi_connected()`, so the "Connected: ..." status line updates live as
+the async attempt resolves (showing "Connecting..." then "Yes" or
+"Timed out"), rather than only rendering once on screen entry.
+
+The pre-existing Core2 `esp_wifi_stop()/start()` housekeeping and its
+`delay(50/100/200)` calls (~300-700ms total, guarding against crashes on an
+uninitialized radio) were left alone — those are a separate, much smaller
+cost and not what was causing the multi-second freezes.
