@@ -14,7 +14,7 @@ struct DataLine {
   char log_string[LINE_BUFFER_SIZE] = "";
 
   bool valid() const {
-    return gps_valid && gm_valid && dop_valid;
+    return (gps_valid && dop_valid || gps_fallback) && gm_valid;
   }
 
   uint32_t cpm = 0;  // Changed from uint16_t to handle high frequency inputs
@@ -25,6 +25,7 @@ struct DataLine {
   double distance = 0;
   bool dop_valid = false;
   bool in_fixed_range = false;
+  bool gps_fallback = false;  // GPS lost >10min while at home: send with last known location
 };
 
 /**
@@ -44,6 +45,9 @@ class LogAggregator : public ProcessWorker<DataLine> {
   LocalStorage& _settings;
   double _last_latitude;
   double _last_longitude;
+  bool _last_in_fixed_range = false;
+  uint32_t _last_valid_ms = 0;
+  time_t _last_valid_time = 0;
 };
 
 #endif //WORKERS_LOG_AGGREGATOR_H

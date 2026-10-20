@@ -28,6 +28,7 @@ bool SdLogger::activate(bool) {
   // Create temporary log file
   sprintf(_logging_to, TEMP_LOG_NAME_F, get_dir());
   if (!SDInterface::i().setup_log(get_dir(), _logging_to, true)) {
+    SDInterface::i().check_full();
     return false;
   }
   char header_l2[100];
@@ -59,6 +60,8 @@ bool SdLogger::activate(bool) {
   }
   success = success && SDInterface::i().log_println(_logging_to, mode_header);
 
+  SDInterface::i().check_full();
+  _last_full_check = millis();
   _is_temp = true;
   _total = 0;
   M5_LOGD("Started new log '%s'.", _logging_to);
@@ -126,7 +129,11 @@ int8_t SdLogger::handle_produced_work(const worker_map_t& workers) {
       }
     }
 
-    if (log_data->get_data().valid() || settings->get_log_void()) {
+    if (millis() - _last_full_check > 60000) {
+      _last_full_check = millis();
+      SDInterface::i().check_full();
+    }
+    if ((log_data->get_data().valid() && !log_data->get_data().gps_fallback) || settings->get_log_void()) {
       // Line is valid OR we are logging void lines
       if (SDInterface::i().log_println(_logging_to, log_data->get_data().log_string)) {
         // Line written to SD card log file

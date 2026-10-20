@@ -297,7 +297,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         } else if (status_msg && (!message_displayed || current_status_message != last_status_message)) {
           // Status message - only show on new message or first display
           // Check if it's a CPM alert for special styling
-          bool is_cpm_alert = current_status_message.indexOf("CPM ALERT") >= 0;
+          bool is_cpm_alert = current_status_message.indexOf("CPM ALERT") >= 0 || current_status_message.indexOf("SD CARD FULL") >= 0;
           
           if (is_cpm_alert) {
             // CPM Alert: Red background with white text
@@ -336,7 +336,7 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
         } else if (status_msg && (!message_displayed || current_status_message != last_status_message)) {
           // Status message - only show on new message or first display
           // Check if it's a CPM alert for special styling
-          bool is_cpm_alert = current_status_message.indexOf("CPM ALERT") >= 0;
+          bool is_cpm_alert = current_status_message.indexOf("CPM ALERT") >= 0 || current_status_message.indexOf("SD CARD FULL") >= 0;
           
           if (is_cpm_alert) {
             // CPM Alert: Red background with white text
@@ -425,7 +425,9 @@ void GFXScreen::handle_report(const worker_map_t& workers, const handler_map_t& 
 
           // Status icon: SD
           M5.Lcd.setCursor(pos, 235);
-          if (!SDInterface::i().can_write_logs()) {
+          if (SDInterface::i().is_full() && _screen->has_required_sd()) {
+            M5.Lcd.setTextColor(LCD_COLOR_ERROR, TFT_BLACK);
+          } else if (!SDInterface::i().can_write_logs()) {
             bool sd_error_state = _screen->has_required_sd();
             M5.Lcd.setTextColor(sd_error_state ? LCD_COLOR_ERROR : LCD_COLOR_INACTIVE, TFT_BLACK);
             

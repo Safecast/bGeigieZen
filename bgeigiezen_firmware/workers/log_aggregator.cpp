@@ -1,3 +1,4 @@
+#include <ctime>
 #include "utils/functions.h"
 #include "log_aggregator.h"
 #include "battery_indicator.h"
@@ -62,12 +63,12 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
   const double gps_altitudeMSL = gps_data.altitudeMSL;
   const double gps_pdop = gps_data.pdop;
   const uint8_t gps_satsInView = gps_data.satsInView;
-  const uint16_t gps_year = gps_data.year;
-  const uint8_t gps_month = gps_data.month;
-  const uint8_t gps_day = gps_data.day;
-  const uint8_t gps_hour = gps_data.hour;
-  const uint8_t gps_minute = gps_data.minute;
-  const uint8_t gps_second = gps_data.second;
+  uint16_t gps_year = gps_data.year;
+  uint8_t gps_month = gps_data.month;
+  uint8_t gps_day = gps_data.day;
+  uint8_t gps_hour = gps_data.hour;
+  uint8_t gps_minute = gps_data.minute;
+  uint8_t gps_second = gps_data.second;
 
   data.cpm = gm_sensor_data.cpm_comp;
   data.latitude = gps_latitude;
@@ -87,6 +88,15 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
       data.in_fixed_range = haversine_km(data.latitude, data.longitude, _settings.get_fixed_latitude(), _settings.get_fixed_longitude()) < _settings.get_fixed_range();
     } else {
       data.in_fixed_range = false;
+    }
+    data.gps_fallback = false;
+    _last_in_fixed_range = data.in_fixed_range;
+    _last_valid_ms = millis();
+    {
+      struct tm t = {};
+      t.tm_year = gps_year - 1900; t.tm_mon = gps_month - 1; t.tm_mday = gps_day;
+      t.tm_hour = gps_hour; t.tm_min = gps_minute; t.tm_sec = gps_second;
+      _last_valid_time = mktime(&t);
     }
 
     if ((_last_latitude < 0 || _last_latitude > 0) && (_last_longitude < 0 || _last_longitude > 0)) {
@@ -109,6 +119,22 @@ int8_t LogAggregator::produce_data(const WorkerMap& workers) {
     longitude_s = static_cast<uint32_t>((longitude - longitude_dm) * 1e4);
   }
 
+
+  // GPS lost for a long time while last fix was inside home range: keep sending
+  // with the last known (fixed) location and a time extrapolated from the last fix.
+  data.gps_fallback = false;
+  if (!gps_valid && _last_in_fixed_range && _last_valid_ms != 0 && _last_valid_time > 0 &&
+      millis() - _last_valid_ms > GPS_LOST_FALLBACK_MS) {
+    data.gps_fallback = true;
+    data.in_fixed_range = true;
+    time_t now = _last_valid_time + (millis() - _last_valid_ms) / 1000;
+    struct tm t;
+    gmtime_r(&now, &t);
+    gps_year = t.tm_year + 1900; gps_month = t.tm_mon + 1; gps_day = t.tm_mday;
+    gps_hour = t.tm_hour; gps_minute = t.tm_min; gps_second = t.tm_sec;
+    data.latitude = _last_latitude;
+    data.longitude = _last_longitude;
+  }
 
   bool dop_valid = gps_valid && gps_pdop * 100 < _settings.get_dop_max();
 

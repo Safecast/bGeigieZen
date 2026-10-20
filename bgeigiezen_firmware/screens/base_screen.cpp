@@ -145,7 +145,11 @@ const __FlashStringHelper* BaseScreen::get_error_message(const worker_map_t& wor
 }
 
 const __FlashStringHelper* BaseScreen::get_status_message(const worker_map_t& workers, const handler_map_t& handlers) {
-  // First check for persistent CPM alert message
+  // Persistent red alert: SD card full, nothing is being logged
+  if (required_sd && SDInterface::i().is_full()) {
+    return STATUS_ERROR_SD_FULL;
+  }
+  // Then check for persistent CPM alert message
   auto* gm_sensor = workers.worker<GeigerCounter>(k_worker_gm_sensor);
   if (gm_sensor && gm_sensor->get_data().alert) {
     // CPM is above threshold - show persistent alert message
