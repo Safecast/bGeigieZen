@@ -37,6 +37,7 @@ class SdLogger : public Handler {
   char _logging_to[LOG_FILENAME_SIZE];
   bool _is_temp;
   uint32_t _total;
+  uint32_t _last_full_check = 0;
 
 };
 

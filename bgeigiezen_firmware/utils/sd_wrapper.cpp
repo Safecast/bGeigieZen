@@ -102,6 +102,17 @@ bool SDInterface::can_write_logs() const {
   return _status == e_sd_config_status_ok;
 }
 
+void SDInterface::check_full() {
+  if (can_write_logs() && !_busy) {
+    if (!ready()) {
+      // Card was removed (ready() ends the connection), not full
+      _full = false;
+      return;
+    }
+    _full = (SD.totalBytes() - SD.usedBytes()) < SD_MIN_FREE_BYTES;
+  }
+}
+
 SDInterface::SdStatus SDInterface::status() const {
   return _status;
 }
@@ -144,6 +155,7 @@ bool SDInterface::just_wrote() const {
 }
 
 void SDInterface::end() {
+  _full = false;
   _status = e_sd_config_status_not_ready;
   SD.end();
 }
@@ -167,7 +179,8 @@ bool SDInterface::log_println(const char* log_name, const char* data) {
     // Create the file
     File create_file = SD.open(log_name, FILE_WRITE);
     if (!create_file) {
-      end();
+      check_full();
+      if (!_full) end();
       M5_LOGD("Unable to create log file \"%s\".", log_name);
       return false;
     }
@@ -182,12 +195,17 @@ bool SDInterface::log_println(const char* log_name, const char* data) {
   // open the setup file in append mode to add lines
   auto log_file = SD.open(log_name, FILE_APPEND);
   if (!log_file) {
-    end();
+    check_full();
+    if (!_full) end();
     M5_LOGD("Unable to open log file \"%s\".", log_name);
     return false;
   }
 
-  log_file.println(data);
+  if (log_file.println(data) == 0) {
+    log_file.close();
+    check_full();
+    return false;
+  }
 
 //  M5_LOGD("Logged '%s' to '%s'.", data, log_name);
 

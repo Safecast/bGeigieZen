@@ -54,6 +54,16 @@ class SDInterface {
   bool can_write_logs() const;
 
   /**
+   * @return true if a write failed because the card is (almost) full. Cheap flag, safe for rendering.
+   */
+  bool is_full() const { return _full; }
+
+  /**
+   * Scan free space and update the full flag. Can be slow, call only from logger, never from render.
+   */
+  void check_full();
+
+  /**
    * @return last know status
    */
   SdStatus status() const;
@@ -141,6 +151,7 @@ class SDInterface {
   uint32_t _device_id;
   uint32_t _last_read;
   uint32_t _last_write;
+  bool _full = false;
   uint32_t _last_try;
 };
 
