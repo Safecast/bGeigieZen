@@ -95,7 +95,7 @@ SdLogger drive_logger(settings, SdLogger::drive);
 SdLogger survey_logger(settings, SdLogger::survey);
 SdLogger flight_logger(settings, SdLogger::flight); // Using dedicated flight log type
 SdLogger rt_drive_logger(settings, SdLogger::rt_drive);
-RtTripHandler rt_trip_handler(settings, rt_drive_logger, journal_logger);
+RtTripHandler rt_trip_handler(settings, rt_drive_logger);
 BluetoothReporter bt_connector(settings);
 ApiConnector api_connector(settings);
 

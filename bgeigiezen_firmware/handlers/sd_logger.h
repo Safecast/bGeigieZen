@@ -24,11 +24,6 @@ class SdLogger : public Handler {
   explicit SdLogger(LocalStorage& config, LogType type);
   virtual ~SdLogger() = default;
 
-  /**
-   * Append a "# ..." comment line to the log currently being written (ignored if not logging).
-   * Comment lines are not counted as data lines.
-   */
-  void log_comment(const char* text);
 
  protected:
   bool activate(bool retry) override;

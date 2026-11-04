@@ -16,6 +16,6 @@ int upload_log_file(const char* path, const char* file_name, const LocalStorage&
  * and the same API key as api.safecast.org). Blocking.
  * @return HTTP status code, or 0 if the request could not be made
  */
-int upload_log_file_simplemap(const char* path, const char* file_name, const LocalStorage& config);
+int upload_log_file_simplemap(const char* path, const char* file_name, const LocalStorage& config, char* out_track_id = nullptr, size_t out_size = 0);
 
 #endif //BGEIGIEZEN_LOG_UPLOAD_H_
