@@ -19,7 +19,8 @@ See also the full documentation in the root `README.md` under “SAFEZEN.txt con
 - `version` — Optional firmware version marker written by the device.
 - `device_id` — Required device identifier (5000–5999).
 - `user_name` — Optional display/owner name.
-- `api_key` — Optional Safecast API key (if uploading is used).
+- `api_key` — Optional Safecast API key (if uploading is used). Same key for api.safecast.org and simplemap.safecast.org.
+- `simplemap_email` — Optional. Email of your simplemap.safecast.org account; with `api_key` it is used to upload Real-time trip logs to simplemap (see `userdocs/rt-trip-logging.md`).
 - `access_point_password` — Password for the device’s Wi‑Fi Access Point.
 - `wifi_ssid`, `wifi_password` — Primary Wi‑Fi credentials.
 - `wifi_ssid2`, `wifi_password2` — Secondary Wi‑Fi credentials (optional).

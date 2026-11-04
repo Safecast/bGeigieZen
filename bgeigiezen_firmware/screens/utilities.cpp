@@ -176,5 +176,6 @@ void UtilitiesScreen::render_info_page(const worker_map_t& workers, const handle
     M5.Lcd.printf("Profile 2 SSID:   %s  \n", config.get_wifi_ssid2());
     M5.Lcd.printf("Profile 2 password:   %s  \n", config.get_wifi_password2());
     M5.Lcd.printf("API key:   %s  \n", config.get_api_key());
+    M5.Lcd.printf("Simplemap email:   %s  \n", config.get_simplemap_email());
   }
 }

@@ -30,6 +30,8 @@ enum DataHandlers {
   k_handler_drive_logger,
   k_handler_survey_logger,
   k_handler_flight_logger,
+  k_handler_rt_drive_logger,
+  k_handler_rt_trip,
   k_handler_bluetooth_reporter,
   k_handler_api_reporter,
 };

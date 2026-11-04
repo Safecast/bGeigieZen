@@ -48,6 +48,7 @@
 #include "controller.h"
 #include "gfx_screen.h"
 #include "handlers/api_connector.h"
+#include "handlers/rt_trip_handler.h"
 #include "handlers/bluetooth_reporter.h"
 #include "handlers/sd_logger.h"
 #include "handlers/debug_logger.h"
@@ -93,6 +94,8 @@ SdLogger journal_logger(settings, SdLogger::journal);
 SdLogger drive_logger(settings, SdLogger::drive);
 SdLogger survey_logger(settings, SdLogger::survey);
 SdLogger flight_logger(settings, SdLogger::flight); // Using dedicated flight log type
+SdLogger rt_drive_logger(settings, SdLogger::rt_drive);
+RtTripHandler rt_trip_handler(settings, rt_drive_logger, journal_logger);
 BluetoothReporter bt_connector(settings);
 ApiConnector api_connector(settings);
 
@@ -164,6 +167,8 @@ void setup() {
   controller.register_handler(k_handler_drive_logger, drive_logger);
   controller.register_handler(k_handler_survey_logger, survey_logger);
   controller.register_handler(k_handler_flight_logger, flight_logger);
+  controller.register_handler(k_handler_rt_drive_logger, rt_drive_logger);
+  controller.register_handler(k_handler_rt_trip, rt_trip_handler);
   controller.register_handler(k_handler_bluetooth_reporter, bt_connector);
   controller.register_handler(k_handler_api_reporter, api_connector);
 

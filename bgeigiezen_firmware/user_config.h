@@ -75,6 +75,11 @@ constexpr char JOURNAL_LOG_DIRECTORY[] = "/journals";
 constexpr char DRIVE_LOG_DIRECTORY[] = "/drives";
 constexpr char SURVEY_LOG_DIRECTORY[] = "/surveys";
 constexpr char FLIGHT_LOG_DIRECTORY[] = "/flight";
+constexpr char RT_DRIVE_LOG_DIRECTORY[] = "/rt-drive";
+constexpr char RT_DRIVE_API_DONE_DIRECTORY[] = "/rt-drive/api-done";
+constexpr char RT_DRIVE_UPLOADED_DIRECTORY[] = "/rt-drive/uploaded";
+#define RT_TRIP_DEBOUNCE_MS 10000UL   // roaming/at-home state must hold this long to start/stop a trip
+#define RT_UPLOAD_RETRY_MS 60000UL    // retry interval for failed trip uploads
 constexpr char DEBUG_LOG_DIRECTORY[] = "/debug";
 constexpr char LOG_HEADER_LINE1[] = "# NEW LOG";
 constexpr char LOG_HEADER_LINE2[] = "# format=";
@@ -106,6 +111,8 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #define TTSERVE_HOST "tt.safecast.org"
 #define API_HOST "api.safecast.org"
 #define TTSERVE_MEASUREMENTS_ENDPOINT "http://" TTSERVE_HOST "/measurements.json"
+#define SIMPLEMAP_LOGIN_ENDPOINT "https://simplemap.safecast.org/api/auth/login"
+#define SIMPLEMAP_UPLOAD_ENDPOINT "https://simplemap.safecast.org/upload"
 #define API_LOGFILE_ENDPOINT "https://" API_HOST "/bgeigie_imports.json"
 #define HEADER_API_USER_AGENT "bGeigieZen/" VERSION_NUMBER
 

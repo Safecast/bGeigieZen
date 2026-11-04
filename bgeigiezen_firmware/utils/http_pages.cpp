@@ -289,6 +289,13 @@ const char* HttpPages::get_config_connection_page(
       "Get your API key from <a target='_blank' href='https://api.safecast.org'>api.safecast.org</a>, Login -> Dashboard -> Retrieve your API key.<br>"
       "</span>"
 
+      // Simplemap account email (simplemap login = email + the same API key)
+      "<label for='" FORM_NAME_SIMPLEMAP_EMAIL "'>Simplemap email</label>"
+      "<input type='text' name='" FORM_NAME_SIMPLEMAP_EMAIL "' id='" FORM_NAME_SIMPLEMAP_EMAIL "' value='%s'>"
+      "<span class='pure-form-message'>"
+      "Optional. Email of your <a target='_blank' href='https://simplemap.safecast.org'>simplemap.safecast.org</a> account; with the API key above it is used to upload real-time trips there.<br>"
+      "</span>"
+
       "<br>"
       "<button type='submit' class='pure-button pure-button-primary'>Save</button>"
       "</fieldset>"
@@ -303,6 +310,7 @@ const char* HttpPages::get_config_connection_page(
       settings.get_wifi_profile_active()==1 ? "checked" : "",
       settings.get_wifi_profile_active()==2 ? "checked" : "",
       settings.get_api_key(),
+      settings.get_simplemap_email(),
       display_success ? success_message : ""
   );
 }

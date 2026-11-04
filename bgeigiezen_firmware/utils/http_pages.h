@@ -30,6 +30,7 @@
 #define FORM_NAME_WIFI_PASS2 "c_wp2"
 #define FORM_NAME_WIFI_PROFILE "c_wpf"
 #define FORM_NAME_API_KEY "c_ak"
+#define FORM_NAME_SIMPLEMAP_EMAIL "c_se"
 
 // Location setting form names
 #define FORM_NAME_LOC_FIXED_LAT "l_ha"

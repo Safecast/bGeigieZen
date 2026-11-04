@@ -179,7 +179,9 @@ Supported settings (key=value per line):
 - `user_name`
   - Optional display and identification name used on-screen and in some outputs.
 - `api_key`
-  - Optional Safecast API key for uploading where applicable.
+  - Optional Safecast API key for uploading where applicable. The same key is used for api.safecast.org and simplemap.safecast.org.
+- `simplemap_email`
+  - Optional. Email address of your simplemap.safecast.org account. Together with `api_key` it is used to log in to simplemap and upload Real-time trip logs there (see `userdocs/rt-trip-logging.md`). If empty, trips are still uploaded to api.safecast.org but the simplemap step is retried and fails. Must come after `device_id` in the file, no spaces.
 - `access_point_password`
   - Password for the device’s built-in Wi‑Fi Access Point (used by the configuration portal).
 - `wifi_ssid`

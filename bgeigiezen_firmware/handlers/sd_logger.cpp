@@ -51,6 +51,9 @@ bool SdLogger::activate(bool) {
     case drive:
       sprintf(mode_header, "# Mode: Drive");
       break;
+    case rt_drive:
+      sprintf(mode_header, "# Mode: Real-time trip");
+      break;
     case flight:
       sprintf(mode_header, "# Mode: Flight (GPS Dynamic Platform Model: AIRBORNE 4G)");
       break;
@@ -66,6 +69,15 @@ bool SdLogger::activate(bool) {
   _total = 0;
   M5_LOGD("Started new log '%s'.", _logging_to);
   return success;
+}
+
+void SdLogger::log_comment(const char* text) {
+  if (!active() || strlen(_logging_to) == 0 || !SDInterface::i().ready()) {
+    return;
+  }
+  char line[200];
+  snprintf(line, sizeof(line), "# %s", text);
+  SDInterface::i().log_println(_logging_to, line);
 }
 
 void SdLogger::deactivate() {
@@ -160,6 +172,8 @@ const char* SdLogger::get_dir() const {
       return SURVEY_LOG_DIRECTORY;
     case flight:
       return FLIGHT_LOG_DIRECTORY;
+    case rt_drive:
+      return RT_DRIVE_LOG_DIRECTORY;
     default:
       return "unknown";
   }

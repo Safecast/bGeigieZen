@@ -22,4 +22,6 @@
 * Latest release Build 4.x instructions (PDF)
   * bGeigieZen Kit Assembly for V4_x boards (2026-04-06).pdf
 
+## Features
 
+- [Real-time trip logging and upload (rt-drive)](rt-trip-logging.md)
