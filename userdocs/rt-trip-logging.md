@@ -34,6 +34,7 @@ It is switched on in `FixedModeScreen::enter_screen` and off in `leave_screen`.
 | `/rt-drive/` | Trip being recorded, and trips not yet uploaded |
 | `/rt-drive/api-done/` | Sent to api.safecast.org, not yet to simplemap |
 | `/rt-drive/uploaded/` | Sent to both. Permanent record, never deleted automatically |
+| `/rt-drive/uploads.log` | Text log, one line per upload result (see below) |
 
 File names are `YYYY-MM-DD_HHMM.log` (trip start time from the RTC), or `latest.log` if the RTC is not valid. The log
 header says `# Mode: Real-time trip` and `format=... beta-zen/rt-drive`. Which folder a file is in is its upload status.
@@ -80,22 +81,32 @@ simplemap_email=you@example.com
 - Read at boot. Values entered on the config web page are stored in the device memory and written back to
   `SAFEZEN.txt` by Settings -> "Save to SD" (the key `simplemap_email` is included in that file).
 - If the line is missing or empty the email stays empty: api.safecast.org uploads still work, simplemap uploads
-  fail with `http=0` in the journal and the file waits in `/rt-drive/api-done/`.
+  fail with `http=0` in `uploads.log` and the file waits in `/rt-drive/api-done/`.
 - Factory reset clears the email together with the other settings.
 - Samples: `SDcard/SAFEZEN.txt`, `SDcard/SAFEZEN_333.txt`, `SDcard/all_settings/SAFEZEN.txt`.
 
-## Upload log in the journal
+## Upload log on the SD card (`/rt-drive/uploads.log`)
 
-Every upload attempt adds a comment line to the current journal log (if the journal is enabled):
+Every upload result is appended as one line to `/rt-drive/uploads.log` (created automatically):
 
 ```
-# 2026-11-04T14:11:02Z rt-trip upload api /rt-drive/2026-11-04_1403.log http=201
-# 2026-11-04T14:11:09Z rt-trip upload simplemap /rt-drive/api-done/2026-11-04_1403.log http=200
+2026-11-04T14:11:02Z api 2026-11-04_1403.log http=201 id=74020
+2026-11-04T14:11:09Z simplemap 2026-11-04_1403.log http=200 id=a0nJzy
+2026-11-04T14:20:41Z simplemap 2026-11-04_1410.log http=401
 ```
 
-`http=0` means the request could not be made (missing email/key, no file); `http=401` on simplemap is a failed login.
-Comment lines are not counted as data lines. Not yet checked: whether api.safecast.org's importer ignores `#` lines in
-the middle of a file, so do not upload a journal file as-is without testing.
+- Fields: time (from the last GPS/RTC reading), service (`api` or `simplemap`), file name, HTTP result, and the id
+  returned on success: the import id on api.safecast.org, the track id on simplemap (note: simplemap may reuse an
+  existing track id when the readings are already known).
+- Success = `http=200..299`. Anything else is a failure: `401` = login or key rejected, `0` = request could not be
+  made (missing email/key, no file), `429`/`5xx` = server side.
+- A failure is written once per file and result, not on every 60 s retry. A different failure code on a later retry
+  is written again. The final success line is always written.
+- The file is written on every trip upload, independent of the journal setting. It is a plain text log with no
+  size limit; delete it freely, it is recreated on the next upload.
+- The folder a file is in (`/rt-drive/`, `api-done/`, `uploaded/`) remains the upload status; `uploads.log` is the
+  history.
+- Never uploaded itself: the trip scan only picks up `*.log` trip files and skips `uploads.log`. Not used as a queue: the Zen never reads `uploads.log`, so deleting it cannot cause files to be re-uploaded.
 
 ## Duplicates
 
@@ -134,7 +145,7 @@ api.safecast.org as "Processed (Not Approved)" until approved there.
 ## Code map
 
 - `handlers/rt_trip_handler.{h,cpp}`: state machine and upload sequencing
-- `handlers/sd_logger.{h,cpp}`: new `rt_drive` log type, `log_comment()`
+- `handlers/sd_logger.{h,cpp}`: new `rt_drive` log type
 - `utils/log_upload.{h,cpp}`: api.safecast.org and simplemap upload
 - `screens/fixed_mode.cpp`: switches the handler on/off with RT mode
 - `workers/local_storage.*`, `utils/sd_wrapper.cpp`, `utils/http_pages.cpp`, `workers/configuration_server.cpp`:

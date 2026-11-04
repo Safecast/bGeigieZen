@@ -76,6 +76,7 @@ constexpr char DRIVE_LOG_DIRECTORY[] = "/drives";
 constexpr char SURVEY_LOG_DIRECTORY[] = "/surveys";
 constexpr char FLIGHT_LOG_DIRECTORY[] = "/flight";
 constexpr char RT_DRIVE_LOG_DIRECTORY[] = "/rt-drive";
+constexpr char RT_DRIVE_UPLOAD_LOG[] = "/rt-drive/uploads.log";
 constexpr char RT_DRIVE_API_DONE_DIRECTORY[] = "/rt-drive/api-done";
 constexpr char RT_DRIVE_UPLOADED_DIRECTORY[] = "/rt-drive/uploaded";
 #define RT_TRIP_DEBOUNCE_MS 10000UL   // roaming/at-home state must hold this long to start/stop a trip

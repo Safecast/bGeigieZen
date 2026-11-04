@@ -144,7 +144,7 @@ static bool simplemap_login(const LocalStorage& config, char* cookie, size_t coo
   return ok;
 }
 
-int upload_log_file_simplemap(const char* path, const char* file_name, const LocalStorage& config) {
+int upload_log_file_simplemap(const char* path, const char* file_name, const LocalStorage& config, char* out_track_id, size_t out_size) {
   if (!strlen(config.get_simplemap_email()) || !strlen(config.get_api_key())) {
     return 0;
   }
@@ -215,6 +215,15 @@ int upload_log_file_simplemap(const char* path, const char* file_name, const Loc
     status_code = http.handleResponse();
     String response = http.getString();
     M5_LOGD("Simplemap POST complete, (code %d) response:\n%s", status_code, response.c_str());
+    if (status_code >= 200 && status_code < 300 && out_track_id && out_size) {
+      // {"status":"processing","trackID":"a0nJzy"}
+      int i = response.indexOf("\"trackID\":\"");
+      if (i >= 0) {
+        int start = i + 11;
+        int end = response.indexOf('"', start);
+        if (end > start) snprintf(out_track_id, out_size, "%s", response.substring(start, end).c_str());
+      }
+    }
     WiFiWrapper_i.update_active();
   }
 

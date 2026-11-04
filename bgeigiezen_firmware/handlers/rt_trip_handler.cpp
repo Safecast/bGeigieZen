@@ -7,7 +7,7 @@
 #include "utils/log_upload.h"
 #include "utils/sd_wrapper.h"
 
-RtTripHandler::RtTripHandler(LocalStorage& config, SdLogger& logger, SdLogger& journal) : Handler(), _config(config), _logger(logger), _journal(journal) {
+RtTripHandler::RtTripHandler(LocalStorage& config, SdLogger& logger) : Handler(), _config(config), _logger(logger) {
 }
 
 void RtTripHandler::enter_state(TripState state) {
@@ -77,6 +77,16 @@ int8_t RtTripHandler::handle_produced_work(const worker_map_t& workers) {
   return e_handler_idle;
 }
 
+/**
+ * One line per result in /rt-drive/uploads.log:
+ * 2026-11-04T14:11:02Z api 2026-11-04_1403.log http=201 id=74020
+ */
+void RtTripHandler::write_upload_log(const char* service, const char* name, int code, const char* id) {
+  char line[160];
+  snprintf(line, sizeof(line), "%s %s %s http=%d%s%s", _timestamp, service, name, code, id[0] ? " id=" : "", id);
+  SDInterface::i().log_println(RT_DRIVE_UPLOAD_LOG, line);
+}
+
 int8_t RtTripHandler::try_upload() {
   if (!WiFi.isConnected() || !SDInterface::i().ready()) {
     return e_handler_idle;
@@ -104,6 +114,12 @@ int8_t RtTripHandler::try_upload() {
         if (!f.isDirectory()) {
           const char* n = strrchr(f.name(), '/');
           snprintf(name, sizeof(name), "%s", n ? n + 1 : f.name());
+          // Only trip logs: skip the upload history (uploads.log) and anything that is not a .log
+          const size_t len = strlen(name);
+          if (strcmp(name, strrchr(RT_DRIVE_UPLOAD_LOG, '/') + 1) == 0 || len < 4 || strcmp(name + len - 4, ".log") != 0) {
+            name[0] = '\0';
+            continue;
+          }
           snprintf(path, sizeof(path), "%s/%s", st.from, name);
           f.close();
           break;
@@ -115,13 +131,26 @@ int8_t RtTripHandler::try_upload() {
 
     _last_upload_attempt = millis();
     M5_LOGD("Uploading trip log '%s' to %s", path, st.simplemap ? "simplemap" : "api");
-    int code = st.simplemap ? upload_log_file_simplemap(path, name, _config) : upload_log_file(path, name, _config);
-    char note[LOG_FILENAME_SIZE + 80];
-    snprintf(note, sizeof(note), "%s rt-trip upload %s %s http=%d", _timestamp, st.simplemap ? "simplemap" : "api", path, code);
-    _journal.log_comment(note);
+    char id[16] = "";
+    int code;
+    if (st.simplemap) {
+      code = upload_log_file_simplemap(path, name, _config, id, sizeof(id));
+    } else {
+      uint32_t import_id = 0;
+      code = upload_log_file(path, name, _config, &import_id);
+      if (import_id) snprintf(id, sizeof(id), "%u", import_id);
+    }
     if (code < 200 || code >= 300) {
+      // Log a failure once per file/result, not on every 60 s retry
+      char key[sizeof(_last_failed)];
+      snprintf(key, sizeof(key), "%s %d", path, code);
+      if (strcmp(key, _last_failed) != 0) {
+        strcpy(_last_failed, key);
+        write_upload_log(st.simplemap ? "simplemap" : "api", name, code, "");
+      }
       return e_trip_status_upload_failed;  // retried after RT_UPLOAD_RETRY_MS
     }
+    write_upload_log(st.simplemap ? "simplemap" : "api", name, code, id);
     char done[LOG_FILENAME_SIZE];
     snprintf(done, sizeof(done), "%s/%s", st.to, name);
     SDInterface::i().rename_log(path, done);

@@ -71,15 +71,6 @@ bool SdLogger::activate(bool) {
   return success;
 }
 
-void SdLogger::log_comment(const char* text) {
-  if (!active() || strlen(_logging_to) == 0 || !SDInterface::i().ready()) {
-    return;
-  }
-  char line[200];
-  snprintf(line, sizeof(line), "# %s", text);
-  SDInterface::i().log_println(_logging_to, line);
-}
-
 void SdLogger::deactivate() {
   if (_total < MIN_LOG_LINES_FOR_KEEP) {
     // Delete
