@@ -15,6 +15,7 @@ constexpr char const* key_wifi_ssid2 = "wifi_ssid2";
 constexpr char const* key_wifi_password2 = "wifi_password2";
 constexpr char const* key_wifi_profile = "wifi_profile";
 constexpr char const* key_api_key = "api_key";
+constexpr char const* key_simplemap_email = "sm_email";
 constexpr char const* key_alert_threshold = "alarm_threshold";
 constexpr char const* key_cpm_usvh = "cpm_usvh";
 constexpr char const* key_manual_logging = "manual_logging";
@@ -57,6 +58,7 @@ LocalStorage::LocalStorage() :
     _wifi_password2(""),
     _wifi_profile_active(1),
     _api_key(""),
+    _simplemap_email(""),
     _fixed_longitude(0),
     _fixed_latitude(0),
     _fixed_range(0.5),
@@ -88,6 +90,7 @@ void LocalStorage::reset_defaults() {
     set_wifi_password2(D_WIFI_PASSWORD2, true);
     set_wifi_profile_active(1, true);
     set_api_key(D_API_KEY, true);
+    set_simplemap_email("", true);
     set_fixed_longitude(D_FIXED_LONGITUDE, true);
     set_fixed_latitude(D_FIXED_LATITUDE, true);
     set_fixed_range(D_FIXED_RANGE, true);
@@ -187,6 +190,10 @@ const char* LocalStorage::get_active_wifi_ssid() const {
 
 const char* LocalStorage::get_active_wifi_password() const {
   return _wifi_profile_active == 2 ? _wifi_password2 : _wifi_password;
+}
+
+const char* LocalStorage::get_simplemap_email() const {
+  return _simplemap_email;
 }
 
 const char* LocalStorage::get_api_key() const {
@@ -426,6 +433,18 @@ void LocalStorage::set_wifi_password(const char* wifi_password, bool force) {
   }
 }
 
+void LocalStorage::set_simplemap_email(const char* email, bool force) {
+  if(force || (email != nullptr && strlen(email) < CONFIG_VAL_MAX)) {
+    if(_memory.begin(memory_name)) {
+      strcpy(_simplemap_email, email);
+      _memory.putString(key_simplemap_email, _simplemap_email);
+      _memory.end();
+    } else {
+      M5_LOGD("unable to save new value for simplemap_email");
+    }
+  }
+}
+
 void LocalStorage::set_api_key(const char* api_key, bool force) {
   if(force || (api_key != nullptr && strlen(api_key) < CONFIG_VAL_MAX)) {
     if(_memory.begin(memory_name)) {
@@ -568,6 +587,9 @@ bool LocalStorage::activate(bool) {
   }
   if(_memory.getString(key_api_key, _api_key, CONFIG_VAL_MAX) == 0) {
     strcpy(_api_key, D_API_KEY);
+  }
+  if(_memory.getString(key_simplemap_email, _simplemap_email, CONFIG_VAL_MAX) == 0) {
+    strcpy(_simplemap_email, "");
   }
   _fixed_longitude = _memory.getDouble(key_fixed_longitude, D_FIXED_LONGITUDE);
   _fixed_latitude = _memory.getDouble(key_fixed_latitude, D_FIXED_LATITUDE);

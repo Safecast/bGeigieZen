@@ -10,28 +10,10 @@
 #include "workers/local_storage.h"
 #include "workers/zen_button.h"
 #include "utils/wifi_connection.h"
+#include "utils/log_upload.h"
 
 
 LogViewerScreen LogViewerScreen_i;
-
-
-class ChunkedHTTPClient : public HTTPClient {
- public:
-  bool sendPOSTHeaders() {
-
-    // connect to server
-    if(!connect()) {
-      return returnError(HTTPC_ERROR_CONNECTION_REFUSED);
-    }
-
-    return sendHeader("POST");
-  }
-
-  int handleResponse() {
-    return handleHeaderResponse();
-  }
-};
-
 
 
 LogViewerScreen::LogViewerScreen() : BaseScreen("Log view", true),
@@ -349,129 +331,13 @@ void LogViewerScreen::upload_detail(const LocalStorage& config) {
   M5.Lcd.display();
   M5.Lcd.endWrite();
 
-  File log_file = SDInterface::i().get_file(_detail_log_file_path);
-
-  if (!log_file) {
-    M5_LOGD("Failed to open log file!");
-    _upload_status = e_upload_failed;
-    return;
-  }
-
-  char url[160];
-  snprintf(url, sizeof(url), "%s?api_key=%s", API_LOGFILE_ENDPOINT, config.get_api_key());
-
-  ChunkedHTTPClient http;
-  WiFiClientSecure client;
-  // TODO: pin Safecast CA bundle. Using setInsecure() until cert plumbing lands.
-  client.setInsecure();
-
-  // Specify destination for HTTPS request
-  if (!http.begin(client, url)) {
-    M5_LOGD("Unable to begin URL connection");
-    http.end(); // Free resources
-    log_file.close();
-    _upload_status = e_upload_failed;
-    return;
-  }
-
-  // Define boundary and headers
-  char boundary[32];
-  sprintf(boundary, "----WebKitFormBoundaryZen%d", config.get_device_id());
-  char content_type_header[150];
-  sprintf(content_type_header, "multipart/form-data; boundary=%s", boundary);
-
-  http.setUserAgent(HEADER_API_USER_AGENT);
-  // HTTPClient sets Host: from the URL; do not duplicate it here.
-  http.addHeader("Content-Type", content_type_header);
-  http.addHeader("Transfer-Encoding", "chunked");
-  http.addHeader("Accept", "application/json");
-
-  char chunk_header[16];
-  static constexpr size_t CHUNK_BUF_SZ = 1024;
-  char chunk_buffer[CHUNK_BUF_SZ];
-  size_t chunk_length;
-
-  if (http.sendPOSTHeaders()) {
-    // 1. Send the opening boundary and metadata for the file part as a chunk
-    // RFC 7578: each part = boundary line, headers, blank line, body, CRLF before next boundary.
-    sprintf(chunk_buffer,
-            "--%s\r\n"
-            "Content-Disposition: form-data; name=\"bgeigie_import[description]\"\r\n"
-            "\r\n"
-            "Uploaded from Zen\r\n"
-            "--%s\r\n"
-            "Content-Disposition: form-data; name=\"bgeigie_import[source]\"; filename=\"%s\"\r\n"
-            "Content-Type: text/plain\r\n"
-            "\r\n",
-            boundary, boundary, _detail_log_file_name);
-
-    // Calculate header length
-    chunk_length = strlen(chunk_buffer);
-    sprintf(chunk_header, "%X\r\n", chunk_length); // Chunk size in hexadecimal
-    client.print(chunk_header);              // Send chunk size
-    client.print(chunk_buffer);   // Send chunk data
-    client.print("\r\n");                                   // End of chunk
-    M5_LOGD("Header chunk sent (%X):\n%s", chunk_length, chunk_buffer);
-
-    // 2. Stream the file content in fixed-size blocks. One TLS record per ~1 KB
-    //    keeps throughput reasonable (vs one record per line). yield() after every
-    //    chunk so we don't starve the WiFi task or trip the task watchdog.
-    const uint32_t total_bytes = log_file.size();
-    uint32_t sent_bytes = 0;
-    uint32_t last_log = 0;
-    while (log_file.available()) {
-      int n = log_file.read((uint8_t*)chunk_buffer, CHUNK_BUF_SZ);
-      if (n <= 0) break;
-      sprintf(chunk_header, "%X\r\n", n);
-      client.write((const uint8_t*)chunk_header, strlen(chunk_header));
-      client.write((const uint8_t*)chunk_buffer, n);
-      client.write((const uint8_t*)"\r\n", 2);
-      sent_bytes += n;
-      if (sent_bytes - last_log >= 8192) {
-        M5_LOGD("Upload progress: %u / %u bytes", sent_bytes, total_bytes);
-        last_log = sent_bytes;
-      }
-      yield();
-    }
-    M5_LOGD("Upload streaming complete: %u bytes", sent_bytes);
-
-    // 3. Send the closing boundary as a chunk (with CRLF prefix to terminate file body)
-    sprintf(chunk_buffer, "\r\n--%s--\r\n", boundary);
-    chunk_length = strlen(chunk_buffer);
-    sprintf(chunk_header, "%X\r\n", chunk_length); // Chunk size in hexadecimal
-    client.print(chunk_header);                              // Send chunk size
-    client.print(chunk_buffer);                          // Send chunk data
-    client.print("\r\n");                                   // End of chunk
-    M5_LOGD("Closing boundary chunk sent (%X):\n%s", chunk_length, chunk_buffer);
-
-    // 4. End the chunked transfer by sending a zero-size chunk
-    client.print("0\r\n\r\n");
-    M5_LOGD("End of chunked transfer");
-
-    // 5. Wait for the server response
-    int statusCode = http.handleResponse();
-    String response = http.getString();
-    M5_LOGD("POST complete, (code %d) response:\n%s", statusCode, response.c_str());
-
-    _upload_http_code = statusCode;
-    if (statusCode >= 200 && statusCode < 300) {
-      _upload_status = e_upload_success;
-      // Best-effort parse: bgeigie_imports returns {"id":<n>, ...}
-      int id_idx = response.indexOf("\"id\":");
-      if (id_idx >= 0) {
-        _detail_log_upload_id = (uint32_t) strtoul(response.c_str() + id_idx + 5, nullptr, 10);
-      }
-    } else {
-      _upload_status = e_upload_failed;
-    }
-
-    WiFiWrapper_i.update_active();
+  uint32_t upload_id = 0;
+  _upload_http_code = upload_log_file(_detail_log_file_path, _detail_log_file_name, config, &upload_id);
+  if (_upload_http_code >= 200 && _upload_http_code < 300) {
+    _upload_status = e_upload_success;
+    _detail_log_upload_id = upload_id;
   } else {
-    M5_LOGD("Failed to initiate request");
     _upload_status = e_upload_failed;
   }
-
-  http.end(); // Free resources
-  log_file.close(); // Close file
   force_next_render();
 }

@@ -36,6 +36,7 @@ extern SoundManager sound_manager;
 #define SD_CONFIG_FIELD_WIFI_PASSWORD2 "wifi_password2"
 #define SD_CONFIG_FIELD_WIFI_PROFILE "wifi_profile"
 #define SD_CONFIG_FIELD_API_KEY "api_key"
+#define SD_CONFIG_FIELD_SIMPLEMAP_EMAIL "simplemap_email"
 #define SD_CONFIG_FIELD_FIXED_LATITUDE "fixed_latitude"
 #define SD_CONFIG_FIELD_FIXED_LONGITUDE "fixed_longitude"
 #define SD_CONFIG_FIELD_FIXED_RANGE "fixed_range"
@@ -79,6 +80,7 @@ constexpr char sd_config_wifi_password2_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD2"=%[
 constexpr char sd_config_wifi_password2_write_f[] = SD_CONFIG_FIELD_WIFI_PASSWORD2"=%s";
 constexpr char sd_config_wifi_profile_f[] = SD_CONFIG_FIELD_WIFI_PROFILE"=%hhu";
 constexpr char sd_config_api_key_f[] = SD_CONFIG_FIELD_API_KEY"=%s";
+constexpr char sd_config_simplemap_email_f[] = SD_CONFIG_FIELD_SIMPLEMAP_EMAIL"=%s";
 constexpr char sd_config_fixed_latitude_f[] = SD_CONFIG_FIELD_FIXED_LATITUDE"=%lf";
 constexpr char sd_config_fixed_longitude_f[] = SD_CONFIG_FIELD_FIXED_LONGITUDE"=%lf";
 constexpr char sd_config_fixed_range_f[] = SD_CONFIG_FIELD_FIXED_RANGE"=%f";
@@ -315,6 +317,7 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
   char wifi_password2[CONFIG_LONG_VAL_MAX] = "";
   uint8_t wifi_profile_active = 1;
   char api_key[CONFIG_VAL_MAX] = "";
+  char simplemap_email[CONFIG_VAL_MAX] = "";
   char user_name[CONFIG_VAL_MAX] = "";
 
   // Location settings
@@ -341,6 +344,12 @@ bool SDInterface::read_safezen_file_latest(LocalStorage& settings, File& file) {
       }
       else {
         M5_LOGD("Unable to load user_name");
+      }
+    }
+    else if (line.startsWith(SD_CONFIG_FIELD_SIMPLEMAP_EMAIL)) {
+      if (_device_id && line.length() - strlen(SD_CONFIG_FIELD_SIMPLEMAP_EMAIL) < CONFIG_VAL_MAX && sscanf(line.c_str(), sd_config_simplemap_email_f, simplemap_email)) {
+        settings.set_simplemap_email(simplemap_email, true);
+        M5_LOGD("Loaded from SD: simplemap_email=%s", simplemap_email);
       }
     }
     else if (line.startsWith(SD_CONFIG_FIELD_API_KEY)) {
@@ -549,6 +558,8 @@ bool SDInterface::write_safezen_file_from_settings(const LocalStorage& settings,
     safecast_txt.printf(sd_config_user_name_write_f, settings.get_user_name());
     safecast_txt.println();
     safecast_txt.printf(sd_config_api_key_f, settings.get_api_key());
+    safecast_txt.println();
+    safecast_txt.printf(sd_config_simplemap_email_f, settings.get_simplemap_email());
     safecast_txt.println();
     safecast_txt.printf(sd_config_access_point_password_write_f, settings.get_ap_password());
     safecast_txt.println();

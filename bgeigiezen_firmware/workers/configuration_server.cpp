@@ -207,6 +207,9 @@ void ConfigWebServer::handle_save() {
   if(_server.hasArg(FORM_NAME_API_KEY)) {
     _config.set_api_key(_server.arg(FORM_NAME_API_KEY).c_str(), false);
   }
+  if(_server.hasArg(FORM_NAME_SIMPLEMAP_EMAIL)) {
+    _config.set_simplemap_email(_server.arg(FORM_NAME_SIMPLEMAP_EMAIL).c_str(), false);
+  }
   if(_server.hasArg(FORM_NAME_LOC_FIXED_LAT)) {
     _config.set_fixed_latitude(clamp<double>(_server.arg(FORM_NAME_LOC_FIXED_LAT).toDouble(), -90.0, 90.0), false);
   }

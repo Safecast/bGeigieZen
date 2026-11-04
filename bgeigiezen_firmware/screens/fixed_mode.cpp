@@ -14,6 +14,7 @@
 #include <esp_wifi.h>
 #include "utils/power_manager.h"
 
+
 FixedModeScreen FixedModeScreen_i;
 
 FixedModeScreen::FixedModeScreen() : BaseScreen("Real-time", true) {
@@ -268,6 +269,7 @@ void FixedModeScreen::enter_screen(Controller& controller) {
   WiFiWrapper_i.connect_wifi(settings.get_active_wifi_ssid(), settings.get_active_wifi_password());
 
   controller.set_handler_active(k_handler_api_reporter, true);
+  controller.set_handler_active(k_handler_rt_trip, true);
 
   // Enter low power mode (CPU/I2C down, but WiFi stays on)
   // Note: Core2 runs at 80MHz always (set at boot), CoreS3 reduces to 80MHz here
@@ -296,6 +298,7 @@ void FixedModeScreen::enter_screen(Controller& controller) {
 }
 
 void FixedModeScreen::leave_screen(Controller& controller) {
+  controller.set_handler_active(k_handler_rt_trip, false);
   controller.set_handler_active(k_handler_api_reporter, false);
 
   // Restore normal power settings
