@@ -33,6 +33,7 @@ It is switched on in `FixedModeScreen::enter_screen` and off in `leave_screen`.
 |---|---|
 | `/rt-drive/` | Trip being recorded, and trips not yet uploaded |
 | `/rt-drive/api-done/` | Sent to api.safecast.org, not yet to simplemap |
+| `/rt-drive/map-done/` | Sent to simplemap (because the API failed), not yet to api.safecast.org |
 | `/rt-drive/uploaded/` | Sent to both. Permanent record, never deleted automatically |
 | `/rt-drive/uploads.log` | Text log, one line per upload result (see below) |
 
@@ -42,7 +43,7 @@ header says `# Mode: Real-time trip` and `format=... beta-zen/rt-drive`. Which f
 
 ## Upload
 
-One file per data event, while WiFi is connected. A failed upload is retried after 60 s (`RT_UPLOAD_RETRY_MS`).
+One file per data event, while WiFi is connected. Uploads run in a background task (the screen never blocks). api.safecast.org and simplemap are independent: when one fails, the other is still tried, and each retries on its own after 60 s (`RT_UPLOAD_RETRY_MS`). A file that keeps failing does not block other files. An API reply "md5sum is the same as of Bgeigie Import N" (422) counts as uploaded.
 A file only moves on to the next folder after an HTTP 2xx reply.
 
 1. **api.safecast.org**: `POST https://api.safecast.org/bgeigie_imports.json?api_key=<key>`, multipart field

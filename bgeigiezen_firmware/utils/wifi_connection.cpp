@@ -7,6 +7,8 @@
 #include "user_config.h"
 #include "wifi_connection.h"
 
+#include <lwip/dns.h>
+
 WiFiWrapper WiFiWrapper_i;
 
 #define WIFI_CONNECT_TIMEOUT_MS 8000
@@ -15,6 +17,13 @@ static void on_wifi_event(WiFiEvent_t event) {
   if (event == ARDUINO_EVENT_WIFI_STA_DISCONNECTED) {
     M5_LOGD("WiFi connector: STA disconnected event received");
     WiFiWrapper_i.flag_disconnect_event();
+  } else if (event == ARDUINO_EVENT_WIFI_STA_GOT_IP) {
+    // The router's DNS (e.g. LTE router) sometimes fails to resolve; keep it as primary, add a public secondary
+    if (ip_addr_isany(dns_getserver(1))) {
+      ip_addr_t dns2;
+      IP_ADDR4(&dns2, 1, 1, 1, 1);
+      dns_setserver(1, &dns2);
+    }
   }
 }
 
