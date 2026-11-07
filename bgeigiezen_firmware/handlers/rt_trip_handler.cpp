@@ -13,7 +13,7 @@ RtTripHandler::RtTripHandler(LocalStorage& config, SdLogger& logger) : Handler()
 void RtTripHandler::enter_state(TripState state) {
   _state = state;
   if (state == e_trip_upload) {
-    _last_upload_attempt = 0;
+    memset(_stage_failed_at, 0, sizeof(_stage_failed_at));
   }
 }
 
@@ -91,74 +91,98 @@ int8_t RtTripHandler::try_upload() {
   if (!WiFi.isConnected() || !SDInterface::i().ready()) {
     return e_handler_idle;
   }
-  if (_last_upload_attempt && millis() - _last_upload_attempt < RT_UPLOAD_RETRY_MS) {
-    return e_handler_idle;
+  if (xTaskGetHandle("api_send") != nullptr) {
+    return e_handler_idle;  // never run two TLS sessions at once (heap)
   }
 
-  // Stage 1: /rt-drive -> api.safecast.org -> /rt-drive/api-done
-  // Stage 2: /rt-drive/api-done -> simplemap.safecast.org -> /rt-drive/uploaded
-  // API first, so simplemap sees the file already exists there and doesn't forward a duplicate.
+  // API and simplemap are independent: each stage has its own retry timer, so a failing endpoint
+  // (or file) never blocks the other one. API goes first, simplemap takes over when the API fails.
   struct Stage { const char* from; const char* to; bool simplemap; };
-  const Stage stages[] = {
+  const Stage stages[STAGES] = {
     {RT_DRIVE_LOG_DIRECTORY, RT_DRIVE_API_DONE_DIRECTORY, false},
+    {RT_DRIVE_LOG_DIRECTORY, RT_DRIVE_MAP_DONE_DIRECTORY, true},
     {RT_DRIVE_API_DONE_DIRECTORY, RT_DRIVE_UPLOADED_DIRECTORY, true},
+    {RT_DRIVE_MAP_DONE_DIRECTORY, RT_DRIVE_UPLOADED_DIRECTORY, false},
   };
+  const char* history = strrchr(RT_DRIVE_UPLOAD_LOG, '/') + 1;
 
-  for (const auto& st : stages) {
+  bool waiting = false;  // a stage has files but is in its retry wait
+  for (int i = 0; i < STAGES; i++) {
+    const auto& st = stages[i];
     if (!SD.exists(st.from)) continue;
-    char path[LOG_FILENAME_SIZE] = "";
+    // Pick the first trip log, preferring one that did not fail last time
     char name[64] = "";
+    char failed_name[64] = "";
     File dir = SD.open(st.from);
     if (dir && dir.isDirectory()) {
-      for (File f = dir.openNextFile(); f; f = dir.openNextFile()) {
-        if (!f.isDirectory()) {
-          const char* n = strrchr(f.name(), '/');
-          snprintf(name, sizeof(name), "%s", n ? n + 1 : f.name());
-          // Only trip logs: skip the upload history (uploads.log) and anything that is not a .log
-          const size_t len = strlen(name);
-          if (strcmp(name, strrchr(RT_DRIVE_UPLOAD_LOG, '/') + 1) == 0 || len < 4 || strcmp(name + len - 4, ".log") != 0) {
-            name[0] = '\0';
-            continue;
-          }
-          snprintf(path, sizeof(path), "%s/%s", st.from, name);
-          f.close();
-          break;
+      for (File f = dir.openNextFile(); f && !name[0]; f = dir.openNextFile()) {
+        if (f.isDirectory()) continue;
+        const char* n = strrchr(f.name(), '/');
+        n = n ? n + 1 : f.name();
+        const size_t len = strlen(n);
+        // Only trip logs: skip the upload history (uploads.log) and anything that is not a .log
+        if (strcmp(n, history) == 0 || len < 4 || len >= sizeof(name) || strcmp(n + len - 4, ".log") != 0) continue;
+        if (strcmp(n, _stage_failed_name[i]) == 0) {
+          snprintf(failed_name, sizeof(failed_name), "%s", n);
+        } else {
+          snprintf(name, sizeof(name), "%s", n);
         }
       }
     }
     if (dir) dir.close();
-    if (!path[0]) continue;
+    if (!name[0]) snprintf(name, sizeof(name), "%s", failed_name);
+    if (!name[0]) continue;
 
-    _last_upload_attempt = millis();
-    M5_LOGD("Uploading trip log '%s' to %s", path, st.simplemap ? "simplemap" : "api");
-    char id[16] = "";
-    int code;
-    if (st.simplemap) {
-      code = upload_log_file_simplemap(path, name, _config, id, sizeof(id));
-    } else {
-      uint32_t import_id = 0;
-      code = upload_log_file(path, name, _config, &import_id);
-      if (import_id) snprintf(id, sizeof(id), "%u", import_id);
+    if (_stage_failed_at[i] && millis() - _stage_failed_at[i] < RT_UPLOAD_RETRY_MS) {
+      waiting = true;
+      continue;  // this stage is waiting, try the next one
     }
-    if (code < 200 || code >= 300) {
-      // Log a failure once per file/result, not on every 60 s retry
-      char key[sizeof(_last_failed)];
-      snprintf(key, sizeof(key), "%s %d", path, code);
-      if (strcmp(key, _last_failed) != 0) {
-        strcpy(_last_failed, key);
-        write_upload_log(st.simplemap ? "simplemap" : "api", name, code, "");
-      }
-      return e_trip_status_upload_failed;  // retried after RT_UPLOAD_RETRY_MS
-    }
-    write_upload_log(st.simplemap ? "simplemap" : "api", name, code, id);
-    char done[LOG_FILENAME_SIZE];
-    snprintf(done, sizeof(done), "%s/%s", st.to, name);
-    SDInterface::i().rename_log(path, done);
-    _last_upload_attempt = 0;  // next file / stage on the next data event
-    return e_handler_data_handled;
+
+    // Upload in a background task so the UI never blocks on the network
+    snprintf(_task_path, sizeof(_task_path), "%s/%s", st.from, name);
+    snprintf(_task_name, sizeof(_task_name), "%s", name);
+    _task_to = st.to;
+    _task_simplemap = st.simplemap;
+    _task_stage = i;
+    return start_task("rt_upload", 20480, 1);
   }
 
-  // Nothing left to upload
-  enter_state(e_trip_home);
+  if (!waiting) {
+    // Nothing left to upload
+    enter_state(e_trip_home);
+  }
   return e_handler_idle;
+}
+
+int8_t RtTripHandler::handle_async() {
+  const char* service = _task_simplemap ? "simplemap" : "api";
+  M5_LOGD("Uploading trip log '%s' to %s", _task_path, service);
+  char id[16] = "";
+  int code;
+  if (_task_simplemap) {
+    code = upload_log_file_simplemap(_task_path, _task_name, _config, id, sizeof(id));
+  } else {
+    uint32_t import_id = 0;
+    code = upload_log_file(_task_path, _task_name, _config, &import_id);
+    if (import_id) snprintf(id, sizeof(id), "%u", import_id);
+  }
+  if (code < 200 || code >= 300) {
+    // Log a failure once per file/result, not on every 60 s retry
+    char key[sizeof(_last_failed)];
+    snprintf(key, sizeof(key), "%s %d", _task_path, code);
+    if (strcmp(key, _last_failed) != 0) {
+      strcpy(_last_failed, key);
+      write_upload_log(service, _task_name, code, "");
+    }
+    _stage_failed_at[_task_stage] = millis() ? millis() : 1;
+    snprintf(_stage_failed_name[_task_stage], sizeof(_stage_failed_name[0]), "%s", _task_name);
+    return e_trip_status_upload_failed;  // this stage retries after RT_UPLOAD_RETRY_MS
+  }
+  write_upload_log(service, _task_name, code, id);
+  char done[LOG_FILENAME_SIZE];
+  snprintf(done, sizeof(done), "%s/%s", _task_to, _task_name);
+  SDInterface::i().rename_log(_task_path, done);
+  _stage_failed_at[_task_stage] = 0;
+  _stage_failed_name[_task_stage][0] = '\0';
+  return e_handler_data_handled;
 }

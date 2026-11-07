@@ -78,6 +78,7 @@ constexpr char FLIGHT_LOG_DIRECTORY[] = "/flight";
 constexpr char RT_DRIVE_LOG_DIRECTORY[] = "/rt-drive";
 constexpr char RT_DRIVE_UPLOAD_LOG[] = "/rt-drive/uploads.log";
 constexpr char RT_DRIVE_API_DONE_DIRECTORY[] = "/rt-drive/api-done";
+constexpr char RT_DRIVE_MAP_DONE_DIRECTORY[] = "/rt-drive/map-done";
 constexpr char RT_DRIVE_UPLOADED_DIRECTORY[] = "/rt-drive/uploaded";
 #define RT_TRIP_DEBOUNCE_MS 10000UL   // roaming/at-home state must hold this long to start/stop a trip
 #define RT_UPLOAD_RETRY_MS 60000UL    // retry interval for failed trip uploads

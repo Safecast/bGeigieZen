@@ -37,6 +37,9 @@ int upload_log_file(const char* path, const char* file_name, const LocalStorage&
   WiFiClientSecure client;
   // TODO: pin Safecast CA bundle. Using setInsecure() until cert plumbing lands.
   client.setInsecure();
+  client.setTimeout(10);
+  http.setConnectTimeout(10000);
+  http.setTimeout(10000);
 
   if (!http.begin(client, url)) {
     M5_LOGD("Unable to begin URL connection");
@@ -97,7 +100,14 @@ int upload_log_file(const char* path, const char* file_name, const LocalStorage&
     String response = http.getString();
     M5_LOGD("POST complete, (code %d) response:\n%s", status_code, response.c_str());
 
-    if (status_code >= 200 && status_code < 300 && out_import_id) {
+    if (status_code == 422) {
+      // Already imported (same md5sum): treat as success so the file moves on instead of retrying forever
+      int dup = response.indexOf("is the same as of Bgeigie Import with the ID:");
+      if (dup >= 0) {
+        status_code = 200;
+        if (out_import_id) *out_import_id = (uint32_t) strtoul(response.c_str() + response.indexOf(':', dup) + 1, nullptr, 10);
+      }
+    } else if (status_code >= 200 && status_code < 300 && out_import_id) {
       int id_idx = response.indexOf("\"id\":");
       if (id_idx >= 0) {
         *out_import_id = (uint32_t) strtoul(response.c_str() + id_idx + 5, nullptr, 10);
@@ -117,7 +127,10 @@ int upload_log_file(const char* path, const char* file_name, const LocalStorage&
 static bool simplemap_login(const LocalStorage& config, char* cookie, size_t cookie_size) {
   WiFiClientSecure client;
   client.setInsecure();  // TODO: pin CA, same as API upload
+  client.setTimeout(10);
   HTTPClient http;
+  http.setConnectTimeout(10000);
+  http.setTimeout(10000);
   const char* headers[] = {"Set-Cookie"};
   http.collectHeaders(headers, 1);
   if (!http.begin(client, SIMPLEMAP_LOGIN_ENDPOINT)) {
@@ -160,6 +173,9 @@ int upload_log_file_simplemap(const char* path, const char* file_name, const Loc
   ChunkedHTTPClient http;
   WiFiClientSecure client;
   client.setInsecure();  // TODO: pin CA, same as API upload
+  client.setTimeout(10);
+  http.setConnectTimeout(10000);
+  http.setTimeout(10000);
 
   if (!http.begin(client, SIMPLEMAP_UPLOAD_ENDPOINT)) {
     http.end();

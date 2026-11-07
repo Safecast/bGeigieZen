@@ -14,8 +14,10 @@
  *
  *   e_trip_home      at home, nothing pending
  *   e_trip_recording left the home fence: the rt-drive SD logger is active
- *   e_trip_upload    trip(s) waiting: /rt-drive/*.log -> api.safecast.org -> /rt-drive/api-done/
- *                    -> simplemap.safecast.org -> /rt-drive/uploaded/
+ *   e_trip_upload    trip(s) waiting. API and simplemap are independent, each retried on its own:
+ *                    /rt-drive -> api -> api-done -> simplemap -> uploaded
+ *                    /rt-drive -> simplemap -> map-done -> api -> uploaded
+ *                    (API is tried first, simplemap takes the file when the API fails)
  */
 class RtTripHandler : public Handler {
  public:
@@ -38,6 +40,7 @@ class RtTripHandler : public Handler {
   bool activate(bool retry) override;
   void deactivate() override;
   int8_t handle_produced_work(const worker_map_t& workers) override;
+  int8_t handle_async() override;  // one upload, runs in its own task
 
  private:
   void enter_state(TripState state);
@@ -46,6 +49,17 @@ class RtTripHandler : public Handler {
   int8_t try_upload();
   void write_upload_log(const char* service, const char* name, int code, const char* id);
 
+  char _task_path[LOG_FILENAME_SIZE] = "";  // upload task input
+  char _task_name[64] = "";
+  const char* _task_to = "";
+  bool _task_simplemap = false;
+  int _task_stage = 0;
+  // Per upload stage: millis() of the last failure (0 = ready) and the file that failed, so one failing file or
+  // endpoint never blocks the other endpoint or the other files
+  static constexpr int STAGES = 4;
+  uint32_t _stage_failed_at[STAGES] = {};
+  char _stage_failed_name[STAGES][64] = {};
+
   LocalStorage& _config;
   SdLogger& _logger;
   char _timestamp[20] = "";
@@ -53,7 +67,6 @@ class RtTripHandler : public Handler {
   TripState _state = e_trip_home;
   bool _roaming = false;
   uint32_t _roaming_since = 0;
-  uint32_t _last_upload_attempt = 0;
 };
 
 #endif //BGEIGIEZEN_RT_TRIP_HANDLER_H_
