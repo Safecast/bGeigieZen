@@ -2,10 +2,21 @@
 
 #include <SD.h>
 #include <WiFi.h>
+#include <esp_heap_caps.h>
+#include <mbedtls/platform.h>
 
 #include "identifiers.h"
 #include "utils/log_upload.h"
 #include "utils/sd_wrapper.h"
+
+// Core2 has too little internal RAM left for a TLS handshake (BIGNUM alloc failed): prefer PSRAM for mbedtls
+static void* tls_calloc(size_t n, size_t size) {
+  void* p = heap_caps_calloc(n, size, MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT);
+  return p ? p : heap_caps_calloc(n, size, MALLOC_CAP_8BIT);
+}
+static void tls_free(void* p) {
+  heap_caps_free(p);
+}
 
 RtTripHandler::RtTripHandler(LocalStorage& config, SdLogger& logger) : Handler(), _config(config), _logger(logger) {
 }
@@ -156,9 +167,11 @@ int8_t RtTripHandler::try_upload() {
 
 int8_t RtTripHandler::handle_async() {
   const char* service = _task_simplemap ? "simplemap" : "api";
-  M5_LOGD("Uploading trip log '%s' to %s", _task_path, service);
+  M5_LOGD("Uploading trip log '%s' to %s (heap free=%u maxblk=%u psram=%u)", _task_path, service,
+          (unsigned)ESP.getFreeHeap(), (unsigned)ESP.getMaxAllocHeap(), (unsigned)ESP.getFreePsram());
   char id[16] = "";
   int code;
+  mbedtls_platform_set_calloc_free(tls_calloc, tls_free);
   if (_task_simplemap) {
     code = upload_log_file_simplemap(_task_path, _task_name, _config, id, sizeof(id));
   } else {
