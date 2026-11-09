@@ -67,6 +67,7 @@ class RtTripHandler : public Handler {
   TripState _state = e_trip_home;
   bool _roaming = false;
   uint32_t _roaming_since = 0;
+  uint32_t _last_fix_ms = 0;  // millis() of the last real GPS fix
 };
 
 #endif //BGEIGIEZEN_RT_TRIP_HANDLER_H_

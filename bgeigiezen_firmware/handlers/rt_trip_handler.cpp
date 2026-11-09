@@ -31,6 +31,7 @@ void RtTripHandler::enter_state(TripState state) {
 bool RtTripHandler::activate(bool) {
   _roaming = false;
   _roaming_since = millis();
+  _last_fix_ms = millis();
   // Trips left on the SD card (e.g. power loss) are picked up by the upload state
   enter_state(SD.exists(RT_DRIVE_LOG_DIRECTORY) ? e_trip_upload : e_trip_home);
   return true;
@@ -43,9 +44,17 @@ void RtTripHandler::deactivate() {
 
 bool RtTripHandler::track_roaming(const DataLine& data) {
   // No fix keeps the current condition; only a real fix can change it
-  if (data.gps_valid && !data.gps_fallback && (!data.in_fixed_range) != _roaming) {
-    _roaming = !data.in_fixed_range;
-    _roaming_since = millis();
+  if (data.gps_valid && !data.gps_fallback) {
+    _last_fix_ms = millis();
+    if ((!data.in_fixed_range) != _roaming) {
+      _roaming = !data.in_fixed_range;
+      _roaming_since = millis();
+    }
+  } else if (_roaming && millis() - _last_fix_ms > GPS_LOST_FALLBACK_MS) {
+    // No fix for 10+ min while roaming: the last fix was outside the home range (e.g. just before arriving), so
+    // the aggregator never falls back. Assume home, otherwise the trip is never closed and never uploaded.
+    _roaming = false;
+    _roaming_since = 0;  // already debounced by the long outage
   }
   return millis() - _roaming_since > RT_TRIP_DEBOUNCE_MS;
 }
