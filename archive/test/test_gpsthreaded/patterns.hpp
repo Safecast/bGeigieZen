@@ -1,1 +1,0 @@
-../../bgeigie_firmware/patterns.hpp
