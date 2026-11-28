@@ -147,6 +147,8 @@ constexpr char SCREENSAVER_TEXT[] = VERSION_STRING;
 #define D_FIXED_LATITUDE 0
 #define D_FIXED_RANGE 0.2
 #define SD_MIN_FREE_BYTES (1024ULL * 1024ULL)  // below this the SD card is considered full
+#define GPS_AIDING_FIRST_SAVE_MS 180000UL     // first aiding-file save this long after the first fix
+#define GPS_AIDING_SAVE_INTERVAL_MS 3600000UL // then hourly
 #define GPS_LOST_FALLBACK_MS 600000UL  // 10 min without GPS at home -> send last location
 #define D_LAST_LONGITUDE 0
 #define D_LAST_LATITUDE 0

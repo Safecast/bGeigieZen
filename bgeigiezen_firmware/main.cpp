@@ -53,6 +53,7 @@
 #include "handlers/sd_logger.h"
 #include "handlers/debug_logger.h"
 #include "identifiers.h"
+#include "utils/sd_wrapper.h"
 #include "workers/battery_led_indicator.h"
 #include "workers/configuration_server.h"
 #include "workers/gm_sensor.h"
@@ -233,6 +234,26 @@ void loop() {
           M5_LOGW("[BtnPWR] GNSS database dump not saved (timeout or SD error)");
         }
         last_pwr_backup = current_time;
+      }
+    }
+  }
+
+  // Keep the GPS aiding files on the SD card fresh so the next boot can use them (dump max age is 12 h):
+  // first save 3 min after the first fix (ephemeris downloaded), then hourly while there is a fix.
+  {
+    static uint32_t fix_since = 0, last_aiding_save = 0;
+    const auto& gps_data = gps.get_data();
+    if (!gps.active() || !gps_data.valid() || gps_data.nmea_mode) {
+      fix_since = 0;
+    } else {
+      if (fix_since == 0) fix_since = current_time;
+      const bool first = last_aiding_save == 0;
+      const uint32_t wait = first ? GPS_AIDING_FIRST_SAVE_MS : GPS_AIDING_SAVE_INTERVAL_MS;
+      if (SDInterface::i().ready() && current_time - (first ? fix_since : last_aiding_save) >= wait) {
+        last_aiding_save = current_time;
+        M5_LOGI("Auto-saving GPS aiding data to SD");
+        gps.saveWarmStartSeedToSD();
+        gps.dumpDatabaseToSD();  // blocks up to ~8 s, but normally ~1-2 s
       }
     }
   }
