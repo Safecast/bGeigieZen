@@ -17,11 +17,13 @@ It is switched on in `FixedModeScreen::enter_screen` and off in `leave_screen`.
 | State | Meaning | Next |
 |---|---|---|
 | `e_trip_home` | At home, nothing pending | Roaming for 10 s with a valid GPS fix: start the `rt_drive` logger, go to recording |
-| `e_trip_recording` | Left the fence, logging to `/rt-drive/` | At home for 10 s (valid fix), or SD logger stopped: go to upload |
+| `e_trip_recording` | Left the fence, logging to `/rt-drive/` | At home for 10 s (valid fix), no fix for 10+ min, or SD logger stopped: go to upload |
 | `e_trip_upload` | Trips waiting to be uploaded | When nothing is left: go to home. If roaming again for 10 s: record the next trip first |
 
-- Roaming = valid GPS fix (no fallback position) outside the home fence. No fix keeps the current state, so indoors
-  without GPS a trip never starts and a running trip never ends.
+- Roaming = valid GPS fix (no fallback position) outside the home fence. A short loss of fix keeps the current state, so
+  indoors without GPS a trip never starts.
+- No fix for more than 10 minutes (`GPS_LOST_FALLBACK_MS`) while roaming counts as home: the trip is closed and
+  uploaded.
 - 10 s debounce (`RT_TRIP_DEBOUNCE_MS`) avoids flapping at the fence edge.
 - A trip file with fewer than 2 lines (`MIN_LOG_LINES_FOR_KEEP`) is deleted.
 - Leaving Real-time mode, or removing the SD card, closes the trip log.
